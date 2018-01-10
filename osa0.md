@@ -16,31 +16,64 @@ Osallistujilta edellytetään vahvaa ohjelmointiruutiinia, web-ohjelmoinnin ja t
 
 Kurssille osallistuminen ei edellytä käsiteltyjen tekniikoiden tai Javascript-kielen hallintaa.
 
-## Kurssimateriaali, suoritustapa
+## Kurssimateriaali
 
-Kurssimateriaali on tarkoitettu luettavaksi "alusta loppuun". Seassa on tehtäviä, jotka on tarkoitettu tehtäviksi suunnilleen siinä kohdassa materiaalia. Toki tehtävät voi tehdä materiaalia lukemattakin, jos esitiedot ovat muuten riittävät.
+Kurssimateriaali on tarkoitettu luettavaksi osa kerrallaan "alusta loppuun". Materiaalin seassa on tehtäviä, jotka on sijoiteltu siten, että kunkin tehtävän tekemiseen pitäsi olla riittävät tekniset valmiudet sitä edeltävässä materiaalissa. Voit siis tehdä tehtävä sitä mukaa kun niitä tulee materiaalissa vastaan. Voi myös olla, että koko osan tehtävät kannattaa tehdä vasta luettuaan ensin osan alusta loppuun kertaalleen. Useissa osissa tehtävät ovat samaa ohjelmaa laajentavia pienistä osista koostuvia kokonaisuuksia. Muutamia tehtävien ohjelmia kehitetään eteenpäin useamman osan aikana. 
 
-Materiaali perustuu muutamien osasta osaan vaihtuvien koodiesimerkkien asteittaiseen laajentamiseen. Materiaali toiminee parhaiten, jos kirjoitat samalla koodin myös itse ja teet koodiin myös pieniä modifikaatioita.
+Toki tehtävät voi tehdä materiaalia lukemattakin, jos esitiedot ovat riittävät.
 
-Kurssi koostuu osista, joita ilmestyy viikoittain. On tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisella osalla on myös hard deadline, esim. osan 1 deadline ei kuitenkaan ole vielä viikon 1 lopussa. Etenemiselle on siis jonkun verran joustoa, jotta ehdit tekemään kustakin osasta tarvittavan määrän tehtäviä.
+Materiaali perustuu muutamien osasta osaan vaihtuvien esimerkkiohjelmien asteittaiseen laajentamiseen. Materiaali toiminee parhaiten, jos kirjoitat samalla koodin myös itse ja teet koodiin myös pieniä modifikaatioita. Materiaalin käyttämien ohjelmien koodin eri vaiheiden tilanteita on tallennettu Githubiin.
 
-Arvosana määräytyy tehtyjen tehtävien perusteella. Noin 50% tehtävistä tuo arvosanan 1 ja 90% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
+## Suoritustapa
+
+Kurssi koostuu kahdeksasta osata, joista ensimmäinen on historiallisista syistä numero nolla. Osat voi tulkita löyhästi ajatellen viikoiksi. Osia kuitenkin ilmestyy nopeampaa tahtia, ja suoritusnopeuskin on melko vapaa.
+
+Materiaalissa osasta _n_ osaan _n+1_ eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan _n_ asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein _tavoiteoppimista_,[engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisen osan _vapaaehtoiset_ (mutta arvosteluun vaikuttavat) tehtävät on merkattu tähdellä. 
+
+Estääksemme sen, että aloitat kurssin tekemisen vasta viimeisellä viikolla, on jokaisella osalla  myös hard deadline. Etenemiselle on siis jonkun verran joustoa, jotta ehdit tekemään kustakin osasta tarvittavan määrän tehtäviä. 
+
+Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekemisen vaatimat) työmäärät seuraavassa:
+
+| osa            | deadline&nbsp; &nbsp;    | työmäärä  |
+| -------------- |:-----------------:       |:-----:|
+| osa 0 ja osa 1 | 1.2.                     | 10 |
+| osa 2          | 1.2.                     | 10 |
+| osa 3          | 1.2.                     | 10 |
+| osa 4          | 1.2.                     | 15 |
+| osa 5          | 1.2.                     | 15 |
+| osa 6          | 1.2.                     | - |
+| osa 7          | 1.2.                     | - |
+
+Keskimääräisten työmäärien arvio perustuu kurssin [betaversiota](https://mluukkai.github.io) joululoman aikana testanneilta 13:lta opiskelijalta kerättyyn dataan. Kannattaa huomata, että työmäärissä on suuri varianssi, esim. osan 0 ja 1 yhteenlaskettu ajankäyttö vaihteli 5 ja 20 tunnin väliltä.
+
+## Arvosteluperiaatteet
+
+Arvosana määräytyy tehtyjen tehtävien perusteella. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
+
+Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. Opetushallinnollisista syistä lisäopintopisteet rekisteröidään omana kurssinaan. Kurssin nimi määritellään myöhemmin.
 
 ## Alkutoimet
 
 Tällä kurssilla suositellaan Chrome-selaimen käyttöä sillä se tarjoaa parhaan välineistön web-sovelluskehitystä ajatellen.
 
-Kurssin tehtävät palautetaan GitHubiin, joten Git tulee olla asennettuna.
+Kurssin tehtävät palautetaan GitHubiin, joten Git tulee olla asennettuna ja sitä on syytä osata käyttää.
 
-Asenna myös joku järkevä webkoodausta tukeva tekstieditori, enemmän kuin suositeltava valinta on [Visual studio code](https://code.visualstudio.com/). Myös [Atom](https://atom.io/) on tarkoitukseen toimiva.
+Asenna myös joku järkevä webkoodausta tukeva tekstieditori, enemmän kuin suositeltava valinta on [Visual studio code](https://code.visualstudio.com/). Myös [Atom](https://atom.io/) on tarkoitukseen toimiva. 
 
 Älä koodaa nanolla, notepadilla tai geditillä. Netbeanskaan ei ole omimmillaan Web-koodauksessa ja se on myös turhan raskas verrattuna esim. Visual Studio Codeen.
 
 Asenna koneeseesi heti myös [Node.js](https://nodejs.org/en/). Materiaali on tehty versiolla 8.6, älä asenna mitään sitä vanhempaa versiota.
 
-Noden myötä koneelle asentuu myös Node package manager [npm](https://www.npmjs.com/get-npm) jota tulemme tarvitsemaan kurssin aikana aktiivisesti.
+Asennusohjeita on koottu [tänne](/asennusohjeita). 
 
-Asennusohjeita on koottu [tänne](https://github.com/mluukkai/mluukkai.github.io/wiki/asennusohjeita). Sivu on kaikkien editoitavissa, eli tee muokkauksia ja lisäyksiä tarpeen vaatiessa.
+Noden myötä koneelle asentuu myös Node package manager [npm](https://www.npmjs.com/get-npm) jota tulemme tarvitsemaan kurssin aikana aktiivisesti. Tuoreen noden kera asentuu myös [npx](https://www.npmjs.com/package/npx), jota tarvitaan myös muutaman kerran.  
+
+## Typoja materiaalissa
+
+Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todella nopeasti. Materiaalissa on betatestauksesta ja oikoluvuista huolimatta kirjoitusvirheitä. Jos löydät kirjoitusvirheen tai joku asia on sanottu epäselvästi tai kielioppisääntöjen vastaisesti, tee _pull request_ repositoriossa <https://github.com/FullStack-HY/FullStack-Hy.github.io> olevaan kurssimateriaaliin. 
+
+Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo 
+
 
 ## Osan 0 oppimistavoitteet
 
