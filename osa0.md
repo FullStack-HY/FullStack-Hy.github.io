@@ -36,15 +36,20 @@ Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekem
 
 | osa            | deadline&nbsp; &nbsp;    | työmäärä  |
 | -------------- |:-----------------:       |:-----:|
-| osa 0 ja osa 1 | 1.2.                     | 10 |
-| osa 2          | 1.2.                     | 10 |
-| osa 3          | 1.2.                     | 10 |
-| osa 4          | 1.2.                     | 15 |
-| osa 5          | 1.2.                     | 15 |
-| osa 6          | 1.2.                     | - |
-| osa 7          | 1.2.                     | - |
+| osa 0 ja osa 1 | 28.1.                    | 10 |
+| osa 2          | 4.2.                     | 10 |
+| osa 3          | 11.2.                    | 10 |
+| osa 4          | 25.2.                    | 15 |
+| osa 5          | 4.3.                     | 15 |
+| osa 6          | 11.3.                    | 15 |
+| osa 7          | 11.3.                    | - |
+
 
 Keskimääräisten työmäärien arvio perustuu kurssin [betaversiota](https://mluukkai.github.io) joululoman aikana testanneilta 13:lta opiskelijalta kerättyyn dataan. Kannattaa huomata, että työmäärissä on suuri varianssi, esim. osan 0 ja 1 yhteenlaskettu ajankäyttö vaihteli 5 ja 20 tunnin väliltä.
+
+Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussivulta](http://studies.cs.helsinki.fi/fs2018-stats) .
+
+Suuri jousto suoritusajoissa tuo opiskelijalle entistä suuremman vastuun omasta ajankäytöstä. Nyt ilmoteutista deadlineista **ei jousteta ollenkaan**. Kannattaa muistaa se, että mitä lähempänä deadlinea tehtävien tekemisen aloittaa, sitä suurempi vaara on joutua eriasteisiin konfiguraatiohelvetteihin. Apuakin on rajallisemmin tarjolla kun kello lähenee deadlinepäivän keskiyötä.
 
 ## Arvosteluperiaatteet
 
@@ -72,8 +77,9 @@ Noden myötä koneelle asentuu myös Node package manager [npm](https://www.npmj
 
 Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todella nopeasti. Materiaalissa on betatestauksesta ja oikoluvuista huolimatta kirjoitusvirheitä. Jos löydät kirjoitusvirheen tai joku asia on sanottu epäselvästi tai kielioppisääntöjen vastaisesti, tee _pull request_ repositoriossa <https://github.com/FullStack-HY/FullStack-Hy.github.io> olevaan kurssimateriaaliin. 
 
-Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo 
+Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo, mene sivun "lähdekoodiin" https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/osa0.md klikkaa kynän kuvaa oikealta, tee muutokset ja klikkaa muutama kerta "vihreää" [Ohtu-kurssin ohjeen mukaan](https://github.com/mluukkai/ohjelmistotuotanto2017/blob/master/laskarit/2.md#typokorjauksia--vinkkejä).
 
+# TÄSTÄ ENTEENPÄIN DOKUMENTTIA EI OLE PÄVITETTY, ÄLÄ LUE
 
 ## Osan 0 oppimistavoitteet
 
