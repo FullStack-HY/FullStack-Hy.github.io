@@ -80,7 +80,13 @@ Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todell
 
 Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo, mene sivun "lähdekoodiin" https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/osa0.md klikkaa kynän kuvaa oikealta, tee muutokset ja klikkaa muutama kerta "vihreää" [Ohtu-kurssin ohjeen mukaan](https://github.com/mluukkai/ohjelmistotuotanto2017/blob/master/laskarit/2.md#typokorjauksia--vinkkejä).
 
-# TÄSTÄ ENTEENPÄIN DOKUMENTTIA EI OLE PÄVITETTY, ÄLÄ LUE
+
+
+<div class='important'>
+<h1>TÄSTÄ ENTEENPÄIN DOKUMENTTIA EI OLE PÄVITETTY</h1>
+
+lukeminen omalla vastuulla
+</div>
 
 ## Osan 0 oppimistavoitteet
 
