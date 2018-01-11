@@ -134,7 +134,7 @@ Varmista, että välilehti _Network_ on avattuna ja aktivoi valinta _Disable cac
 
 Selain ja web-palvelin kommunikoivat keskenään [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)-protokollaa käyttäen. Avoinna oleva konsolin Network-tabi kertoo miten selain ja palvelin kommunikoivat.
 
-Kun nyt reloadaat selaimen, kertoo konsoli, että tapahtuu kaksi asiaa
+Kun nyt reloadaat sivun, kertoo konsoli, että tapahtuu kaksi asiaa
 - selain hakee web-palvelimelta sivun _fullstack-exampleapp.herokuapp.com/_ sisällön
 - ja lataa kuvan _kuva.png_
 
@@ -152,7 +152,7 @@ Pyyntöön ja palvelimen lähettämään vastaukseen liittyy erinäinen määrä
 
 ![]({{ "/assets/1/4.png" | absolute_url }})
 
-Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri _Content-Type_ kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8) muodossa oleva teksti-tiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen.
+Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri _Content-Type_ kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8) muodossa oleva tekstitiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen.
 
 Välilehti _Preview_ näyttää miltä pyyntöön vastauksena lähetetty data näyttää. Kyseessä on siis normaali HTML-sivu, jonka _body_-osassa määritellään selaimessa näytettävän sivun rakenne:
 
@@ -211,8 +211,8 @@ Kun menet nyt muistiinpanojen sivulle, selain tekee 4 HTTP-pyyntöä:
 
 ![]({{ "/assets/1/7.png" | absolute_url }})
 
-Kaikki pyynnöt ovat _eri tyyppisiä_. Ensimmäinen pyyntö on tyypiltään _document_
-kyseessä on sivun HTML-koodi, joka näyttää seuraavalta:
+Kaikki pyynnöt ovat _eri tyyppisiä_. Ensimmäinen pyyntö on tyypiltään _document_.
+Kyseessä on sivun HTML-koodi, joka näyttää seuraavalta:
 
 ![]({{ "/assets/1/8.png" | absolute_url }})
 
@@ -628,7 +628,7 @@ Reactin asema näyttää tällä hetkellä vahvalta, mutta Javascript-maailma ei
 
 ## Full stack -websovelluskehitys
 
-Mitä tarkoitetaan kurssin nimellä _full stack -websovelluskehitys_? Full stack on hypen omainen termi, kaikki puhuvat siitä, mutta kukaan ei oikein tiedä mitä se tarkoittaa tai ainakaan mitään yhteneväistä määritelmää termille ei ole.
+Mitä tarkoitetaan kurssin nimellä _full stack -websovelluskehitys_? Full stack on hypen omainen termi; kaikki puhuvat siitä, mutta kukaan ei oikein tiedä mitä se tarkoittaa tai ainakaan mitään yhteneväistä määritelmää termille ei ole.
 
 Käytännössä kaikki websovellukset sisältävät (ainakin) kaksi "kerrosta", ylempänä, eli lähempänä loppukäyttäjää olevan selaimen ja alla olevan palvelimen. Palvelimen alapuolella on usein vielä tietokanta. Näin websovelluksen arkkitehtuuri on pino eli _stack_.
 
