@@ -94,21 +94,20 @@ lukeminen omalla vastuulla
   - HTML:n perusteet
   - HTTP-protokolla: metodit GET ja POST, statuskoodit, headerit
   - palvelimella suoritettavan koodin rooli
-  - selaimessa suoritettavan javascript:in rooli
+  - selaimessa suoritettavan Javascriptin rooli
   - JSON-muotoinen data
-  - DOM
+  - DOM API
   - sivujen ulkoasun muotoilun periaate CSS:llä
   - single page app -periaate
 - Chrome developer konsolin peruskäyttö
 
 ## Web-sovelluksen toimintaperiaatteita ##
 
-Käymme aluksi läpi web-sovellusten toimintaperiaatteita tarkastelemalla osoitteessa <https://fullstack-exampleapp.herokuapp.com/> olevaa esimerkkisovellusta. Huom.
-sovelluksen toinen versio on osoitteessa <https://exampleapp-ghqykidlgq.now.sh/>, voit käyttää kumpaa vaan.
+Ennen kuin aloitamme ohjelmoinnin, käymme läpi web-sovellusten toimintaperiaatteita tarkastelemalla osoitteessa <https://fullstack-exampleapp.herokuapp.com/> olevaa esimerkkisovellusta. Huom. sovelluksen toinen versio on osoitteessa <https://exampleapp-ghqykidlgq.now.sh/>, voit käyttää kumpaa vaan.
 
-Sovelluksen olemassaolon tarkoitus on ainoastaan havainnollistaa kurssin peruskäsitteistöä, sovellus ei ole missään tapauksessa esimerkki siitä _miten_ web-sovelluksia kannattaisi kehittää, päinvastoin, sovellus käyttää eräitä vanhentuneita tekniikoita sekä huonoja käytänteitä.
+Sovelluksen olemassaolon tarkoitus on ainoastaan havainnollistaa kurssin peruskäsitteistöä, sovellus ei ole missään tapauksessa esimerkki siitä _miten_ web-sovelluksia kannattaisi kehittää, päinvastoin, sovellus demonstroi eräitä historiallisia web-sovellusten tekemiseen käytettäjä tapoja ja tekniikoita joiden  katsotaan nykyään olevan  jopa _huonoja käytänteitä_.
 
-Kurssin suosittelemaa tyyliä noudattavan koodin kirjoittaminen alkaa luvusta [React](#react).
+Kurssin suosittelemaa tyyliä noudattavan koodin kirjoittaminen alkaa luvusta [osasta 1](/osa1).
 
 Käytä nyt ja _koko ajan_ tämän kurssin aikana Chrome-selainta.
 
