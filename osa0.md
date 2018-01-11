@@ -211,8 +211,8 @@ Kun menet nyt muistiinpanojen sivulle, selain tekee 4 HTTP-pyyntöä:
 
 ![]({{ "/assets/1/7.png" | absolute_url }})
 
-Kaikki pyynnöt ovat _eri tyyppisiä_. Ensimmäinen pyyntö on tyypiltään _document_
-kyseessä on sivun HTML-koodi, joka näyttää seuraavalta:
+Kaikki pyynnöt ovat _eri tyyppisiä_. Ensimmäinen pyyntö on tyypiltään _document_.
+Kyseessä on sivun HTML-koodi, joka näyttää seuraavalta:
 
 ![]({{ "/assets/1/8.png" | absolute_url }})
 
