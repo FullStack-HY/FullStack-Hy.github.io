@@ -80,14 +80,6 @@ Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todell
 
 Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo, mene sivun "lähdekoodiin" https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/osa0.md klikkaa kynän kuvaa oikealta, tee muutokset ja klikkaa muutama kerta "vihreää" [Ohtu-kurssin ohjeen mukaan](https://github.com/mluukkai/ohjelmistotuotanto2017/blob/master/laskarit/2.md#typokorjauksia--vinkkejä).
 
-
-
-<div class='important'>
-<h1>TÄSTÄ ENTEENPÄIN DOKUMENTTIA EI OLE PÄVITETTY</h1>
-
-lukeminen omalla vastuulla
-</div>
-
 ## Osan 0 oppimistavoitteet
 
 - Web-sovellusten toiminnan perusteet
@@ -105,13 +97,13 @@ lukeminen omalla vastuulla
 
 Ennen kuin aloitamme ohjelmoinnin, käymme läpi web-sovellusten toimintaperiaatteita tarkastelemalla osoitteessa <https://fullstack-exampleapp.herokuapp.com/> olevaa esimerkkisovellusta. Huom. sovelluksen toinen versio on osoitteessa <https://exampleapp-ghqykidlgq.now.sh/>, voit käyttää kumpaa vaan.
 
-Sovelluksen olemassaolon tarkoitus on ainoastaan havainnollistaa kurssin peruskäsitteistöä, sovellus ei ole missään tapauksessa esimerkki siitä _miten_ web-sovelluksia kannattaisi kehittää, päinvastoin, sovellus demonstroi eräitä historiallisia web-sovellusten tekemiseen käytettäjä tapoja ja tekniikoita joiden  katsotaan nykyään olevan  jopa _huonoja käytänteitä_.
+Sovelluksen olemassaolon tarkoitus on ainoastaan havainnollistaa kurssin peruskäsitteistöä, sovellus ei ole missään tapauksessa esimerkki siitä _miten_ web-sovelluksia kannattaisi kehittää, päinvastoin, sovellus demonstroi eräitä historiallisia web-sovellusten toteutukseen käytettäjä tapoja ja tekniikoita, joiden  katsotaan nykyään olevan jopa _huonoja käytänteitä_.
 
 Kurssin suosittelemaa tyyliä noudattavan koodin kirjoittaminen alkaa luvusta [osasta 1](/osa1).
 
 Käytä nyt ja _koko ajan_ tämän kurssin aikana Chrome-selainta.
 
-Avataan selaimella [esimerkkisovellus](https://fullstack-exampleapp.herokuapp.com/).
+Avataan selaimella [esimerkkisovellus](https://fullstack-exampleapp.herokuapp.com/). Sivun ensimmäinen lataus kestää joskus hetkien.
 
 <div class="important">
   <h3>Web-sovelluskehityksen sääntö numero yksi</h3>
@@ -123,47 +115,54 @@ Konsoli avautuu macilla painamalla yhtä aikaa _alt_ _cmd_ ja _i_.
 Ennen kun jatkat eteenpäin, selvitä miten saat koneellasi konsolin auki (googlaa tarvittaessa) ja muista pitää se auki *aina* kun teet web-sovelluksia.
 
 Konsoli näyttää seuraavalta:
-![]({{ "/assets/1/1.png" | absolute_url }})
+![]({{ "/images/1/1.png" | absolute_url }})
 
-Varmista, että välilehti _Network_ on avattuna ja aktivoi valinta _Disable cache_ kuten kuvassa on tehty.
+Varmista, että välilehti _Network_ on avattuna ja aktivoi valinta _Disable cache_ kuten kuvassa on tehty. Myös _Preserve logs_ on joskus hyödyllinen, se säilyttää sovelluksen tulostamat logit sivujen uudelleenlatauksen yhteydessä.
 
 **HUOM:** konsolin tärkein välilehti on _Console_. Käytämme nyt johdanto-osassa kuitenkin ensin melko paljon välilehteä _Network_.
 
 ### HTTP GET
 
-Selain ja web-palvelin kommunikoivat keskenään [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)-protokollaa käyttäen. Avoinna oleva konsolin Network-tabi kertoo miten selain ja palvelin kommunikoivat.
+Selain ja web-palvelin kommunikoivat keskenään [HTTP](https://developer.mozilla.org/fi/docs/Web/HTTP)-protokollaa käyttäen. Avoinna oleva konsolin Network-tabi kertoo miten selain ja palvelin kommunikoivat.
 
 Kun nyt reloadaat sivun, kertoo konsoli, että tapahtuu kaksi asiaa
 - selain hakee web-palvelimelta sivun _fullstack-exampleapp.herokuapp.com/_ sisällön
 - ja lataa kuvan _kuva.png_
 
-![]({{ "/assets/1/2.png" | absolute_url }})
+![]({{ "/images/1/2.png" | absolute_url }})
 
 Jos ruutusi on pieni, saatat joutua isontamaan konsoli-ikkunaa, jotta saat selaimen tekemät haut näkyviin.
 
 Klikkaamalla näistä ensimmäistä, paljastuu tarkempaa tietoa siitä mistä on kyse:
 
-![]({{ "/assets/1/3.png" | absolute_url }})
+![]({{ "/images/1/3.png" | absolute_url }})
 
 Ylimmästä osasta _General_ selviää, että selain teki [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)-metodilla pyynnön osoitteeseen _https://fullstack-exampleapp.herokuapp.com/_ ja että pyyntö oli onnistunut, sillä pyyntöön saatiin vastaus, jonka [Status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) on 200.
 
 Pyyntöön ja palvelimen lähettämään vastaukseen liittyy erinäinen määrä otsakkeita eli [headereita](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields):
 
-![]({{ "/assets/1/4.png" | absolute_url }})
+![]({{ "/images/1/4.png" | absolute_url }})
 
-Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri _Content-Type_ kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8) muodossa oleva tekstitiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen.
+Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8)-muodossa oleva tekstitiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen "websivun tavoin".
 
 Välilehti _Preview_ näyttää miltä pyyntöön vastauksena lähetetty data näyttää. Kyseessä on siis normaali HTML-sivu, jonka _body_-osassa määritellään selaimessa näytettävän sivun rakenne:
 
-![]({{ "/assets/1/5.png" | absolute_url }})
+![]({{ "/images/1/5.png" | absolute_url }})
 
-Sivu sisältää _div_-elementin, jonka sisällä on otsikko sekä tieto luotujen muistiinpanojen määrästä, linkki sivulle _muistiinpanot_ ja kuvaa vastaava _img_-tagi.
+Sivu sisältää [div](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)-elementin, jonka sisällä on otsikko sekä tieto luotujen muistiinpanojen määrästä, linkki sivulle _muistiinpanot_ ja kuvaa vastaava [img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)-tagi.
 
-img-tagin ansiosta selain tekee HTTP-pyynnön, jonka avulla se hakee kuvan _kuva.png_ palvelimelta. Pyynnön tiedot näyttävät seuraavalta:
+img-tagin ansiosta selain tekee toisenkin _HTTP-pyynnön_, jonka avulla se hakee kuvan _kuva.png_ palvelimelta. Pyynnön tiedot näyttävät seuraavalta:
 
-![]({{ "/assets/1/6.png" | absolute_url }})
+![]({{ "/images/1/6.png" | absolute_url }})
 
-eli pyyntö on tehty osoitteeseen _https://fullstack-exampleapp.herokuapp.com/kuva.png_ ja se on tyypiltään HTTP GET. Vastaukseen liittyvät headerit kertovat että vastauksen koko on 89350 tavua ja vastauksen _Content-type_ on _image/png_, eli kyseessä on png-tyyppinen kuva. Tämän tiedon ansiosta selain tietää miten kuva on sijoitettava HTML-sivulle.
+eli pyyntö on tehty osoitteeseen _https://fullstack-exampleapp.herokuapp.com/kuva.png_ ja se on tyypiltään HTTP GET. Vastaukseen liittyvät headerit kertovat että vastauksen koko on 89350 tavua ja vastauksen [Content-type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type) on _image/png_, eli kyseessä on png-tyyppinen kuva. Tämän tiedon ansiosta selain tietää miten kuva on piirrettävä HTML-sivulle.
+
+<div class='important'>
+<h1>TÄSTÄ ENTEENPÄIN DOKUMENTTIA EI OLE PÄVITETTY</h1>
+
+lukeminen omalla vastuulla
+</div>
+
 
 ### Perinteinen web-sovellus
 
