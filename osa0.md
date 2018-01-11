@@ -152,7 +152,7 @@ Pyyntöön ja palvelimen lähettämään vastaukseen liittyy erinäinen määrä
 
 ![]({{ "/assets/1/4.png" | absolute_url }})
 
-Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri _Content-Type_ kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8) muodossa oleva teksti-tiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen.
+Ylempänä oleva _Response headers_ kertoo mm. vastauksen koon tavuina ja vastaushetken. Tärkeä headeri _Content-Type_ kertoo, että vastaus on [utf-8](https://en.wikipedia.org/wiki/UTF-8) muodossa oleva tekstitiedosto, jonka sisältö on muotoiltu HTML:llä. Näin selain tietää, että kyseessä on normaali [HTML](https://en.wikipedia.org/wiki/HTML)-sivu, joka tulee renderöidä käyttäjän selaimeen.
 
 Välilehti _Preview_ näyttää miltä pyyntöön vastauksena lähetetty data näyttää. Kyseessä on siis normaali HTML-sivu, jonka _body_-osassa määritellään selaimessa näytettävän sivun rakenne:
 
