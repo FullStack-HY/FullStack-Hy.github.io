@@ -683,4 +683,4 @@ Javascript-väsymys tulee varmasti iskemään myös tällä kurssilla. Onneksi n
 
 ### Tehtäviä web-sovelluksen perusteista
 
-Tee nyt [tehtävät 1-6](../tehtavat#web-sovellusten-perusteet). Niiden jälkeen olet valmiina siirtymään [osaan 1](/osa1) ja itse asiaan eli Web-sovellusten toteuttamiseen.
+Tee nyt [tehtävät 1-6](/tehtävät#web-sovellusten-perusteet). Niiden jälkeen olet valmiina siirtymään [osaan 1](/osa1) ja itse asiaan eli Web-sovellusten toteuttamiseen.
