@@ -134,7 +134,7 @@ Varmista, että välilehti _Network_ on avattuna ja aktivoi valinta _Disable cac
 
 Selain ja web-palvelin kommunikoivat keskenään [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)-protokollaa käyttäen. Avoinna oleva konsolin Network-tabi kertoo miten selain ja palvelin kommunikoivat.
 
-Kun nyt reloadaat selaimen, kertoo konsoli, että tapahtuu kaksi asiaa
+Kun nyt reloadaat sivun, kertoo konsoli, että tapahtuu kaksi asiaa
 - selain hakee web-palvelimelta sivun _fullstack-exampleapp.herokuapp.com/_ sisällön
 - ja lataa kuvan _kuva.png_
 
