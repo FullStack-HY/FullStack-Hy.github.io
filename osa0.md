@@ -599,7 +599,7 @@ Pyyntöön liitetty headeri _Content-Type_ kertoo palvelimelle, että pyynnön m
 
 ![]({{ "/assets/1/25.png" | absolute_url }})
 
-Ilman headeria, palvelin ei osaisi parsia pyynnön mukana tulevaa dataa oiken.
+Ilman headeria palvelin ei osaisi parsia pyynnön mukana tulevaa dataa oiken.
 
 Palvelin vastaa kyselyyn statuskoodilla [201 created](https://httpstatuses.com/201). Tällä kertaa palvelin ei pyydä uudelleenohjausta kuten aiemmassa versiossamme. Selain pysyy samalla sivulla ja muita HTTP-pyyntöjä ei suoriteta.
 
@@ -661,7 +661,7 @@ Reactin asema näyttää tällä hetkellä vahvalta, mutta Javascript-maailma ei
 
 ## Full stack -websovelluskehitys
 
-Mitä tarkoitetaan kurssin nimellä _Full stack -websovelluskehitys_? Full stack on hypen omainen termi; kaikki puhuvat siitä, mutta kukaan ei oikein tiedä mitä se tarkoittaa tai ainakaan mitään yhteneväistä määritelmää termille ei ole.
+Mitä tarkoitetaan kurssin nimellä _Full stack -websovelluskehitys_? Full stack on hypenomainen termi; kaikki puhuvat siitä, mutta kukaan ei oikein tiedä mitä se tarkoittaa tai ainakaan mitään yhteneväistä määritelmää termille ei ole.
 
 Käytännössä kaikki websovellukset sisältävät (ainakin) kaksi "kerrosta", ylempänä, eli lähempänä loppukäyttäjää olevan selaimen ja alla olevan palvelimen. Palvelimen alapuolella on usein vielä tietokanta. Näin websovelluksen _arkkitehtuurin_ voi ajatella muodostavan pinon, englanniksi _stack_.
 
@@ -679,7 +679,7 @@ Full stack -sovelluskehitys on monella tapaa haastavaa. Asioita tapahtuu monessa
 
 Oman haasteensa tuo vielä se, että Javascript-maailma etenee koko ajan todella kovaa vauhtia eteenpäin. Kirjastot, työkalut ja itse kielikin ovat jatkuvan kehityksen alla. Osa alkaa kyllästyä nopeaan kehitykseen ja sitä kuvaamaan on lanseerattu termi [Javascript](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) [fatigue](https://auth0.com/blog/how-to-manage-javascript-fatigue/) eli [Javascript](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f)-väsymys.
 
-Javascript-väsymys tulee varmasti iskemään myös tällä kurssilla. Onneksi nykyään on olemassa muutamia tapoja loiventaa oppimiskäyrää, ja voimme aloittaa keskittymällä konfiguraation sijaan koodaamiseen. Konfiguraatioita ei voi välttää, mutta seuraavat vikot voimme edetä iloisin mielin vailla pahimpia konfiguraatiohelvettejä.
+Javascript-väsymys tulee varmasti iskemään myös tällä kurssilla. Onneksi nykyään on olemassa muutamia tapoja loiventaa oppimiskäyrää, ja voimme aloittaa keskittymällä konfiguraation sijaan koodaamiseen. Konfiguraatioita ei voi välttää, mutta seuraavat viikot voimme edetä iloisin mielin vailla pahimpia konfiguraatiohelvettejä.
 
 ### Tehtäviä web-sovelluksen perusteista
 
