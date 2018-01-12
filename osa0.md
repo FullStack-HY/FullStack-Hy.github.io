@@ -248,7 +248,7 @@ Koodin yksityiskohdat eivät ole tässä osassa oleellisia, koodia on kuitenkin 
 
 Heti ladattuaan _script_-tagin sisältämän Javascriptin selain suorittaa koodin.
 
-Kaksi viimeistä riviä määrittelevät, että selain tekee GET-tyyppisen HTTP-pyynnön osoitteeseen palvelimen osoitteeseen _/data.json_:
+Kaksi viimeistä riviä määrittelevät, että selain tekee GET-tyyppisen HTTP-pyynnön palvelimen osoitteeseen _/data.json_:
 
 ```js
 xhttp.open('GET', '/data.json', true)
@@ -387,7 +387,7 @@ Sama puumaisuus on nähtävissä konsolin välilehdellä _Elements_
 
 Selainten toiminta perustuukin ideaan esittää HTML-elementit puurakenteena.
 
-Document Object Model eli [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) on ohjelmointirajapinta eli _API_, jonka mahdollistaa selaimessa esitettävien web-sivuja vastaavien _elementtipuiden_ muokkaamisen ohjelmallisesti.
+Document Object Model eli [DOM](https://en.wikipedia.org/wiki/Document_Object_Model) on ohjelmointirajapinta eli _API_, joka mahdollistaa selaimessa esitettävien web-sivuja vastaavien _elementtipuiden_ muokkaamisen ohjelmallisesti.
 
 Edellisessä luvussa esittelemämme Javascript-koodi käytti nimenomaan DOM-apia lisätäkseen sivulle muistiinpanojen listan.
 
@@ -679,7 +679,7 @@ Full stack -sovelluskehitys on monella tapaa haastavaa. Asioita tapahtuu monessa
 
 Oman haasteensa tuo vielä se, että Javascript-maailma etenee koko ajan todella kovaa vauhtia eteenpäin. Kirjastot, työkalut ja itse kielikin ovat jatkuvan kehityksen alla. Osa alkaa kyllästyä nopeaan kehitykseen ja sitä kuvaamaan on lanseerattu termi [Javascript](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) [fatigue](https://auth0.com/blog/how-to-manage-javascript-fatigue/) eli [Javascript](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f)-väsymys.
 
-Javascript-väsymys tulee varmasti iskemään myös tällä kurssilla. Onneksi nykyään on olemassa muutamia tapoja loiventaa oppimiskäyrää, ja voimme aloittaa keskittymällä konfiguraation sijaan koodaamiseen. Konfiguraatioita ei voi välttää, mutta seuraavat vikot voimme edetä iloisin mielin vailla pahimpia konfiguraatiohelvettejä.
+Javascript-väsymys tulee varmasti iskemään myös tällä kurssilla. Onneksi nykyään on olemassa muutamia tapoja loiventaa oppimiskäyrää, ja voimme aloittaa keskittymällä konfiguraation sijaan koodaamiseen. Konfiguraatioita ei voi välttää, mutta seuraavat viikot voimme edetä iloisin mielin vailla pahimpia konfiguraatiohelvettejä.
 
 ### Tehtäviä web-sovelluksen perusteista
 
