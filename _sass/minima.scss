@@ -57,3 +57,30 @@ $on-laptop:        800px !default;
   border-radius: 10px;
   background-color: lightgray;
 }
+
+.important.warn {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  margin-left: -410px;
+  width: 600px;
+  padding: 10px;
+  z-index: 1;
+}
+
+.important.deprecated {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  margin-left: -400px;
+  width: 600px;
+  border: solid 20px rgba(0, 0, 0, 0.16);
+  padding: 100px;
+  z-index: 1;
+}
+
+.important.deprecated ~ *,
+.important.deprecated ~ * a,
+.important.deprecated ~ * img {
+  opacity: 0.2;
+}
