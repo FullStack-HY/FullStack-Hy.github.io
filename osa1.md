@@ -19,6 +19,7 @@ permalink: /osa1/
   - komponentin tila
   - tilan päivittämisen periaatteet
   - tapahtumankäsittelyn perusteet
+  
 - Javascript
   - muuttujien määrittely
   - taulukko ja sen operaatiot (mm. concat, forEach, join ja map)
@@ -260,7 +261,7 @@ const App = () => {
 }
 ```
 
-Propseja voi olla mielivaltainen määtä ja niiden arvot voivat olla "kovakoodattuja" merkkijonoja tai Javascript-lausekkeiden tuloksia. Jos propsin arvo muodostetaan Javascriptillä, tulee se olla aaltosulkeissa.
+Propseja voi olla mielivaltainen määrä ja niiden arvot voivat olla "kovakoodattuja" merkkijonoja tai Javascript-lausekkeiden tuloksia. Jos propsin arvo muodostetaan Javascriptillä, tulee se olla aaltosulkeissa.
 
 Muutetaan koodia siten, että komponentti _Hello_ käyttää kahta propsia:
 
@@ -286,7 +287,7 @@ const App = () => {
 }
 ```
 
-Komponentti _App_ lähettää propseina muuttujan arvoja, summalausekkeen evaluoinnin tuloksen ja normaalin merkkinonon.
+Komponentti _App_ lähettää propseina muuttujan arvoja, summalausekkeen evaluoinnin tuloksen ja normaalin merkkijonon.
 
 ### Muutama huomio
 
@@ -298,7 +299,7 @@ React on konfiguroitu antamaan varsin hyviä virheilmoituksia. Kannattaa kuitenk
 
 Kannattaa myös muistaa, että React-koodissakin on mahdollista ja kannattavaa lisätä koodin sekaan sopivia konsoliin tulostavia <code>console.log()</code>-komentoja. Tulemme hieman [myöhemmin](#react-sovellusten-debuggaus) tutustumaan muutamiin muihinkin tapoihin debugata Reactia.
 
-Kannattaa pitää mielessä, että **React-komponenttien nimien tulee alkaa isolla kirjaimella**. Jos yrität määritellä komponentin seuraavasti
+Kannattaa pitää mielessä, että **React-komponenttien nimien tulee alkaa isolla kirjaimella**. Jos yrität määritellä komponentin seuraavasti:
 
 ```react
 const footer = () => {
@@ -308,7 +309,7 @@ const footer = () => {
 }
 ```
 
-ja ottaa sen käyttöön
+ja ottaa se käyttöön
 
 ```react
 const App = () => {
@@ -324,7 +325,7 @@ const App = () => {
 
 sivulle ei kuitenkaan tule mitään, sillä React luo sivulle ainoastaan tyhjän _div_-elementin. Jos muutat komponentin nimen alkamaan isolla kirjaimella, kaikki toimii taas.
 
-Kannattaamyös  pitää mielessä, että React-komponentin sisällön tulee (yleensä) sisältää **yksi juurielementti**. Eli jos yrittäisimme määritellä komponentin _App_ ilman uloimmaistaa _div_-elementtiä:
+Kannattaa myös  pitää mielessä, että React-komponentin sisällön tulee (yleensä) sisältää **yksi juurielementti**. Eli jos yrittäisimme määritellä komponentin _App_ ilman uloimmaista _div_-elementtiä:
 
 ```react
 const App = () => {
@@ -374,7 +375,7 @@ Tällä hetkellä johtava tapa tehdä transpilointi on [Babel](https://babeljs.i
 
 Koodi kirjoitetaan <em>.js-</em>päätteiseen tiedostoon, ja suoritetaan komennolla <code>node tiedosto.js</code>
 
-Koodia on mahdollisuus kirjoittaa myös Node.js-konsoliin, joka aukeaa kun kirjoitat komentorivillä _node_ tai myös selaimen developer toolin konsoliin. Chromen uusimmat versiot osaavat tuoraan transpiloimatta [melko hyvin](http://kangax.github.io/compat-table/es6/) Javascriptin uusiakin piirteitä.
+Koodia on mahdollisuus kirjoittaa myös Node.js-konsoliin, joka aukeaa kun kirjoitat komentorivillä _node_ tai myös selaimen developer toolin konsoliin. Chromen uusimmat versiot osaavat suoraan transpiloimatta [melko hyvin](http://kangax.github.io/compat-table/es6/) Javascriptin uusiakin piirteitä.
 
 Javascript muistuttaa nimensä ja syntaksinsa puolesta läheisesti Javaa. Perusmekanismeiltaan kielet kuitenkin poikkeavat radikaalisti. Java-taustalta tultaessa Javascriptin käyttäytyminen saattaa aiheuttaa hämmennystä, varsinkin jos kielen piirteistä ei viitsitä ottaa selvää.
 
