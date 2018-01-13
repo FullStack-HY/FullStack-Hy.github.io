@@ -757,7 +757,7 @@ const Hello = (props) => {
 
 Toinen tapa komponenttien määrittelyyn on käyttää luokkasyntaksia. Tällöin komponentti määritellään luokaksi, joka perii [React.Component](https://reactjs.org/docs/react-component.html)-luokan.
 
-Muutetaan esimerkkisovelluksen komponentti _Hello_ luokaksi seuraavasti:
+Muutetaan esimerkkisovelluksen komponentti _Hello_ -luokaksi seuraavasti:
 
 ```react
 class Hello extends React.Component {
@@ -829,7 +829,7 @@ class Hello extends React.Component {
 }
 ```
 
-Huomaa, että nyt metodia _ei_ kutsuta viitteen _this_ kautta sillä, vaan syntaksilla <code>bornYear()</code>, sillä metodi ei ole komponentin eli _this_:in tasolla määritelty. Metodia _bornYear_ ei nyt voi kutsua mistään muualta kuin metodin _render_ sisältä, sillä se ei näy renderin ulkopuolelle.
+Huomaa, että nyt metodia _ei_ kutsuta viitteen _this_ kautta, vaan syntaksilla <code>bornYear()</code>, sillä metodi ei ole komponentin eli _this_:in tasolla määritelty. Metodia _bornYear_ ei nyt voi kutsua mistään muualta kuin metodin _render_ sisältä, sillä se ei näy renderin ulkopuolelle.
 
 Ennen kuin siirrymme eteenpäin, tarkastellaan erästä pientä, mutta käyttökelpoista ES6:n mukanaan tuomaa uutta piirrettä Javascriptissä, eli sijoittamisen yhteydessä tapahtuvaa [destrukturointia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
