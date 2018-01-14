@@ -29,20 +29,19 @@ Osassa on 6 tehtävää joista kaikki ovat pakollisia. Voit edetä osaan 1 vasta
 
 ### web-sovellusten perusteet ###
 
-#### 1 HTML ja CSS ####
+#### 0.1 HTML ja CSS ####
 
 Kertaa HTML:n ja CSS:n perusteet lukemalla Mozillan tutoriaalit [HTML:stä](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) ja [CSS:stä](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
 
-#### 2 HTML:n lomakkeet
+#### 0.2 HTML:n lomakkeet
 
 Tutustu HTML:n lomakkeiden perusteisiin lukemalla Mozillan tutoriaali [Your first form](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form).
 
-#### 3 muistiinpanojen sivu
+#### 0.3 muistiinpanojen sivu
 
 Kun käyttäjä menee selaimella osoitteeseen <https://fullstack-exampleapp.herokuapp.com/> voidaan sen seurauksena olevaa tapahtumaketjua kuvata [sekvenssikaaviona](https://en.wikipedia.org/wiki/Sequence_diagram) esim. seuraavasti:
 
 <img src="/assets/teht/1.png" height="400">
-
 
 Kaavio on luotu [websequencediagrams](https://www.websequencediagrams.com)-palvelussa, seuraavasti:
 
@@ -74,23 +73,23 @@ Kaavion ei ole pakko olla sekvenssikaavio. Mikä tahansa järkevä kuvaustapa k�
 
 Kaikki oleellinen tämän ja seuraavien kolmen tehtävän tekemiseen liittyvä informaatio on selitettynä [osan 0](../osa0) tekstissä. Näiden tehtävien ideana on, että luet tekstin vielä kerran ja mietit tarkkaan mitä missäkin tapahtuu. Ohjelman [koodin](https://github.com/mluukkai/example_app) lukemista ei näissä tehtävissä edellytetä, vaikka sekin on toki mahdollista.
 
-#### 4 Uusi muistiinpano
+#### 0.4 Uusi muistiinpano
 
 Tee kaavio tilanteesta, missä käyttäjä luo uuden muistiinpanon ollessaan sivulla <https://fullstack-exampleapp.herokuapp.com/notes>, eli kirjoittaa tekstikenttään jotain ja painaa nappia _tallenna_
 
 Kirjoita tarvittaessa palvelimella tai selaimessa tapahtuvat operaatiot sopivina kommentteina kaavion sekaan.
 
-#### 5 Single page app
+#### 0.5 Single page app
 
 Tee kaavio tilanteesta, missä käyttäjä menee selaimella osoitteeseen <https://fullstack-exampleapp.herokuapp.com/spa> eli muistiinpanojen [single page app](../osa1/#single-page-app)-versioon
 
-#### 6 Uusi muistiinpano SPA:ssa
+#### 0.6 Uusi muistiinpano SPA:ssa
 
 Tee kaavio tilanteesta, missä käyttäjä luo uuden muistiinpanin single page -versiossa.
 
 ### Tehtävien palautus
 
-Palauta tehtävät 15.1. avautuvaan [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
 
 
 ## Osa 1
@@ -101,7 +100,7 @@ Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet t
 
 ### reactin alkeet ###
 
-#### 7 jako komponenteiksi
+#### 1.1 jako komponenteiksi
 
 Luo create-react-app:illa uusi sovellus. Muuta _index.js_ muotoon
 
@@ -155,7 +154,7 @@ const App = () => {
 }
 ```
 
-#### 8 lisää komponentteja
+#### 1.2 lisää komponentteja
 
 Refaktoroi vielä komponentti _Sisalto_ siten, että se ei itse renderöi yhdenkään osan nimeä eikä sen tehtävälukumäärää vaan ainoastaan kolme _Osa_-nimistä komponenttia, joista kukin siis renderöi yhden osan nimen ja tehtävämäärän.
 
@@ -176,7 +175,7 @@ Sovelluksemme tiedonvälitys on tällä hetkellä todella alkukantaista sillä s
 
 ### Javascriptin alkeet ###
 
-#### 9 tieto olioissa
+#### 1.3 tieto olioissa
 
 Siirrytään käyttämään sovelluksessamme oliota. Muuta _App_:in muuttujamäärittelyt seuraavaan muotoon ja muuta sovelluksen kaikkia osaia niin, että se taas toimii:
 
@@ -204,7 +203,7 @@ const App = () => {
 }
 ```
 
-#### 10 oliot taulukkoon
+#### 1.4 oliot taulukkoon
 
 Ja laitetaan oliot taulukkoon, eli muuta _App_:in muuttujamäärittelyt seuraavaan muotoon ja muuta sovelluksen kaikki osat vastaavasti:
 
@@ -252,7 +251,7 @@ const App = () => {
 }
 ```
 
-#### 11
+#### 1.5
 
 Viedään muutos vielä yhtä askelta pidemmälle, eli tehdään kurssista ja sen osista yksi Javascript-olio. Korjaa kaikki mikä menee rikki.
 
@@ -286,7 +285,7 @@ const App = () => {
 
 ### lisää reactia ###
 
-#### 12 unicafe osa1
+#### 1.6 unicafe osa1
 
 Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vaan kolme: _hyvä_, neutraali ja _huono_.
 
@@ -296,13 +295,13 @@ Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näy
 
 Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran ajan, esim. kun selain refreshataan, tilastot saavat hävitä.
 
-#### 13 unicafe osa2
+#### 1.7 unicafe osa2
 
 Laajenna sovellusta siten, että se näyttää palautteista statistiikkaa, keskiarvon (hyvän arvo 1, neutraalin 0, huonon -1) ja sen kuinka monta prosenttia palautteista on ollut positiivisia:
 
 <img src="/assets/teht/4.png" height="250">
 
-#### 14 unicafe osa3
+#### 1.8 unicafe osa3
 
 Refaktoroi sovelluksesi siten, että se koostuu monista komponenteista. Pidä tila kuitenkin sovelluksen _juurikomponentissa_.
 
@@ -311,18 +310,18 @@ Tee sovellukseen ainakin seuraavat komponentit:
 - _Statistics_ huolehtii tilastojen näyttämisestä
 - _Statistic_ huolehtii yksittäisen tilastorivin, esim. keskiarvon näyttämisestä
 
-#### 15* unicafe osa4
+#### 1.9* unicafe osa4
 
 Muuta sovellusta siten, että numeeriset tilastot näytetään ainoastaan jos palautteita on jo annettu:
 
 <img src="/assets/teht/5.png" height="180">
 
 
-#### 16* unicafe osa5
+#### 1.10* unicafe osa5
 
 Jos olet määritellyt jokaiselle napille oman tapahtumankäsittelijän, refaktoroi sovellustasi siten, että kaikki napit käyttävät samaa tapahtumankäsittelijäfunktiota samaan tapaan kuin materiaalin luvussa [funktio joka palauttaa funktion](https://mluukkai.github.io/osa1/#funktio-joka-palauttaa-funktion)
 
-#### 17 unicafe osa6
+#### 1.11 unicafe osa6
 
 Toteuta tilastojen näyttäminen HTML:n [taulukkona](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics) siten, että saat sovelluksesi näyttämään suunnilleen seuraavanlaiselta
 
@@ -336,7 +335,7 @@ tee tarvittavat toimenpiteet jotta saat warningin katoamaan. Googlaa tarvittaess
 
 **Huolehdi nyt ja jatkossa, että konsolissa ei näy mitään warningeja!**
 
-#### 18* anekdootit osa1
+#### 1.12* anekdootit osa1
 
 Ohjelmistotuotannossa tunnetaan lukematon määrä [anekdootteja](http://www.comp.nus.edu.sg/~damithch/pages/SE-quotes.htm) eli pieniä "onelinereita", jotka kiteyttävät alan ikuisia totuuksia.
 
@@ -384,13 +383,13 @@ Sovellus voi näyttää esim. seuraavalta:
 
 <img src="/assets/teht/2.png" height="70">
 
-#### 19* anekdootit osa2
+#### 1.13* anekdootit osa2
 
 Laajenna sovellusta siten, että näytettävää anekdoottia on mahdollista äänestää:
 
 <img src="/assets/teht/3.png" height="90">
 
-#### 20* anekdootit osa3
+#### 1.14* anekdootit osa3
 
 Ja sitten vielä lopullinen versio, joka näyttää eniten ääniä saaneen anekdootin:
 
@@ -404,4 +403,4 @@ Youtubessa on kohtuullisen hyvä [johdatus funktionaaliseen javascript-ohjelmoin
 
 ### Tehtävien palautus
 
-Palauta tehtävät 15.1. avautuvaan [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).

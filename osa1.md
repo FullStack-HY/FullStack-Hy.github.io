@@ -358,7 +358,7 @@ Määritellessä sovelluksen juurikomponenttia, tämä ei kuitenkaan ole järkev
 
 ### React-tehtävät, osa 1
 
-Tee nyt [tehtävät 7 ja 8](/tehtävät#reactin-alkeet)
+Tee nyt [tehtävät 1.1 ja 1.2](/tehtävät#reactin-alkeet)
 
 ## Javascriptiä
 
@@ -582,7 +582,7 @@ const vastaus = keskiarvo(2, 5)
 
 ### Tehtäviä javascriptistä
 
-Tee nyt [tehtävät 9-11](../tehtävät#javascriptin-alkeet)
+Tee nyt [tehtävät 1.3-1.5](../tehtävät#javascriptin-alkeet)
 
 ### Olioiden metodit ja this
 
@@ -1849,4 +1849,4 @@ Internetissä on todella paljon Reactiin liittyvää materiaalia, tässä muutam
 
 ### Lisää React-tehtäviä
 
-Tee nyt [tehtävät 12-20](../tehtävät#lisää-reactia)
+Tee nyt [tehtävät 1.6-1.14](../tehtävät#lisää-reactia)
