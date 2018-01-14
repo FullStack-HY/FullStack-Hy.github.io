@@ -187,6 +187,7 @@ Reactia olisi myös mahdollista kirjoittaa "suoraan Javascriptinä" käyttämät
 
 Käytännössä JSX on melkein kuin HTML:ää sillä erotuksella, että mukaan voi upottaa helposti dynaamista sisältöä kirjoittamalla sopivaa Javascriptiä aaltosulkeiden sisälle. Idealtaan JSX on melko lähellä monia palvelimella käytettäviä templating-kieliä kuten Java Springin yhteydessä käytettävää thymeleafia.
 
+
 ## Monta komponenttia
 
 Muutetaan sovellusta seuraavasti (yläreunan importit jätetään nyt ja jatkossa pois):
@@ -228,6 +229,7 @@ const App = () => {
 ```
 
 Komponenttien tekeminen Reactissa on helppoa ja komponentteja yhdistelemällä monimutkaisempikin sovellus on mahdollista pitää kohtuullisesti ylläpidettävänä. Reactissa filosofiana onkin koostaa sovellus useista, pieneen asiaan keskittyvistä uudelleenkäytettävistä komponenteista.
+
 
 ## props: tiedonvälitys komponenttien välillä
 
@@ -360,6 +362,7 @@ Määritellessä sovelluksen juurikomponenttia, tämä ei kuitenkaan ole järkev
 ### React-tehtävät, osa 1
 
 Tee nyt [tehtävät 1.1 ja 1.2](/tehtävät#reactin-alkeet)
+
 
 ## Javascriptiä
 
@@ -738,6 +741,7 @@ Mozillan sivuilta kannattaa lukea oikeastaan välittömästi [A re-introduction 
 Jos haluat tutustua todella syvällisesti Javascriptiin, löytyy internetistä ilmaiseksi mainio kirjasarja [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 
 [egghead.io](https://egghead.io):lla on tarjolla runsaasti laadukkaita screencasteja Javascriptista, Reactista ym. kiinnostavasta. Valitettavasti materiaali on osittain maksullista.
+
 
 ## Paluu Reactin äärelle
 
