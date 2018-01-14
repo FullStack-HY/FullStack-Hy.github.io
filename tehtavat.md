@@ -15,7 +15,7 @@ Olethan lukenut huolellisesti kurssimateriaalin osan 0 luvun [Suoritustapa](/osa
 
 Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät maanantaina 15.1. avautuvaan [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
 
-Jos palautat eri osien tehtäviä saaan repositorioon, käytä järkevään hakemistojen nimentää.
+Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hakemistojen nimentää.
 
 Tehtävät palautetaan yksi osa kerrallaan. Kun olet palauttanut osan tehtävät, et voi enää palauttaa saman osan tekemättä jättämiäsi tehtäviä.
 
@@ -85,7 +85,7 @@ Tee kaavio tilanteesta, missä käyttäjä menee selaimella osoitteeseen <https:
 
 #### 0.6 Uusi muistiinpano SPA:ssa
 
-Tee kaavio tilanteesta, missä käyttäjä luo uuden muistiinpanin single page -versiossa.
+Tee kaavio tilanteesta, missä käyttäjä luo uuden muistiinpanon single page -versiossa.
 
 ### Tehtävien palautus
 
@@ -96,7 +96,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 Deadline 28.1. 
 
-Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet tehnyt kaikki pakolliset tehtävät on tehty. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 ### reactin alkeet ###
 
@@ -136,9 +136,9 @@ ReactDOM.render(
 
 ja poista ylimääräiset tiedostot.
 
-Koko sovellus on nyt ikävästi yhdessä komponentissa. Refaktoroi sovelluksen koodi siten, että se koostuu kolmesta komponentista _Otsikko_, _Sisalto_ ja _Yhteensa_. Kaikki data pidetään edelleen komponentissa _App_, joka välittää tarpeelliset tiedot kullekin komponenteille _props:ien_ avulla. _Otsikko_ huolehtii kurssin nimen renderöimisestä, _Sisalto_ osista ja niiden tehtävämääristä ja _Yhteensa_ tehtävien yhteismäärästä.
+Koko sovellus on nyt ikävästi yhdessä komponentissa. Refaktoroi sovelluksen koodi siten, että se koostuu kolmesta komponentista _Otsikko_, _Sisalto_ ja _Yhteensa_. Kaikki data pidetään edelleen komponentissa _App_, joka välittää tarpeelliset tiedot kullekin komponentille _props:ien_ avulla. _Otsikko_ huolehtii kurssin nimen renderöimisestä, _Sisalto_ osista ja niiden tehtävämääristä ja _Yhteensa_ tehtävien yhteismäärästä.
 
-Komponentin _App_ runko tulee olevaan suunnilleen seuraavanlainen:
+Komponentin _App_ runko tulee olemaan suunnilleen seuraavanlainen:
 
 ```react
 const App = () => {
@@ -171,13 +171,13 @@ const Sisalto = ... {
 }
 ```
 
-Sovelluksemme tiedonvälitys on tällä hetkellä todella alkukantaista sillä se perustuu yksittäisiin muuttujiin. Tilanne paranee pian.
+Sovelluksemme tiedonvälitys on tällä hetkellä todella alkukantaista, sillä se perustuu yksittäisiin muuttujiin. Tilanne paranee pian.
 
 ### Javascriptin alkeet ###
 
 #### 1.3 tieto olioissa
 
-Siirrytään käyttämään sovelluksessamme oliota. Muuta _App_:in muuttujamäärittelyt seuraavaan muotoon ja muuta sovelluksen kaikkia osaia niin, että se taas toimii:
+Siirrytään käyttämään sovelluksessamme oliota. Muuta _App_:in muuttujamäärittelyt seuraavaan muotoon ja muuta sovelluksen kaikkia osia niin, että se taas toimii:
 
 ```react
 const App = () => {
@@ -287,7 +287,7 @@ const App = () => {
 
 #### 1.6 unicafe osa1
 
-Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vaan kolme: _hyvä_, neutraali ja _huono_.
+Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vain kolme: _hyvä_, neutraali ja _huono_.
 
 Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näyttää esim. seuraavalta:
 
@@ -331,7 +331,7 @@ Muista pitää konsoli koko ajan auki. Jos saat konsoliin seuraavan warningin
 
 <img src="/assets/teht/7.png" height="100">
 
-tee tarvittavat toimenpiteet jotta saat warningin katoamaan. Googlaa tarvittaessa virhelimoituksella.
+tee tarvittavat toimenpiteet jotta saat warningin katoamaan. Googlaa tarvittaessa virheilmoituksella.
 
 **Huolehdi nyt ja jatkossa, että konsolissa ei näy mitään warningeja!**
 
