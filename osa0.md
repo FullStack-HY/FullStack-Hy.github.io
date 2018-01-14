@@ -52,7 +52,7 @@ Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet
 
 Suuri jousto suoritusajoissa tuo opiskelijalle entistä suuremman vastuun omasta ajankäytöstä. Nyt ilmoitetuista deadlineista **ei jousteta ollenkaan**. Kannattaa muistaa se, että mitä lähempänä deadlinea tehtävien tekemisen aloittaa, sitä suurempi vaara on joutua eriasteisiin konfiguraatiohelvetteihin. Apuakin on rajallisemmin tarjolla kun kello lähenee deadlinepäivän keskiyötä.
 
-## Arvosteluperiaatteet
+## Arvosteluperusteet
 
 Arvosana määräytyy tehtyjen tehtävien perusteella. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
 
