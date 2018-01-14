@@ -65,6 +65,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 Voit poistaa tiedostot _App.js_, _App.css_, _App.test.js_, _logo.svg_ ja _registerServiceWorkes.js_
 
+
 ### Komponentti
 
 Tiedosto _index.js_ määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään _App_ ja viimeisen rivin komento
@@ -153,6 +154,7 @@ const App = () => {
 
 Aaltosulkeiden sisällä oleva Javascript-koodi evaluoidaan ja evaluoinnin tulos upotetaan määriteltyyn kohtaan komponentin tuottamaa HTML-koodia.
 
+
 ### JSX
 
 Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa Javascriptiä. React komponenttien palauttama JSX käännetään konepellin alla Javascriptiksi. 
@@ -186,7 +188,6 @@ Käännöksen hoitaa [Babel](https://babeljs.io/repl/). Create-react-app:illa lu
 Reactia olisi myös mahdollista kirjoittaa "suoraan Javascriptinä" käyttämättä JSX:ää. Kukaan täysijärkinen ei kuitenkaan niin tee.
 
 Käytännössä JSX on melkein kuin HTML:ää sillä erotuksella, että mukaan voi upottaa helposti dynaamista sisältöä kirjoittamalla sopivaa Javascriptiä aaltosulkeiden sisälle. Idealtaan JSX on melko lähellä monia palvelimella käytettäviä templating-kieliä kuten Java Springin yhteydessä käytettävää thymeleafia.
-
 
 ## Monta komponenttia
 
