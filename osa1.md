@@ -1035,7 +1035,7 @@ class App extends React.Component {
 
 Ruudulle renderöity laskurin arvo päivittyy sillä aina komponenentin tilan muuttuessa _React_ kutsuu komponentin metodia _render_.
 
-Jos komponentti ei renderöidy vaikka sen omasta mielestä pitäisi, tai se renderöityy "väärän aikaan", debuggaamista auttaa joskus metodiin _render_ liitetty konsoliin tulostus. Esim. jos lisäämme koodiin seuraavan
+Jos komponentti ei renderöidy vaikka sen omasta mielestä pitäisi, tai se renderöityy "väärään aikaan", debuggaamista auttaa joskus metodiin _render_ liitetty konsoliin tulostus. Esim. jos lisäämme koodiin seuraavan,
 
 ```react
 class App extends React.Component {
@@ -1055,7 +1055,7 @@ on konsolista helppo seurata metodin _render_ kutsuja:
 
 ### Tapahtumankäsittely
 
-Mainitsimme jo [osassa 1](/osa1) muutamaan kertaan _tapahtumankäsittelijät_, eli funktiot, jotka on rekisteröity kutsuttavaksi tiettyjen tapahtumien eli eventien yhteydessä. Esim. käyttäjän interaktio sivun elementtien kanssa aiheuttaa joukon erinäisiä tapahtumia.
+Mainitsimme jo [osassa 0](/osa0) muutamaan kertaan _tapahtumankäsittelijät_, eli funktiot, jotka on rekisteröity kutsuttavaksi tiettyjen tapahtumien eli eventien yhteydessä. Esim. käyttäjän interaktio sivun elementtien kanssa aiheuttaa joukon erinäisiä tapahtumia.
 
 Muutetaan sovellusta siten, että laskurin kasvaminen tapahtuukin käyttäjän painaessa [button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)-elementin avulla toteutettua nappia.
 
@@ -1197,9 +1197,9 @@ Kun selaimen Javascriptin runtime kutsuu takaisinkutsufunktiota, _this_ ei enä�
 
 ![]({{ "/assets/1/29.png" | absolute_url }})
 
-Ongelmaan on useita erilaisia ratkaisuja. Eräs näistä on jo [aiemmin mainittu](#olioiden-metodit-ja-this) _bindaaminen_, eli esim. komennolla <code>this.kasvataYhdella.bind(this)</code> voimme muodostaa uuden funktion, jonka koodi on alkuperäisen funktion koodi missä _this_ on sidottu viittaamaan parametrina olevaan arvoon, eli komponenttiin itseensä.
+Ongelmaan on useita erilaisia ratkaisuja. Eräs näistä on jo [aiemmin mainittu](#olioiden-metodit-ja-this) _bindaaminen_, eli esim. komennolla <code>this.kasvataYhdella.bind(this)</code> voimme muodostaa uuden funktion, jonka koodi on alkuperäisen funktion koodi, missä _this_ on sidottu viittaamaan parametrina olevaan arvoon, eli komponenttiin itseensä.
 
-Eli sovellus toimii taas jos koodi muotetaan muotoon:
+Eli sovellus toimii taas jos koodi muutetaan muotoon:
 
 ```html
 <button onClick={this.kasvataYhdella.bind(this)}>
@@ -1237,7 +1237,7 @@ Nyt riittää viitata metodeihin "normaalisti", ilman bindiä:
 </button>
 ```
 
-Teknisesti ottaen konstruktorissa korvataan kenttään _kasvataYhdella_ alunperin määritelty metodi uudella metodilla, jolla on alkuperäisen metodin koodi siten, että _this_ on pysyväti bindattu komponenttiin.
+Teknisesti ottaen konstruktorissa korvataan kenttään _kasvataYhdella_ alunperin määritelty metodi uudella metodilla, jolla on alkuperäisen metodin koodi siten, että _this_ on pysyvästi bindattu komponenttiin.
 
 Ehkä paras ratkaisu _this_-ongelman estämiseen on käyttää tulevaan Javascript-standardiin ehdotettua [class properties](https://babeljs.io/docs/plugins/transform-class-properties/) -ominaisuutta, jonka avulla voimme määritellä this:in suhteen hyvin käyttäytyviä metodeja seuraavasti:
 
@@ -1682,9 +1682,9 @@ Javascriptissa on myös mahdollista lisätä taulukkoon metodilla [push](https:/
 kaikki: this.state.kaikki.push('v')
 ```
 
-mutta älä tee niin. React komponentin tilaa, eli muuttujaa _this.state_ ei saa muuttaa suoraan!
+mutta älä tee niin. React-komponentin tilaa, eli muuttujaa _this.state_ ei saa muuttaa suoraan!
 
-**Jos tilan kentissä on monimutkaisempia olioita, älä muuta niitä vaan tee muutos aina kopioon!**
+**Jos tilan kentissä on olioita, älä muuta niitä vaan tee muutos aina kopioon!**
 
 Katsotaan vielä tarkemmin, miten kaikkien painallusten historia renderöidään ruudulle:
 
@@ -1756,6 +1756,7 @@ Reactissa on monia muitakin tapoja [ehdolliseen renderöintiin](https://reactjs.
 
 Näppäilyhistorian esittäminen alkaa olla jo sen verran monimutkainen operaatio, että se kannattaisi eristää omaksi komponentikseen. Jätämme sen kuitenkin tekemättä.
 
+
 ## Funktionaalinen vai luokkasyntaksiin perustuva komponentti?
 
 Olemme nyt esitelleet kaksi erilaista tapaa komponenttien määrittelemiseen. Kumpaa tulisi käyttää? Useimpien vastauksena on, [käytä funktionaalista komponenttia aina kun se on mahdollista](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc).
@@ -1767,6 +1768,7 @@ Joskus komponenttien on käytettävä [osassa 2 esiteltäviä](osa2/#komponentti
 Yleisohjeena on siis se, että käytä funktionaalisia komponentteja ellet aivan pakosti tarvitse jotain luokkasyntaksin omaavien komponenttien ominaisuuksia.
 
 Internetistä löytyy kyllä aiheesta päinvastaisiakin mielipitetiä, esim. [7 Reasons to Outlaw React’s Functional Components](https://medium.freecodecamp.org/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c)
+
 
 ## React-sovellusten debuggaus
 
@@ -1790,7 +1792,7 @@ Jos ja kun koodi ei käänny, eli selaimessa alkaa näkyä punaista
 
 ![]({{ "/assets/1/31.png" | absolute_url }})
 
-älä kirjota enää lisää koodia vaan selvitä ongelma **välittömästi**. Koodauksen historia ei tunne tilannetta, missä kääntymätön koodi alkaisi ihmeen omaisesti toimimaan kirjoittamalla suurta määrää lisää koodia, en usko että sellaista ihmettä nähdään tälläkään kurssilla.
+älä kirjota enää lisää koodia vaan selvitä ongelma **välittömästi**. Koodauksen historia ei tunne tilannetta, missä kääntymätön koodi alkaisi ihmeenomaisesti toimimaan kirjoittamalla suurta määrää lisää koodia, en usko että sellaista ihmettä nähdään tälläkään kurssilla.
 
 Vanha kunnon printtaukseen perustuva debuggaus kannattaa aina. Eli jos esim. komponentissa
 
@@ -1846,7 +1848,7 @@ Uuden konsolitabin avulla voidaan tarkkailla sovelluksen React-elementtejä ja n
 
 Internetissä on todella paljon Reactiin liittyvää materiaalia, tässä muutamia linkkejä:
 - Reactin [docs](https://reactjs.org/docs/hello-world.html) kannattaa ehdottomasti käydä läpi, ei välttämättä kaikkea nyt, osa on ajankohtaista vasta kurssin myöhemmissä osissa
-  - Reactin sivuilla oleva [tutoriaali](https://reactjs.org/tutorial/tutorial.html) sen sijaan on aika huono
+- Reactin sivuilla oleva [tutoriaali](https://reactjs.org/tutorial/tutorial.html) sen sijaan on aika huono
 - [Egghed.io](https://egghead.io):n kursseista [Start learning React](https://egghead.io/courses/start-learning-react) on laadukas ja hieman uudempi [The Beginner's guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) myös kohtuullisen hyvä, molemmat sisältävät myös asiaa jotka tulevat tällä kurssilla vasta myöhemmissä osissa
 
 ### Lisää React-tehtäviä
