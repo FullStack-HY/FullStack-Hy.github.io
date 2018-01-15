@@ -28,15 +28,21 @@ Tapoja on monia, tässä eräs (ei edellytä pääkäyttöoikeuksia):
 3. Lisää polkuun uuden hakemiston sisällä oleva bin-hakemisto (eli .bashrc tiedostoon, korvaa VERSIO:
 ```export PATH=~/node-VERSIO-linux-x64/bin:$PATH```
 
+Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on riittävän uudet versiot Nodesta (8.9.4) ja npm:stä (5.3).
+
 Jos sinulla on pääkäyttäjän oikeudet, on asennus mahdollista suorittaa paketinhallintaa käyttäen. Tällöin täytyy kuitenkin varmistaa, että Nodesta tulee käyttöön riittävän tuore versio (vähintään 8.6). Jos ei, voi päivityksen hoitaa _nvm_-työkalulla. Jos jollakin on ohje tämän tekemiseen, niin otan mielellään pull requestin vastaan.
 
 ### Mac
 
 Käytä [macOS installeria](https://nodejs.org/en/download/). Edellyttää pääkäyttäjän oikeuksia.
 
+Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on riittävän uudet versiot Nodesta (8.9.4) ja npm:stä (5.3).
+
 ### Windows
 
 Tapoja on kaksi, voit jos sinulla on pääkäyttäjän oikeudet, kannattaa käyttää [Windows-installeria](https://nodejs.org/en/download/)
+
+Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on riittävän uudet versiot Nodesta (8.9.4) ja npm:stä (5.3).
 
 Ilman pääkäyttäjän oikeuksia asennus onnistuu seuraavasti
 
@@ -49,3 +55,5 @@ Ilman pääkäyttäjän oikeuksia asennus onnistuu seuraavasti
 ```rundll32 sysdm.cpl,EditEnvironmentVariables```
 
 4. Valitse "Path". Paina "Edit...". Paina "New". Lisää polku (esim %userprofile%\Applications\node).
+
+Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on riittävän uudet versiot Nodesta (8.9.4) ja npm:stä (5.3).
