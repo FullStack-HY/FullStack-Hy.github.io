@@ -19,7 +19,7 @@ Kurssille osallistuminen ei edellytä käsiteltyjen tekniikoiden tai Javascript-
 
 ## Kurssimateriaali
 
-Kurssimateriaali on tarkoitettu luettavaksi osa kerrallaan "alusta loppuun". Materiaalin seassa on tehtäviä, jotka on sijoiteltu siten, että kunkin tehtävän tekemiseen pitäsi olla riittävät tekniset valmiudet sitä edeltävässä materiaalissa. Voit siis tehdä tehtäviä sitä mukaan kun niitä tulee materiaalissa vastaan. Voi myös olla, että koko osan tehtävät kannattaa tehdä vasta luettuaan ensin osan alusta loppuun kertaalleen. Useissa osissa tehtävät ovat samaa ohjelmaa laajentavia pienistä osista koostuvia kokonaisuuksia. Muutamia tehtävien ohjelmia kehitetään eteenpäin useamman osan aikana. 
+Kurssimateriaali on tarkoitettu luettavaksi osa kerrallaan "alusta loppuun". Materiaalin seassa on tehtäviä, jotka on sijoiteltu siten, että kunkin tehtävän tekemiseen pitäsi olla riittävät tekniset valmiudet sitä edeltävässä materiaalissa. Voit siis tehdä tehtäviä sitä mukaan kun niitä tulee materiaalissa vastaan. Voi myös olla, että koko osan tehtävät kannattaa tehdä vasta luettuaan ensin osan alusta loppuun kertaalleen. Useissa osissa tehtävät ovat samaa ohjelmaa laajentavia pienistä osista koostuvia kokonaisuuksia. Muutamia tehtävien ohjelmia kehitetään eteenpäin useamman osan aikana.
 
 Toki tehtävät voi tehdä materiaalia lukemattakin, jos esitiedot ovat riittävät.
 
@@ -29,9 +29,9 @@ Materiaali perustuu muutamien osasta osaan vaihtuvien esimerkkiohjelmien asteitt
 
 Kurssi koostuu kahdeksasta osata, joista ensimmäinen on historiallisista syistä numero nolla. Osat voi tulkita löyhästi ajatellen viikoiksi. Osia kuitenkin ilmestyy nopeampaa tahtia, ja suoritusnopeuskin on melko vapaa.
 
-Materiaalissa osasta _n_ osaan _n+1_ eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan _n_ asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein _tavoiteoppimista_,[engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisen osan _vapaaehtoiset_ (mutta arvosteluun vaikuttavat) tehtävät on merkattu tähdellä. 
+Materiaalissa osasta _n_ osaan _n+1_ eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan _n_ asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein _tavoiteoppimista_,[engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisen osan _vapaaehtoiset_ (mutta arvosteluun vaikuttavat) tehtävät on merkattu tähdellä.
 
-Estääksemme sen, että aloitat kurssin tekemisen vasta viimeisellä viikolla, on jokaisella osalla  myös hard deadline. Etenemiselle on siis jonkun verran joustoa, jotta ehdit tekemään kustakin osasta tarvittavan määrän tehtäviä. 
+Estääksemme sen, että aloitat kurssin tekemisen vasta viimeisellä viikolla, on jokaisella osalla  myös hard deadline. Etenemiselle on siis jonkun verran joustoa, jotta ehdit tekemään kustakin osasta tarvittavan määrän tehtäviä.
 
 Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekemisen vaatimat) työmäärät seuraavassa:
 
@@ -64,19 +64,19 @@ Tällä kurssilla suositellaan Chrome-selaimen käyttöä, sillä se tarjoaa par
 
 Kurssin tehtävät palautetaan GitHubiin, joten Git tulee olla asennettuna ja sitä on syytä osata käyttää.
 
-Asenna myös joku järkevä webkoodausta tukeva tekstieditori, enemmän kuin suositeltava valinta on [Visual studio code](https://code.visualstudio.com/). Myös [Atom](https://atom.io/) on tarkoitukseen toimiva. 
+Asenna myös joku järkevä webkoodausta tukeva tekstieditori, enemmän kuin suositeltava valinta on [Visual studio code](https://code.visualstudio.com/). Myös [Atom](https://atom.io/) on tarkoitukseen toimiva.
 
 Älä koodaa nanolla, Notepadilla tai Geditillä. NetBeanskaan ei ole omimmillaan Web-koodauksessa ja se on myös turhan raskas verrattuna esim. Visual Studio Codeen.
 
 Asenna koneeseesi heti myös [Node.js](https://nodejs.org/en/). Materiaali on tehty versiolla 8.6, älä asenna mitään sitä vanhempaa versiota.
 
-Asennusohjeita on koottu [tänne](/asennusohjeita). 
+Asennusohjeita on koottu [tänne](/asennusohjeita).
 
-Noden myötä koneelle asentuu myös Node package manager [npm](https://www.npmjs.com/get-npm), jota tulemme tarvitsemaan kurssin aikana aktiivisesti. Tuoreen noden kera asentuu myös [npx](https://www.npmjs.com/package/npx), jota tarvitaan myös muutaman kerran.  
+Noden myötä koneelle asentuu myös Node package manager [npm](https://www.npmjs.com/get-npm), jota tulemme tarvitsemaan kurssin aikana aktiivisesti. Tuoreen noden kera asentuu myös [npx](https://www.npmjs.com/package/npx), jota tarvitaan myös muutaman kerran.
 
 ## Typoja materiaalissa
 
-Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todella nopeasti. Materiaalissa on betatestauksesta ja oikoluvuista huolimatta kirjoitusvirheitä. Jos löydät kirjoitusvirheen tai joku asia on sanottu epäselvästi tai kielioppisääntöjen vastaisesti, tee _pull request_ repositoriossa <https://github.com/FullStack-HY/FullStack-Hy.github.io> olevaan kurssimateriaaliin. 
+Kurssilla on paljon materiaalia ja se on olosuhteiden pakosta kirjoitettu todella nopeasti. Materiaalissa on betatestauksesta ja oikoluvuista huolimatta kirjoitusvirheitä. Jos löydät kirjoitusvirheen tai joku asia on sanottu epäselvästi tai kielioppisääntöjen vastaisesti, tee _pull request_ repositoriossa <https://github.com/FullStack-HY/FullStack-Hy.github.io> olevaan kurssimateriaaliin.
 
 Pull requestin tekeminen on helppoa. Esim. jos tällä sivulla on typo, mene sivun "lähdekoodiin" https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/osa0.md klikkaa kynän kuvaa oikealta, tee muutokset ja klikkaa muutama kerta "vihreää" [Ohtu-kurssin ohjeen mukaan](https://github.com/mluukkai/ohjelmistotuotanto2017/blob/master/laskarit/2.md#typokorjauksia--vinkkejä).
 
@@ -193,7 +193,7 @@ app.get('/', (req, res) => {
 
 Koodia ei tarvitse vielä ymmärtää, mutta käytännössä HTML-sivun sisältö on talletettu ns. template stringinä, eli merkkijonona, jonka sekaan on mahdollisuus evaluoida esim. muuttujien arvoja. Etusivun dynaamisesti muuttuva osa, eli muistiinpanojen lukumäärä (koodissa _noteCount_) korvataan template stringissä sen hetkisellä konkreettisella lukuarvolla (koodissa _notes.length_).
 
-HTML:n kirjoittaminen suoraan koodin sekaan ei tietenkään ole järkevää, mutta vanhan liiton PHP-ohjelmoijille se oli arkipäivää. 
+HTML:n kirjoittaminen suoraan koodin sekaan ei tietenkään ole järkevää, mutta vanhan liiton PHP-ohjelmoijille se oli arkipäivää.
 
 Perinteisissä websovelluksissa selain on "tyhmä", se ainoastaan pyytää palvelimelta HTML-muodossa olevia sisältöjä, kaikki sovelluslogiikka on palvelimessa. Palvelin voi olla tehty esim. kurssin [Web-palvelinohjelmointi](https://courses.helsinki.fi/fi/tkt21007/119558639) tapaan Java Springillä tai[Tietokantasovelluksessa](http://tsoha.github.io/#/johdanto#top) PHP:llä tai [Ruby on Railsilla](http://rubyonrails.org/). Esimerkissä on käytetty Node.js:n [Express](https://expressjs.com/)-sovelluskehystä. Tulemme käyttämään kurssilla Node.js:ää ja Expressiä web-palvelimen toteuttamiseen.
 
@@ -651,7 +651,7 @@ Pelkän Javascriptin ja DOM-apin käytön sijaan Web-ohjelmoinnissa hyödynnetä
 
 JQuery on kehitetty aikana, jolloin web-sivut olivat vielä suurimmaksi osaksi perinteisiä, eli palvelin muodosti HTML-sivuja joiden toiminnallisuutta rikastettiin selaimessa JQueryllä kirjoitetun Javascript-koodin avulla.
 
-Single page app -tyylin noustua suosioon on ilmestynyt useita JQueryä "modernimpia" tapoja sovellusten kehittämiseen. Ensimmäisen aallon suosikki oli [BackboneJS](http://backbonejs.org/). Googlen kehittämä [AngularJS](https://angularjs.org/) nousi 2012 tapahtuneen [julkaisun](https://github.com/angular/angular.js/blob/master/CHANGELOG.md#100-temporal-domination-2012-06-13) jälkeen erittäin nopeasti lähes de facto -standardin asemaan modrnissa web-sovelluskehityksessä.
+Single page app -tyylin noustua suosioon on ilmestynyt useita JQueryä "modernimpia" tapoja sovellusten kehittämiseen. Ensimmäisen aallon suosikki oli [BackboneJS](http://backbonejs.org/). Googlen kehittämä [AngularJS](https://angularjs.org/) nousi 2012 tapahtuneen [julkaisun](https://github.com/angular/angular.js/blob/master/CHANGELOG.md#100-temporal-domination-2012-06-13) jälkeen erittäin nopeasti lähes de facto -standardin asemaan modernissa web-sovelluskehityksessä.
 
 Angularin suosio kuitenkin romahti siinä vaiheessa kun Angular-tiimi [ilmoitti](https://jaxenter.com/angular-2-0-announcement-backfires-112127.html) lokakuussa 2014, että version 1 tuki lopetetaan ja Angular 2 ei tule olemaan taaksepäin yhteensopiva ykkösversion kanssa. Angular 2 ja uudemmat versiot eivät ole saaneet kovin innostunutta vastaanottoa.
 
@@ -675,7 +675,7 @@ Aiemmin on ollut yleisempää, että sovelluskehittäjät ovat erikoistuneet tie
 
 ## Javascript fatigue
 
-Full stack -sovelluskehitys on monella tapaa haastavaa. Asioita tapahtuu monessa paikassa ja mm. debuggaaminen on oleellisesti normaalia työpöytäsovellusta hankalampaa. Javascript ei toimi aina niin kuin sen olettaisi toimivan (verratuna moniin muihin kieliin) ja sen suoritusympäristöjen asynkroninen toimintamalli aiheuttaa monenlaisia haasteita. Verkon yli tapahtuva kommunikointi edellyttää HTTP-protokollan tuntemusta. On tunnettava myös tietokantoja ja hallittava palvelinten konfigurointia ja ylläpitoa. Hyvä olisi myös hallita riittävästi CSS:ää, jotta sovellukset saataisiin edes siedettävän näköisiksi.
+Full stack -sovelluskehitys on monella tapaa haastavaa. Asioita tapahtuu monessa paikassa ja mm. debuggaaminen on oleellisesti normaalia työpöytäsovellusta hankalampaa. Javascript ei toimi aina niin kuin sen olettaisi toimivan (verrattuna moniin muihin kieliin) ja sen suoritusympäristöjen asynkroninen toimintamalli aiheuttaa monenlaisia haasteita. Verkon yli tapahtuva kommunikointi edellyttää HTTP-protokollan tuntemusta. On tunnettava myös tietokantoja ja hallittava palvelinten konfigurointia ja ylläpitoa. Hyvä olisi myös hallita riittävästi CSS:ää, jotta sovellukset saataisiin edes siedettävän näköisiksi.
 
 Oman haasteensa tuo vielä se, että Javascript-maailma etenee koko ajan todella kovaa vauhtia eteenpäin. Kirjastot, työkalut ja itse kielikin ovat jatkuvan kehityksen alla. Osa alkaa kyllästyä nopeaan kehitykseen ja sitä kuvaamaan on lanseerattu termi [Javascript](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4) [fatigue](https://auth0.com/blog/how-to-manage-javascript-fatigue/) eli [Javascript](https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f)-väsymys.
 

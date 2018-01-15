@@ -7,7 +7,7 @@ permalink: /tehtävät/
 
 # tehtävät
 
-[osa0](#osa-0) [osa1](#osa-1) 
+[osa0](#osa-0) [osa1](#osa-1)
 
 ## Palauttaminen
 
@@ -19,11 +19,11 @@ Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hake
 
 Tehtävät palautetaan yksi osa kerrallaan. Kun olet palauttanut osan tehtävät, et voi enää palauttaa saman osan tekemättä jättämiäsi tehtäviä.
 
-GitHubiin palautettuja tehtäviä tarkastetaan pistokokein. Jos GitHubista löytyy kurssin mallivastausten koodia tai useammalta opiskelijalta löytyy samaa koodia, käsitellään tilanne yliopiston [vilppikäytäntöjen](http://blogs.helsinki.fi/alakopsaa/opettajalle/epailen-opiskelijaa-vilpista-mita-tehda/) mukaan. 
+GitHubiin palautettuja tehtäviä tarkastetaan pistokokein. Jos GitHubista löytyy kurssin mallivastausten koodia tai useammalta opiskelijalta löytyy samaa koodia, käsitellään tilanne yliopiston [vilppikäytäntöjen](http://blogs.helsinki.fi/alakopsaa/opettajalle/epailen-opiskelijaa-vilpista-mita-tehda/) mukaan.
 
 ## Osa 0
 
-Deadline 28.1. 
+Deadline 28.1.
 
 Osassa on 6 tehtävää joista kaikki ovat pakollisia. Voit edetä osaan 1 vasta tehtävät palautettuasi.
 
@@ -94,7 +94,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 ## Osa 1
 
-Deadline 28.1. 
+Deadline 28.1.
 
 Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
@@ -167,7 +167,6 @@ const Sisalto = ... {
       <Osa .../>
     </div>
   )
-
 }
 ```
 

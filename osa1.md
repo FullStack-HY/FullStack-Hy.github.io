@@ -19,7 +19,7 @@ permalink: /osa1/
   - komponentin tila
   - tilan päivittämisen periaatteet
   - tapahtumankäsittelyn perusteet
-  
+
 - Javascript
   - muuttujien määrittely
   - taulukko ja sen operaatiot (mm. concat, forEach, join ja map)
@@ -34,7 +34,7 @@ permalink: /osa1/
 
 Alamme nyt tutustua kurssin ehkä tärkeimpään teemaan, [React](https://reactjs.org/)-kirjastoon. Tehdään heti yksinkertainen React-sovellus ja tutustutaan samalla Reactin peruskäsitteistöön.
 
-Ehdottomasti helpoin tapa päästä alkuun on [create-react-app](https://github.com/facebookincubator/create-react-app)-nimisen työkalun käyttö. _create-react-app_ on mahdollista asentaa, mutta asennukseen ei ole tarvetta jos Noden mukana asentunut _npm_-työkalu on versioltaan vähintään __5.3_. Tällöin npm:n mukana asentuu komento _npx_, joka mahdollistaa create-react-app:in käytön asentamatta sitä erikseen. Npm:n version saa selville komennolla _npm -v_. Laitoksen koneilla ja fuksiläpäreillä asian pitäisi olla kunnossa.
+Ehdottomasti helpoin tapa päästä alkuun on [create-react-app](https://github.com/facebookincubator/create-react-app)-nimisen työkalun käyttö. _create-react-app_ on mahdollista asentaa, mutta asennukseen ei ole tarvetta jos Noden mukana asentunut _npm_-työkalu on versioltaan vähintään _5.3_. Tällöin npm:n mukana asentuu komento _npx_, joka mahdollistaa create-react-app:in käytön asentamatta sitä erikseen. Npm:n version saa selville komennolla _npm -v_. Laitoksen koneilla ja fuksiläpäreillä asian pitäisi olla kunnossa.
 
 Luodaan sovellus nimeltään _osa1_ ja käynnistetään se:
 
@@ -157,7 +157,7 @@ Aaltosulkeiden sisällä oleva Javascript-koodi evaluoidaan ja evaluoinnin tulos
 
 ### JSX
 
-Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa Javascriptiä. React komponenttien palauttama JSX käännetään konepellin alla Javascriptiksi. 
+Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa Javascriptiä. React komponenttien palauttama JSX käännetään konepellin alla Javascriptiksi.
 
 Käännösvaiheen jälkeen ohjelmamme näyttää seuraavalta:
 
@@ -375,7 +375,7 @@ Selaimet eivät vielä osaa kaikkia Javascriptin uusimpien versioiden ominaisuuk
 
 Tällä hetkellä johtava tapa tehdä transpilointi on [Babel](https://babeljs.io/). Create-react-app:in avulla luoduissa React-sovelluksissa on valmiiksi konfiguroitu automaattinen transpilaus. Katsomme kurssin [osassa 7](/osa7) tarkemmin miten transpiloinnin konfigurointi tapahtuu.
 
-[Node.js](https://nodejs.org/en/) on melkein missä vaan, mm. palvelimilla toimiva, Googlen [chrome V8](https://developers.google.com/v8/)-javascriptmoottoriin perustuva Javascript-suoritusympäristö. Harjoitellaan hieman Javascriptiä Nodella. Tässä oletetaan, että koneellasi on Node.js:stä vähintään versio _v8.6.0_. Noden tuoreet versiot osaavat suoraan Javascriptin uusia versioita, joten koodin transpilaus ei ole tarpeen. 
+[Node.js](https://nodejs.org/en/) on melkein missä vaan, mm. palvelimilla toimiva, Googlen [chrome V8](https://developers.google.com/v8/)-javascriptmoottoriin perustuva Javascript-suoritusympäristö. Harjoitellaan hieman Javascriptiä Nodella. Tässä oletetaan, että koneellasi on Node.js:stä vähintään versio _v8.6.0_. Noden tuoreet versiot osaavat suoraan Javascriptin uusia versioita, joten koodin transpilaus ei ole tarpeen.
 
 Koodi kirjoitetaan <em>.js-</em>päätteiseen tiedostoon, ja suoritetaan komennolla <code>node tiedosto.js</code>
 
@@ -401,7 +401,7 @@ console.log(x, y)  // tulostuu 1, teksti
 x = 4              // aiheuttaa virheen
 ```
 
-[const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) ei oikeastaan määrittele muuttujaa vaan _vakion_, jonka arvoa ei voi enää muuttaa. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) taas määrittelee normaalin muuttujan. 
+[const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) ei oikeastaan määrittele muuttujaa vaan _vakion_, jonka arvoa ei voi enää muuttaa. [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) taas määrittelee normaalin muuttujan.
 
 Esimerkistä näemme myös, että muuttujan tallettaman tiedon tyyppi voi vaihtaa tyyppiä suorituksen aikana, _y_ tallettaa aluksi luvun ja lopulta merkkijonon.
 
@@ -430,7 +430,7 @@ t[6] = 99
 console.log(t)         // tulostuu [ 1, -1, 3, 5, <2 empty items>, 99 ]
 ```
 
-Huomattavaa esimerkissä on se, että taulukon sisältöä voi muuttaa vaikka sen on määritelty _const_:ksi. Koska taulukko on olio, 
+Huomattavaa esimerkissä on se, että taulukon sisältöä voi muuttaa vaikka sen on määritelty _const_:ksi. Koska taulukko on olio,
 viittaa muuttuja koko ajan samaan olioon. Olion sisältö muuttuu sitä mukaa kuin taulukkoon lisätään uusia alkioita.
 
 Eräs tapa käydä taulukon alkiot läpi on esimerkissä käytetty _forEach_, joka saa parametrikseen nuolisyntaksilla määritellyn _funktion_
@@ -462,7 +462,7 @@ Taulukon yksittäisiä alkioita on helppo sijoittaa muuttujiin [destrukturoivan]
 ```js
 const t = [1, 2, 3, 4, 5]
 
-const [eka, toka, ...loput] = t 
+const [eka, toka, ...loput] = t
 
 console.log(eka, toka)      // tulostuu 1, 2
 console.log(loput)          // tulostuu [3, 4 ,5]
@@ -1464,7 +1464,7 @@ Reactissa parhaana käytänteenä on sijoittaa tila [mahdollisimman ylös](https
 Jätetään sovelluksen tila, eli laskimen arvo komponenttiin _App_ ja välitetään tila _props_:ien avulla komponentille _Display_:
 
 ```react
-const Display = (props) => { 
+const Display = (props) => {
   return (
     <div>{props.counter}</div>
   )
@@ -1476,7 +1476,7 @@ Kyseessä on siis todella yksinkertainen komponentti joka kannattaa ehdottomasti
 Voimme hyödyntää aiemmin mainittua [destrukturointia](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) myös metodien parametreissa. Eli koska olemme kiinnostuneita _props_:in kentästä _counter_, on edellinen mahdollista yksinkertaistaa seuraavaan muotoon:
 
 ```react
-const Display = ({ counter }) => { 
+const Display = ({ counter }) => {
   return (
     <div>{counter}</div>
   )
@@ -1766,7 +1766,7 @@ Näppäilyhistorian esittäminen alkaa olla jo sen verran monimutkainen operaati
 
 Olemme nyt esitelleet kaksi erilaista tapaa komponenttien määrittelemiseen. Kumpaa tulisi käyttää? Useimpien vastauksena on, [käytä funktionaalista komponenttia aina kun se on mahdollista](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc).
 
-Jos komponentti tarvitsee tilaa, on luokkasyntaksin käyttäminen välttämätöntä. Kannattaa kuitenkin muistaa, että Reactin filosofian mukaista on sijoittaa tila [mahdollisimman ylös](https://reactjs.org/docs/lifting-state-up.html) komponenttihierarkiaan, mielellään ainoastaan sovelluksen juurikomponenttiin. Näin tilallisten komponenttien potentiaalinen tarvekin on vähäisempi. 
+Jos komponentti tarvitsee tilaa, on luokkasyntaksin käyttäminen välttämätöntä. Kannattaa kuitenkin muistaa, että Reactin filosofian mukaista on sijoittaa tila [mahdollisimman ylös](https://reactjs.org/docs/lifting-state-up.html) komponenttihierarkiaan, mielellään ainoastaan sovelluksen juurikomponenttiin. Näin tilallisten komponenttien potentiaalinen tarvekin on vähäisempi.
 
 Joskus komponenttien on käytettävä [osassa 2 esiteltäviä](osa2/#komponenttien-lifecycle-metodit) lifecycle-metodeja, myös niissä tapauksissa on pakko käyttää luokkiin perustuvia komponentteja.
 
