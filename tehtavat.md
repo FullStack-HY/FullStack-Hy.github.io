@@ -1,6 +1,6 @@
 ---
 layout: page
-title: tehtavät
+title: tehtävät
 inheader: yes
 permalink: /tehtävät/
 ---
