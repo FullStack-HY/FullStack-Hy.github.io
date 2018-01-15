@@ -8,7 +8,7 @@ permalink: /asennusohjeita/
 
 Tähän dokumenttiin on koottu muutamia Noden asennusohjeita.
 
-**HUOM:** riippumatta siitä miten asennat nyt Noden, älä asenna kurssin aikana npm:llä mitään "globaalisti", eli komennolla _npm install -g_, (käyttäen tarkenninta g) sille ei ole tarvetta ja koulun koneilla et sitä edes pysty tekemään.
+**HUOM:** riippumatta siitä miten asennat nyt Noden, **älä asenna kurssin aikana npm:llä mitään "globaalisti"**, eli komennolla _npm install -g_, (käyttäen tarkenninta g) sille ei ole tarvetta ja koulun koneilla et sitä edes pysty tekemään.
 
 ### Laitoksen koneet ja fuksiläppärit
 
@@ -18,9 +18,9 @@ Jos fuksiläppärisi on varhaisempaa mallia, ota yhteys IT-ylläpidon Jani Jaakk
 
 ### Linux
 
-Tapoja on monia, tässä eräs
+Tapoja on monia, tässä eräs (ei edellytä pääkäyttöoikeuksia):
 
-1. Lataa https://nodejs.org/en/download/ tai https://nodejs.org/en/download/current/ -sivulta Linux Binaries (x86/x64) -kohdasta 64-bittinen paketti
+1. Lataa <https://nodejs.org/en/download/> tai <https://nodejs.org/en/download/current/> -sivulta Linux Binaries (x86/x64) -kohdasta 64-bittinen paketti
 
 2. Pura paketti kotihakemistossa:
 ```tar xvJf ~/Downloads/node-VERSIO-linux-x64.tar.xz```
@@ -28,17 +28,19 @@ Tapoja on monia, tässä eräs
 3. Lisää polkuun uuden hakemiston sisällä oleva bin-hakemisto (eli .bashrc tiedostoon, korvaa VERSIO:
 ```export PATH=~/node-VERSIO-linux-x64/bin:$PATH```
 
+Jos sinulla on pääkäyttäjän oikeudet, on asennus mahdollista suorittaa paketinhallintaa käyttäen. Tällöin täytyy kuitenkin varmistaa, että Nodesta tulee käyttöön riittävän tuore versio (vähintään 8.6). Jos ei, voi päivityksen hoitaa _nvm_-työkalulla. Jos jollakin on ohje tämän tekemiseen, niin otan mielellään pull requestin vastaan.
+
 ### Mac
 
-Käytä [macOS installeria](https://nodejs.org/en/download/)
+Käytä [macOS installeria](https://nodejs.org/en/download/). Edellyttää pääkäyttäjän oikeuksia.
 
 ### Windows
 
-Tapoja on kaksi, voit käyttää [Windows-installeria](https://nodejs.org/en/download/)
+Tapoja on kaksi, voit jos sinulla on pääkäyttäjän oikeudet, kannattaa käyttää [Windows-installeria](https://nodejs.org/en/download/)
 
-**tai** toimia seuraavasti
+Ilman pääkäyttäjän oikeuksia asennus onnistuu seuraavasti
 
-1. Lataa https://nodejs.org/en/download/ -sivulta Windows Binaries
+1. Lataa sivulta <https://nodejs.org/en/download/> Windows Binaries
 
 2. Pura paketti haluamaasi kansioon (esim. %userprofile%\Applications\node)
 
