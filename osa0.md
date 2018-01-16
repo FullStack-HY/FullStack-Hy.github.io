@@ -39,11 +39,11 @@ Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekem
 | -------------- |:-----------------:       |:-----:|
 | osa 0 ja osa 1 | 28.1.                    | 11   |
 | osa 2          | 4.2.                     | 11   |
-| osa 3          | 11.2.                    | 9.5  |
+| osa 3          | 11.2.                    | 10   |
 | osa 4          | 25.2.                    | 14   |
 | osa 5          | 4.3.                     | 16.5 |
 | osa 6          | 11.3.                    | 13   |
-| osa 7          | 11.3.                    | ?    |
+| osa 7          | 11.3.                    | 13   |
 
 
 Keskimääräisten työmäärien arvio perustuu kurssin [betaversiota](https://mluukkai.github.io) joululoman aikana testanneilta 15:lta opiskelijalta kerättyyn dataan. Kannattaa huomata, että työmäärissä on suuri varianssi, esim. osan 0 ja 1 yhteenlaskettu ajankäyttö vaihteli 5 ja 20 tunnin väliltä.
