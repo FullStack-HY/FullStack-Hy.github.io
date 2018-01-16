@@ -28,7 +28,7 @@ permalink: /osa2/
 
 <div class='important deprecated'>
   <p>PÄIVITYS KESKEN</p>
-  <p>Ilmestsyy ke 17.1. klo 17 mennessä.</p>
+  <p>Ilmestyy ke 17.1. klo 17 mennessä.</p>
 </div>
 
 ## Taulukkojen käyttö Javascriptissä
