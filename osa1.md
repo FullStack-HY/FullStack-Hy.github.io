@@ -1046,7 +1046,7 @@ Jos komponentti ei renderöidy vaikka sen omasta mielestä pitäisi, tai se rend
 class App extends React.Component {
   // ...
   render() {
-    conslole.log('renderöidään', this.state.counter)
+    console.log('renderöidään', this.state.counter)
     return (
       <div>{this.state.counter}</div>
     )
