@@ -1,6 +1,5 @@
 ---
 layout: page
-title: osa 2
 permalink: /osa2/
 ---
 
