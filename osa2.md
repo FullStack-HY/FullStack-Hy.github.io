@@ -26,7 +26,7 @@ permalink: /osa2/
   - taulukoiden käsittelyä: map, filter, find
 
 
-<div class='important deprecated'>
+<div class='important deprecated.'>
   <p>PÄIVITYS KESKEN</p>
   <p>Ilmestyy ke 17.1. klo 17 mennessä.</p>
 </div>
@@ -758,12 +758,11 @@ const person = { name, age }
 
 lopputulos molemmilla tavoilla luotuun olioon on täsmälleen sama.
 
-
-Tämän hetkinen koodi on kokonaisuudessaan [githubissa]((https://github.com/FullStack-HY/part2-notes/tree/part2-2)), tagissa _part2-2_.
+Tämän hetkinen koodi on kokonaisuudessaan [githubissa]((https://github.com/FullStack-HY/part2-notes/tree/part2-2), tagissa _part2-2_.
 
 ## Näytettävien elementtien filtteröinti
 
-Tehdään sovellukseen feature, joka mahdollistaa ainoastaan tärkeiden muistiinpanojen näyttämisen.
+Tehdään sovellukseen toiminto, joka mahdollistaa ainoastaan tärkeiden muistiinpanojen näyttämisen.
 
 Lisätään komponentin _App_ tilaan tieto siitä näytetäänkö muistiinpanoista kaikki vai ainoastaan tärkeät:
 
@@ -773,7 +772,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       notes: props.notes ,
-      new_note: '',
+      newNote: '',
       showAll: true
     }
   }
@@ -903,17 +902,18 @@ Napin teksti määritellään muuttujaan, jonka arvo määräytyy tilan perustee
 const label = this.state.showAll ? 'vain tärkeät' : 'kaikki'
 ```
 
+Tämän hetkinen koodi on kokonaisuudessaan [githubissa]((https://github.com/FullStack-HY/part2-notes/tree/part2-3), tagissa _part2-3_.
+
+
 ### Tehtäviä lomakkeista
 
-Tee nyt tehtävät [26-30](../tehtavat#lomakkeet)
+Tee nyt tehtävät [2.6-2.10](../tehtavat#lomakkeet)
 
 ## Datan haku palvelimelta
 
 Olemme nyt viipyneet tovin keskittyen pelkkään "frontendiin", eli selainpuolen toiminnallisuuteen. Rupeamme itse toteuttamaan "backendin", eli palvelinpuolen toiminnallisuutta vasta kurssin kolmannessa osassa, mutta otamme nyt jo askeleen sinne suuntaan tutustumalla siihen miten selaimessa suoritettava koodi kommunikoi backendin kanssa.
 
 Käytetään nyt palvelimena sovelluskehitykseen tarkoitettua [JSON Serveriä](https://github.com/typicode/json-server).
-
-[Asenna](https://github.com/typicode/json-server#install) JSON server.
 
 Tee projektin juurihakemistoon tiedosto _db.json_, jolla on seuraava sisältö:
 
@@ -942,15 +942,17 @@ Tee projektin juurihakemistoon tiedosto _db.json_, jolla on seuraava sisältö:
 }
 ```
 
-Käynnistä _json-server_ porttiin 3001:
+JSON server on mahdollista [asentaa](https://github.com/typicode/json-server#install) koneelle ns. globaalisti komennolla _npm install -g jsno-server_. Globaali asennus edellyttää kuitenkin pääkäyttäjän oikeuksia, eli se ei ole mahdollista laitoksen koneilla tai uusilla fuksiläppäreillä. 
+
+Globaali asennus ei kuitenkaan ole tarpeen, voimme käynnistää _json-serverin_ komennon _npx_ avulla:
 
 ```bash
-json-server --port=3001 --watch db.json
+npx json-server --port=3001 --watch db.json
 ```
 
-Oletusarvoisesti _json-server_ käynnistyy porttiin 3000, mutta create-react-app:illa luodut projektit varaavat portin 3000, joten joudumme nyt määrittelemään json-server:ille vaihtoehtoisen portin.
+Oletusarvoisesti _json-server_ käynnistyy porttiin 3000, mutta create-react-app:illa luodut projektit varaavat portin 3000, joten joudumme nyt määrittelemään json-server:ille vaihtoehtoisen portin 3001.
 
-Mennään selaimella osoitteeseen <http://localhost:3001/notes>. Kuten huomaamme, _json-server_ tarjoaa osoitteessa tiedostoon tallentamamme muistiinpanot:
+Mennään selaimella osoitteeseen <http://localhost:3001/notes>. Kuten huomaamme, _json-server_ tarjoaa osoitteessa tiedostoon tallentamamme muistiinpanot JSON-muodossa:
 
 ![]({{ "/assets/2/6.png" | absolute_url }})
 
@@ -962,14 +964,14 @@ Tutustumme palvelinpuolen toteuttamisen periaatteisiin tarkemmin kurssin [osassa
 
 ### Selain suoritusympäristönä
 
-Ensimmäisenä tehtävänämme on siis hakea React-sovellukseen jo olemassaolevat mustiinpano osoitteesta <http://localhost:3001/notes>.
+Ensimmäisenä tehtävänämme on siis hakea React-sovellukseen jo olemassaolevat mustiinpanot osoitteesta <http://localhost:3001/notes>.
 
 
-Osan 1 [esimerkkiprojektissa](osa1/#elaimessa-suoritettava-sovelluslogiikka) nähtiin jo eräs tapa hakea javascript-koodista palvelimella olevaa dataa. Esimerkin koodissa data haettiin [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) eli XHR-olion avulla muodostetulla HTTP-pyynnöllä. Kyseessä on 1999 lanseerattu tekniikka, jota kaikki web-selaimet ovat jo pitkään tukeneet.
+Osan 1 [esimerkkiprojektissa](osa1/#elaimessa-suoritettava-sovelluslogiikka) nähtiin jo eräs tapa hakea Javascript-koodista palvelimella olevaa dataa. Esimerkin koodissa data haettiin [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)- eli XHR-olion avulla muodostetulla HTTP-pyynnöllä. Kyseessä on 1999 lanseerattu tekniikka, jota kaikki web-selaimet ovat jo pitkään tukeneet.
 
-Nykyään XHR:ää ei kuitenkaan kannata juurikaan käyttää ja selaimet tukevatkin jo laajasti [fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)-metodia, joka perustuu XHR:n käyttämän tapahtumapohjaisen mallin sijaan ns. [promiseja](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+Nykyään XHR:ää ei kuitenkaan kannata käyttää ja selaimet tukevatkin jo laajasti [fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)-metodia, joka perustuu XHR:n käyttämän tapahtumapohjaisen mallin sijaan ns. [promiseihin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-Muistutuksena viime viikosta (oikeastaan tätä tapaa pitää lähinnä _muistaa olla käyttämättä_ ilman painavaa syytä), XHR:llä haettiin dataa seuraavasti
+Muistutuksena edellisestä osasta (oikeastaan tätä tapaa pitää lähinnä _muistaa olla käyttämättä_ ilman painavaa syytä), XHR:llä haettiin dataa seuraavasti
 
 ```js
 const xhttp = new XMLHttpRequest()
@@ -985,16 +987,17 @@ xhttp.open('GET', '/data.json', true)
 xhttp.send()
 ```
 
-Heti alussa HTTP-pyyntöä vastaavalle _xhttp_-oliolle rekisteröidään tapahtumankäsittelijä, jota javascript runtime kutsuu kun _xhttp_-olion tila muuttuu. Jos tilanmuutos tarkoittaa että pyynnön vastaus on saapunut, käsitellään data halutulla tavalla.
+Heti alussa HTTP-pyyntöä vastaavalle _xhttp_-oliolle rekisteröidään _tapahtumankäsittelijä_, jota Javascript runtime kutsuu kun _xhttp_-olion tila muuttuu. Jos tilanmuutos tarkoittaa että pyynnön vastaus on saapunut, käsitellään data halutulla tavalla.
 
-Huomionarvoista on se, että tapahtumankäsittelijän koodi on määritelty jo ennen kun itse pyyntö lähetetään palvelimelle. Tapahtumankäsittelijäfunktio tullaan kuitenkin suorittamaan vasta jossain myöhäisemmässä vaiheessa. Koodin suoritus ei siis etene synkronisesti "ylhäältä alas", vaan _asynkronisesti_, javascript kutsuu sille rekisteröityä tapahtumankäsittelijäfunktiota jossain vaiheessa.
+Huomionarvoista on se, että tapahtumankäsittelijän koodi on määritelty jo ennen kun itse pyyntö lähetetään palvelimelle. Tapahtumankäsittelijäfunktio tullaan kuitenkin suorittamaan vasta jossain myöhäisemmässä vaiheessa. Koodin suoritus ei siis etene synkronisesti "ylhäältä alas", vaan _asynkronisesti_, Javascript kutsuu sille rekisteröityä tapahtumankäsittelijäfunktiota jossain vaiheessa.
 
 Esim. Java-ohjelmoinnista tuttu synkroninen tapa tehdä kyselyjä etenisi seuraavaan tapaan (huomaa että kyse ei ole oikeasti toimivasta Java-koodista):
 
 ```java
 HTTPRequest request = new HTTPRequest()
 
-List<Muistiinpano> muistiinpanot = request.get("https://fullstack-exampleapp.herokuapp.com/data.json");
+String url = "https://fullstack-exampleapp.herokuapp.com/data.json";
+List<Muistiinpano> muistiinpanot = request.get(url);
 
 muistiinpanot.forEach(m => {
   System.out.println(m.content);
@@ -1007,11 +1010,11 @@ Javascript-enginet eli suoritusympäristöt kuitenkin noudattavat [asynkronista 
 
 Siinä vaiheessa kun operaatio valmistuu tai tarkemmin sanoen jonain valmistumisen jälkeisenä ajanhetkenä, kutsuu Javascript-engine operaatiolle rekisteröityjä tapahtumankäsittelijöitä.
 
-Nykyisellään javascript-moottorit ovat _yksisäikeisiä_ eli ne eivät voi suorittaa rinnakkaista koodia. Tämän takia on käytännössä pakko käyttää ei-blokkaavaa maillia IO-operaatioiden suorittamiseen, sillä muuten esim. selain 'jäätyisi' siksi aikaa kun esim. palvelimelta haetaan dataa.
+Nykyisellään Javascript-moottorit ovat _yksisäikeisiä_ eli ne eivät voi suorittaa rinnakkaista koodia. Tämän takia on käytännössä pakko käyttää ei-blokkaavaa maillia IO-operaatioiden suorittamiseen, sillä muuten selain 'jäätyisi' siksi aikaa kun esim. palvelimelta haetaan dataa.
 
-Javasript-moottoreiden yksisäikeisyydellä on myös sellainen seuraus, että jos koodin suoritus kestää erittäin pitkään, selain jäätyy suorituksen ajaksi. Jos lisätään jonnekin kohtaa sovellustamme, esim. konstruktoriin seuraava koodi:
+Javasript-moottoreiden yksisäikeisyydellä on myös sellainen seuraus, että jos koodin suoritus kestää erittäin pitkään, menee selain suorituksen ajaksi. Jos lisätään jonnekin kohtaa sovellustamme, esim. konstruktoriin seuraava koodi:
 
-```
+```js
 setTimeout(() => {
   console.log('loop..')
   let i = 0
@@ -1067,6 +1070,8 @@ Haluamme nyt käyttöömme axioksen. Voisimme määritellä kirjaston suoraan ti
 npm install axios --save
 ```
 
+**Huomaa, että _npm_-komennot tulee antaa aina projektin juurihakemistossa**, eli siinä minkä sisältä tiedosto _package.json_ löytyy.
+
 Nyt axios on mukana riippuvuuksien joukossa:
 
 ```json
@@ -1082,6 +1087,40 @@ Nyt axios on mukana riippuvuuksien joukossa:
 ```
 
 Sen lisäksi, että komento _npm install_ lisäsi axiosin riippuvuuksien joukkoon, se myös _latasi_ kirjaston koodin. Koodi löytyy muiden riippuvuuksien tapaan projektin juuren hakemistosta _node_modules_, mikä kuten huomata saattaa sisältääkin runsaasti kaikenlaista.
+
+Tehdään toinenkin pieni lisäys. Asennetaan myös _json-server_ projektin riippuvuudeksi komennolla
+
+```bash
+npm install json-server --save
+```
+
+ja lisätään tiedoston _package.json_ osaan _scripts_ rivi 
+
+```bash
+"server": "json-server -p3001 db.json"
+```
+
+eli muutetaan se muotoon
+
+```json
+{
+  /*...*/
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server": "json-server -p3001 db.json"
+  }
+}
+```
+
+Nyt voimme käynnistää (muista sammuttaa aiemmin käynnistämäsi!) json-serverin projektin hakemistosta mukavasti ilman tarvetta parametrien määrittelylle komennolla
+
+```bash
+npm run server
+```
+
 
 Tutustumme npm:n tarkemmin kurssin [kolmannessa osassa](/osa3).
 
@@ -1102,6 +1141,8 @@ console.log(promise)
 const promise2 = axios.get('http://localhost:3001/foobar')
 console.log(promise2)
 ```
+
+Konsoliin tulostuu seuraavaa
 
 ![]({{ "/assets/2/8.png" | absolute_url }})
 
