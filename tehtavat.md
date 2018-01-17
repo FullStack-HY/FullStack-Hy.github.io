@@ -808,21 +808,25 @@ Palvelimelta tiettyä henkilöä vastaava resurssi tuhotaan tekemällä HTTP DEL
 
 [Axios](https://github.com/axios/axios)-kirjaston avulla HTTP DELETE -pyyntö tehdään samaan tapaan kuin muutkin pyynnöt.
 
+#### 2.17* puhelinluettelo osa 10
+
+Muuta toiminnallisuutta siten, että jos jo olemassaolevalle henkilölle lisätään numero, korvaa lisätty numero aiemman numeron. 
+
+Jos henkilön tiedot löytyvät jo luettelosta, voi ohjelma kysyä käyttäjältä varmistuksen korvataanko numero
+
+![]({{ "/images/teht/16a.png" | absolute_url }})
+
 # PÄIVITETTY TÄHÄN ASTI
-
-#### 2.17 puhelinluettelo osa 10
-
-Muuta toiminnallisuutta siten, että jos jo olemassaolevalle henkilölle lisätään numero, korvaa lisätty numero aiemman numeron. Huolehdi siitä, että yhteystietojen listan järjestys ei muutu muutosten myötä.
 
 ### tyylit
 
-#### 2.18 puhelinluettelo osa 11
+#### 2.18* puhelinluettelo osa 11
 
 Toteuta osan 2 esimerkin [parempi virheilmoitus](osa2/#parempi-virheilmoitus) tyyliin ruudulla muutaman sekunnin näkyvä ilmoitus, joka kertoo onnistuneista operaatioista (henkilön lisäys ja poisto, sekä numeron muutos):
 
 <img src="/assets/teht/17.png" height="300">
 
-#### 2.19 puhelinluettelo osa 12
+#### 2.19* puhelinluettelo osa 12
 
 Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muuttaa henkilön numeroa_ toisesta selaimesta, tapahtuu virhetilanne:
 
