@@ -434,6 +434,8 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 deadline 4.2. klo 23:59 
 
+Osassa on 19 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+
 Osa kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
 ### Kokoelmien renderöinti
@@ -505,7 +507,7 @@ Ilmoita myös kurssin yhteenlaskettu tehtävien lukumäärä
 
 ![]({{ "/images/teht/9.png" | absolute_url }})
 
-#### 2.3 reduce
+#### 2.3* reduce
 
 Jos et jo niin tehnyt, laske koodissasi tehtävien määrä taulukon metodilla [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
@@ -665,7 +667,7 @@ Sovellus voi näyttää tässä vaiheessa seuraavalta. Kuvassa myös [react deve
 
 ![]({{ "/assets/teht/12.png" | absolute_url }})
 
-#### 2.9 puhelinluettelo osa 4
+#### 2.9* puhelinluettelo osa 4
 
 Tee lomakkeeseen hakukenttä, jonka avulla näytettävien nimien listaa voidaan rajata:
 
@@ -822,15 +824,15 @@ Jos henkilön tiedot löytyvät jo luettelosta, voi ohjelma kysyä käyttäjält
 
 Toteuta osan 2 esimerkin [parempi virheilmoitus](osa2/#parempi-virheilmoitus) tyyliin ruudulla muutaman sekunnin näkyvä ilmoitus, joka kertoo onnistuneista operaatioista (henkilön lisäys ja poisto, sekä numeron muutos):
 
-<img src="/assets/teht/17.png" height="300">
+![]({{ "/assets/teht/17.png" | absolute_url }})
 
-# PÄIVITETTY TÄHÄN ASTI
 
 #### 2.19* puhelinluettelo osa 12
 
 Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muuttaa henkilön numeroa_ toisesta selaimesta, tapahtuu virhetilanne:
 
-<img src="/assets/teht/18.png" height="300">
+![]({{ "/assets/teht/18.png" | absolute_url }})
+
 
 Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle.
 
