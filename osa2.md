@@ -233,7 +233,7 @@ eli kompaktissa muodossa kirjoitettu nuolifunktio, joka on täydelliseltä kirjo
 }
 ```
 
-eli funktio saa paramtrikseen muistiinpano-olion ja _palauttaa_ sen kentän _id_ arvon.
+eli funktio saa parametrikseen muistiinpano-olion ja _palauttaa_ sen kentän _id_ arvon.
 
 Muuttamalla komento muotoon 
 
@@ -249,7 +249,7 @@ Tämä on jo lähellä käyttämäämme React-koodia:
 notes.map(note => <li key={note.id}>{note.content}</li>)
 ```
 
-joka muodostaa jokaista muistiinpano-olioa vastaavan _li_-tagin, jonka sisään tulee muitiinpanon sisältö.
+joka muodostaa jokaista muistiinpano-olioa vastaavan _li_-tagin, jonka sisään tulee muistiinpanon sisältö.
 
 Koska metodin _map_ parametrina olevan funktion
 
@@ -257,7 +257,7 @@ Koska metodin _map_ parametrina olevan funktion
 note => <li key={note.id}>{note.content}</li>
 ```
 
-käyttötarkoitus on näkymäelementtien muodostaminen, tulee muuttujan arvo renderöidä alltosulkeiden sisällä. Kokeile mitä koodi tekee, jos poistat aaltosulkeet.
+käyttötarkoitus on näkymäelementtien muodostaminen, tulee muuttujan arvo renderöidä aaltosulkeiden sisällä. Kokeile mitä koodi tekee, jos poistat aaltosulkeet.
 
 Aaltosulkeiden käyttö tulee varmaan aiheuttamaan alussa pientä päänvaivaa, mutta totut niihin pian. Reactin antama visuaalinen feedback on välitön.
 
