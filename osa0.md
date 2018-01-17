@@ -424,6 +424,12 @@ HTML-dokumenttia esittävän DOM-puun ylimpänä solmuna on olio nimeltään _do
 
 ![]({{ "/assets/1/14.png" | absolute_url }})
 
+Tiedot saa esiin komennolla:
+
+```js
+document
+```
+
 Voimme suorittaa konsolista käsin DOM-apin avulla erilaisia operaatioita selaimessa näytettävälle web-sivulle hyödyntämällä _document_-olioa.
 
 Lisätään nyt sivulle uusi muistiinpano suoraan konsolista.
