@@ -29,7 +29,7 @@ Materiaali perustuu muutamien osasta osaan vaihtuvien esimerkkiohjelmien asteitt
 
 Kurssi koostuu kahdeksasta osata, joista ensimmäinen on historiallisista syistä numero nolla. Osat voi tulkita löyhästi ajatellen viikoiksi. Osia kuitenkin ilmestyy nopeampaa tahtia, ja suoritusnopeuskin on melko vapaa.
 
-Materiaalissa osasta _n_ osaan _n+1_ eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan _n_ asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein _tavoiteoppimista_,[engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisen osan _vapaaehtoiset_ (mutta arvosteluun vaikuttavat) tehtävät on merkattu tähdellä.
+Materiaalissa osasta _n_ osaan _n+1_ eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan _n_ asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein _tavoiteoppimista_, [engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä (noin 80%) edellisen osan tehtävistä on tehty. Jokaisen osan _vapaaehtoiset_ (mutta arvosteluun vaikuttavat) tehtävät on merkattu tähdellä.
 
 Estääksemme sen, että aloitat kurssin tekemisen vasta viimeisellä viikolla, on jokaisella osalla  myös hard deadline. Etenemiselle on siis jonkun verran joustoa, jotta ehdit tekemään kustakin osasta tarvittavan määrän tehtäviä.
 
@@ -322,7 +322,7 @@ console.log(data)
 
 eli vastaanotettuaan datan palvelimelta, koodi tulostaa datan konsoliin.
 
-Konsolin välilehti _Console_ sekä komento_console.log_ tulevat varmasti erittäin tutuiksi kurssin kuluessa.
+Konsolin välilehti _Console_ sekä komento _console.log_ tulevat varmasti erittäin tutuiksi kurssin kuluessa.
 
 
 ### Tapahtumankäsittelijä ja takaisinkutsu ###
@@ -391,7 +391,7 @@ Document Object Model eli [DOM](https://en.wikipedia.org/wiki/Document_Object_Mo
 
 Edellisessä luvussa esittelemämme Javascript-koodi käytti nimenomaan DOM-apia lisätäkseen sivulle muistiinpanojen listan.
 
-Allaoleva koodi luo muuttujaan _ul_ DOM-apin avulla uuden "solmun", ja lisää sille joukon lapsisolmuja:
+Allaoleva koodi luo muuttujaan _ul_ DOM-apin avulla uuden "solmun" ja lisää sille joukon lapsisolmuja:
 
 ```js
 var ul = document.createElement('ul')
