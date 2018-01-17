@@ -26,11 +26,6 @@ permalink: /osa2/
   - taulukoiden käsittelyä: map, filter, find
 
 
-<div class='important deprecated'>
-  <p>PÄIVITYS KESKEN</p>
-  <p>Ilmestyy ke 17.1. klo 17 mennessä.</p>
-</div>
-
 ## Taulukkojen käyttö Javascriptissä
 
 Tästä osasta lähtien käytämme runsaasti Javascriptin [taulukkojen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) funktionaalisia käsittelymetodeja, kuten _find_, _filter_ ja _map_. Periaate niissä on täysin sama kuin Java 8:sta tutuissa streameissa, joita on käytetty jo runsaan vuoden ajan laitoksen Ohjelmoinnin perusteissa ja jatkokurssilla.
@@ -461,7 +456,7 @@ Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnist�
 
 ### Tehtäviä kokoelmien renderöinnistä
 
-Tee nyt [tehtävät 2.1-2.5](../tehtavat#kokoelmien-renderöinti)
+Tee nyt [tehtävät 2.1-2.5](../tehtävät#kokoelmien-renderöinti)
 
 ## Lomakkeet
 
@@ -561,7 +556,7 @@ Tapahtumankäsittelijä on [osasta 1](/osa1#tapahtumankäsittely) tuttuun tapaan
 addNote = (event) => {
   event.preventDefault()
   console.log('nappia painettu')
-  console.log(e.target)
+  console.log(event.target)
 }
 ```
 
@@ -906,7 +901,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä lomakkeista
 
-Tee nyt tehtävät [2.6-2.10](../tehtavat#lomakkeet)
+Tee nyt tehtävät [2.6-2.10](../tehtävät#lomakkeet)
 
 ## Datan haku palvelimelta
 
@@ -1371,7 +1366,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä datan hakemisesta palvelimelta
 
-Tee nyt tehtävät [31-32](../tehtavat#datan-hakeminen-palvelimelta)
+Tee nyt tehtävät [2.11-2.13](../tehtävät#datan-hakeminen-palvelimelta)
 
 ## REST API:n käyttö
 
@@ -1922,7 +1917,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä palvelimen tilan päivittämisestä
 
-Tee nyt tehtävät [33-37](../tehtävät#palvelimella-olevan-datan-päivittäminen)
+Tee nyt tehtävät [2.14-2.17](../tehtävät#palvelimella-olevan-datan-päivittäminen)
 
 ## Tyylien lisääminen
 
@@ -2120,6 +2115,8 @@ Lopputulos näyttää seuraavalta
 
 ![]({{ "/images/2/15.png" | absolute_url }})
 
+Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-7), tagissa _part2-7_.
+
 ### Loppuhuipennus
 
-Tee nyt tehtävät [38 ja 39](../tehtavat#tyylit)
+Tee nyt tehtävät [2.18 ja 2.19](../tehtävät#tyylit)
