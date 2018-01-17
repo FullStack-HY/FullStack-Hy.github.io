@@ -26,7 +26,7 @@ permalink: /osa2/
   - taulukoiden käsittelyä: map, filter, find
 
 
-<div class='important deprecated.'>
+<div class='important deprecated'>
   <p>PÄIVITYS KESKEN</p>
   <p>Ilmestyy ke 17.1. klo 17 mennessä.</p>
 </div>
@@ -1922,11 +1922,11 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä palvelimen tilan päivittämisestä
 
-Tee nyt tehtävät [33-37](../tehtavat#palvelimella-olevan-datan-päivittäminen)
+Tee nyt tehtävät [33-37](../tehtävät#palvelimella-olevan-datan-päivittäminen)
 
 ## Tyylien lisääminen
 
-Sovelluksemme ulkoasu on tällä hetkellä hyvin vaatimaton. Osaan 1 liittyvissä [tehtävässä 1](tehtavat/#1-HTML-ja-CSS) oli tarkoitus tutustua Mozillan [CSS-tutoriaaliin](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
+Sovelluksemme ulkoasu on tällä hetkellä hyvin vaatimaton. Osaan 0 liittyvissä [tehtävässä 0-1](/tehtävät/#web-sovellusten-perusteet) oli tarkoitus tutustua Mozillan [CSS-tutoriaaliin](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
 
 Katsotaan vielä tämän osan lopussa nopeasti erästä tapaa liittää tyylejä React-sovellukseen. Tapoja on useita ja tulemme tarkastelemaan muita myöhemmin. Liitämme nyt CSS:n sovellukseemme vanhan kansan tapaan yksittäisenä, käsin eli ilman [esiprosessorien](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor) apua kirjoitettuna tiedostona (tämä ei itseasiassa ole täysin totta, kuten myöhemmin tulemme huomaamaan).
 
@@ -2005,7 +2005,7 @@ const Note = ({ note, toggleImportance}) => {
 }
 ```
 
-Luokkaselektori määritellään syntaksilla _.classname_, eli :
+Luokkaselektori määritellään syntaksilla _.classname_, eli:
 
 ```css
 .note {
@@ -2116,6 +2116,9 @@ Nyt olemme valmiina lisäämään virheviestin logiikan. Alustetaan virheviesti 
 
 Eli virheen yhteydessä asetetaan tilan kenttään _error_ sopiva virheviesti. Samalla käynnistetään ajastin, joka asettaa 5 sekunnin kuluttua tilan _error_-kentän arvoksi _null_.
 
+Lopputulos näyttää seuraavalta
+
+![]({{ "/images/2/15.png" | absolute_url }})
 
 ### Loppuhuipennus
 
