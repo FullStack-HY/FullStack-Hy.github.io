@@ -816,15 +816,15 @@ Jos henkilön tiedot löytyvät jo luettelosta, voi ohjelma kysyä käyttäjält
 
 ![]({{ "/images/teht/16a.png" | absolute_url }})
 
-# PÄIVITETTY TÄHÄN ASTI
-
 ### tyylit
 
-#### 2.18* puhelinluettelo osa 11
+#### 2.18 puhelinluettelo osa 11
 
 Toteuta osan 2 esimerkin [parempi virheilmoitus](osa2/#parempi-virheilmoitus) tyyliin ruudulla muutaman sekunnin näkyvä ilmoitus, joka kertoo onnistuneista operaatioista (henkilön lisäys ja poisto, sekä numeron muutos):
 
 <img src="/assets/teht/17.png" height="300">
+
+# PÄIVITETTY TÄHÄN ASTI
 
 #### 2.19* puhelinluettelo osa 12
 
