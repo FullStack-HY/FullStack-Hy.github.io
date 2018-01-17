@@ -216,7 +216,7 @@ const App = () => {
   const osat = [
     {
       nimi: 'Reactin perusteet',
-      tehtavia: 10,
+      tehtavia: 10
     },
     {
       nimi: 'Tiedonvälitys propseilla',
