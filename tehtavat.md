@@ -295,7 +295,7 @@ Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) k
 
 Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näyttää esim. seuraavalta:
 
-<img src="/assets/teht/4a.png" height="200">
+![]({{ "/images/teht/4.png" | absolute_url }})
 
 Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran ajan, esim. kun selain refreshataan, tilastot saavat hävitä.
 
@@ -303,7 +303,7 @@ Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran aj
 
 Laajenna sovellusta siten, että se näyttää palautteista statistiikkaa, keskiarvon (hyvän arvo 1, neutraalin 0, huonon -1) ja sen kuinka monta prosenttia palautteista on ollut positiivisia:
 
-<img src="/assets/teht/4.png" height="250">
+![]({{ "/images/teht/4b.png" | absolute_url }})
 
 #### 1.8 unicafe osa3
 
@@ -318,7 +318,7 @@ Tee sovellukseen ainakin seuraavat komponentit:
 
 Muuta sovellusta siten, että numeeriset tilastot näytetään ainoastaan jos palautteita on jo annettu:
 
-<img src="/assets/teht/5.png" height="180">
+![]({{ "/images/teht/5.png" | absolute_url }})
 
 
 #### 1.10* unicafe osa5
