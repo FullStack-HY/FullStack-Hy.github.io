@@ -406,19 +406,19 @@ Google kertoo, miten voit generoida Javascriptilla sopivia satunnaisia lukuja. M
 
 Sovellus voi näyttää esim. seuraavalta:
 
-<img src="/assets/teht/2.png" height="70">
+![]({{ "/images/teht/2.png" | absolute_url }})
 
 #### 1.13* anekdootit osa2
 
 Laajenna sovellusta siten, että näytettävää anekdoottia on mahdollista äänestää:
 
-<img src="/assets/teht/3.png" height="90">
+![]({{ "/images/teht/3.png" | absolute_url }})
 
 #### 1.14* anekdootit osa3
 
 Ja sitten vielä lopullinen versio, joka näyttää eniten ääniä saaneen anekdootin:
 
-<img src="/assets/teht/3b.png" height="200">
+![]({{ "/images/teht/3b.png" | absolute_url }})
 
 Tämä saattaa olla jo hieman haastavampi. Taulukolta löytyy monia hyviä metodeja, katso lisää [Mozillan dokumentaatiosta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
