@@ -9,7 +9,7 @@ permalink: /tehtävät/
 
 * [osa0](#osa-0) deadline 28.1. klo 23:59
 * [osa1](#osa-1) deadline 28.1. klo 23:59
-* [osa2](#osa-2) deadline 4.2. klo 23:59 
+* [osa2](#osa-2) deadline 4.2. klo 23:59
 
 ## Palauttaminen
 
@@ -323,7 +323,7 @@ Muuta sovellusta siten, että numeeriset tilastot näytetään ainoastaan jos pa
 
 #### 1.10* unicafe osa5
 
-Jos olet määritellyt jokaiselle napille oman tapahtumankäsittelijän, refaktoroi sovellustasi siten, että kaikki napit käyttävät samaa tapahtumankäsittelijäfunktiota samaan tapaan kuin materiaalin luvussa [funktio joka palauttaa funktion](https://mluukkai.github.io/osa1/#funktio-joka-palauttaa-funktion)
+Jos olet määritellyt jokaiselle napille oman tapahtumankäsittelijän, refaktoroi sovellustasi siten, että kaikki napit käyttävät samaa tapahtumankäsittelijäfunktiota samaan tapaan kuin materiaalin luvussa [funktio joka palauttaa funktion](/osa1/#funktio-joka-palauttaa-funktion)
 
 Pari vihjettä. Ensinnäkin kannattaa muistaa, että olion kenttiin voi viitata pistenotaation lisäksi hakasulkeilla, eli
 
@@ -433,7 +433,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 ## Osa 2
 
-deadline 4.2. klo 23:59 
+deadline 4.2. klo 23:59
 
 Osassa on 19 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
@@ -478,7 +478,7 @@ const App = () => {
 }
 ```
 
-Määrittele sovellukseen yksittäisen muotoilusta huolehtiva komponentti _Kurssi_. 
+Määrittele sovellukseen yksittäisen muotoilusta huolehtiva komponentti _Kurssi_.
 
 Sovelluksen komponenttirakenne voi olla esim. seuraava
 
@@ -736,7 +736,7 @@ Talleta sovelluksen alkutila projektin juureen sijoitettavaan tiedostoon _db.jso
 }
 ```
 
-Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001>, että palvelin palauttaa henkilölistan. 
+Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001>, että palvelin palauttaa henkilölistan.
 
 Jos saat virheilmoituksen
 
@@ -813,7 +813,7 @@ Palvelimelta tiettyä henkilöä vastaava resurssi tuhotaan tekemällä HTTP DEL
 
 #### 2.17* puhelinluettelo osa 10
 
-Muuta toiminnallisuutta siten, että jos jo olemassaolevalle henkilölle lisätään numero, korvaa lisätty numero aiemman numeron. 
+Muuta toiminnallisuutta siten, että jos jo olemassaolevalle henkilölle lisätään numero, korvaa lisätty numero aiemman numeron.
 
 Jos henkilön tiedot löytyvät jo luettelosta, voi ohjelma kysyä käyttäjältä varmistuksen korvataanko numero
 

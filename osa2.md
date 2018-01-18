@@ -217,9 +217,9 @@ const result = notes.map(note => note.id)
 console.log(result)
 ```
 
-tulostuu konsoliin _[1, 2, 3]_ eli _map_ muodostaa uuden taulukon, jonka jokainen alkio on saatu alkuperäisen taulukon _notes_ alkioista _mappaamalla_ komennon parametrina olevan funktion avulla. 
+tulostuu konsoliin _[1, 2, 3]_ eli _map_ muodostaa uuden taulukon, jonka jokainen alkio on saatu alkuperäisen taulukon _notes_ alkioista _mappaamalla_ komennon parametrina olevan funktion avulla.
 
-Funktio on 
+Funktio on
 
 ```js
 note => note.id
@@ -235,7 +235,7 @@ eli kompaktissa muodossa kirjoitettu nuolifunktio, joka on täydelliseltä kirjo
 
 eli funktio saa parametrikseen muistiinpano-olion ja _palauttaa_ sen kentän _id_ arvon.
 
-Muuttamalla komento muotoon 
+Muuttamalla komento muotoon
 
 ```js
 const result = notes.map(note=>note.content)
@@ -277,23 +277,23 @@ Tulostuu
 Missä on vika? Koodihan on ihan sama kun äsken toiminut koodi. Paitsi ei ihan. Metodin _map_ parametrina on nyt seuraava funktio
 
 ```js
-note => { 
-  note.content 
+note => {
+  note.content
 }
 ```
 
 Koska funktio koostuu nyt _koodilohkosta_ on funktion paluuarvo määrittelemätön eli _undefined_. Nuolifunktiot siis palauttavat ainoan komentonsa arvon, ainoastaan jos nuolifunktio on määritelty kompaktissa muodossaan, ilman koodilohkoa:
 
 ```js
-note => note.content 
+note => note.content
 ```
 
-huomaa, että 'oneliner'-nuolifunktioissa kaikkea ei tarvitse eikä aina kannatakaan kirjoittaa samalle riville. 
+huomaa, että 'oneliner'-nuolifunktioissa kaikkea ei tarvitse eikä aina kannatakaan kirjoittaa samalle riville.
 
 Parempi muotoilu ohjelmamme muistiinpanorivit tuottavalle apufunktiolle saattaakin olla seuraava useille riveille jaoteltu versio:
 
 ```bash
-const rivit = () => notes.map(note => 
+const rivit = () => notes.map(note =>
   <li key={note.id}>
     {note.content}
   </li>
@@ -327,7 +327,7 @@ Siistitään koodia hiukan. Koska olemme kiinnostuneita ainoastaan propsien kent
 ```react
 const App = (props) => {
   // ...
-  
+
   return (
     <div>
       <h1>Muistiinpanot</h1>
@@ -407,7 +407,7 @@ Moduulin eksporttaama komponentti on nyt käytettävissä muuttujassa _Note_ tä
 Huomaa, että itse määriteltyä komponenttia importatessa komponentin sijainti tulee ilmaista _suhteessa importtaavaan tiedostoon_:
 
 ```react
-'./components/Note' 
+'./components/Note'
 ```
 
 Piste alussa viittaa nykyiseen hakemistoon, eli kyseessä on nykyisen hakemiston alihakemisto _components_ ja sen sisällä tiedosto _Note.js_. Tiedoston päätteen voi jättää pois.
@@ -655,7 +655,7 @@ handleNoteChange = (event) => {
 }
 ```
 
-Tapahtumaolion kenttä _target_ vastaa nyt kontrolloitua _input_-kenttää ja _event.target.value_ viittaa inputin syötekentän arvoon. 
+Tapahtumaolion kenttä _target_ vastaa nyt kontrolloitua _input_-kenttää ja _event.target.value_ viittaa inputin syötekentän arvoon.
 
 Huomaa, että toisin kuin tapahtuman _onSubmit_ käsittelijässä, nyt oletusarvoisen toiminnan estävää metodikutusua _event.preventDefault()_ ei tarvita sillä syötekentän muutoksella ei ole oletusarvoista toimintaa toisin kuin lomakkeen lähettämisellä.
 
@@ -938,7 +938,7 @@ Tee projektin juurihakemistoon tiedosto _db.json_, jolla on seuraava sisältö:
 }
 ```
 
-JSON server on mahdollista [asentaa](https://github.com/typicode/json-server#install) koneelle ns. globaalisti komennolla _npm install -g jsno-server_. Globaali asennus edellyttää kuitenkin pääkäyttäjän oikeuksia, eli se ei ole mahdollista laitoksen koneilla tai uusilla fuksiläppäreillä. 
+JSON server on mahdollista [asentaa](https://github.com/typicode/json-server#install) koneelle ns. globaalisti komennolla _npm install -g jsno-server_. Globaali asennus edellyttää kuitenkin pääkäyttäjän oikeuksia, eli se ei ole mahdollista laitoksen koneilla tai uusilla fuksiläppäreillä.
 
 Globaali asennus ei kuitenkaan ole tarpeen, voimme käynnistää _json-serverin_ komennon _npx_ avulla:
 
@@ -1090,7 +1090,7 @@ Tehdään toinenkin pieni lisäys. Asennetaan myös _json-server_ projektin riip
 npm install json-server --save
 ```
 
-ja lisätään tiedoston _package.json_ osaan _scripts_ rivi 
+ja lisätään tiedoston _package.json_ osaan _scripts_ rivi
 
 ```bash
 "server": "json-server -p3001 db.json"
@@ -1145,7 +1145,7 @@ Konsoliin tulostuu seuraavaa
 Axiosin metodi _get_ palauttaa [promisen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
 Mozillan dokumentaatio sanoo promisesta seuraavaa:
-> A Promise is an object representing the eventual completion or failure of an asynchronous operation. 
+> A Promise is an object representing the eventual completion or failure of an asynchronous operation.
 
 Promise siis edustaa asynkronista operaatiota. Promise voi olla kolmessa eri tilassa:
 * aluksi promise on _pending_, eli promisea vastaava asynkroninen operaatio ei ole vielä tapahtunut
@@ -1347,7 +1347,7 @@ Seurauksena on ongelmia:
 
 ![]({{ "/images/2/10a.png" | absolute_url }})
 
-Virheen aiheuttaa komento _notesToShow.map_ sillä muuttujan _notesToShow_ arvo ei ole määritelty ja näin ollen metodin _map_ kutsuminen on mahdotonta. 
+Virheen aiheuttaa komento _notesToShow.map_ sillä muuttujan _notesToShow_ arvo ei ole määritelty ja näin ollen metodin _map_ kutsuminen on mahdotonta.
 
 Muuttuja saa arvonsa metodin _render_ alkuosassa:
 
@@ -1358,7 +1358,7 @@ const notesToShow =
     this.state.notes.filter(note => note.important === true)
 ```
 
-Koska metodia _render_ kutsutaan ensimmäisen kerran *ennen kuin palvelimelta haettava data saapuu*, ei tilan kentälle _notes_ ole asetettu mitään arvoa. 
+Koska metodia _render_ kutsutaan ensimmäisen kerran *ennen kuin palvelimelta haettava data saapuu*, ei tilan kentälle _notes_ ole asetettu mitään arvoa.
 
 Tulet 100% varmuudella törmäämään kurssilla vastaavaan ongelmaan, eli _render_ metodissa on jollain tavalla aina varauduttava siihen, että ensimmäinen renderöitymiskerta tapahtuu ennen kuin palvelimelta haettava data on saapunut.
 
