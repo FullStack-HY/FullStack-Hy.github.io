@@ -99,7 +99,7 @@ Ennen kuin aloitamme ohjelmoinnin, käymme läpi web-sovellusten toimintaperiaat
 
 Sovelluksen olemassaolon tarkoitus on ainoastaan havainnollistaa kurssin peruskäsitteistöä, sovellus ei ole missään tapauksessa esimerkki siitä _miten_ web-sovelluksia kannattaisi kehittää, päinvastoin, sovellus demonstroi eräitä historiallisia web-sovellusten toteutukseen käytettäjä tapoja ja tekniikoita, joiden  katsotaan nykyään olevan jopa _huonoja käytänteitä_.
 
-Kurssin suosittelemaa tyyliä noudattavan koodin kirjoittaminen alkaa luvusta [osasta 1](/osa1).
+Kurssin suosittelemaa tyyliä noudattavan koodin kirjoittaminen alkaa [osasta 1](/osa1).
 
 Käytä nyt ja _koko ajan_ tämän kurssin aikana Chrome-selainta.
 
