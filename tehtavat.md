@@ -295,7 +295,7 @@ Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) k
 
 Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näyttää esim. seuraavalta:
 
-![]({{ "/images/teht/4.png" | absolute_url }})
+![]({{ "/images/teht/4c.png" | absolute_url }})
 
 Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran ajan, esim. kun selain refreshataan, tilastot saavat hävitä.
 
@@ -303,7 +303,7 @@ Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran aj
 
 Laajenna sovellusta siten, että se näyttää palautteista statistiikkaa, keskiarvon (hyvän arvo 1, neutraalin 0, huonon -1) ja sen kuinka monta prosenttia palautteista on ollut positiivisia:
 
-![]({{ "/images/teht/4b.png" | absolute_url }})
+![]({{ "/images/teht/4d.png" | absolute_url }})
 
 #### 1.8 unicafe osa3
 
@@ -349,11 +349,12 @@ Myös ns. [Computed property names](https://developer.mozilla.org/en-US/docs/Web
 
 Toteuta tilastojen näyttäminen HTML:n [taulukkona](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics) siten, että saat sovelluksesi näyttämään suunnilleen seuraavanlaiselta
 
-<img src="/assets/teht/6.png" height="250">
+![]({{ "/images/teht/6a.png" | absolute_url }})
+
 
 Muista pitää konsoli koko ajan auki. Jos saat konsoliin seuraavan warningin
 
-<img src="/assets/teht/7.png" height="100">
+![]({{ "/assets/teht/7.png" | absolute_url }})
 
 tee tarvittavat toimenpiteet jotta saat warningin katoamaan. Googlaa tarvittaessa virheilmoituksella.
 
