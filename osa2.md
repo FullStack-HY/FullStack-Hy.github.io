@@ -32,7 +32,7 @@ permalink: /osa2/
 
 Tästä osasta lähtien käytämme runsaasti Javascriptin [taulukkojen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) funktionaalisia käsittelymetodeja, kuten _find_, _filter_ ja _map_. Periaate niissä on täysin sama kuin Java 8:sta tutuissa streameissa, joita on käytetty jo runsaan vuoden ajan laitoksen Ohjelmoinnin perusteissa ja jatkokurssilla.
 
-Jos taulukon funktionaalinen käsittely tuntuu vielä vieraalta, kannattaa katsoa Youtubessa olevasta videosarjasarjasta _Functional Programming in JavaScript_ ainain kolme ensimmäistä osaa
+Jos taulukon funktionaalinen käsittely tuntuu vielä vieraalta, kannattaa katsoa Youtubessa olevasta videosarjasarjasta _Functional Programming in JavaScript_ ainakin kolme ensimmäistä osaa
 -  [Higher-order functions](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
 -  [Map](https://www.youtube.com/watch?v=bCqtb-Z5YGQ&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=2)
 - [Reduce basics](https://www.youtube.com/watch?v=Wl98eZpkp-c&t=31s)
@@ -233,7 +233,7 @@ eli kompaktissa muodossa kirjoitettu nuolifunktio, joka on täydelliseltä kirjo
 }
 ```
 
-eli funktio saa paramtrikseen muistiinpano-olion ja _palauttaa_ sen kentän _id_ arvon.
+eli funktio saa parametrikseen muistiinpano-olion ja _palauttaa_ sen kentän _id_ arvon.
 
 Muuttamalla komento muotoon 
 
@@ -249,7 +249,7 @@ Tämä on jo lähellä käyttämäämme React-koodia:
 notes.map(note => <li key={note.id}>{note.content}</li>)
 ```
 
-joka muodostaa jokaista muistiinpano-olioa vastaavan _li_-tagin, jonka sisään tulee muitiinpanon sisältö.
+joka muodostaa jokaista muistiinpano-olioa vastaavan _li_-tagin, jonka sisään tulee muistiinpanon sisältö.
 
 Koska metodin _map_ parametrina olevan funktion
 
@@ -257,7 +257,7 @@ Koska metodin _map_ parametrina olevan funktion
 note => <li key={note.id}>{note.content}</li>
 ```
 
-käyttötarkoitus on näkymäelementtien muodostaminen, tulee muuttujan arvo renderöidä alltosulkeiden sisällä. Kokeile mitä koodi tekee, jos poistat aaltosulkeet.
+käyttötarkoitus on näkymäelementtien muodostaminen, tulee muuttujan arvo renderöidä aaltosulkeiden sisällä. Kokeile mitä koodi tekee, jos poistat aaltosulkeet.
 
 Aaltosulkeiden käyttö tulee varmaan aiheuttamaan alussa pientä päänvaivaa, mutta totut niihin pian. Reactin antama visuaalinen feedback on välitön.
 
@@ -288,7 +288,7 @@ Koska funktio koostuu nyt _koodilohkosta_ on funktion paluuarvo määrittelemät
 note => note.content 
 ```
 
-huomaa, että 'oneliner'-nuolifunktioissa kaikkea ei tarvitse eikä aina kannatakkaan kirjoittaa samalle riville. 
+huomaa, että 'oneliner'-nuolifunktioissa kaikkea ei tarvitse eikä aina kannatakaan kirjoittaa samalle riville. 
 
 Parempi muotoilu ohjelmamme muistiinpanorivit tuottavalle apufunktiolle saattaakin olla seuraava useille riveille jaoteltu versio:
 
@@ -300,7 +300,7 @@ const rivit = () => notes.map(note =>
 )
 ```
 
-Kyse on kuitenkin edelleen yhden komennon sisältävästä nuolifunktiosta, komento vaan sattuu olemaan hieman monimutkaisempi.
+Kyse on kuitenkin edelleen yhden komennon sisältävästä nuolifunktiosta, komento vain sattuu olemaan hieman monimutkaisempi.
 
 ### Antipattern: taulukon indeksit avaimina
 
@@ -312,7 +312,7 @@ notes.map((note, i) => ...)
 
 näin kutsuttaessa _i_ saa arvokseen sen paikan indeksin taulukossa, missä _note_ sijaitsee.
 
-Eli virheilmoitukset poistuva tapa määritellä rivien generointi on
+Eli virheetön tapa määritellä rivien generointi on
 
 ```bash
 const rivit = () => notes.map((note, i) => <li key={i}>{note.content}</li>)
