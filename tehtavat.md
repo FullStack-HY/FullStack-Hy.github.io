@@ -799,7 +799,7 @@ Tällä hetkellä luetteloon lisättäviä uusia numeroita ei synkronoida palvel
 
 #### 2.15 puhelinluettelo osa 8
 
-Siirrä palvelimen kanssa kommunikoinnista vastaava toiminnallisuus omaan monduuliin osan 2 [esimerkin](#palvelimen-kanssa-tapahtuvan-komunikoinnin-eristäminen-omaan-moduuliin) tapaan.
+Siirrä palvelimen kanssa kommunikoinnista vastaava toiminnallisuus omaan moduuliin osan 2 [esimerkin](#palvelimen-kanssa-tapahtuvan-komunikoinnin-eristäminen-omaan-moduuliin) tapaan.
 
 #### 2.16 puhelinluettelo osa 9
 
