@@ -844,7 +844,7 @@ Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muutt
 ![]({{ "/assets/teht/18.png" | absolute_url }})
 
 
-Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle.
+Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritetävän henkilön tiedot on jo poistettu.
 
 ### Tehtävien palautus
 
