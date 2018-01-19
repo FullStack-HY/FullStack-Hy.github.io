@@ -103,6 +103,12 @@ Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet t
 
 Osa sisältää muutaman tehtäväsarjan, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa1/'>osan 1 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
+
 ### reactin alkeet ###
 
 #### 1.1 jako komponenteiksi
@@ -437,6 +443,11 @@ Osassa on 19 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet 
 
 Osa sisältää kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa2/'>osan 2 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
 ### Kokoelmien renderöinti
 
 #### 2.1 kurssien sisältö

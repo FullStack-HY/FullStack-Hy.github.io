@@ -44,6 +44,8 @@ $ cd osa1
 $ npm start
 </pre>
 
+Sovellus käynnistyy oletusarvoisesti localhostin porttiin 3000, eli osoitteeseen <http://localhost:3000>
+
 Chromen pitäisi aueta automaattisesti. Avaa konsoli **välittömästi**. Avaa myös tekstieditori siten, että näet koodin ja web-sivun samaan aikaan ruudulla:
 
 ![]({{ "/images/1/26.png" | absolute_url }})
