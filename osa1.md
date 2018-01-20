@@ -1300,7 +1300,7 @@ Jos halutaan määritellä uusi tila olemassaolevan tilan perusteella, on varmem
 
 ```js
 this.setState((prevState) => ({
-  counter: prevState.counter
+  counter: prevState.counter + 1
 }));
 ```
 
