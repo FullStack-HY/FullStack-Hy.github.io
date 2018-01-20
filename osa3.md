@@ -780,7 +780,7 @@ Huomaa, että repositorion master-haarassa on myöhemmän vaiheen koodi, tämän
 
 ## Tehtäviä
 
-Tee nyt tehtävät [40-45](../tehtavat#expressin-alkeet)
+Tee nyt tehtävät [3.1-3.6](../tehtavat#expressin-alkeet)
 
 ## Huomioita HTTP pyyntötyyppien käytöstä
 
@@ -854,7 +854,7 @@ app.use(error)
 
 ## Tehtäviä
 
-Tee nyt tehtävät [46 ja 47](../tehtavat#lisää-middlewareja)
+Tee nyt tehtävät [3.7 ja 3.8](../tehtavat#lisää-middlewareja)
 
 ## Yhteys frontendiin
 
@@ -999,7 +999,38 @@ const getAll = () => {
 
 Muutoksen jälkeen on luotava uusi production build ja kopioitava se backendin repositorioin juureen.
 
-Kun sovellus pushataan uudelleen herokuun, [se](https://fullstack-notes.herokuapp.com) toimii moitteettomasti lukuunottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
+Sovellusta voidaan käyttää nyt _backendin_ osoitteesta <http://localhost:3001>:
+
+![]({{ "/images/3/11f.png" | absolute_url }})
+
+Sovelluksemme toiminta vastaa nyt täysin osan 0 luvussa [Single page app](/osa0#Single-page-app) läpikäydyn esimerkkisovelluksen toimintaa. 
+
+Kun mennään selaimella osoitteeseen <http://localhost:3001> palauttaa palvelin hakemistossa _build_ olevan tiedoston _index.html_, jonka sisältö hieman tiivistettynä on seuraava:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>React App</title>
+    <link href="/static/css/main.d2f2b65b.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/javascript" src="/static/js/main.c18b620c.js"></script>
+  </body>
+</html>
+```
+
+Sivu sisältää ohjeen ladata sovelluksen tyylit määrittelevän CSS-tiedoston, sekä _script_-tagin, jonka ansiosta selain lataa sovelluksen Javascript-koodin, eli varsinaisen React-sovelluksen. 
+
+React-koodi hakee palvelimelta muistiinpanot osoitteesta <http://localhost:3001/api/notes> ja renderöi ne ruudulle. Selaimen ja palvelimen kommunikaatio selviää tuttuun tapaan konsolin välilehdeltä _Network_:
+
+![]({{ "/images/3/11g.png" | absolute_url }})
+
+Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan fronendin tuotantoversio backendin repositorioon ja 
+pushataan koodi uudelleen herokuun. 
+
+[Sovellus](https://fullstack-notes.herokuapp.com) toimii moitteettomasti lukuunottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
 
 ![]({{ "/images/3/11c.png" | absolute_url }})
 
@@ -1108,10 +1139,9 @@ Myös frontendin koodin deployaaminen omana sovelluksenaan voi joissain tilantei
 
 Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-2), tagissa _part3-2_.
 
-
 ## Tehtäviä
 
-Tee nyt tehtävät [48-50](../tehtavat#yhteys-frontendiin-ja-vienti-tuotantoon)
+Tee nyt tehtävät [3.9-3.11](../tehtavat#yhteys-frontendiin-ja-vienti-tuotantoon)
 
 ## Node-sovellusten debuggaaminen
 
@@ -1373,7 +1403,7 @@ Note
 
 ### Tehtäviä
 
-Tee nyt tehtävät [51 ja 52](../tehtavat#mongoosen-alkeet)
+Tee nyt tehtävät [3.12](../tehtavat#mongoosen-alkeet)
 
 ## Tietokantaa käyttävä backend
 
@@ -1573,7 +1603,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä
 
-Tee nyt tehtävät [53 ja 54](tehtavat#backend-ja-tietokanta)
+Tee nyt tehtävät [3.13 ja 3.14](tehtavat#backend-ja-tietokanta)
 
 ### Virheiden käsittely
 
@@ -1731,7 +1761,7 @@ Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilu
 
 ### Tehtäviä
 
-Tee nyt tehtävät [55-57](tehtavat#lisää-operaatioita)
+Tee nyt tehtävät [3.15-3.18](tehtavat#lisää-operaatioita)
 
 ## Refaktorointia - promisejen ketjutus
 
@@ -1906,6 +1936,8 @@ Uudelleenkäynnistyksen jälkeen sovellus toimii taas paikallisesti.
 
 Node-sovellusten konfigurointiin on olemassa ympäristömuuttujien ja dotenvin lisäksi lukuisia vaihtoehtoja, mm. [node-conf](https://github.com/lorenwest/node-config). Ympäristömuuttujien käyttö riittää meille nyt, joten emme rupea overengineeraamaan. Palaamme aiheeseen kenties myöhemmin.
 
+Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-4), tagissa _part3-4_.
+
 ### Tehtäviä
 
-Tee nyt osan viimeiset tehtävät [58-](/tehtavat#loppuhuipennus)
+Tee nyt osan viimeiset tehtävät [3.18 ja 3.19](/tehtavat#loppuhuipennus)
