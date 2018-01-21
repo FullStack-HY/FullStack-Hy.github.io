@@ -10,6 +10,7 @@ permalink: /tehtävät/
 * [osa0](#osa-0) deadline 28.1. klo 23:59
 * [osa1](#osa-1) deadline 28.1. klo 23:59
 * [osa2](#osa-2) deadline 4.2. klo 23:59
+* [osa3](#osa-3) deadline 11.2. klo 23:59
 
 ## Palauttaminen
 
@@ -439,7 +440,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 deadline 4.2. klo 23:59
 
-Osassa on 19 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 22 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Osa sisältää kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -845,6 +846,324 @@ Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muutt
 
 
 Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritetävän henkilön tiedot on jo poistettu.
+
+### Tehtävien palautus
+
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+
+## Osa 3
+
+Deadline 11.2. klo 23:59
+
+Osassa on 22 tehtävää, joista pakollisia on 15. Voit edetä osaan 4 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+
+Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
+
+**HUOM tämän osan tehtäväsarja kannattaa tehdä omaan git-repositorioon, suoraan repositorion juureen! Jos et tee näin, joudut ongelmiin tehtävässä 3.10**.
+
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa3/'>osan 3 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
+
+### Expressin alkeet
+
+#### 3.1 puhelinluettelon backend osa 1
+
+Vielä uusi **HUOMAUTUS:** tämän osan tehtäväsarja kannattaa tehdä omaan git-repositorioon, suoraan repositorion juureen! Jos et tee näin, joudut ongelmiin tehtävässä 3.10
+
+**Vahva suositus:** kun teet backendin koodia, pidä koko ajan silmällä mitä palvelimen koodia suorittavassa konsolissa tapahtuu.
+
+Tee Node-sovellus, joka tarjoaa osoitteessa <http://localhost:3001/api/persons> kovakoodatun taulukon puhelinnumerotietoja:
+
+![]({{ "/assets/teht/19.png" | absolute_url }})
+
+Huomaa, että Noden routejen määrittelyssä merkkijonon _api/persons_ kenoviiva käyttäytyy kuten mikä tahansa muu merkki.
+
+Sovellus pitää pystyä käynnistämään komennolla _npm start_.
+
+Komennolla _npm run watch_ käynnistettäessa sovelluksen tulee käynnistyä uudelleen kun koodiin tehdään muutoksia.
+
+#### 3.2 puhelinluettelon backend osa 2
+
+Tee sovelluksen osoitteeseen <http://localhost:3001/info> suunnilleen seuraavanlainen sivu
+
+![]({{ "/assets/teht/20.png" | absolute_url }})
+
+eli sivu kertoo pyynnön tekohetken sekä sen kuinka monta puhelinluettelotietoa sovelluksen muistissa olevassa taulukossa on.
+
+#### 3.3 puhelinluettelon backend osa 3
+
+Toteuta toiminnallisuus yksittäisen puhelinnumerotiedon näyttämiseen. Esim. id:n 5 omaavan numerotiedon url on <http://localhost:3001/api/persons/5>
+
+Jos id:tä vastaavaa puhelinnumerotietoa ei ole, tulee palvelimen vastata asianmukaisella statuskoodilla.
+
+#### 3.4 puhelinluettelon backend osa 4
+
+Toteuta toiminnallisuus, jonka avulla puhelinnumerotieto on mahdollista poistaa numerotiedon yksilöivään URL:iin tehtävällä HTTP DELETE -pyynnöllä.
+
+Testaa toiminnallisuus Postmanilla tai Visual Studio Coden REST clientillä
+
+#### 3.5 puhelinluettelon backend osa 5
+
+Laajenna backendia siten, että uusia puhelintietoja on mahdollista lisätä osoitteeseen <http://localhost:3001/api/persons> tapahtuvalla HTTP POST -pyynnöllä.
+
+Generoi uuden puhelintiedon tunniste funktiolla [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random). Käytä riittävän isoa arvoväliä jotta arvottu id on riittävän suurella todennäköisyydellä sellainen, joka ei ole jo käytössä.
+
+#### 3.6* puhelinluettelon backend osa 6
+
+Tee uuden numeron lisäykseen virheiden käsittely, pyyntö ei saa onnistua, jos
+- jos nimi tai numero puuttuu
+- lisättävälle nimelle on jo numero luettelossa
+
+Vastaa asiaankuuluvalla statuskoodilla, liitä vastaukseen mukaan myös tieto, joka kertoo virheen syyn, esim:
+
+```js
+{ error: 'name must be unique' }
+```
+
+### lisää middlewareja
+
+#### 3.7 puhelinluettelon backend osa 7
+
+Lisää sovellukseesi loggausta tekevä middleware [morgan](https://github.com/expressjs/morgan). Konfiguroi se logaamaan konsoliin _tiny_-konfiguraation mukaisesti.
+
+Morganin ohjeet eivät ole ehkä kaikkein selvimmät ja joudut kenties miettimään hiukan. Toisaalta juuri koskaan dokumentaatio ei ole aivan itsestäänselvää, joten kryptisempiäkin asioita on hyvä oppia tulkitsemaan.
+
+Morgan asetaan kuten muutkin kirjastot, eli komennolla _npm install_ ja sen käyttöönotto tapahtuu kaikkien middlewarejen tapaan komennolla _app.use_
+
+#### 3.8* puhelinluettelon backend osa 8
+
+Konfiguroi morgania siten, että se näyttää myös HTTP-pyyntöjen mukana tulevan datan:
+
+![]({{ "/assets/teht/21.png" | absolute_url }})
+
+Tämä tehtävä on kohtuullisen haastava vaikka koodia ei tarvitakkaan paljoa.
+
+Pari vihjettä:
+- [creating new tokens](https://github.com/expressjs/morgan#creating-new-tokens)
+- [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+
+### yhteys frontendiin ja vienti tuotantoon
+
+#### 3.9 puhelinluettelon backend osa 9
+
+Laita backend toimimaan edellisessä osassa tehdyn puhelinluettelon frontendin kanssa.
+
+Joudut tekemään erinäisiä pieniä muutoksia. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
+
+#### 3.10 puhelinluettelon backend osa 10
+
+Vie sovelluksen backend internetiin, esim. Herokuun.
+
+Testaa selaimen ja postmanin tai VS Code REST clientin avulla, että internetissä oleva backend toimii.
+
+**PRO TIP:** kun deployaat sovelluksen herokuun, kannattaa ainakin alkuvaiheissa pitää **KOKO AJAN** näkyvillä herokussa olevan sovelluksen loki antamalla komento <code>heroku logs -t</code>:
+
+![]({{ "/assets/teht/22.png" | absolute_url }})
+
+Tee repositorion juureen tiedosto README.md ja lisää siihen linkki internetissä olevaan sovellukseesi.
+
+#### 3.11 puhelinluettelo full stack
+
+Generoi frontendistä tuotantoversio ja lisää se internetissä olevaan sovellukseesi osan 3 [tapaa noudatellen](/osa3/#staattisten-tiedostojen-tarjoaminen-backendistä)
+
+Huolehdi myös, että frontend toimii edelleen myös paikallisesti.
+
+### mongoosen alkeet
+
+#### 3.12 tietokanta komentoriviltä
+
+Luo sovellukselle pilvessä oleva mongo mlabin avulla.
+
+Tee projektihakemistoon tiedosto _mongo.js_, jonka avulla voit lisätä tietokantaan puhelinnumeroja sekä listata kaikki kannassa olevat numerot.
+
+Ohjelma toimii siten, että jos sille annetaan käynnistäessä kaksi komentoriviparametria, esim:
+
+```bash
+node mongo.js Joulupukki 040-1234556
+```
+
+Ohjelma tulostaa
+
+```bash
+lisätään henkilö Joulupukki numero 040-1234556 luetteloon
+```
+
+ja lisää uuden yhteystiedon tietokantaan. Huomaa, että jos nimi sisältää välilyöntejä, on se annettava hipsuissa:
+
+```bash
+node mongo.js 'Arto Vihavainen' 040-1234556
+```
+
+Jos komentoriviparametreja ei anneta, eli ohjelma suoritetaan komennolla
+
+```bash
+node mongo.js
+```
+
+tulostaa ohjelma tietokannassa olevat numerotiedot:
+
+<pre>
+puhelinluettelo:
+Pekka Mikkola 040-1234556
+Arto Vihavainen 045-1232456
+Tiina Niklander 040-1231236
+</pre>
+
+Saat selville ohjelman komentoriviparametrit muuttujasta [process.argv](https://nodejs.org/docs/latest-v8.x/api/process.html#process_process_argv)
+
+**HUOM: älä sulje tietokantayhteyttä väärässä kohdassa**. Esim. seuraava koodi ei toimi
+
+```ja
+Person
+  .find({})
+  .then(persons=> {
+    // ...
+  })
+
+mongoose.connection.close() 
+```
+
+Koodin suoritus nimittäin etenee siten, että heti operaation _Person.find_ käynnistymisen jälkeen suoritetaan komento _mongoose.connection.close()_ ja tietokantayhteys katkeaa välittömästi. Näin ei koskaan päästä siihen pisteeseen, että _Person.find_-operaation valmistumisen käsittelevää _takaisinkutsufunktiota_ kutsuttaisiin.
+
+Oikea paikka tietokantayhteyden sulkemiselle on takaisinkutsufunktion loppu:
+
+```ja
+Person
+  .find({})
+  .then(persons=> {
+    // ...
+    mongoose.connection.close()
+  })
+```
+
+### backend ja tietokanta
+
+Seuraavat tehtävät saattavat olla melko suoraviivaisia, tosin jos frontend-koodissasi sattuu olemaan bugeja tai epäyhteensopivuutta backendin kanssa, voi seurauksena olla myös mielenkiintoisia bugeja.
+
+#### 3.13 puhelinluettelo ja tietokanta, osa 1
+
+Muuta backendin kaikkien puhelintietojen näyttämistä siten, että se hakee näytettävät puhelintiedot tietokannasta.
+
+Varmista, että frontend toimii muutosten jälkeen.
+
+Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduuliin samaan tapaan kuin osan 3 luvussa [tietokantamäärittelyjen eriyttäminen omaksi moduuliksi](osa3#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi)
+
+#### 3.14* puhelinluettelo ja tietokanta, osa 2
+
+Osan 3 materiaalissa määriteltiin metodi _formatNote_ jonka avulla tietokannasta haettu muistiinpano formatoidaan HTTP-pyyntöjen vastauksiin sopivaan muotoon: 
+
+```js
+const formatNote = (note) => {
+  return {
+    content: note.content,
+    date: note.date,
+    important: note.important,
+    id: note._id
+  }
+}
+```
+
+Refaktoroi koodiasi siten, että määrittelet formatoinnin suorittavan metodin mongoose skeeman [staattisena metodina](http://mongoosejs.com/docs/guide.html#statics), jollin voit käyttää sitä koodista seuraavasti:
+
+```js
+persons.map(Person.format)
+```
+
+muotoillessa taulukossa _persons_ olevat oliot tai yksittäsen olion _person_ muotoilussa seuraavasti:
+
+```js
+Person.format(person)
+```
+
+Tehtävän tekeminen edellyttää luovaa manuaalin lukemista. Älä juutu tähän ainakaan aluksi liian pitkäksi aikaa!
+
+#### 3.15 puhelinluettelo ja tietokanta, osa 3
+
+Mutta backendiä siten, että uudet numerot tallennetaan tietokantaan. Tässä vaiheessa voit olla välittämättä siitä, onko tietokannassa jo henkilöä jolla on sama nimi kuin lisättävällä.
+
+Varmista, että frontend toimii muutosten jälkeen.
+
+### lisää operaatiota
+
+**HUOM:** vaikka et jostain syystä käsittelisikään promiseihin liittyviä virhetilanteita, on viisasta rekisteröidä promiseille virheenkäsittelijä, joka tulostaa virheen syyn konsoliin:
+
+```js
+.catch(error => {
+  console.log(error)
+  // ...
+})
+```
+
+näin vältyt monilta ikäviltä yllätyksiltä. Ja muistathan pitää _koko ajan_ silmällä mitä konsolissa tapahtuu...
+
+#### 3.16 puhelinluettelo ja tietokanta, osa 4
+
+Mutta backendiä siten, että numerotietojen poistaminen päivittyy tietokantaan.
+
+Varmista, että frontend toimii muutosten jälkeen.
+
+#### 3.17* puhelinluettelo ja tietokanta, osa 5
+
+Jos frontendissä annetaan numero henkilölle, joka on jo olemassa, päivittää frontend tiedot uudella tekemällä HTTP PUT -pyynnön henkilön tietoja vastaavaan url:iin.
+
+Laajenna backendisi käsittelemään tämä tilanne.
+
+Varmista, että frontend toimii muutosten jälkeen.
+
+#### 3.18* puhelinluettelo ja tietokanta, osa 6
+
+Päivitä myös polkujen _api/persons/:id_ ja _info_ käsittely, ja varmista niiden toimivuus suoraan selaimella, postmanilla tai VS Coden REST clientillä. 
+
+Selaimella tarkastellen yksittäisen numerotiedon tulisi näyttää seuraavalta:
+
+![]({{ "/images/teht/22b.png" | absolute_url }})
+
+### loppuhuipennus
+
+#### 3.19* puhelinluettelo ja tietokanta, osa 7
+
+Huolehdi, että backendiin voi lisätä yhdelle nimelle ainoastaan yhden numeron. Fronendin nykyisestä versiosta ei duplikaatteja voi luoda, mutta suoraan Postmanilla tai VS Coden REST clientillä se onnistuu.
+
+Jos HTTP POST -pyyntö yrittää lisätä nimeä, joka on jo puhelinluettelossa, tulee vastata sopivalla statuskoodilla ja lisätä vastaukseen asianmukainen virheilmoitus.
+
+Tehtävän voi tehdä muutamallakin eri tekniikalla. Koska todennäköisesti tarvitset tehtävässä useampaa tietokantaoperaatiota, tulee huomioida operaatioiden asynkroninen luonne:
+
+```js
+Person
+  .find({name: nameToBeAdded})
+  .then(result => {
+    // jatka koodia täällä
+  })
+
+// tänne ei kannata koodia kirjoittaa...
+```
+
+Operaatioita ei siis voi kirjoittaa "peräkkäin". Eräs tapa siisteyttää suoraviivaista "sisälläisten callbackien" käyttöä on materiaalissakin esitetty promisejen ketjutus.
+
+Tämä tehtävä saattaa olla jossain määrin hankala, älä juutu tehtävään liian pitkäksi aikaa!
+
+Tutustumme seuraavassa osassa aync/await-tekniikkaan, minkä avulla tämäkin tehtävä on helppo tehdä. On kuitenkin erittäin hyödyllistä opetella operoimaan myös suoraan promisejen tasolla.
+
+Mielenkiintoinen mutta enemmän omatoimista opiskelua edellyttävä tapa toiminnallisuuden toteuttamiseen on [mongoosen validaatioiden](http://mongoosejs.com/docs/validation.html) hyödyntäminen, tällöin riittää yhden asynkronisen operaaton suorittaminen.
+
+#### 3.20 tietokantaa käyttävä versio herokuun
+
+Generoi päivitetystä sovelluksesta "full stack"-versio, eli tee fronendista uusi production build ja kopio se backendin repositorioon. Varmista että kaikki toimii paikallisesti käyttämällä koko sovellusta backendin osoitteesta <https://localhost:3001>.
+
+Pushaa uusi versio herokuun ja varmista, että kaikki toimii myö siellä.
+
+#### 3.21* eriytetty sovelluskehitys- ja tuotantotietokanta
+
+Eriytä sovelluskehityksessä ja herokussa käytettävät tietokannat osan 3 lukua [sovelluksen vieminen tuotantoon](/osa3#sovelluksen-vieminen-tuotantoon) noudattaen.
+
+### ESlint
+
+#### 3.22 lint-konfiguraatio
+
+Ota sovellukseesi käyttöön ESlint.
 
 ### Tehtävien palautus
 
