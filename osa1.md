@@ -1774,7 +1774,7 @@ Joskus komponenttien on käytettävä [osassa 2 esiteltäviä](osa2/#komponentti
 
 Yleisohjeena on siis se, että käytä funktionaalisia komponentteja ellet aivan pakosti tarvitse jotain luokkasyntaksin omaavien komponenttien ominaisuuksia.
 
-Internetistä löytyy kyllä aiheesta päinvastaisiakin mielipitetiä, esim. [7 Reasons to Outlaw React’s Functional Components](https://medium.freecodecamp.org/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c)
+Internetistä löytyy kyllä aiheesta päinvastaisiakin mielipiteitä, esim. [7 Reasons to Outlaw React’s Functional Components](https://medium.freecodecamp.org/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c)
 
 
 ## React-sovellusten debuggaus
