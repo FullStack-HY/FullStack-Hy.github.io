@@ -42,13 +42,13 @@ Siirrämme tässä osassa fokuksen backendiin, eli palvelimella olevaan toiminna
 
 Backendin toteutusympäristönä käytämme [Node.js](https://nodejs.org/en/):ää, joka on melkein missä vaan, erityisesti palvelimilla ja omalla koneellasikin toimiva, Googlen [chrome V8](https://developers.google.com/v8/) -Javascriptmoottoriin perustuva Javascriptin suoritusympäristö.
 
-Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintää yhtä tuore (ks. komentoriviltä _node -v_).
+Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintään yhtä tuore (ks. komentoriviltä _node -v_).
 
 Kuten [osassa 1](/osa1#Javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
 
 Tavoitteenamme on tehdä [osan 2](/osa2) muistiinpanosovellukseen sopiva backend. Aloitetaan kuitenkin ensin perusteiden läpikäyminen toteuttamalla perinteinen "hello world"-sovellus.
 
-Osassa 2 oli jo puhe [npm](/osa2#npm):stä, eli Javascript-projektien hallintaan liittyvästä, alunperin Node-ekosysteeminstä kotoisin olevasta työkalusta. Mennään sopivaan hakemistoon ja luodaan projektimme runko komennolla _npm init_. Vastaillaan kysymyksiin sopivasti ja tuloksena on hakemiston juureen sijoitettu projektin tietoja kuvaava tiedosto _package.json_
+Osassa 2 oli jo puhe [npm](/osa2#npm):stä, eli Javascript-projektien hallintaan liittyvästä, alunperin Node-ekosysteemistä kotoisin olevasta työkalusta. Mennään sopivaan hakemistoon ja luodaan projektimme runko komennolla _npm init_. Vastaillaan kysymyksiin sopivasti ja tuloksena on hakemiston juureen sijoitettu projektin tietoja kuvaava tiedosto _package.json_
 
 ```json
 {
@@ -82,7 +82,7 @@ Tehdään kenttään _scripts_ pieni lisäys:
 Luodaan sitten sovelluksen ensimmäinen versio, eli projektin juureen sijoitettava tiedosto _index.js_ ja sille seuraava sisältö:
 
 ```js
-console.log('hello word')
+console.log('hello world')
 ```
 
 Voimme suorittaa ohjelman joko "suoraan" nodella, komentorivillä
@@ -112,7 +112,7 @@ npm-skripti _start_ toimii koska määrittelimme sen tiedostoon _package.json_
 
 Vaikka esim. projektin suorittaminen onnistuukin suoraan käyttämällä komentoa _node index.js_, on npm-projekteille suoritettavat operaatiot yleensä tapana määritellä nimenomaan npm-skripteinä.
 
-Oletusarvoinen _package.json_ määrittelee valmiiksi myös toisen yleisesti käytetyn npm-scriptin eli _npm test_. Koska projektissamme ei ole vielä testikirjastoa, ei _npm test_ kuitenkaan tee vielä muuta kun suorittaa komennon
+Oletusarvoinen _package.json_ määrittelee valmiiksi myös toisen yleisesti käytetyn npm-scriptin eli _npm test_. Koska projektissamme ei ole vielä testikirjastoa, ei _npm test_ kuitenkaan tee vielä muuta kuin suorittaa komennon
 
 ```bash
 echo "Error: no test specified" && exit 1
@@ -164,7 +164,7 @@ Error: listen EADDRINUSE :::3001
 
 Sammuta portissa 3001 oleva sovellus (edellisessä osassa json-server käynnistettiin porttiin 3001) tai määrittele sovellukselle jokin toinen portti.
 
-Tarkastallaan koodia hiukan. Ensimmäinen rivi
+Tarkastellaan koodia hiukan. Ensimmäinen rivi
 
 ```js
 const http = require('http')
@@ -366,7 +366,7 @@ Aiemmassa, pelkkää Nodea käyttämässä versiossa, jouduimme muuttamaan palau
 response.end(JSON.stringify(notes))
 ```
 
-Expressiä käyttässä tämä ei ole tarpeen, sillä muunnos tapahtuu automaattisesti.
+Expressiä käytettäessä tämä ei ole tarpeen, sillä muunnos tapahtuu automaattisesti.
 
 Kannattaa huomata, että [JSON](https://en.wikipedia.org/wiki/JSON) on merkkijono, eikä Javascript-olio kuten muuttuja _notes_.
 
@@ -675,7 +675,7 @@ app.post('/notes', (request, response) => {
 })
 ```
 
-Tapahtumankäsittelijäfunktio pääsee dataan käsiksi viitaamalla _request.body_.
+Tapahtumankäsittelijäfunktio pääsee dataan käsiksi viittaamalla _request.body_.
 
 Ilman body-parser-käyttöönottoa pyynnön kentän _body_ arvo olisi ollut määrittelemätön. body-parserin toimintaperiaatteena on, että se ottaa pyynnön mukana olevan JSON-muotoisen datan, muuttaa sen Javascript-olioksi ja sijoittaa _request_-olion kenttään _body_ ennen kuin routen käsittelijää kutsutaan.
 
