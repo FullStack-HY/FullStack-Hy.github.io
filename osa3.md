@@ -1092,7 +1092,7 @@ Muutosten jälkeen esim. kaikki muistiinpanot tarjoavan API-endpointin osoite on
 
 ![]({{ "/images/3/11d.png" | absolute_url }})
 
-Frontend on edelleen soveluksen juuressa eli osoitteessa <https://fullstack-notes.herokuapp.com/>.
+Frontend on edelleen sovelluksen juuressa eli osoitteessa <https://fullstack-notes.herokuapp.com/>.
 
 > Sivuhuomautus: API:en versiointi
 >
@@ -1134,11 +1134,11 @@ Nyt myös frontend on kunnossa, se toimii sekä sovelluskehitysmoodissa että tu
 
 Eräs negatiivinen puoli käyttämässämme lähestymistavassa on se, että sovelluksen uuden version tuotantoon vieminen edellyttää frontendin koodin tuotantoversion generoinnista ja sen backendin repositorioin kopioimisesta huolehtivan skriptin _delpoy.sh_ suorittamisen. Tämä taas hankaloittaa automatisoidun [deployment pipelinen](https://martinfowler.com/bliki/DeploymentPipeline.html) toteuttamista. Deployment pipelinellä tarkoitetaan automatisoitua ja hallittua tapaa viedä koodi sovelluskehittäjän koneelta erilaisten testien ja laadunhallinnallisten vaiheiden kautta tuotantoympäristöön.
 
-Tähänkin on useita erilaisia ratkaisuja (esim. sekä frontendin että backendin [sijoittaminen samaan reporitorioon](https://github.com/mars/heroku-cra-node)), emme kuitenkaan nyt mene niihin.
+Tähänkin on useita erilaisia ratkaisuja (esim. sekä frontendin että backendin [sijoittaminen samaan repositorioon](https://github.com/mars/heroku-cra-node)), emme kuitenkaan nyt mene niihin.
 
 Myös frontendin koodin deployaaminen omana sovelluksenaan voi joissain tilanteissa olla järkevää. create-react-app:in avulla luotujen sovellusten osalta se on [suoraviivaista](https://github.com/mars/create-react-app-buildpack).
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-2), tagissa _part3-2_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-2), tagissa _part3-2_.
 
 ## Tehtäviä
 
@@ -1191,7 +1191,7 @@ Kaikki sovelluksen console.log-tulostukset tulevat debuggerin _Console_-välileh
 
 ### Epäile kaikkea
 
-Full Stack -sovellusten debuggaaminen vaikuttaa alussa erittäin hankalalta. Kun kohta kuvaan tulee myös tietokanta ja frontend on yhdistetty backendiin, on potentiaalisia virheenlähteitä todella paljon.
+Full Stack -sovellusten debuggaaminen vaikuttaa alussa erittäin hankalalta. Kun kohta kuvaan tulee myös tietokanta ja frontend on yhdistetty backendiin, on potentiaalisia virhelähteitä todella paljon.
 
 Kun sovellus "ei toimi", onkin selvitettävä missä vika on. On erittäin yleistä, että vika on sellaisessa paikassa, mitä ei osaa ollenkaan epäillä, ja menee minuutti-, tunti- tai jopa päiväkausia ennen kuin oikea ongelmien lähde löytyy.
 
