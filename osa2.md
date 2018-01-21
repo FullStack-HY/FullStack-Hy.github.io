@@ -5,7 +5,7 @@ inheader: yes
 permalink: /osa2/
 ---
 
-## osan 2 oppimistavoitteet
+## osan 2 oppimistavoitteet render metodissa
 
 - Web-sovellusten toiminnan perusteet
   - lisää CSS:ää
@@ -1450,9 +1450,9 @@ addNote = (event) => {
 }
 ```
 
-Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](osa1/#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden uuden taulukon) ja tyhjennetään lomakkeen teksti.
+Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](osa1/#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden taulukon) ja tyhjennetään lomakkeen teksti.
 
-Kun palvelimella oleva data alkaa vaikuttaa web-sovelluksen toimintalogiikkaan, tulee sovelluskehitykseen heti iso joukko uusia haasteita, joita tuo mukanaan mm. kommunikoinnin asynkronisuus. Debuggaamiseenin tarvitaan uusia strategiota, debug-printtaukset ym. muuttuvat vain tärkeämmäksi, myös Javascriptin runtimen periaatteita ja React-komponenttien elinkaarta on pakko tuntea riittävällä tasolla, arvaileminen ei riitä.
+Kun palvelimella oleva data alkaa vaikuttaa web-sovelluksen toimintalogiikkaan, tulee sovelluskehitykseen heti iso joukko uusia haasteita, joita tuo mukanaan mm. kommunikoinnin asynkronisuus. Debuggaamiseenkin tarvitaan uusia strategiota, debug-printtaukset ym. muuttuvat vain tärkeämmäksi, myös Javascriptin runtimen periaatteita ja React-komponenttien elinkaarta on pakko tuntea riittävällä tasolla, arvaileminen ei riitä.
 
 Palvelimen tilaa kannattaa tarkastella myös suoraan, esim. selaimella:
 
@@ -1595,7 +1595,7 @@ Kannattaa myös huomata, että uusi olio _changedNote_ on ainoastaan ns [shallow
 
 Uusi muistiinpano lähetetään sitten PUT-pyynnön mukana palvelimelle, jossa se korvaa aiemman muistiinpanon.
 
-Takaisinkutsufunktiossa asetataan komponentin _App_ tilaan kaikki vanhat muistiinpanot paitsi muuttuneen, josta tilaan asetetaan palvelimen palauttama versio:
+Takaisinkutsufunktiossa asetetaan komponentin _App_ tilaan kaikki vanhat muistiinpanot paitsi muuttuneen, josta tilaan asetetaan palvelimen palauttama versio:
 
 ```js
 axios
@@ -1832,15 +1832,15 @@ Kun valemuistiinpanon tärkeyttä yritetään muuttaa, konsoliin tulee virheilmo
 
 ![]({{ "/assets/2/14.png" | absolute_url }})
 
-Sovelluksen tulisi pystyä käsittelemään tilanne hallitusti. Jos konsoli ei ole auki, ei käyttäjä huomaa mitään muuta kun sen, että muistiinpanon tärkeys ei vaihdu napin painelusta huolimatta.
+Sovelluksen tulisi pystyä käsittelemään tilanne hallitusti. Jos konsoli ei ole auki, ei käyttäjä huomaa mitään muuta kuin sen, että muistiinpanon tärkeys ei vaihdu napin painelusta huolimatta.
 
 Jo [aiemmin](#axios-ja-promiset) mainittiin, että promisella voi olla kolme tilaa. Kun HTTP-pyyntö epäonnistuu, menee pyyntöä vastaava promise tilaan _rejected_. Emme tällä hetkellä käsittele koodissamme promisen epäonnistumista mitenkään.
 
-Promisen epäonnistuminen [käsitellään](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) antamalla _then_ metodille parametriksi myös toinen takaisinkutsufunktio, jota kutsutaan siinä tapauksessa jos promise epäonnistuu.
+Promisen epäonnistuminen [käsitellään](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) antamalla _then_ --metodille parametriksi myös toinen takaisinkutsufunktio, jota kutsutaan siinä tapauksessa jos promise epäonnistuu.
 
 Ehkä yleisempi tapa kuin kahden tapahtumankäsittelijän käyttö on liittää promiseen epäonnistumistilanteen käsittelijä kutsumalla metodia [catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch).
 
-Käytännössä virhetilanteen käsittelijän tekisteröiminen tapahtuisi seuraavasti
+Käytännössä virhetilanteen käsittelijän rekisteröiminen tapahtuisi seuraavasti
 
 ```js
 axios.get('http://example.com/propably_will_fail')
@@ -1854,7 +1854,7 @@ axios.get('http://example.com/propably_will_fail')
 
 Jos pyyntö epäonnistuu, kutsutaan _catch_-metodin avulla rekisteröityä käsittelijää.
 
-Metodia _catch_ hyödynnetän usen siten, että se sijoitetaan syvemmälle promiseketjuun.
+Metodia _catch_ hyödynnetän usein siten, että se sijoitetaan syvemmälle promiseketjuun.
 
 Kun sovelluksemme tekee HTTP-operaation syntyy oleellisesti ottaen [promiseketju](https://javascript.info/promise-chaining):
 
@@ -1907,7 +1907,7 @@ toggleImportanceOf = (id) => {
 
 Virheilmoitus annetaan vanhan kunnon [alert](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)-dialogin avulla ja palvelimelta poistettu muistiinpano poistetaan tilasta.
 
-Olemattoman muistiinpanon poistaminen siis tapahtuu metodilla [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), joka muodostaa uuden taulkon, jonka sisällöksi tulee aluperäisen taulukon sisällöstä ne alkiot, joille parametrina oleva funktio palauttaa arvon true:
+Olemattoman muistiinpanon poistaminen siis tapahtuu metodilla [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), joka muodostaa uuden taulukon, jonka sisällöksi tulee aluperäisen taulukon sisällöstä ne alkiot, joille parametrina oleva funktio palauttaa arvon true:
 
 ```js
 this.state.notes.filter(n => n.id !== id) }
