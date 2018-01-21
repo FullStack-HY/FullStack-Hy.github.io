@@ -2115,7 +2115,7 @@ Eli virheen yhteydessä asetetaan tilan kenttään _error_ sopiva virheviesti. S
 
 Lopputulos näyttää seuraavalta
 
-![]({{ "/images/2/15.png" | absolute_url }})
+![]({{ "/images/2/15b.png" | absolute_url }})
 
 Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-7), tagissa _part2-7_.
 
