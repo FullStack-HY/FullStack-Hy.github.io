@@ -1143,17 +1143,17 @@ Person
 // tänne ei kannata koodia kirjoittaa...
 ```
 
-Operaatioita ei siis voi kirjoittaa "peräkkäin". Eräs tapa siisteyttää suoraviivaista "sisälläisten callbackien" käyttöä on materiaalissakin esitetty promisejen ketjutus.
+Operaatioita ei siis voi kirjoittaa "peräkkäin". Eräs tapa siisteyttää suoraviivaista "sisäkkäisten callbackien" käyttöä on materiaalissakin esitetty promisejen ketjutus.
 
 Tämä tehtävä saattaa olla jossain määrin hankala, älä juutu tehtävään liian pitkäksi aikaa!
 
 Tutustumme seuraavassa osassa async/await-tekniikkaan, minkä avulla tämäkin tehtävä on helppo tehdä. On kuitenkin erittäin hyödyllistä opetella operoimaan myös suoraan promisejen tasolla.
 
-Mielenkiintoinen mutta enemmän omatoimista opiskelua edellyttävä tapa toiminnallisuuden toteuttamiseen on [mongoosen validaatioiden](http://mongoosejs.com/docs/validation.html) hyödyntäminen, tällöin riittää yhden asynkronisen operaaton suorittaminen.
+Mielenkiintoinen mutta enemmän omatoimista opiskelua edellyttävä tapa toiminnallisuuden toteuttamiseen on [mongoosen validaatioiden](http://mongoosejs.com/docs/validation.html) hyödyntäminen, tällöin riittää yhden asynkronisen operaation suorittaminen.
 
 #### 3.20 tietokantaa käyttävä versio herokuun
 
-Generoi päivitetystä sovelluksesta "full stack"-versio, eli tee frontendista uusi production build ja kopio se backendin repositorioon. Varmista että kaikki toimii paikallisesti käyttämällä koko sovellusta backendin osoitteesta <https://localhost:3001>.
+Generoi päivitetystä sovelluksesta "full stack"-versio, eli tee frontendista uusi production build ja kopioi se backendin repositorioon. Varmista että kaikki toimii paikallisesti käyttämällä koko sovellusta backendin osoitteesta <https://localhost:3001>.
 
 Pushaa uusi versio herokuun ja varmista, että kaikki toimii myös siellä.
 
