@@ -445,7 +445,7 @@ Eräs tapa käydä taulukon alkiot läpi on esimerkissä käytetty _forEach_, jo
 
 forEach kutsuu funktiota _jokaiselle taulukon alkiolle_ antaen taulukon alkion aina parametrina. forEachin parametrina oleva funktio voi saada myös [muita parametreja](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
 
-Taulukoille on määritelty runsaasti hyödyllisiä operaatioita, tutustumme niihin tarkemmin laskareissa. Katsotaan kuitenkin jo nyt pieni esimerkki operaation [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) käytöstä.
+Taulukoille on määritelty runsaasti hyödyllisiä operaatioita. Katsotaan pieni esimerkki operaation [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) käytöstä.
 
 ```js
 const t = [1, 2, 3, 4]
