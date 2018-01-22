@@ -630,7 +630,7 @@ export default App
 
 Tilassa oleva kenttä _newName_ on tarkoitettu lomakkeen kentän kontrollointiin.
 
-Joskus tilan muuttujia ja tarvittaessa muitakin voi olla hyödyllistä renderöidä debugatessa komponenttiin, eli voi lisätä tilapäisesti lisätä komponentin metodin _render_ palauttamaan koodiin esim. seuraavan:
+Joskus tilan muuttujia ja tarvittaessa muitakin voi olla hyödyllistä renderöidä debugatessa komponenttiin, eli voi tilapäisesti lisätä komponentin metodin _render_ palauttamaan koodiin esim. seuraavan:
 
 ```html
 <div>
@@ -845,7 +845,7 @@ Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muutt
 ![]({{ "/assets/teht/18.png" | absolute_url }})
 
 
-Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritetävän henkilön tiedot on jo poistettu.
+Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritettävän henkilön tiedot on jo poistettu.
 
 ### Tehtävien palautus
 
@@ -1066,7 +1066,7 @@ const formatNote = (note) => {
 }
 ```
 
-Refaktoroi koodiasi siten, että määrittelet formatoinnin suorittavan metodin mongoose skeeman [staattisena metodina](http://mongoosejs.com/docs/guide.html#statics), jollin voit käyttää sitä koodista seuraavasti:
+Refaktoroi koodiasi siten, että määrittelet formatoinnin suorittavan metodin mongoose skeeman [staattisena metodina](http://mongoosejs.com/docs/guide.html#statics), jolloin voit käyttää sitä koodista seuraavasti:
 
 ```js
 persons.map(Person.format)
@@ -1082,7 +1082,7 @@ Tehtävän tekeminen edellyttää luovaa manuaalin lukemista. Älä juutu tähä
 
 #### 3.15 puhelinluettelo ja tietokanta, osa 3
 
-Mutta backendiä siten, että uudet numerot tallennetaan tietokantaan. Tässä vaiheessa voit olla välittämättä siitä, onko tietokannassa jo henkilöä jolla on sama nimi kuin lisättävällä.
+Muuta backendiä siten, että uudet numerot tallennetaan tietokantaan. Tässä vaiheessa voit olla välittämättä siitä, onko tietokannassa jo henkilöä jolla on sama nimi kuin lisättävällä.
 
 Varmista, että frontend toimii muutosten jälkeen.
 

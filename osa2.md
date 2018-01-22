@@ -5,7 +5,7 @@ inheader: yes
 permalink: /osa2/
 ---
 
-## osan 2 oppimistavoitteet
+## osan 2 oppimistavoitteet render metodissa
 
 - Web-sovellusten toiminnan perusteet
   - lisää CSS:ää
@@ -450,7 +450,7 @@ ReactDOM.render(
 ```
 Moduuleilla on paljon muutakin käyttöä kuin mahdollistaa komponenttien määritteleminen omissa tiedostoissaan, palaamme moduuleihin tarkemmin myöhemmin kurssilla.
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-1)
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-1)
 
 Huomaa, että repositorion master-haarassa on myöhemmän vaiheen koodi, tämän hetken koodi on tagissa [part2-1](https://github.com/FullStack-HY/part2-notes/tree/part2-1).
 
@@ -1008,7 +1008,7 @@ Siinä vaiheessa kun operaatio valmistuu tai tarkemmin sanoen jonain valmistumis
 
 Nykyisellään Javascript-moottorit ovat _yksisäikeisiä_ eli ne eivät voi suorittaa rinnakkaista koodia. Tämän takia on käytännössä pakko käyttää ei-blokkaavaa maillia IO-operaatioiden suorittamiseen, sillä muuten selain 'jäätyisi' siksi aikaa kun esim. palvelimelta haetaan dataa.
 
-Javasript-moottoreiden yksisäikeisyydellä on myös sellainen seuraus, että jos koodin suoritus kestää erittäin pitkään, menee selain jumiin suorituksen ajaksi. Jos lisätään jonnekin kohtaa sovellustamme, esim. konstruktoriin seuraava koodi:
+Javascript-moottoreiden yksisäikeisyydellä on myös sellainen seuraus, että jos koodin suoritus kestää erittäin pitkään, menee selain jumiin suorituksen ajaksi. Jos lisätään jonnekin kohtaa sovellustamme, esim. konstruktoriin seuraava koodi:
 
 ```js
 setTimeout(() => {
@@ -1149,7 +1149,7 @@ Mozillan dokumentaatio sanoo promisesta seuraavaa:
 
 Promise siis edustaa asynkronista operaatiota. Promise voi olla kolmessa eri tilassa:
 * aluksi promise on _pending_, eli promisea vastaava asynkroninen operaatio ei ole vielä tapahtunut
-* jos operaatio päätyy onnistuneesti, menee promise tilaan _fulfilled_, josta joskus käytetään nimitystä _resolved_
+* jos operaatio päättyy onnistuneesti, menee promise tilaan _fulfilled_, josta joskus käytetään nimitystä _resolved_
 * kolmas mahdollinen tila on _rejected_, joka edustaa epäonnistunutta operaatiota
 
 Esimerkkimme ensimmäinen promise on _fulfilled_, eli vastaa onnistunutta _axios.get('http://localhost:3001/notes')_ pyyntöä. Promiseista toinen taas on _rejected_, syy selviää konsolista, eli yritettiin tehdä HTTP GET -pyyntöä osoitteeseen, jota ei ole olemassa.
@@ -1303,7 +1303,7 @@ axios.get('http://localhost:3001/notes').then(response => {
 })
 ```
 
-Tapahtumankäsittelijän koodia, eli then:in parametrina olevaa _funktiota_ ei siis suoriteta vielä tässä vaiheessa. Javascriptin runtime kutuu sitä jossain vaiheessa sen jälkeen kun palvelin on vastannut HTTP GET -pyyntöön. Tätä ennen kutsutaan metodia _render_ ja komponentti _App_ piirtyy ruudulle aluksi siten, että yhtään muistiinpanoa ei näytetä.
+Tapahtumankäsittelijän koodia, eli then:in parametrina olevaa _funktiota_ ei siis suoriteta vielä tässä vaiheessa. Javascriptin runtime kutsuu sitä jossain vaiheessa sen jälkeen kun palvelin on vastannut HTTP GET -pyyntöön. Tätä ennen kutsutaan metodia _render_ ja komponentti _App_ piirtyy ruudulle aluksi siten, että yhtään muistiinpanoa ei näytetä.
 
 Emme kuitenkaan ehdi huomaamaan asiaa, sillä palvelimen vastaus tulee pian, ja se taas saa aikaan tapahtumankäsittelijän suorituksen. Tapahtumankäsittelijä päivittää komponentin tilaa kutsumalla _setState_ ja tämä saa aikaan komponentin uudelleenrenderöinnin.
 
@@ -1450,9 +1450,9 @@ addNote = (event) => {
 }
 ```
 
-Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](osa1/#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden uuden taulukon) ja tyhjennetään lomakkeen teksti.
+Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](osa1/#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden taulukon) ja tyhjennetään lomakkeen teksti.
 
-Kun palvelimella oleva data alkaa vaikuttaa web-sovelluksen toimintalogiikkaan, tulee sovelluskehitykseen heti iso joukko uusia haasteita, joita tuo mukanaan mm. kommunikoinnin asynkronisuus. Debuggaamiseenin tarvitaan uusia strategiota, debug-printtaukset ym. muuttuvat vain tärkeämmäksi, myös Javascriptin runtimen periaatteita ja React-komponenttien elinkaarta on pakko tuntea riittävällä tasolla, arvaileminen ei riitä.
+Kun palvelimella oleva data alkaa vaikuttaa web-sovelluksen toimintalogiikkaan, tulee sovelluskehitykseen heti iso joukko uusia haasteita, joita tuo mukanaan mm. kommunikoinnin asynkronisuus. Debuggaamiseenkin tarvitaan uusia strategiota, debug-printtaukset ym. muuttuvat vain tärkeämmäksi, myös Javascriptin runtimen periaatteita ja React-komponenttien elinkaarta on pakko tuntea riittävällä tasolla, arvaileminen ei riitä.
 
 Palvelimen tilaa kannattaa tarkastella myös suoraan, esim. selaimella:
 
@@ -1595,7 +1595,7 @@ Kannattaa myös huomata, että uusi olio _changedNote_ on ainoastaan ns [shallow
 
 Uusi muistiinpano lähetetään sitten PUT-pyynnön mukana palvelimelle, jossa se korvaa aiemman muistiinpanon.
 
-Takaisinkutsufunktiossa asetataan komponentin _App_ tilaan kaikki vanhat muistiinpanot paitsi muuttuneen, josta tilaan asetetaan palvelimen palauttama versio:
+Takaisinkutsufunktiossa asetetaan komponentin _App_ tilaan kaikki vanhat muistiinpanot paitsi muuttuneen, josta tilaan asetetaan palvelimen palauttama versio:
 
 ```js
 axios
@@ -1832,15 +1832,15 @@ Kun valemuistiinpanon tärkeyttä yritetään muuttaa, konsoliin tulee virheilmo
 
 ![]({{ "/assets/2/14.png" | absolute_url }})
 
-Sovelluksen tulisi pystyä käsittelemään tilanne hallitusti. Jos konsoli ei ole auki, ei käyttäjä huomaa mitään muuta kun sen, että muistiinpanon tärkeys ei vaihdu napin painelusta huolimatta.
+Sovelluksen tulisi pystyä käsittelemään tilanne hallitusti. Jos konsoli ei ole auki, ei käyttäjä huomaa mitään muuta kuin sen, että muistiinpanon tärkeys ei vaihdu napin painelusta huolimatta.
 
 Jo [aiemmin](#axios-ja-promiset) mainittiin, että promisella voi olla kolme tilaa. Kun HTTP-pyyntö epäonnistuu, menee pyyntöä vastaava promise tilaan _rejected_. Emme tällä hetkellä käsittele koodissamme promisen epäonnistumista mitenkään.
 
-Promisen epäonnistuminen [käsitellään](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) antamalla _then_ metodille parametriksi myös toinen takaisinkutsufunktio, jota kutsutaan siinä tapauksessa jos promise epäonnistuu.
+Promisen epäonnistuminen [käsitellään](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) antamalla _then_ --metodille parametriksi myös toinen takaisinkutsufunktio, jota kutsutaan siinä tapauksessa jos promise epäonnistuu.
 
 Ehkä yleisempi tapa kuin kahden tapahtumankäsittelijän käyttö on liittää promiseen epäonnistumistilanteen käsittelijä kutsumalla metodia [catch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch).
 
-Käytännössä virhetilanteen käsittelijän tekisteröiminen tapahtuisi seuraavasti
+Käytännössä virhetilanteen käsittelijän rekisteröiminen tapahtuisi seuraavasti
 
 ```js
 axios.get('http://example.com/propably_will_fail')
@@ -1854,7 +1854,7 @@ axios.get('http://example.com/propably_will_fail')
 
 Jos pyyntö epäonnistuu, kutsutaan _catch_-metodin avulla rekisteröityä käsittelijää.
 
-Metodia _catch_ hyödynnetän usen siten, että se sijoitetaan syvemmälle promiseketjuun.
+Metodia _catch_ hyödynnetän usein siten, että se sijoitetaan syvemmälle promiseketjuun.
 
 Kun sovelluksemme tekee HTTP-operaation syntyy oleellisesti ottaen [promiseketju](https://javascript.info/promise-chaining):
 
@@ -1907,7 +1907,7 @@ toggleImportanceOf = (id) => {
 
 Virheilmoitus annetaan vanhan kunnon [alert](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)-dialogin avulla ja palvelimelta poistettu muistiinpano poistetaan tilasta.
 
-Olemattoman muistiinpanon poistaminen siis tapahtuu metodilla [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), joka muodostaa uuden taulkon, jonka sisällöksi tulee aluperäisen taulukon sisällöstä ne alkiot, joille parametrina oleva funktio palauttaa arvon true:
+Olemattoman muistiinpanon poistaminen siis tapahtuu metodilla [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), joka muodostaa uuden taulukon, jonka sisällöksi tulee aluperäisen taulukon sisällöstä ne alkiot, joille parametrina oleva funktio palauttaa arvon true:
 
 ```js
 this.state.notes.filter(n => n.id !== id) }
@@ -1956,7 +1956,7 @@ h1 {
 
 Erilaisia selektoreja eli tapoja valita tyylien kohde on [lukuisia](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
-Jos haluamme kohdistaa, tyylejä esim. jokaiseen muistiinpanoon voisimme nyt käyttää selektoria _li_, sillä muistiinpanot ovat _li_-tagien sisällä:
+Jos haluamme kohdistaa tyylejä esim. jokaiseen muistiinpanoon, voisimme nyt käyttää selektoria _li_, sillä muistiinpanot ovat _li_-tagien sisällä:
 
 ```react
 const Note = ({ note, toggleImportance}) => {
@@ -1967,7 +1967,7 @@ const Note = ({ note, toggleImportance}) => {
 }
 ```
 
-lisätään tyyliedostoon seuraava (koska osaamiseni tyylikkäiden web-sivujen tekemiseen on lähellä nollaa, nyt käytettävissä tyyleissä ei ole sinänsä mitään järkeä):
+lisätään tyylitiedostoon seuraava (koska osaamiseni tyylikkäiden web-sivujen tekemiseen on lähellä nollaa, nyt käytettävissä tyyleissä ei ole sinänsä mitään järkeä):
 
 ```css
 li {
@@ -2115,9 +2115,9 @@ Eli virheen yhteydessä asetetaan tilan kenttään _error_ sopiva virheviesti. S
 
 Lopputulos näyttää seuraavalta
 
-![]({{ "/images/2/15.png" | absolute_url }})
+![]({{ "/images/2/15b.png" | absolute_url }})
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-7), tagissa _part2-7_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-7), tagissa _part2-7_.
 
 ### Loppuhuipennus
 
