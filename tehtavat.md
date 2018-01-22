@@ -863,6 +863,8 @@ Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellu
 
 **HUOM tämän osan tehtäväsarja kannattaa tehdä omaan git-repositorioon, suoraan repositorion juureen! Jos et tee näin, joudut ongelmiin tehtävässä 3.10**.
 
+**HUOM2** Windows-käyttäjien ei kannata tehdä tehtävää sellaiseen hakemistoon, jonka nimessä on välilyönti, muuten osassa 4 on luvassa ongelmia. Myöskään missään tämän tehtävän hakemiston yläpuolella olevassa hakemistossa ei saa esiintyä välilyöntiä.
+
 <div class='important'>
 
 <p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa3/'>osan 3 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>

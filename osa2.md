@@ -452,7 +452,9 @@ Moduuleilla on paljon muutakin käyttöä kuin mahdollistaa komponenttien määr
 
 Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part2-1)
 
-Huomaa, että repositorion master-haarassa on myöhemmän vaiheen koodi, tämän hetken koodi on tagissa [part2-1](https://github.com/FullStack-HY/part2-notes/tree/part2-1).
+Huomaa, että repositorion master-haarassa on myöhemmän vaiheen koodi, tämän hetken koodi on tagissa [part2-1](https://github.com/FullStack-HY/part2-notes/tree/part2-1):
+
+![]({{ "/master/2/1b.png" | absolute_url }})
 
 Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnistämistä eli komentoa _npm start_.
 
