@@ -1027,7 +1027,7 @@ Person
     // ...
   })
 
-mongoose.connection.close() 
+mongoose.connection.close()
 ```
 
 Koodin suoritus nimittäin etenee siten, että heti operaation _Person.find_ käynnistymisen jälkeen suoritetaan komento _mongoose.connection.close()_ ja tietokantayhteys katkeaa välittömästi. Näin ei koskaan päästä siihen pisteeseen, että _Person.find_-operaation valmistumisen käsittelevää _takaisinkutsufunktiota_ kutsuttaisiin.
@@ -1057,7 +1057,7 @@ Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduulii
 
 #### 3.14* puhelinluettelo ja tietokanta, osa 2
 
-Osan 3 materiaalissa määriteltiin metodi _formatNote_ jonka avulla tietokannasta haettu muistiinpano formatoidaan HTTP-pyyntöjen vastauksiin sopivaan muotoon: 
+Osan 3 materiaalissa määriteltiin metodi _formatNote_ jonka avulla tietokannasta haettu muistiinpano formatoidaan HTTP-pyyntöjen vastauksiin sopivaan muotoon:
 
 ```js
 const formatNote = (note) => {
@@ -1119,7 +1119,7 @@ Varmista, että frontend toimii muutosten jälkeen.
 
 #### 3.18* puhelinluettelo ja tietokanta, osa 6
 
-Päivitä myös polkujen _api/persons/:id_ ja _info_ käsittely, ja varmista niiden toimivuus suoraan selaimella, postmanilla tai VS Coden REST clientillä. 
+Päivitä myös polkujen _api/persons/:id_ ja _info_ käsittely, ja varmista niiden toimivuus suoraan selaimella, postmanilla tai VS Coden REST clientillä.
 
 Selaimella tarkastellen yksittäisen numerotiedon tulisi näyttää seuraavalta:
 
