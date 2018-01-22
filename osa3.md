@@ -1206,11 +1206,11 @@ Dokumenttitietokannat poikkeavat jossain määrin relaatiotietokannoista niin da
 
 **Lue nyt Tietokantojen perusteiden dokumenttitietokantoja kuvaava osuus.** Jatkossa oletetaan, että hallitset käsitteet _dokumentti_ ja _kokoelma_ (collection).
 
-MongoDB:n voi luonnollisesti asentaa omalle koneelle. Internetistä löytyy kuitenin myös palveluna toimivia Mongoja (esim [mlab](https://mlab.com/) ja [MongoDbCloud](https://www.mongodb.com/cloud/atlas)) ja seuraava ohje olettaa, että käytössä on jo vuosien kokemuksella luotettavaksi havaittu [mlab](https://mlab.com/).
+MongoDB:n voi luonnollisesti asentaa omalle koneelle. Internetistä löytyy kuitenkin myös palveluna toimivia Mongoja (esim [mlab](https://mlab.com/) ja [MongoDbCloud](https://www.mongodb.com/cloud/atlas)) ja seuraava ohje olettaa, että käytössä on jo vuosien kokemuksella luotettavaksi havaittu [mlab](https://mlab.com/).
 
-Mlab-kanta on helppo ottaa käyttöön suoraan [Herkoun kautta](https://elements.heroku.com/addons/mongolab), vaikka tämä on maksutonta, edellyttää se luottokorttitietojen antamista Herokulle.
+Mlab-kanta on helppo ottaa käyttöön suoraan [Herokun kautta](https://elements.heroku.com/addons/mongolab), vaikka tämä on maksutonta, edellyttää se luottokorttitietojen antamista Herokulle.
 
-Määrittelemmekin seuraavassa kannan suoraan [mlab](https://mlab.com/):iin, jolloin luottokottitietoja ei tarvita.
+Määrittelemmekin seuraavassa kannan suoraan [mlab](https://mlab.com/):iin, jolloin luottokorttitietoja ei tarvita.
 
 Aloita luomalla mlabiin käyttäjätili, saatuasi mlabilta verifiointimailin ja kirjauduttuasi mailin linkin kautta sisään, voit luoda tietokannan:
 
@@ -1218,7 +1218,7 @@ Aloita luomalla mlabiin käyttäjätili, saatuasi mlabilta verifiointimailin ja 
 
 Määrittele esim. _Amazon web services_, tyypiksi ilmainen _sandbox_ ja sijoituspaikaksi Irlanti ja anna kannalle sopiva nimi.
 
-Kun kanta on hetken kulutta valmis, mene tietokannan hallintanäkymään
+Kun kanta on hetken kuluttua valmis, mene tietokannan hallintanäkymään
 
 ![]({{ "/images/3/12b.png" | absolute_url }})
 
@@ -1234,7 +1234,7 @@ Tarvitsemme kannan käyttöä varten _dbuserin_ eli käyttäjätunnuksen. Käytt
 
 ![]({{ "/images/3/12c.png" | absolute_url }})
 
-Jos luotutiin käyttäjätunnus _fullstack_ jonka salasana on _sekred_, on tietokannan osoite seuraava:
+Jos luotiin käyttäjätunnus _fullstack_ jonka salasana on _sekred_, on tietokannan osoite seuraava:
 
 ```
 mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes
@@ -1351,7 +1351,7 @@ const note = new Note({
 })
 ```
 
-Modelit ovat ns. _konstruktorifunktioita_, jotka luovat parametrien perusteella Javascript-olioita. Koska oliot on luotu modelien konstruktirifunktiolla, nillä on kaikki modelien ominaisuudet, eli joukko metodeja, joiden avulla olioita voidaan mm. tallettaa tietokantaan.
+Modelit ovat ns. _konstruktorifunktioita_, jotka luovat parametrien perusteella Javascript-olioita. Koska oliot on luotu modelien konstruktorifunktiolla, niillä on kaikki modelien ominaisuudet, eli joukko metodeja, joiden avulla olioita voidaan mm. tallettaa tietokantaan.
 
 Tallettaminen tapahtuu metodilla _save_. Metodi palauttaa _promisen_, jolle voidaan rekisteröidä _then_-metodin avulla tapahtumankäsittelijä:
 
@@ -1403,7 +1403,7 @@ Note
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.12](../tehtavat#mongoosen-alkeet)
+Tee nyt tehtävä [3.12](../tehtavat#mongoosen-alkeet)
 
 ## Tietokantaa käyttävä backend
 
@@ -1426,7 +1426,7 @@ const Note = mongoose.model('Note', {
 })
 ```
 
-ja muutetaan kaikien muistiinpanojen hakemisesta vastaava käsittelijä seuraavaan muotoon
+ja muutetaan kaikkien muistiinpanojen hakemisesta vastaava käsittelijä seuraavaan muotoon
 
 ```js
 app.get('/api/notes', (request, response) => {
@@ -1491,7 +1491,7 @@ Ennen olion palauttamista turhat kentät poistetaan.
 
 Jos ohjelma käyttäisi muunkin tyyppisiä olioita kuin _muistiinpanoja_ sopisi sama funktio niidenkin muotoiluun. Jatkon kannalta on kuitenkin parempi, että pidämme alkuperäisen version funktiosta.
 
-On myös mahdollista estää mongoosea palauttamasta tiettyjen kenttien arvoa, tai pyytää sitä palauttamaan vaan tietyt kentät. Saamme estettyä parametrin <em>\_\_v</em>:n lisäämällä _find_-metodiin toiseksi parametriksi _{\_\_v: 0}_ seuraavasti:
+On myös mahdollista estää mongoosea palauttamasta tiettyjen kenttien arvoa, tai pyytää sitä palauttamaan vain tietyt kentät. Saamme estettyä parametrin <em>\_\_v</em>:n lisäämällä _find_-metodiin toiseksi parametriksi _{\_\_v: 0}_ seuraavasti:
 
 ```js
 app.get('/api/notes', (request, response) => {
@@ -1684,7 +1684,7 @@ app.get('/api/notes/:id', (request, response) => {
 
 Jos kannasta ei löydy haettua olioa, muuttujan _note_ arvo on _undefined_ ja koodi ajautuu _else_-haaraan. Siellä vastataan kyselyyn _404 not found_.
 
-Jos id ei ole hyväksyttävässä muodossa, ajaudutaan _catch_:in avulla määriteltyyn virheidenkäsittelijään. Sopiva statauskoodi on [400 bad request](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1) koska kyse on juuri siitä:
+Jos id ei ole hyväksyttävässä muodossa, ajaudutaan _catch_:in avulla määriteltyyn virheidenkäsittelijään. Sopiva statuskoodi on [400 bad request](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.1) koska kyse on juuri siitä:
 
 > The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.
 
