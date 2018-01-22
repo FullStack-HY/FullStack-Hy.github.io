@@ -42,13 +42,13 @@ Siirrämme tässä osassa fokuksen backendiin, eli palvelimella olevaan toiminna
 
 Backendin toteutusympäristönä käytämme [Node.js](https://nodejs.org/en/):ää, joka on melkein missä vaan, erityisesti palvelimilla ja omalla koneellasikin toimiva, Googlen [chrome V8](https://developers.google.com/v8/) -Javascriptmoottoriin perustuva Javascriptin suoritusympäristö.
 
-Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintää yhtä tuore (ks. komentoriviltä _node -v_).
+Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintään yhtä tuore (ks. komentoriviltä _node -v_).
 
 Kuten [osassa 1](/osa1#Javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
 
 Tavoitteenamme on tehdä [osan 2](/osa2) muistiinpanosovellukseen sopiva backend. Aloitetaan kuitenkin ensin perusteiden läpikäyminen toteuttamalla perinteinen "hello world"-sovellus.
 
-Osassa 2 oli jo puhe [npm](/osa2#npm):stä, eli Javascript-projektien hallintaan liittyvästä, alunperin Node-ekosysteeminstä kotoisin olevasta työkalusta. Mennään sopivaan hakemistoon ja luodaan projektimme runko komennolla _npm init_. Vastaillaan kysymyksiin sopivasti ja tuloksena on hakemiston juureen sijoitettu projektin tietoja kuvaava tiedosto _package.json_
+Osassa 2 oli jo puhe [npm](/osa2#npm):stä, eli Javascript-projektien hallintaan liittyvästä, alunperin Node-ekosysteemistä kotoisin olevasta työkalusta. Mennään sopivaan hakemistoon ja luodaan projektimme runko komennolla _npm init_. Vastaillaan kysymyksiin sopivasti ja tuloksena on hakemiston juureen sijoitettu projektin tietoja kuvaava tiedosto _package.json_
 
 ```json
 {
@@ -82,7 +82,7 @@ Tehdään kenttään _scripts_ pieni lisäys:
 Luodaan sitten sovelluksen ensimmäinen versio, eli projektin juureen sijoitettava tiedosto _index.js_ ja sille seuraava sisältö:
 
 ```js
-console.log('hello word')
+console.log('hello world')
 ```
 
 Voimme suorittaa ohjelman joko "suoraan" nodella, komentorivillä
@@ -112,7 +112,7 @@ npm-skripti _start_ toimii koska määrittelimme sen tiedostoon _package.json_
 
 Vaikka esim. projektin suorittaminen onnistuukin suoraan käyttämällä komentoa _node index.js_, on npm-projekteille suoritettavat operaatiot yleensä tapana määritellä nimenomaan npm-skripteinä.
 
-Oletusarvoinen _package.json_ määrittelee valmiiksi myös toisen yleisesti käytetyn npm-scriptin eli _npm test_. Koska projektissamme ei ole vielä testikirjastoa, ei _npm test_ kuitenkaan tee vielä muuta kun suorittaa komennon
+Oletusarvoinen _package.json_ määrittelee valmiiksi myös toisen yleisesti käytetyn npm-scriptin eli _npm test_. Koska projektissamme ei ole vielä testikirjastoa, ei _npm test_ kuitenkaan tee vielä muuta kuin suorittaa komennon
 
 ```bash
 echo "Error: no test specified" && exit 1
@@ -164,7 +164,7 @@ Error: listen EADDRINUSE :::3001
 
 Sammuta portissa 3001 oleva sovellus (edellisessä osassa json-server käynnistettiin porttiin 3001) tai määrittele sovellukselle jokin toinen portti.
 
-Tarkastallaan koodia hiukan. Ensimmäinen rivi
+Tarkastellaan koodia hiukan. Ensimmäinen rivi
 
 ```js
 const http = require('http')
@@ -366,7 +366,7 @@ Aiemmassa, pelkkää Nodea käyttämässä versiossa, jouduimme muuttamaan palau
 response.end(JSON.stringify(notes))
 ```
 
-Expressiä käyttässä tämä ei ole tarpeen, sillä muunnos tapahtuu automaattisesti.
+Expressiä käytettäessä tämä ei ole tarpeen, sillä muunnos tapahtuu automaattisesti.
 
 Kannattaa huomata, että [JSON](https://en.wikipedia.org/wiki/JSON) on merkkijono, eikä Javascript-olio kuten muuttuja _notes_.
 
@@ -675,13 +675,13 @@ app.post('/notes', (request, response) => {
 })
 ```
 
-Tapahtumankäsittelijäfunktio pääsee dataan käsiksi viitaamalla _request.body_.
+Tapahtumankäsittelijäfunktio pääsee dataan käsiksi viittaamalla _request.body_.
 
 Ilman body-parser-käyttöönottoa pyynnön kentän _body_ arvo olisi ollut määrittelemätön. body-parserin toimintaperiaatteena on, että se ottaa pyynnön mukana olevan JSON-muotoisen datan, muuttaa sen Javascript-olioksi ja sijoittaa _request_-olion kenttään _body_ ennen kuin routen käsittelijää kutsutaan.
 
-Toistaiseksi sovellus ei vielä tee vastaanotetulle datalle, mitään muuta kuin tulostaa sen konsoliin ja palauttaa sen pyynnön vastauksessa.
+Toistaiseksi sovellus ei vielä tee vastaanotetulle datalle mitään muuta kuin tulostaa sen konsoliin ja palauttaa sen pyynnön vastauksessa.
 
-Ennen toimintalogiikan viimeistelyä varmistetaan ensin postmanilla että, lähetetty tieto menee varmasti perille. Pyyntötyypin ja urlin lisäksi on määriteltävä myös pyynnön mukana menevä data eli _body_:
+Ennen toimintalogiikan viimeistelyä varmistetaan ensin postmanilla, että lähetetty tieto menee varmasti perille. Pyyntötyypin ja urlin lisäksi on määriteltävä myös pyynnön mukana menevä data eli _body_:
 
 ![]({{ "/assets/3/9.png" | absolute_url }})
 
@@ -697,7 +697,7 @@ Jos käytät VS Codea niin edellisessä luvussa esitelty REST client kannattaa a
 
 Eli pyyntöä varten on luotu oma tiedosto _new_note.rest_. Pyyntö on muotoiltu [dokumentaation ohjetta](https://github.com/Huachao/vscode-restclient/blob/master/README.md#usage) noudatellen.
 
-REST cientin eräs suuri etu postmaniin verratatuna on se, että pyynnöt saa kätevästi talletettua projektin repositorioon ja tällöin ne ovat helposti koko kehitystiimin käytössä. Postmanillakin on mahdollista tallettaa pyyntöjä, mutta tilanne menee helposti kaoottiseksi etenkin jos työn alla on useita toisistaan riippumattomia projekteja. 
+REST clientin eräs suuri etu postmaniin verratatuna on se, että pyynnöt saa kätevästi talletettua projektin repositorioon ja tällöin ne ovat helposti koko kehitystiimin käytössä. Postmanillakin on mahdollista tallettaa pyyntöjä, mutta tilanne menee helposti kaaoottiseksi etenkin jos työn alla on useita toisistaan riippumattomia projekteja. 
 
 > **Tärkeä sivuhuomio**
 >
@@ -966,7 +966,7 @@ Minifioitu koodi ei ole miellyttävää luettavaa. Koodin alku näyttää seuraa
 
 Eräs mahdollisuus frontendin tuotantoon viemiseen on kopioida tuotantokoodi, eli hakemisto _build_ backendin repositorion juureen ja määritellä backend näyttämään pääsivunaan frontendin _pääsivu_, eli tiedosto _build/index.html_.
 
-Aloitetaan kopioimalla fronendin tuotantokoodi backendin alle. Omalla koneellani kopiointi tapahtuu fronendin hakemistosta käsin komennolla
+Aloitetaan kopioimalla frontendin tuotantokoodi backendin alle. Omalla koneellani kopiointi tapahtuu frontendin hakemistosta käsin komennolla
 
 ```bash
 cp -r build ../../osa3/notebackend/public
@@ -998,7 +998,7 @@ const getAll = () => {
 // ...
 ```
 
-Muutoksen jälkeen on luotava uusi production build ja kopioitava se backendin repositorioin juureen.
+Muutoksen jälkeen on luotava uusi production build ja kopioitava se backendin repositorion juureen.
 
 Sovellusta voidaan käyttää nyt _backendin_ osoitteesta <http://localhost:3001>:
 
@@ -1028,7 +1028,7 @@ React-koodi hakee palvelimelta muistiinpanot osoitteesta <http://localhost:3001/
 
 ![]({{ "/images/3/11g.png" | absolute_url }})
 
-Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan fronendin tuotantoversio backendin repositorioon ja 
+Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan frontendin tuotantoversio backendin repositorioon ja 
 pushataan koodi uudelleen herokuun. 
 
 [Sovellus](https://fullstack-notes.herokuapp.com) toimii moitteettomasti lukuunottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
@@ -1041,9 +1041,9 @@ Sovelluksemme tallettama tieto ei ole ikuisesti pysyvää, sillä sovellus talle
 
 Tarvitsemme sovelluksellemme tietokannan. Ennen tietokannan käyttöönottoa katsotaan kuitenkin vielä muutamaa asiaa.
 
-## Fronendin deployauksen suoraviivaistus
+## Frontendin deployauksen suoraviivaistus
 
-Jotta uuden fronendin version generointi onnistuisi jatkossa ilman turhia manuaalisia askelia, tehdään fronendin repositorion juureen yksinkertainen shell-scripti, joka suorittaa uuden tuotantoversion buildaamisen eli komennon _npm run build_ ja sen siirron backendin alle. Annetaan skriptille nimeksi _deploy.sh_. Sisältö on seuraava
+Jotta uuden frontendin version generointi onnistuisi jatkossa ilman turhia manuaalisia askelia, tehdään frontendin repositorion juureen yksinkertainen shell-scripti, joka suorittaa uuden tuotantoversion buildaamisen eli komennon _npm run build_ ja sen siirron backendin alle. Annetaan skriptille nimeksi _deploy.sh_. Sisältö on seuraava
 
 ```bash
 #!/bin/sh
@@ -1057,7 +1057,7 @@ Skripille pitää antaa vielä suoritusoikeudet:
 chmod u+x deploy.sh
 ```
 
-Skripti voidaan suorittaa fronendin juuresta komennolla _./deploy.sh_
+Skripti voidaan suorittaa frontendin juuresta komennolla _./deploy.sh_
 
 
 ### Backendin urlit
@@ -1092,7 +1092,7 @@ Muutosten jälkeen esim. kaikki muistiinpanot tarjoavan API-endpointin osoite on
 
 ![]({{ "/images/3/11d.png" | absolute_url }})
 
-Frontend on edelleen soveluksen juuressa eli osoitteessa <https://fullstack-notes.herokuapp.com/>.
+Frontend on edelleen sovelluksen juuressa eli osoitteessa <https://fullstack-notes.herokuapp.com/>.
 
 > Sivuhuomautus: API:en versiointi
 >
@@ -1114,7 +1114,7 @@ const baseUrl = '/api/notes'
 
 Koska frontend toimii osoitteessa _localhost:3000_, menevät backendiin tehtävät pyynnöt väärään osoitteeseen _localhost:3000/api/notes_. Backend toimii kuitenkin osoitteessa _localhost:3001_
 
-create-react-app:illa luoduissa projekteissa ongelma on helppo ratkaista. Riittää, että fronendin repositorion tiedostoon _package.json_ lisätään seuraava määritelmä:
+create-react-app:illa luoduissa projekteissa ongelma on helppo ratkaista. Riittää, että frontendin repositorion tiedostoon _package.json_ lisätään seuraava määritelmä:
 
 ```bash
 {
@@ -1134,11 +1134,11 @@ Nyt myös frontend on kunnossa, se toimii sekä sovelluskehitysmoodissa että tu
 
 Eräs negatiivinen puoli käyttämässämme lähestymistavassa on se, että sovelluksen uuden version tuotantoon vieminen edellyttää frontendin koodin tuotantoversion generoinnista ja sen backendin repositorioin kopioimisesta huolehtivan skriptin _delpoy.sh_ suorittamisen. Tämä taas hankaloittaa automatisoidun [deployment pipelinen](https://martinfowler.com/bliki/DeploymentPipeline.html) toteuttamista. Deployment pipelinellä tarkoitetaan automatisoitua ja hallittua tapaa viedä koodi sovelluskehittäjän koneelta erilaisten testien ja laadunhallinnallisten vaiheiden kautta tuotantoympäristöön.
 
-Tähänkin on useita erilaisia ratkaisuja (esim. sekä frontendin että backendin [sijoittaminen samaan reporitorioon](https://github.com/mars/heroku-cra-node)), emme kuitenkaan nyt mene niihin.
+Tähänkin on useita erilaisia ratkaisuja (esim. sekä frontendin että backendin [sijoittaminen samaan repositorioon](https://github.com/mars/heroku-cra-node)), emme kuitenkaan nyt mene niihin.
 
 Myös frontendin koodin deployaaminen omana sovelluksenaan voi joissain tilanteissa olla järkevää. create-react-app:in avulla luotujen sovellusten osalta se on [suoraviivaista](https://github.com/mars/create-react-app-buildpack).
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-2), tagissa _part3-2_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-2), tagissa _part3-2_.
 
 ## Tehtäviä
 
@@ -1191,7 +1191,7 @@ Kaikki sovelluksen console.log-tulostukset tulevat debuggerin _Console_-välileh
 
 ### Epäile kaikkea
 
-Full Stack -sovellusten debuggaaminen vaikuttaa alussa erittäin hankalalta. Kun kohta kuvaan tulee myös tietokanta ja frontend on yhdistetty backendiin, on potentiaalisia virheenlähteitä todella paljon.
+Full Stack -sovellusten debuggaaminen vaikuttaa alussa erittäin hankalalta. Kun kohta kuvaan tulee myös tietokanta ja frontend on yhdistetty backendiin, on potentiaalisia virhelähteitä todella paljon.
 
 Kun sovellus "ei toimi", onkin selvitettävä missä vika on. On erittäin yleistä, että vika on sellaisessa paikassa, mitä ei osaa ollenkaan epäillä, ja menee minuutti-, tunti- tai jopa päiväkausia ennen kuin oikea ongelmien lähde löytyy.
 
@@ -1758,7 +1758,7 @@ Huomaa, että metodin _findOneAndUpdate_ parametrina tulee antaa normaali Javasc
 
 Pieni, mutta tärkeä detalji liittyen operaatioon _findOneAndUpdate_. Oletusarvoisesti tapahtumankäsittelijä saa parametrikseen _updatedNote_ päivitetyn olion [ennen muutosta](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate) olleen tilan. Lisäsimme operaatioon parametrin <code>{ new: true }</code> jotta saamme muuttuneen olion palautetuksi kutsujalle.
 
-Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilujen perusteella ja myös fronend toimii moitteettomasti tietokantaa käyttävän backendin kanssa.
+Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilujen perusteella ja myös frontend toimii moitteettomasti tietokantaa käyttävän backendin kanssa.
 
 ### Tehtäviä
 
@@ -2030,7 +2030,7 @@ Kannattaa ehkä tehdä linttaustakin varten _npm-skripti_:
 
 Nyt komennot _npm run lint_ suorittaa tarkastukset koko projektille.
 
-Myös hakemistossa _build_ oleva fronendin tuotantoversio tulee näin tarkastettua. Sitä emme kuitenkaan halua, eli tehdään projektin juureen tiedosto [.eslintignore](https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories) ja sille seuraava sisältö
+Myös hakemistossa _build_ oleva frontendin tuotantoversio tulee näin tarkastettua. Sitä emme kuitenkaan halua, eli tehdään projektin juureen tiedosto [.eslintignore](https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories) ja sille seuraava sisältö
 
 ```bash
 build
