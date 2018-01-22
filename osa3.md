@@ -1028,8 +1028,7 @@ React-koodi hakee palvelimelta muistiinpanot osoitteesta <http://localhost:3001/
 
 ![]({{ "/images/3/11g.png" | absolute_url }})
 
-Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan frontendin tuotantoversio backendin repositorioon ja
-pushataan koodi uudelleen herokuun.
+Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan frontendin tuotantoversio backendin repositorioon ja pushataan koodi uudelleen herokuun.
 
 [Sovellus](https://fullstack-notes.herokuapp.com) toimii moitteettomasti lukuunottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
 
