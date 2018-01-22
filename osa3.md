@@ -232,7 +232,7 @@ const app = http.createServer((request, response) => {
   response.end(JSON.stringify(notes))
 })
 ```
-Käynnistetään palvelin uudelleen (palvelin sammutetaan painamalla _ctrl_ ja _c_ yhtä aikaa konsolissa) ja refreshataan selain. 
+Käynnistetään palvelin uudelleen (palvelin sammutetaan painamalla _ctrl_ ja _c_ yhtä aikaa konsolissa) ja refreshataan selain.
 
 Headerin _Content-Type_ arvolla _application/json_ kerrotaan, että kyse on JSON-muotoisesta datasta. Muuttujassa _notes_ oleva taulukko muutetaan jsoniksi metodilla <code>JSON.stringify(notes)</code>.
 
@@ -640,9 +640,9 @@ Koska muistiinpanot on talletettu palvelimen muistiin, uudelleenkäynnistys pala
 Jos käytät Visual Studio Codea, voit postmanin sijaan käyttää VS Coden
 [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) -pluginia.
 
-Kun plugin on asennettu, on se käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina. 
+Kun plugin on asennettu, on se käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina.
 
-Luodaan kaikki muistiinpanot hakevan pyynnön määrittelevä tiedosto _get_all_notes.rest_ 
+Luodaan kaikki muistiinpanot hakevan pyynnön määrittelevä tiedosto _get_all_notes.rest_
 
 ![]({{ "/images/3/8a.png" | absolute_url }})
 
@@ -654,7 +654,7 @@ Klikkaamalla _Send request_ -tekstiä, REST client suorittaa määritellyn HTTP-
 
 Toteutetaan seuraavana uusien muistiinpanojen lisäys, joka siis tapahtuu tekemällä HTTP POST -pyyntö osoitteeseen _http://localhost:3001/notes_ ja liittämällä pyynnön mukaan eli [bodyyn](https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7) luotavan muistiinpanon tiedot JSON-muodossa.
 
-Jotta pääsisimme pyynnön mukana lähetettyyn dataan helposti käsiksi tarvitsemme [body-parser](https://github.com/expressjs/body-parser)-kirjaston apua. 
+Jotta pääsisimme pyynnön mukana lähetettyyn dataan helposti käsiksi tarvitsemme [body-parser](https://github.com/expressjs/body-parser)-kirjaston apua.
 
 Otetaan body-parser käyttöön ja luodaan alustava määrittely HTTP POST -pyynnön käsittelyyn
 
@@ -697,11 +697,11 @@ Jos käytät VS Codea niin edellisessä luvussa esitelty REST client kannattaa a
 
 Eli pyyntöä varten on luotu oma tiedosto _new_note.rest_. Pyyntö on muotoiltu [dokumentaation ohjetta](https://github.com/Huachao/vscode-restclient/blob/master/README.md#usage) noudatellen.
 
-REST clientin eräs suuri etu postmaniin verratatuna on se, että pyynnöt saa kätevästi talletettua projektin repositorioon ja tällöin ne ovat helposti koko kehitystiimin käytössä. Postmanillakin on mahdollista tallettaa pyyntöjä, mutta tilanne menee helposti kaaoottiseksi etenkin jos työn alla on useita toisistaan riippumattomia projekteja. 
+REST clientin eräs suuri etu postmaniin verratatuna on se, että pyynnöt saa kätevästi talletettua projektin repositorioon ja tällöin ne ovat helposti koko kehitystiimin käytössä. Postmanillakin on mahdollista tallettaa pyyntöjä, mutta tilanne menee helposti kaaoottiseksi etenkin jos työn alla on useita toisistaan riippumattomia projekteja.
 
 > **Tärkeä sivuhuomio**
 >
-> Välillä debugatessa tulee vastaan tilanteita, joissa backendissä on tarve selvittää mitä headereja HTTP-pyynnöille on asetettu. Eräs menetelmä tähän on _request_-olion melko kehnosti nimetty metodi [get](http://expressjs.com/en/4x/api.html#req.get), jonka avulla voi selvittää yksittäisen headerin arvon. _request_-oliolla on myös kenttä _headers_, jonka arvona ovat kaikki pyyntöön liittyvät headerit. 
+> Välillä debugatessa tulee vastaan tilanteita, joissa backendissä on tarve selvittää mitä headereja HTTP-pyynnöille on asetettu. Eräs menetelmä tähän on _request_-olion melko kehnosti nimetty metodi [get](http://expressjs.com/en/4x/api.html#req.get), jonka avulla voi selvittää yksittäisen headerin arvon. _request_-oliolla on myös kenttä _headers_, jonka arvona ovat kaikki pyyntöön liittyvät headerit.
 >
 > Ongelmia voi esim syntyä jos jätät vahingossa VS REST clientillä ylimmän rivin ja headerit määrittelevien rivien väliin tyhjän rivin. Tällöin REST client tulkitsee, että millekään headerille ei aseteta arvoa ja näin backend ei osaa tulkita pyynnön mukana olevaa dataa JSON:iksi.
 >
@@ -773,7 +773,7 @@ important: body.important || false,
 
 jos sovelluksen vastaanottamassa muuttujaan _body_ talletetussa datassa on kenttä _important_, tulee lausekkeelle sen arvo. Jos kenttää ei ole olemassa, tulee lausekkeen arvoksi oikeanpuoleinen osa eli _important_.
 
-> Jos ollaan tarkkoja, niin kentän _body.important_ arvon ollessa _false_, tulee lausekkeen <code>body.important || false</code> arvoksi oikean puoleinen _false_... 
+> Jos ollaan tarkkoja, niin kentän _body.important_ arvon ollessa _false_, tulee lausekkeen <code>body.important || false</code> arvoksi oikean puoleinen _false_...
 
 Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part3-1)
 
@@ -937,7 +937,7 @@ Esim. tätä materiaalia tehdessä törmättiin ongelmaan joka aiheutti seuraava
 
 Syynä ongelmalle oli se, että middlewarea _cors_ asennettaessa oli unohtunut antaa optio __--save__, joka tallentaa tiedon riippuvuudesta tiedostoon _package.json_. Koska näin kävi, ei Heroku ollut asentanut corsia sovelluksen käyttöön.
 
-> **HUOM** ainakin alussa on järkevää tarkkailla herokussa olevan sovelluksen lokeja koko ajan. Parhaiten tämä onnistuu antamalla komento _heroku logs -t_, jolloin logit tulevat konsoliin sitä mukaan kun palvelimella tapahtuu jotain.  
+> **HUOM** ainakin alussa on järkevää tarkkailla herokussa olevan sovelluksen lokeja koko ajan. Parhaiten tämä onnistuu antamalla komento _heroku logs -t_, jolloin logit tulevat konsoliin sitä mukaan kun palvelimella tapahtuu jotain.
 
 Myös frontend toimii herokussa olevan backendin avulla. Voit varmistaa asian muuttamalla frontendiin määritellyn backendin osoitteen viittaamaan _localhost:3001_:n sijaan herokussa olevaan backendiin.
 
@@ -1004,7 +1004,7 @@ Sovellusta voidaan käyttää nyt _backendin_ osoitteesta <http://localhost:3001
 
 ![]({{ "/images/3/11f.png" | absolute_url }})
 
-Sovelluksemme toiminta vastaa nyt täysin osan 0 luvussa [Single page app](/osa0#Single-page-app) läpikäydyn esimerkkisovelluksen toimintaa. 
+Sovelluksemme toiminta vastaa nyt täysin osan 0 luvussa [Single page app](/osa0#Single-page-app) läpikäydyn esimerkkisovelluksen toimintaa.
 
 Kun mennään selaimella osoitteeseen <http://localhost:3001> palauttaa palvelin hakemistossa _build_ olevan tiedoston _index.html_, jonka sisältö hieman tiivistettynä on seuraava:
 
@@ -1022,14 +1022,14 @@ Kun mennään selaimella osoitteeseen <http://localhost:3001> palauttaa palvelin
 </html>
 ```
 
-Sivu sisältää ohjeen ladata sovelluksen tyylit määrittelevän CSS-tiedoston, sekä _script_-tagin, jonka ansiosta selain lataa sovelluksen Javascript-koodin, eli varsinaisen React-sovelluksen. 
+Sivu sisältää ohjeen ladata sovelluksen tyylit määrittelevän CSS-tiedoston, sekä _script_-tagin, jonka ansiosta selain lataa sovelluksen Javascript-koodin, eli varsinaisen React-sovelluksen.
 
 React-koodi hakee palvelimelta muistiinpanot osoitteesta <http://localhost:3001/api/notes> ja renderöi ne ruudulle. Selaimen ja palvelimen kommunikaatio selviää tuttuun tapaan konsolin välilehdeltä _Network_:
 
 ![]({{ "/images/3/11g.png" | absolute_url }})
 
-Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan frontendin tuotantoversio backendin repositorioon ja 
-pushataan koodi uudelleen herokuun. 
+Kun sovelluksen "internettiin vietävä" versio todetaan toimivan paikalliseksi, commitoidaan frontendin tuotantoversio backendin repositorioon ja
+pushataan koodi uudelleen herokuun.
 
 [Sovellus](https://fullstack-notes.herokuapp.com) toimii moitteettomasti lukuunottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
 
@@ -1209,7 +1209,7 @@ Dokumenttitietokannat poikkeavat jossain määrin relaatiotietokannoista niin da
 
 MongoDB:n voi luonnollisesti asentaa omalle koneelle. Internetistä löytyy kuitenin myös palveluna toimivia Mongoja (esim [mlab](https://mlab.com/) ja [MongoDbCloud](https://www.mongodb.com/cloud/atlas)) ja seuraava ohje olettaa, että käytössä on jo vuosien kokemuksella luotettavaksi havaittu [mlab](https://mlab.com/).
 
-Mlab-kanta on helppo ottaa käyttöön suoraan [Herkoun kautta](https://elements.heroku.com/addons/mongolab), vaikka tämä on maksutonta, edellyttää se luottokorttitietojen antamista Herokulle. 
+Mlab-kanta on helppo ottaa käyttöön suoraan [Herkoun kautta](https://elements.heroku.com/addons/mongolab), vaikka tämä on maksutonta, edellyttää se luottokorttitietojen antamista Herokulle.
 
 Määrittelemmekin seuraavassa kannan suoraan [mlab](https://mlab.com/):iin, jolloin luottokottitietoja ei tarvita.
 
@@ -1632,7 +1632,7 @@ app.get('/api/notes/:id', (request, response) => {
 })
 ```
 
-Kaikissa virheeseen päättyvissä tilanteissa HTTP-pyyntöön vastataan statuskoodilla 404 not found. Konsoliin tulostetaan tarkempi tieto virhestä.
+Kaikissa virheeseen päättyvissä tilanteissa HTTP-pyyntöön vastataan statuskoodilla 404 not found. Konsoliin tulostetaan tarkempi tieto virheestä.
 
 Tapauksessamme on itseasiassa olemassa kaksi erityyppistä virhetilannetta. Toinen vastaa sitä, että yritetään hakea muistiinpanoa virheellisen muotoisella _id_:llä, eli sellasiella mikä ei vastaa mongon id:iden muotoa.
 
@@ -1704,7 +1704,7 @@ Ei ole koskaan huono idea tulostaa poikkeuksen aiheuttanutta olioa konsoliin vir
 
 Virheenkäsittelijään joutumisen syy voi olla joku ihan muu kuin mitä on tullut alunperin ajatelleeksi. Jos virheen tulostaa konsoliin, voi säästyä pitkiltä ja turhauttavilta väärää asiaa debuggaavilta sessioita.
 
-Aina kun ohjelmoit ja projektissa on mukana backend **tulee ehdottomasti koko ajan pitää silmällä backendin konsolin tulostuksia**. Jos työskentelet pienellä näytöllä, riittää että konsolista on näkyvissä edes pieni kaistale: 
+Aina kun ohjelmoit ja projektissa on mukana backend **tulee ehdottomasti koko ajan pitää silmällä backendin konsolin tulostuksia**. Jos työskentelet pienellä näytöllä, riittää että konsolista on näkyvissä edes pieni kaistale:
 
 ![]({{ "/images/3/15b.png" | absolute_url }})
 
@@ -1863,7 +1863,7 @@ Sovelluksessamme on tällä hetkellä eräs ikävä piirre. Tietokannan osoite o
 
 Tarvitsemme oman kannan sovelluskehitystä varten. Luodaan mlabiin toinen tietokanta ja sille käyttäjä.
 
-Tietokannan osoitetta ei kannata kirjoittaa koodiin. Eräs hyvä tapa tietokannan osoitteen määrittelemiseen on [ympäristömuuttujien](https://en.wikipedia.org/wiki/Environment_variable) käyttö. 
+Tietokannan osoitetta ei kannata kirjoittaa koodiin. Eräs hyvä tapa tietokannan osoitteen määrittelemiseen on [ympäristömuuttujien](https://en.wikipedia.org/wiki/Environment_variable) käyttö.
 
 Talletetaan kannan osoite ympäristömuuttujaan _MONGODB_URI_.
 
@@ -2075,7 +2075,7 @@ Estetään rivien lopussa olevat [turhat vällyönnit](https://eslint.org/docs/r
   "object-curly-spacing": [
       "error", "always"
   ],
-  "arrow-spacing": [ 
+  "arrow-spacing": [
       "error", { "before": true, "after": true }
   ]
 },
@@ -2098,7 +2098,7 @@ Yksittäisen sääntö on helppo kytkeä [pois päältä](https://eslint.org/doc
   "object-curly-spacing": [
       "error", "always"
   ],
-  "arrow-spacing": [ 
+  "arrow-spacing": [
       "error", { "before": true, "after": true }
   ],
   "no-console": 0
