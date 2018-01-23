@@ -1065,7 +1065,9 @@ test('note without content is not added ', async () => {
 })
 ```
 
-Testi ei mene läpi. Käy ilmi, että myös operaation suoritus postman:illa johtaa virhetilanteeseen. Koodissa on siis bugi.
+Testi ei mene läpi. 
+
+Käy ilmi, että myös operaation suoritus postman tai Visual Studio Coden REST clientillä johtaa virhetilanteeseen. Koodissa on siis bugi.
 
 > **Huom:** testejä tehdessä täytyy aina varmistua siitä, että testi testaa oikeaa asiaa, ja usein ensimmäistä kertaa testiä tehdessä se että testi ei mene läpi tarkoittaa sitä, että testi on tehty väärin. Myös päinvastaista tapahtuu, eli testi menee läpi mutta koodissa onkin virhe, eli testi ei testaa sitä mitä sen piti testata. Tämän takia testit kannattaa aina "testata" rikkomalla koodi ja varmistamalla, että testi huomaa koodiin tehdyt virheet.
 
@@ -1143,6 +1145,8 @@ notesRouter.post('/', (request, response) => {
   //...
 }
 ```
+
+Edellisen osan lopussa koodi oli vielä oikein, mutta siirtäessämme osan alussa koodia tiedostosta _index.js_ uuteen paikkaan, on _return_ kadonnut matkalta.
 
 Promiseja käyttävä koodi toimii nyt ja testitkin menevät läpi. Olemme valmiit muuttamaan koodin käyttämään async/await-syntaksia.
 
@@ -1286,9 +1290,13 @@ notesRouter.delete('/:id', async (request, response) => {
 
 Async/await ehkä selkeyttää koodia jossain määrin, mutta saavutettava hyöty ei ole sovelluksessamme vielä niin iso mitä se tulee olemaan jos asynkronisia kutsuja on tehtävä useampia.
 
-Kaikki eivät kuitenkaan ole vakuuttuneita siitä, että async/await on hyvä lisä javascriptiin, lue esim. [ES7 async functions - a step in the wrong direction](https://spion.github.io/posts/es7-async-await-step-in-the-wrong-direction.html)
+Kaikki eivät kuitenkaan ole vakuuttuneita siitä, että async/await on hyvä lisä Javascriptiin, lue esim. [ES7 async functions - a step in the wrong direction](https://spion.github.io/posts/es7-async-await-step-in-the-wrong-direction.html)
 
-Tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/mluukkai/notes-backend/tree/ennen_testien_refaktorointia) tagissä _ennen_testien_refaktorointia_
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part4-4), tagissa _part4-4_. Samassa on "vahingossa" mukana testeistä seuraavan luvun jälkeinen paranneltu versio.
+
+### Varoitus
+
+Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ## Tehtäviä
 
@@ -1410,7 +1418,7 @@ describe('when there is initially some notes saved', async () => {
   describe('addition of a new note', async () => {
 
     test('POST /api/notes succeeds with valid data', async () => {
-      const notesAtBeginningOfOperation = await notesInDb()
+      const notesAtStart = await notesInDb()
 
       const newNote = {
         content: 'async/await yksinkertaistaa asynkronisten funktioiden kutsua',
@@ -1425,7 +1433,7 @@ describe('when there is initially some notes saved', async () => {
 
       const notesAfterOperation = await notesInDb()
 
-      expect(notesAfterOperation.length).toBe(notesAtBeginningOfOperation.length + 1)
+      expect(notesAfterOperation.length).toBe(notesAtStart.length + 1)
 
       const contents = notesAfterOperation.map(r => r.content)
       expect(contents).toContain('async/await yksinkertaistaa asynkronisten funktioiden kutsua')
@@ -1436,7 +1444,7 @@ describe('when there is initially some notes saved', async () => {
         important: true
       }
 
-      const notesAtBeginningOfOperation = await notesInDb()
+      const notesAtStart = await notesInDb()
 
       await api
         .post('/api/notes')
@@ -1447,7 +1455,7 @@ describe('when there is initially some notes saved', async () => {
 
       const contents = notesAfterOperation.map(r => r.content)
 
-      expect(notesAfterOperation.length).toBe(notesAtBeginningOfOperation.length)
+      expect(notesAfterOperation.length).toBe(notesAtStart.length)
     })
   })
 
@@ -1463,7 +1471,7 @@ describe('when there is initially some notes saved', async () => {
     })
 
     test('DELETE /api/notes/:id succeeds with proper statuscode', async () => {
-      const notesAtBeginningOfOperation = await notesInDb()
+      const notesAtStart = await notesInDb()
 
       await api
         .delete(`/api/notes/${addedNote._id}`)
@@ -1474,7 +1482,7 @@ describe('when there is initially some notes saved', async () => {
       const contents = notesAfterOperation.map(r => r.content)
 
       expect(contents).not.toContain(addedNote.content)
-      expect(notesAfterOperation.length).toBe(notesAtBeginningOfOperation.length - 1)
+      expect(notesAfterOperation.length).toBe(notesAtStart.length - 1)
     })
   })
 
@@ -1555,11 +1563,13 @@ Mongossa voidaan kaikkien dokumenttitietokantojen tapaan käyttää olioiden id:
 
 Dokumenttitietokannat kuten Mongo eivät kuitenkaan tue relaatiotietokantojen _liitoskyselyitä_ vastaavaa toiminnallisuutta, joka mahdollistaisi useaan kokoelmaan kohdistuvan tietokantahaun (tämä ei ole tarkalleen ottaen enää välttämättä pidä paikkaansa, sillä versiosta 3.2. alkaen Mongo on tukenut useampaan kokoelmaan kohdistuvia [lookup-aggregaattikyselyitä](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/), emme kuitenkaan käsittele niitä kurssilla).
 
-Jos haluamme tehdä liitoskyselyitä, tulee ne toteuttaa sovelluksen tasolla, eli käytännössä tekemällä tietokantaan useita kyselyitä. Tietyissä tilanteissa mongoose-kirjasto osaa hoitaa liitosten tekemisen, jolloin kysely näyttää mongoosen käyttäjälle toimivan liitoskyselyn tapaan. Mongoose tekee kuitenkin näissä tapauksissa taustalla useamman kyselyn tietokantaan.
+Jos tarvitsemme liitoskyselyitä vastaavaa toiminnallisuutta, tulee se toteuttaa sovelluksen tasolla, eli käytännössä tekemällä tietokantaan useita kyselyitä. Tietyissä tilanteissa mongoose-kirjasto osaa hoitaa liitosten tekemisen, jolloin kysely näyttää mongoosen käyttäjälle toimivan liitoskyselyn tapaan. Mongoose tekee kuitenkin näissä tapauksissa taustalla useamman kyselyn tietokantaan.
 
 ### Viitteet kokoelmien välillä
 
-Relaatiotietokannoissa muistiinpano sisältää viiteavaimen sen tehneeseen käyttäjään. Dokumenttitietokannassa voidaan toimia samoin. Oletetaan että kokoelmassa _users_ on kaksi käyttäjää:
+Jos käyttäisimme relaatiotietokantaa, muistiinpano sisältäisi _viiteavaimen_ sen tehneeseen käyttäjään. Dokumenttitietokannassa voidaan toimia samoin. 
+
+Oletetaan että kokoelmassa _users_ on kaksi käyttäjää:
 
 ```js
 [
@@ -1652,9 +1662,9 @@ Dokumenttitietokannat tarjoavat myös radikaalisti erilaisen tavan datan organis
 
 Muistiinpanot olisivat tässä skeemaratkaisussa siis yhteen käyttäjään alisteisia kenttiä, niillä ei olisi edes omaa identiteettiä, eli id:tä tietokannan tasolla.
 
-Dokumenttitietokantojen yhteydessä skeeman rakenne ei siis ole ollenkaan samalla tavalla ilmeinen kuin relaatiotietokannoissa, ja valittava ratkaisu kannattaa määritellä siten että se tukee parhaalla tavalla sovelluksen käyttötapauksia. Tämä ei luonnollisestikaan ole helppoa, sillä järjestelmän kaikki käyttötapaukset eivät yleensä ole selvillä siinä vaiheessa kun projektin alkuvaiheissa mietitään datan organisointitapoja.
+Dokumenttitietokantojen yhteydessä skeeman rakenne ei siis ole ollenkaan samalla tavalla ilmeinen kuin relaatiotietokannoissa, ja valittava ratkaisu kannattaa määritellä siten että se tukee parhaalla tavalla sovelluksen käyttötapauksia. Tämä ei luonnollisestikaan ole helppoa, sillä järjestelmän kaikki käyttötapaukset eivät yleensä ole selvillä kun projektin alkuvaiheissa mietitään datan organisointitapaa.
 
-Hieman paradoksaalisesti tietokannan tasolla skeematon Mongo edellyttääkin projektin alkuvaiheissa jopa radikaalimpia datan organisoimiseen liittyvien ratkaisujen tekemistä kuin tietokannan tasolla skeemalliset relaatiotietokannat, jotka tarjoavat keskimäärin kaikkiin tilanteisiin melko hyvin sopivan tavan organisoida dataa.
+Hieman paradoksaalisesti tietokannan tasolla skeematon Mongo edellyttääkin projektin alkuvaiheissa jopa radikaalimpien datan organisoimiseen liittyvien ratkaisujen tekemistä kuin tietokannan tasolla skeemalliset relaatiotietokannat, jotka tarjoavat keskimäärin kaikkiin tilanteisiin melko hyvin sopivan tavan organisoida dataa.
 
 ### Käyttäjien mongoose-skeema
 
@@ -1681,7 +1691,7 @@ Muistiinpanojen id:t on talletettu käyttäjien sisälle taulukkona mongo-id:it�
 
 kentän tyyppi on _ObjectId_ joka viittaa _Note_-tyyppisiin dokumentteihin. Mongo ei itsessään tiedä mitään siitä, että kyse on kentästä joka viittaa nimenomaan muistiinpanoihin, kyseessä onkin puhtaasti mongoosen syntaksi.
 
-Laajennetaan muistiinpanon skeemaa siten, että myös muistiinpanossa on tieto sen luoneesta käyttäjästä
+Laajennetaan tiedostossa _model/note.js_ olevaa muistiinpanon skeemaa siten, että myös muistiinpanossa on tieto sen luoneesta käyttäjästä
 
 
 ```js
@@ -1711,12 +1721,10 @@ Määritellään käyttäjienhallintaa varten oma _router_ tiedostoon _controlle
 
 ```js
 const usersRouter = require('./controllers/users')
-app.use('/api/users', usersRouter)
-
-const notesRouter = require('./controllers/notes')
-app.use('/api/notes', notesRouter)
 
 // ...
+
+app.use('/api/users', usersRouter)
 ```
 
 Routerin alustava sisältö on seuraava:
@@ -1821,26 +1829,26 @@ module.exports = {
 Lohkon _beforeAll_ lisää kantaan käyttäjän, jonka username on _root_. Voimmekin tehdä uuden testi, jolla varmistetaan, että samalla käyttäjätunnuksella ei voi luoda uutta käyttäjää:
 
 ```js
-  test('POST /api/users fails with proper statuscode and message if username already taken', async () => {
-    const usersBeforeOperation = await usersInDb()
+test('POST /api/users fails with proper statuscode and message if username already taken', async () => {
+  const usersBeforeOperation = await usersInDb()
 
-    const newUser = {
-      username: 'root',
-      name: 'Superuser',
-      password: 'salainen'
-    }
+  const newUser = {
+    username: 'root',
+    name: 'Superuser',
+    password: 'salainen'
+  }
 
-    const result = await api
-      .post('/api/users')
-      .send(newUser)
-      .expect(400)
-      .expect('Content-Type', /application\/json/)
+  const result = await api
+    .post('/api/users')
+    .send(newUser)
+    .expect(400)
+    .expect('Content-Type', /application\/json/)
 
-    expect(result.body).toEqual({ error: 'username must be unique'})
+  expect(result.body).toEqual({ error: 'username must be unique'})
 
-    const usersAfterOperation = await usersInDb()
-    expect(usersAfterOperation.length).toBe(usersBeforeOperation.length)
-  })
+  const usersAfterOperation = await usersInDb()
+  expect(usersAfterOperation.length).toBe(usersBeforeOperation.length)
+})
 ```
 
 Testi ei tietenkään mene läpi tässä vaiheessa. Toimimme nyt oleellisesti [TDD:n eli test driven developmentin](https://en.wikipedia.org/wiki/Test-driven_development) hengessä, uuden ominaisuuden testi on kirjoitettu ennen ominaisuuden ohjelmointia.
@@ -1884,6 +1892,98 @@ usersRouter.get('/', async (request, response) => {
   response.json(users.map(formatUser))
 })
 ```
+
+Lista näyttää seuraavalta
+
+![]({{ "/images/4/5b.png" | absolute_url }})
+
+### Formatointifunktioiden siirto modelien märittelyn yhteyteen
+
+Kuten muistinpanojenkin tapauksessa, olemme myös nyt määritellet apufunktion _formatUser_, joa muodostaa tietokannan palauttamista _user_-olioista selaimelle lähetettävän muodon, joista on mm. poistettu kenttä _passwordHash_.
+
+Formatointifunktio on nyt sijoitettu routejen määrittelyn yhteyteen. Paikka ei välttämättä ole optimaalinen ja päätetäänkin viedä formatointi _User_-skeeman vastuulle, sen [staattiseksi metodiksi](http://mongoosejs.com/docs/guide.html#statics). 
+
+Tehdään seuraava muutos tiedostoon _models/user.js_:
+
+```js
+const mongoose = require('mongoose')
+
+const userSchema = new mongoose.Schema({
+  username: String,
+  name: String,
+  passwordHash: String,
+  notes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Note' }]
+})
+
+userSchema.statics.format = (user) => {
+  return {
+    id: user.id,
+    username: user.username,
+    name: user.name,
+    notes: user.notes
+  }
+}
+
+const User = mongoose.model('User', userSchema)
+
+module.exports = User
+```
+
+Näin määriteltyä metodia kutsutaan _User.format(user)_. Voimme muuttaa tiedostosta _controllesr/users.js_ olevat routet seuraavaan muotoon:
+
+```js
+usersRouter.get('/', async (request, response) => {
+  const users = await User.find({})
+  response.json(users.map(User.format))
+})
+
+usersRouter.post('/', async (request, response) => {
+  try {
+    // ...
+    const savedUser = await user.save()
+
+    response.json(User.format(savedUser))
+  } catch (exception) {
+    // ...
+  }
+})
+```
+
+Formatointifunktion määritteleminen skeeman määrittelyn yhteydessä on sikäli luontevaa, että jos skeemaan tulee muutoksia, on formatointifunktio samassa tiedostossa ja todennäköisyys sen päivittämisen unohtamiselle pienenee.
+
+Tehdään sama muutos muistiinpanojen formatointiin, eli muutetaan _moden/note.js_ muotoon
+
+```js
+const mongoose = require('mongoose')
+
+const noteSchema = new mongoose.Schema({
+  content: String,
+  date: Date,
+  important: Boolean,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+})
+
+noteSchema.statics.format = (note) => {
+  return {
+    id: note._id,
+    content: note.content,
+    date: note.date,
+    important: note.important
+  }
+}
+
+const Note = mongoose.model('Note', noteSchema)
+
+module.exports = Note
+```
+
+ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _normatNote(note)_ muotoon _Note.format(note)_ ja kutsu _notes.map(format.Note)_ muotoon _notes.map(Note.format)_
+
+Testien suoritus varmistaa, että sovelluksemme ei hajonnut refaktoroinnin myötä.
+
+Pääsemme nyt eroon myös testien yhteyteen määritellystä muistiinpanoja formatoivasta apumetodista _format_, sillä myös testeissä kannattaa hyödyntää funktiota _Note.format_. 
+
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part4-5), tagissa _part4-5_.
 
 ### Muistiinpanon luominen
 
@@ -2224,190 +2324,3 @@ Toteutamme kirjautumisen frontendin puolelle kurssin [seuraavassa osassa](/osa5)
 ## Tehtäviä
 
 Tee nyt tehtävät [73-79](../tehtavat#Blogilistan-käyttäjät)
-
-## Lint
-
-Ennen osan lopetusta katsomme vielä nopeasti paitsioon jäänyttä tärkeää työkalua [lintiä](https://en.wikipedia.org/wiki/Lint_(software)). Wikipedian sanoin:
-
-> Generically, lint or a linter is any tool that detects and flags errors in programming languages, including stylistic errors. The term lint-like behavior is sometimes applied to the process of flagging suspicious language usage. Lint-like tools generally perform static analysis of source code.
-
-Staattisesti tyypitetyissä, käännettävissä kielissä kuten Javassa ohjelmointiympäristöt, kuten NetBeans osaavat huomautella monista koodiin liittyvistä asioista, sellasistakin, jotka eivät ole välttämättä käännösvirheitä. Erilaisten [staattisen analyysin](https://en.wikipedia.org/wiki/Static_program_analysis) lisätyökalujen, kuten [checkstylen](http://checkstyle.sourceforge.net/) avulla voidaan vielä laajentaa Javassa huomautettavien asioiden määrää koskemaan koodin tyylillisiä seikkoja, esim. sisentämistä.
-
-Javascript-maailmassa tämän hetken johtava työkalu staattiseen analyysiin, eli "linttaukseen" on [ESlint](https://eslint.org/).
-
-Asennetaan ESlint kehitysaikaiseksi riippuvuudeksi komennolla
-
-```bash
-npm install eslint --save-dev
-```
-
-Tämän jälkeen voidaan muodostaa alustava ESlint-konfiguraatio komennolla
-
-```bash
-node_modules/.bin/eslint --init
-```
-
-Vastaillaan kysymyksiin:
-
-![]({{ "/assets/4/15.png" | absolute_url }})
-
-Konfiguraatiot tallentuvat tiedostoon _.eslintrc.js_:
-
-```js
-module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
-    }
-};
-```
-
-Muutetaan heti konfiguraatioista sisennystä määrittelevä sääntö, siten että sisennystaso on 2 välilyöntiä
-
-```
-"indent": [
-    "error",
-    2
-],
-```
-
-Esim tiedoston _index.js_ tarkastus tapahtuu komennolla
-
-```bash
-node_modules/.bin/eslint index.js
-```
-
-Kannattaa ehkä tehdä linttaustakin varten _npm-skripti_:
-
-```json
-{
-  // ...
-  "scripts": {
-    "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
-    "test": "NODE_ENV=test node_modules/.bin/jest --verbose test",
-    "lint": "node_modules/.bin/eslint ."
-  },
-  // ...
-}
-```
-
-Nyt komennot _npm run lint_ suorittaa tarkastukset koko projektille.
-
-Paras vaihtoehto on kuitenkin konfiguroida editorille lint-plugin joka suorittaa linttausta koko ajan. Näin pääset korjaamaan pienet virheet välittömästi. Tietoja esim. Visual Studion ESlint-pluginsta [täällä](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
-
-ESlintille on määritelty suuri määrä [sääntöjä](https://eslint.org/docs/rules/), joita on helppo ottaa käyttöön muokkaamalla tietostoa _.eslintrc.js_.
-
-Otetaan käyttöön sääntö [eqeqeq](https://eslint.org/docs/rules/eqeqeq) joka varottaa, jos koodissa yhtäsuuruutta verrataan muuten kuin käyttämällä kolmea =-merkkiä. Sääntö lisätään konfiguraatiotiedostoon avaimen _rules_ alle.
-
-```json
-"rules": {
-  // ...
-  "eqeqeq": "error"
-},
-```
-
-Tehdään samalla muutama muukin muutos tarkastettaviin sääntöihin.
-
-Oletusarvoinen konfiguraatiomme ottaa käyttöön joukon valmiiksi määriteltyjä sääntöjä _eslint:recommended_
-
-```bash
-"extends": "eslint:recommended",
-```
-
-Mukana on myös _console.log_-komennoista varoittava sääntö-
-Yksittäisen sääntö on helppo kytkeä [pois päältä](https://eslint.org/docs/user-guide/configuring#configuring-rules) määrittelemällä sen "arvoksi" konfiguraatiossa 0. Tehdään toistaiseksi näin säännölle _no-console_.
-
-```json
-"rules": {
-  // ...
-  "eqeqeq": "error",
-  "no-console": 0,
-},
-```
-
-ESlint valittaa määrittelemättömien muuttujien käytöstä. Koodimme viittaa ympäristömuuttujiin _globaalin_ muuttujan _process_ kautta. ESlintin silmissä on tämä kuitenkin näyttää määrittelemättömän muuttujan käytöltä.
-
-Valitus pitäisi saada vaimennettua kytkemällä pois sääntö [no-process-env](https://eslint.org/docs/rules/no-process-env), omalla koneellani tämä ei kuitenkaan toimi. Toinen tapa sallia muuttujaan _process_-viittaaminen on määritellä se sallituksi globaaliksi muuttujaksi:
-
-```js
-module.exports = {
-  // ...
-  "globals": {
-      "process": true,
-  },
-  // ...
-}
-```
-
-Ympäristömuuttujien käyttö suoraan globaalin muuttujan _process_ kautta ei välttämättä ole paras mahdollinen idea. Tutustumme seuraavissa osissa vaihtoehtoisiin tapoihin.
-
-Tällä hetkellä ESlint valittaa _async_-määreellä varustetuista nuolifunktioista, kyse on siitä, että ESlint ei vielä osaa tulkita uutta syntaksia kunnolla. Pääsemme valituksesta eroon asentamalla _babel-eslint_-pluginin:
-
-```bash
-npm install babel-eslint --save-dev
-```
-
-Pluginin käyttöönotto tulee määritellä konfiguraatiotiedostossa, jonka tämän vaiheen versio on seuraavassa:
-
-```js
-module.exports = {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true
-  },
-  "globals": {
-    "process": true,
-  },
-  "extends": "eslint:recommended",
-  "parser": "babel-eslint",
-  "rules": {
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
-    "eqeqeq": "error",
-    "no-console": 0,
-    "no-process-env": 0
-  }
-}
-```
-
-Monissa yrityksissä on tapana määritellä yrityksen laajuiset koodausstandardit ja näiden käyttöä valvova ESlint-konfiguraatio. Pyörää ei kannata välttämättä keksiä uudelleen ja voi olla hyvä idea ottaa omaan projektiin joku käyttöön jossain muualla hyväksi havaittu konfiguraatio. Viime aikoina monissa projekteissa on omaksuttu AirBnB:n [javascript](https://github.com/airbnb/javascript)-tyyliohjeet ottamalla käyttöön firman määrittelemä [ESLint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)-konfiguraatio.
-
-## Tehtäviä
-
-Tee osan huipentava tehtävä [80](../tehtavat#eslint)
