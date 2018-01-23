@@ -2018,7 +2018,7 @@ notesRouter.post('/', async (request, response) => {
     user.notes = user.notes.concat(savedNote._id)
     await user.save()
 
-    response.json(formatNote(note))
+    response.json(Note.format(note))
   } catch(exception) {
     console.log(exception)
     response.status(500).json({ error: 'something went wrong...' })
@@ -2048,7 +2048,7 @@ Huomaamme siis, että käyttäjällä on kaksi muistiinpanoa.
 Jos laajennamme muistiinpanojen JSON:in muotoileman koodin näyttämään muistiinpanoon liittyvän käyttäjän
 
 ```js
-const formatNote = (note) => {
+noteSchema.statics.format = (note) => {
   return {
     id: note._id,
     content: note.content,
@@ -2065,7 +2065,7 @@ tulee muistiinpanon luoneen käyttäjän id näkyviin muistiinpanon yhteyteen.
 
 ### populate
 
-Haluaisimme API:n toimivan siten, että haettaessa esim. käyttäjien tiedot polulle _/api/users_ tehtävällä HTTP GET -pyynnöllä tulisi käyttäjien tekemien muistiinpanojen id:iden lisäksi näyttää niiden sisällön. Relaatiotietokannoilla toiminnallisuus toteutettaisiin _liitoskyselyn_ avulla.
+Haluaisimme API:n toimivan siten, että haettaessa esim. käyttäjien tiedot polulle _/api/users_ tehtävällä HTTP GET -pyynnöllä tulisi käyttäjien tekemien muistiinpanojen id:iden lisäksi näyttää niiden sisältö. Relaatiotietokannoilla toiminnallisuus toteutettaisiin _liitoskyselyn_ avulla.
 
 Kuten aiemmin mainittiin, eivät dokumenttitietokannat tue (kunnolla) eri kokoelmien välisiä liitoskyselyitä. Mongoose-kirjasto osaa kuitenkin tehdä liitoksen puolestamme. Mongoose toteuttaa liitoksen tekemällä useampia tietokantakyselyitä, joten siinä mielessä kyseessä on täysin erilainen tapa kuin relaatiotietokantojen liitoskyselyt, jotka ovat _transaktionaalisia_, eli liitoskyselyä tehdessä tietokannan tila ei muutu. Mongoosella tehtävä liitos taas on sellainen, että mikään ei takaa sitä, että liitettävien kokoelmien tila on konsistentti, toisin sanoen jos tehdään users- ja notes-kokoelmat liittävä kysely, kokoelmien tila saattaa muuttua kesken mongoosen liitosoperaation.
 
@@ -2077,7 +2077,7 @@ usersRouter.get('/', async (request, response) => {
     .find({})
     .populate('notes')
 
-  response.json(users.map(formatUser))
+  response.json(users.map(User.format))
 })
 ```
 
@@ -2085,7 +2085,7 @@ Funktion [populate](http://mongoosejs.com/docs/populate.html) kutsu siis ketjute
 
 Lopputulos on jo melkein haluamamme kaltainen:
 
-![]({{ "/assets/4/9.png" | absolute_url }})
+![]({{ "/images/4/9a.png" | absolute_url }})
 
 Populaten yhteydessä on myös mahdollista rajata mitä kenttiä sisällytettävistä dokumenteista otetaan mukaan. Rajaus tapahtuu Mongon [syntaksilla](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/#return-the-specified-fields-and-the-id-field-only):
 
@@ -2095,13 +2095,13 @@ usersRouter.get('/', async (request, response) => {
     .find({})
     .populate('notes', { content: 1, date: 1 } )
 
-  response.json(users.map(formatUser))
+  response.json(users.map(User.format))
 })
 ```
 
-Tulos on nyt halutun kaltainen (**HUOM**: kuvassa on 'bugi', myös content-kenttien pitäisi olla mukana):
+Tulos on nyt halutun kaltainen (:
 
-![]({{ "/assets/4/10.png" | absolute_url }})
+![]({{ "/images/4/10a.png" | absolute_url }})
 
 Lisätään sopiva käyttäjän tietojen populointi, muistiinpanojen yhteyteen:
 
@@ -2111,13 +2111,13 @@ notesRouter.get('/', async (request, response) => {
     .find({})
     .populate('user', { username: 1, name: 1 } )
 
-  response.json(notes.map(formatNote))
+  response.json(notes.map(Note.format))
 })
 ```
 
 Nyt käyttäjän tiedot tulevat muistiinpanon kenttään _user_.
 
-![]({{ "/assets/4/11.png" | absolute_url }})
+![]({{ "/images/4/11a.png" | absolute_url }})
 
 Korostetaan vielä, että tietokannan tasolla ei siis ole mitään määrittelyä siitä, että esim. muistiinpanojen kenttään _user_ talletetut id:t viittaavat käyttäjä-kokoelman dokumentteihin.
 
@@ -2140,7 +2140,7 @@ Toteutamme nyt backendiin tuen [token-perustaiselle](https://scotch.io/tutorials
 
 Token-autentikaation periaatetta kuvaa seuraava sekvenssikaatio:
 
-![]({{ "/assets/4/12.png" | absolute_url }})
+![]({{ "/images/4/12a.png" | absolute_url }})
 
 - Alussa käyttäjä kirjaantuu Reactilla toteutettua kirjautumislomaketta käyttäen
   - lisäämme kirjautumislomakkeen frontendiin [osassa 5](osa5)
@@ -2152,7 +2152,7 @@ Token-autentikaation periaatetta kuvaa seuraava sekvenssikaatio:
 - Kun käyttäjä luo uuden muistiinpanon (tai tekee jonkin operaation, joka edellyttää tunnistautumista), lähettää React-koodi Tokenin pyynnön mukana palvelimelle
 - Palvelin tunnistaa pyynnön tekijän tokenin perusteella
 
-Tehdään ensin kirjautumistoiminto. Asennetaan [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)-kirjasto, jonka avulla koodimme pystyy generoimaan [Javascript web token](https://jwt.io/) -muotoisia tokeneja.
+Tehdään ensin kirjautumistoiminto. Asennetaan [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)-kirjasto, jonka avulla koodimme pystyy generoimaan [JSON web token](https://jwt.io/) -muotoisia tokeneja.
 
 ```bash
 npm install jsonwebtoken --save
@@ -2218,8 +2218,35 @@ Kirjautumisesta huolehtiva koodi on vielä liitettävä sovellukseen lisäämäl
 
 ```js
 const loginRouter = require('./controllers/login')
+
+//...
+
 app.use('/api/login', loginRouter)
 ```
+
+Kokeillaan kirjautumista, käytetään VS Coden REST-clientiä:
+
+![]({{ "/images/4/12b.png" | absolute_url }})
+
+Kirjautuminen ei kuitenkaan toimi, konsoli näyttää seuraavalta:
+
+```bash
+Method: POST
+Path:   /api/login
+Body:   { username: 'mluukkai', password: 'salainen' }
+---
+(node:17486) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: secretOrPrivateKey must have a value
+````
+
+Ongelman aiheuttaa komento _jwt.sign(userForToken, process.env.SECRET)_ sillä ympäristömuuttujalle _SECRET_ on unohtunut määritellä arvo. Kun arvo määritellään tiedostoon _.env_, alkaa kirjautuminen toimia. 
+
+Onnistunut kirjautuminen palauttaa kirjautuneen käyttäjän tiedot ja tokenin:
+
+![]({{ "/images/4/12c.png" | absolute_url }})
+
+Virheellisellä käyttäjätunnuksella tai salasanalla kirjautuessa annetaan asianmukaisella statuskoodilla varustettu virheilmoitus
+
+![]({{ "/images/4/12d.png" | absolute_url }})
 
 ### Muistiinpanojen luominen vain kirjautuneille
 
@@ -2277,7 +2304,7 @@ notesRouter.post('/', async (request, response) => {
     user.notes = user.notes.concat(savedNote._id)
     await user.save()
 
-    response.json(formatNote(note))
+    response.json(Note.format(note))
   } catch(exception) {
     if (exception.name === 'JsonWebTokenError' ) {
       response.status(401).json({ error: exception.message })
@@ -2309,9 +2336,15 @@ Kun pyynnön tekijän identiteetti on selvillä, jatkuu suoritus entiseen tapaan
 
 Tokenin verifiointi voi myös aiheuttaa poikkeuksen _JsonWebTokenError_. Syynä tälle voi olla viallinen, väärennetty tai eliniältään vanhentunut token. Poikkeusten käsittelyssä haaraudutaan virheen tyypin perusteella ja vastataan 401 jos poikkeus johtuu tokenista, ja muuten vastataan [500 internal server error](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.1).
 
-Uuden muistiinpanon luominen onnistuu nyt postmanilla jos _authorization_-headerille asetetaan oikeanlainen arvo, eli merkkijono _bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ_, missä osa on _login_-operaation palauttama token:
+Uuden muistiinpanon luominen onnistuu nyt postmanilla jos _authorization_-headerille asetetaan oikeanlainen arvo, eli merkkijono _bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ_, missä osa on _login_-operaation palauttama token.
+
+Postmanilla luominen näyttää seuraavalta
 
 ![]({{ "/assets/4/14.png" | absolute_url }})
+
+ja Visual Studio Coden REST clientillä 
+
+![]({{ "/images/4/14a.png" | absolute_url }})
 
 ### Loppuhuomioita
 
@@ -2324,3 +2357,33 @@ Toteutamme kirjautumisen frontendin puolelle kurssin [seuraavassa osassa](/osa5)
 ## Tehtäviä
 
 Tee nyt tehtävät [73-79](../tehtavat#Blogilistan-käyttäjät)
+
+
+<!---
+note left of kayttaja
+  käyttäjä täyttää kirjautumislomakkeelle
+  käyttäjätunnuksen ja salasanan
+end note
+kayttaja -> selain: painetaan login-nappia
+
+selain -> backend: HTTP POST /api/login {username, password}
+note left of backend
+  backend generoi käyttäjän identifioivan TOKENin
+end note
+backend -> selain: TOKEN palautetaan vastauksen bodyssä
+note left of selain
+  selain tallettaa TOKENin
+end note
+note left of kayttaja
+  käyttäjä luo uden muistiinpanon
+end note
+kayttaja -> selain: painetaan create note -nappia
+selain -> backend: HTTP POST /api/notes {content} headereissa TOKEN
+note left of backend
+  backend tunnistaa TOKENin perusteella kuka käyttää kyseessä
+end note
+
+backend -> selain: 201 created
+
+kayttaja -> kayttaja:
+-->
