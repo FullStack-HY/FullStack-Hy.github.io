@@ -490,7 +490,7 @@ const App = () => {
 }
 ```
 
-Määrittele sovellukseen yksittäisen muotoilusta huolehtiva komponentti _Kurssi_.
+Määrittele sovellukseen yksittäisen kurssin muotoilusta huolehtiva komponentti _Kurssi_.
 
 Sovelluksen komponenttirakenne voi olla esim. seuraava
 
