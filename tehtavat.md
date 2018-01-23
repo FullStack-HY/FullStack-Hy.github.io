@@ -811,7 +811,7 @@ Tällä hetkellä luetteloon lisättäviä uusia numeroita ei synkronoida palvel
 
 #### 2.15 puhelinluettelo osa 8
 
-Siirrä palvelimen kanssa kommunikoinnista vastaava toiminnallisuus omaan moduuliin osan 2 [esimerkin](#palvelimen-kanssa-tapahtuvan-komunikoinnin-eristäminen-omaan-moduuliin) tapaan.
+Siirrä palvelimen kanssa kommunikoinnista vastaava toiminnallisuus omaan moduuliin osan 2 [esimerkin](/osa2/#palvelimen-kanssa-tapahtuvan-kommunikoinnin-erist%C3%A4minen-omaan-moduuliin) tapaan.
 
 #### 2.16 puhelinluettelo osa 9
 
@@ -835,7 +835,7 @@ Jos henkilön tiedot löytyvät jo luettelosta, voi ohjelma kysyä käyttäjält
 
 #### 2.18 puhelinluettelo osa 11
 
-Toteuta osan 2 esimerkin [parempi virheilmoitus](osa2/#parempi-virheilmoitus) tyyliin ruudulla muutaman sekunnin näkyvä ilmoitus, joka kertoo onnistuneista operaatioista (henkilön lisäys ja poisto, sekä numeron muutos):
+Toteuta osan 2 esimerkin [parempi virheilmoitus](/osa2/#parempi-virheilmoitus) tyyliin ruudulla muutaman sekunnin näkyvä ilmoitus, joka kertoo onnistuneista operaatioista (henkilön lisäys ja poisto, sekä numeron muutos):
 
 ![]({{ "/assets/teht/17.png" | absolute_url }})
 
@@ -847,7 +847,7 @@ Jos poistat jonkun henkilön toisesta selaimesta hieman ennen kun yrität _muutt
 ![]({{ "/assets/teht/18.png" | absolute_url }})
 
 
-Korjaa ongelma osan 2 esimerkin [promise ja virheet](osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritettävän henkilön tiedot on jo poistettu.
+Korjaa ongelma osan 2 esimerkin [promise ja virheet](/osa2/#promise-ja-virheet) tapaan. Loogisin korjaus lienee henkilön lisääminen uudelleen palvelimelle. Toinen vaihtoehto on ilmottaa käyttäjälle, että muutettavaksi yritettävän henkilön tiedot on jo poistettu.
 
 ### Tehtävien palautus
 

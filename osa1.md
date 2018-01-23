@@ -65,7 +65,7 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-Voit poistaa tiedostot _App.js_, _App.css_, _App.test.js_, _logo.svg_ ja _registerServiceWorkes.js_
+Voit poistaa tiedostot _App.js_, _App.css_, _App.test.js_, _logo.svg_ ja _registerServiceWorker.js_
 
 
 ### Komponentti
@@ -1335,7 +1335,7 @@ Huomaamme kuitenkin että muutos hajottaa sovelluksemme täysin:
 
 ![]({{ "/assets/1/30.png" | absolute_url }})
 
-Mistä on kyse? Tapahtumankäsittelijäksi on tarkoitus määritllä viite _funktioon_. Kun koodissa on
+Mistä on kyse? Tapahtumankäsittelijäksi on tarkoitus määritellä viite _funktioon_. Kun koodissa on
 
 ```react
 <button onClick={this.asetaArvoon(0)}>
