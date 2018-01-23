@@ -65,7 +65,7 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-Voit poistaa tiedostot _App.js_, _App.css_, _App.test.js_, _logo.svg_ ja _registerServiceWorkes.js_
+Voit poistaa tiedostot _App.js_, _App.css_, _App.test.js_, _logo.svg_ ja _registerServiceWorker.js_
 
 
 ### Komponentti
