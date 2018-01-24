@@ -350,7 +350,7 @@ const apu = 'c'
 console.log(olio[apu])  // tulostuu 3
 ```
 
-Myös ns. [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) voi olla tässä tehtävässä tehtävässä hyödyksi.
+Myös ns. [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) voi olla tässä tehtävässä hyödyksi.
 
 #### 1.11 unicafe osa6
 
