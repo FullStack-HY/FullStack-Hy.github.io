@@ -26,12 +26,13 @@ Lisääthän linkkiisi kuvaavan tekstin linkille sekä kuvaustekstin mitä linki
 
 Lisää tänne linkkivinkkisi
 
+----------
 
 
 # [about](about)
 * [Kurssin Telegram](https://t.me/joinchat/EHqi4hBo27NTY1gNw6jTlw)
 
-# [osa1](osa1)
+# [osa1](/osa1)
 * [Visual studio code](https://code.visualstudio.com/)
 * [Atom](https://atom.io/)
 * [Node.js](https://nodejs.org/en/)
@@ -142,7 +143,7 @@ Lisää tänne linkkivinkkisi
 * [Start learning React](https://egghead.io/courses/start-learning-react)
 * [The Beginner's guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
 
-# [osa2](osa2)
+# [osa2](/osa2)
 * [Single page app -versiota](https://fullstack-exampleapp.herokuapp.com/spa)
 * [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 * [sivu](https://reactjs.org/docs/lists-and-keys.html#keys)
@@ -199,6 +200,8 @@ Lisää tänne linkkivinkkisi
 * [esiprosessorien](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor)
 * [lukuisia](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
 * [className](https://reactjs.org/docs/dom-elements.html#classname)
+
+# [osa3](/osa3)
 * [npm scriptinä](https://docs.npmjs.com/misc/scripts)
 * [web-palvelimen](https://nodejs.org/docs/latest-v8.x/api/http.html)
 * [CommonJS](https://en.wikipedia.org/wiki/CommonJS)
@@ -291,7 +294,7 @@ Lisää tänne linkkivinkkisi
 
 {% comment %}
 
-# [osa4](osa4)
+# [osa4](/osa4)
 * [router](http://expressjs.com/en/api.html#router)
 * [githubissa](https://github.com/mluukkai/notes-backend/tree/ennen_testeja)
 * [ennen_testeja](https://github.com/mluukkai/notes-backend/tree/ennen_testeja)
@@ -361,7 +364,7 @@ Lisää tänne linkkivinkkisi
 * [AirBnB javascript](https://github.com/airbnb/javascript)
 * [ESLint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 
-# [osa5](osa5)
+# [osa5](/osa5)
 * [githubissa](https://github.com/mluukkai/notes-frontend/tree/v5-1)
 * [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 * [yleisesti käytettyä kikkaa](https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator)
@@ -441,7 +444,7 @@ Lisää tänne linkkivinkkisi
 * [forceUpdate](https://reactjs.org/docs/react-component.html#forceupdate)
 * [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux)
 
-# [osa6](osa6)
+# [osa6](/osa6)
 * [radiobuttoneiden](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
 * [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html)
 * [mapStateToProps](https://github.com/reactjs/react-redux/blob/master/docs/api.md#arguments)
@@ -483,7 +486,7 @@ Lisää tänne linkkivinkkisi
 * [Material UI](http://www.material-ui.com/)
 * [javascript-riippuvuutta](https://getbootstrap.com/docs/4.0/getting-started/introduction/#js)
 
-# [osa7](osa7)
+# [osa7](/osa7)
 * [create-react-app](https://github.com/facebookincubator/create-react-app)
 * [webpack](https://webpack.js.org/)
 * [entry](https://webpack.js.org/concepts/#entry)
