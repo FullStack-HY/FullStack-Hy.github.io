@@ -78,7 +78,7 @@ VS Code -plugineina löytyy myös hyödyllisiä valmiiksi määriteltyjä snippe
 
 ### Pakolliset tehtävät, tehtävien vaikutus arvosanaan
 
-Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](/tehtävät)
+Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/tehtavat.md)
 
 ### linkkivinkit
 
