@@ -1,6 +1,7 @@
 ---
 layout: page
 title: linkit
+inheader: yes
 permalink: /linkit/
 ---
 
