@@ -52,7 +52,7 @@ Suuri jousto suoritusajoissa tuo opiskelijalle entistä suuremman vastuun omasta
 
 ## Arvosteluperusteet
 
-Arvosana määräytyy tehtyjen tehtävien perusteella. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
+Arvosana määräytyy kaikkien tehtyjen tehtävien perusteella, myös tähdellä merkityt "vapaavalintaiset" tehtävät siis vaikuttavat arvosanaan. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
 
 Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. Opetushallinnollisista syistä lisäopintopisteet rekisteröidään omana kurssinaan. Kurssin nimi määritellään myöhemmin.
 

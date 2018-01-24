@@ -11,12 +11,13 @@ permalink: /tehtävät/
 * [osa1](#osa-1) deadline 28.1. klo 23:59
 * [osa2](#osa-2) deadline 4.2. klo 23:59
 * [osa3](#osa-3) deadline 11.2. klo 23:59
+* [osa4](#osa-4) deadline 25.2. klo 23:59
 
 ## Palauttaminen
 
 Olethan lukenut huolellisesti kurssimateriaalin osan 0 luvun [Suoritustapa](/osa0/#Suoritustapa)?
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät maanantaina 15.1. avautuvaan [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
 
 Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hakemistojen nimentää.
 
@@ -25,6 +26,12 @@ Tehtävät palautetaan yksi osa kerrallaan. Kun olet palauttanut osan tehtävät
 GitHubiin palautettuja tehtäviä tarkastetaan pistokokein. Jos GitHubista löytyy kurssin mallivastausten koodia tai useammalta opiskelijalta löytyy samaa koodia, käsitellään tilanne yliopiston [vilppikäytäntöjen](http://blogs.helsinki.fi/alakopsaa/opettajalle/epailen-opiskelijaa-vilpista-mita-tehda/) mukaan.
 
 Suurin osa tehtävistä on moniosaisia, samaa ohjelmaa pala palalta rakentavia kokonaisuuksia. Tälläisissä tehtäväsarjoissa ohjelman lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
+
+## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
+
+Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu tähdellä. Pakolliset eivät ole absoluuttisen pakollisia, mutta niiden tekemättä jättäminen saattaa aiheuttaa haasteita seuraaviin osiin.
+
+Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa. 
 
 ## Osa 0
 
@@ -1172,3 +1179,409 @@ Ota sovellukseesi käyttöön ESlint.
 ### Tehtävien palautus
 
 Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+
+## Osa 4
+
+Deadline 25.2. klo 23:59
+
+Osassa on 21 tehtävää, joista pakollisia on 17. Voit edetä osaan 5 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+
+Rakennamme tämän osan tehtävissä _blogilistasovellusta_, jonka avulla käyttäjien on mahdollista tallettaa tietoja internetistä löytämistään mielenkiintoisista blogeista. Kustakin blogista talletetaan sen kirjoittaja (author), aihe (title), url sekä blogilistasovelluksen käyttäjien antamien äänien määrä.
+
+Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
+
+Blogilistasovellus muistuttaa huomattavasti syksyn ohjelmistotuotantokurssin miniprojekteissa tehtyä [ohjelmistoa](https://github.com/mluukkai/ohjelmistotuotanto2017/wiki/miniprojekti-speksi).
+
+### sovelluksen alustus ja rakenne
+
+#### 4.1 blogilista, osa 1
+
+Saat sähköpostitse yhteen tiedostoon koodatun sovellusrungon:
+
+```js
+const http = require('http')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const mongoose = require('mongoose')
+
+const Blog = mongoose.model('Blog', {
+  title: String,
+  author: String,
+  url: String,
+  likes: Number
+})
+
+module.exports = Blog
+
+app.use(cors())
+app.use(bodyParser.json())
+
+const mongoUrl = 'mongodb://localhost/bloglist'
+mongoose.connect(mongoUrl)
+mongoose.Promise = global.Promise
+
+app.get('/api/blogs', (request, response) => {
+  Blog
+    .find({})
+    .then(blogs => {
+      response.json(blogs)
+    })
+})
+
+app.post('/api/blogs', (request, response) => {
+  const blog = new Blog(request.body)
+
+  blog
+    .save()
+    .then(result => {
+      response.status(201).json(result)
+    })
+})
+
+const PORT = 3003
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+```
+
+Tee sovelluksesta toimiva _npm_-projekti. Jotta sovelluskehitys olisi sujuvaa, konfiguroi sovellus suoritettavaksi _nodemon_:illa. Voit luoda sovellukselle uuden tietokannan esim. mlabiin tai käyttää edellisen osan sovelluksen tietokantaa.
+
+Varmista, että sovellukseen on mahdollista lisätä blogeja Postmanilla tai VS Code REST clientilla, ja että sovellus näyttää lisätyt blogit.
+
+#### 4.2 blogilista, osa 2
+
+Jaa sovelluksen koodi osan 4 [alun](/osa4) tapaan useaan moduuliin.
+
+**HUOM** etene todella pienin askelin, varmistaen että kaikki toimii koko ajan. Jos yrität "oikaista" tekemällä monta asiaa kerralla, on [Murphyn lain](https://fi.wikipedia.org/wiki/Murphyn_laki) perusteella käytännössä varmaa, että jokin menee pahasti pieleen ja "oikotien" takia maaliin päästään paljon myöhemmin kuin systemaattisin pienin askelin.
+
+Paras käytänne on commitoida koodi aina stabiilissa tilanteessa, tällöin on helppo palata aina toimivaan tilanteeseen jos koodi menee liian solmuun.
+
+### yksikkötestaus
+
+Tehdään joukko blogilistan käsittelyyn tarkoitettuja apufunktioita. Tee funktiot esim. tiedostoon _utils/list_helper.js_. Tee testit sopivasti nimettyyn tiedostoon hakemistoon _tests_.
+
+**HUOM:** jos jokin testi ei mene läpi, ei kannata ongelmaa korjatessa suorittaa kaikkia testejä, vaan ainoastaan rikkinäistä testiä hyödyntäen [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout)-metodia.
+
+#### 4.3 apufunktioita ja yksikkötestejä, osa 1
+
+Määrittele ensin funktio _dummy_ joka saa parametrikseen taulukollisen blogeja ja palauttaa aina luvun 1. Tiedoston _list_helper.js_ sisällöksi siis tulee tässä vaiheessa
+
+```js
+const dummy = (blogs) => {
+  // ...
+}
+
+module.exports = {
+  dummy
+}
+```
+
+Varmista testikonfiguraatiosi toimivuus seuraavalla testillä:
+
+```js
+const listHelper = require('../utils/list_helper')
+
+test('dummy is called', () => {
+  const blogs = []
+
+  const result = listHelper.dummy(blogs)
+  expect(result).toBe(1)
+})
+```
+
+#### 4.4 apufunktioita ja yksikkötestejä, osa 2
+
+Määrittele funktio _totalLikes_ joka saa parametrikseen taulukollisen blogeja. Funktio palauttaa blogien yhteenlaskettujen tykkäysten eli _likejen_ määrän.
+
+Määrittele funktiolle sopivat testit. Funktion testit kannattaa laittaa _describe_-lohkoon jolloin testien tulostus ryhmittyy miellyttävästi:
+
+![]({{ "/assets/teht/23.png" | absolute_url }})
+
+Testisyötteiden määrittely onnistuu esim. seuraavaan tapaan:
+
+```js
+describe('total likes', () => {
+  const listWithOneBlog = [
+    {
+      _id: '5a422aa71b54a676234d17f8',
+      title: 'Go To Statement Considered Harmful',
+      author: 'Edsger W. Dijkstra',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 5,
+      __v: 0
+    }
+  ]
+
+  test('when list has only one blog equals the likes of that', () => {
+    const result = listHelper.totalLikes(listWithOneBlog)
+    expect(result).toBe(5)
+  })
+})
+```
+
+Jos et viitsi itse määritellä testisyötteenä käytettäviä blogeja, saat valmiin listan 
+[täältä](https://github.com/FullStack-HY/part3-notes-backend/wiki/blogs-for-testing)
+
+Törmäät varmasti testien tekemisen yhteydessä erinäisiin ongelmiin. Pidä mielessä osassa 3 käsitellyt [debuggaukseen](osa3/#Node-sovellusten-debuggaaminen) liittyvät asiat, voit testejäkin suorittaessasi printtailla konsoliin komennolla _console.log_
+
+
+#### 4.5 apufunktioita ja yksikkötestejä, osa 3
+
+Määrittele funktio _favoriteBlog_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää millä blogilla on eniten likejä. Jos suosikkeja on monta, riittää että funktio palauttaa niistä jonkun.
+
+Paluuarvo voi olla esim. seuraavassa muodossa:
+
+```js
+{
+  title: "Canonical string reduction",
+  author: "Edsger W. Dijkstra",
+  likes: 12
+}
+```
+
+**Huom**, että kun vertailet olioita, metodi [toEqual](https://facebook.github.io/jest/docs/en/expect.html#toequalvalue) on todennäköisesti se mitä haluat käyttää sillä [toBe](https://facebook.github.io/jest/docs/en/expect.html#tobevalue)-vertailu, joka sopii esim. lukujen ja merkkijonojen vertailuun vaatisi olioiden vertailussa, että oliot ovat samat, pelkkä saman sisältöisyys ei riitä. 
+
+Tee myös tämän ja seuraavien kohtien testit kukin oman _describe_-lohkon sisälle.
+
+#### 4.6* apufunktioita ja yksikkötestejä, osa 4
+
+Tämä ja seuraava tehtävä ovat jo hieman haastavampia. Tehävien tekeminen ei ole osan jatkon kannalta oleellista, eli voi olla hyvä idea palata näihin vasta kun muu osa on kahlattu läpi.
+
+Määrittele funktio _mostBlogs_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää _kirjoittajan_, kenellä on eniten blogeja. Funktion paluuarvo kertoo myös ennätysblogaajan blogien määrän:
+
+```js
+{
+  author: "Robert C. Martin",
+  blogs: 3
+}
+```
+
+ Jos ennätysblogaajia on monta, riittää että funktio palauttaa niistä jonkun.
+
+#### 4.7* apufunktioita ja yksikkötestejä, osa 5
+
+Määrittele funktio _mostLikes_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää kirjoittajan, kenen blogeilla on eniten likejä. Funktion paluuarvo kertoo myös suosikkiblogaajan likejen yhteenlasketun määrän:
+
+```js
+{
+  author: "Edsger W. Dijkstra",
+  votes: 17
+}
+```
+
+Jos suosikkiblogaajia on monta, riittää että funktio palauttaa niistä jonkun.
+
+### API:n testaaminen
+
+**Huom** materiaalissa käytetään muutamaan kertaan ekspektaatiota [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem) tarkastettaessa että jokin arvo on taulukossa. Kannattaa huomata, että metodi käyttää samuuden vertailuun ===-operaattoria ja olioiden kohdalla tämä ei ole useinkaan se mitä halutaan ja parempi vaihtoehto onkin [toContainEqual](https://facebook.github.io/jest/docs/en/expect.html#tocontainequalitem).
+
+#### 4.8 blogilistan testit, osa 1
+
+Tee API-tason testit blogilistan osoitteeseen /api/blogs tapahtuvalle HTTP GET -pyynnölle.
+
+Kun testi on valmis, refaktoroi operaatio käyttämään promisejen sijaan async/awaitia.
+
+Huomaa, että joudut tekemään koodiin osan 4 materiaalin tyylin joukon muutoksia (mm. testausympäristön määrittely), jotta saat järkevästi määriteltyä API-tason testejä.
+
+**Huom** testien kehitysvaiheessa ei yleensä kannata suorittaa joka kerta kaikkia testejä, vaan keskittyä yhteen testiin kerrallaan. On useita tapoja, joilla voidaan rajoittaa jestin suorittamia testejä. Esim. komennolla
+
+```bash
+npx jest -t 'blogs are returned'
+```
+
+voidaan suoritta ainoastaan ne testit, joiden nimessä esiintyy _blogs are returned_.
+
+Yksittäisen testitiedoston sisällä olevien testien suoritusta voidaan kontrolloida metodeilla _skip_ ja _only_ [ks. manuaali](https://facebook.github.io/jest/docs/en/api.html).
+
+Voimme esim. laittaa koko edellisessä tehtäväsarjassa tehdyt testit ison describen sisälle ja määritellä ne [skipattavaksi](https://facebook.github.io/jest/docs/en/api.html#describeskipname-fn):
+
+```js
+describe.skip('list helpers', () => {
+  test('dummy is called', () => {
+    const blogs = []
+
+    const result = listHelper.dummy(blogs)
+    expect(result).toBe(1)
+  })
+
+  describe('total likes', () => {
+    test('of empty list is 0', () => {
+      const result = listHelper.totalLikes(emptyList)
+      expect(result).toBe(0)
+    })
+
+    // ...
+  })  
+})
+```
+
+tällöin komennolla _npm test_ suoritettaessa tiedoston testejä ei suoriteta ollenkaan.
+
+Kun testit ovat stabiilissa tilassa, tulee skiptit ja onlyt poistaa.
+
+#### 4.9 blogilistan testit, osa 2
+
+Tee testit blogin lisäämiselle, eli osoitteeseen /api/blogs tapahtuvalle HTTP POST -pyynnölle.
+
+Kun testi on valmis, refaktoroi operaatio käyttämään promisejen sijaan async/awaitia.
+
+#### 4.10* blogilistan testit, osa 3
+
+Tee testi joka varmistaa, että jos kentälle _likes_ ei anneta arvoa, asetetaan sen arvoksi 0. Muiden kenttien sisällöstä ei tässä tehtävässä vielä välitetä.
+
+Laajenna ohjelmaa siten, että testi menee läpi.
+
+#### 4.11* blogilistan testit, osa 4
+
+Tee testit blogin lisäämiselle, eli osoitteeseen /api/blogs tapahtuvalle HTTP POST -pyynnölle, joka varmistaa, että jos uusi blogi ei sisällä kenttiä _title_ ja _url_, pyyntöön vastataan statuskoodilla _400 Bad request_
+
+Laajenna toteutusta siten, että testit menevät läpi.
+
+### Varoitus
+
+Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+
+### Lisää toiminnallisuutta ja testejä
+
+#### 4.12 blogilistan laajennus, osa 1
+
+Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat positettua testeistä copypastea:
+
+Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#Testien-refaktorointi) tyyliä
+
+```js
+const helper = require('./test_helper')
+
+// ...
+
+test('a valid blog can be added', async () => {
+  const newBlog = {
+    // ....
+  }
+
+  const blogsBefore = await helper.blogsInDb()
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const blogsAfter = await helper.blogsInDb()
+
+  expect(blogsAfter.length).toBe(blogsBefore.length+1)  
+  expect(blogsAfter).toContainEqual(newBlog)
+})
+```
+
+#### 4.13 blogilistan laajennus, osa 2
+
+Toteuta sovellukseen mahdollisuus yksittäisen blogin poistoon.
+
+Käytä async/awaitia.
+
+Määrittele ensin toiminnallisuutta testaavat testit ja tämän jälkeen toteuta toiminnallisuus. Noudata operaation HTTP-rajapinnan suhteen [RESTful](osa3/#REST)-käytänteitä.
+
+Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
+
+#### 4.14* blogilistan laajennus, osa 3
+
+Toteuta sovellukseen mahdollisuus yksittäisen blogin muokkaamiseen.
+
+Käytä async/awaitia.
+
+Tarvitsemme muokkausta lähinnä _likejen_ lukumäärän päivittämiseen. Toiminnallisuuden voi toteuttaa samaan tapaan kuin muistiinpanon päivittäminen toteutettiin [osassa 3](/osa3#loput-operaatiot).
+
+Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
+
+### Blogilistan käyttäjät
+
+Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaa osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#Käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
+
+### Varoitus vielä kerran
+
+Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+
+#### 4.15 blogilistan laajennus, osa 4
+
+Tee sovellukseen mahdollisuus luoda käyttäjiä tekemällä HTTP POST -pyyntö osoitteeseen _api/users_. Käyttäjillä on käyttäjätunnus, salasana ja nimi sekä totuusarvoinen kenttä, joka kertoo onko käyttäjä täysi-ikäinen.
+
+Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#Käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
+
+Tee järjestelmään myös mahdollisuus katsoa kaikkien käyttäjien tiedot sopivalla HTTP-pyynnöllä.
+
+Käyttäjien lista voi näyttää esim. seuraavalta:
+![](https://raw.githubusercontent.com/mluukkai/mluukkai.github.io/master/assets/teht/24.png)
+
+#### 4.16* blogilistan laajennus, osa 5
+
+Laajenna käyttäjätunnusten luomista siten, että salasanan tulee olla vähintään 3 merkkiä pitkiä ja käyttäjätunnus on järjestelmässä uniikki. Jos täysi-ikäisyydelle ei määritellä luotaessa arvoa, on se oletusarvoisesti true.
+
+Luomisoperaation tulee palauttaa sopiva statuskoodi ja kuvaava virheilmoitus, jos yritetään luoda epävalidi käyttäjä.
+
+Tee testit, jotka varmistavat, että virheellisiä käyttäjiä ei luoda, ja että virheellisen käyttäjän luomisoperaatioon vastaus on järkevä statuskoodin ja virheilmoituksen osalta.
+
+#### 4.17 blogilistan laajennus, osa 6
+
+Laajenna blogia siten, että blogiin tulee tieto sen lisänneestä käyttäjästä.
+
+Muokkaa blogien lisäystä osan 4 luvun [populate](osa4/#populate) tapaan siten, että blogin lisämisen yhteydessä määritellään blogin lisääjäksi _joku_ järjestelmän tietokannassa olevista käyttäjistä (esim. ensimmäisenä löytyvä). Tässä vaiheessa ei ole väliä kuka käyttäjistä määritellään lisääväksi. Toiminnallisuus viimeistellään tehtävässä 4.19.
+
+Muokaa kaikkien blogien listausta siten, että blogien yhteydessä näytetään lisääjän tiedot:
+
+![](https://raw.githubusercontent.com/mluukkai/mluukkai.github.io/master/assets/teht/25.png)
+
+ja käyttäjien listausta siten että käyttäjien lisäämät blogit ovat näkyvillä
+
+![]({{ "/assets/teht/26.png" | absolute_url }})
+
+#### 4.18 blogilistan laajennus, osa 7
+
+Toteuta osan 4 luvun [Kirjautuminen](/osa4#kirjautuminen) tapaan järjestelmään token-perustainen autentikointi.
+
+#### 4.19 blogilistan laajennus, osa 8
+
+Muuta blogien lisäämistä siten, että se on mahdollista vain, jos lisäyksen tekevässä HTTP POST -pyynnössä on mukana validi token. Tokenin haltija määritellään blogin lisääjäksi.
+
+#### 4.20* blogilistan laajennus, osa 9
+
+Osan 4 [esimerkissä](osa4/#kirjautuminen) token otetaan headereista apufunktion _getTokenFrom_ avulla.
+
+Jos käytit samaa ratkaisua, refaktoroi tokenin erottaminen [middlewareksi](osa3/#middlewaret), joka ottaa tokenin _Authorization_-headerista ja sijoittaa sen _request_-olion kenttään _token_.
+
+Eli kun rekisteröit middlewaren ennen routeja tiedostossa _index.js_
+
+```js
+app.use(middleware.tokenExtractor)
+```
+
+pääsevät routet tokeniin käsiksi suoraan viittaamalla _request.token_:
+
+```js
+blogsRouter.post('/', async (request, response) => {
+  // ..
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+  // ..
+})
+```
+
+#### 4.21* blogilistan laajennus, osa 9
+
+Muuta blogin poistavaa operaatiota siten, että poisto onnistuu ainoastaan jos poisto-operaation tekijä (eli se kenen token on pyynnön mukana) on sama kuin blogin lisääjä.
+
+Jos poistoa yritetään ilman tokenia tai väärän käyttäjän toimesta, tulee operaation palauttaa asiaan kuuluva statuskoodi.
+
+Huomaa, että jos haet blogin tietokannasta
+
+```js
+const blog = await Blog.findById(...)
+```
+
+ei kenttä _blog.user_ ole tyypiltään merkkijono vaan _object_. Eli jos haluat verrata kannasta haetun olion id:tä merkkijonomuodossa olevaan id:hen, ei normaali vertailu toimi. Kannasta haettu id tulee muuttaa vertailua varten merkkijonoksi:
+
+```js
+if ( blog.user.toString() === userid.toString() ) ...
+```
+

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: osa 4
+inheader: yes
 permalink: /osa4/
 ---
 ## Osan 4 oppimistavoitteet
@@ -253,7 +254,7 @@ Express-sovelluksien rakenteelle, eli hakemistojen ja tiedostojen nimennälle ei
 
 ## Tehtäviä
 
-Tee nyt tehtävä [4.1](../tehtavat#sovelluksen-alustus-ja-rakenne)
+Tee nyt tehtävät [4.1 ja 4.2](/tehtävät#sovelluksen-alustus-ja-rakenne)
 
 ## node-sovellusten testaaminen
 
@@ -454,7 +455,7 @@ Toisena huomiona se, että kirjoitimme testit aavistuksen tiiviimmässä muodoss
 
 ## Tehtäviä
 
-Tee nyt tehtävät [61-65](../tehtavat#yksikkötestaus)
+Tee nyt tehtävät [4.3-4.7](/tehtävät#yksikkötestaus)
 
 ## API:n testaaminen
 
@@ -1300,7 +1301,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 ## Tehtäviä
 
-Tee nyt tehtävät [66-69](../tehtavat##API:n-testaaminen)
+Tee nyt tehtävät [4.8-4.11](/tehtävät#API:n-testaaminen)
 
 ## Testien refaktorointi
 
@@ -1543,7 +1544,7 @@ Käytetty tapa API:n testaamiseen, eli HTTP-pyyntöinä tehtävät operaatiot ja
 
 ## Tehtäviä
 
-Tee nyt tehtävät [70-72](../tehtavat##Lisää-toiminnallisuutta-ja-testejä)
+Tee nyt tehtävät [4.12-4.14](/tehtävät#Lisää-toiminnallisuutta-ja-testejä)
 
 ## Käyttäjien hallinta ja monimutkaisempi tietokantaskeema
 
@@ -2346,6 +2347,8 @@ ja Visual Studio Coden REST clientillä
 
 ![]({{ "/images/4/14a.png" | absolute_url }})
 
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part4-6), tagissa _part4-6_.
+
 ### Loppuhuomioita
 
 Koodissa on tapahtunut paljon muutoksia ja matkan varrella on tapahtunut tyypillinen kiivaasti etenevän ohjelmistoprojektin ilmiö: suuri osa testeistä on hajonnut. Koska kurssin tämä osa on jo muutenkin täynnä uutta asiaa, jätämme testien korjailun harjoitustehtäväksi.
@@ -2356,7 +2359,7 @@ Toteutamme kirjautumisen frontendin puolelle kurssin [seuraavassa osassa](/osa5)
 
 ## Tehtäviä
 
-Tee nyt tehtävät [73-79](../tehtavat#Blogilistan-käyttäjät)
+Tee nyt tehtävät [4.15-4.21](/tehtavat#Blogilistan-käyttäjät)
 
 
 <!---
