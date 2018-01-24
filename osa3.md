@@ -1032,7 +1032,7 @@ Eräs mahdollisuus frontendin tuotantoon viemiseen on kopioida tuotantokoodi, el
 Aloitetaan kopioimalla frontendin tuotantokoodi backendin alle. Omalla koneellani kopiointi tapahtuu frontendin hakemistosta käsin komennolla
 
 ```bash
-cp -r build ../../osa3/notebackend/public
+cp -r build ../../osa3/notebackend
 ```
 
 Jotta saamme expressin näyttämään _staattista sisältöä_ eli sivun _index.html_ ja sen lataaman Javascriptin ym. tarvitsemme expressiin sisäänrakennettua middlewarea [static](http://expressjs.com/en/starter/static-files.html).
