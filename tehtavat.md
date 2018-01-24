@@ -357,7 +357,7 @@ const apu = 'c'
 console.log(olio[apu])  // tulostuu 3
 ```
 
-Myös ns. [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) voi olla tässä tehtävässä tehtävässä hyödyksi.
+Myös ns. [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) voi olla tässä tehtävässä hyödyksi.
 
 #### 1.11 unicafe osa6
 
@@ -497,7 +497,7 @@ const App = () => {
 }
 ```
 
-Määrittele sovellukseen yksittäisen muotoilusta huolehtiva komponentti _Kurssi_.
+Määrittele sovellukseen yksittäisen kurssin muotoilusta huolehtiva komponentti _Kurssi_.
 
 Sovelluksen komponenttirakenne voi olla esim. seuraava
 
