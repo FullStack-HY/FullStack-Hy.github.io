@@ -1280,7 +1280,7 @@ Käytämme kurssilla jatkossa tätä tapaa komponenttien metodien määrittelemi
 
 Node.js ei oletusarvoisesti vielä tue ominaisuutta, eli kääntämätöntä koodia joka sisältää class propertyjä ei voi vielä suorittaa Node.js:llä.
 
-### Huomio funktion setState käytöstä
+### Pari huomiota funktion setState käytöstä
 
 Käytimme metodia _setState_ kahteen kertaan:
 
@@ -1309,6 +1309,16 @@ Nyt metodin parametrina on funktio, jonka parametrina on edellinen tila _prevSta
 Emme nyt viitsi käyttää tätä monimutkaisempa muotoa, sillä emme välitä vaikka sovelluksessamme ilmenisikin silloin tällöin pieni epäkonsistenssi (on epäselvää olisiko se sovelluksessamme edes teoriassa mahdollista).
 
 Asia tulee kuitenkin ehdottomasti pitää mielessä, _setState_:n vääränlainen käyttö saattaa aiheuttaa hankalasti löydettäviä, harvoin toistuvia bugeja.
+
+Tärkeä mielessä pidettävä seikka on myös, se että **React kutsuu funktiota setState asynkroonisesti**, eli jos meillä on seuraava koodi
+
+```js
+console.log(this.state.counter)
+this.setState({counter: 55})
+console.log(this.state.counter)
+```
+
+tulostavat molemmat rivit saman arvon sillä Reactin tila **ei saa uutta arvoa** heti komennon _this.setState_ jälkeen, vaan vasta sitten, kun suorituksen alla oleva metodi on suoritettu loppuun ja _setState_ on saanut mahdollisuuden suoritukselle.
 
 ### Funktio joka palauttaa funktion ###
 
@@ -1776,7 +1786,6 @@ Yleisohjeena on siis se, että käytä funktionaalisia komponentteja ellet aivan
 
 Internetistä löytyy kyllä aiheesta päinvastaisiakin mielipiteitä, esim. [7 Reasons to Outlaw React’s Functional Components](https://medium.freecodecamp.org/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c)
 
-
 ## React-sovellusten debuggaus
 
 Ohjelmistokehittäjän elämä koostuu pääosin debuggaamisesta (ja olemassaolevan koodin lukemisesta). Silloin tällöin syntyy toki muutama rivi uuttakin koodia, mutta suuri osa ajasta ihmetellään miksi joku on rikki tai miksi joku asia ylipäätään toimii. Hyvät debuggauskäytänteet ja työkalut ovatkin todella tärkeitä.
@@ -1826,6 +1835,26 @@ const Button = (props) => {
 ```
 
 näin selviää heti onko esim. joku propsia vastaava attribuutti nimetty väärin komponenttia käytettäessä.
+
+**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisetsi" plussalla, eli sen sijaan että kirjoittaisit
+
+```js
+console.log('propsin arvo on' + props)
+```
+
+erottele tulostettavat asiat pilkulla:
+
+```js
+console.log('propsin arvo on', props)
+```
+
+Jos yhdistät merkkijonoon olion, tuloksena on suhteellisen hyödytön tulostustmuoto
+
+```bash
+propsin arvo on [Object object]
+```
+
+kun taas pilkulla tulostettavat asiat erotellessa saat developer-konsoliin olion, jonka sisältöä on mahdollista tarkastella.
 
 Koodin suorituksen voi pysäyttää chromen developer konsolin debuggeriin kirjoittamalla mihin tahansa kohtaa koodia komennon [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
 

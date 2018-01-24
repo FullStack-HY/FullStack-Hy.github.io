@@ -13,6 +13,12 @@ permalink: /tehtävät/
 * [osa3](#osa-3) deadline 11.2. klo 23:59
 * [osa4](#osa-4) deadline 25.2. klo 23:59
 
+## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
+
+Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu tähdellä. Pakolliset eivät ole absoluuttisen pakollisia, mutta niiden tekemättä jättäminen saattaa aiheuttaa haasteita seuraaviin osiin.
+
+Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa. 
+
 ## Palauttaminen
 
 Olethan lukenut huolellisesti kurssimateriaalin osan 0 luvun [Suoritustapa](/osa0/#Suoritustapa)?
@@ -26,12 +32,6 @@ Tehtävät palautetaan yksi osa kerrallaan. Kun olet palauttanut osan tehtävät
 GitHubiin palautettuja tehtäviä tarkastetaan pistokokein. Jos GitHubista löytyy kurssin mallivastausten koodia tai useammalta opiskelijalta löytyy samaa koodia, käsitellään tilanne yliopiston [vilppikäytäntöjen](http://blogs.helsinki.fi/alakopsaa/opettajalle/epailen-opiskelijaa-vilpista-mita-tehda/) mukaan.
 
 Suurin osa tehtävistä on moniosaisia, samaa ohjelmaa pala palalta rakentavia kokonaisuuksia. Tälläisissä tehtäväsarjoissa ohjelman lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
-
-## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
-
-Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu tähdellä. Pakolliset eivät ole absoluuttisen pakollisia, mutta niiden tekemättä jättäminen saattaa aiheuttaa haasteita seuraaviin osiin.
-
-Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa. 
 
 ## Osa 0
 
