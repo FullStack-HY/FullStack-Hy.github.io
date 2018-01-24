@@ -25,7 +25,7 @@ Lisääthän linkkiisi kuvaavan tekstin linkille sekä kuvaustekstin mitä linki
 
 ## Opiskelijoiden hyvät linkkivinkit
 
-Lisää tänne linkkivinkkisi
+* [JavaScriptin dynaamisesta tyypityksestä](https://np.reddit.com/r/ProgrammerHumor/comments/2ubhql/please_dont_hate_me_javascript_devs/co7coxl/?context=1)
 
 ----------
 
