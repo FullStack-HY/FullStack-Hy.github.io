@@ -58,7 +58,7 @@ Paradoksaalista kyllä tämä näyttää olevan tilanne, vaikka kokematon ohjelm
 
 Eli kun joku ei toimi, älä arvaile vaan logaa tai käytä jotain muita debuggauskeinoja.
 
-**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisetsi" plussalla, eli sen sijaan että kirjoittaisit
+**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisesti" plussalla, eli sen sijaan että kirjoittaisit
 
 ```js
 console.log('propsin arvo on' + props)
