@@ -428,6 +428,26 @@ Laajenna sovellusta siten, että näytettävää anekdoottia on mahdollista ää
 
 ![]({{ "/images/teht/3.png" | absolute_url }})
 
+**Huom:** jos päätät tallettaa kunkin anekdootin äänet komponentin tilassa olevan olion kenttiin tai taulukkoon, saatat tarvita päivittäessäsi tilaa oikeaoppisesti olion tai taulukon _kopioimista_.
+
+Olio voidaan kopioida esim. seuraavasti:
+
+```js
+this.state.pisteet = { 0: 1, 1: 3, 2: 4, 3: 2} 
+
+const kopio = {...pisteet}
+kopio[2] += 1   // kasvatetaan olion kentän 2 arvoa yhdellä
+```
+
+ja taulukko esim. seuraavasti:
+
+```js
+this.state.pisteet = [1, 4, 6, 3]
+
+const kopio = [..pisteet]
+kopio[2] += 1   // kasvatetaan taulukon paikan 2 arvoa yhdellä
+```
+
 #### 1.14* anekdootit osa3
 
 Ja sitten vielä lopullinen versio, joka näyttää eniten ääniä saaneen anekdootin:

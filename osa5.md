@@ -26,13 +26,13 @@ permalink: /osa5/
     - puhtaat funktiot
     - immutable
 
-<div class='important warn'>
+<div class='important .warn'>
 Kesken, lukeminen omalla vastuulla
 </div>
 
 ## Kirjautuminen React-sovelluksesta
 
-Kaksi edellistä osaa keskittyivät lähinnä backendin toiminnallisuuteen ja edellisessä osassa backendiin toteutettua käyttäjänhallintaa ei ole tällä hetkellä tuettuna frontendissa millään tavalla.
+Kaksi edellistä osaa keskittyivät lähinnä backendin toiminnallisuuteen. Edellisessä osassa backendiin toteutettua käyttäjänhallintaa ei ole tällä hetkellä tuettuna frontendissa millään tavalla.
 
 Frontend näyttää tällä hetkellä olemassaolevat muistiinpanot ja antaa muuttaa niiden tilaa. Uusia muistiinpanoja ei kuitenkaan voi lisätä, sillä osan 4 muutosten myötä backend edellyttää, että lisäyksen mukana on käyttäjän identiteetin varmistava token.
 
@@ -68,41 +68,43 @@ class App extends React.Component {
     )
   }
 
-  addNote = (e) => {
-    e.preventDefault()
+  addNote = (event) => {
+    event.preventDefault()
     const noteObject = {
-      content: this.state.new_note,
+      content: this.state.newNote,
       date: new Date(),
       important: Math.random() > 0.5
     }
 
-    noteService.create(noteObject).then(newNote => {
-      this.setState({
-        notes: this.state.notes.concat(newNote),
-        new_note: ''
+    noteService
+      .create(noteObject)
+      .then(newNote => {
+        this.setState({
+          notes: this.state.notes.concat(newNote),
+          newNote: ''
+        })
       })
-    })
   }
 
   toggleImportanceOf = (id) => {
     // ...
   }
 
-  login = (e) => {
-    e.preventDefault()
+  login = (event) => {
+    event.preventDefault()
     console.log('login in with', this.state.username, this.state.password)
   }
 
-  handleNoteChange = (e) => {
-    this.setState({ new_note: e.target.value })
+  handleNoteChange = (event) => {
+    this.setState({ new_note: event.target.value })
   }
 
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value })
+  handlePasswordChange = (event) => {
+    this.setState({ password: event.target.value })
   }
 
-  handleUsernameChange = (e) => {
-    this.setState({ username: e.target.value })
+  handleUsernameChange = (event) => {
+    this.setState({ username: event.target.value })
   }
 
   toggleVisible = () => {
@@ -137,7 +139,7 @@ class App extends React.Component {
               onChange={this.handlePasswordChange}
             />
           </div>
-          <button>kirjaudu</button>
+          <button type="submit">kirjaudu</button>
         </form>
 
         <h2>Luo uusi muistiinpano</h2>
@@ -147,7 +149,7 @@ class App extends React.Component {
             value={this.state.new_note}
             onChange={this.handleNoteChange}
           />
-          <button>tallenna</button>
+          <button type="submit">tallenna</button>
         </form>
 
         <h2>Muistiinpanot</h2>
@@ -162,9 +164,9 @@ class App extends React.Component {
 export default App
 ```
 
-Tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/mluukkai/notes-frontend/tree/v5-1) tagissä _v5-1_.
+Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-1), tagissa _part5-1_.
 
-Kirjautumislomakkeen käsittely noudattaa samaa periaatetta, kun [osassa 2](osa2/#Lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_) joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
+Kirjautumislomakkeen käsittely noudattaa samaa periaatetta, kun [osassa 2](/osa2#Lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_) joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
 
 Jos lomakkeella on paljon kenttiä, voi olla työlästä toteuttaa jokaiselle kentälle oma muutoksenkäsittelijä. React tarjoaakin tapoja, miten yhden muutoksenkäsittelijän avulla on mahdollista huolehtia useista syötekentistä. Jaetun käsittelijän on saatava jollain tavalla tieto minkä syötekentän muutos aiheutti tapahtuman. Eräs tapa tähän on lomakkeen syötekenttien nimeäminen.
 
@@ -197,16 +199,16 @@ Lisätään _input_ elementteihin nimet _name_-attribuutteina ja vaihdetaan mole
 Yhteinen muutoksista huolehtiva tapahtumankäsittelijä on seuraava:
 
 ```js
-handleLoginFieldChange = (e) => {
-  if (e.target.name === 'password') {
-    this.setState({ password: e.target.value })
-  } else if (e.target.name === 'username') {
-    this.setState({ username: e.target.value })
+handleLoginFieldChange = (event) => {
+  if (event.target.name === 'password') {
+    this.setState({ password: event.target.value })
+  } else if (event.target.name === 'username') {
+    this.setState({ username: event.target.value })
   }
 }
 ```
 
-Tapahtumankäsittelijän parametrina olevan tapahtumaolion _e_ kentän _target.name_ arvona on tapahtuman aiheuttaneen komponentin _name_-attribuutti, eli joko _username_ tai _password_. Koodi haarautuu nimen perusteella ja asettaa tilaan oikean kentän arvon.
+Tapahtumankäsittelijän parametrina olevan tapahtumaolion _event_ kentän _target.name_ arvona on tapahtuman aiheuttaneen komponentin _name_-attribuutti, eli joko _username_ tai _password_. Koodi haarautuu nimen perusteella ja asettaa tilaan oikean kentän arvon.
 
 Javascriptissa on ES6:n myötä uusi syntaksi [computed property name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), jonka avulla olion kentän voi määritellä muuttujan avulla. Esim. seuraava koodi
 
@@ -222,8 +224,8 @@ määrittelee olion <code>{ name: 'Arto Hellas'}</code>
 Näin saamme eliminoitua if-lauseen tapahtumankäsittelijästä ja se pelkistyy yhden rivin mittaiseksi:
 
 ```js
-handleLoginFieldChange = (e) => {
-  this.setState({ [e.target.name]: e.target.value })
+handleLoginFieldChange = (event) => {
+  this.setState({ [event.target.name]: event.target.value })
 }
 ```
 
@@ -246,8 +248,8 @@ export default { login }
 Kirjautumisen käsittelystä huolehtiva metodi voidaan toteuttaa seuraavasti:
 
 ```js
-login = async (e) => {
-  e.preventDefault()
+login = async (event) => {
+  event.preventDefault()
   try{
     const user = await loginService.login({
       username: this.state.username,
