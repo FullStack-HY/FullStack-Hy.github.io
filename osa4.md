@@ -23,7 +23,7 @@ permalink: /osa4/
 
 ## Sovelluksen rakenteen parantelu
 
-Jatketaan [osassa 3](/osa3) tehdyn muistiinpanosovelluksen backendin kehittämistä.  
+Jatketaan [osassa 3](/osa3) tehdyn muistiinpanosovelluksen backendin kehittämistä.
 
 Muutetaan sovelluksen rakennetta siten, että projektin juuressa oleva _index.js_ ainoastaan konfiguroi sovelluksen tietokannan ja käytettävät middlewaret. Routejen määrittely siirretään omaan tiedostoonsa, eli siitä tehdään [moduuli](/osa3/#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi).
 
@@ -283,7 +283,7 @@ Javascriptiin on tarjolla runsaasti erilaisia testikirjastoja eli _test runnerei
 
 Jest on tälle kurssille luonteva valinta, sillä se sopii hyvin backendien testaamiseen, mutta suorastaan loistaa Reactilla tehtyjen frontendien testauksessa.
 
-> *Huomio Windows-käyttäjille:* jest ei välttämättä toimi, jos projektin hakemistopolulla on hakemisto, jonka nimessä on välilyöntejä. 
+> *Huomio Windows-käyttäjille:* jest ei välttämättä toimi, jos projektin hakemistopolulla on hakemisto, jonka nimessä on välilyöntejä.
 
 Koska testejä on tarkoitus suorittaa ainoastaan sovellusta kehitettäessä, asennetaan _jest_ kehitysaikaiseksi riippuvuudeksi komennolla
 
@@ -496,7 +496,7 @@ Määrittelyssämme on kuitenkin pieni ongelma, se ei toimi windowsilla. Tilanne
 npm install --save-dev cross-env
 ```
 
-ja muuttamalla _package.js_ kaikilla käyttöjärjestelmillä toimivaan muotoon 
+ja muuttamalla _package.js_ kaikilla käyttöjärjestelmillä toimivaan muotoon
 
 ```bash
 {
@@ -730,7 +730,7 @@ node    8318 mluukkai   14u  IPv6 0x5428af4833b85e8b      0t0  TCP *:redwood-bro
 
 Windowsissa portin varaavan prosessin näkee resmon.exe:n Verkko-välilehdeltä.
 
-Komennon avulla selviää ikävyyksiä aiheuttavan prosesin PID eli prosessi-id. Prosessin saa tapettua komennolla <code>KILL 8318</code> olettaen että PID on 8318 niin kuin kuvassa. Joskus prosessi on sitkeä eikä kuole ennen kuin se tapetaan komennolla <code>KILL -9 8318</code>. 
+Komennon avulla selviää ikävyyksiä aiheuttavan prosesin PID eli prosessi-id. Prosessin saa tapettua komennolla <code>KILL 8318</code> olettaen että PID on 8318 niin kuin kuvassa. Joskus prosessi on sitkeä eikä kuole ennen kuin se tapetaan komennolla <code>KILL -9 8318</code>.
 
 Windowsissa vastaava komento on <code>taskkill /f /pid 8318</code>.
 
@@ -1062,7 +1062,7 @@ test('note without content is not added ', async () => {
 })
 ```
 
-Testi ei mene läpi. 
+Testi ei mene läpi.
 
 Käy ilmi, että myös operaation suoritus postman tai Visual Studio Coden REST clientillä johtaa virhetilanteeseen. Koodissa on siis bugi.
 
@@ -1564,7 +1564,7 @@ Jos tarvitsemme liitoskyselyitä vastaavaa toiminnallisuutta, tulee se toteuttaa
 
 ### Viitteet kokoelmien välillä
 
-Jos käyttäisimme relaatiotietokantaa, muistiinpano sisältäisi _viiteavaimen_ sen tehneeseen käyttäjään. Dokumenttitietokannassa voidaan toimia samoin. 
+Jos käyttäisimme relaatiotietokantaa, muistiinpano sisältäisi _viiteavaimen_ sen tehneeseen käyttäjään. Dokumenttitietokannassa voidaan toimia samoin.
 
 Oletetaan että kokoelmassa _users_ on kaksi käyttäjää:
 
@@ -1898,7 +1898,7 @@ Lista näyttää seuraavalta
 
 Kuten muistinpanojenkin tapauksessa, olemme myös nyt määritellet apufunktion _formatUser_, joa muodostaa tietokannan palauttamista _user_-olioista selaimelle lähetettävän muodon, joista on mm. poistettu kenttä _passwordHash_.
 
-Formatointifunktio on nyt sijoitettu routejen määrittelyn yhteyteen. Paikka ei välttämättä ole optimaalinen ja päätetäänkin viedä formatointi _User_-skeeman vastuulle, sen [staattiseksi metodiksi](http://mongoosejs.com/docs/guide.html#statics). 
+Formatointifunktio on nyt sijoitettu routejen määrittelyn yhteyteen. Paikka ei välttämättä ole optimaalinen ja päätetäänkin viedä formatointi _User_-skeeman vastuulle, sen [staattiseksi metodiksi](http://mongoosejs.com/docs/guide.html#statics).
 
 Tehdään seuraava muutos tiedostoon _models/user.js_:
 
@@ -1978,7 +1978,7 @@ ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _normatNote(note)
 
 Testien suoritus varmistaa, että sovelluksemme ei hajonnut refaktoroinnin myötä.
 
-Pääsemme nyt eroon myös testien yhteyteen määritellystä muistiinpanoja formatoivasta apumetodista _format_, sillä myös testeissä kannattaa hyödyntää funktiota _Note.format_. 
+Pääsemme nyt eroon myös testien yhteyteen määritellystä muistiinpanoja formatoivasta apumetodista _format_, sillä myös testeissä kannattaa hyödyntää funktiota _Note.format_.
 
 Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part3-notes-backend/tree/part4-5), tagissa _part4-5_.
 
@@ -2235,7 +2235,7 @@ Body:   { username: 'mluukkai', password: 'salainen' }
 (node:17486) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): Error: secretOrPrivateKey must have a value
 ````
 
-Ongelman aiheuttaa komento _jwt.sign(userForToken, process.env.SECRET)_ sillä ympäristömuuttujalle _SECRET_ on unohtunut määritellä arvo. Kun arvo määritellään tiedostoon _.env_, alkaa kirjautuminen toimia. 
+Ongelman aiheuttaa komento _jwt.sign(userForToken, process.env.SECRET)_ sillä ympäristömuuttujalle _SECRET_ on unohtunut määritellä arvo. Kun arvo määritellään tiedostoon _.env_, alkaa kirjautuminen toimia.
 
 Onnistunut kirjautuminen palauttaa kirjautuneen käyttäjän tiedot ja tokenin:
 
@@ -2339,7 +2339,7 @@ Postmanilla luominen näyttää seuraavalta
 
 ![]({{ "/assets/4/14.png" | absolute_url }})
 
-ja Visual Studio Coden REST clientillä 
+ja Visual Studio Coden REST clientillä
 
 ![]({{ "/images/4/14a.png" | absolute_url }})
 

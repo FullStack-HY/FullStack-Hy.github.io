@@ -52,13 +52,13 @@ tulostavat molemmat rivit saman arvon, sillä Reactin tila **ei saa uutta arvoa*
 
 ### console.log
 
-_Mikä erottaa kokeneen ja kokemattoman Javascript-ohjelmoijan? Kokeneet käyttävät 10-100 kertaa enemmän console.logia_. 
+_Mikä erottaa kokeneen ja kokemattoman Javascript-ohjelmoijan? Kokeneet käyttävät 10-100 kertaa enemmän console.logia_.
 
 Paradoksaalista kyllä tämä näyttää olevan tilanne, vaikka kokematon ohjelmoija oikeastaan tarvitsisi console.logia (tai jotain muita debuggaustapoja) huomattavissa määrin kokenutta enemmän.
 
 Eli kun joku ei toimi, älä arvaile vaan logaa tai käytä jotain muita debuggauskeinoja.
 
-**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisetsi" plussalla, eli sen sijaan että kirjoittaisit
+**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisesti" plussalla, eli sen sijaan että kirjoittaisit
 
 ```js
 console.log('propsin arvo on' + props)
@@ -91,7 +91,7 @@ Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien
 
 ### linkkivinkit
 
-Kurssisivun alaisuudessa on nyt [osio](https://fullstack-hy.github.io/linkit/), jonne kaikkien toivotaan lisäilevät hydylliseksi kokemiaan linkkejä. Lisääminen onnistuu tekemällä pull request [tänne](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/linkit.md)
+Kurssisivun alaisuudessa on nyt [osio](https://fullstack-hy.github.io/linkit/), jonne kaikkien toivotaan lisäilevän hyödyllisiksi kokemiaan linkkejä. Lisääminen onnistuu tekemällä pull request [tänne](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/linkit.md)
 
 Kun lisäät linkin, laita linkin yhteyteen pieni kuvaus mitä linkin takaa löytyy.
 
@@ -848,7 +848,7 @@ Tee nyt tehtävät [3.1-3.6](../tehtavat#expressin-alkeet)
 
 ## Huomioita HTTP pyyntötyyppien käytöstä
 
-[HTTP-standardi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) puhuu pyyntötyyppien yhteydessä kahdesta ominaisuudesta, **safe** ja **idemponent**.
+[HTTP-standardi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) puhuu pyyntötyyppien yhteydessä kahdesta ominaisuudesta, **safe** ja **idempotent**.
 
 HTTP-pyynnöistä GET:in tulisi olla _safe_:
 
@@ -860,7 +860,7 @@ Mikään ei automaattisesti takaa, että GET-pyynnöt olisivat luonteeltaan _saf
 
 HTTP-standardi määrittelee myös pyyntötyypin [HEAD](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4), jonka tulee olla safe. Käytännössä HEAD:in tulee toimia kuten GET, mutta se ei palauta vastauksenaan muuta kuin statuskoodin ja headerit, viestin bodyä HEAD ei palauta ollenkaan.
 
-HTTP-pyynnöistä muiden paitsi POST:in tulisi olla _idemponent_:
+HTTP-pyynnöistä muiden paitsi POST:in tulisi olla _idempotentteja_:
 
 > Methods can also have the property of "idempotence" in that (aside from error or expiration issues) the side-effects of N > 0 identical requests is the same as for a single request. The methods GET, HEAD, PUT and DELETE share this property
 
@@ -868,9 +868,9 @@ Eli jos pyynnöllä on sivuvaikutuksia, lopputulos on sama suoritetaanko pyyntö
 
 Esim. jos tehdään HTTP PUT pyyntö osoitteeseen _/notes/10_ ja pyynnön mukana on <code>{ content: "ei sivuvaikutuksia", important: true }</code>, on lopputulos sama riippumatta siitä kuinka monta kertaa pyyntö suoritetaan.
 
-Kuten metodin GET _safety_ myös _idempotence_ on HTTP-standardin suositus palvelimien toteuttajille. RESTful-periaatetta noudattaessa GET, HEAD, PUT ja DELETE-pyyntöjä käytetäänkin aina siten, että ne ovat idemponent.
+Kuten metodin GET _safety_ myös _idempotence_ on HTTP-standardin suositus palvelimien toteuttajille. RESTful-periaatetta noudattaessa GET, HEAD, PUT ja DELETE-pyyntöjä käytetäänkin aina siten, että ne ovat idempotentteja.
 
-HTTP pyyntötyypeistä POST on ainoa joka ei ole safe eikä idemponent. Jos tehdään 5 kertaa HTTP POST -pyyntö osoitteeseen _/notes_ siten että pyynnön mukana on <code>{ content: "monta samaa", important: true }</code>, tulee palvelimelle 5 saman sisältöistä muistiinpanoa.
+HTTP pyyntötyypeistä POST on ainoa joka ei ole _safe_ eikä _idempotent_. Jos tehdään 5 kertaa HTTP POST -pyyntö osoitteeseen _/notes_ siten että pyynnön mukana on <code>{ content: "monta samaa", important: true }</code>, tulee palvelimelle 5 saman sisältöistä muistiinpanoa.
 
 ## Middlewaret
 
@@ -1204,7 +1204,7 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.9-3.11](../tehtavat#yhteys-frontendiin-ja-vienti-tuotantoon)
+Tee nyt tehtävät [3.9-3.11](../tehtävät#yhteys-frontendiin-ja-vienti-tuotantoon)
 
 ## Node-sovellusten debuggaaminen
 
