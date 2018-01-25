@@ -17,7 +17,7 @@ permalink: /tehtävät/
 
 Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu tähdellä. Pakolliset eivät ole absoluuttisen pakollisia, mutta niiden tekemättä jättäminen saattaa aiheuttaa haasteita seuraaviin osiin.
 
-Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa. 
+Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa.
 
 ## Palauttaminen
 
@@ -1321,8 +1321,7 @@ describe('total likes', () => {
 })
 ```
 
-Jos et viitsi itse määritellä testisyötteenä käytettäviä blogeja, saat valmiin listan 
-[täältä](https://github.com/FullStack-HY/part3-notes-backend/wiki/blogs-for-testing)
+Jos et viitsi itse määritellä testisyötteenä käytettäviä blogeja, saat valmiin listan [täältä](https://github.com/FullStack-HY/part3-notes-backend/wiki/blogs-for-testing)
 
 Törmäät varmasti testien tekemisen yhteydessä erinäisiin ongelmiin. Pidä mielessä osassa 3 käsitellyt [debuggaukseen](osa3/#Node-sovellusten-debuggaaminen) liittyvät asiat, voit testejäkin suorittaessasi printtailla konsoliin komennolla _console.log_
 
@@ -1341,7 +1340,7 @@ Paluuarvo voi olla esim. seuraavassa muodossa:
 }
 ```
 
-**Huom**, että kun vertailet olioita, metodi [toEqual](https://facebook.github.io/jest/docs/en/expect.html#toequalvalue) on todennäköisesti se mitä haluat käyttää sillä [toBe](https://facebook.github.io/jest/docs/en/expect.html#tobevalue)-vertailu, joka sopii esim. lukujen ja merkkijonojen vertailuun vaatisi olioiden vertailussa, että oliot ovat samat, pelkkä saman sisältöisyys ei riitä. 
+**Huom**, että kun vertailet olioita, metodi [toEqual](https://facebook.github.io/jest/docs/en/expect.html#toequalvalue) on todennäköisesti se mitä haluat käyttää sillä [toBe](https://facebook.github.io/jest/docs/en/expect.html#tobevalue)-vertailu, joka sopii esim. lukujen ja merkkijonojen vertailuun vaatisi olioiden vertailussa, että oliot ovat samat, pelkkä saman sisältöisyys ei riitä.
 
 Tee myös tämän ja seuraavien kohtien testit kukin oman _describe_-lohkon sisälle.
 
@@ -1413,7 +1412,7 @@ describe.skip('list helpers', () => {
     })
 
     // ...
-  })  
+  })
 })
 ```
 
@@ -1471,7 +1470,7 @@ test('a valid blog can be added', async () => {
 
   const blogsAfter = await helper.blogsInDb()
 
-  expect(blogsAfter.length).toBe(blogsBefore.length+1)  
+  expect(blogsAfter.length).toBe(blogsBefore.length+1)
   expect(blogsAfter).toContainEqual(newBlog)
 })
 ```
