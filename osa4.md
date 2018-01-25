@@ -21,10 +21,6 @@ permalink: /osa4/
   - Token-autentikaatio
   - JWT
 
-<div class='important'>
-KESKEN. Älä lue
-</div>
-
 ## Sovelluksen rakenteen parantelu
 
 Jatketaan [osassa 3](/osa3) tehdyn muistiinpanosovelluksen backendin kehittämistä.  
