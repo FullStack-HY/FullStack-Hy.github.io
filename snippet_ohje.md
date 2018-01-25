@@ -5,7 +5,7 @@ Muokkaa asetuksiin seuraavat user settingsit:
 
 ```
 "editor.tabCompletion": true,
-"editor.snippetSuggestions": "inline"
+"editor.snippetSuggestions": "top"
 ```
 Ja lisää ensimmäinen user snippet:
 (File > Preferences > User snippets > JavaScript)
