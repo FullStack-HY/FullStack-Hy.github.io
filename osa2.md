@@ -69,6 +69,12 @@ propsin arvo on [Object object]
 
 kun taas pilkulla tulostettavat asiat erotellessa saat developer-konsoliin olion, jonka sisältöä on mahdollista tarkastella.
 
+### Tapahtumankäsittely revisited
+
+Pajan ja telegrammin havaintojen perusteella tapahtumankäsittely on osoittautunut haastavaksi.
+
+Osassa 1 on nyt uusi luku [tapahtumäakasittely revisited](/osa1#tapahtumankäsittely-revisited) joka käy aihepiiriä läpi.
+
 ### Visual Studio Coden snippetit
 
 VS Codeen on helppo määritellä "snippettejä", eli Netbeansin "sout":in tapaisia oikoteitä yleisesti käytettyjen koodinpätkien generointiin. Ohje snippetien luomiseen [täällä](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/snippet_ohje.md)

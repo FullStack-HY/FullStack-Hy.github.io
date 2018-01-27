@@ -1880,6 +1880,387 @@ Chromeen kannattaa ehdottomasti asentaa [React developer tools](https://chrome.g
 
 Uuden konsolitabin avulla voidaan tarkkailla sovelluksen React-elementtejä ja niiden tilaa (eli this.state:a) ja propseja.
 
+## Tapahtumankäsittely revisited
+
+Pajan ja telegrammin havaintojen perusteella tapahtumankäsittely on osoittautunut haastavaksi.
+
+Tarkastellaan asiaa vielä uudelleen.
+
+Oletetaan, että käytössä on äärimmäisen yksinkertainen sovellus:
+
+```bash
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      value: 10
+    }
+  }
+  render(){
+    return (
+      <div>
+        {this.state.value}
+        <button>nollaa</button>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
+```
+
+Haluamme, että napin avulla tilassa oleva _value_ saadaan nollattua.
+
+Jotta saamme napin reagoimaan, on sille lisättävä _tapahtumankäsittelijä_. 
+
+Tapahtumankäsittelijän tulee aina olla _funktio_. Jos tapahtumankäisttelijän paikalle yritetään laittaa jotain muuta, ei nappi toimi.
+
+Jos esim. antaisimme tapahtumankäsittelijäksi merkkijonon:
+
+```bash
+<button onClick={"roskaa"}>nappi</button>
+```
+
+React varoittaa asiasta konsolissa
+
+```bash
+index.js:2178 Warning: Expected `onClick` listener to be a function, instead got a value of `string` type.
+    in button (at index.js:20)
+    in div (at index.js:18)
+    in App (at index.js:27)
+```
+
+eli esim. seuraavanlainen yritys olisi tuhoon tuomittu
+
+```bash
+<button onClick={this.state.value+1}>nappi</button>
+```
+
+nyt tapahtumankäsittelijäksi on yritetty laittaa _this.state.value+1_ mikä tarkoittaa laskuoperaation tulosta. React varoittaa tästäkin konsolissa
+
+```bash
+index.js:2178 Warning: Expected `onClick` listener to be a function, instead got a value of `number` type.
+```
+
+Myöskään seuraava ei toimi
+
+```bash
+<button onClick={this.state.value = 0}>nappi</button>
+```
+
+taaskaan tapahtumankäsittelijänä ei ole funktio vaan sijoitusoperaatio. Konsoliin tulee valitus. Tämä tapa on myös toisella tavalla väärin. Kuten on jo mainittu, reactin tilaa _ei saa muuttaa suoraan_, vaan ainoastaan funktion setState-avulla.
+
+Entä seuraava:
+
+```bash
+<button onClick={console.log('nappia painettu')}>nappi</button>
+```
+
+konsoliin tulostuu kertaalleen _nappia painettu_, mutta nappia painellessa ei tapahtu mitään. Miksi tämä ei toimi vaikka tapahtumankäsittelijänä on nyt funktio _console.log_? 
+
+Ongelma on nyt siinä, että tapahtumankäsittelijänä on funktion kutsu, eli varsinaiseksi tapahtumankäsittelijäksi tulee funktion kutsun paluuarvo, joka on tässä tapauksessa _undefined_.
+
+Funktiokutsu _console.log('nappia painettu')_ suoritetaan siinä vaiheessa kun komponentti renderöidään, ja tämän takia konsoliin tulee tulostus kertalleen.
+
+Myös seuraava yritys on virheellinen
+
+```bash
+<button onClick={this.setState({value: 0})}>nappi</button>
+```
+
+jälleen olemme yrittäneet laittaa tapahtumankäsittelijäksi funktiokutsun. Ei toimi. Tämä yritys aiheuttaa myös toisen ongelman. Kun komponenttia renderöidään, suoritetaan tapahtumankäsittelijänä oleva funktiokutsu _this.setState({value: 0})_ joka taas saa aikaan komponentin uudelleenrenderöinnin. Ja uudelleenrenderöinnin yhteydessä funktiota kutsutaan uudelleen käynnistäen jälleen uusi uudelleenrenderöinti, ja joudutaan päättymättömään rekursioon.
+
+Jos haluamme tietyn funktiokutsun tapahtuvan nappia painettaessa, toimii seuraava 
+
+```bash
+<button onClick={() => console.log('nappia painettu')}>nappi</button>
+```
+
+Nyt tapahtumankäsittelijä on nuolisyntaksilla määritelty funktio _() => console.log('nappia painettu')_. Kun komponentti renderöidään, ei suoritetan mitään, ainoastaan talletetaan funktioviite tapahtumankäsittelijäksi. Itse funktion suoritus tapahtuu vasta napin painallusten yhteydessä.
+
+Saamme myös nollauksen toimimaan samalla tekniikalla
+
+```bash
+<button onClick={() => this.setState({value: 0})}>nappi</button>
+```
+
+eli nyt tapahtumankäsittelijä on funktio _() => this.setState({value: 0})_.
+
+Tapahtumakäsittelijäfunktioiden määrittely suoraan napin määrittelyn yhteydessä ei välttämättä ole paras mahdollinen idea. 
+
+Usein tapahtumankäsittelijä määritelläänkin jossain muualla. Seuraavassa määritellään funktio metodin render alussa ja sijoitetaan se muuttujaan _handler_:
+
+```react
+render() {
+  const handler = () => console.log('nappia painettu')
+
+  return (
+    <div>
+      {this.state.value}
+      <button onClick={handler}>nappi</button>
+    </div>
+  )
+}
+```
+
+Muuttjassa _handler_ on nyt talletettuna viite itse funktioon. Viite annetaan napin määrittelyn yhteydessä
+
+```bash
+<button onClick={handler}>nappi</button>
+```
+
+Tapahtumankäsittelijäfunktio voi luonnollisesti koostua useista komennoista, tällöin käytetään nuolifunktion aaltosulullista muotoa:
+
+```react
+render() {
+  const handker = () => {
+    console.log('nappia painettu')
+    this.setState({ value: 0 })
+  }
+
+  return (
+    <div>
+      {this.state.value}
+      <button onClick={handler}>nappi</button>
+    </div>
+  )
+}
+```
+
+Joissain tilanteissa tapahtumankäsittelijät kannattaa määritellä komponentin metodeina:
+
+```react
+class App extends React.Component {
+  // ...
+
+  handler = () => {
+    console.log('nappia painettu')
+    this.setState({ value: 0 })
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.value}
+        <button onClick={this.handler}>nappi</button>
+      </div>
+    )
+  }
+}
+```
+
+Koska _handler_ on nyt komponentin metodi, päästään siihen käsiki viitten _this_ avulla:
+
+```bash
+<button onClick={this.handler}>nappi</button>
+```
+
+Mennään lopuksi funktioita palauttavaan funktioon.
+
+Muutetaa koodia seuraavasti
+
+```react
+render() {
+  const hello = () => {
+    const handler = () => console.log('hello world')
+
+    return handler
+  }
+
+  return (
+    <div>
+      {this.state.value}
+      <button onClick={hello()}>nappi</button>
+    </div>
+  )
+}
+```
+
+Koodi näyttää hankalalta mutta se ihme kyllä toimii. 
+
+Tapahtumankäsittelijäksi on nyt "rekisteröity" funktiokutsu:
+
+```bash
+<button onClick={hello()}>nappi</button>
+```
+
+Aiemmin varoteltiin, että tapahtumankäsittelijä ei saa olla funktiokutsu vaan sen on oltava funktio tai viite funktioon. Miksi funktiokutsu kuitenkin toimii nyt?
+
+Kun komponenttia renderöidään suoritetaan seuraava funktio:
+
+```react
+const hello = () => {
+  const handler = () => console.log('hello world')
+
+  return handler
+}
+```  
+
+funktion _paluuarvona_ on nyt toinen, muuttujaan _handler_ määritelty funktio.
+
+eli kun react renderöi seuraavan rivin
+
+```bash
+<button onClick={hello()}>nappi</button>
+```
+
+sijoittaa se onClick-käsittelijäksi funktiokutsun _hello()_ paluuarvon. Eli oleellisesti ottaen rivi "muuttuu" seuraavaksi
+
+```bash
+<button onClick={() => console.log('hello world')}>nappi</button>
+```
+
+koska funktio _hello_ palautti funktion, on tapahtumankäsittelijä nyt funktio.
+
+Mitä järkeä tässä konseptissa on?
+
+Muutetaan koodia hiukan:
+
+```bash
+render() {
+  const hello = (who) => {
+    const handler = () => { 
+      console.log(`hello ${who}`)
+    }
+
+    return handler
+  }
+
+  return (
+    <div>
+      {this.state.value}
+      <button onClick={hello('world')}>nappi</button>
+      <button onClick={hello('react')}>nappi</button>
+      <button onClick={hello('function')}>nappi</button>
+    </div>
+  )
+}
+```
+
+Nyt meillä on kolme nappia joiden tapahtumankäsittelijät määritellään paramtertin saavan funktion _hello_ avulla. 
+
+Ensimmäinen nappi määritellään seuraavasti
+
+```bash
+<button onClick={hello('world')}>nappi</button>
+```
+
+Tapahtumankäsittelijä siis saadaan _suorittamalla_ funktiokutsu _hello('world')_. Funktiokutsu palauttaa funktion
+
+```bash
+() => { 
+  console.log('hello world')
+}
+```
+
+Toinen nappi määritellään seuraavasti
+
+```bash
+<button onClick={hello('react')}>nappi</button>
+```
+
+Tapahtumankäsittelijän määrittelevä funktiokutsu _hello('react')_.  palauttaa 
+
+```bash
+() => { 
+  console.log('hello react')
+}
+```
+
+eli nappi saa oman yksilöllisen tapahtumankäsittelijänsä.
+
+Funktioita palauttavia funktioita voikin hyödyntää määrittelemään geneeristä toiminnallisuutta, jota voi tarkentaa parametrien avulla. Tapahtumankäsittelijöitä luovan funktion _hello_ voikin ajatella olevan eräänlainen tehdas, jota voi pyytää valmistamaan sopivia tervehtimiseen tarkoitettuja tapahtumankäsittelijäfunktioita.
+
+Käyttämämme määrittelytapa
+
+```bash
+const hello = (who) => {
+  const handler = () => { 
+    console.log(`hello ${who}`)
+  }
+
+  return handler
+}
+```
+
+on hieman verboosi. Eliminoidaan apumuuttuja, ja määritellään palautettava funktio suoraan returnin yhteydessä:
+
+```bash
+const hello = (who) => {
+  return () => { 
+    console.log(`hello ${who}`)
+  }
+}
+```
+
+ja koska funktio _hello_ sisältää ainoastaan yhden komennon, eli returnin, voidaan käyttää aaltosulutonta tapaa muotoa
+
+```bash
+const hello = (who) => 
+  () => { 
+    console.log(`hello ${who}`)
+  }
+
+```
+
+ja tuodaan vielä "kaikki nuolet" samalle riville
+
+```bash
+const hello = (who) => () => { 
+  console.log(`hello ${who}`)
+}
+```
+
+Voimme käyttää samaa kikkaa myös muodostamaan tapahtumankäsittelijöitä, jotka asettavat komponentin tilalle halutun arvon. Muutetaan koodi muotoon:
+
+```bash
+render() {
+  const setToValue = (newValue) => () => { 
+    this.setState({ value: newValue })
+  }
+
+  return (
+    <div>
+      {this.state.value}
+      <button onClick={setToValue(1000)}>tuhat</button>
+      <button onClick={setToValue(0)}>nollaa</button>
+      <button onClick={setToValue(this.state.value+1)}>kasvata</button>
+    </div>
+  )
+}
+```
+
+Kun komponentti renderöidään, ja tehdään nappia tuhat
+
+```bash
+<button onClick={setToValue(1000)}>tuhat</button>
+```
+
+tulee tapahtumankäsittelijäksi funktiokutsun _setToValue(1000)_ paluuarvo eli seuraava funktio
+
+```bash
+() => { 
+  this.setState({ value: 1000 })
+}
+```  
+
+Kasvatusnapin generoima rivi on seuraava
+
+```bash
+<button onClick={setToValue(this.state.value+1)}>kasvata</button>
+```
+
+Tapahtumankäsittelijän muodostaa funktiokutsu _setToValue(this.state.value+1)_, joka saa parametrikseen tilan kentän _value_ nykyisen arvon kasvatettuna yhdellä. Jos _this.state.value_ olisi 10, tulisi tapahtumankäsittelijäksi funktio
+
+```bash
+() => { 
+  this.setState({ value: 11 })
+}
+```  
+
 ### Hyödyllistä materiaalia
 
 Internetissä on todella paljon Reactiin liittyvää materiaalia, tässä muutamia linkkejä:
