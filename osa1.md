@@ -1959,7 +1959,7 @@ Entä seuraava:
 <button onClick={console.log('nappia painettu')}>nappi</button>
 ```
 
-konsoliin tulostuu kertaalleen _nappia painettu_, mutta nappia painellessa ei tapahtu mitään. Miksi tämä ei toimi vaikka tapahtumankäsittelijänä on nyt funktio _console.log_? 
+konsoliin tulostuu kertaalleen _nappia painettu_, mutta nappia painellessa ei tapahdu mitään. Miksi tämä ei toimi vaikka tapahtumankäsittelijänä on nyt funktio _console.log_? 
 
 Ongelma on nyt siinä, että tapahtumankäsittelijänä on funktion kutsu, eli varsinaiseksi tapahtumankäsittelijäksi tulee funktion kutsun paluuarvo, joka on tässä tapauksessa _undefined_.
 
@@ -1979,7 +1979,7 @@ Jos haluamme tietyn funktiokutsun tapahtuvan nappia painettaessa, toimii seuraav
 <button onClick={() => console.log('nappia painettu')}>nappi</button>
 ```
 
-Nyt tapahtumankäsittelijä on nuolisyntaksilla määritelty funktio _() => console.log('nappia painettu')_. Kun komponentti renderöidään, ei suoritetan mitään, ainoastaan talletetaan funktioviite tapahtumankäsittelijäksi. Itse funktion suoritus tapahtuu vasta napin painallusten yhteydessä.
+Nyt tapahtumankäsittelijä on nuolisyntaksilla määritelty funktio _() => console.log('nappia painettu')_. Kun komponentti renderöidään, ei suoriteta mitään, ainoastaan talletetaan funktioviite tapahtumankäsittelijäksi. Itse funktion suoritus tapahtuu vasta napin painallusten yhteydessä.
 
 Saamme myös nollauksen toimimaan samalla tekniikalla
 
@@ -2140,7 +2140,7 @@ render() {
 }
 ```
 
-Nyt meillä on kolme nappia joiden tapahtumankäsittelijät määritellään paramtertin saavan funktion _hello_ avulla. 
+Nyt meillä on kolme nappia joiden tapahtumankäsittelijät määritellään parametrin saavan funktion _hello_ avulla. 
 
 Ensimmäinen nappi määritellään seuraavasti
 
@@ -2196,7 +2196,7 @@ const hello = (who) => {
 }
 ```
 
-ja koska funktio _hello_ sisältää ainoastaan yhden komennon, eli returnin, voidaan käyttää aaltosulutonta tapaa muotoa
+ja koska funktio _hello_ sisältää ainoastaan yhden komennon, eli returnin, voidaan käyttää aaltosulutonta muotoa
 
 ```bash
 const hello = (who) => 
