@@ -192,7 +192,7 @@ Lisätään _input_ elementteihin nimet _name_-attribuutteina ja vaihdetaan mole
       onChange={this.handleLoginFieldChange}
     />
   </div>
-  <button>kirjaudu</button>
+  <button type="sbumit">kirjaudu</butto>
 </form>
 ```
 
@@ -300,7 +300,7 @@ const loginForm = () => (
           onChange={this.handleLoginFieldChange}
         />
       </div>
-      <button>kirjaudu</button>
+      <button type="submit">kirjaudu</button>
     </form>
   </div>
 )
@@ -314,7 +314,7 @@ const noteForm = () => (
         value={this.state.newNote}
         onChange={this.handleNoteChange}
       />
-      <button>tallenna</button>
+      <button type="submit">tallenna</button>
     </form>
   </div>
 )
@@ -565,7 +565,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ## Tehtäviä
 
-Tee nyt tehtävät [81-84](../tehtavat#osa-5)
+Tee nyt tehtävät [5.1-5.4](../tehtavat#osa-5)
 
 ## Kirjautumislomakkeen näyttäminen vain tarvittaessa
 
@@ -803,7 +803,7 @@ const NoteForm = ({ onSubmit, handleChange, value}) => {
           value={value}
           onChange={handleChange}
         />
-        <button>tallenna</button>
+        <button type="submit">tallenna</button>
       </form>
     </div>
   )
@@ -906,7 +906,7 @@ _ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin 
 
 ## Tehtäviä
 
-Tee nyt tehtävät [85-88](../tehtavat#komponenttien-näyttäminen-vain-tarvittaessa)
+Tee nyt tehtävät [5.5-5.8](../tehtavat#komponenttien-näyttäminen-vain-tarvittaessa)
 
 ## PropTypes
 
@@ -1456,7 +1456,7 @@ const NoteForm = ({ onSubmit, handleChange, value }) => {
           value={value}
           onChange={handleChange}
         />
-        <button>tallenna</button>
+        <button type="submit">tallenna</button>
       </form>
     </div>
   )
@@ -2208,7 +2208,7 @@ class App extends React.Component {
       <div>
         <form onSubmit={this.addNote}>
           <input name="note" />
-          <button>lisää</button>
+          <button type="submit">lisää</button>
         </form>
         <ul>
           {store.getState().map(note=>
@@ -2368,7 +2368,7 @@ class App extends React.Component {
       <div>
         <form onSubmit={this.addNote}>
           <input name="note" />
-          <button>lisää</button>
+          <button type="submit">lisää</button>
         </form>
         <ul>
           {this.props.store.getState().map(note =>

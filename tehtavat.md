@@ -12,6 +12,7 @@ permalink: /tehtävät/
 * [osa2](#osa-2) deadline 5.2. klo 23:59
 * [osa3](#osa-3) deadline 12.2. klo 23:59
 * [osa4](#osa-4) deadline 25.2. klo 23:59
+* [osa5](#osa-5) deadline 4.3. klo 23:59
 
 ## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
 
@@ -1212,6 +1213,12 @@ Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commiti
 
 Blogilistasovellus muistuttaa huomattavasti syksyn ohjelmistotuotantokurssin miniprojekteissa tehtyä [ohjelmistoa](https://github.com/mluukkai/ohjelmistotuotanto2017/wiki/miniprojekti-speksi).
 
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa4/'>osan 4 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
+
 ### sovelluksen alustus ja rakenne
 
 #### 4.1 blogilista, osa 1
@@ -1604,3 +1611,405 @@ ei kenttä _blog.user_ ole tyypiltään merkkijono vaan _object_. Eli jos haluat
 if ( blog.user.toString() === userid.toString() ) ...
 ```
 
+
+## Osa 5
+
+Deadline 4.3. klo 23:59
+
+Osassa on 21 tehtävää, joista pakollisia on yy. Voit edetä osaan 5 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+
+Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. 
+
+Teemme nyt edellisen osan tehtävissä tehtyä bloglist-backendia käyttävän frontendin. Voit ottaa tehtävien pohjaksi [Githubista](https://github.com/FullStack-HY/bloglist-frontend) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
+Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
+
+Tämän osan alun tehtävät käytännössä kertaavat kaiken oleellisen tämän kurssin puitteissa Reactista läpikäydyn asian ja voivat siinä mielessä olla kohtuullisen haastavia, erityisesti jos edellisen osan tehtävissä toteuttamasi backend toimii puutteellisesti. Saattaakin olla varminta siirtyä käyttämään osan 4 mallivastauksen backendia.
+
+Muista tehtäviä tehdessäsi kaikki debuggaukseen liittyvät käytänteet, erityisesti konsolin tarkkailu.
+
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa5/'>osan 5 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
+
+### Varoitus
+
+Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+
+### kirjautuminen ja blogien luonti
+
+#### 5.1 blogilistan frontend, osa 1
+
+Ota tehtävien pohjaksi [Githubissa](https://github.com/FullStack-HY/bloglist-frontend) olevan sovellusrungo kloonaamalla se sopivaan paikkaan komennolla
+
+```bash
+git clone git@github.com:FullStack-HY/bloglist-frontend.git
+```
+
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+
+```bash
+cd bloglist-frontend   // eli mene ensin kloonatun repositorion hakemistoon
+rm -rf .git
+```
+
+Sovellus käynnistyy normaaliin tapaan, mutta joudut ensin asentamaan sovelluksen riippuvuudet:
+
+```bash
+npm install
+npm start
+```
+
+Toteuta frontendiin kirjautumisen mahdollistava toiminnallisuus. Kirjautumisen yhteydessä backendin palauttama _token_ tallennetaan sovelluksen tilan kenttään _user_.
+
+Jos käyttäjä ei ole kirjautunut, sivulla näytetään _pelkästään_ kirjautumislomake:
+
+![]({{ "/assets/teht/27.png" | absolute_url }})
+
+Kirjautuneelle käyttäjälle näytetään kirjautuneen käyttäjän nimi sekä blogien lista
+
+![]({{ "/assets/teht/28.png" | absolute_url }})
+
+Tässä vaiheessa kirjautuneen käyttäjien tietoja ei vielä tarvitse muistaa local storagen avulla.
+
+**HUOM** Voit tehdä kirjautumislomakkeen ehdollisen renderöinnin esim. seuraavasti:
+
+```react
+render() {
+  if (this.state.user === null) {
+    return (
+      <div>
+        <h2>Kirjaudu sovellukseen</h2>
+        <form>
+          //...
+        </form>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+      <h2>blogs</h2>
+      {this.state.blogs.map(blog =>
+        <Blog key={blog._id} blog={blog} />
+      )}
+    </div>
+  )
+}
+```
+
+#### 5.2 blogilistan frontend, osa 2
+
+Tee kirjautumisesta "pysyvä" local storagen avulla. Tee sovellukseen myös mahdollisuus uloskirjautumiseen
+
+![]({{ "/assets/teht/29.png" | absolute_url }})
+
+Uloskirjautumisen jälkeen selain ei saa muistaa kirjautunutta käyttäjää reloadauksen jälkeen.
+
+#### 5.3 blogilistan frontend, osa 3
+
+Laajenna sovellusta siten, että kirjautunut käyttäjä voi luoda uusia blogeja:
+
+![]({{ "/assets/teht/30.png" | absolute_url }})
+
+Bloginluomislomakkeesta voi tehdä oma komponenttinsa joka hallitsee lomakkeen kenttien sisältöä tilansa avulla. Kaiken blogin luomiseen liittyvän tilan voi toki tallettaa myös _App_-komponenttiin.
+
+#### 5.4* blogilistan frontend, osa 4
+
+Toteuta sovellukseen notifikaatiot, jotka kertovat sovelluksen yläosassa onnistuneista ja epäonnistuneista toimenpiteistä. Esim. blogin lisäämisen yhteydessä voi antaa seuraavan notifikaation
+
+![]({{ "/assets/teht/32.png" | absolute_url }})
+
+epäonnistunut kirjautuminen taas johtaa notifikaatioon
+
+![]({{ "/assets/teht/31.png" | absolute_url }})
+
+Notifikaation tulee olla näkyvillä muutaman sekunnin ajan. Värien lisääminen ei ole pakollista.
+
+### komponenttien näyttäminen vain tarvittaessa
+
+#### 5.5 blogilistan frontend, osa 5
+
+Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näytettävä osan 5 luvun [Kirjautumislomakkeen näyttäminen vain tarvittaessa](/osa5#Kirjautumislomakkeen näyttäminen-vain-tarvittaessa) tapaan. Voit halutessasi hyödyntää osassa 5 määriteltyä komponenttia _Togglable_.
+
+#### 5.6* blogilistan frontend, osa 6
+
+Laajenna blogien listausta siten, että klikkaamalla blogin nimeä, sen täydelliset tiedot aukeavat
+
+![]({{ "/assets/teht/33.png" | absolute_url }})
+
+Uusi klikkaus blogin nimeen pienentää näkymän.
+
+Napin _like_ ei tässä vaiheessa tarvitse tehdä mitään.
+
+Kuvassa on myös käytetty hieman CSS:ää parantamaan sovelluksen ulkoasua.
+
+Tyylejä voidaan määritellä osan 5 tapaan helposti [inline](https://react-cn.github.io/react/tips/inline-styles.html)-tyyleinä seuraavasti:
+
+```react
+class Blog extends React.Component {
+  // ...
+
+  render() {
+    // ..
+
+    const blogStyle = {
+      paddingTop: 10,
+      paddingLeft: 2,
+      border: 'solid',
+      borderWidth: 1,
+      marginBottom: 5
+    }
+
+    return (
+      <div style={blogStyle}>
+        ...
+      </div>
+    )
+  }
+}
+```
+
+### Varoitus vielä kerran
+
+Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+
+#### 5.7* blogilistan frontend, osa 7
+
+Toteuta like-painikkeen toiminnallisuus. Like lisätään backendiin blogin yksilöivään urliin tapahtuvalla _PUT_-pyynnöllä.
+
+Koska backendin operaatio korvaa aina koko blogin, joudut lähettämään operaation mukana blogin kaikki kentät, eli jos seuraavaa blogia liketetään
+
+```js
+{
+  _id: "5a43fde2cbd20b12a2c34e91",
+  user: {
+    _id: "5a43e6b6c37f3d065eaaa581",
+    username: "mluukkai",
+    name: "Matti Luukkainen"
+  },
+  likes: 0,
+  author: "Joel Spolsky",
+  title: "The Joel Test: 12 Steps to Better Code",
+  url: "https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/"
+},
+```
+
+tulee palvelimelle tehdä PUT-pyyntö osoitteeseen _/api/blogs/5a43fde2cbd20b12a2c34e91_ ja sisällyttää pyynnön mukaan seuraava data:
+
+```js
+{
+  user: "5a43e6b6c37f3d065eaaa581",
+  likes: 1,
+  author: "Joel Spolsky",
+  title: "The Joel Test: 12 Steps to Better Code",
+  url: "https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/"
+}
+```
+
+#### 5.8* blogilistan frontend, osa 8
+
+Järjestä sovellus näyttämään blogit _likejen_ mukaisessa suuruusjärjestyksessä. Järjestäminen onnistuu taulukon metodilla [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
+
+#### 5.9* blogilistan frontend, osa 9
+
+Lisää nappi blogin poistamiselle.
+
+Toteuta myös poiston tekevä logiikka. Laajenna backendiä siten, että ne blogit joihin ei liity lisääjää ovat kaikkien kirjautuneiden käyttäjien poistettavissa.
+
+Ohjelmasi voi näyttää esim. seuraavalta:
+
+![]({{ "/assets/teht/34.png" | absolute_url }})
+
+Kuvassa näkyvä poiston varmistus on helppo toteuttaa funktiolla
+[window.confirm](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm).
+
+#### 5.10* blogilistan frontend, osa 10
+
+Näytä poistonappi ainoastaan jos kyseessä on kirjautuneen käyttäjän lisäämä blogi _tai_ blogi, jolle ei ole määritelty lisääjää.
+
+### PropTypet
+
+#### 5.11 blogilistan frontend, osa 11
+
+Määrittele joillekin sovelluksesi komponenteille PropTypet.
+
+### komponenttien testaaminen
+
+**HUOM:** jos jokin testi on rikki, ei kannata ongelmaa korjatessa suorittaa kaikkia testejä, vaan ainoastaan rikkinäistä testiä hyödyntäen [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout)-metodia.
+
+#### 5.12 blogilistan testit, osa 1
+
+Lisää sovellukseesi tilapäisesti seuraava komponentti
+
+```react
+const SimpleBlog = ({blog, onClick}) => (
+  <div>
+    <div>
+      {blog.title} {blog.author}
+    </div>
+    <div>
+      blog has {blog.likes} likes
+      <button onClick={onClick}>like</button>
+    </div>
+  </div>
+)
+```
+
+Tee testi, joka varmistaa, että komponentti renderöi blogin titlen, authorin ja likejen määrän,
+
+Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia.
+
+#### 5.13 blogilistan testit, osa 2
+
+Tee testi, joka varmistaa, että jos komponentin _like_-nappia painetaan kahdesti, komponentin propsina saamaa tapahtumankäsittelijäfunktiota kutsutaan kaksi kertaa.
+
+#### 5.14 blogilistan testit, osa 3
+
+Tee sovelluksesi komponentille _Blog_ testit, jotka varmistavat, että oletusarvoisesti blogista on näkyvissä ainoastaan nimi ja kirjoittaja, ja että klikkaamalla niitä saadaan näkyviin myös muut osat blogin tiedoista.
+
+### integraatiotestaus
+
+#### 5.15* blogilistan testit, osa 4
+
+Tee sovelluksesi integraatiotesti, joka varmistaa, että jos käyttäjä ei ole kirjautunut järjestelmään, näyttää sovellus ainoastaan kirjautumislomakkeen, eli yhtään blogia ei vielä renderöidä.
+
+#### 5.16* blogilistan testit, osa 5
+
+Tee myös testi, joka varmistaa, että kun käyttäjä on kirjautuneena, blogit renderöityvät sivulle.
+
+**Vihje 1:**
+
+Kirjautuminen kannattanee toteuttaa manipulomalla testeissä local storagea.
+
+**Vihje 2:**
+
+Jotta mockin palauttamat blogit renderöityvät, kannattaa komponentti _App_ luoda _describe_-lohkossa. Voit noudattaa tämän ja edellisen tehtävän organisoinnissa esim. seuraavaa tapaa:
+
+```js
+describe('<App />', () => {
+  let app
+
+  describe('when user is not logged', () => {
+    beforeEach(() => {
+      // luo sovellus siten, että käyttäjä ei ole kirjautuneena
+    })
+
+    it('only login form is rendered', () => {
+      app.update()
+      // ...
+    })
+  })
+
+  describe('when user is logged', () => {
+    beforeEach(() => {
+      // luo sovellus siten, että käyttäjä on kirjautuneena
+    })
+
+    it('all notes are rendered', () => {
+      app.update()
+      // ...
+    })
+  })
+})
+```
+
+### Redux-Unicafe
+
+Tehdään seuraavissa tehtävissä hieman muokattu redux-versio osan 1 tehtävien Unicafe-sovelluksesta. Sovellus voi näyttää esim. seuraavalta:
+
+![]({{ "/assets/teht/35.png" | absolute_url }})
+
+Haluttu toiminnallisuus lienee ilmeinen.
+
+#### 5.17 unicafe revisited, osa 1
+
+Storeen täytyy tallettaa erikseen lukumäärä jokaisen tyyppisestä palautteesta. Storen hallitsema tila on siis muotoa:
+
+```js
+{
+  good: 5,
+  ok: 4,
+  bad: 2
+}
+```
+
+Seuraavassa on runko reducerille:
+
+```js
+const initialState = {
+  good: 0,
+  ok: 0,
+  bad: 0
+}
+
+const counterReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'GOOD':
+      return ...
+    case 'OK':
+      return ...
+    case 'BAD':
+      return ...
+    case 'ZERO':
+      return ...
+  }
+  return state
+}
+```
+
+ja sen testien runko
+
+```js
+import deepFreeze from 'deep-freeze'
+import counterReducer from './reducer'
+
+describe('unicafe reducer', () => {
+  const initialState = {
+    good: 0,
+    ok: 0,
+    bad: 0
+  }
+
+  it('should return a proper initial state when called with undefined state', () => {
+    const state = []
+    const action = {
+      type: 'DO_NOTHING'
+    }
+
+    const newState = counterReducer(undefined, action)
+    expect(newState).toEqual(initialState)
+  })
+})
+```
+
+**Toteuta reducer ja tee sille testit.**
+
+Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas funktio_. Huomaa, että valmiin ensimmäisen testin on syytä mennä läpi koska redux olettaa, että reduceri palauttaa järkevän alkutilan kun sitä kutsutaan siten että ensimmäinen parametri, eli aiempaa tilaa edustava _state_ on _undefined_.
+
+Osan 2 luvun [Muistiinpanon tärkeyden muutos](osa2/#Muistiinpanon-tärkeyden-muutos) olion kopiointiin liittyvät asiat saattavat olla hyödyksi.
+
+#### 5.18 unicafe revisited, osa 2
+
+Toteuta sitten sovelluksen koko sovellus.
+
+### redux-anekdootit
+
+Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdoottien äänestyssovelluksesta. Voit ottaa ratkaisusi pohjaksi repositoriossa <https://github.com/mluukkai/redux-anecdotes> olevan projektin.
+
+Sovelluksen lopullisen version tulisi näyttää seuraavalta:
+
+![]({{ "/assets/teht/36.png" | absolute_url }})
+
+#### 5.19 anekdootit, osa 1
+
+Toteuta mahdollisuus anekdoottien äänestämiseen. Äänien määrä tulee tallettaa redux-storeen.
+
+#### 5.20* anekdootit, osa 2
+
+Huolehdi siitä, että anekdootit pysyvät äänten mukaisessa suuruusjärjetyksessä.
+
+#### 5.21* anekdootit, osa 3
+
+Tee sovellukseen mahdollisuus uusien anekdoottien lisäämiselle.
