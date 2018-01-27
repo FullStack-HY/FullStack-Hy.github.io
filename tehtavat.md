@@ -7,10 +7,10 @@ permalink: /tehtävät/
 
 # tehtävät
 
-* [osa0](#osa-0) deadline 28.1. klo 23:59
-* [osa1](#osa-1) deadline 28.1. klo 23:59
-* [osa2](#osa-2) deadline 4.2. klo 23:59
-* [osa3](#osa-3) deadline 11.2. klo 23:59
+* [osa0](#osa-0) deadline 30.1. klo 23:59
+* [osa1](#osa-1) deadline 30.1. klo 23:59
+* [osa2](#osa-2) deadline 5.2. klo 23:59
+* [osa3](#osa-3) deadline 12.2. klo 23:59
 * [osa4](#osa-4) deadline 25.2. klo 23:59
 
 ## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
@@ -35,7 +35,7 @@ Suurin osa tehtävistä on moniosaisia, samaa ohjelmaa pala palalta rakentavia k
 
 ## Osa 0
 
-Deadline 28.1. klo 23:59
+Deadline 30.1. klo 23:59
 
 Osassa on 6 tehtävää joista kaikki ovat pakollisia. Voit edetä osaan 1 vasta tehtävät palautettuasi.
 
@@ -105,7 +105,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 ## Osa 1
 
-Deadline 28.1. klo 23:59
+Deadline 30.1. klo 23:59
 
 Osassa on 14 tehtävää, joista pakollisia on 9. Voit edetä osaan 2 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
@@ -467,7 +467,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 ## Osa 2
 
-deadline 4.2. klo 23:59
+deadline 5.2. klo 23:59
 
 Osassa on 22 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
@@ -882,7 +882,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 ## Osa 3
 
-Deadline 11.2. klo 23:59
+Deadline 12.2. klo 23:59
 
 Osassa on 22 tehtävää, joista pakollisia on 15. Voit edetä osaan 4 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 

@@ -35,9 +35,9 @@ Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekem
 
 | osa            | deadline&nbsp; &nbsp;    | työmäärä  |
 | -------------- |:-----------------:       |:-----:|
-| osa 0 ja osa 1 | 28.1.                    | 11   |
-| osa 2          | 4.2.                     | 11   |
-| osa 3          | 11.2.                    | 10   |
+| osa 0 ja osa 1 | 30.1.                    | 11   |
+| osa 2          | 5.2.                     | 11   |
+| osa 3          | 12.2.                    | 10   |
 | osa 4          | 25.2.                    | 14   |
 | osa 5          | 4.3.                     | 16.5 |
 | osa 6          | 11.3.                    | 13   |
