@@ -2006,7 +2006,7 @@ render() {
 }
 ```
 
-Muuttjassa _handler_ on nyt talletettuna viite itse funktioon. Viite annetaan napin määrittelyn yhteydessä
+Muuttujassa _handler_ on nyt talletettuna viite itse funktioon. Viite annetaan napin määrittelyn yhteydessä
 
 ```bash
 <button onClick={handler}>nappi</button>
@@ -2123,7 +2123,7 @@ Muutetaan koodia hiukan:
 render() {
   const hello = (who) => {
     const handler = () => { 
-      console.log(`hello ${who}`)
+      console.log('hello', who)
     }
 
     return handler
@@ -2152,7 +2152,7 @@ Tapahtumankäsittelijä siis saadaan _suorittamalla_ funktiokutsu _hello('world'
 
 ```bash
 () => { 
-  console.log('hello world')
+  console.log('hello', 'world')
 }
 ```
 
@@ -2166,7 +2166,7 @@ Tapahtumankäsittelijän määrittelevä funktiokutsu _hello('react')_.  palautt
 
 ```bash
 () => { 
-  console.log('hello react')
+  console.log('hello', 'react')
 }
 ```
 
@@ -2179,7 +2179,7 @@ Käyttämämme määrittelytapa
 ```bash
 const hello = (who) => {
   const handler = () => { 
-    console.log(`hello ${who}`)
+    console.log('hello', who)
   }
 
   return handler
@@ -2191,7 +2191,7 @@ on hieman verboosi. Eliminoidaan apumuuttuja, ja määritellään palautettava f
 ```bash
 const hello = (who) => {
   return () => { 
-    console.log(`hello ${who}`)
+    console.log('hello', who)
   }
 }
 ```
@@ -2201,7 +2201,7 @@ ja koska funktio _hello_ sisältää ainoastaan yhden komennon, eli returnin, vo
 ```bash
 const hello = (who) => 
   () => { 
-    console.log(`hello ${who}`)
+    console.log('hello', who)
   }
 
 ```
@@ -2210,7 +2210,7 @@ ja tuodaan vielä "kaikki nuolet" samalle riville
 
 ```bash
 const hello = (who) => () => { 
-  console.log(`hello ${who}`)
+  console.log('hello', who)
 }
 ```
 
