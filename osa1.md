@@ -2016,7 +2016,7 @@ Tapahtumankäsittelijäfunktio voi luonnollisesti koostua useista komennoista, t
 
 ```react
 render() {
-  const handker = () => {
+  const handler = () => {
     console.log('nappia painettu')
     this.setState({ value: 0 })
   }
