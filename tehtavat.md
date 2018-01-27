@@ -305,7 +305,7 @@ const App = () => {
 
 #### 1.6 unicafe osa1
 
-Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vain kolme: _hyvä_, neutraali ja _huono_.
+Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vain kolme: _hyvä_, _neutraali_ ja _huono_.
 
 Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näyttää esim. seuraavalta:
 
@@ -444,7 +444,7 @@ ja taulukko esim. seuraavasti:
 ```js
 this.state.pisteet = [1, 4, 6, 3]
 
-const kopio = [..pisteet]
+const kopio = [...pisteet]
 kopio[2] += 1   // kasvatetaan taulukon paikan 2 arvoa yhdellä
 ```
 
