@@ -306,7 +306,7 @@ const App = () => {
 
 #### 1.6 unicafe osa1
 
-Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vain kolme: _hyvä_, neutraali ja _huono_.
+Monien firmojen tapaan nykyään myös [Unicafe](https://www.unicafe.fi/#/9/4) kerää asiakaspalautetta. Tee Unicafelle verkossa toimiva palautesovellus. Vastausvaihtoehtoja olkoon vain kolme: _hyvä_, _neutraali_ ja _huono_.
 
 Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näyttää esim. seuraavalta:
 
@@ -445,7 +445,7 @@ ja taulukko esim. seuraavasti:
 ```js
 this.state.pisteet = [1, 4, 6, 3]
 
-const kopio = [..pisteet]
+const kopio = [...pisteet]
 kopio[2] += 1   // kasvatetaan taulukon paikan 2 arvoa yhdellä
 ```
 
@@ -798,7 +798,7 @@ Muuta sovellusta siten, että datan alkutila haetaan _axios_-kirjaston avulla pa
 
 Rajapinta [https://restcountries.eu](https://restcountries.eu) tarjoaa paljon eri maihin liittyvää tietoa koneluettavassa muodossa REST-apina.
 
-Tee sovellus, jonka avulla toit tarkastella eri maiden tietoja. Sovelluksen kannattaa hakea tiedot endpointista [all](https://restcountries.eu/#api-endpoints-all).
+Tee sovellus, jonka avulla voit tarkastella eri maiden tietoja. Sovelluksen kannattaa hakea tiedot endpointista [all](https://restcountries.eu/#api-endpoints-all).
 
 Sovelluksen käyttöliittymä on yksinkertainen. Näytettävä maa haetaan kirjoittamalla hakuehto etsintäkenttään.
 
@@ -963,7 +963,7 @@ Lisää sovellukseesi loggausta tekevä middleware [morgan](https://github.com/e
 
 Morganin ohjeet eivät ole ehkä kaikkein selvimmät ja joudut kenties miettimään hiukan. Toisaalta juuri koskaan dokumentaatio ei ole aivan itsestäänselvää, joten kryptisempiäkin asioita on hyvä oppia tulkitsemaan.
 
-Morgan asetaan kuten muutkin kirjastot, eli komennolla _npm install_ ja sen käyttöönotto tapahtuu kaikkien middlewarejen tapaan komennolla _app.use_
+Morgan asennetaan kuten muutkin kirjastot, eli komennolla _npm install_ ja sen käyttöönotto tapahtuu kaikkien middlewarejen tapaan komennolla _app.use_
 
 #### 3.8* puhelinluettelon backend osa 8
 
