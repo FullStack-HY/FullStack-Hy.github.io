@@ -27,10 +27,6 @@ permalink: /osa5/
     - puhtaat funktiot
     - immutable
 
-<div class='important .warn'>
-Kesken, lukeminen omalla vastuulla
-</div>
-
 ## Kirjautuminen React-sovelluksesta
 
 Kaksi edellistä osaa keskittyivät lähinnä backendin toiminnallisuuteen. Edellisessä osassa backendiin toteutettua käyttäjänhallintaa ei ole tällä hetkellä tuettuna frontendissa millään tavalla.
