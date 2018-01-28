@@ -562,7 +562,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.1-5.4](../tehtavat#osa-5)
+Tee nyt tehtävät [5.1-5.4](/tehtävät#osa-5)
 
 ## Kirjautumislomakkeen näyttäminen vain tarvittaessa
 
@@ -903,7 +903,7 @@ _ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin 
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.5-5.10](../tehtavat#komponenttien-näyttäminen-vain-tarvittaessa)
+Tee nyt tehtävät [5.5-5.10](/tehtävät#komponenttien-näyttäminen-vain-tarvittaessa)
 
 ## PropTypes
 
@@ -996,7 +996,7 @@ Surffatessasi internetissä saatat vielä nähdä ennen Reactin versiota 0.16 te
 
 ## Tehtäviä
 
-Tee nyt tehtävä [5.11](../tehtavat#PropTypet)
+Tee nyt tehtävä [5.11](/tehtävät#PropTypet)
 
 ## React-sovelluksen testaus
 
@@ -1282,7 +1282,7 @@ Ensimmäinen testi tarkastaa, että _Togglable_ renderöi lapsikomponentin _<div
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.12-14](../tehtavat#komponenttien testaaminen)
+Tee nyt tehtävät [5.12-14](/tehtävät#komponenttien-testaaminen)
 
 ### mount ja full DOM -renderöinti
 
@@ -1662,7 +1662,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.15 ja 5.16](../tehtavat#integraatiotestaus)
+Tee nyt tehtävät [5.15 ja 5.16](/tehtävät#integraatiotestaus)
 
 ## Snapshot-testaus
 
@@ -2171,7 +2171,7 @@ console.log(loput)  // tulostuu [3, 4, 5, 6]
 
 ## Tehtäviä
 
-Tee nyt tehtävät [95 ja 96](../tehtavat#Redux-Unicafe)
+Tee nyt tehtävät [5.17 ja 5.18](/tehtävät#Redux-Unicafe)
 
 ### Lisää toiminnallisuutta ja ei-kontrolloitu lomake
 
@@ -2600,4 +2600,4 @@ Egghead.io:ssa on ilmaiseksi saatavilla Reduxin kehittäjän Dan Abramovin loist
 
 ## Tehtäviä
 
-Tee nyt tehtävät [97-99](../tehtavat#redux-anekdootit)
+Tee nyt tehtävät [5.19-5.21](/tehtävät#redux-anekdootit)
