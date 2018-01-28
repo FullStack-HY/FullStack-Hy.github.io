@@ -491,7 +491,7 @@ const olio2 = {
 
 const olio3 = {
   nimi: {
-   etunimi: 'Jami',
+    etunimi: 'Jami',
     sukunimi: 'Kousa'
   },
   arvosanat: [2, 3, 5, 3],
