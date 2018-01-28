@@ -981,9 +981,9 @@ Pari vihjettä:
 
 #### 3.9 puhelinluettelon backend osa 9
 
-Laita backend toimimaan edellisessä osassa tehdyn puhelinluettelon frontendin kanssa.
+Laita backend toimimaan edellisessä osassa tehdyn puhelinluettelon frontendin kanssa muilta osin, paitsi mahdollisen puhelinnumeron muutoksen osalta jonka vastaava toiminnallisuus toteutetaan backendiin vasta tehtävässä 3.17.
 
-Joudut tekemään erinäisiä pieniä muutoksia. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
+Joudut todennäköisesti tekemään fronendiin erinäisiä pieniä muutoksia ainakin backendin oletetujen urlien osalta. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
 
 #### 3.10 puhelinluettelon backend osa 10
 
@@ -1616,7 +1616,7 @@ if ( blog.user.toString() === userid.toString() ) ...
 
 Deadline 4.3. klo 23:59
 
-Osassa on 21 tehtävää, joista pakollisia on yy. Voit edetä osaan 5 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 21 tehtävää, joista pakollisia on 11. Voit edetä osaan 6 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. 
 
@@ -1839,12 +1839,18 @@ Määrittele joillekin sovelluksesi komponenteille PropTypet.
 
 **HUOM:** jos jokin testi on rikki, ei kannata ongelmaa korjatessa suorittaa kaikkia testejä, vaan ainoastaan rikkinäistä testiä hyödyntäen [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout)-metodia.
 
+**HUOM2:** älä aliarvioi testissä tapahtuvan _console.logauksen_ hyödyllisyyttä! Normaalissa koodauksessa console.log on elintärkeä, testauksessa se on välillä suorastaan välttämätön sillä testejä suorittaessa et saa misään muualta feedbackiä.
+
+Testejä suorittaessasi voit käyttää console.log-komentoja testeissä ja _sovelluksen koodissa_.
+
 #### 5.12 blogilistan testit, osa 1
 
 Lisää sovellukseesi tilapäisesti seuraava komponentti
 
 ```react
-const SimpleBlog = ({blog, onClick}) => (
+import React from 'react'
+
+const SimpleBlog = ({ blog, onClick }) => (
   <div>
     <div>
       {blog.title} {blog.author}
@@ -1855,6 +1861,8 @@ const SimpleBlog = ({blog, onClick}) => (
     </div>
   </div>
 )
+
+export default SimpleBlog
 ```
 
 Tee testi, joka varmistaa, että komponentti renderöi blogin titlen, authorin ja likejen määrän,
@@ -1865,13 +1873,42 @@ Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia.
 
 Tee testi, joka varmistaa, että jos komponentin _like_-nappia painetaan kahdesti, komponentin propsina saamaa tapahtumankäsittelijäfunktiota kutsutaan kaksi kertaa.
 
-#### 5.14 blogilistan testit, osa 3
+#### 5.14* blogilistan testit, osa 3
 
-Tee sovelluksesi komponentille _Blog_ testit, jotka varmistavat, että oletusarvoisesti blogista on näkyvissä ainoastaan nimi ja kirjoittaja, ja että klikkaamalla niitä saadaan näkyviin myös muut osat blogin tiedoista.
+Tee oman sovelluksesi komponentille _Blog_ testit, jotka varmistavat, että oletusarvoisesti blogista on näkyvissä ainoastaan nimi ja kirjoittaja, ja että klikkaamalla niitä saadaan näkyviin myös muut osat blogin tiedoista.
+
+**HUOM:** tee testissä klikkaus _ennen_ kuin haet tarkastettavan elementin muuttujaan,
+eli tee komennot tässä järjestyksessä
+
+```js
+it('after clicking name the details are displayed', () => {
+  // haetaan klikattava osa komponentista
+  const nameDiv = ...
+  nameDiv.simulate('click')
+
+  // haetaan tarkastettava, eli detaljit sisältävä osa komponentista
+  const contentDiv = ...
+  expect(contentDiv...)
+})  
+```
+
+**väärä** järjestys on siis seuraava
+
+```js
+it('DOES NOT WORK', () => {
+  const nameDiv = ...
+  const contentDiv = ...
+
+  // klikataan liian myöhään
+  nameDiv.simulate('click')  
+
+  expect(contentDiv...)
+})  
+```
 
 ### integraatiotestaus
 
-#### 5.15* blogilistan testit, osa 4
+#### 5.15 blogilistan testit, osa 4
 
 Tee sovelluksesi integraatiotesti, joka varmistaa, että jos käyttäjä ei ole kirjautunut järjestelmään, näyttää sovellus ainoastaan kirjautumislomakkeen, eli yhtään blogia ei vielä renderöidä.
 
@@ -1881,7 +1918,17 @@ Tee myös testi, joka varmistaa, että kun käyttäjä on kirjautuneena, blogit 
 
 **Vihje 1:**
 
-Kirjautuminen kannattanee toteuttaa manipulomalla testeissä local storagea.
+Kirjautuminen kannattaa toteuttaa manipulomalla testeissä local storagea. Jos määrittelet testeille mock-localstoragen osan 5 materiaalia seuraten, voit käyttää testikoodissa local storagea seuraavasti:
+
+```js
+const user = { 
+  username: 'tester', 
+  token: '1231231214', 
+  name: 'Teuvo Testaaja'
+}
+
+localStorage.setItem('loggedBlogAppUser', JSON.stringify(user))
+```      
 
 **Vihje 2:**
 
@@ -1923,7 +1970,11 @@ Tehdään seuraavissa tehtävissä hieman muokattu redux-versio osan 1 tehtävie
 
 Haluttu toiminnallisuus lienee ilmeinen.
 
+Voit ottaa halutessasi tehtävän pohjaksi koodin [täältä](https://github.com/FullStack-HY/FullStack-Hy.github.io/wiki/unicafe-redux)
+
 #### 5.17 unicafe revisited, osa 1
+
+Ennen sivulla näkyvää toiminnallisuutta, toteutetaan storen edellyttämä toiminnallisuus.
 
 Storeen täytyy tallettaa erikseen lukumäärä jokaisen tyyppisestä palautteesta. Storen hallitsema tila on siis muotoa:
 
@@ -1945,18 +1996,21 @@ const initialState = {
 }
 
 const counterReducer = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
     case 'GOOD':
-      return ...
+      return state
     case 'OK':
-      return ...
+      return state
     case 'BAD':
-      return ...
+      return state
     case 'ZERO':
-      return ...
+      return state
   }
   return state
 }
+
+export default counterReducer
 ```
 
 ja sen testien runko
@@ -1973,7 +2027,7 @@ describe('unicafe reducer', () => {
   }
 
   it('should return a proper initial state when called with undefined state', () => {
-    const state = []
+    const state = {}
     const action = {
       type: 'DO_NOTHING'
     }
@@ -1981,12 +2035,31 @@ describe('unicafe reducer', () => {
     const newState = counterReducer(undefined, action)
     expect(newState).toEqual(initialState)
   })
+
+  it('good is incremented', () => {
+    const action = {
+      type: 'GOOD'
+    }
+    const state = initialState
+
+    deepFreeze(state)
+    const newState = counterReducer(state, action)
+    expect(newState).toEqual({
+      good: 1,
+      ok: 0,
+      bad: 0
+    })
+  })  
 })
 ```
 
+Testit olettavat että reduceri on talletettu tiedostoon _reducer.js_.
+
 **Toteuta reducer ja tee sille testit.**
 
-Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas funktio_. Huomaa, että valmiin ensimmäisen testin on syytä mennä läpi koska redux olettaa, että reduceri palauttaa järkevän alkutilan kun sitä kutsutaan siten että ensimmäinen parametri, eli aiempaa tilaa edustava _state_ on _undefined_.
+Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas funktio_. Huomaa, että valmiin ensimmäisen testin on syytä mennä läpi koska redux olettaa, että reduceri palauttaa järkevän alkutilan kun sitä kutsutaan siten että ensimmäinen parametri, eli aiempaa tilaa edustava _state_ on _undefined_. 
+
+Aloita laajentamalla reduceria siten, että molemmat testeistä menevät läpi. Lisää tämän jälkeen loput testit ja niiden toteuttava toiminnallisuus.
 
 Osan 2 luvun [Muistiinpanon tärkeyden muutos](osa2/#Muistiinpanon-tärkeyden-muutos) olion kopiointiin liittyvät asiat saattavat olla hyödyksi.
 
@@ -1994,9 +2067,35 @@ Osan 2 luvun [Muistiinpanon tärkeyden muutos](osa2/#Muistiinpanon-tärkeyden-mu
 
 Toteuta sitten sovelluksen koko sovellus.
 
+Älä unohda, että joudut huolehtimaan siitä, että sovellus uudelleenrenderöi itsensä storen muutosten yhteydesä esim. seuraavasti:
+
+```bash
+const render = () => {
+  ReactDOM.render(<App />, document.getElementById('root'))
+}
+
+render()
+store.subscribe(render)
+```
+
 ### redux-anekdootit
 
-Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdoottien äänestyssovelluksesta. Voit ottaa ratkaisusi pohjaksi repositoriossa <https://github.com/mluukkai/redux-anecdotes> olevan projektin.
+Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdoottien äänestyssovelluksesta. Voit ottaa ratkaisusi pohjaksi repositoriossa <https://github.com/FullStack-HY/redux-anecdotes> olevan projektin. 
+
+
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+
+```bash
+cd bloglist-frontend   // eli mene ensin kloonatun repositorion hakemistoon
+rm -rf .git
+```
+
+Sovellus käynnistyy normaaliin tapaan, mutta joudut ensin asentamaan sovelluksen riippuvuudet:
+
+```bash
+npm install
+npm start
+```
 
 Sovelluksen lopullisen version tulisi näyttää seuraavalta:
 

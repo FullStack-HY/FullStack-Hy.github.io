@@ -1,6 +1,7 @@
 ---
 layout: page
 title: osa 5
+inheader: yes
 permalink: /osa5/
 ---
 
@@ -906,7 +907,7 @@ _ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin 
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.5-5.8](../tehtavat#komponenttien-näyttäminen-vain-tarvittaessa)
+Tee nyt tehtävät [5.5-5.10](../tehtavat#komponenttien-näyttäminen-vain-tarvittaessa)
 
 ## PropTypes
 
@@ -999,7 +1000,7 @@ Surffatessasi internetissä saatat vielä nähdä ennen Reactin versiota 0.16 te
 
 ## Tehtäviä
 
-Tee nyt tehtävä [89](../tehtavat#PropTypet)
+Tee nyt tehtävä [5.11](../tehtavat#PropTypet)
 
 ## React-sovelluksen testaus
 
@@ -1285,7 +1286,7 @@ Ensimmäinen testi tarkastaa, että _Togglable_ renderöi lapsikomponentin _<div
 
 ## Tehtäviä
 
-Tee nyt tehtävät [90-92](../tehtavat#komponenttien testaaminen)
+Tee nyt tehtävät [5.12-14](../tehtavat#komponenttien testaaminen)
 
 ### mount ja full DOM -renderöinti
 
@@ -1665,7 +1666,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ## Tehtäviä
 
-Tee nyt tehtävät [93 ja 94](../tehtavat#integraatiotestaus)
+Tee nyt tehtävät [5.15 ja 5.16](../tehtavat#integraatiotestaus)
 
 ## Snapshot-testaus
 
