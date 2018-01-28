@@ -1618,8 +1618,6 @@ Deadline 4.3. klo 23:59
 
 Osassa on 21 tehtävää, joista pakollisia on 11. Voit edetä osaan 6 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
-Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. 
-
 Teemme nyt edellisen osan tehtävissä tehtyä bloglist-backendia käyttävän frontendin. Voit ottaa tehtävien pohjaksi [Githubista](https://github.com/FullStack-HY/bloglist-frontend) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
 Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
