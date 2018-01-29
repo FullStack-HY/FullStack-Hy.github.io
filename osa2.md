@@ -88,7 +88,7 @@ Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien
 
 ### linkkivinkit
 
-Kurssisivun alaisuudessa on nyt [osio](https://fullstack-hy.github.io/linkit/), jonne kaikkien toivotaan lisäilevät hydylliseksi kokemiaan linkkejä. Lisääminen onnistuu tekemällä pull request [tänne](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/linkit.md)
+Kurssisivun alaisuudessa on nyt [osio](https://fullstack-hy.github.io/linkit/), jonne kaikkien toivotaan lisäilevän hyödylliseksi kokemiaan linkkejä. Lisääminen onnistuu tekemällä pull request [tänne](https://github.com/FullStack-HY/FullStack-Hy.github.io/blob/master/linkit.md)
 
 Kun lisäät linkin, laita linkin yhteyteen pieni kuvaus mitä linkin takaa löytyy.
 
