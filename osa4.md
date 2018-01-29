@@ -790,7 +790,7 @@ test('a specific note is within the returned notes', async () => {
 })
 ```
 
-Huomaa jälkimmäisen testin ekspekaatio. Komennolla <code>response.body.map(r => r.content)</code> muodostetaan taulukko API:n palauttamien muistiinpanojen sisällöistä. Jestin [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem)-ekspektaatiometodilla tarkistetaan että parametrina oleva muistiinpano on kaikkien API:n palauttamien muistiinpanojen joukossa.
+Huomaa jälkimmäisen testin ekspektaatio. Komennolla <code>response.body.map(r => r.content)</code> muodostetaan taulukko API:n palauttamien muistiinpanojen sisällöistä. Jestin [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem)-ekspektaatiometodilla tarkistetaan että parametrina oleva muistiinpano on kaikkien API:n palauttamien muistiinpanojen joukossa.
 
 Ennen kun teemme lisää testejä, tarkastellaan tarkemmin mitä _async_ ja _await_ tarkoittavat.
 
@@ -810,7 +810,7 @@ Note
 
 Metodikutsu _Note.find()_ palauttaa promisen, ja saamme itse operaation tuloksen rekisteröimällä promiselle tapahtumankäsittelijän metodilla _then_.
 
-Kaikki operaation suorituksen jälkeinen koodi kirjoitetaan tapahtumankäsittelijään. Jos haluisimme tehdä peräkkäin useita asynkronisia funktiokutsuja, menisi tilanne ikävämmäksi. Joutuisimme tekemään kutsut tapahtumankäsittelijästä. Näin syntyisi potentiaalisesti monimutkaista koodia, pahimmassa tapauksessa jopa niin sanottu [callback-helvetti](http://callbackhell.com/).
+Kaikki operaation suorituksen jälkeinen koodi kirjoitetaan tapahtumankäsittelijään. Jos haluaisimme tehdä peräkkäin useita asynkronisia funktiokutsuja, menisi tilanne ikävämmäksi. Joutuisimme tekemään kutsut tapahtumankäsittelijästä. Näin syntyisi potentiaalisesti monimutkaista koodia, pahimmassa tapauksessa jopa niin sanottu [callback-helvetti](http://callbackhell.com/).
 
 [Ketjuttamalla promiseja](https://javascript.info/promise-chaining) tilanne pysyy jollain tavalla hallinnassa, callback-helvetin eli monien sisäkkäisten callbackien sijaan saadaan aikaan siistihkö _then_-kutsujen ketju. Olemmekin nähneet jo kurssin aikana muutaman sellaisen. Seuraavassa vielä erittäin keinotekoinen esimerkki, joka hakee ensin kaikki muistiinpanot ja sitten tuhoaa niistä ensimmäisen:
 
@@ -828,7 +828,7 @@ Note
 
 Then-ketju on ok, mutta parempaankin pystytään. Jo ES6:ssa esitellyt [generaattorifunktiot](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) mahdollistivat [ovelan tavan](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch4.md#iterating-generators-asynchronously) määritellä asynkronista koodia siten että se "näyttää synkroniselta". Syntaksi ei kuitenkaan ole täysin luonteva ja sitä ei käytetä kovin yleisesti.
 
-ES7:ssa _async_ ja _await_ tuovat generaattoreiden tarjoaman toiminnallisuuden ymmärrettävästi ja syntaktin puolesta selkeällä tavalla koko Javascript-kansan ulottuville.
+ES7:ssa _async_ ja _await_ tuovat generaattoreiden tarjoaman toiminnallisuuden ymmärrettävästi ja syntaksin puolesta selkeällä tavalla koko Javascript-kansan ulottuville.
 
 Voisimme hakea tietokannasta kaikki muistiinpanot [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)-operaattoria hyödyntäen seuraavasti:
 
@@ -937,7 +937,7 @@ Yllättäen ratkaisu ei async/awaitista huolimatta toimi niin kuin oletamme, tes
 
 Ongelma on siinä, että jokainen forEach-loopin läpikäynti generoi oman asynkronisen operaation ja _beforeAll_ ei odota näiden suoritusta. Eli forEach:in sisällä olevat _await_-komennot eivät ole funktiossa _beforeEach_ vaan erillisissä funktioissa joiden päättymistä _beforeAll_ ei odota.
 
-Koska testien suoritus alkaa heti _beforeAll_ metodin suorituksen jälkeen. Testien suoritus ehditään jo aloittaa, ennen kuin tietokanta on alustettu toivottuun alkutilaan.
+Koska testien suoritus alkaa heti _beforeAll_ metodin suorituksen jälkeen, testien suoritus ehditään jo aloittaa ennen kuin tietokanta on alustettu toivottuun alkutilaan.
 
 Toimiva ratkaisu tilanteessa on odottaa asynkronisten talletusoperaatioiden valmistumista _beforeAll_-funktiossa, esim. metodin [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) avulla:
 
@@ -1010,7 +1010,7 @@ Aiheeton valitus poistuu.
 
 Koodia refaktoroidessa vaanii aina [regression](https://en.wikipedia.org/wiki/Regression_testing) vaara, eli on olemassa riski, että jo toimineet ominaisuudet hajoavat. Tehdäänkin muiden operaatioiden refaktorointi siten, että ennen koodin muutosta tehdään jokaiselle API:n routelle sen toiminnallisuuden varmistavat testit.
 
-Aloitetaan lisäysoperaatiosta. Tehdään testi, joka lisää uuden muistiinpanon ja tarkistaa, että API:n palauttamien mustiinpanojen määrä kasvaa, ja että lisätty muistiinpano on palautettujen joukossa:
+Aloitetaan lisäysoperaatiosta. Tehdään testi, joka lisää uuden muistiinpanon ja tarkistaa, että API:n palauttamien muistiinpanojen määrä kasvaa, ja että lisätty muistiinpano on palautettujen joukossa:
 
 ```js
 test('a valid note can be added ', async () => {
@@ -1037,7 +1037,7 @@ test('a valid note can be added ', async () => {
 
 Kuten odotimme ja toimimme, menee testi läpi.
 
-Tehdään myös testi, joka varmistaa, että muistiinpanoa, jolle ei ole asetettu sisältöä ei talleteta
+Tehdään myös testi, joka varmistaa, että muistiinpanoa, jolle ei ole asetettu sisältöä, ei talleteta
 
 ```js
 test('note without content is not added ', async () => {
@@ -1823,7 +1823,7 @@ module.exports = {
 }
 ```
 
-Lohkon _beforeAll_ lisää kantaan käyttäjän, jonka username on _root_. Voimmekin tehdä uuden testi, jolla varmistetaan, että samalla käyttäjätunnuksella ei voi luoda uutta käyttäjää:
+Lohkon _beforeAll_ lisää kantaan käyttäjän, jonka username on _root_. Voimmekin tehdä uuden testin, jolla varmistetaan, että samalla käyttäjätunnuksella ei voi luoda uutta käyttäjää:
 
 ```js
 test('POST /api/users fails with proper statuscode and message if username already taken', async () => {
