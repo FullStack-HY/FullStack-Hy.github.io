@@ -2052,7 +2052,7 @@ class App extends React.Component {
 }
 ```
 
-Koska _handler_ on nyt komponentin metodi, päästään siihen käsiki viitten _this_ avulla:
+Koska _handler_ on nyt komponentin metodi, päästään siihen käsiki viitteen _this_ avulla:
 
 ```bash
 <button onClick={this.handler}>nappi</button>
