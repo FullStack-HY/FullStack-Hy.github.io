@@ -798,7 +798,7 @@ Tämä johtuu siitä, että ES6:n myötä (ks. kohta [property definitions](http
 Tarkastellaan tilannetta, jossa meillä on muuttujissa arvoja
 
 ```js
-const name: 'Leevi'
+const name = 'Leevi'
 const age = 0
 ```
 
