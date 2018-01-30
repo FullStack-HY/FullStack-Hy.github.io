@@ -713,7 +713,7 @@ Klikkaamalla _Send request_ -tekstiä, REST client suorittaa määritellyn HTTP-
 
 Toteutetaan seuraavana uusien muistiinpanojen lisäys, joka siis tapahtuu tekemällä HTTP POST -pyyntö osoitteeseen _http://localhost:3001/notes_ ja liittämällä pyynnön mukaan eli [bodyyn](https://www.w3.org/Protocols/rfc2616/rfc2616-sec7.html#sec7) luotavan muistiinpanon tiedot JSON-muodossa.
 
-Jotta pääsisimme pyynnön mukana lähetettyyn dataan helposti käsiksi tarvitsemme [body-parser](https://github.com/expressjs/body-parser)-kirjaston apua.
+Jotta pääsisimme pyynnön mukana lähetettyyn dataan helposti käsiksi, tarvitsemme [body-parser](https://github.com/expressjs/body-parser)-kirjaston apua.
 
 Otetaan body-parser käyttöön ja luodaan alustava määrittely HTTP POST -pyynnön käsittelyyn
 

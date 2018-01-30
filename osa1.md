@@ -491,7 +491,7 @@ const olio2 = {
 
 const olio3 = {
   nimi: {
-   etunimi: 'Jami',
+    etunimi: 'Jami',
     sukunimi: 'Kousa'
   },
   arvosanat: [2, 3, 5, 3],
@@ -2052,7 +2052,7 @@ class App extends React.Component {
 }
 ```
 
-Koska _handler_ on nyt komponentin metodi, päästään siihen käsiki viitten _this_ avulla:
+Koska _handler_ on nyt komponentin metodi, päästään siihen käsiki viitteen _this_ avulla:
 
 ```bash
 <button onClick={this.handler}>nappi</button>

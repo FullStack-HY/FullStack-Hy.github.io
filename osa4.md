@@ -457,7 +457,7 @@ Tee nyt tehtävät [4.3-4.7](/tehtävät#yksikkötestaus)
 
 Joissain tilanteissa voisi olla mielekästä suorittaa ainakin osa backendin testauksesta siten, että oikea tietokanta eristettäisiin testeistä ja korvattaisiin "valekomponentilla" eli mockilla. Eräs tähän sopiva ratkaisu olisi [mongo-mock](https://github.com/williamkapke/mongo-mock).
 
-Koska sovelluksemme backend on koodiltaan kuitenkin suhteellisen yksinkertainen, päätämme testata sitä kokonaisuudessaan, siten että myös testeissä käytetään tietokantaa. Tämän kaltaisia, useita sovelluksen komponetteja yhtäaikaa käyttäviä testejä voi luonnehtia [integraatiotesteiksi](https://en.wikipedia.org/wiki/Integration_testing).
+Koska sovelluksemme backend on koodiltaan kuitenkin suhteellisen yksinkertainen, päätämme testata sitä kokonaisuudessaan, siten että myös testeissä käytetään tietokantaa. Tämän kaltaisia, useita sovelluksen komponentteja yhtäaikaa käyttäviä testejä voi luonnehtia [integraatiotesteiksi](https://en.wikipedia.org/wiki/Integration_testing).
 
 ### test-ympäristö
 
@@ -568,7 +568,7 @@ TEST_MONGODB_URI=mongodb://fullstack:sekred@ds113098.mlab.com:13098/fullstack-no
 
 Eri porttien käyttö mahdollistaa sen, että sovellus voi olla käynnissä testien suorituksen aikana.
 
-Omatekemämme eri ympäristöjen kongiguroinnista huolehtivaa _config_-moduuli toimii hieman samassa hengessä kuin [node-config](https://github.com/lorenwest/node-config)-kirjasto. Omatekemä konfigurointiympäristö sopii tarkoitukseemme, sillä sovellus on yksinkertainen ja oman konfiguraatio-moduulin tekeminen on myös jossain määrin opettavaista. Isommissa sovelluksissa kannattaa harkita valmiiden kirjastojen, kuten [node-config](https://github.com/lorenwest/node-config):in käyttöä.
+Omatekemämme eri ympäristöjen konfiguroinnista huolehtivaa _config_-moduuli toimii hieman samassa hengessä kuin [node-config](https://github.com/lorenwest/node-config)-kirjasto. Omatekemä konfigurointiympäristö sopii tarkoitukseemme, sillä sovellus on yksinkertainen ja oman konfiguraatio-moduulin tekeminen on myös jossain määrin opettavaista. Isommissa sovelluksissa kannattaa harkita valmiiden kirjastojen, kuten [node-config](https://github.com/lorenwest/node-config):in käyttöä.
 
 Tiedosto _index.js_ muutetaan nyt muotoon:
 
@@ -790,7 +790,7 @@ test('a specific note is within the returned notes', async () => {
 })
 ```
 
-Huomaa jälkimmäisen testin ekspekaatio. Komennolla <code>response.body.map(r => r.content)</code> muodostetaan taulukko API:n palauttamien muistiinpanojen sisällöistä. Jestin [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem)-ekspektaatiometodilla tarkistetaan että parametrina oleva muistiinpano on kaikkien API:n palauttamien muistiinpanojen joukossa.
+Huomaa jälkimmäisen testin ekspektaatio. Komennolla <code>response.body.map(r => r.content)</code> muodostetaan taulukko API:n palauttamien muistiinpanojen sisällöistä. Jestin [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem)-ekspektaatiometodilla tarkistetaan että parametrina oleva muistiinpano on kaikkien API:n palauttamien muistiinpanojen joukossa.
 
 Ennen kun teemme lisää testejä, tarkastellaan tarkemmin mitä _async_ ja _await_ tarkoittavat.
 
@@ -810,7 +810,7 @@ Note
 
 Metodikutsu _Note.find()_ palauttaa promisen, ja saamme itse operaation tuloksen rekisteröimällä promiselle tapahtumankäsittelijän metodilla _then_.
 
-Kaikki operaation suorituksen jälkeinen koodi kirjoitetaan tapahtumankäsittelijään. Jos haluisimme tehdä peräkkäin useita asynkronisia funktiokutsuja, menisi tilanne ikävämmäksi. Joutuisimme tekemään kutsut tapahtumankäsittelijästä. Näin syntyisi potentiaalisesti monimutkaista koodia, pahimmassa tapauksessa jopa niin sanottu [callback-helvetti](http://callbackhell.com/).
+Kaikki operaation suorituksen jälkeinen koodi kirjoitetaan tapahtumankäsittelijään. Jos haluaisimme tehdä peräkkäin useita asynkronisia funktiokutsuja, menisi tilanne ikävämmäksi. Joutuisimme tekemään kutsut tapahtumankäsittelijästä. Näin syntyisi potentiaalisesti monimutkaista koodia, pahimmassa tapauksessa jopa niin sanottu [callback-helvetti](http://callbackhell.com/).
 
 [Ketjuttamalla promiseja](https://javascript.info/promise-chaining) tilanne pysyy jollain tavalla hallinnassa, callback-helvetin eli monien sisäkkäisten callbackien sijaan saadaan aikaan siistihkö _then_-kutsujen ketju. Olemmekin nähneet jo kurssin aikana muutaman sellaisen. Seuraavassa vielä erittäin keinotekoinen esimerkki, joka hakee ensin kaikki muistiinpanot ja sitten tuhoaa niistä ensimmäisen:
 
@@ -828,7 +828,7 @@ Note
 
 Then-ketju on ok, mutta parempaankin pystytään. Jo ES6:ssa esitellyt [generaattorifunktiot](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator) mahdollistivat [ovelan tavan](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch4.md#iterating-generators-asynchronously) määritellä asynkronista koodia siten että se "näyttää synkroniselta". Syntaksi ei kuitenkaan ole täysin luonteva ja sitä ei käytetä kovin yleisesti.
 
-ES7:ssa _async_ ja _await_ tuovat generaattoreiden tarjoaman toiminnallisuuden ymmärrettävästi ja syntaktin puolesta selkeällä tavalla koko Javascript-kansan ulottuville.
+ES7:ssa _async_ ja _await_ tuovat generaattoreiden tarjoaman toiminnallisuuden ymmärrettävästi ja syntaksin puolesta selkeällä tavalla koko Javascript-kansan ulottuville.
 
 Voisimme hakea tietokannasta kaikki muistiinpanot [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)-operaattoria hyödyntäen seuraavasti:
 
@@ -937,7 +937,7 @@ Yllättäen ratkaisu ei async/awaitista huolimatta toimi niin kuin oletamme, tes
 
 Ongelma on siinä, että jokainen forEach-loopin läpikäynti generoi oman asynkronisen operaation ja _beforeAll_ ei odota näiden suoritusta. Eli forEach:in sisällä olevat _await_-komennot eivät ole funktiossa _beforeEach_ vaan erillisissä funktioissa joiden päättymistä _beforeAll_ ei odota.
 
-Koska testien suoritus alkaa heti _beforeAll_ metodin suorituksen jälkeen. Testien suoritus ehditään jo aloittaa, ennen kuin tietokanta on alustettu toivottuun alkutilaan.
+Koska testien suoritus alkaa heti _beforeAll_ metodin suorituksen jälkeen, testien suoritus ehditään jo aloittaa ennen kuin tietokanta on alustettu toivottuun alkutilaan.
 
 Toimiva ratkaisu tilanteessa on odottaa asynkronisten talletusoperaatioiden valmistumista _beforeAll_-funktiossa, esim. metodin [Promise.all](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) avulla:
 
@@ -1010,7 +1010,7 @@ Aiheeton valitus poistuu.
 
 Koodia refaktoroidessa vaanii aina [regression](https://en.wikipedia.org/wiki/Regression_testing) vaara, eli on olemassa riski, että jo toimineet ominaisuudet hajoavat. Tehdäänkin muiden operaatioiden refaktorointi siten, että ennen koodin muutosta tehdään jokaiselle API:n routelle sen toiminnallisuuden varmistavat testit.
 
-Aloitetaan lisäysoperaatiosta. Tehdään testi, joka lisää uuden muistiinpanon ja tarkistaa, että API:n palauttamien mustiinpanojen määrä kasvaa, ja että lisätty muistiinpano on palautettujen joukossa:
+Aloitetaan lisäysoperaatiosta. Tehdään testi, joka lisää uuden muistiinpanon ja tarkistaa, että API:n palauttamien muistiinpanojen määrä kasvaa, ja että lisätty muistiinpano on palautettujen joukossa:
 
 ```js
 test('a valid note can be added ', async () => {
@@ -1037,7 +1037,7 @@ test('a valid note can be added ', async () => {
 
 Kuten odotimme ja toimimme, menee testi läpi.
 
-Tehdään myös testi, joka varmistaa, että muistiinpanoa, jolle ei ole asetettu sisältöä ei talleteta
+Tehdään myös testi, joka varmistaa, että muistiinpanoa, jolle ei ole asetettu sisältöä, ei talleteta
 
 ```js
 test('note without content is not added ', async () => {
@@ -1823,7 +1823,7 @@ module.exports = {
 }
 ```
 
-Lohkon _beforeAll_ lisää kantaan käyttäjän, jonka username on _root_. Voimmekin tehdä uuden testi, jolla varmistetaan, että samalla käyttäjätunnuksella ei voi luoda uutta käyttäjää:
+Lohkon _beforeAll_ lisää kantaan käyttäjän, jonka username on _root_. Voimmekin tehdä uuden testin, jolla varmistetaan, että samalla käyttäjätunnuksella ei voi luoda uutta käyttäjää:
 
 ```js
 test('POST /api/users fails with proper statuscode and message if username already taken', async () => {
@@ -1896,7 +1896,7 @@ Lista näyttää seuraavalta
 
 ### Formatointifunktioiden siirto modelien märittelyn yhteyteen
 
-Kuten muistinpanojenkin tapauksessa, olemme myös nyt määritellet apufunktion _formatUser_, joa muodostaa tietokannan palauttamista _user_-olioista selaimelle lähetettävän muodon, joista on mm. poistettu kenttä _passwordHash_.
+Kuten muistinpanojenkin tapauksessa, olemme myös nyt määritellet apufunktion _formatUser_, joka muodostaa tietokannan palauttamista _user_-olioista selaimelle lähetettävän muodon, joista on mm. poistettu kenttä _passwordHash_.
 
 Formatointifunktio on nyt sijoitettu routejen määrittelyn yhteyteen. Paikka ei välttämättä ole optimaalinen ja päätetäänkin viedä formatointi _User_-skeeman vastuulle, sen [staattiseksi metodiksi](http://mongoosejs.com/docs/guide.html#statics).
 
@@ -2135,7 +2135,7 @@ Käyttäjien tulee pystyä kirjautumaan sovellukseemme ja muistiinpanot pitää 
 
 Toteutamme nyt backendiin tuen [token-perustaiselle](https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication#toc-how-token-based-works) autentikoinnille.
 
-Token-autentikaation periaatetta kuvaa seuraava sekvenssikaatio:
+Token-autentikaation periaatetta kuvaa seuraava sekvenssikaavio:
 
 ![]({{ "/images/4/12a.png" | absolute_url }})
 
@@ -2249,7 +2249,7 @@ Virheellisellä käyttäjätunnuksella tai salasanalla kirjautuessa annetaan asi
 
 Muutetaan vielä muistiinpanojen luomista, siten että luominen onnistuu ainoastaan jos luomista vastaavan pyynnön mukana on validi token. Muistiinpano talletetaan tokenin identifioiman käyttäjän tekemien muistiinpanojen listaan.
 
-Tapoja tokenin välittämiseen selaimesta backendiin on useita. Käytämme ratkaisussamme [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)-headeria. Tokenin lisäksi headerin avulla kerrotaan mistä [autentikointiskeemasta](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes) on kyse. Tämä voi olla tarpeen, jos palvein tarjoaa useita eri tapoja autentikointiin. Skeeman ilmaiseminen kertoo näissä tapauksissa palvelimelle, miten mukana olevat kredentiaalit tulee tulkita.
+Tapoja tokenin välittämiseen selaimesta backendiin on useita. Käytämme ratkaisussamme [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)-headeria. Tokenin lisäksi headerin avulla kerrotaan mistä [autentikointiskeemasta](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes) on kyse. Tämä voi olla tarpeen, jos palvelin tarjoaa useita eri tapoja autentikointiin. Skeeman ilmaiseminen kertoo näissä tapauksissa palvelimelle, miten mukana olevat kredentiaalit tulee tulkita.
 Meidän käyttöömme sopii _Bearer_-skeema.
 
 Käytännössä tämä tarkoittaa, että jos token on esimerkiksi merkkijono _eyJhbGciOiJIUzI1NiIsInR5c2VybmFtZSI6Im1sdXVra2FpIiwiaW_, laitetaan pyynnöissä headerin Authorization arvoksi merkkijono
@@ -2321,7 +2321,7 @@ const decodedToken = jwt.verify(token, process.env.SECRET)
 
 Tokenista dekoodatun olion sisällä on kentät _username_ ja _id_ eli se kertoo palvelimelle kuka pyynnön on tehnyt.
 
-Jos tokenia ei ole tai tokenista dekoodattu olio ei sisällä käyttäjän identitettiä (eli _decodedToken.id_ ei ole määritelty), palautetaan virheestä kertova statuskoodi [401 unauthorized](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2) ja kerrotaan syy vastauksen bodyssä:
+Jos tokenia ei ole tai tokenista dekoodattu olio ei sisällä käyttäjän identiteettiä (eli _decodedToken.id_ ei ole määritelty), palautetaan virheestä kertova statuskoodi [401 unauthorized](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2) ja kerrotaan syy vastauksen bodyssä:
 
 ```js
 if (!token || !decodedToken.id) {
