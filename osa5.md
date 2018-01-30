@@ -2594,7 +2594,7 @@ ReactDOM.render(
 )
 ```
 
-Redux-sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/reedux-notes/tree/part5-6), tagissa _part5-6_.
+Redux-sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part5-6), tagissa _part5-6_.
 
 Egghead.io:ssa on ilmaiseksi saatavilla Reduxin kehittäjän Dan Abramovin loistava tutoriaali [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux). Neljässä viimeisessä videossa käytettävää _connect_-metodia käsittelemme vasta kurssin seuraavassa osassa.
 

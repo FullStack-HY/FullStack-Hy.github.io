@@ -844,7 +844,7 @@ Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnist�
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.1-3.6](../tehtavat#expressin-alkeet)
+Tee nyt tehtävät [3.1-3.6](tehtävät#expressin-alkeet)
 
 ## Huomioita HTTP pyyntötyyppien käytöstä
 
@@ -918,7 +918,7 @@ app.use(error)
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.7 ja 3.8](../tehtavat#lisää-middlewareja)
+Tee nyt tehtävät [3.7 ja 3.8](/tehtävät#lisää-middlewareja)
 
 ## Yhteys frontendiin
 
@@ -1204,7 +1204,7 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.9-3.11](../tehtävät#yhteys-frontendiin-ja-vienti-tuotantoon)
+Tee nyt tehtävät [3.9-3.11](tehtävät#yhteys-frontendiin-ja-vienti-tuotantoon)
 
 ## Node-sovellusten debuggaaminen
 
@@ -1466,7 +1466,7 @@ Note
 
 ### Tehtäviä
 
-Tee nyt tehtävä [3.12](../tehtavat#mongoosen-alkeet)
+Tee nyt tehtävä [3.12](/tehtävät#mongoosen-alkeet)
 
 ## Tietokantaa käyttävä backend
 
@@ -1666,7 +1666,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.13-3.15](tehtavat#backend-ja-tietokanta)
+Tee nyt tehtävät [3.13-3.15](/tehtävät#backend-ja-tietokanta)
 
 ### Virheiden käsittely
 
@@ -1824,7 +1824,7 @@ Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilu
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.16-3.19](tehtavat#lisää-operaatioita)
+Tee nyt tehtävät [3.16-3.19](/tehtävät#lisää-operaatioita)
 
 ## Refaktorointia - promisejen ketjutus
 
@@ -2003,7 +2003,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.19 - 3.21](/tehtavat#loppuhuipennus)
+Tee nyt tehtävät [3.19 - 3.21](/tehtävät#loppuhuipennus)
 
 ## Lint
 
@@ -2179,4 +2179,4 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä
 
-Tee nyt viimeinen tehtävä [3.22](/tehtavat#lint)
+Tee nyt viimeinen tehtävä [3.22](/tehtävät#lint)
