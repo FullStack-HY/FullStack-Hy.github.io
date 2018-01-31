@@ -2465,8 +2465,6 @@ Manuaalin sanoin:
 
 Reactin Context API on vielä kokeellinen ja se voi hävitä tulevista versiosta. Contextin käyttö ei olekaan kovin suositeltavaa. Katsomme kuitenkin mistä on kyse.
 
-Ennen contextin käyttöä, tehdään sovelluksene pieni muutos. Eristetään komponentista _App_
-
 Asennetaan ensin contextin käyttöä helpottava [react-redux](https://github.com/reactjs/react-redux)-kirjasto sekä contextien määrittelyyn tarvittava _prop-types_:
 
 ```bash
