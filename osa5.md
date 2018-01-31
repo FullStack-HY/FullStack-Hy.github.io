@@ -2005,7 +2005,7 @@ const noteReducer = (state = [], action) => {
 }
 ```
 
-Reducen tilan tulee koostua muuttumattomista eli [immutable](https://en.wikipedia.org/wiki/Immutable_object) olioista. Jos tilaan tulee muuttua, ei vanhaa oliota muuteta, vaan se _korvataan uudella muuttuneella oliolla_. Juuri näin toimimme uudistuneessa reducerissa, vanha taulukko korvaantuu uudella.
+Reducen tilan tulee koostua muuttumattomista eli [immutable](https://en.wikipedia.org/wiki/Immutable_object) olioista. Jos tilaan tulee muutos, ei vanhaa oliota muuteta, vaan se _korvataan uudella muuttuneella oliolla_. Juuri näin toimimme uudistuneessa reducerissa, vanha taulukko korvaantuu uudella.
 
 Laajennetaan reduceria siten, että se osaa käsitellä muistiinpanon tärkeyteen liittyvän muutoksen:
 
@@ -2020,7 +2020,7 @@ Laajennetaan reduceria siten, että se osaa käsitellä muistiinpanon tärkeytee
 
 Koska meillä ei ole vielä koodia joka käyttää ominaisuutta, laajennetaan reduceria testivetoisesti. Aloitetaan tekemällä testi actionin _NEW_NOTE_ käsittelylle.
 
-Jotta testaus olisi helpompaa, siirretään reducerin koodi ensin omaan moduuliinsa tiedostoon _src/noteReducer.js_. Otetaan käyttöön myös kirjasto [deep-freeze](https://github.com/substack/deep-freeze), jonka avulla voimme varmistaa, että reducer on määritelty oikeaoppisesti puhtaana funktiona. Asennetaan kirjasto kehitysaikaiseksi riippudvuudeksi
+Jotta testaus olisi helpompaa, siirretään reducerin koodi ensin omaan moduuliinsa tiedostoon _src/noteReducer.js_. Otetaan käyttöön myös kirjasto [deep-freeze](https://github.com/substack/deep-freeze), jonka avulla voimme varmistaa, että reducer on määritelty oikeaoppisesti puhtaana funktiona. Asennetaan kirjasto kehitysaikaiseksi riippuvuudeksi
 
 ```js
 npm install --save-dev deep-freeze
@@ -2157,7 +2157,7 @@ Jos olisimme sijoittaneet taulukon toisen sisälle ilman spreadia, eli
 
 lopputulos olisi ollut _[ [1, 2, 3], 4, 5]_.
 
-Saman näköinen syntaksi toimii taulukosta [destrukturoimalla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) alkioita otettaessa siten, että se _kerää_ loput alkiot:
+Samannäköinen syntaksi toimii taulukosta [destrukturoimalla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) alkioita otettaessa siten, että se _kerää_ loput alkiot:
 
 ```js
 const luvut = [1, 2, 3, 4, 5, 6]
@@ -2269,7 +2269,7 @@ Kyseessä on jälleen tuttu _funktio, joka palauttaa funktion_, eli kullekin mui
 
 ### action creatorit
 
-Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikestaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
+Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikestaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
 
 ```js
 const actionFor = {
@@ -2319,7 +2319,7 @@ Sovelluksemme on reduceria lukuunottamatta tehty samaan tiedostoon. Kyseessä ei
 
 Herää kuitenkin kysymys miten _App_ pääsee muutoksen jälkeen käsiksi _storeen_? Ja yleisemminkin, kun komponentti koostuu suuresta määrästä komponentteja, tulee olla jokin mekanismi, minkä avulla komponentit pääsevät käsiksi storeen.
 
-Tapoja on muutama, käsitellään tässä osassa kahta helpoimmin ymmärrettävää. Parhaan tavan eli kirjaston React-redux määrittelevän [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)-metodin säästämme seuraavaan osaan sillä se on hieman abstrakti ja on kenties hyvä totutella Reduxiin aluksi ilman connectin tuomia käsitteellisiä haasteita.
+Tapoja on muutama, käsitellään tässä osassa kahta helpoimmin ymmärrettävää. Parhaan tavan eli kirjaston React-redux määrittelevän [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)-metodin säästämme seuraavaan osaan, sillä se on hieman abstrakti ja on kenties hyvä totutella Reduxiin aluksi ilman connectin tuomia käsitteellisiä haasteita.
 
 Yksinkertaisin vaihtoehto on välittää store propsien avulla. Sovelluksen käynnistyspiste _index.js_ typistyy seuraavasti
 
