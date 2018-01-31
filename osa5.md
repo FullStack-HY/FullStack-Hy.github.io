@@ -161,9 +161,9 @@ class App extends React.Component {
 export default App
 ```
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-1), tagissa _part5-1_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-1), tagissa _part5-1_.
 
-Kirjautumislomakkeen käsittely noudattaa samaa periaatetta, kun [osassa 2](/osa2#Lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_) joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
+Kirjautumislomakkeen käsittely noudattaa samaa periaatetta kuin [osassa 2](/osa2#Lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_), joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
 
 Jos lomakkeella on paljon kenttiä, voi olla työlästä toteuttaa jokaiselle kentälle oma muutoksenkäsittelijä. React tarjoaakin tapoja, miten yhden muutoksenkäsittelijän avulla on mahdollista huolehtia useista syötekentistä. Jaetun käsittelijän on saatava jollain tavalla tieto minkä syötekentän muutos aiheutti tapahtuman. Eräs tapa tähän on lomakkeen syötekenttien nimeäminen.
 
@@ -342,7 +342,7 @@ class App extends React.Component {
 }
 ```
 
-Lomakkeiden ehdolliseen renderöintiin käytetään hyväkseen aluksi hieman erikoiselta näyttävää, mutta Reactin yhteydessä [yleisesti käytettyä kikkaa](https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator):
+Lomakkeiden ehdolliseen renderöintiin käytetään hyväksi aluksi hieman erikoiselta näyttävää, mutta Reactin yhteydessä [yleisesti käytettyä kikkaa](https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator):
 
 ```js
 {this.state.user === null && loginForm()}
@@ -401,7 +401,7 @@ return (
 
 Ratkaisu näyttää hieman rumalta, mutta jätämme sen koodiin toistaiseksi.
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-2), tagissa _part5-2_. **HUOM** koodissa on parissa kohtaa käytetty vahingossa komponentin kentästä nimeä _new_note_, oikea (seuraaviin tageihin korjattu) muoto on _newNote_,
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-2), tagissa _part5-2_. **HUOM** koodissa on parissa kohtaa käytetty vahingossa komponentin kentästä nimeä _new_note_, oikea (seuraaviin tageihin korjattu) muoto on _newNote_,
 
 Sovelluksemme pääkomponentti _App_ on tällä hetkellä jo aivan liian laaja ja nyt tekemämme muutokset ovat ilmeinen signaali siitä, että lomakkeet olisi syytä refaktoroida omiksi komponenteikseen. Jätämme sen kuitenkin harjoitustehtäväksi.
 
@@ -472,7 +472,7 @@ Uusien muistiinpanojen luominen onnistuu taas!
 
 ## Tokenin tallettaminen selaimen local storageen
 
-Sovelluksessamme on ikävä piirre, kun sivu uudelleenladataan, tieto käyttäjän kirjautumisesta katoaa. Tämä hidastaa melkoisesti myös sovelluskehitystä, esim. testatessamme uuden muistiinpanon luomista, joudumme joka kerta kirjautumaan järjestelmään.
+Sovelluksessamme on ikävä piirre: kun sivu uudelleenladataan, tieto käyttäjän kirjautumisesta katoaa. Tämä hidastaa melkoisesti myös sovelluskehitystä, esim. testatessamme uuden muistiinpanon luomista, joudumme joka kerta kirjautumaan järjestelmään.
 
 Ongelma korjaantuu helposti tallettamalla kirjautumistiedot [local storageen](https://developer.mozilla.org/en-US/docs/Web/API/Storage) eli selaimessa olevaan avain-arvo- eli [key-value](https://en.wikipedia.org/wiki/Key-value_database)-periaatteella toimivaan tietokantaan.
 
@@ -558,7 +558,7 @@ tai local storagen tilan kokonaan nollaavan komennon
 window.localStorage.clear()
 ```
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-3), tagissa _part5-3_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-3), tagissa _part5-3_.
 
 ## Tehtäviä
 
@@ -865,7 +865,7 @@ addNote = (e) => {
 
 Refeille on myös [muita käyttötarkoituksia](https://reactjs.org/docs/refs-and-the-dom.html) kuin React-komponentteihin käsiksi pääseminen.
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-4), tagissa _part5-4_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-4), tagissa _part5-4_.
 
 ### Huomio komponenteista
 
@@ -899,7 +899,7 @@ syntyy _kolme erillistä komponenttiolioa_, joilla on kaikilla oma tilansa:
 
 ![]({{ "/assets/5/5.png" | absolute_url }})
 
-_ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin _this.t1_, _this.t2_, ja _this.t3_.
+_ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin _this.t1_, _this.t2_ ja _this.t3_.
 
 ## Tehtäviä
 
@@ -984,7 +984,7 @@ class Togglable extends React.Component {
 }
 ```
 
-Muuttujamäärittelyn edessä oleva _static_ määrittelee, nyt että _propTypes_-kenttä on nimenomaan komponentin määrittelevällä luokalla _Togglable_ eikä luokan instansseilla. Oleellisesti ottaen kyseessä on ainoastaan Javascriptin vielä standardoimattoman [ominaisuuden](https://github.com/tc39/proposal-class-fields) mahdollistava syntaktinen oikotie määritellä seuraava:
+Muuttujamäärittelyn edessä oleva _static_ määrittelee nyt, että _propTypes_-kenttä on nimenomaan komponentin määrittelevällä luokalla _Togglable_ eikä luokan instansseilla. Oleellisesti ottaen kyseessä on ainoastaan Javascriptin vielä standardoimattoman [ominaisuuden](https://github.com/tc39/proposal-class-fields) mahdollistava syntaktinen oikotie määritellä seuraava:
 
 ```js
 Togglable.propTypes = {
@@ -1288,7 +1288,7 @@ Tee nyt tehtävät [5.12-14](/tehtävät#komponenttien-testaaminen)
 
 Käyttämämme _shallow_-renderöijä on useimmista tapauksissa riittävä. Joskus tarvitsemme kuitenkin järeämmän työkalun sillä _shallow_ renderöi ainoastaan "yhden tason", eli sen komponentin, jolle metodia kutsutaan.
 
-Jos yritämme esim. sijoittaa kaksi _Note_-komponenttia _Togglable_-komponentin sisälle ja tulostamme syntyvän _ShallowWrapper_ olion
+Jos yritämme esim. sijoittaa kaksi _Note_-komponenttia _Togglable_-komponentin sisälle ja tulostamme syntyvän _ShallowWrapper_ -olion
 
 ```bash
 it('shallow renders only one level', () => {
@@ -1407,9 +1407,9 @@ Tuloksena on kokonaisuudessaan HTML:ksi renderöitynyt _Togglable_-komponentti:
 
 Mountin avulla renderöitäessä testi pääsee siis käsiksi periaatteessa samaan HTML-koodiin, joka todellisuudessa renderöidään selaimeen ja tämä luonnollisesti mahdollistaa huomattavasti monipuolisemman testauksen kuin _shallow_-renderöinti. Komennolla _mount_ tapahtuva renderöinti on kuitenkin hitaampaa, joten jos _shallow_ riittää, sitä kannattaa käyttää.
 
-Huomaa, että testin käyttämä metodi [debug](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html) ei palauta todellista HTML:ää vaan debuggaustarkoituksiin sopivan tekstuaalisen esitysmuoton komponentista. Todellisessa HTML:ssä ei mm. ole ollenkaan React-komponenttien tageja.
+Huomaa, että testin käyttämä metodi [debug](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html) ei palauta todellista HTML:ää vaan debuggaustarkoituksiin sopivan tekstuaalisen esitysmuodon komponentista. Todellisessa HTML:ssä ei mm. ole ollenkaan React-komponenttien tageja.
 
-Jos on tarvetta tietää mikä on testattaessa syntyvä todellinen HTML, sen saa selville metodilla [html](http://airbnb.io/enzyme/docs/api/ReactWrapper/html.html).
+Jos on tarvetta tietää, mikä on testattaessa syntyvä todellinen HTML, sen saa selville metodilla [html](http://airbnb.io/enzyme/docs/api/ReactWrapper/html.html).
 
 Jos muutamme testin viimeisen komennon muotoon
 
@@ -1652,13 +1652,13 @@ CI=true npm test -- --coverage
 
 ![]({{ "/assets/5/8.png" | absolute_url }})
 
-Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon _coverage/lcov-report_. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomien koodirivit:
+Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon _coverage/lcov-report_. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomat koodirivit:
 
 ![]({{ "/assets/5/9.png" | absolute_url }})
 
-Huomaamme, että parannettavaa jäi vielä runstaasti.
+Huomaamme, että parannettavaa jäi vielä runsaasti.
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-5), tagissa _part5-5_.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-5), tagissa _part5-5_.
 
 ## Tehtäviä
 
@@ -1668,9 +1668,9 @@ Tee nyt tehtävät [5.15 ja 5.16](/tehtävät#integraatiotestaus)
 
 Jest tarjoaa "perinteisen" testaustavan lisäksi aivan uudenlaisen tavan testaukseen, ns. [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html)-testauksen. Mielenkiintoista snapshot-testauksessa on se, että sovelluskehittäjän ei tarvitse itse määritellä ollenkaan testejä, snapshot-testauksen käyttöönotto riittää.
 
-Periaatteena on verrata komponenttien määrittelemää HTML:ää aina koodin muutoksen jälkeen siihen minkälaisen HTML:n komponentit määrittelivät ennen muutosta.
+Periaatteena on verrata komponenttien määrittelemää HTML:ää aina koodin muutoksen jälkeen siihen, minkälaisen HTML:n komponentit määrittelivät ennen muutosta.
 
-Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä kyseessä voi joko olla haluttu muutos tai vaihingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä oliko muutos haluttu. Jos muutos tuli yllätyksenä, eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
+Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä kyseessä, voi kyseessä joko olla haluttu muutos tai vaihingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle, jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä, oliko muutos haluttu. Jos muutos tuli yllätyksenä, eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
 
 ## End to end -testaus
 
@@ -1751,7 +1751,7 @@ const counterReducer = (state, action) => {
 Ensimmäinen parametri on siis storessa oleva _tila_. Reducer palauttaa uuden tilan actionin tyypin mukaan.
 
 Muutetaan koodia vielä hiukan. Reducereissa on tapana käyttää if:ien sijaan [switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)-komentoa.
-Määritellään myös parametrille _state_ [oletusarvoksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) 0. Näin reducer toimii vaikka store tilaa ei olisi vielä alustettu.
+Määritellään myös parametrille _state_ [oletusarvoksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) 0. Näin reducer toimii vaikka store -tilaa ei olisi vielä alustettu.
 
 ```js
 const counterReducer = (state = 0, action) => {
@@ -1779,7 +1779,7 @@ const counterReducer = (state = 0, action) => {
 const store = createStore(counterReducer)
 ```
 
-Store käyttää nyt reduceria käsitelläkseen _actioneja_ jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/docs/api/Store.html#dispatch)-metodilla:
+Store käyttää nyt reduceria käsitelläkseen _actioneja_, jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/docs/api/Store.html#dispatch)-metodilla:
 
 ```js
 store.dispatch({type: 'INCREMENT'})
@@ -2005,7 +2005,7 @@ const noteReducer = (state = [], action) => {
 }
 ```
 
-Reducen tilan tulee koostua muuttumattomista eli [immutable](https://en.wikipedia.org/wiki/Immutable_object) olioista. Jos tilaan tulee muuttua, ei vanhaa oliota muuteta, vaan se _korvataan uudella muuttuneella oliolla_. Juuri näin toimimme uudistuneessa reducerissa, vanha taulukko korvaantuu uudella.
+Reducen tilan tulee koostua muuttumattomista eli [immutable](https://en.wikipedia.org/wiki/Immutable_object) olioista. Jos tilaan tulee muutos, ei vanhaa oliota muuteta, vaan se _korvataan uudella muuttuneella oliolla_. Juuri näin toimimme uudistuneessa reducerissa, vanha taulukko korvaantuu uudella.
 
 Laajennetaan reduceria siten, että se osaa käsitellä muistiinpanon tärkeyteen liittyvän muutoksen:
 
@@ -2020,7 +2020,7 @@ Laajennetaan reduceria siten, että se osaa käsitellä muistiinpanon tärkeytee
 
 Koska meillä ei ole vielä koodia joka käyttää ominaisuutta, laajennetaan reduceria testivetoisesti. Aloitetaan tekemällä testi actionin _NEW_NOTE_ käsittelylle.
 
-Jotta testaus olisi helpompaa, siirretään reducerin koodi ensin omaan moduuliinsa tiedostoon _src/noteReducer.js_. Otetaan käyttöön myös kirjasto [deep-freeze](https://github.com/substack/deep-freeze), jonka avulla voimme varmistaa, että reducer on määritelty oikeaoppisesti puhtaana funktiona. Asennetaan kirjasto kehitysaikaiseksi riippudvuudeksi
+Jotta testaus olisi helpompaa, siirretään reducerin koodi ensin omaan moduuliinsa tiedostoon _src/noteReducer.js_. Otetaan käyttöön myös kirjasto [deep-freeze](https://github.com/substack/deep-freeze), jonka avulla voimme varmistaa, että reducer on määritelty oikeaoppisesti puhtaana funktiona. Asennetaan kirjasto kehitysaikaiseksi riippuvuudeksi
 
 ```js
 npm install --save-dev deep-freeze
@@ -2157,7 +2157,7 @@ Jos olisimme sijoittaneet taulukon toisen sisälle ilman spreadia, eli
 
 lopputulos olisi ollut _[ [1, 2, 3], 4, 5]_.
 
-Saman näköinen syntaksi toimii taulukosta [destrukturoimalla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) alkioita otettaessa siten, että se _kerää_ loput alkiot:
+Samannäköinen syntaksi toimii taulukosta [destrukturoimalla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) alkioita otettaessa siten, että se _kerää_ loput alkiot:
 
 ```js
 const luvut = [1, 2, 3, 4, 5, 6]
@@ -2269,7 +2269,7 @@ Kyseessä on jälleen tuttu _funktio, joka palauttaa funktion_, eli kullekin mui
 
 ### action creatorit
 
-Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikestaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
+Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikestaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
 
 ```js
 const actionFor = {
@@ -2319,7 +2319,7 @@ Sovelluksemme on reduceria lukuunottamatta tehty samaan tiedostoon. Kyseessä ei
 
 Herää kuitenkin kysymys miten _App_ pääsee muutoksen jälkeen käsiksi _storeen_? Ja yleisemminkin, kun komponentti koostuu suuresta määrästä komponentteja, tulee olla jokin mekanismi, minkä avulla komponentit pääsevät käsiksi storeen.
 
-Tapoja on muutama, käsitellään tässä osassa kahta helpoimmin ymmärrettävää. Parhaan tavan eli kirjaston React-redux määrittelevän [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)-metodin säästämme seuraavaan osaan sillä se on hieman abstrakti ja on kenties hyvä totutella Reduxiin aluksi ilman connectin tuomia käsitteellisiä haasteita.
+Tapoja on muutama, käsitellään tässä osassa kahta helpoimmin ymmärrettävää. Parhaan tavan eli kirjaston React-redux määrittelevän [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options)-metodin säästämme seuraavaan osaan, sillä se on hieman abstrakti ja on kenties hyvä totutella Reduxiin aluksi ilman connectin tuomia käsitteellisiä haasteita.
 
 Yksinkertaisin vaihtoehto on välittää store propsien avulla. Sovelluksen käynnistyspiste _index.js_ typistyy seuraavasti
 
@@ -2594,7 +2594,7 @@ ReactDOM.render(
 )
 ```
 
-Redux-sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part5-6), tagissa _part5-6_.
+Redux-sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part5-6), tagissa _part5-6_.
 
 Egghead.io:ssa on ilmaiseksi saatavilla Reduxin kehittäjän Dan Abramovin loistava tutoriaali [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux). Neljässä viimeisessä videossa käytettävää _connect_-metodia käsittelemme vasta kurssin seuraavassa osassa.
 
