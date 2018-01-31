@@ -472,7 +472,7 @@ Uusien muistiinpanojen luominen onnistuu taas!
 
 ## Tokenin tallettaminen selaimen local storageen
 
-Sovelluksessamme on ikävä piirre, kun sivu uudelleenladataan, tieto käyttäjän kirjautumisesta katoaa. Tämä hidastaa melkoisesti myös sovelluskehitystä, esim. testatessamme uuden muistiinpanon luomista, joudumme joka kerta kirjautumaan järjestelmään.
+Sovelluksessamme on ikävä piirre: kun sivu uudelleenladataan, tieto käyttäjän kirjautumisesta katoaa. Tämä hidastaa melkoisesti myös sovelluskehitystä, esim. testatessamme uuden muistiinpanon luomista, joudumme joka kerta kirjautumaan järjestelmään.
 
 Ongelma korjaantuu helposti tallettamalla kirjautumistiedot [local storageen](https://developer.mozilla.org/en-US/docs/Web/API/Storage) eli selaimessa olevaan avain-arvo- eli [key-value](https://en.wikipedia.org/wiki/Key-value_database)-periaatteella toimivaan tietokantaan.
 
@@ -899,7 +899,7 @@ syntyy _kolme erillistä komponenttiolioa_, joilla on kaikilla oma tilansa:
 
 ![]({{ "/assets/5/5.png" | absolute_url }})
 
-_ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin _this.t1_, _this.t2_, ja _this.t3_.
+_ref_-attribuutin avulla on talletettu viite jokaiseen komponenttiin muuttujiin _this.t1_, _this.t2_ ja _this.t3_.
 
 ## Tehtäviä
 
@@ -984,7 +984,7 @@ class Togglable extends React.Component {
 }
 ```
 
-Muuttujamäärittelyn edessä oleva _static_ määrittelee, nyt että _propTypes_-kenttä on nimenomaan komponentin määrittelevällä luokalla _Togglable_ eikä luokan instansseilla. Oleellisesti ottaen kyseessä on ainoastaan Javascriptin vielä standardoimattoman [ominaisuuden](https://github.com/tc39/proposal-class-fields) mahdollistava syntaktinen oikotie määritellä seuraava:
+Muuttujamäärittelyn edessä oleva _static_ määrittelee nyt, että _propTypes_-kenttä on nimenomaan komponentin määrittelevällä luokalla _Togglable_ eikä luokan instansseilla. Oleellisesti ottaen kyseessä on ainoastaan Javascriptin vielä standardoimattoman [ominaisuuden](https://github.com/tc39/proposal-class-fields) mahdollistava syntaktinen oikotie määritellä seuraava:
 
 ```js
 Togglable.propTypes = {
@@ -1288,7 +1288,7 @@ Tee nyt tehtävät [5.12-14](/tehtävät#komponenttien-testaaminen)
 
 Käyttämämme _shallow_-renderöijä on useimmista tapauksissa riittävä. Joskus tarvitsemme kuitenkin järeämmän työkalun sillä _shallow_ renderöi ainoastaan "yhden tason", eli sen komponentin, jolle metodia kutsutaan.
 
-Jos yritämme esim. sijoittaa kaksi _Note_-komponenttia _Togglable_-komponentin sisälle ja tulostamme syntyvän _ShallowWrapper_ olion
+Jos yritämme esim. sijoittaa kaksi _Note_-komponenttia _Togglable_-komponentin sisälle ja tulostamme syntyvän _ShallowWrapper_ -olion
 
 ```bash
 it('shallow renders only one level', () => {
@@ -1407,9 +1407,9 @@ Tuloksena on kokonaisuudessaan HTML:ksi renderöitynyt _Togglable_-komponentti:
 
 Mountin avulla renderöitäessä testi pääsee siis käsiksi periaatteessa samaan HTML-koodiin, joka todellisuudessa renderöidään selaimeen ja tämä luonnollisesti mahdollistaa huomattavasti monipuolisemman testauksen kuin _shallow_-renderöinti. Komennolla _mount_ tapahtuva renderöinti on kuitenkin hitaampaa, joten jos _shallow_ riittää, sitä kannattaa käyttää.
 
-Huomaa, että testin käyttämä metodi [debug](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html) ei palauta todellista HTML:ää vaan debuggaustarkoituksiin sopivan tekstuaalisen esitysmuoton komponentista. Todellisessa HTML:ssä ei mm. ole ollenkaan React-komponenttien tageja.
+Huomaa, että testin käyttämä metodi [debug](http://airbnb.io/enzyme/docs/api/ReactWrapper/debug.html) ei palauta todellista HTML:ää vaan debuggaustarkoituksiin sopivan tekstuaalisen esitysmuodon komponentista. Todellisessa HTML:ssä ei mm. ole ollenkaan React-komponenttien tageja.
 
-Jos on tarvetta tietää mikä on testattaessa syntyvä todellinen HTML, sen saa selville metodilla [html](http://airbnb.io/enzyme/docs/api/ReactWrapper/html.html).
+Jos on tarvetta tietää, mikä on testattaessa syntyvä todellinen HTML, sen saa selville metodilla [html](http://airbnb.io/enzyme/docs/api/ReactWrapper/html.html).
 
 Jos muutamme testin viimeisen komennon muotoon
 
@@ -1652,11 +1652,11 @@ CI=true npm test -- --coverage
 
 ![]({{ "/assets/5/8.png" | absolute_url }})
 
-Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon _coverage/lcov-report_. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomien koodirivit:
+Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon _coverage/lcov-report_. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomat koodirivit:
 
 ![]({{ "/assets/5/9.png" | absolute_url }})
 
-Huomaamme, että parannettavaa jäi vielä runstaasti.
+Huomaamme, että parannettavaa jäi vielä runsaasti.
 
 Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-5), tagissa _part5-5_.
 
@@ -1668,9 +1668,9 @@ Tee nyt tehtävät [5.15 ja 5.16](/tehtävät#integraatiotestaus)
 
 Jest tarjoaa "perinteisen" testaustavan lisäksi aivan uudenlaisen tavan testaukseen, ns. [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html)-testauksen. Mielenkiintoista snapshot-testauksessa on se, että sovelluskehittäjän ei tarvitse itse määritellä ollenkaan testejä, snapshot-testauksen käyttöönotto riittää.
 
-Periaatteena on verrata komponenttien määrittelemää HTML:ää aina koodin muutoksen jälkeen siihen minkälaisen HTML:n komponentit määrittelivät ennen muutosta.
+Periaatteena on verrata komponenttien määrittelemää HTML:ää aina koodin muutoksen jälkeen siihen, minkälaisen HTML:n komponentit määrittelivät ennen muutosta.
 
-Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä kyseessä voi joko olla haluttu muutos tai vaihingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä oliko muutos haluttu. Jos muutos tuli yllätyksenä, eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
+Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä kyseessä, voi kyseessä joko olla haluttu muutos tai vaihingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle, jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä, oliko muutos haluttu. Jos muutos tuli yllätyksenä, eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
 
 ## End to end -testaus
 
@@ -1751,7 +1751,7 @@ const counterReducer = (state, action) => {
 Ensimmäinen parametri on siis storessa oleva _tila_. Reducer palauttaa uuden tilan actionin tyypin mukaan.
 
 Muutetaan koodia vielä hiukan. Reducereissa on tapana käyttää if:ien sijaan [switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)-komentoa.
-Määritellään myös parametrille _state_ [oletusarvoksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) 0. Näin reducer toimii vaikka store tilaa ei olisi vielä alustettu.
+Määritellään myös parametrille _state_ [oletusarvoksi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) 0. Näin reducer toimii vaikka store -tilaa ei olisi vielä alustettu.
 
 ```js
 const counterReducer = (state = 0, action) => {
@@ -1779,7 +1779,7 @@ const counterReducer = (state = 0, action) => {
 const store = createStore(counterReducer)
 ```
 
-Store käyttää nyt reduceria käsitelläkseen _actioneja_ jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/docs/api/Store.html#dispatch)-metodilla:
+Store käyttää nyt reduceria käsitelläkseen _actioneja_, jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/docs/api/Store.html#dispatch)-metodilla:
 
 ```js
 store.dispatch({type: 'INCREMENT'})
