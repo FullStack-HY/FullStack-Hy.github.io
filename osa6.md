@@ -503,7 +503,7 @@ Sovelluksessa on vielä pieni kauneusvirhe, vaikka oletusarvosesti filtterin arv
 
 ## Tehtäviä
 
-Tee nyt tehtävät [6.1-6.5](/tehtävät#yhdistetyt-reducerit)
+Tee nyt tehtävät [6.1-6.5](/tehtävät/#osa-6)
 
 ## Connect
 
