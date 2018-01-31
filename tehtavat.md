@@ -13,6 +13,7 @@ permalink: /tehtävät/
 * [osa3](#osa-3) deadline 12.2. klo 23:59
 * [osa4](#osa-4) deadline 25.2. klo 23:59
 * [osa5](#osa-5) deadline 4.3. klo 23:59
+* [osa6](#osa-6) deadline 11.3. klo 23:59
 
 ## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
 
@@ -1611,7 +1612,6 @@ ei kenttä _blog.user_ ole tyypiltään merkkijono vaan _object_. Eli jos haluat
 if ( blog.user.toString() === userid.toString() ) ...
 ```
 
-
 ## Osa 5
 
 Deadline 4.3. klo 23:59
@@ -2084,7 +2084,7 @@ Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdo
 Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
 
 ```bash
-cd bloglist-frontend   // eli mene ensin kloonatun repositorion hakemistoon
+cd redux-anecdotes   // eli mene ensin kloonatun repositorion hakemistoon
 rm -rf .git
 ```
 
@@ -2110,3 +2110,349 @@ Huolehdi siitä, että anekdootit pysyvät äänten mukaisessa suuruusjärjetyks
 #### 5.21* anekdootit, osa 3
 
 Tee sovellukseen mahdollisuus uusien anekdoottien lisäämiselle.
+
+
+## Osa 6
+
+Deadline 11.3. klo 23:59
+
+Osassa on 23 tehtävää, joista **mikään ei ole pakollinen**. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+
+<div class='important'>
+
+<p>Ennen kun teet tehtäviä, on enemmän kuin suositeltavaa, että käyt huolellisesti läpi <a href='https://fullstack-hy.github.io/osa6/'>osan 6 materiaalin</a>. Tehtävien tekeminen ilman materiaalin lukemista tapahtuu täysin omalla vastuulla.</p>
+
+</div>
+
+Seuraavissa tehtävissä parannellaan edellisen osan anekdoottisovellusta. Ota ratkaisusi pohjaksi repositoriossa <https://github.com/FullStack-HY/redux-anecdotes-v2> oleva koodi.
+
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+
+```bash
+cd redux-anecdotes-v2   // eli mene ensin kloonatun repositorion hakemistoon
+rm -rf .git
+```
+
+Sovellus käynnistyy normaaliin tapaan, mutta joudut ensin asentamaan sovelluksen riippuvuudet:
+
+```bash
+npm install
+npm start
+```
+
+### yhdistetyt reducerit
+
+#### 6.1 ESlint
+
+Ota projektiin käyttöön ESlint. Määrittele haluamasi kaltainen konfiguraatio.
+
+#### 6.2 paremmat anekdootit, osa 1
+
+Sovelluksen komponenteissa viitataan suoraan actioneihin:
+
+```react
+class AnecdoteForm extends React.Component {
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const content = e.target.anecdote.value
+    this.props.store.dispatch({
+      type: 'CREATE',
+      content
+    })
+
+  }
+  // ...
+}
+```
+
+Tämä ei ole hyvä tapa. Eriytä action-olioiden luominen [action creator](https://redux.js.org/docs/basics/Actions.html#action-creators) -funktioihin. Sijoita creatorit tiedostoon _src/reducers/anecdoteReducer.js_.
+
+#### 6.3 paremmat anekdootit, osa 2
+
+Sovelluksessa on valmiina komponentin _Notification_ runko:
+
+```react
+class Notification extends React.Component {
+  render() {
+    const style = {
+      border: 'solid',
+      padding: 10,
+      borderWidth: 1
+    }
+    return (
+      <div style={style}>
+        render here notification...
+      </div>
+    )
+  }
+}
+```
+
+Laajenna komponenttia siten, että se renderöi redux-storeen talletetun viestin, eli renderöitävä komponentti muuttuu muodoon:
+
+```react
+return (
+  <div style={style}>
+    {this.props.store.getState()...}
+  </div>
+)
+```
+
+Joudut siis muuttamaan/laajentamaan sovelluksen olemassaolevaa reduceria. Tee toiminnallisuutta varten oma reduceri ja siirry käyttämään sovelluksessa yhdistettyä reduceria osan 6 materiaalin tapaan.
+
+Tässä vaiheessa sovelluksen ei vielä tarvitse osata käyttää _Notification_ komponenttia järkevällä tavalla, riittää että sovellus toimii ja näyttää _notificationReducerin_ alkuarvoksi asettaman viestin.
+
+#### 6.4 paremmat anekdootit, osa 3
+
+Laajenna sovellusta siten, että se näyttää _Notification_-komponentin avulla viiden sekunnin ajan kun sovelluksessa äänestetään tai luodaan uusia anekdootteja:
+
+![]({{ "/assets/teht/37.png" | absolute_url }})
+
+Notifikaation asettamista ja poistamista varten kannattaa kannattaa toteuttaa [action creatorit](https://redux.js.org/docs/basics/Actions.html#action-creators).
+
+#### 6.5 paremmat anekdootit, osa 4
+
+Toteuta sovellukseen näytettävien muistiinpanojen filtteröiminen
+
+![]({{ "/assets/teht/38.png" | absolute_url }})
+
+Säilytä filtterin tila redux storessa, eli käytännössä kannattaa jälleen luoda uusi reduceri ja action creatorit.
+
+Tee filtterin ruudulla näyttämistä varten komponentti _Filter_. Voit ottaa sen pohjaksi seuraavan
+
+```bash
+class Filter extends React.Component {
+  handleChange = (event) => {
+    // input-kentän arvo muuttujassa event.target.value
+  }
+  render() {
+    const style = {
+      marginBottom: 10
+    }
+
+    return (
+      <div style={style}>
+        filter <input onChange={this.handleChange}/>
+      </div>
+    )
+  }
+}
+```
+
+### connect
+
+#### 6.6 paremmat anekdootit, osa 5
+
+Sovelluksessa välitetään _redux store_ tällä hetkellä kaikille komponenteille propseina.
+
+Ota käyttöön kirjasto [react-redux](https://github.com/reactjs/react-redux) ja muuta komponenttia _Notification_ niin, että se pääsee käsiksi tilaan _connect_-funktion välityksellä.
+
+Huomaa, että toimiakseen _contect_ edellyttää että sovelukselle on määriteltävä [Provider](https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store).
+
+
+#### 6.7 paremmat anekdootit, osa 6
+
+Tee sama komponentille _Filter_ ja _AnecdoteForm_.
+
+#### 6.8 paremmat anekdootit, osa 7
+
+Muuta myös _AnecdoteList_ käyttämään connectia.
+
+Poista turhaksi staten propseina tapahtuva välittäminen, eli pelkistä _App_ muotoon:
+
+```react
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Programming anecdotes</h1>
+        <Notification />
+        <AnecdoteForm />
+        <AnecdoteList />
+      </div>
+    )
+  }
+}
+```
+
+#### 6.9 paremmat anekdootit, osa 8
+
+Välitä komponentille _AnecdoteList_ connectin avulla ainoastaan yksi stateen liittyvä propsi, filtterin tilan perusteella näytettävät anekdootit samaan tapaan kuin materiaalin luvussa [Presentational/Container revisited](osa6/#Presentational/Container-revisited).
+
+Komponentin _AnecdoteList_ metodi _render_ siis typistyy suunnilleen seuraavaan muotoon
+
+```react
+class AnecdoteList extends React.Component {
+  // ...
+  render() {
+    return (
+      <div>
+        <h2>Anecdotes</h2>
+        <Filter />
+        {this.props.anecdotesToShow.map(anecdote =>
+          <div key={anecdote.id}>
+            ...
+          </div>
+        )}
+      </div>
+    )
+  )
+}
+```
+
+### redux ja backend
+
+#### 6.10 anekdootit ja backend, osa 1
+
+Hae sovelluksen käynnistyessä anekdootit json-serverillä toteutetusta backendistä.
+
+Backendin alustavan sisällön saat esim. [täältä](https://github.com/FullStack-HY/redux-anecdotes-v2/wiki).
+
+#### 6.11 anekdootit ja backend, osa 2
+
+Muuta uusien anekdoottien luomista siten, että anekdootit talletetaan backendiin.
+
+#### 6.12 anekdootit ja backend, osa 3
+
+Muuta myös äänestäminen siten, että anekdootit talletetaan backendiin. Jos teet talletuksen HTTP PUT -operaatiolla, niin muista että joudut korvaamaan tallettaessa koko olion.
+
+### thunk
+
+#### 6.13 anekdootit ja backend, osa 4
+
+Muuta redux-storen alustus tapahtumaan _redux-thunk_-kirjaston avulla toteutettuun asynkroiseen actioniin.
+
+#### 6.14 anekdootit ja backend, osa 5
+
+Muuta myös uuden anekdootin luominen ja äänestäminen tapahtumaan _redux-thunk_-kirjaston avulla toteutettuihin asynkronisiin actioneihin.
+
+#### 6.15 anekdootit ja backend, osa 6
+
+Notifikaatioiden tekeminen on nyt hieman ikävää, sillä se edellyttää kahden actionin tekemistä ja _setTimeout_-funktion käyttöä:
+
+```js
+this.props.notifyWith(`you voted '${anecdote.content}'`)
+setTimeout(() => {
+  this.props.clearNotification()
+}, 10000)
+```
+
+Tee asynkrooninen action creator, joka mahdollistaa notifikaation antamisen seuraavasti:
+
+```js
+this.props.notify(`you voted '${anecdote.content}'`, 10)
+```
+
+eli ensimmäisenä parametrina on renderöitävä teksti ja toisena notifikaation näyttöaika sekunneissa.
+
+Ota paranneltu notifikaatiotapa käyttöön sovelluksessasi.
+
+### router
+
+Jatketaan anekdoottien parissa. Ota seuraaviin tehtäviin pohjaksi repositoriossa <https://github.com/mluukkai/routed-anecdotes> oleva reduxiton anekdoottisovellus.
+
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+
+```bash
+cd routed-anecdotes   // eli mene ensin kloonatun repositorion hakemistoon
+rm -rf .git
+```
+
+Sovellus käynnistyy normaaliin tapaan, mutta joudut ensin asentamaan sovelluksen riippuvuudet:
+
+```bash
+npm install
+npm start
+```
+
+#### 6.16 routed anecdotes, osa 1
+
+Lisää sovellukseen React Router siten, että _Menu_-komponentissa olevia linkkejä klikkailemalla saadaan säädeltyä näytettävää näkymää.
+
+Sovelluksen juuressa, eli polulla _/_ näytetään anekdoottien lista:
+
+![]({{ "/assets/teht/40.png" | absolute_url }})
+
+Pohjala oleva _Footer_-komponentti tulee näyttää aina.
+
+Uuden anekdootin luominen tapahtuu esim. polulla _create_:
+
+![]({{ "/assets/teht/41.png" | absolute_url }})
+
+Huom: jos saat seuraavan virheilmoituksen
+
+![]({{ "/assets/teht/39.png" | absolute_url }})
+
+pääset siitä eroon sisällyttämällä kaiken Router-elementin sisälle tulevan _div_-elementtiin:
+
+```bash
+<Router>
+  <div>
+    ...
+  </div>
+</Router>
+```
+
+#### 6.17 routed anecdotes, osa 2
+
+Toteuta sovellukseen yksittäisen anekdootin tiedot näyttävä näkymä:
+
+![]({{ "/assets/teht/42.png" | absolute_url }})
+
+Yksittäisen anekdootin sivulle navigoidaan klikkaamalla anekdootin nimeä
+
+![]({{ "/assets/teht/43.png" | absolute_url }})
+
+#### 6.18 routed anecdotes, osa 3
+
+Luomislomakkeen oletusarvoinen toiminnallisuus on melko hämmentävä, sillä kun lomakkeen avulla luodaan uusi muistiinpano, mitään ei näytä tapahtuvan.
+
+Paranna toiminnallisuutta siten, että luomisen jälkeen siirrytään automaattisesti kaikkien anekdoottien näkymään _ja_ käyttäjälle näytetään 10 sekunnin ajan onnistuneesta lisäyksestä kertova notifikaatio:
+
+![]({{ "/assets/teht/44.png" | absolute_url }})
+
+### inline-tyylit
+
+Parannellaan edellisen tehtäväsarjan ulkoasua inlinetyylien avulla.
+
+#### 6.19 styled anecdotes, osa 1
+
+Tee notifikaatioista tyylikkäämpi:
+
+![]({{ "/assets/teht/45.png" | absolute_url }})
+
+Notifikaatiosi ei tarvitse näyttää samanlaiselta, tyyli on vapaa.
+
+Googlaile tarvittaessa apua. Hyödyllisiä avainsanoja ovat ainakin _border_, _margin_ ja _padding_. [w3schoolsin](https://www.w3schools.com/css/default.asp) sivulta löytyy paljon esimerkkejä tyyleihin liittyen.
+
+#### 6.20 styled anecdotes, osa 2
+
+Paranna menun ulkoasua esim. seuraavasti
+
+![]({{ "/assets/teht/46.png" | absolute_url }})
+
+Kuten edellisessä tehtävässä, nytkin tyyli on vapaa.
+
+Jos haluat erotella aktiivisena olevan sivun linkin tyylin menussa, kannattaa vaihtaa käytössä oleva komponentti [Link](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/Link.md) sen edistyksellisempään versioon, eli komponenttiin [NavLink](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/NavLink.md).
+
+NavLink toimii Link-komponentin tavoin mutta sisältää muutamia käteviä lisäominaisuuksia kuten attribuutin [activeStyle](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/NavLink.md#activestyle-object), jonka kanssa useimmiten käytetään attribuuttia [exact](https://github.com/ReactTraining/react-router/blob/master/packages/react-router-dom/docs/api/NavLink.md#exact-bool).
+
+### UI-framework
+
+Viimeistele anekdoottisovellus lisäämällä siihen tyylejä Bootstrapin tai jonkun muun UI-frameworkin avulla.
+
+#### 6.21 styled anecdotes, osa 3
+
+Ota käyttöön bootstrap (tai valitsemasi framework) ja renderöi anekdoottien lista tyylikkäämmin, esim. bootstrapissa [ListGroup](https://react-bootstrap.github.io/components/list-group/)-komponentin tai Semanticissa [Tablen](https://react.semantic-ui.com/collections/table) avulla:
+
+![]({{ "/images/teht/47b.png" | absolute_url }})
+
+#### 6.22 styled anecdotes, osa 4
+
+Tutustu [bootstrapin](https://react-bootstrap.github.io/layout/grid/) tai [semanticin](https://react.semantic-ui.com/collections/grid) grideihin ja muuta niiden avulla sovelluksen _about_-sivua siten, että oikeassa reunassa näytetään jonkun kuuluisan tietojenkäsittelijän kuva:
+
+![]({{ "/assets/teht/48.png" | absolute_url }})
+
+#### 6.23 styled anecdotes, osa 5
+
+Lisää vielä vapaavalintaisia tyylejä valitsemallasi UI frameworkilla. Voit merkata tehtävän, jos käytät aikaa vapaavalitaisten tyylien lisäämiseen noin 30 minuuttia.

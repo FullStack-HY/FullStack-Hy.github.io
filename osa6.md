@@ -1,6 +1,7 @@
 ---
 layout: page
 title: osa 6
+inheader: yes
 permalink: /osa6/
 ---
 
@@ -17,10 +18,6 @@ permalink: /osa6/
   - React router
   - Inline-tyylit
   - UI-frameworkien käyttö
-
-<div class='important .warn'>
-KESKEN. Lukeminen omalla vastuulla.
-</div>
 
 ## Muistiinpano-sovelluksen refaktorointia
 
@@ -506,7 +503,7 @@ Sovelluksessa on vielä pieni kauneusvirhe, vaikka oletusarvosesti filtterin arv
 
 ## Tehtäviä
 
-Tee nyt tehtävät [6.1-6.4](/tehtävät#yhdistetyt-reducerit)
+Tee nyt tehtävät [6.1-6.5](/tehtävät#yhdistetyt-reducerit)
 
 ## Connect
 
@@ -1065,7 +1062,7 @@ Mukana on myös edellisestä unohtunut _VisibilityFilter_-komponentin _connect_-
 
 ## Tehtäviä
 
-Tee nyt tehtävät [104-107](/tehtävät#redux-anekdootit)
+Tee nyt tehtävät [6.6-6.9](/tehtävät#redux-anekdootit)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
@@ -1306,7 +1303,7 @@ Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-
 
 ## Tehtäviä
 
-Tee nyt tehtävät [108-110](/tehtävät#redux-ja-backend)
+Tee nyt tehtävät [6.10-6.12](/tehtävät#redux-ja-backend)
 
 ### Asynkroniset actionit ja redux thunk
 
@@ -1522,7 +1519,7 @@ Storen tietyn hetkisen tilan lisäksi on myös mahdollista tarkastella, mikä on
 
 ## tehtäviä
 
-Tee nyt tehtävät [111-113](/tehtävät#thunk)
+Tee nyt tehtävät [6.13-6.15](/tehtävät#thunk)
 
 ## React router
 
@@ -1929,7 +1926,7 @@ Render-metodissa määritellään myös kokonaan _Router_:in ulkopuolella oleva 
 
 ## tehtäviä
 
-Tee nyt tehtävät [114-116](/tehtävät#router)
+Tee nyt tehtävät [6.16-6.18](/tehtävät#router)
 
 ## Inline-tyylit
 
@@ -1996,7 +1993,7 @@ Toiminnallisen kokonaisuuden strukturointiyksikkö on React-komponentti, joka m�
 
 ## tehtäviä
 
-Tee nyt tehtävät [117 ja 118](/tehtävät#inline-tyylit)
+Tee nyt tehtävät [6.19 ja 6.20](/tehtävät#inline-tyylit)
 
 ## Valmiit käyttöliittymätyylikirjastot
 
@@ -2442,4 +2439,4 @@ Alun perin tässä osassa oli tarkoitus käyttää [Material UI](http://www.mate
 
 ## Tehtäviä
 
-Tee nyt tehtävät [119-121](/tehtävät#ui-framework)
+Tee nyt tehtävät [6.21-6.23](/tehtävät#ui-framework)
