@@ -1192,7 +1192,7 @@ noteService.getAll().then(notes =>
 > await toimii ainoastaan _async_-funktioiden sisällä, ja _index.js_:ssä oleva koodi ei ole funktiossa, joten päädyimme tilanteen yksinkertaisuuden takia tällä kertaa jättämään _async_:in käyttämättä.
 
 
-Päätetään kuitenkin siirtää muistiinpanojen alustus _App_-komponentin metodiin _[componentWillMount](https://reactjs.org/docs/react-component.html#componentwillmount)_, se on luonteva paikka alustuksille, sillä metodi suoritetaan ennen kuin sovelluksemme renderöidään ensimmäistä kertaa.
+Päätetään kuitenkin siirtää muistiinpanojen alustus _App_-komponentin metodiin _[componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount)_, se on luonteva paikka alustuksille, sillä metodi suoritetaan ennen kuin sovelluksemme renderöidään ensimmäistä kertaa.
 
 Jotta saamme action creatorin _noteInitialization_ käyttöön komponentissa _App_ tarvitsemme jälleen _connect_-metodin apua:
 
@@ -1206,7 +1206,7 @@ import { noteInitialization } from './reducers/noteReducer'
 import noteService from './services/notes'
 
 class App extends React.Component {
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const notes = await noteService.getAll()
     this.props.noteInitialization(notes)
   }
@@ -1233,7 +1233,7 @@ Näin funktio _noteInitialization_ tulee komponentin _App_ propsiksi _this.props
 Pääsimme nyt myös käyttämään aina mukavaa async/awaitia. Palvelimen kanssa kommunikointi tapahtuu joka tapauksessa funktiossa, joten sen määrittely asyncina on vaivatonta:
 
 ```js
-componentWillMount = async () => {
+componentDidMount = async () => {
   const notes = await noteService.getAll()
   this.props.noteInitialization(notes)
 }
@@ -1314,7 +1314,7 @@ Lähestymistapamme on ok, mutta siinä mielessä ikävä, että palvelimen kanss
 
 ```js
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.initializeNotes()
   }
   // ...
@@ -1404,7 +1404,7 @@ Komponentti _App_ voidaan nyt määritellä seuraavasti:
 
 ```react
 class App extends React.Component {
-  componentWillMount () {
+  componentDidMount () {
     this.props.initializeNotes()
   }
 

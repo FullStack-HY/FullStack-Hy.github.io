@@ -59,7 +59,7 @@ class App extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     noteService.getAll().then(notes =>
       this.setState({ notes })
     )
@@ -525,12 +525,12 @@ Kirjautuneen käyttäjän tiedot tallentuvat nyt local storageen ja niitä voida
 
 Sovellusta on vielä laajennettava siten, että kun sivulle tullaan uudelleen, esim. selaimen uudelleenlataamisen yhteydessä, tulee sovelluksen tarkistaa löytyykö local storagesta tiedot kirjautuneesta käyttäjästä. Jos löytyy, asetetaan ne sovelluksen tilaan ja _noteServicelle_.
 
-Sopiva paikka tähän on _App_-komponentin metodi [componentwillmount](https://reactjs.org/docs/react-component.html#componentwillmount) johon tutustuimme jo [osassa 2](/osa2#Komponenttien-lifecycle-metodit).
+Sopiva paikka tähän on _App_-komponentin metodi [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount) johon tutustuimme jo [osassa 2](/osa2#Komponenttien-lifecycle-metodit).
 
 Kyseessä on siis ns. lifecycle-metodi, jota React-kutsuu juuri ennen kuin komponentti ollaan renderöimässä ensimmäistä kertaa. Metodissa on tällä hetkellä jo muistiinpanot palvelimelta lataava koodi. Laajennetaan koodia seuraavasti
 
 ```js
-componentWillMount() {
+componentDidMount() {
   noteService.getAll().then(notes =>
     this.setState({ notes })
   )
@@ -1545,7 +1545,7 @@ const localStorageMock = {
 window.localStorage = localStorageMock
 ```
 
-Toinen ongelmistamme on se, että sovellus hakee näytettävät muistiinpanot palvelimelta. Muistiinpanojen haku tapahtuu heti komponentin _App_ luomisen jälkeen, kun metodi _componentWillMount_ kutsuu _noteService_:n metodia _getAll_:
+Toinen ongelmistamme on se, että sovellus hakee näytettävät muistiinpanot palvelimelta. Muistiinpanojen haku tapahtuu heti komponentin _App_ luomisen jälkeen, kun metodi _componentDidMount_ kutsuu _noteService_:n metodia _getAll_:
 
 
 ```js

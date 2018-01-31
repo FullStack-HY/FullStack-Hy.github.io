@@ -1295,7 +1295,7 @@ Ei ole kuitenkaan ihan selvää, mihin kohtaan komponentin koodia komento _axios
 
 Reactin luokkien avulla määritellyillä komponenteilla voidaan määritellä joukko [lifecycle](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class)-metodeita, eli metodeita, joita React kutsuu tietyssä komponentin "elinkaaren" vaiheessa.
 
-Yleinen tapa datan palvelimelta tapahtuvaan hakemiseen on suorittaa se metodissa [componentWillMount](https://reactjs.org/docs/react-component.html#componentwillmount). React kutsuu metodia sen jälkeen kun konstruktori on suoritettu ja _render_-metodia ollaan kutsumassa ensimmäistä kertaa.
+Yleinen tapa datan palvelimelta tapahtuvaan hakemiseen on suorittaa se metodissa [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount). React kutsuu metodia sen jälkeen kun konstruktori on suoritettu ja _render_-metodia ollaan kutsumassa ensimmäistä kertaa.
 
 Muutetaan sovellusta nyt seuraavasti.
 
@@ -1327,7 +1327,7 @@ class App extends React.Component {
     console.log('constructor')
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('will mount')
     axios
       .get('http://localhost:3001/notes')
@@ -1344,7 +1344,7 @@ class App extends React.Component {
 }
 ```
 
-Eli konstruktorissa asetetaan tilan _notes_ kentäksi tyhjä taulukko. Lifecycle-metodi _componentWillMount_ hakee datan axiosin avulla ja rekisteröi takaisinkutsufunktion, joka promisen valmistumisen (_fulfillment_) yhteydessä päivittää komponentin tilan asettamalla palvelimen palauttamat muistiinpanot tilan kentän _notes_ arvoksi.
+Eli konstruktorissa asetetaan tilan _notes_ kentäksi tyhjä taulukko. Lifecycle-metodi _componentDidMount_ hakee datan axiosin avulla ja rekisteröi takaisinkutsufunktion, joka promisen valmistumisen (_fulfillment_) yhteydessä päivittää komponentin tilan asettamalla palvelimen palauttamat muistiinpanot tilan kentän _notes_ arvoksi.
 
 Koodiin on myös lisätty muutama aputulostus, jotka auttavat hahmottamaan miten suoritus etenee.
 
@@ -1358,9 +1358,9 @@ promise fulfilled
 render
 </pre>
 
-Ensin siis suoritetaan konstruktori, ja sen jälkeen metodi _componentWillMount_. Tämän jälkeen kutsutaan kuitenkin metodia _render_, miksi näin?
+Ensin siis suoritetaan konstruktori, ja sen jälkeen metodi _componentDidMount_. Tämän jälkeen kutsutaan kuitenkin metodia _render_, miksi näin?
 
-Metodissa _componentWillMount_ suoritetaan axiosin avulla HTTP GET -pyyntö ja samalla _rekisteröidään_ pyynnön palauttamalle promiselle tapahtumankäsittelijä:
+Metodissa _componentDidMount_ suoritetaan axiosin avulla HTTP GET -pyyntö ja samalla _rekisteröidään_ pyynnön palauttamalle promiselle tapahtumankäsittelijä:
 
 ```js
 axios.get('http://localhost:3001/notes').then(response => {
@@ -1715,7 +1715,7 @@ App extends React.Component {
 moduulin funktioita käytetään importatun muuttujan _noteService_ kautta seuraavasti:
 
 ```js
-componentWillMount() {
+componentDidMount() {
   noteService
     .getAll()
     .then(response => {
@@ -1832,7 +1832,7 @@ Moduulin muutoksen jälkeen täytyy komponentti _App_ muokata _noteService_:n me
 ```js
 class App extends React.component {
 
-  componentWillMount() {
+  componentDidMount() {
     noteService
       .getAll()
       .then(response => {
