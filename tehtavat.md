@@ -1863,7 +1863,7 @@ const SimpleBlog = ({ blog, onClick }) => (
 export default SimpleBlog
 ```
 
-Tee testi, joka varmistaa, että komponentti renderöi blogin titlen, authorin ja likejen määrän,
+Tee testi, joka varmistaa, että komponentti renderöi blogin titlen, authorin ja likejen määrän.
 
 Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia.
 
@@ -1916,7 +1916,7 @@ Tee myös testi, joka varmistaa, että kun käyttäjä on kirjautuneena, blogit 
 
 **Vihje 1:**
 
-Kirjautuminen kannattaa toteuttaa manipulomalla testeissä local storagea. Jos määrittelet testeille mock-localstoragen osan 5 materiaalia seuraten, voit käyttää testikoodissa local storagea seuraavasti:
+Kirjautuminen kannattaa toteuttaa manipuloimalla testeissä local storagea. Jos määrittelet testeille mock-localstoragen osan 5 materiaalia seuraten, voit käyttää testikoodissa local storagea seuraavasti:
 
 ```js
 const user = { 
@@ -1974,7 +1974,7 @@ Voit ottaa halutessasi tehtävän pohjaksi koodin [täältä](https://github.com
 
 Ennen sivulla näkyvää toiminnallisuutta, toteutetaan storen edellyttämä toiminnallisuus.
 
-Storeen täytyy tallettaa erikseen lukumäärä jokaisen tyyppisestä palautteesta. Storen hallitsema tila on siis muotoa:
+Storeen täytyy tallettaa erikseen lukumäärä jokaisentyyppisestä palautteesta. Storen hallitsema tila on siis muotoa:
 
 ```js
 {
@@ -2065,7 +2065,7 @@ Osan 2 luvun [Muistiinpanon tärkeyden muutos](osa2/#Muistiinpanon-tärkeyden-mu
 
 Toteuta sitten sovelluksen koko sovellus.
 
-Älä unohda, että joudut huolehtimaan siitä, että sovellus uudelleenrenderöi itsensä storen muutosten yhteydesä esim. seuraavasti:
+Älä unohda, että joudut huolehtimaan siitä, että sovellus uudelleenrenderöi itsensä storen muutosten yhteydessä esim. seuraavasti:
 
 ```bash
 const render = () => {
@@ -2320,7 +2320,7 @@ Muuta myös äänestäminen siten, että anekdootit talletetaan backendiin. Jos 
 
 #### 6.13 anekdootit ja backend, osa 4
 
-Muuta redux-storen alustus tapahtumaan _redux-thunk_-kirjaston avulla toteutettuun asynkroiseen actioniin.
+Muuta redux-storen alustus tapahtumaan _redux-thunk_-kirjaston avulla toteutettuun asynkroniseen actioniin.
 
 #### 6.14 anekdootit ja backend, osa 5
 
@@ -2373,7 +2373,7 @@ Sovelluksen juuressa, eli polulla _/_ näytetään anekdoottien lista:
 
 ![]({{ "/assets/teht/40.png" | absolute_url }})
 
-Pohjala oleva _Footer_-komponentti tulee näyttää aina.
+Pohjalla oleva _Footer_-komponentti tulee näyttää aina.
 
 Uuden anekdootin luominen tapahtuu esim. polulla _create_:
 
@@ -2383,7 +2383,7 @@ Huom: jos saat seuraavan virheilmoituksen
 
 ![]({{ "/assets/teht/39.png" | absolute_url }})
 
-pääset siitä eroon sisällyttämällä kaiken Router-elementin sisälle tulevan _div_-elementtiin:
+pääset siitä eroon sisällyttämällä kaiken Router-elementin sisälle tulevaan _div_-elementtiin:
 
 ```bash
 <Router>
