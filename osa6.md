@@ -116,7 +116,7 @@ Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-
 
 ## ESlint
 
-Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös fronendissa. 
+Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa. 
 
 Create-react-app on asentanut projektille eslintin valmiiksi, joten ei tarvita muuta kun sopiva konfiguraatio tiedoston _.eslintrc.js_. 
 
@@ -209,7 +209,7 @@ Toteutetaan sovellukseen näytettävien muistiinpanojen filtteröinti, jonka avu
 
 ![]({{ "/assets/6/1.png" | absolute_url }})
 
-Alitetaan todella suoraviivaisella toteutuksella:
+Aloitetaan todella suoraviivaisella toteutuksella:
 
 ```react
 class App extends React.Component {
@@ -239,7 +239,7 @@ Koska painikkeiden attribuutin _name_ arvo on kaikilla sama, muodostavat ne _nap
 
 Napeille on määritelty muutoksenkäsittelijä, joka tällä hetkellä ainoastaan tulostaa painettua nappia vastaavan merkkijonon konsoliin.
 
-Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lisäksi sovelluksen storeen myös _filtterin arvon_. Eli muutoksen jälkeen storessa oleva tilan tulisi näyttää seuraavalta:
+Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lisäksi sovelluksen storeen myös _filtterin arvon_. Eli muutoksen jälkeen storessa olevan tilan tulisi näyttää seuraavalta:
 
 ```js
 {
