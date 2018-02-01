@@ -116,7 +116,7 @@ Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-
 
 ## ESlint
 
-Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös fronendissa. 
+Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa. 
 
 Create-react-app on asentanut projektille eslintin valmiiksi, joten ei tarvita muuta kun sopiva konfiguraatio tiedoston _.eslintrc.js_. 
 
@@ -209,7 +209,7 @@ Toteutetaan sovellukseen näytettävien muistiinpanojen filtteröinti, jonka avu
 
 ![]({{ "/assets/6/1.png" | absolute_url }})
 
-Alitetaan todella suoraviivaisella toteutuksella:
+Aloitetaan todella suoraviivaisella toteutuksella:
 
 ```react
 class App extends React.Component {
@@ -239,7 +239,7 @@ Koska painikkeiden attribuutin _name_ arvo on kaikilla sama, muodostavat ne _nap
 
 Napeille on määritelty muutoksenkäsittelijä, joka tällä hetkellä ainoastaan tulostaa painettua nappia vastaavan merkkijonon konsoliin.
 
-Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lisäksi sovelluksen storeen myös _filtterin arvon_. Eli muutoksen jälkeen storessa oleva tilan tulisi näyttää seuraavalta:
+Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lisäksi sovelluksen storeen myös _filtterin arvon_. Eli muutoksen jälkeen storessa olevan tilan tulisi näyttää seuraavalta:
 
 ```js
 {
@@ -294,7 +294,7 @@ export const filterChange = (filter) => {
 export default filterReducer
 ```
 
-Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa funktion [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html) avulla.
+Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa reduceria funktion [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html) avulla.
 
 Määritellään yhdistetty reduceri tiedostossa _index.js_:
 
@@ -340,7 +340,7 @@ const reducer = combineReducers({
 })
 ```
 
-Näin tehdyn reducerin määrittelemän storen tila on olio, jossa on kaksi kenttä, _notes_ ja _filter_. Tilan kentän _notes_ arvon määrittelee _noteReducer_, jonka ei tarvitse välittää mitään tilan muista kentistä. Vastavasti _filter_ kentän käsittely tapahtuu _filterReducer_:in avulla.
+Näin tehdyn reducerin määrittelemän storen tila on olio, jossa on kaksi kenttää, _notes_ ja _filter_. Tilan kentän _notes_ arvon määrittelee _noteReducer_, jonka ei tarvitse välittää mitään tilan muista kentistä. Vastaavasti _filter_ kentän käsittely tapahtuu _filterReducer_:in avulla.
 
 Ennen muun koodin muutoksia, kokeillaan vielä konsolista, miten actionit muuttavat yhdistetyn reducerin muodostamaa staten tilaa:
 
