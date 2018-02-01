@@ -116,11 +116,11 @@ Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-
 
 ## ESlint
 
-Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa. 
+Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa.
 
-Create-react-app on asentanut projektille eslintin valmiiksi, joten ei tarvita muuta kun sopiva konfiguraatio tiedoston _.eslintrc.js_. 
+Create-react-app on asentanut projektille eslintin valmiiksi, joten ei tarvita muuta kun sopiva konfiguraatio tiedoston _.eslintrc.js_.
 
-Tiedoston voi generoida komennolla 
+Tiedoston voi generoida komennolla
 
 ```bash
 npx eslint --init
@@ -136,7 +136,7 @@ Jotta pääsemme eroon testeissä olevista turhista huomautuksista asennetaan [e
 npm add --save-dev eslint-plugin-jest
 ```
 
-ja otetaan se käyttöön manuaalin opastamalla tavalla. 
+ja otetaan se käyttöön manuaalin opastamalla tavalla.
 
 Jos vastailit initialisoinnissa kysymyksiin kuvan osoittamalla tavalla, asentuu projektiin  [eslint-react-plugin](https://github.com/yannickcr/eslint-plugin-react). Laajennetaan konfiguraatiota pluginin [manuaalin](https://github.com/yannickcr/eslint-plugin-react#configuration) ohjeen mukaan.
 
@@ -255,7 +255,7 @@ Tällä hetkellähän tilassa on ainoastaan muistiinpanot sisältävä taulukko.
 
 ### Yhdisteyt reducerit
 
-Voisimme periaatteessa muokata olemassaolevaa reduceria ottamaan huomioon muuttuneen tilanteen. Parempi ratkaisu on kuitenkin määritellä tässä tilanteessa uusi, filtterin arvosta huolehtiva reduceri:
+Voisimme periaatteessa muokata jo olemassaolevaa reduceria ottamaan huomioon muuttuneen tilanteen. Parempi ratkaisu on kuitenkin määritellä tässä tilanteessa uusi, filtterin arvosta huolehtiva reduceri:
 
 ```js
 const filterReducer = (state = 'ALL', action) => {
@@ -331,7 +331,7 @@ Konsoliin tulostuu storen tila:
 
 eli store on juuri siinä muodossa missä haluammekin sen olevan!
 
-Tarkastellaan vielä yhdisteytyn reducerin luomista
+Tarkastellaan vielä yhdistetyn reducerin luomista
 
 ```js
 const reducer = combineReducers({
@@ -556,7 +556,7 @@ Moduuli eksporttaa nyt alkuperäisen komponentin sijaan _yhdistetyn komponentin_
 
 Komponentti tarvitsee storesta sekä muistiinpanojen listan, että filtterin arvon. Funktion _connect_ ensimmäisenä parametrina voidaan määritellä funktio [mapStateToProps](https://github.com/reactjs/react-redux/blob/master/docs/api.md#arguments), joka liittää joitakin storen tilan perusteella määriteltyjä asioita connectilla muodostetun _yhdistetyn komponentin_ propseiksi.
 
-Jos määritellän:
+Jos määritellään:
 
 ```js
 const mapStateToProps = (state) => {
@@ -573,7 +573,7 @@ const ConnectedNoteList = connect(
 export default ConnectedNoteList
 ```
 
-on komponentin _NoteList_ sisällä mahdollista viitata storen tilan, esim. muistiinpanoihin suoraan propsin kautta _props.notes_ sen sijaan että käytettäisiin suoraan contextia muodossa _this.context.store.getState().notes_. Vastaavasti _props.filter_ viittaa storessa olevaan filter-kentän tilaan.
+on komponentin _NoteList_ sisällä mahdollista viitata storen tilaan, esim. muistiinpanoihin suoraan propsin kautta _props.notes_ sen sijaan, että käytettäisiin suoraan contextia muodossa _this.context.store.getState().notes_. Vastaavasti _props.filter_ viittaa storessa olevaan filter-kentän tilaan.
 
 Metodin _render_ sisältö pelkistyy seuraavasti
 
@@ -634,7 +634,7 @@ const ConnectedNoteList = connect(
 export default ConnectedNoteList
 ```
 
-Nyt komponentti voi dispatchata suoraan action creatorin _importanceToggling_ määritteleän actionin kutsumalla prosien kautta saamaansa funktiota koodissa:
+Nyt komponentti voi dispatchata suoraan action creatorin _importanceToggling_ määrittelemän actionin kutsumalla prosien kautta saamaansa funktiota koodissa:
 
 ```js
 class NoteList extends React.Component {
@@ -658,7 +658,7 @@ eli sen lisäksi että _NoteList_ pääsee storen tilaan propsien _props.notes_ 
 
 Koska komponentti saa storeen liittyvät asiat propseina, voidaan koodista poistaa metodit _componentDidMount_ ja _componentWillUnMount_ jotka huolehtivat komponentin uudelleenrenderöitymisestä storen tilan muuttuessa. Connect tekee tämän puolestamme.
 
-Komponentti _NoteList_ ei tarvitse storea enää mihinkään, se saa kaiken tarvitsemansa propseina _connect_-funktion ansiosta. Komponentti ei käytä enää suoraan contextia joten koodi ykinkertaistuu seuraavaan muotoon:
+Komponentti _NoteList_ ei tarvitse storea enää mihinkään, se saa kaiken tarvitsemansa propseina _connect_-funktion ansiosta. Komponentti ei käytä enää suoraan contextia joten koodi yksinkertaistuu seuraavaan muotoon:
 
 ```react
 import React from 'react'
@@ -815,7 +815,7 @@ import { noteCreation } from './../reducers/noteReducer'
 
 ansiosta komponentin sisältä on mahdollista viitata funktioon myös suoraan, eli _noteCreation_. Näin ei kuitenkaan tule tehdä, sillä silloin on kyseessä alkuperäinen action creator joka _ei sisällä dispatchausta_.
 
-Jos tulostamme funktiot koodin (emme olekaan vielä käyttäneet kurssilla tätä erittäin hyödyllistä debug-kikkaa) sisällä
+Jos tulostamme funktiot koodin sisällä (emme olekaan vielä käyttäneet kurssilla tätä erittäin hyödyllistä debug-kikkaa)
 
 ```react
 render() {
@@ -896,7 +896,7 @@ export default connect(
 )(NoteForm)
 ```
 
-Tässä vaihtoehtoisessa tavassa _mapDispatchToProps_ on funktio, jota _connect_ kutsuu antaen sille parametriksi storen _dispatch_-funktion. Funktion paluuarvona on olio, joka määrittelee joukon funktioita, jotka annetaan connectattavalle komponentille propsiksi. Esimerkkimme määrittelee propsin _createTodo_ olevan funktio
+Tässä vaihtoehtoisessa tavassa _mapDispatchToProps_ on funktio, jota _connect_ kutsuu antaen sille parametriksi storen _dispatch_-funktion. Funktion paluuarvona on olio, joka määrittelee joukon funktioita, jotka annetaan connectattavalle komponentille propsiksi. Esimerkkimme määrittelee propsin _createTodo_ olevan funktion
 
 ```js
 (value) => {
@@ -1479,7 +1479,7 @@ Selaimen lisäosan lisäksi debugatessa tarvitaan kirjastoa [redux-devtools-exte
 npm install --save redux-devtools-extension
 ```
 
-Storen luomistapaa täytyy hieman muttaa, että kirjasto saadaan käyttöön:
+Storen luomistapaa täytyy hieman muuttaa, että kirjasto saadaan käyttöön:
 
 ```react
 // ...
@@ -1649,7 +1649,7 @@ Manuaalin mukaan
 
 > _BrowserRouter_ is a _Router_ that uses the HTML5 history API (pushState, replaceState and the popstate event) to keep your UI in sync with the URL.
 
-Normaalisti selain lataa uuden sivun osoiterivillä olevan urlin muuttuessa. [HTML5 history API](https://css-tricks.com/using-the-html5-history-api/):n avulla _BrowserRouter_ kuitenkin mahdollistaa sen, että selaimen osoiterivillä olevaa urlia voidaan käyttää React-sovelluksen sisäiseen "reitittämiseen", eli vaikka osoiterivillä oleva url muuttuu, sivun sisältöä manipuloidaan ainoastaan Javasctiptillä ja selain ei lataa uutta sisältöä palvelimelta. Selaimen toiminta back- ja forward-toimintojen ja bookmarkien tekemisen suhteen on kuitenkin loogista, eli toimii kuten perinteisillä web-sivuilla.
+Normaalisti selain lataa uuden sivun osoiterivillä olevan urlin muuttuessa. [HTML5 history API](https://css-tricks.com/using-the-html5-history-api/):n avulla _BrowserRouter_ kuitenkin mahdollistaa sen, että selaimen osoiterivillä olevaa urlia voidaan käyttää React-sovelluksen sisäiseen "reitittämiseen", eli vaikka osoiterivillä oleva url muuttuu, sivun sisältöä manipuloidaan ainoastaan Javascriptillä ja selain ei lataa uutta sisältöä palvelimelta. Selaimen toiminta back- ja forward-toimintojen ja bookmarkien tekemisen suhteen on kuitenkin loogista, eli toimii kuten perinteisillä web-sivuilla.
 
 Routerin sisälle määritellään selaimen osoiteriviä muokkaavia _linkkejä_ komponentin [Link](https://reacttraining.com/react-router/web/api/Link) avulla. Esim.
 
@@ -2279,7 +2279,7 @@ import { Table } from 'semantic-ui-react'
 const Notes = ({ notes }) => (
   <div>
     <h2>Notes</h2>
-    <Table striped celled> 
+    <Table striped celled>
       <Table.Body>
         {notes.map(note =>
           <Table.Row key={note.id}>
@@ -2326,7 +2326,7 @@ const Login = ({ onLogin, history }) => {
         </Form.Field>
         <Button type='submit'>login</Button>
       </Form>   
-    </div> 
+    </div>
   )
 }
 ```
@@ -2400,7 +2400,7 @@ Esimerkin sovelluksen koodi kokonaisuudessaan [täällä](https://github.com/Ful
 
 Ero react-bootstrapin ja react-semantic-ui:n välillä ei ole suuri. On makuasia kummalla tuotettu ulkoasu on tyylikkäämpi. Oma vuosia kestäneen bootstrapin käytön jälkeinen sirtymiseni semanticiin johtuu semanticin saumattomammasta React-tuesta, laajemmasta valmiiden komponenttien valikoimasta ja paremmasta sekä selkeämmästä dokumentaatioista. Semantic UI projektin kehitystyön jatkuvuuden suhteen on kuitenkin viime aikoina ollut ilmoilla muutamia [kysymysmerkkejä](https://github.com/Semantic-Org/Semantic-UI/issues/6109), ja tilannetta kannattaakin seurata.
 
-Esimerkissä käytettiin UI-frameworkeja niiden React-integraatiot tarjoavien kirjastojen kautta. 
+Esimerkissä käytettiin UI-frameworkeja niiden React-integraatiot tarjoavien kirjastojen kautta.
 
 Sen sijaan että käytimme kirjastoa [React bootstrap](https://react-bootstrap.github.io/), olisimme voineet aivan yhtä hyvin käyttää Bootstrapia suoraan, liittämällä HTML-elementteihin CSS-luokkia. Eli sen sijaan että määrittelimme esim. taulukon komponentin _Table_ avulla
 
@@ -2418,11 +2418,11 @@ olisimme voineet käyttää normaalia HTML:n taulukkoa _table_ ja CSS-luokkaa
 </table>
 ```
 
-Taulukon määrittelyssä React bootstrapin tuoma etu ei ole suuri. 
+Taulukon määrittelyssä React bootstrapin tuoma etu ei ole suuri.
 
 Tiiviimmän ja ehkä paremmin luettavissa olevan kirjoitusasun lisäksi toinen etu React-kirjastoina olevissa UI-frameworkeissa on se, että kirjastojen mahdollisesti käyttämä Javascript-koodi on sisällytetty React-komponentteihin. Esim. osa Bootstrapin komponenteista edellyttää toimiakseen muutamaakin ikävää [Javascript-riippuvuutta](https://getbootstrap.com/docs/4.0/getting-started/introduction/#js) joita emme mielellään halua React-sovelluksiin sisällyttää.
 
-React-kirjastoina tarjottavien UI-frameworkkien ikävä puoli verrattuna frameworkin "suoraan käyttöön" on React-kirjastojen API:n mahdollinen epästabiilius ja osittain huono dokumentaatio. Tosin [react-semanticin](https://react.semantic-ui.com) suhteen tilanne on paljon parempi kuiten monien muiden UI-frameworkien sillä kyseessä on virallinen React-integraatio. 
+React-kirjastoina tarjottavien UI-frameworkkien ikävä puoli verrattuna frameworkin "suoraan käyttöön" on React-kirjastojen API:n mahdollinen epästabiilius ja osittain huono dokumentaatio. Tosin [react-semanticin](https://react.semantic-ui.com) suhteen tilanne on paljon parempi kuiten monien muiden UI-frameworkien sillä kyseessä on virallinen React-integraatio.
 
 Kokonaan toinen kysymys on se kannattaako UI-frameworkkeja ylipäätän käyttää. Kukin muodostakoon oman mielipiteensä, mutta CSS:ää taitamattomalle ja puutteellisilla design-taidoilla varustetulle ne ovat varsin käyttökelpoisia työkaluja.
 
