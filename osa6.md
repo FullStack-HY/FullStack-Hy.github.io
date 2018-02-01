@@ -294,7 +294,7 @@ export const filterChange = (filter) => {
 export default filterReducer
 ```
 
-Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa funktion [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html) avulla.
+Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa reduceria funktion [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html) avulla.
 
 Määritellään yhdistetty reduceri tiedostossa _index.js_:
 
@@ -340,7 +340,7 @@ const reducer = combineReducers({
 })
 ```
 
-Näin tehdyn reducerin määrittelemän storen tila on olio, jossa on kaksi kenttä, _notes_ ja _filter_. Tilan kentän _notes_ arvon määrittelee _noteReducer_, jonka ei tarvitse välittää mitään tilan muista kentistä. Vastavasti _filter_ kentän käsittely tapahtuu _filterReducer_:in avulla.
+Näin tehdyn reducerin määrittelemän storen tila on olio, jossa on kaksi kenttää, _notes_ ja _filter_. Tilan kentän _notes_ arvon määrittelee _noteReducer_, jonka ei tarvitse välittää mitään tilan muista kentistä. Vastaavasti _filter_ kentän käsittely tapahtuu _filterReducer_:in avulla.
 
 Ennen muun koodin muutoksia, kokeillaan vielä konsolista, miten actionit muuttavat yhdistetyn reducerin muodostamaa staten tilaa:
 
