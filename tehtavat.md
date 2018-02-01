@@ -435,7 +435,7 @@ Laajenna sovellusta siten, että näytettävää anekdoottia on mahdollista ää
 Olio voidaan kopioida esim. seuraavasti:
 
 ```js
-this.state.pisteet = { 0: 1, 1: 3, 2: 4, 3: 2} 
+this.state.pisteet = { 0: 1, 1: 3, 2: 4, 3: 2}
 
 const kopio = {...pisteet}
 kopio[2] += 1   // kasvatetaan olion kentän 2 arvoa yhdellä
@@ -1645,7 +1645,7 @@ Ota tehtävien pohjaksi [Githubissa](https://github.com/FullStack-HY/bloglist-fr
 git clone git@github.com:FullStack-HY/bloglist-frontend.git
 ```
 
-Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio*
 
 ```bash
 cd bloglist-frontend   // eli mene ensin kloonatun repositorion hakemistoon
@@ -1919,9 +1919,9 @@ Tee myös testi, joka varmistaa, että kun käyttäjä on kirjautuneena, blogit 
 Kirjautuminen kannattaa toteuttaa manipuloimalla testeissä local storagea. Jos määrittelet testeille mock-localstoragen osan 5 materiaalia seuraten, voit käyttää testikoodissa local storagea seuraavasti:
 
 ```js
-const user = { 
-  username: 'tester', 
-  token: '1231231214', 
+const user = {
+  username: 'tester',
+  token: '1231231214',
   name: 'Teuvo Testaaja'
 }
 
@@ -2055,7 +2055,7 @@ Testit olettavat että reduceri on talletettu tiedostoon _reducer.js_.
 
 **Toteuta reducer ja tee sille testit.**
 
-Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas funktio_. Huomaa, että valmiin ensimmäisen testin on syytä mennä läpi koska redux olettaa, että reduceri palauttaa järkevän alkutilan kun sitä kutsutaan siten että ensimmäinen parametri, eli aiempaa tilaa edustava _state_ on _undefined_. 
+Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas funktio_. Huomaa, että valmiin ensimmäisen testin on syytä mennä läpi koska redux olettaa, että reduceri palauttaa järkevän alkutilan kun sitä kutsutaan siten että ensimmäinen parametri, eli aiempaa tilaa edustava _state_ on _undefined_.
 
 Aloita laajentamalla reduceria siten, että molemmat testeistä menevät läpi. Lisää tämän jälkeen loput testit ja niiden toteuttava toiminnallisuus.
 
@@ -2078,10 +2078,10 @@ store.subscribe(render)
 
 ### redux-anekdootit
 
-Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdoottien äänestyssovelluksesta. Voit ottaa ratkaisusi pohjaksi repositoriossa <https://github.com/FullStack-HY/redux-anecdotes> olevan projektin. 
+Toteutetaan osan lopuksi versio toisesta ensimmäisen osan tehtävästä, anekdoottien äänestyssovelluksesta. Voit ottaa ratkaisusi pohjaksi repositoriossa <https://github.com/FullStack-HY/redux-anecdotes> olevan projektin.
 
 
-Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio*
 
 ```bash
 cd redux-anecdotes   // eli mene ensin kloonatun repositorion hakemistoon
@@ -2126,7 +2126,7 @@ Osassa on 23 tehtävää, joista **mikään ei ole pakollinen**. Palautuksen tek
 
 Seuraavissa tehtävissä parannellaan edellisen osan anekdoottisovellusta. Ota ratkaisusi pohjaksi repositoriossa <https://github.com/FullStack-HY/redux-anecdotes-v2> oleva koodi.
 
-Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio*
 
 ```bash
 cd redux-anecdotes-v2   // eli mene ensin kloonatun repositorion hakemistoon
@@ -2247,7 +2247,7 @@ Sovelluksessa välitetään _redux store_ tällä hetkellä kaikille komponentei
 
 Ota käyttöön kirjasto [react-redux](https://github.com/reactjs/react-redux) ja muuta komponenttia _Notification_ niin, että se pääsee käsiksi tilaan _connect_-funktion välityksellä.
 
-Huomaa, että toimiakseen _contect_ edellyttää että sovelukselle on määriteltävä [Provider](https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store).
+Huomaa, että toimiakseen _connect_ edellyttää että sovelukselle on määriteltävä [Provider](https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store).
 
 
 #### 6.7 paremmat anekdootit, osa 6
@@ -2351,7 +2351,7 @@ Ota paranneltu notifikaatiotapa käyttöön sovelluksessasi.
 
 Jatketaan anekdoottien parissa. Ota seuraaviin tehtäviin pohjaksi repositoriossa <https://github.com/mluukkai/routed-anecdotes> oleva reduxiton anekdoottisovellus.
 
-Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio* 
+Jos kloonaat projektin olemassaolevan git-reposition sisälle, *poista kloonatun sovelluksen git-konfiguraatio*
 
 ```bash
 cd routed-anecdotes   // eli mene ensin kloonatun repositorion hakemistoon
