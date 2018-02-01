@@ -4,7 +4,7 @@ title: osa 7
 permalink: /osa7/
 ---
 
-<div class="important warn">
+<div class="important .warn">
   <h1>Tiedostoa päivitetään, lukeminen omalla vastuulla</h1>
 </div>
 
@@ -226,11 +226,11 @@ const config = {
 module.exports = config
 ```
 
-Konfiguraatio on Javascriptia ja tapahtuu eksporttaamalla määrittelyt sisältävä olio Noden monduulisyntakilla.
+Konfiguraatio on Javascriptia ja tapahtuu eksporttaamalla määrittelyt sisältävä olio Noden moduulisyntaksilla.
 
 Tämän hetkinen minimaalinen määrittely on aika ilmeinen, kenttä [entry](https://webpack.js.org/concepts/#entry) kertoo sen tiedoston, mistä bundlaus aloitetaan.
 
-Kenttä [output](https://webpack.js.org/concepts/#output) taas kertoo minne muodostettu bundle sijoitetaan. Kohdehakemisto täytyy määritellä absoluuttisena polkuna, se taas onnistuu helposti [path.resolve](https://nodejs.org/docs/latest-v8.x/api/path.html#path_path_resolve_paths)-metodilla. [\_\_dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) on Noden globaali muuttuja, joka viittaa nykyiseen hakemistoon.
+Kenttä [output](https://webpack.js.org/concepts/#output) taas kertoo minne muodostettu bundle sijoitetaan. Kohdehakemisto täytyy määritellä _absoluuttisena polkuna_, se taas onnistuu helposti [path.resolve](https://nodejs.org/docs/latest-v8.x/api/path.html#path_path_resolve_paths)-metodilla. [\_\_dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) on Noden globaali muuttuja, joka viittaa nykyiseen hakemistoon.
 
 ### Reactin bundlaaminen
 
@@ -322,7 +322,7 @@ const config = {
 }
 ```
 
-Loaderin määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
+Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
 
 Yksittäisen loaderin määrittely on kolmioisainen:
 
@@ -362,13 +362,13 @@ Sovellusta voi nyt kokeilla avaamalla tiedoston _build/index.html_ selaimen _ope
 
 ![]({{ "/assets/7/4.png" | absolute_url }})
 
-Tässä on jo melkein kaikki mitä tarvitsisimme React-sovelluskehitykseen.
+Tässä on jo melkein kaikki mitä tarvitsemme React-sovelluskehitykseen.
 
-### transpilaus
+### Transpilaus
 
 Prosessista, joka muuttaa Javascriptia muodosta toiseen käytetään englanninkielistä termiä [transpiling](https://en.wiktionary.org/wiki/transpile), joka taas on termi, joka viittaa koodin kääntämiseen (compile) sitä muuntamalla (transpile). Suomenkielisen termin puuttuessa käytämme prosessista tällä kurssilla nimitystä _transpilaus_.
 
-Edellisen luvun konfiguraation avulla siis _transpailaamme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) aulla.
+Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) aulla.
 
 Kuten osassa 1 jo mainittiin, läheskään kaikki selaimet eivät vielä osaa Javascriptin uusimpien versioiden ES6:n ja ES7:n ominaisuuksia ja tämän takia koodi yleensä transpiloidaan käyttämään vanhempaa Javascript-syntaksia ES5:ttä.
 
@@ -485,7 +485,7 @@ Sovelluskehitys onnistuu jo, mutta development workflow on suorastaan hirveä (a
 
 Tilanne paranee jo oleellisesti jos webpackia suoritetaan [watch](https://webpack.js.org/guides/development/#using-watch-mode)-moodissa. Määritellään tätä varten npm-skripti:
 
-```json
+```bash
 {
   // ...
   "scripts": {
@@ -507,7 +507,7 @@ npm install --save-dev webpack-dev-server
 
 Määritellään dev-serverin käynnistävä npm-skripti (äsken lisätty skripti _watch_ on poistettu koska sille ei ole käyttöä):
 
-```json
+```bash
 {
   // ...
   "scripts": {
@@ -625,6 +625,8 @@ const config = {
   // ..
 }
 ```
+
+Konfiguraatioiden muuttuessa webpack tulee käynnistää uudelleen, on tosin mahdollista konfiguroida webpack tarkkailemaan konfiguraatioiden muutoksia, mutta emme tee sitä.
 
 Nyt virheilmoitus on hyvä
 
@@ -746,7 +748,7 @@ class App extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('http://localhost:3001/notes').then(result => {
       this.setState({ noteCount: result.data.length })
     })
@@ -841,7 +843,7 @@ const config = (env) => {
 Määriteltyä vakioa käytetään koodissa seuraavasti:
 
 ```js
-componentWillMount() {
+componentDidMount() {
   axios.get(BACKEND_URL)
     .then(result => {
       this.setState({noteCount: result.data.length})
@@ -850,6 +852,14 @@ componentWillMount() {
 ```
 
 Jos kehitys- ja tuotantokonfiguraatio eriytyvät paljon, saattaa olla hyvä idea [eriyttää konfiguraatiot](https://webpack.js.org/guides/production/) omiin tiedostoihinsa.
+
+Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti suorittamalla komento 
+
+```bash
+npx static-server
+```
+
+hakemistosssa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
 
 ### Production build
 
@@ -900,7 +910,7 @@ On paljon muutakin standardissa määriteltyjä asioita, joita IE ei tue, esim. 
 
 ![]({{ "/assets/7/14.png" | absolute_url }})
 
-Tälläisessä tilanteessa normaali koodin transpilointi ei auta, sillä tanspiloinnissa koodia käännetään uudemmasta javascriptsyntaksista vanhempaan, selaimien paremmin tukemaan syntaksiin. Promiset ovat syntaktillisesti täysin IE:n ymmärrettävissä, IE:ltä vaan puuttuu toteutus promisesta, samoin on tilanne taulukoiden suhteen, IE:llä taulukoiden _find_ on arvoltaan _undefined_.
+Tälläisessä tilanteessa normaali koodin transpilointi ei auta, sillä tanspiloinnissa koodia käännetään uudemmasta Javascriptsyntaksista vanhempaan, selaimien paremmin tukemaan syntaksiin. Promiset ovat syntaktillisesti täysin IE:n ymmärrettävissä, IE:ltä vaan puuttuu toteutus promisesta, samoin on tilanne taulukoiden suhteen, IE:llä taulukoiden _find_ on arvoltaan _undefined_.
 
 Jos haluamme sovelluksen IE-yhteensopivaksi, tarvitsemme [polyfilliä](https://remysharp.com/2010/10/08/what-is-a-polyfill), eli koodia, joka lisää puuttuvan toiminnallisuuden vanhempiin selaimiin.
 
@@ -944,7 +954,7 @@ Laitoksen [kurssilistasivun](https://www.cs.helsinki.fi/courses) alaosassa on it
 
 ![]({{ "/assets/7/15.png" | absolute_url }})
 
-Sivulla on monessa paikassa määriteltyjä tyylejä, osa määrittelyistä tulee Drupal-sisällönhallintajärjestelmästä, osa on laitoskohtaisia, osa taas tulee sivun yläosan olemassaolevaa opetustarjontaa näyttävistä syksyllä lisätiystä komponenteista. Vika on niin hankala korjata, ettei kukaan ole viitsinyt sitä tehdä.
+Sivulla on monessa paikassa määriteltyjä tyylejä, osa määrittelyistä tulee Drupal-sisällönhallintajärjestelmän oletuskonfiguraatiosta, osa on Drupaliin laitosksella tehtyjä lisäyksiä, osa taas tulee sivun yläosan olemassaolevaa opetustarjontaa näyttävistä syksyllä lisätystä komponenteista. Vika on niin hankala korjata, ettei kukaan ole viitsinyt sitä tehdä.
 
 Demonstroidaan vastaavankaltaista ongelmatilannetta esimerkkisovelluksessamme.
 
@@ -1356,7 +1366,7 @@ function sum(n: number, m: number): number {
 sum('1', 2)
 ```
 
-Tyyppitarkastus tapahtuu komennolla _npm flow_. Flow huomauttaa virheestä:
+Tyyppitarkastus tapahtuu komennolla _npm run flow_. Flow huomauttaa virheestä:
 
 ![]({{ "/assets/7/21.png" | absolute_url }})
 
@@ -1369,7 +1379,7 @@ console.log(summa)
 
 tulostuu luku 12.
 
-Flow suorittaa koodille ainoastaan tyyppitarkastuksen, [babel](https://babeljs.io/docs/plugins/preset-flow/) kääntää flow-tyyppejä sisältävän koodin normaaliksi javascriptiksi ja tyyppien tarjoma suoja onkin voimassa ainoastaan jos ohjelmoija suorittaa tyyppitarkastuksia.
+Flow suorittaa koodille ainoastaan tyyppitarkastuksen, [babel](https://babeljs.io/docs/plugins/preset-flow/) kääntää flow-tyyppejä sisältävän koodin normaaliksi Javascriptiksi ja tyyppien tarjoma suoja onkin voimassa ainoastaan jos ohjelmoija suorittaa tyyppitarkastuksia.
 
 Kaikissa tapauksissa tyyppejä ei edes ole tarvetta määritellä, joissain tapauksissa flow osaa päätellä itse mikä muuttujien tyypin tulee olla. Esim. seuraavassa tapauksessa
 
@@ -1387,7 +1397,7 @@ flow osaa varoittaa ongelmasta ilman tyyppien määrittelyä
 
 Flown hyvä puoli on keveys, vanhoihinkin projekteihin on helppo ruveta vähitellen lisäämään tyyppejä Flowlla.
 
-Typescript on jossain määrin laajempi ratkaisu ja sen käyttö vaatii Flowia enemmän konfigurointia. Typescript-koodi kirjoitetaan _.ts_-päätteisiin tiedostoihin ja se tulee kääntää javascriptiksi. Käännös pystytään toki hoitamaan helposti [webpackilla](https://github.com/s-panferov/awesome-typescript-loader). Toisin kun flown yhteydessä, Typescriptillä tehdyssä koodissa oleva virheellinen tyyppien käyttö johtaa siihe, että koodi ei käänny.
+Typescript on jossain määrin laajempi ratkaisu ja sen käyttö vaatii Flowia enemmän konfigurointia. Typescript-koodi kirjoitetaan _.ts_-päätteisiin tiedostoihin ja se tulee kääntää Javascriptiksi. Käännös pystytään toki hoitamaan helposti [webpackilla](https://github.com/s-panferov/awesome-typescript-loader). Toisin kun flown yhteydessä, Typescriptillä tehdyssä koodissa oleva virheellinen tyyppien käyttö johtaa siihen, että koodi ei käänny.
 
 Internetistä löytyy runsaasti Flowta ja Typescriptiä vertailevia artikkeleja, ks esim.:
 - <https://blog.mariusschulz.com/2017/01/13/typescript-vs-flow>
