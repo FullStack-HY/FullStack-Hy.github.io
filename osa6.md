@@ -426,7 +426,7 @@ class NoteList extends React.Component {
 }
 ```
 
-Eriytetään näkyvyyden säätelyfiltteri omaksi, tiedostoon _src/components/VisibilityFilter.js_ komponentikseen:
+Eriytetään näkyvyyden säätelyfiltteri omaksi, tiedostoon sijoitettavaksi _src/components/VisibilityFilter.js_ komponentiksi:
 
 ```react
 import React from 'react'
