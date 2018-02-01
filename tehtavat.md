@@ -1474,7 +1474,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 #### 4.12 blogilistan laajennus, osa 1
 
-Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat positettua testeistä copypastea:
+Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat poistettua testeistä copypastea:
 
 Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#Testien-refaktorointi) tyyliä
 
@@ -1525,7 +1525,7 @@ Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden t
 
 ### Blogilistan käyttäjät
 
-Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaa osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#Käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
+Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaan osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#Käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
 
 ### Varoitus vielä kerran
 
@@ -1669,7 +1669,7 @@ Kirjautuneelle käyttäjälle näytetään kirjautuneen käyttäjän nimi sekä 
 
 ![]({{ "/assets/teht/28.png" | absolute_url }})
 
-Tässä vaiheessa kirjautuneen käyttäjien tietoja ei vielä tarvitse muistaa local storagen avulla.
+Tässä vaiheessa kirjautuneiden käyttäjien tietoja ei vielä tarvitse muistaa local storagen avulla.
 
 **HUOM** Voit tehdä kirjautumislomakkeen ehdollisen renderöinnin esim. seuraavasti:
 
@@ -1711,7 +1711,7 @@ Laajenna sovellusta siten, että kirjautunut käyttäjä voi luoda uusia blogeja
 
 ![]({{ "/assets/teht/30.png" | absolute_url }})
 
-Bloginluomislomakkeesta voi tehdä oma komponenttinsa joka hallitsee lomakkeen kenttien sisältöä tilansa avulla. Kaiken blogin luomiseen liittyvän tilan voi toki tallettaa myös _App_-komponenttiin.
+Bloginluomislomakkeesta voi tehdä oman komponenttinsa, joka hallitsee lomakkeen kenttien sisältöä tilansa avulla. Kaiken blogin luomiseen liittyvän tilan voi toki tallettaa myös _App_-komponenttiin.
 
 #### 5.4* blogilistan frontend, osa 4
 
@@ -1814,7 +1814,7 @@ Järjestä sovellus näyttämään blogit _likejen_ mukaisessa suuruusjärjestyk
 
 Lisää nappi blogin poistamiselle.
 
-Toteuta myös poiston tekevä logiikka. Laajenna backendiä siten, että ne blogit joihin ei liity lisääjää ovat kaikkien kirjautuneiden käyttäjien poistettavissa.
+Toteuta myös poiston tekevä logiikka. Laajenna backendiä siten, että ne blogit, joihin ei liity lisääjää, ovat kaikkien kirjautuneiden käyttäjien poistettavissa.
 
 Ohjelmasi voi näyttää esim. seuraavalta:
 
