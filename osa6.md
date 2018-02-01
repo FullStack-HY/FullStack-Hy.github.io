@@ -2271,7 +2271,7 @@ Sivun sisältö ei ole enää reunoissa kiinni:
 
 ![]({{ "/images/6/19.png" | absolute_url }})
 
-Edellisen luvun tapaan, renderöidään muitiinpanot taulukkona, komponentin [Table](https://react.semantic-ui.com/collections/table) avulla. Koodi näyttää seuraavalta
+Edellisen luvun tapaan, renderöidään muistiinpanot taulukkona, komponentin [Table](https://react.semantic-ui.com/collections/table) avulla. Koodi näyttää seuraavalta
 
 ```react
 import { Table } from 'semantic-ui-react'
