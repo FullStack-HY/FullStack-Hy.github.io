@@ -2127,7 +2127,7 @@ Otetaan käyttöön sääntö [eqeqeq](https://eslint.org/docs/rules/eqeqeq) jok
 
 Tehdään samalla muutama muukin muutos tarkastettaviin sääntöihin.
 
-Estetään rivien lopussa olevat [turhat vällyönnit](https://eslint.org/docs/rules/no-trailing-spaces), vaaditaan että [aaltosulkeiden edessä/jälkeen on aina välilyönti](https://eslint.org/docs/rules/object-curly-spacing) ja vaaditaan myös konsistenttia välilyöntien käyttöä [nuolifunktioiden parametrien suhteen](https://eslint.org/docs/rules/arrow-spacing):
+Estetään rivien lopussa olevat [turhat välilyönnit](https://eslint.org/docs/rules/no-trailing-spaces), vaaditaan että [aaltosulkeiden edessä/jälkeen on aina välilyönti](https://eslint.org/docs/rules/object-curly-spacing) ja vaaditaan myös konsistenttia välilyöntien käyttöä [nuolifunktioiden parametrien suhteen](https://eslint.org/docs/rules/arrow-spacing):
 
 ```bash
 "rules": {
