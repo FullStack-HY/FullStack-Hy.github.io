@@ -1,12 +1,9 @@
 ---
 layout: page
 title: osa 7
+inheader: yes
 permalink: /osa7/
 ---
-
-<div class="important .warn">
-  <h1>Tiedostoa päivitetään, lukeminen omalla vastuulla</h1>
-</div>
 
 ## Osan 7 oppimistavoitteet
 

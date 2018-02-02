@@ -14,6 +14,7 @@ permalink: /tehtävät/
 * [osa4](#osa-4) deadline 25.2. klo 23:59
 * [osa5](#osa-5) deadline 4.3. klo 23:59
 * [osa6](#osa-6) deadline 11.3. klo 23:59
+* [osa7](#osa-7) deadline 11.3. klo 23:59
 
 ## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
 
@@ -2456,3 +2457,146 @@ Tutustu [bootstrapin](https://react-bootstrap.github.io/layout/grid/) tai [seman
 #### 6.23 styled anecdotes, osa 5
 
 Lisää vielä vapaavalintaisia tyylejä valitsemallasi UI frameworkilla. Voit merkata tehtävän, jos käytät aikaa vapaavalitaisten tyylien lisäämiseen noin 30 minuuttia.
+
+## osa 7
+
+Deadline 11.3. klo 23:59
+
+Osassa on 22 tehtävää, arvostelussa tehtävien maksimiin tässä osassa lasketaan kuitenkin ainoastaan 15.
+
+Tämän osan tehtävissä jatketaan osissa 4 ja 5 tehtyä Bloglist-sovellusta. Suurin osa tämän osan tehtävistä on toisistaan riippumattomia "featureita", eli tehtäviä ei tarvitse tehdä järjestyksessä, voit jättää osan aivan hyvin toteuttamatta.
+
+Voit otaa pohjaksi oman sovelluksesi sijaan myös mallivastauksen koodin.
+
+Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimista. Tämä on tilanne käytännössä aina sovelluksia laajennettaessa, eli vaikka refaktorointi voi olla hankalaa ja ikävääkin, on kyseessä oleellinen taito.
+
+Hyvä neuvo refaktorintiin niinkuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
+
+<div class="important">
+  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä. 
+</div>
+
+### 7.1 käyttäjien näkymä
+
+Tee sovellukseen näkymä, joka näyttää kaikkin käyttäjiin liittyvät perustietot:
+
+![]({{ "/assets/teht/53.png" | absolute_url }})
+
+### 7.2 yksittäisen käyttäjän näkymä, osa 1
+
+Tee sovellukseen yksittäisen käyttäjän näkymä, jolta selviää mm. käyttäjän lisäämät blogit
+
+![]({{ "/assets/teht/54.png" | absolute_url }})
+
+Näkymään päästään klikkaamalla nimeä kaikkien käyttäjien näkymästä
+
+![]({{ "/assets/teht/55.png" | absolute_url }})
+
+### 7.3 yksittäisen käyttäjän näkymä osa, 2
+
+Merkkaa tämä tehtävä tehdyksi jos toteuttamasi yksittäisen käyttäjän näkymä toimii oikein myös siinä tilanteessa että menet urliin suoraan tai refreshaat selaimen ollessasi käyttäjän näkymässä.
+
+### 7.4 blogin näkymä
+
+Toteuta sovellukseen oma näkymä yksittäisille blogeille. Näkymä voi näyttää seuraavalta
+
+![]({{ "/assets/teht/49.png" | absolute_url }})
+
+Näkymään päästään klikkaamalla blogin nimeä kaikkien blogien näkymästä
+
+![]({{ "/assets/teht/50.png" | absolute_url }})
+
+Tämän tehtävän jälkeen tehtävässä 5.6 toteutettua toiminnallisuutta ei enää tarvita, eli kaikkien blogien näkymässä yksittäisten blogien detaljien ei enää tarvitse avautua klikatessa.
+
+### 7.5 navigointi
+
+Tee sovellukseen navigaatiomenu
+
+![]({{ "/assets/teht/56.png" | absolute_url }})
+
+### 7.6 kommentit, osa 1
+
+Tee sovellukseen mahdollisuus blogien kommentointiin:
+
+![]({{ "/assets/teht/51.png" | absolute_url }})
+
+Kommentit ovat anonyymejä, eli ne eivät liity järjestelmän käyttäjiin.
+
+Tässä tehtävässä riittää, että frontend osaa näyttää blogilla olevat backendin kautta lisätyt kommentit.
+
+Sopiva rajapinta kommentin luomiseen on osoitteeseen _api/blogs/:id/comments_ tapahtuva HTTP POST -pyyntö.
+
+### 7.7 kommentit, osa 2
+
+Laajenna sovellusta siten, että kommentointi onnistuu frontendista käsin:
+
+![]({{ "/assets/teht/52.png" | absolute_url }})
+
+### 7.8 redux, osa 1
+
+Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia. 
+
+Muuta tässä tehtävässä notifikaatio käyttämään Reduxia.
+
+### 7.9 redux, osa 2
+
+Siirrä kaikkien käyttäjien tietojen talletus Reduxiin. Varmista, että sekä kaikkien käyttäjien että yksittäisen käyttäjän näkymät toimivat edelleen.
+
+Tässä tehtävässä saattaa olla hyödyksi käyttää metodin _connect_ toista parametria
+[ownPropsia](https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props) joka on dokumentaation hienoisesta kryptisyydestä huolimatta [aika simppeli](https://stackoverflow.com/questions/41198842/what-is-the-use-of-the-ownprops-arg-in-mapstatetoprops-and-mapdispatchtoprops) asia.
+
+### 7.10 redux, osa 4
+
+Siirrä myös blogien tietojen talletus Reduxiin.
+
+Uuden blogin luomislomakkeen tilaa voit halutessasi hallita edelleen reactin tilan avulla.
+
+Tämä ja seuraava osa ovat kohtuullisen työläitä, mutta erittäin opettavaisia.
+
+### 7.11 redux, osa 3
+
+Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin. 
+
+### 7.12 tyylit, osa 1
+
+Tee sovelluksesi ulkoasusta tyylikkäämpi jotain kurssilla esiteltyä tapaa käyttäen
+
+### 7.13 tyylit, osa 2
+
+Jos käytät tyylien lisäämiseen yli tunnin aikaa, merkkaa myös tämä tehtävä tehdyksi.
+
+### 7.14 ESLint
+
+Konfiguroi frontend käyttämään Lintiä
+
+### 7.15 Webpack
+
+Tee sovellukselle sopiva webpack-konfiguraatio
+
+### 7.16 backendin testaus
+
+Tee backendille lisää testejä. Voit merkitä rastin kun olet käyttänyt testien tekemiseen noin 45 minuuttia.
+
+### 7.17 frontendin testaus
+
+Tee frontendille tai reducereille testejä. Voit merkitä rastin kun olet käyttänyt testien tekemiseen noin 45 minuuttia.
+
+### 7.18 snapshot-testaus
+
+Ota sovellukseessasi käyttöön [snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
+
+### 7.19 headless-testaus
+
+Tee Puppeteeria tai haluamaasi kirjastoa käyttäviä headless-testejä, testaa ainakin paria toiminnallisuutta.
+
+### 7.20 Tyypitarkastuksia
+
+Lisää sovellukseen tyyppitarkastuksia Proptypeinä, Flown avulla tai Typescriptillä
+
+### 7.21 Internet
+
+Deployaa sovellus internetiin
+
+### 7.22 Jatkuva tuotantoonvienti
+
+Toteuta sovelluksellesi esim. [Travis CI](https://travis-ci.org/):n avulla jatkuva tuotantoonvienti, eli mekanismi, missä koodin pushaaminen githubiin aiheuttaa testien läpimennessä uuden version käynnistämisen internettiin.
