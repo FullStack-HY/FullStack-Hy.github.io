@@ -24,7 +24,7 @@ Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteel
 
 ## Arvosanarajat
 
-Kurssilla on yhteensä 151 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
 
 Arvosanarajat:
 
@@ -2481,7 +2481,7 @@ Lisää vielä vapaavalintaisia tyylejä valitsemallasi UI frameworkilla. Voit m
 
 Deadline 11.3. klo 23:59
 
-Osassa on 22 tehtävää, arvostelussa tehtävien maksimiin tässä osassa lasketaan kuitenkin ainoastaan 15.
+Osassa on 23 tehtävää, arvostelussa tehtävien maksimiin tässä osassa lasketaan kuitenkin ainoastaan 15.
 
 Tämän osan tehtävissä jatketaan osissa 4 ja 5 tehtyä Bloglist-sovellusta. Suurin osa tämän osan tehtävistä on toisistaan riippumattomia "featureita", eli tehtäviä ei tarvitse tehdä järjestyksessä, voit jättää osan aivan hyvin toteuttamatta.
 
@@ -2619,3 +2619,7 @@ Deployaa sovellus internetiin
 ### 7.22 Jatkuva tuotantoonvienti
 
 Toteuta sovelluksellesi esim. [Travis CI](https://travis-ci.org/):n avulla jatkuva tuotantoonvienti, eli mekanismi, missä koodin pushaaminen githubiin aiheuttaa testien läpimennessä uuden version käynnistämisen internettiin.
+
+### 7.23 Kurssipalaute
+
+Anna kurssille palautetta osoitteessa <https://ilmo.cs.helsinki.fi/kurssit/servlet/Valinta>

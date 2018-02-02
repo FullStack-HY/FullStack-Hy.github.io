@@ -58,7 +58,7 @@ Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin t
 
 ## Arvosanarajat
 
-Kurssilla on yhteensä 151 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
 
 Arvosanarajat:
 
