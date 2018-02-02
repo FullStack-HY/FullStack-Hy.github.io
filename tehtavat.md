@@ -22,9 +22,23 @@ Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu
 
 Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa.
 
+## Arvosanarajat
 
+Kurssilla on yhteensä 151 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
 
+Arvosanarajat:
 
+| tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
+| -------------- |:-----------------:       |:-----:|
+| 72    | 1/5  | 5   |
+| 82    | 2/5  | 5   |
+| 93    | 3/5  | 5   |
+| 104   | 4/5  | 5   |
+| 115   | 5/5  | 5   |
+| 126   | hyv  | 6   |
+| 137   | hyv  | 7   |
+
+Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
 
 
 ## Palauttaminen
