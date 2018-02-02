@@ -56,6 +56,24 @@ Arvosana määräytyy kaikkien tehtyjen tehtävien perusteella, myös tähdellä
 
 Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. Opetushallinnollisista syistä lisäopintopisteet rekisteröidään omana kurssinaan. Kurssin nimi määritellään myöhemmin.
 
+## Arvosanarajat
+
+Kurssilla on yhteensä 151 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+
+Arvosanarajat:
+
+| tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
+| -------------- |:-----------------:       |:-----:|
+| 72    | 1/5  | 5   |
+| 82    | 2/5  | 5   |
+| 93    | 3/5  | 5   |
+| 104   | 4/5  | 5   |
+| 115   | 5/5  | 5   |
+| 126   | hyv  | 6   |
+| 137   | hyv  | 7   |
+
+Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
+
 ## Alkutoimet
 
 Tällä kurssilla suositellaan Chrome-selaimen käyttöä, sillä se tarjoaa parhaan välineistön web-sovelluskehitystä ajatellen.
