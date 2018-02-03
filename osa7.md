@@ -32,6 +32,7 @@ permalink: /osa7/
   - Progessive web apps
   - Microservice-arkkitehtuuri
   - Serverless
+  - GraphQL
 
 ## Tehtävät
 
@@ -1613,6 +1614,89 @@ Kyse on siitä, että lambda ja nyttemmin Googlen [Cloud functions](https://clou
 Esim. Amazonin [API-gateway](https://aws.amazon.com/api-gateway/):n avulla on mahdollista tehdä "palvelimettomia" sovelluksia, missä määritellyn HTTP API:n kutsuihin vastataan suoraan pilvifunktioilla. Funktiot yleensä operoivat jo valmiiksi pilvipalvelun tietokantoihin talletetun datan avulla.
 
 Serverlessissä ei siis ole kyse siitä että sovelluksissa ei olisi palvelinta, vaan tavasta määritellä palvelin. Sovelluskehittäjät voivat siirtyä ohjelmoinnissa korkeammalle abstratkiotasolle, ei ole enää tarvetta määritellä ohjelmallisesti HTTP-kutsujen reitityksiä, tietokantayhteyksiä ym, pilviinfrastruktuuri tarjoaa kaiken tämän. Pilvifunktioilla on myös mahdollista saada helposti aikaan hyvin skaalautuvia järjestelmiä, esim. Amazon Lambda pystyy suorittamaan massiivisen määrän pilvifunktioita sekunnissa. Kaikki tämä tapahtuu infrastruktuurin toimesta automaattisesti, ei ole tarvetta käynnistellä uusia palvelimia ym.
+
+# GraphQL
+
+Tälläkin kurssilla moneen kertaan mainittu ja käytetty REST on ollut pitkään vallitseva tapa toteuttaa palvelimen selaimelle tarjoama rajapinta ja yleensäkin verkossa toimivien sovellusten välinen integraatio.
+
+RESTin rinnalle selaimessa (tai moobiililaitteessa) toimivan logiikan ja palvelimien väliseen kommunikointiin on viime vuosina noussut alunperin Facebookin kehittämä [GraphQL](http://graphql.org/).
+
+GraphQL on filosofialtaan todella erilainen RESTiin verrattuna. REST on _resurssipohjainen_, jokaisella resurssilla, esim. _käyttäjällä_ on oma sen identifioiva osoite, esim. _users/10_, ja kaikki resursseille tehtävät operaatiot toteutetaan tekemällä URL:ille kohdistuvia pyyntöjä, joiden toiminta määrittyy käytetyn HTTP-metodin avulla.
+
+RESTin resurssiperustaisuus toimii hyvin useissa tapauksissa, joissain tapauksissa se voi kuitenkin olla hieman kankea.
+
+Oletetaan että blogilistasovelluksemme sisältäisi somemaista toiminnallisuutta ja haluaisimme esim. näyttää sovelluksessa listan, joka sisältää kaikkien seuraamiemme (follow) käyttäjien blogeja kommentoineiden käyttäjien lisäämien blogien nimet.
+
+Jos palvelin toteuttaisi REST API:n, joutuisimme todennäköisesti tekemään monia HTTP-pyyntöjä selaimen koodista, ennen kuin saisimme muodostettua halutun datan. Pyyntöjen vastauksena tulisi myös paljon ylimääräistä dataa ja halutun datan keräävä selaimen koodi olisi todennäköisesti kohtuullisen monimutkainen.
+
+Jos kyseessä olisi usein käytetty toiminnallisuus, voitaisiin sitä varten toteuttaa oma REST-endpoint. Jos vastaavia skeaarioita olisi paljon, esim. kymmeniä, tulisi erittäin työlääksi toteuttaa kaikille toiminnallisuuksille oma REST-endpoint.
+
+GraphQL:n avulla toteutettava palvelin sopii tämänkaltaisiin tilanteiseen hyvin. 
+
+GraphQL:ssä periaatteena, on että selaimen koodi muodostaa _kyselyn_, joka kuvailee haluttua dataa ja lähettää sen API:lle HTTP POST -pyynnöllä. Toisin kuin REST:issä, GraphQL:ssä kaikki kyselyt kohdistetaan samaan osoitteeseen ja ovat POST-tyyppisiä.
+
+Edellä kuvatun skenaarion data saataisiin haettua (suurinpiirtein) seuraavan kaltaisella kyselyllä:
+
+```bash
+query FetchBlogsQuery {
+  user(username: "mluukkai") {
+    followedUsers {
+      blogs {
+        comments {
+          user {
+            blogs {
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+
+Palvelimen vastaus pyyntöön olisi suunilleen seuraavanlainen JSON-olio:
+
+```bash
+{
+  data: {
+    followedUsers: {
+      blogs: {
+        comments: {
+          user: {
+            blogs: [ 
+              'Goto considered harmful',
+              'End to End Testing with Puppeteer and Jest',
+              'Navigating your transition to GraphQL',
+              'From REST to GraphQL'
+            ]
+          }
+        }
+      }
+    }
+  }    
+}
+```
+
+Sovelluslogiikka säilyy yksinkertaisena ja selaimen koodi saa täsmälleen haluamansa datan yksittäisellä kyselyllä. 
+
+GraphQL:ää käytettäessä sovelluksen datasta on määriteltävä [skeema](http://graphql.org/learn/schema/), joka kuvailee datan entiteettejä, eli esimerkkimme tapauksessa käyttäjiä, blogeja ja kommentteja sekä niiden suhteita, ks. lisää esim. blogista [Navigating your transition to GraphQL](https://dev-blog.apollodata.com/navigating-your-transition-to-graphql-28a4dfa3acfb).
+
+GraphQL:n nimi tuleekin siitä, että entiteettit ja niiden suhteet muodostavat usein, etenkin sosiaalisen median tapaisissa sovelluksessa eräänlaisen verkon, missä entiteetit liittyvät toisiin entiteetteihin erilaisten _suhteiden_ kautta.
+
+Nimestään huolimatta GraphQL:llä ei ole suoranaisesti mitään tekemistä tietokantojen kanssa, se ei ota mitään kantaa siihen miten data on tallennettu. GraphQL-periaattella toimivan API:n käyttämä data voi siis olla talletettu relaatiotietokantaan, dokumenttitietokantaan tai muille palvelimeille, joita GraphQL-palvelin käyttää vaikkapa REST:in välityksellä. GraphQL on täysin ohjelmointikieliriippumaton, sekä GraphQL-clientien että -servereiden toteuttamisen tueksi on olemassa kirjastoja useilla ohjelmointikielillä. 
+
+GraphQL on jo melko iäkäs teknologia, se on ollut Facebookin sisäisessä käytössä jo vuodesta 2012 lähtien, teknologian voi siis todeta olevan "battle tested". Facebook julkaisi GraphQL:n vuonna 2015 ja se on pikkuhiljaa saanut enenevissä määrin huomiota ja nousee ehkä lähivuosina uhmaamaan REST:in valta-asemaa.
+
+Teen kurssille ehkä tulevaisuudessa uuden, GraphQL:ää käsittelevän osan. Tänä keväänä se ei kuitenkaan tule ilmestymään. Jos haluat kulkea etujoukkojen mukana, voikin olla hyvä idea tutustua GraphQL:n [Full Stack -harjoitustyön](https://courses.helsinki.fi/fi/TKT21010/121540755) yhteydessä.
+
+Lisää GraphQL:stä esim. seuraavissa:
+* <http://graphql.org/>
+* <https://github.com/facebook/graphql>
+* [Tutoriaali](https://dev-blog.apollodata.com/full-stack-react-graphql-tutorial-582ac8d24e3b) GraphQL:n käyttöön Reactista [Apollo clientin](https://www.apollographql.com/docs/react/) avulla
+* [Why GraphQL is the future](https://dev-blog.apollodata.com/why-graphql-is-the-future-3bec28193807)
+
 
 # Cloud native app
 
