@@ -81,7 +81,7 @@ Hakemiston juuressa oleva sovelluksen "päätiedosto" _index.html_ lataa _script
 </html>
 ```
 
-Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovellusen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
+Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovelluksen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
 
 Käytännössä bundlaus tapahtuu siten, että sovelluksen Javascriptille määritellään alkupiste, usein tiedosto _index.js_, ja bundlauksen yhteydessä webpack ottaa mukaan kaiken koodin mitä alkupiste importtaa, sekä importattujen koodien importtaamat koodit, jne.
 
@@ -292,7 +292,7 @@ const App = () => (
 )
 ```
 
-ei ole "normalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
+ei ole "normaalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
 
 [Loaderien](https://webpack.js.org/concepts/loaders/) avulla on mahdollista kertoa webpackille miten tiedostot tulee käsitellä ennen niiden bundlausta.
 
@@ -321,7 +321,7 @@ const config = {
 
 Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
 
-Yksittäisen loaderin määrittely on kolmioisainen:
+Yksittäisen loaderin määrittely on kolmiosainen:
 
 ```js
 {
@@ -365,7 +365,7 @@ Tässä on jo melkein kaikki mitä tarvitsemme React-sovelluskehitykseen.
 
 Prosessista, joka muuttaa Javascriptia muodosta toiseen käytetään englanninkielistä termiä [transpiling](https://en.wiktionary.org/wiki/transpile), joka taas on termi, joka viittaa koodin kääntämiseen (compile) sitä muuntamalla (transpile). Suomenkielisen termin puuttuessa käytämme prosessista tällä kurssilla nimitystä _transpilaus_.
 
-Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) aulla.
+Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) avulla.
 
 Kuten osassa 1 jo mainittiin, läheskään kaikki selaimet eivät vielä osaa Javascriptin uusimpien versioiden ES6:n ja ES7:n ominaisuuksia ja tämän takia koodi yleensä transpiloidaan käyttämään vanhempaa Javascript-syntaksia ES5:ttä.
 
@@ -633,7 +633,7 @@ Source mapin käyttö mahdollistaa myös chromen debuggerin luontevan käytön
 
 ![]({{ "/assets/7/8.png" | absolute_url }})
 
-Kyseinen virhe on siis jo [osasta 1](osa1/#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
+Kyseinen virhe on siis jo [osasta 1](/osa1#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
 
 ```js
 onClick = () => {
