@@ -35,7 +35,7 @@ permalink: /osa7/
 
 ## Tehtävät
 
-Melkein kaikki osan 7 [tehtävistä](/tehtavat#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
+Melkein kaikki osan 7 [tehtävistä](/tehtävät#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
 
 ## Webpack
 
