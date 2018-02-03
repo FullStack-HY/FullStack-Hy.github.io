@@ -831,10 +831,11 @@ Jos maita on alle kymmenen, mutta yli 1 näytetään hakuehdon täyttävät maat
 
 ![]({{ "/assets/teht/14.png" | absolute_url }})
 
-
 Kun ehdon täyttäviä maita on enää yksi, näytetään maan lippu sekä perustiedot:
 
 ![]({{ "/assets/teht/15.png" | absolute_url }})
+
+**Huom:** riittää että sovelluksesi toimii suurimmalle osalle maista. Jotkut maat kuten _Sudan_ voivat tuottaa ongelmia, sillä maan nimi on toisen maan _South Sudan_ osa. Näistä corner caseista ei tarvitse välittää.
 
 #### 2.13* maiden tiedot klikkaamalla
 
