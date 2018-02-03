@@ -19,7 +19,7 @@ permalink: /osa7/
   - Puppeteer
 - React
   - Isompien sovellusten komponenttien organisointi
-  - Palvelimella tapahtuvien muutosten
+  - Palvelimella tapahtuvien muutosten välittäminen frontendiin
   - Sovelluksen rakenne jos frontti ja backend kaikki samassa repossa
   - Virtual DOM
 - React/node-sovellusten tietoturva
@@ -29,13 +29,13 @@ permalink: /osa7/
   - typescript
 - Tulevaisuuden trendejä
   - Server side rendering
-  - Progessive web aps
+  - Progessive web apps
   - Microservice-arkkitehtuuri
   - Serverless
 
 ## Tehtävät
 
-Melkein kaikki osan 7 [tehtävistä](tehtavat#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
+Melkein kaikki osan 7 [tehtävistä](/tehtavat#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
 
 ## Webpack
 
