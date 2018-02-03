@@ -837,7 +837,7 @@ const config = (env) => {
 }
 ```
 
-Määriteltyä vakioa käytetään koodissa seuraavasti:
+Määriteltyä vakiota käytetään koodissa seuraavasti:
 
 ```js
 componentDidMount() {
@@ -856,7 +856,7 @@ Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti su
 npx static-server
 ```
 
-hakemistosssa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
+hakemistossa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
 
 ### Production build
 
@@ -866,7 +866,7 @@ Kun kokeilemme suorittaa bundlattua sovellusta, [React devtools](https://chrome.
 
 [Production build](https://reactjs.org/docs/optimizing-performance.html) on optimoitu versio React-koodista, josta on mm. poistettu sovelluskehitystä helpottavat, mutta koodia hidastavat varoitukset. Tuotantokäytössä kannattaakin aina käyttää production buildia.
 
-Ongelma on helppo korjata [Reactin dokumentaatonohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
+Ongelma on helppo korjata [Reactin dokumentaation ohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
 
 ```js
 const config = (env) => {
