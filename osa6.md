@@ -2031,7 +2031,7 @@ Kun sovellus ladataan uudelleen, näyttää se jo aavistuksen tyylikkäämmält�
 
 ![]({{ "/assets/6/10.png" | absolute_url }})
 
-Bootstrapissa koko sivun sisältö renderöidään yleensä [container](https://getbootstrap.com/docs/4.0/layout/overview/#containers):ina, eli käytännössä koko sovelluksen ympärivä _div_-elementti merkitään luokalla _container_:
+Bootstrapissa koko sivun sisältö renderöidään yleensä [container](https://getbootstrap.com/docs/4.0/layout/overview/#containers):ina, eli käytännössä koko sovelluksen ympäröivä _div_-elementti merkitään luokalla _container_:
 
 ```react
 // ...
@@ -2156,7 +2156,7 @@ ja renderöidään viesti Bootstrapin [Alert](https://getbootstrap.com/docs/4.0/
 
 #### Navigaatiorakenne
 
-Muutetaan vielä lopuksi sovelluksen navigaatiomenu käyttämään Bootstrapin [Navbaria](https://getbootstrap.com/docs/4.0/components/navbar/). Tähänkin React bootstrap tarjoaa [valmiit komponentit](https://react-bootstrap.github.io/components/navbar/#navbars-mobile-friendly), dokumentaati on hieman kryptistä, mutta trial and error johtaa lopulta toimivaan ratkaisuun:
+Muutetaan vielä lopuksi sovelluksen navigaatiomenu käyttämään Bootstrapin [Navbaria](https://getbootstrap.com/docs/4.0/components/navbar/). Tähänkin React bootstrap tarjoaa [valmiit komponentit](https://react-bootstrap.github.io/components/navbar/#navbars-mobile-friendly), dokumentaatio on hieman kryptistä, mutta trial and error johtaa lopulta toimivaan ratkaisuun:
 
 ```bash
 <Navbar inverse collapseOnSelect>
@@ -2244,7 +2244,7 @@ Lisätään sitten sovelluksen tiedostoon _public/index.html_  head-tagin sisä�
 
 Sijoitetaan koko sovelluksen renderöimä sisältö Semanticin komponentin [Container](https://react.semantic-ui.com/elements/container) sisälle.
 
-Semanticin dokumentaatio sisältää jokaisesta komponentista useita esimerkkikoodinpätkiä, joiden avulla komponenttien käyttön periaatteet on helppo omaksua:
+Semanticin dokumentaatio sisältää jokaisesta komponentista useita esimerkkikoodinpätkiä, joiden avulla komponenttien käytön periaatteet on helppo omaksua:
 
 ![]({{ "/images/6/18.png" | absolute_url }})
 
