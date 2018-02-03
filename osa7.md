@@ -82,7 +82,7 @@ Hakemiston juuressa oleva sovelluksen "päätiedosto" _index.html_ lataa _script
 </html>
 ```
 
-Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovellusen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
+Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovelluksen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
 
 Käytännössä bundlaus tapahtuu siten, että sovelluksen Javascriptille määritellään alkupiste, usein tiedosto _index.js_, ja bundlauksen yhteydessä webpack ottaa mukaan kaiken koodin mitä alkupiste importtaa, sekä importattujen koodien importtaamat koodit, jne.
 
@@ -293,7 +293,7 @@ const App = () => (
 )
 ```
 
-ei ole "normalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
+ei ole "normaalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
 
 [Loaderien](https://webpack.js.org/concepts/loaders/) avulla on mahdollista kertoa webpackille miten tiedostot tulee käsitellä ennen niiden bundlausta.
 
@@ -322,7 +322,7 @@ const config = {
 
 Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
 
-Yksittäisen loaderin määrittely on kolmioisainen:
+Yksittäisen loaderin määrittely on kolmiosainen:
 
 ```js
 {
@@ -366,7 +366,7 @@ Tässä on jo melkein kaikki mitä tarvitsemme React-sovelluskehitykseen.
 
 Prosessista, joka muuttaa Javascriptia muodosta toiseen käytetään englanninkielistä termiä [transpiling](https://en.wiktionary.org/wiki/transpile), joka taas on termi, joka viittaa koodin kääntämiseen (compile) sitä muuntamalla (transpile). Suomenkielisen termin puuttuessa käytämme prosessista tällä kurssilla nimitystä _transpilaus_.
 
-Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) aulla.
+Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) avulla.
 
 Kuten osassa 1 jo mainittiin, läheskään kaikki selaimet eivät vielä osaa Javascriptin uusimpien versioiden ES6:n ja ES7:n ominaisuuksia ja tämän takia koodi yleensä transpiloidaan käyttämään vanhempaa Javascript-syntaksia ES5:ttä.
 
@@ -634,7 +634,7 @@ Source mapin käyttö mahdollistaa myös chromen debuggerin luontevan käytön
 
 ![]({{ "/assets/7/8.png" | absolute_url }})
 
-Kyseinen virhe on siis jo [osasta 1](osa1/#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
+Kyseinen virhe on siis jo [osasta 1](/osa1#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
 
 ```js
 onClick = () => {
@@ -667,7 +667,7 @@ ja kehottamalla _babel-loader_:ia käyttämään pluginia:
 
 ### Koodin minifiointi
 
-Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _bundle.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _bundle.js_ koko 702917 tavua sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
+Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _bundle.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _bundle.js_ koko 702917 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
 
 Jos tiedoston sisältöä tarkastelee, huomaa että sitä voisi optimoida huomattavasti koon suhteen esim. poistamalla kommentit. Tiedostoa ei kuitenkaan kannata lähteä optimoimaan käsin, sillä tarkoitusta varten on olemassa monia työkaluja.
 
@@ -770,7 +770,7 @@ class App extends React.Component {
 
 Koodissa on nyt kovakoodattuna sovelluskehityksessä käytettävän palvelimen osoite. Miten saamme osoitteen hallitusti muutettua osoittamaan internetissä olevaan backendiin bundlatessamme koodin?
 
-Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https://webpack.js.org/guides/environment-variables/) avulla tapahtuva määrittely siitä, onko kyse sovelluskehitysmoodista _development_ vai tuotantomodista _production_:
+Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https://webpack.js.org/guides/environment-variables/) avulla tapahtuva määrittely siitä, onko kyse sovelluskehitysmoodista _development_ vai tuotantomoodista _production_:
 
 ```bash
 {
@@ -838,7 +838,7 @@ const config = (env) => {
 }
 ```
 
-Määriteltyä vakioa käytetään koodissa seuraavasti:
+Määriteltyä vakiota käytetään koodissa seuraavasti:
 
 ```js
 componentDidMount() {
@@ -857,7 +857,7 @@ Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti su
 npx static-server
 ```
 
-hakemistosssa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
+hakemistossa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
 
 ### Production build
 
@@ -867,7 +867,7 @@ Kun kokeilemme suorittaa bundlattua sovellusta, [React devtools](https://chrome.
 
 [Production build](https://reactjs.org/docs/optimizing-performance.html) on optimoitu versio React-koodista, josta on mm. poistettu sovelluskehitystä helpottavat, mutta koodia hidastavat varoitukset. Tuotantokäytössä kannattaakin aina käyttää production buildia.
 
-Ongelma on helppo korjata [Reactin dokumentaatonohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
+Ongelma on helppo korjata [Reactin dokumentaation ohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
 
 ```js
 const config = (env) => {
