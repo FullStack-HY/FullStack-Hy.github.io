@@ -1704,7 +1704,7 @@ Flux tarjoaa siis standardin tavan sille miten ja missä sovelluksen tila pidet�
 
 ### Redux
 
-Facebookilla on olemassa valmis toteutus Fluxille, käytämme kuitenkin saman periaatteen mukaan toimivaa, mutta hieman yksinkertaisempaa [Redux](https://redux.js.org)-kirjastoa, jota myös Facebookilla käytetään nykyään aluperäisen Flux-toteutuksen sijaan.
+Facebookilla on olemassa valmis toteutus Fluxille, käytämme kuitenkin saman periaatteen mukaan toimivaa, mutta hieman yksinkertaisempaa [Redux](https://redux.js.org)-kirjastoa, jota myös Facebookilla käytetään nykyään alkuperäisen Flux-toteutuksen sijaan.
 
 Tutustutaan Reduxiin tekemällä laskurin toteuttava sovellus:
 
