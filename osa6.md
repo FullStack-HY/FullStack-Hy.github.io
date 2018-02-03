@@ -990,7 +990,7 @@ export default connect(
 )(NoteList)
 ```
 
-_mapStateToProps_ ei siis tällä kertaa mäppää propsiksi suoraan storessa olevaa asiaa vaan storen tilasta funktion _notesToShow_ avulla muodostetun sopivasti filtteröidyn datan.
+_mapStateToProps_ ei siis tällä kertaa mäppää propsiksi suoraan storessa olevaa asiaa, vaan storen tilasta funktion _notesToShow_ avulla muodostetun sopivasti filtteröidyn datan.
 
 Uudistettu _NoteList_ keskittyy lähes ainoastaan muistiinpanojen renderöimiseen, se on hyvin lähellä sitä minkä sanotaan olevan [presentational](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)-komponentti, joita Dan Abramovin [sanoin](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) kuvailee seuraavasti:
 
@@ -1062,7 +1062,7 @@ Mukana on myös edellisestä unohtunut _VisibilityFilter_-komponentin _connect_-
 
 ## Tehtäviä
 
-Tee nyt tehtävät [6.6-6.9](/tehtävät#redux-anekdootit)
+Tee nyt tehtävät [6.6-6.9](/tehtävät#connect)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
@@ -1087,7 +1087,7 @@ Tallennetaan projektin juuren tiedostoon _db.json_ tietokannan alkutila:
 }
 ```
 
-Asennetaan projektiin json-sever
+Asennetaan projektiin json-server
 
 ```bash
 npm install json-server --save
@@ -1673,7 +1673,7 @@ Sovelluksen juuren, eli osoitteen _/_ määritellään renderöivän komponentti
 <Route exact path="/" render={() => <Home />} />
 ```
 
-joudumme käyttämään routen _path_ attribuutin edessä määrettä _exact_, muuten _Home_ renderöityy kaikilla muillakin poluilla, sillä juuri _/_ on kaikkien muiten polkujen _alkuosa_.
+joudumme käyttämään routen _path_ attribuutin edessä määrettä _exact_, muuten _Home_ renderöityy kaikilla muillakin poluilla, sillä juuri _/_ on kaikkien muiden polkujen _alkuosa_.
 
 ### parametroitu route
 
@@ -1685,7 +1685,7 @@ _Home_ ja _Users_ ovat kuten aiemmassa esimerkissä. _Notes_ on hieman monimutka
 
 ![]({{ "/assets/6/8.png" | absolute_url }})
 
-Nimen klikattavuus on toteutettu komponentilla _Link_ ja esim. muistiinpanon, jonka id on 3 nimen klikkaaminen aiheuttaa selaimen osoitteen arvon päivittyvän muotoon _notes/3_:
+Nimen klikattavuus on toteutettu komponentilla _Link_ ja esim. muistiinpanon, jonka id on 3 nimen klikkaaminen aiheuttaa selaimen osoitteen arvon päivittymisen muotoon _notes/3_:
 
 ```react
 const Notes = ({notes}) => (
@@ -1760,7 +1760,7 @@ const noteById = (id) =>
   this.state.notes.find(note => note.id === Number(id))
 ```
 
-renderöityvä _Note_ komponentti saa siis propsina urlin yksilöivää osaa vastaavan muistiinpanon.
+renderöityvä _Note_-komponentti saa siis propsina urlin yksilöivää osaa vastaavan muistiinpanon.
 
 ### history
 
@@ -1920,7 +1920,7 @@ class App extends React.Component {
 }
 ```
 
-Render-metodissa määritellään myös kokonaan _Router_:in ulkopuolella oleva nykyisille web-sovelluksille tyypillinen _footer_-elementti, eli sivuston pohjalla oleva osa, joka on näkyvillä riippumatta siitä mikä konponentti sovelluksen reititetyssä osassa näytetään.
+Render-metodissa määritellään myös kokonaan _Router_:in ulkopuolella oleva nykyisille web-sovelluksille tyypillinen _footer_-elementti, eli sivuston pohjalla oleva osa, joka on näkyvillä riippumatta siitä mikä komponentti sovelluksen reititetyssä osassa näytetään.
 
 **Huom:** edellä olevassa esimerkissä käytetään React Routerin versiota 4.2.6. Jos ja kun etsit esimerkkejä internetistä, kannattaa varmistaa, että niissä käytetään Routerista vähintään versiota 4.0. Nelosversio ei ole ollenkaan alaspäinyhteensopiva kolmosen kanssa, eli vanhaa React Routeria käyttävä koodi on täysin käyttökelvotonta Routerin versiota 4 käytettäessä.
 
@@ -1930,7 +1930,7 @@ Tee nyt tehtävät [6.16-6.18](/tehtävät#router)
 
 ## Inline-tyylit
 
-Osan 2 [lopussa](osa2/Tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
+Osan 2 [lopussa](/osa2#Tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
 
 Olemme jo muutamaan kertaan määritelleet komponenteille [inline](https://react-cn.github.io/react/tips/inline-styles.html)-tyylejä, eli määritelleet CSS:ää suoraan komponentin muun koodin seassa.
 
