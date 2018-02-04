@@ -46,7 +46,7 @@ Osien _hard deadlinet_ ja arvioidut keskimääräiset (kaikkien tehtävien tekem
 
 Keskimääräisten työmäärien arvio perustuu kurssin [betaversiota](https://mluukkai.github.io) joululoman aikana testanneilta 15:lta opiskelijalta kerättyyn dataan. Kannattaa huomata, että työmäärissä on suuri varianssi, esim. osan 0 ja 1 yhteenlaskettu ajankäyttö vaihteli 5 ja 20 tunnin väliltä.
 
-Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussivulta](https://studies.cs.helsinki.fi/fs-stats/) .
+Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussivulta](https://studies.cs.helsinki.fi/fs-stats/).
 
 Suuri jousto suoritusajoissa tuo opiskelijalle entistä suuremman vastuun omasta ajankäytöstä. Nyt ilmoitetuista deadlineista **ei jousteta ollenkaan**. Kannattaa muistaa se, että mitä lähempänä deadlinea tehtävien tekemisen aloittaa, sitä suurempi vaara on joutua eriasteisiin konfiguraatiohelvetteihin. Apuakin on rajallisemmin tarjolla kun kello lähenee deadlinepäivän keskiyötä.
 
@@ -55,6 +55,24 @@ Suuri jousto suoritusajoissa tuo opiskelijalle entistä suuremman vastuun omasta
 Arvosana määräytyy kaikkien tehtyjen tehtävien perusteella, myös tähdellä merkityt "vapaavalintaiset" tehtävät siis vaikuttavat arvosanaan. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
 
 Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. Opetushallinnollisista syistä lisäopintopisteet rekisteröidään omana kurssinaan. Kurssin nimi määritellään myöhemmin.
+
+## Arvosanarajat
+
+Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+
+Arvosanarajat:
+
+| tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
+| -------------- |:-----------------:       |:-----:|
+| 72    | 1/5  | 5   |
+| 82    | 2/5  | 5   |
+| 93    | 3/5  | 5   |
+| 104   | 4/5  | 5   |
+| 115   | 5/5  | 5   |
+| 126   | hyv  | 6   |
+| 137   | hyv  | 7   |
+
+Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
 
 ## Alkutoimet
 

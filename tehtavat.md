@@ -14,12 +14,32 @@ permalink: /tehtävät/
 * [osa4](#osa-4) deadline 25.2. klo 23:59
 * [osa5](#osa-5) deadline 4.3. klo 23:59
 * [osa6](#osa-6) deadline 11.3. klo 23:59
+* [osa7](#osa-7) deadline 11.3. klo 23:59
 
 ## Pakolliset tehtävät ja tehtävien vaikuttaminen arvosteluun
 
 Osa tehtävistä on "pakollisia" ja osa vapaaehtoisia. Vapaaehtoiset on merkattu tähdellä. Pakolliset eivät ole absoluuttisen pakollisia, mutta niiden tekemättä jättäminen saattaa aiheuttaa haasteita seuraaviin osiin.
 
 Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteella. Katso tarkemmin osan 0 luvut [suoritustapa](/osa0#suoritustapa) ja [arvosteluperusteet](/osa0#arvosteluperusteet). Vain deadlineja ennen tehdyt ja merkatut tehtävät huomioidaan arvostelussa.
+
+## Arvosanarajat
+
+Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+
+Arvosanarajat:
+
+| tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
+| -------------- |:-----------------:       |:-----:|
+| 72    | 1/5  | 5   |
+| 82    | 2/5  | 5   |
+| 93    | 3/5  | 5   |
+| 104   | 4/5  | 5   |
+| 115   | 5/5  | 5   |
+| 126   | hyv  | 6   |
+| 137   | hyv  | 7   |
+
+Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
+
 
 ## Palauttaminen
 
@@ -471,7 +491,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 deadline 5.2. klo 23:59
 
-Osassa on 22 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 22 tehtävää, joista "pakollisia" on 13. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Osa sisältää kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -811,10 +831,11 @@ Jos maita on alle kymmenen, mutta yli 1 näytetään hakuehdon täyttävät maat
 
 ![]({{ "/assets/teht/14.png" | absolute_url }})
 
-
 Kun ehdon täyttäviä maita on enää yksi, näytetään maan lippu sekä perustiedot:
 
 ![]({{ "/assets/teht/15.png" | absolute_url }})
+
+**Huom:** riittää että sovelluksesi toimii suurimmalle osalle maista. Jotkut maat kuten _Sudan_ voivat tuottaa ongelmia, sillä maan nimi on toisen maan _South Sudan_ osa. Näistä corner caseista ei tarvitse välittää.
 
 #### 2.13* maiden tiedot klikkaamalla
 
@@ -886,7 +907,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 Deadline 12.2. klo 23:59
 
-Osassa on 22 tehtävää, joista pakollisia on 15. Voit edetä osaan 4 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 22 tehtävää, joista "pakollisia" on 15. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -1206,7 +1227,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 Deadline 25.2. klo 23:59
 
-Osassa on 21 tehtävää, joista pakollisia on 17. Voit edetä osaan 5 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 21 tehtävää, joista "pakollisia" on 11. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Rakennamme tämän osan tehtävissä _blogilistasovellusta_, jonka avulla käyttäjien on mahdollista tallettaa tietoja internetistä löytämistään mielenkiintoisista blogeista. Kustakin blogista talletetaan sen kirjoittaja (author), aihe (title), url sekä blogilistasovelluksen käyttäjien antamien äänien määrä.
 
@@ -1354,7 +1375,7 @@ Jos et viitsi itse määritellä testisyötteenä käytettäviä blogeja, saat v
 Törmäät varmasti testien tekemisen yhteydessä erinäisiin ongelmiin. Pidä mielessä osassa 3 käsitellyt [debuggaukseen](osa3/#Node-sovellusten-debuggaaminen) liittyvät asiat, voit testejäkin suorittaessasi printtailla konsoliin komennolla _console.log_
 
 
-#### 4.5 apufunktioita ja yksikkötestejä, osa 3
+#### 4.5* apufunktioita ja yksikkötestejä, osa 3
 
 Määrittele funktio _favoriteBlog_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää millä blogilla on eniten likejä. Jos suosikkeja on monta, riittää että funktio palauttaa niistä jonkun.
 
@@ -1472,7 +1493,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 ### Lisää toiminnallisuutta ja testejä
 
-#### 4.12 blogilistan laajennus, osa 1
+#### 4.12* blogilistan laajennus, osa 1
 
 Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat poistettua testeistä copypastea:
 
@@ -1616,7 +1637,7 @@ if ( blog.user.toString() === userid.toString() ) ...
 
 Deadline 4.3. klo 23:59
 
-Osassa on 21 tehtävää, joista pakollisia on 11. Voit edetä osaan 6 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 21 tehtävää, joista "pakollisia" on 11. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät.  Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Teemme nyt edellisen osan tehtävissä tehtyä bloglist-backendia käyttävän frontendin. Voit ottaa tehtävien pohjaksi [Githubista](https://github.com/FullStack-HY/bloglist-frontend) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
 Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
@@ -2456,3 +2477,150 @@ Tutustu [bootstrapin](https://react-bootstrap.github.io/layout/grid/) tai [seman
 #### 6.23 styled anecdotes, osa 5
 
 Lisää vielä vapaavalintaisia tyylejä valitsemallasi UI frameworkilla. Voit merkata tehtävän, jos käytät aikaa vapaavalitaisten tyylien lisäämiseen noin 30 minuuttia.
+
+## osa 7
+
+Deadline 11.3. klo 23:59
+
+Osassa on 23 tehtävää, arvostelussa tehtävien maksimiin tässä osassa lasketaan kuitenkin ainoastaan 15.
+
+Tämän osan tehtävissä jatketaan osissa 4 ja 5 tehtyä Bloglist-sovellusta. Suurin osa tämän osan tehtävistä on toisistaan riippumattomia "featureita", eli tehtäviä ei tarvitse tehdä järjestyksessä, voit jättää osan aivan hyvin toteuttamatta.
+
+Voit otaa pohjaksi oman sovelluksesi sijaan myös mallivastauksen koodin.
+
+Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimista. Tämä on tilanne käytännössä aina sovelluksia laajennettaessa, eli vaikka refaktorointi voi olla hankalaa ja ikävääkin, on kyseessä oleellinen taito.
+
+Hyvä neuvo refaktorintiin niinkuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
+
+<div class="important">
+  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä. 
+</div>
+
+### 7.1 käyttäjien näkymä
+
+Tee sovellukseen näkymä, joka näyttää kaikkin käyttäjiin liittyvät perustietot:
+
+![]({{ "/assets/teht/53.png" | absolute_url }})
+
+### 7.2 yksittäisen käyttäjän näkymä, osa 1
+
+Tee sovellukseen yksittäisen käyttäjän näkymä, jolta selviää mm. käyttäjän lisäämät blogit
+
+![]({{ "/assets/teht/54.png" | absolute_url }})
+
+Näkymään päästään klikkaamalla nimeä kaikkien käyttäjien näkymästä
+
+![]({{ "/assets/teht/55.png" | absolute_url }})
+
+### 7.3 yksittäisen käyttäjän näkymä osa, 2
+
+Merkkaa tämä tehtävä tehdyksi jos toteuttamasi yksittäisen käyttäjän näkymä toimii oikein myös siinä tilanteessa että menet urliin suoraan tai refreshaat selaimen ollessasi käyttäjän näkymässä.
+
+### 7.4 blogin näkymä
+
+Toteuta sovellukseen oma näkymä yksittäisille blogeille. Näkymä voi näyttää seuraavalta
+
+![]({{ "/assets/teht/49.png" | absolute_url }})
+
+Näkymään päästään klikkaamalla blogin nimeä kaikkien blogien näkymästä
+
+![]({{ "/assets/teht/50.png" | absolute_url }})
+
+Tämän tehtävän jälkeen tehtävässä 5.6 toteutettua toiminnallisuutta ei enää tarvita, eli kaikkien blogien näkymässä yksittäisten blogien detaljien ei enää tarvitse avautua klikatessa.
+
+### 7.5 navigointi
+
+Tee sovellukseen navigaatiomenu
+
+![]({{ "/assets/teht/56.png" | absolute_url }})
+
+### 7.6 kommentit, osa 1
+
+Tee sovellukseen mahdollisuus blogien kommentointiin:
+
+![]({{ "/assets/teht/51.png" | absolute_url }})
+
+Kommentit ovat anonyymejä, eli ne eivät liity järjestelmän käyttäjiin.
+
+Tässä tehtävässä riittää, että frontend osaa näyttää blogilla olevat backendin kautta lisätyt kommentit.
+
+Sopiva rajapinta kommentin luomiseen on osoitteeseen _api/blogs/:id/comments_ tapahtuva HTTP POST -pyyntö.
+
+### 7.7 kommentit, osa 2
+
+Laajenna sovellusta siten, että kommentointi onnistuu frontendista käsin:
+
+![]({{ "/assets/teht/52.png" | absolute_url }})
+
+### 7.8 redux, osa 1
+
+Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia. 
+
+Muuta tässä tehtävässä notifikaatio käyttämään Reduxia.
+
+### 7.9 redux, osa 2
+
+Siirrä kaikkien käyttäjien tietojen talletus Reduxiin. Varmista, että sekä kaikkien käyttäjien että yksittäisen käyttäjän näkymät toimivat edelleen.
+
+Tässä tehtävässä saattaa olla hyödyksi käyttää metodin _connect_ toista parametria
+[ownPropsia](https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props) joka on dokumentaation hienoisesta kryptisyydestä huolimatta [aika simppeli](https://stackoverflow.com/questions/41198842/what-is-the-use-of-the-ownprops-arg-in-mapstatetoprops-and-mapdispatchtoprops) asia.
+
+### 7.10 redux, osa 4
+
+Siirrä myös blogien tietojen talletus Reduxiin.
+
+Uuden blogin luomislomakkeen tilaa voit halutessasi hallita edelleen reactin tilan avulla.
+
+Tämä ja seuraava osa ovat kohtuullisen työläitä, mutta erittäin opettavaisia.
+
+### 7.11 redux, osa 3
+
+Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin. 
+
+### 7.12 tyylit, osa 1
+
+Tee sovelluksesi ulkoasusta tyylikkäämpi jotain kurssilla esiteltyä tapaa käyttäen
+
+### 7.13 tyylit, osa 2
+
+Jos käytät tyylien lisäämiseen yli tunnin aikaa, merkkaa myös tämä tehtävä tehdyksi.
+
+### 7.14 ESLint
+
+Konfiguroi frontend käyttämään Lintiä
+
+### 7.15 Webpack
+
+Tee sovellukselle sopiva webpack-konfiguraatio
+
+### 7.16 backendin testaus
+
+Tee backendille lisää testejä. Voit merkitä rastin kun olet käyttänyt testien tekemiseen noin 45 minuuttia.
+
+### 7.17 frontendin testaus
+
+Tee frontendille tai reducereille testejä. Voit merkitä rastin kun olet käyttänyt testien tekemiseen noin 45 minuuttia.
+
+### 7.18 snapshot-testaus
+
+Ota sovellukseessasi käyttöön [snapshot testing](https://facebook.github.io/jest/docs/en/snapshot-testing.html)
+
+### 7.19 headless-testaus
+
+Tee Puppeteeria tai haluamaasi kirjastoa käyttäviä headless-testejä, testaa ainakin paria toiminnallisuutta.
+
+### 7.20 Tyypitarkastuksia
+
+Lisää sovellukseen tyyppitarkastuksia Proptypeinä, Flown avulla tai Typescriptillä
+
+### 7.21 Internet
+
+Deployaa sovellus internetiin
+
+### 7.22 Jatkuva tuotantoonvienti
+
+Toteuta sovelluksellesi esim. [Travis CI](https://travis-ci.org/):n avulla jatkuva tuotantoonvienti, eli mekanismi, missä koodin pushaaminen githubiin aiheuttaa testien läpimennessä uuden version käynnistämisen internettiin.
+
+### 7.23 Kurssipalaute
+
+Anna kurssille palautetta osoitteessa <https://ilmo.cs.helsinki.fi/kurssit/servlet/Valinta>

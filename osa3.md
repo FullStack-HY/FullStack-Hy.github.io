@@ -250,7 +250,7 @@ const app = http.createServer((request, response) => {
 })
 ```
 
-koodi luo [http](https://nodejs.org/docs/latest-v8.x/api/http.html)-palvelimen metodilla _createServer_ web-palvelimen, jolle se rekisteröi _tapahtumankäsittelijän_, joka suoritetaan _jokaisen_ osoitteen <http:/localhost:3000/> alle tulevan HTTP-pyynnön yhteydessä.
+koodi luo [http](https://nodejs.org/docs/latest-v8.x/api/http.html)-palvelimen metodilla _createServer_ web-palvelimen, jolle se rekisteröi _tapahtumankäsittelijän_, joka suoritetaan _jokaisen_ osoitteen <http:/localhost:3001/> alle tulevan HTTP-pyynnön yhteydessä.
 
 Pyyntöön vastataan statuskoodilla 200, asettamalla _Content-Type_-headerille arvo _text/plain_ ja asettamalla palautettavan sivun sisällöksi merkkijono _Hello World_.
 
@@ -484,12 +484,14 @@ Komento on ikävä, joten määritellään sitä varten _npm-skripti_ tiedostoon
   // ..
   "scripts": {
     "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
+    "watch": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   // ..
 }
 ```
+
+Skriptissä ei ole tarvetta käyttää nodemonin polusta sen täydellistä muotoa _node_modules/.bin/nodemon_ sillä _npm_ osaa etsiä automaattisesti suoritettavaa tiedostoa kyseisestä hakemistosta.
 
 Voimme nyt käynnistää palvelimen sovelluskehitysmoodissa komennolla
 
@@ -2127,7 +2129,7 @@ Otetaan käyttöön sääntö [eqeqeq](https://eslint.org/docs/rules/eqeqeq) jok
 
 Tehdään samalla muutama muukin muutos tarkastettaviin sääntöihin.
 
-Estetään rivien lopussa olevat [turhat vällyönnit](https://eslint.org/docs/rules/no-trailing-spaces), vaaditaan että [aaltosulkeiden edessä/jälkeen on aina välilyönti](https://eslint.org/docs/rules/object-curly-spacing) ja vaaditaan myös konsistenttia välilyöntien käyttöä [nuolifunktioiden parametrien suhteen](https://eslint.org/docs/rules/arrow-spacing):
+Estetään rivien lopussa olevat [turhat välilyönnit](https://eslint.org/docs/rules/no-trailing-spaces), vaaditaan että [aaltosulkeiden edessä/jälkeen on aina välilyönti](https://eslint.org/docs/rules/object-curly-spacing) ja vaaditaan myös konsistenttia välilyöntien käyttöä [nuolifunktioiden parametrien suhteen](https://eslint.org/docs/rules/arrow-spacing):
 
 ```bash
 "rules": {

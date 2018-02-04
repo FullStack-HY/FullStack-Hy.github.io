@@ -1,12 +1,9 @@
 ---
 layout: page
 title: osa 7
+inheader: yes
 permalink: /osa7/
 ---
-
-<div class="important .warn">
-  <h1>Tiedostoa päivitetään, lukeminen omalla vastuulla</h1>
-</div>
 
 ## Osan 7 oppimistavoitteet
 
@@ -22,7 +19,7 @@ permalink: /osa7/
   - Puppeteer
 - React
   - Isompien sovellusten komponenttien organisointi
-  - Palvelimella tapahtuvien muutosten
+  - Palvelimella tapahtuvien muutosten välittäminen frontendiin
   - Sovelluksen rakenne jos frontti ja backend kaikki samassa repossa
   - Virtual DOM
 - React/node-sovellusten tietoturva
@@ -32,13 +29,14 @@ permalink: /osa7/
   - typescript
 - Tulevaisuuden trendejä
   - Server side rendering
-  - Progessive web aps
+  - Progessive web apps
   - Microservice-arkkitehtuuri
   - Serverless
+  - GraphQL
 
 ## Tehtävät
 
-Melkein kaikki osan 7 [tehtävistä](tehtavat#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
+Melkein kaikki osan 7 [tehtävistä](/tehtävät#osa7) ovat koko kurssin sisältöä kertaavia, voit aloittaa tehtävien tekemisen vaikka heti, vain muutama tehtävistä edellyttää tämän osan teorian läpikäyntiä.
 
 ## Webpack
 
@@ -84,7 +82,7 @@ Hakemiston juuressa oleva sovelluksen "päätiedosto" _index.html_ lataa _script
 </html>
 ```
 
-Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovellusen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
+Kuten esimerkistä näemme, create-react-app:illa tehdyssä sovelluksessa bundlataan Javascriptin lisäksi sovelluksen CSS-määrittelyt tiedostoon _static/css/main.1b1453df.css_
 
 Käytännössä bundlaus tapahtuu siten, että sovelluksen Javascriptille määritellään alkupiste, usein tiedosto _index.js_, ja bundlauksen yhteydessä webpack ottaa mukaan kaiken koodin mitä alkupiste importtaa, sekä importattujen koodien importtaamat koodit, jne.
 
@@ -295,7 +293,7 @@ const App = () => (
 )
 ```
 
-ei ole "normalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
+ei ole "normaalia" Javascriptia, vaan JSX:n tarjoama syntaktinen oikotie määritellä _div_-tagiä vastaava React-elementti.
 
 [Loaderien](https://webpack.js.org/concepts/loaders/) avulla on mahdollista kertoa webpackille miten tiedostot tulee käsitellä ennen niiden bundlausta.
 
@@ -324,7 +322,7 @@ const config = {
 
 Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
 
-Yksittäisen loaderin määrittely on kolmioisainen:
+Yksittäisen loaderin määrittely on kolmiosainen:
 
 ```js
 {
@@ -368,7 +366,7 @@ Tässä on jo melkein kaikki mitä tarvitsemme React-sovelluskehitykseen.
 
 Prosessista, joka muuttaa Javascriptia muodosta toiseen käytetään englanninkielistä termiä [transpiling](https://en.wiktionary.org/wiki/transpile), joka taas on termi, joka viittaa koodin kääntämiseen (compile) sitä muuntamalla (transpile). Suomenkielisen termin puuttuessa käytämme prosessista tällä kurssilla nimitystä _transpilaus_.
 
-Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) aulla.
+Edellisen luvun konfiguraation avulla siis _transpiloimme_ JSX:ää sisältävän Javascriptin normaaliksi Javascriptiksi tämän hetken johtavan työkalun [babelin](https://babeljs.io/) avulla.
 
 Kuten osassa 1 jo mainittiin, läheskään kaikki selaimet eivät vielä osaa Javascriptin uusimpien versioiden ES6:n ja ES7:n ominaisuuksia ja tämän takia koodi yleensä transpiloidaan käyttämään vanhempaa Javascript-syntaksia ES5:ttä.
 
@@ -636,7 +634,7 @@ Source mapin käyttö mahdollistaa myös chromen debuggerin luontevan käytön
 
 ![]({{ "/assets/7/8.png" | absolute_url }})
 
-Kyseinen virhe on siis jo [osasta 1](osa1/#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
+Kyseinen virhe on siis jo [osasta 1](/osa1#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
 
 ```js
 onClick = () => {
@@ -669,7 +667,7 @@ ja kehottamalla _babel-loader_:ia käyttämään pluginia:
 
 ### Koodin minifiointi
 
-Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _bundle.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _bundle.js_ koko 702917 tavua sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
+Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _bundle.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _bundle.js_ koko 702917 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
 
 Jos tiedoston sisältöä tarkastelee, huomaa että sitä voisi optimoida huomattavasti koon suhteen esim. poistamalla kommentit. Tiedostoa ei kuitenkaan kannata lähteä optimoimaan käsin, sillä tarkoitusta varten on olemassa monia työkaluja.
 
@@ -772,7 +770,7 @@ class App extends React.Component {
 
 Koodissa on nyt kovakoodattuna sovelluskehityksessä käytettävän palvelimen osoite. Miten saamme osoitteen hallitusti muutettua osoittamaan internetissä olevaan backendiin bundlatessamme koodin?
 
-Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https://webpack.js.org/guides/environment-variables/) avulla tapahtuva määrittely siitä, onko kyse sovelluskehitysmoodista _development_ vai tuotantomodista _production_:
+Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https://webpack.js.org/guides/environment-variables/) avulla tapahtuva määrittely siitä, onko kyse sovelluskehitysmoodista _development_ vai tuotantomoodista _production_:
 
 ```bash
 {
@@ -840,7 +838,7 @@ const config = (env) => {
 }
 ```
 
-Määriteltyä vakioa käytetään koodissa seuraavasti:
+Määriteltyä vakiota käytetään koodissa seuraavasti:
 
 ```js
 componentDidMount() {
@@ -859,7 +857,7 @@ Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti su
 npx static-server
 ```
 
-hakemistosssa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
+hakemistossa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
 
 ### Production build
 
@@ -869,7 +867,7 @@ Kun kokeilemme suorittaa bundlattua sovellusta, [React devtools](https://chrome.
 
 [Production build](https://reactjs.org/docs/optimizing-performance.html) on optimoitu versio React-koodista, josta on mm. poistettu sovelluskehitystä helpottavat, mutta koodia hidastavat varoitukset. Tuotantokäytössä kannattaakin aina käyttää production buildia.
 
-Ongelma on helppo korjata [Reactin dokumentaatonohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
+Ongelma on helppo korjata [Reactin dokumentaation ohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
 
 ```js
 const config = (env) => {
@@ -926,7 +924,7 @@ if (!window.Promise) {
 }
 ```
 
-Jos globaalia _Promise_-olioa ei ole olemassa, eli selain ei tue promiseja, sijoittaan polyfillattu promise globaaliin muuttujaan. Jos polyfillattu promise on hyvin toteutettu, muun koodin pitäisi toimia ilman ongelmia.
+Jos globaalia _Promise_-olioa ei ole olemassa, eli selain ei tue promiseja, sijoitetaan polyfillattu promise globaaliin muuttujaan. Jos polyfillattu promise on hyvin toteutettu, muun koodin pitäisi toimia ilman ongelmia.
 
 Kattavahko lista olemassaolevista polyfilleistä löytyy [täältä](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills).
 
@@ -954,11 +952,11 @@ Laitoksen [kurssilistasivun](https://www.cs.helsinki.fi/courses) alaosassa on it
 
 ![]({{ "/assets/7/15.png" | absolute_url }})
 
-Sivulla on monessa paikassa määriteltyjä tyylejä, osa määrittelyistä tulee Drupal-sisällönhallintajärjestelmän oletuskonfiguraatiosta, osa on Drupaliin laitosksella tehtyjä lisäyksiä, osa taas tulee sivun yläosan olemassaolevaa opetustarjontaa näyttävistä syksyllä lisätystä komponenteista. Vika on niin hankala korjata, ettei kukaan ole viitsinyt sitä tehdä.
+Sivulla on monessa paikassa määriteltyjä tyylejä, osa määrittelyistä tulee Drupal-sisällönhallintajärjestelmän oletuskonfiguraatiosta, osa on Drupaliin laitoksella tehtyjä lisäyksiä, osa taas tulee sivun yläosan olemassaolevaa opetustarjontaa näyttävistä syksyllä lisätystä komponenteista. Vika on niin hankala korjata, ettei kukaan ole viitsinyt sitä tehdä.
 
 Demonstroidaan vastaavankaltaista ongelmatilannetta esimerkkisovelluksessamme.
 
-Muutetan esimerkkitietostoamme siten, että komponentista _App_ irrotetaan osa toiminnallisuudesta komponentteihin _Hello_ ja _NoteCount_:
+Muutetaan esimerkkitietostoamme siten, että komponentista _App_ irrotetaan osa toiminnallisuudesta komponentteihin _Hello_ ja _NoteCount_:
 
 ```react
 import './Hello.css'
@@ -1616,6 +1614,89 @@ Kyse on siitä, että lambda ja nyttemmin Googlen [Cloud functions](https://clou
 Esim. Amazonin [API-gateway](https://aws.amazon.com/api-gateway/):n avulla on mahdollista tehdä "palvelimettomia" sovelluksia, missä määritellyn HTTP API:n kutsuihin vastataan suoraan pilvifunktioilla. Funktiot yleensä operoivat jo valmiiksi pilvipalvelun tietokantoihin talletetun datan avulla.
 
 Serverlessissä ei siis ole kyse siitä että sovelluksissa ei olisi palvelinta, vaan tavasta määritellä palvelin. Sovelluskehittäjät voivat siirtyä ohjelmoinnissa korkeammalle abstratkiotasolle, ei ole enää tarvetta määritellä ohjelmallisesti HTTP-kutsujen reitityksiä, tietokantayhteyksiä ym, pilviinfrastruktuuri tarjoaa kaiken tämän. Pilvifunktioilla on myös mahdollista saada helposti aikaan hyvin skaalautuvia järjestelmiä, esim. Amazon Lambda pystyy suorittamaan massiivisen määrän pilvifunktioita sekunnissa. Kaikki tämä tapahtuu infrastruktuurin toimesta automaattisesti, ei ole tarvetta käynnistellä uusia palvelimia ym.
+
+# GraphQL
+
+Tälläkin kurssilla moneen kertaan mainittu ja käytetty REST on ollut pitkään vallitseva tapa toteuttaa palvelimen selaimelle tarjoama rajapinta ja yleensäkin verkossa toimivien sovellusten välinen integraatio.
+
+RESTin rinnalle selaimessa (tai moobiililaitteessa) toimivan logiikan ja palvelimien väliseen kommunikointiin on viime vuosina noussut alunperin Facebookin kehittämä [GraphQL](http://graphql.org/).
+
+GraphQL on filosofialtaan todella erilainen RESTiin verrattuna. REST on _resurssipohjainen_, jokaisella resurssilla, esim. _käyttäjällä_ on oma sen identifioiva osoite, esim. _users/10_, ja kaikki resursseille tehtävät operaatiot toteutetaan tekemällä URL:ille kohdistuvia pyyntöjä, joiden toiminta määrittyy käytetyn HTTP-metodin avulla.
+
+RESTin resurssiperustaisuus toimii hyvin useissa tapauksissa, joissain tapauksissa se voi kuitenkin olla hieman kankea.
+
+Oletetaan että blogilistasovelluksemme sisältäisi somemaista toiminnallisuutta ja haluaisimme esim. näyttää sovelluksessa listan, joka sisältää kaikkien seuraamiemme (follow) käyttäjien blogeja kommentoineiden käyttäjien lisäämien blogien nimet.
+
+Jos palvelin toteuttaisi REST API:n, joutuisimme todennäköisesti tekemään monia HTTP-pyyntöjä selaimen koodista, ennen kuin saisimme muodostettua halutun datan. Pyyntöjen vastauksena tulisi myös paljon ylimääräistä dataa ja halutun datan keräävä selaimen koodi olisi todennäköisesti kohtuullisen monimutkainen.
+
+Jos kyseessä olisi usein käytetty toiminnallisuus, voitaisiin sitä varten toteuttaa oma REST-endpoint. Jos vastaavia skeaarioita olisi paljon, esim. kymmeniä, tulisi erittäin työlääksi toteuttaa kaikille toiminnallisuuksille oma REST-endpoint.
+
+GraphQL:n avulla toteutettava palvelin sopii tämänkaltaisiin tilanteiseen hyvin. 
+
+GraphQL:ssä periaatteena, on että selaimen koodi muodostaa _kyselyn_, joka kuvailee haluttua dataa ja lähettää sen API:lle HTTP POST -pyynnöllä. Toisin kuin REST:issä, GraphQL:ssä kaikki kyselyt kohdistetaan samaan osoitteeseen ja ovat POST-tyyppisiä.
+
+Edellä kuvatun skenaarion data saataisiin haettua (suurinpiirtein) seuraavan kaltaisella kyselyllä:
+
+```bash
+query FetchBlogsQuery {
+  user(username: "mluukkai") {
+    followedUsers {
+      blogs {
+        comments {
+          user {
+            blogs {
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+
+Palvelimen vastaus pyyntöön olisi suunilleen seuraavanlainen JSON-olio:
+
+```bash
+{
+  data: {
+    followedUsers: {
+      blogs: {
+        comments: {
+          user: {
+            blogs: [ 
+              'Goto considered harmful',
+              'End to End Testing with Puppeteer and Jest',
+              'Navigating your transition to GraphQL',
+              'From REST to GraphQL'
+            ]
+          }
+        }
+      }
+    }
+  }    
+}
+```
+
+Sovelluslogiikka säilyy yksinkertaisena ja selaimen koodi saa täsmälleen haluamansa datan yksittäisellä kyselyllä. 
+
+GraphQL:ää käytettäessä sovelluksen datasta on määriteltävä [skeema](http://graphql.org/learn/schema/), joka kuvailee datan entiteettejä, eli esimerkkimme tapauksessa käyttäjiä, blogeja ja kommentteja sekä niiden suhteita, ks. lisää esim. blogista [Navigating your transition to GraphQL](https://dev-blog.apollodata.com/navigating-your-transition-to-graphql-28a4dfa3acfb).
+
+GraphQL:n nimi tuleekin siitä, että entiteettit ja niiden suhteet muodostavat usein, etenkin sosiaalisen median tapaisissa sovelluksessa eräänlaisen verkon, missä entiteetit liittyvät toisiin entiteetteihin erilaisten _suhteiden_ kautta.
+
+Nimestään huolimatta GraphQL:llä ei ole suoranaisesti mitään tekemistä tietokantojen kanssa, se ei ota mitään kantaa siihen miten data on tallennettu. GraphQL-periaattella toimivan API:n käyttämä data voi siis olla talletettu relaatiotietokantaan, dokumenttitietokantaan tai muille palvelimeille, joita GraphQL-palvelin käyttää vaikkapa REST:in välityksellä. GraphQL on täysin ohjelmointikieliriippumaton, sekä GraphQL-clientien että -servereiden toteuttamisen tueksi on olemassa kirjastoja useilla ohjelmointikielillä. 
+
+GraphQL on jo melko iäkäs teknologia, se on ollut Facebookin sisäisessä käytössä jo vuodesta 2012 lähtien, teknologian voi siis todeta olevan "battle tested". Facebook julkaisi GraphQL:n vuonna 2015 ja se on pikkuhiljaa saanut enenevissä määrin huomiota ja nousee ehkä lähivuosina uhmaamaan REST:in valta-asemaa.
+
+Teen kurssille ehkä tulevaisuudessa uuden, GraphQL:ää käsittelevän osan. Tänä keväänä se ei kuitenkaan tule ilmestymään. Jos haluat kulkea etujoukkojen mukana, voikin olla hyvä idea tutustua GraphQL:n [Full Stack -harjoitustyön](https://courses.helsinki.fi/fi/TKT21010/121540755) yhteydessä.
+
+Lisää GraphQL:stä esim. seuraavissa:
+* <http://graphql.org/>
+* <https://github.com/facebook/graphql>
+* [Tutoriaali](https://dev-blog.apollodata.com/full-stack-react-graphql-tutorial-582ac8d24e3b) GraphQL:n käyttöön Reactista [Apollo clientin](https://www.apollographql.com/docs/react/) avulla
+* [Why GraphQL is the future](https://dev-blog.apollodata.com/why-graphql-is-the-future-3bec28193807)
+
 
 # Cloud native app
 

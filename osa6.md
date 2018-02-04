@@ -529,11 +529,11 @@ ComponentUsingReduxStore.contextTypes = {
 }
 ```
 
-Vaikka rivit on helppo copy-pasteta aina uusiin komponentteihin, ei tämä ole tarkoituksenmukaista. Osan 5 luvussa [staten välittäminen propseissa ja contextissa](/osa5#staten-välittäminen-propseissa-ja-contextissa) myös varoiteltiin luottamasta liikaa Reactin Context APIin, se on kokeellinen ja saattaa poistua tulevissa versioissa. Contextia on siis ainakin tässä vaiheessa käytettävä varovasti.
+Vaikka rivit on helppo copy-pasteta aina uusiin komponentteihin, ei tämä ole tarkoituksenmukaista. Osan 5 luvussa [staten välittäminen propseissa ja contextissa](/osa5#staten-välittäminen-propseissa-ja-contextissa) myös varoiteltiin luottamasta liikaa Reactin Context API:iin, se on kokeellinen ja saattaa poistua tulevissa versioissa. Contextia on siis ainakin tässä vaiheessa käytettävä varovasti.
 
 [React Redux](https://github.com/reactjs/react-redux) -kirjaston määrittelemä funktio [connect](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) on paras ratkaisu siihen, miten Redux-store saadaan välitettyä React-componenteille.
 
-Connect voi olla aluksi haastava sisäistää, mutta hieman vaivaa kannattaa ehdottomasti nähdä. Tutustutaan nyt connectin käyttöön. Asensimme jo edellisessä osassa kirjaston, joten voimme aloittaa se käytön suoraan.
+Connect voi olla aluksi haastava sisäistää, mutta hieman vaivaa kannattaa ehdottomasti nähdä. Tutustutaan nyt connectin käyttöön. Asensimme jo edellisessä osassa kirjaston, joten voimme aloittaa sen käytön suoraan.
 
 Tutkitaan ensin komponenttia _NoteList_. Funktiota _connect_ käyttämällä "normaaleista" React-komponenteista saadaan muodostettua komponentteja, joiden _propseihin_ on "mäpätty" eli yhdistetty haluttuja osia storen määrittelemästä tilasta.
 
@@ -658,7 +658,7 @@ eli sen lisäksi että _NoteList_ pääsee storen tilaan propsien _props.notes_ 
 
 Koska komponentti saa storeen liittyvät asiat propseina, voidaan koodista poistaa metodit _componentDidMount_ ja _componentWillUnMount_ jotka huolehtivat komponentin uudelleenrenderöitymisestä storen tilan muuttuessa. Connect tekee tämän puolestamme.
 
-Komponentti _NoteList_ ei tarvitse storea enää mihinkään, se saa kaiken tarvitsemansa propseina _connect_-funktion ansiosta. Komponentti ei käytä enää suoraan contextia joten koodi yksinkertaistuu seuraavaan muotoon:
+Komponentti _NoteList_ ei tarvitse storea enää mihinkään, se saa kaiken tarvitsemansa propseina _connect_-funktion ansiosta. Komponentti ei käytä enää suoraan contextia, joten koodi yksinkertaistuu seuraavaan muotoon:
 
 ```react
 import React from 'react'
@@ -896,7 +896,7 @@ export default connect(
 )(NoteForm)
 ```
 
-Tässä vaihtoehtoisessa tavassa _mapDispatchToProps_ on funktio, jota _connect_ kutsuu antaen sille parametriksi storen _dispatch_-funktion. Funktion paluuarvona on olio, joka määrittelee joukon funktioita, jotka annetaan connectattavalle komponentille propsiksi. Esimerkkimme määrittelee propsin _createTodo_ olevan funktion
+Tässä vaihtoehtoisessa tavassa _mapDispatchToProps_ on funktio, jota _connect_ kutsuu antaen sille parametriksi storen _dispatch_-funktion. Funktion paluuarvona on olio, joka määrittelee joukon funktioita, jotka annetaan connectoitavalle komponentille propsiksi. Esimerkkimme määrittelee propsin _createTodo_ olevan funktion
 
 ```js
 (value) => {
@@ -990,7 +990,7 @@ export default connect(
 )(NoteList)
 ```
 
-_mapStateToProps_ ei siis tällä kertaa mäppää propsiksi suoraan storessa olevaa asiaa vaan storen tilasta funktion _notesToShow_ avulla muodostetun sopivasti filtteröidyn datan.
+_mapStateToProps_ ei siis tällä kertaa mäppää propsiksi suoraan storessa olevaa asiaa, vaan storen tilasta funktion _notesToShow_ avulla muodostetun sopivasti filtteröidyn datan.
 
 Uudistettu _NoteList_ keskittyy lähes ainoastaan muistiinpanojen renderöimiseen, se on hyvin lähellä sitä minkä sanotaan olevan [presentational](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)-komponentti, joita Dan Abramovin [sanoin](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) kuvailee seuraavasti:
 
@@ -1062,7 +1062,7 @@ Mukana on myös edellisestä unohtunut _VisibilityFilter_-komponentin _connect_-
 
 ## Tehtäviä
 
-Tee nyt tehtävät [6.6-6.9](/tehtävät#redux-anekdootit)
+Tee nyt tehtävät [6.6-6.9](/tehtävät#connect)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
@@ -1087,7 +1087,7 @@ Tallennetaan projektin juuren tiedostoon _db.json_ tietokannan alkutila:
 }
 ```
 
-Asennetaan projektiin json-sever
+Asennetaan projektiin json-server
 
 ```bash
 npm install json-server --save
@@ -1673,7 +1673,7 @@ Sovelluksen juuren, eli osoitteen _/_ määritellään renderöivän komponentti
 <Route exact path="/" render={() => <Home />} />
 ```
 
-joudumme käyttämään routen _path_ attribuutin edessä määrettä _exact_, muuten _Home_ renderöityy kaikilla muillakin poluilla, sillä juuri _/_ on kaikkien muiten polkujen _alkuosa_.
+joudumme käyttämään routen _path_ attribuutin edessä määrettä _exact_, muuten _Home_ renderöityy kaikilla muillakin poluilla, sillä juuri _/_ on kaikkien muiden polkujen _alkuosa_.
 
 ### parametroitu route
 
@@ -1685,7 +1685,7 @@ _Home_ ja _Users_ ovat kuten aiemmassa esimerkissä. _Notes_ on hieman monimutka
 
 ![]({{ "/assets/6/8.png" | absolute_url }})
 
-Nimen klikattavuus on toteutettu komponentilla _Link_ ja esim. muistiinpanon, jonka id on 3 nimen klikkaaminen aiheuttaa selaimen osoitteen arvon päivittyvän muotoon _notes/3_:
+Nimen klikattavuus on toteutettu komponentilla _Link_ ja esim. muistiinpanon, jonka id on 3 nimen klikkaaminen aiheuttaa selaimen osoitteen arvon päivittymisen muotoon _notes/3_:
 
 ```react
 const Notes = ({notes}) => (
@@ -1760,7 +1760,7 @@ const noteById = (id) =>
   this.state.notes.find(note => note.id === Number(id))
 ```
 
-renderöityvä _Note_ komponentti saa siis propsina urlin yksilöivää osaa vastaavan muistiinpanon.
+renderöityvä _Note_-komponentti saa siis propsina urlin yksilöivää osaa vastaavan muistiinpanon.
 
 ### history
 
@@ -1920,7 +1920,7 @@ class App extends React.Component {
 }
 ```
 
-Render-metodissa määritellään myös kokonaan _Router_:in ulkopuolella oleva nykyisille web-sovelluksille tyypillinen _footer_-elementti, eli sivuston pohjalla oleva osa, joka on näkyvillä riippumatta siitä mikä konponentti sovelluksen reititetyssä osassa näytetään.
+Render-metodissa määritellään myös kokonaan _Router_:in ulkopuolella oleva nykyisille web-sovelluksille tyypillinen _footer_-elementti, eli sivuston pohjalla oleva osa, joka on näkyvillä riippumatta siitä mikä komponentti sovelluksen reititetyssä osassa näytetään.
 
 **Huom:** edellä olevassa esimerkissä käytetään React Routerin versiota 4.2.6. Jos ja kun etsit esimerkkejä internetistä, kannattaa varmistaa, että niissä käytetään Routerista vähintään versiota 4.0. Nelosversio ei ole ollenkaan alaspäinyhteensopiva kolmosen kanssa, eli vanhaa React Routeria käyttävä koodi on täysin käyttökelvotonta Routerin versiota 4 käytettäessä.
 
@@ -1930,7 +1930,7 @@ Tee nyt tehtävät [6.16-6.18](/tehtävät#router)
 
 ## Inline-tyylit
 
-Osan 2 [lopussa](osa2/Tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
+Osan 2 [lopussa](/osa2#Tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
 
 Olemme jo muutamaan kertaan määritelleet komponenteille [inline](https://react-cn.github.io/react/tips/inline-styles.html)-tyylejä, eli määritelleet CSS:ää suoraan komponentin muun koodin seassa.
 
@@ -2031,7 +2031,7 @@ Kun sovellus ladataan uudelleen, näyttää se jo aavistuksen tyylikkäämmält�
 
 ![]({{ "/assets/6/10.png" | absolute_url }})
 
-Bootstrapissa koko sivun sisältö renderöidään yleensä [container](https://getbootstrap.com/docs/4.0/layout/overview/#containers):ina, eli käytännössä koko sovelluksen ympärivä _div_-elementti merkitään luokalla _container_:
+Bootstrapissa koko sivun sisältö renderöidään yleensä [container](https://getbootstrap.com/docs/4.0/layout/overview/#containers):ina, eli käytännössä koko sovelluksen ympäröivä _div_-elementti merkitään luokalla _container_:
 
 ```react
 // ...
@@ -2156,7 +2156,7 @@ ja renderöidään viesti Bootstrapin [Alert](https://getbootstrap.com/docs/4.0/
 
 #### Navigaatiorakenne
 
-Muutetaan vielä lopuksi sovelluksen navigaatiomenu käyttämään Bootstrapin [Navbaria](https://getbootstrap.com/docs/4.0/components/navbar/). Tähänkin React bootstrap tarjoaa [valmiit komponentit](https://react-bootstrap.github.io/components/navbar/#navbars-mobile-friendly), dokumentaati on hieman kryptistä, mutta trial and error johtaa lopulta toimivaan ratkaisuun:
+Muutetaan vielä lopuksi sovelluksen navigaatiomenu käyttämään Bootstrapin [Navbaria](https://getbootstrap.com/docs/4.0/components/navbar/). Tähänkin React bootstrap tarjoaa [valmiit komponentit](https://react-bootstrap.github.io/components/navbar/#navbars-mobile-friendly), dokumentaatio on hieman kryptistä, mutta trial and error johtaa lopulta toimivaan ratkaisuun:
 
 ```bash
 <Navbar inverse collapseOnSelect>
@@ -2244,7 +2244,7 @@ Lisätään sitten sovelluksen tiedostoon _public/index.html_  head-tagin sisä�
 
 Sijoitetaan koko sovelluksen renderöimä sisältö Semanticin komponentin [Container](https://react.semantic-ui.com/elements/container) sisälle.
 
-Semanticin dokumentaatio sisältää jokaisesta komponentista useita esimerkkikoodinpätkiä, joiden avulla komponenttien käyttön periaatteet on helppo omaksua:
+Semanticin dokumentaatio sisältää jokaisesta komponentista useita esimerkkikoodinpätkiä, joiden avulla komponenttien käytön periaatteet on helppo omaksua:
 
 ![]({{ "/images/6/18.png" | absolute_url }})
 
