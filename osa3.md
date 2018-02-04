@@ -1957,7 +1957,7 @@ Sovelluksen pitäisi toimia muutosten jälkeen. Aina kaikki ei kuitenkaan mene s
 
 ![]({{ "/images/3/21.png" | absolute_url }})
 
-eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan MONGO_URL kun koodi oletti sen olevan nimeltään MONGO_URI.
+eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan _MONGO_URL_ kun koodi oletti sen olevan nimeltään _MONGODB_URI_.
 
 Muutoksen jälkeen sovellus ei toimi paikallisesti, koska ympäristömuuttujalla _MONGODB_URI_ ei ole mitään arvoa. Tapoja määritellä ympäristömuuttujalle arvo on monia, käytetään nyt [dotenv](https://www.npmjs.com/package/dotenv)-kirjastoa.
 
