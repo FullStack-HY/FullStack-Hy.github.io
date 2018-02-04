@@ -58,19 +58,19 @@ Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin t
 
 ## Arvosanarajat
 
-Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+Kurssilla on yhteensä 149 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 141, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
 
 Arvosanarajat:
 
 | tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
 | -------------- |:-----------------:       |:-----:|
-| 72    | 1/5  | 5   |
-| 82    | 2/5  | 5   |
-| 93    | 3/5  | 5   |
-| 104   | 4/5  | 5   |
-| 115   | 5/5  | 5   |
-| 126   | hyv  | 6   |
-| 137   | hyv  | 7   |
+| 70    | 1/5  | 5   |
+| 81    | 2/5  | 5   |
+| 92    | 3/5  | 5   |
+| 103   | 4/5  | 5   |
+| 113   | 5/5  | 5   |
+| 124   | hyv  | 6   |
+| 134   | hyv  | 7   |
 
 Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
 
