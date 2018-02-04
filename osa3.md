@@ -1384,7 +1384,7 @@ const Note = mongoose.model('Note', {
 
 Modelin parametrina määritellään _muistiinpanon_ [skeema](http://mongoosejs.com/docs/guide.html), joka kertoo mongooselle, miten muistiinpano-oliot tulee tallettaa tietokantaan.
 
-Ensimmäisenä parametrina oleva _Note_ määrittelee, että mongoose tallettaa muistiinpanoa vastaavat oliot kokoelmaan nimeltään _notes_.
+Ensimmäisenä parametrina oleva _Note_ määrittelee, että mongoose tallettaa muistiinpanoa vastaavat oliot kokoelmaan nimeltään _notes_ sillä  [mongoosen konventiona](http://mongoosejs.com/docs/models.html) on määritellä kokoelmien nimet monikossa (esim. _notes_), kun niihin viitataan modelin määrittelyssä yksikkömuodossa (esim. _Note_).
 
 Mongoosen dokumentaatiossa skeema ja sitä vastaava model määritellään kumpikin erikseen:
 
