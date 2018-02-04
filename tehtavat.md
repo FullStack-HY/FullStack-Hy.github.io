@@ -491,7 +491,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 deadline 5.2. klo 23:59
 
-Osassa on 22 tehtävää, joista pakollisia on 13. Voit edetä osaan 3 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 22 tehtävää, joista "pakollisia" on 13. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Osa sisältää kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -907,7 +907,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 Deadline 12.2. klo 23:59
 
-Osassa on 22 tehtävää, joista pakollisia on 15. Voit edetä osaan 4 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 22 tehtävää, joista "pakollisia" on 15. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Tämän osan tehtävissä teemme backendin edellisen osan puhelinluettelosovellukseen. Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -1227,7 +1227,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 Deadline 25.2. klo 23:59
 
-Osassa on 21 tehtävää, joista pakollisia on 17. Voit edetä osaan 5 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 21 tehtävää, joista "pakollisia" on 11. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Rakennamme tämän osan tehtävissä _blogilistasovellusta_, jonka avulla käyttäjien on mahdollista tallettaa tietoja internetistä löytämistään mielenkiintoisista blogeista. Kustakin blogista talletetaan sen kirjoittaja (author), aihe (title), url sekä blogilistasovelluksen käyttäjien antamien äänien määrä.
 
@@ -1375,7 +1375,7 @@ Jos et viitsi itse määritellä testisyötteenä käytettäviä blogeja, saat v
 Törmäät varmasti testien tekemisen yhteydessä erinäisiin ongelmiin. Pidä mielessä osassa 3 käsitellyt [debuggaukseen](osa3/#Node-sovellusten-debuggaaminen) liittyvät asiat, voit testejäkin suorittaessasi printtailla konsoliin komennolla _console.log_
 
 
-#### 4.5 apufunktioita ja yksikkötestejä, osa 3
+#### 4.5* apufunktioita ja yksikkötestejä, osa 3
 
 Määrittele funktio _favoriteBlog_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää millä blogilla on eniten likejä. Jos suosikkeja on monta, riittää että funktio palauttaa niistä jonkun.
 
@@ -1493,7 +1493,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 ### Lisää toiminnallisuutta ja testejä
 
-#### 4.12 blogilistan laajennus, osa 1
+#### 4.12* blogilistan laajennus, osa 1
 
 Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat poistettua testeistä copypastea:
 
@@ -1637,7 +1637,7 @@ if ( blog.user.toString() === userid.toString() ) ...
 
 Deadline 4.3. klo 23:59
 
-Osassa on 21 tehtävää, joista pakollisia on 11. Voit edetä osaan 6 kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 21 tehtävää, joista "pakollisia" on 11. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät.  Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Teemme nyt edellisen osan tehtävissä tehtyä bloglist-backendia käyttävän frontendin. Voit ottaa tehtävien pohjaksi [Githubista](https://github.com/FullStack-HY/bloglist-frontend) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
 Lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.

@@ -484,12 +484,14 @@ Komento on ikävä, joten määritellään sitä varten _npm-skripti_ tiedostoon
   // ..
   "scripts": {
     "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
+    "watch": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   // ..
 }
 ```
+
+Skriptissä ei ole tarvetta käyttää nodemonin polusta sen täydellistä muotoa _node_modules/.bin/nodemon_ sillä _npm_ osaa etsiä automaattisesti suoritettavaa tiedostoa kyseisestä hakemistosta.
 
 Voimme nyt käynnistää palvelimen sovelluskehitysmoodissa komennolla
 
