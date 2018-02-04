@@ -1826,7 +1826,7 @@ Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilu
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.16-3.19](/tehtävät#lisää-operaatioita)
+Tee nyt tehtävät [3.16-3.18](/tehtävät#lisää-operaatioita)
 
 ## Refaktorointia - promisejen ketjutus
 
