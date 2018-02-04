@@ -1704,7 +1704,7 @@ Flux tarjoaa siis standardin tavan sille miten ja missä sovelluksen tila pidet�
 
 ### Redux
 
-Facebookilla on olemassa valmis toteutus Fluxille, käytämme kuitenkin saman periaatteen mukaan toimivaa, mutta hieman yksinkertaisempaa [Redux](https://redux.js.org)-kirjastoa, jota myös Facebookilla käytetään nykyään aluperäisen Flux-toteutuksen sijaan.
+Facebookilla on olemassa valmis toteutus Fluxille, käytämme kuitenkin saman periaatteen mukaan toimivaa, mutta hieman yksinkertaisempaa [Redux](https://redux.js.org)-kirjastoa, jota myös Facebookilla käytetään nykyään alkuperäisen Flux-toteutuksen sijaan.
 
 Tutustutaan Reduxiin tekemällä laskurin toteuttava sovellus:
 
@@ -2269,7 +2269,7 @@ Kyseessä on jälleen tuttu _funktio, joka palauttaa funktion_, eli kullekin mui
 
 ### action creatorit
 
-Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikestaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
+Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikeastaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
 
 ```js
 const actionFor = {
@@ -2454,7 +2454,7 @@ Toisin kuin aiemmin ilman Reduxia tekemässämme React-koodissa, tapahtumankäsi
 
 _NoteList_ taas on sellainen mitä kutsutaan [container](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)-komponenteiksi, se sisältää sovelluslogiikkaa, eli määrittelee mitä _Note_-komponenttien tapahtumankäsittelijät tekevät ja koordinoi _presentational_-komponenttien, eli _Notejen_ konfigurointia.
 
-Palaamme presentational/container-jakoon tarkemin seuraavassa osassa.
+Palaamme presentational/container-jakoon tarkemmin seuraavassa osassa.
 
 _storen_ välittäminen sitä tarvitseviin komponentteihin propsien avulla on melko ikävää. Vaikka _App_ ei itse tarvitse storea, sen on otettava store vastaan, pystyäkseen välittämään sen edelleen komponenteille _NoteForm_ ja _NoteList_.
 
@@ -2579,7 +2579,7 @@ class NoteForm extends React.Component {
 }
 ```
 
-Näin komponentit rekisteröivät kuuntelemaan storessa tapahtuvia muutoksia ja niiden tapahtuessa uudelleenrenderöimään itsensä (ja lapsikomponenttinsa) metodilla [forceUpdate](https://reactjs.org/docs/react-component.html#forceupdate).
+Näin komponentit rekisteröityvät kuuntelemaan storessa tapahtuvia muutoksia ja niiden tapahtuessa uudelleenrenderöimään itsensä (ja lapsikomponenttinsa) metodilla [forceUpdate](https://reactjs.org/docs/react-component.html#forceupdate).
 
 Nyt pääsemme eroon tiedostossa _index.js_ tapahtuneesta koko sovelluksen uudelleenrenderöinnistä ja koodi yksinkertaistuu muotoon.
 
