@@ -1327,7 +1327,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise;
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1365,7 +1364,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:fullstack@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 ```
 
 Valitettavasti mongoosen dokumentaatiossa käytetään joka paikassa takaisinkutsufunktioita, joten sieltä ei kannata suoraan copypasteta koodia, sillä promisejen ja vanhanaikaisten callbackien sotkeminen samaan koodiin ei ole kovin järkevää.
@@ -1486,7 +1484,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1586,7 +1583,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
