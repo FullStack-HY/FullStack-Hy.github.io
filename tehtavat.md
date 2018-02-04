@@ -1027,6 +1027,10 @@ Huolehdi myös, että frontend toimii edelleen myös paikallisesti.
 
 ### mongoosen alkeet
 
+<div class='important'>
+Älä laita tietokannan salasanaa Githubiin! 
+</div>
+
 #### 3.12 tietokanta komentoriviltä
 
 Luo sovellukselle pilvessä oleva mongo mlabin avulla.
