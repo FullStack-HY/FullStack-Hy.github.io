@@ -41,7 +41,7 @@ const noteReducer = (state = initalState, action) => {
 export default noteReducer
 ```
 
-Siirretään [action creatiorit](https://redux.js.org/docs/basics/Actions.html#action-creators), eli sopivia [action](https://redux.js.org/docs/basics/Actions.html)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
+Siirretään [action creatorit](https://redux.js.org/docs/basics/Actions.html#action-creators), eli sopivia [action](https://redux.js.org/docs/basics/Actions.html)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
 
 ```js
 const initalState = [
