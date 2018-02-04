@@ -1327,7 +1327,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise;
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1365,7 +1364,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:fullstack@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 ```
 
 Valitettavasti mongoosen dokumentaatiossa käytetään joka paikassa takaisinkutsufunktioita, joten sieltä ei kannata suoraan copypasteta koodia, sillä promisejen ja vanhanaikaisten callbackien sotkeminen samaan koodiin ei ole kovin järkevää.
@@ -1486,7 +1484,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1586,7 +1583,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1957,7 +1953,7 @@ Sovelluksen pitäisi toimia muutosten jälkeen. Aina kaikki ei kuitenkaan mene s
 
 ![]({{ "/images/3/21.png" | absolute_url }})
 
-eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan MONGO_URL kun koodi oletti sen olevan nimeltään MONGO_URI.
+eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan _MONGO_URL_ kun koodi oletti sen olevan nimeltään _MONGODB_URI_.
 
 Muutoksen jälkeen sovellus ei toimi paikallisesti, koska ympäristömuuttujalla _MONGODB_URI_ ei ole mitään arvoa. Tapoja määritellä ympäristömuuttujalle arvo on monia, käytetään nyt [dotenv](https://www.npmjs.com/package/dotenv)-kirjastoa.
 
