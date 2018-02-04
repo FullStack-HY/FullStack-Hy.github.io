@@ -1107,7 +1107,7 @@ Muuta backendin kaikkien puhelintietojen näyttämistä siten, että se hakee n�
 
 Varmista, että frontend toimii muutosten jälkeen.
 
-Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduuliin samaan tapaan kuin osan 3 luvussa [tietokantamäärittelyjen eriyttäminen omaksi moduuliksi](osa3#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi)
+Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduuliin samaan tapaan kuin osan 3 luvussa [tietokantamäärittelyjen eriyttäminen omaksi moduuliksi](/osa3#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi)
 
 #### 3.14* puhelinluettelo ja tietokanta, osa 2
 
