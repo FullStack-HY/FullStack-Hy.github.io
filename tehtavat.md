@@ -765,6 +765,8 @@ Kurssin seuraavasta osasta alkaen alamme määrittelemään sovelluksemme _teste
 
 Jos koko sovelluksesi on tehty yhteen komponenttiin, refaktoroi sitä eriyttämällä sopivia komponentteja. Pidä kuitenkin edelleen kaikki tila juurikomponentissa.
 
+Riittää että erotat sovelluksesta kaksi kompoenttia. Hyviä kandidaatteja ovat esim. filtteröintilomake, yksittäisten henkilön tietojen esittäminen ja uuden henkilön lisäävä lomake.
+
 ### Datan hakeminen palvelimelta
 
 #### 2.11 puhelinluettelo osa 6
