@@ -112,7 +112,7 @@ Normaalisti exportattujen funktioiden käyttöönotto tapahtuu aaltosulkusyntaks
 import { noteCreation } from './../reducers/noteReducer'
 ```
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-1) tagissä _part6-1_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-1) tagissä _part6-1_.
 
 ## ESlint
 
