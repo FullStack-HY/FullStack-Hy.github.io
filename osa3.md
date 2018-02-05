@@ -1323,7 +1323,7 @@ Ei lisätä mongoa käsittelevää koodia heti backendin koodin sekaan, vaan teh
 ```js
 const mongoose = require('mongoose')
 
-// korvaa url oman tietokantasi urlilla!
+// korvaa url oman tietokantasi urlilla. ethän laita salasanaa Gothubiin!
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)

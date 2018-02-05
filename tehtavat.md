@@ -1040,6 +1040,8 @@ Luo sovellukselle pilvessä oleva mongo mlabin avulla.
 
 Tee projektihakemistoon tiedosto _mongo.js_, jonka avulla voit lisätä tietokantaan puhelinnumeroja sekä listata kaikki kannassa olevat numerot.
 
+**Huom** jos/kun laitat tiedoston Githubiin, älä laita tietokannan salasanaa mukaan!
+
 Ohjelma toimii siten, että jos sille annetaan käynnistäessä kaksi komentoriviparametria, esim:
 
 ```bash
