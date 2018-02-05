@@ -1352,8 +1352,8 @@ Konsoliin tulostuu
 
 <pre>
 constructor
-will mount
 render
+will mount
 promise fulfilled
 render
 </pre>
