@@ -800,7 +800,7 @@ Talleta sovelluksen alkutila projektin juureen sijoitettavaan tiedostoon _db.jso
 }
 ```
 
-Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001>, että palvelin palauttaa henkilölistan.
+Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001/persons>, että palvelin palauttaa henkilölistan.
 
 Jos saat virheilmoituksen
 
@@ -1448,7 +1448,7 @@ Huomaa, että joudut tekemään koodiin osan 4 materiaalin tyylin joukon muutoks
 npx jest -t 'blogs are returned'
 ```
 
-voidaan suoritta ainoastaan ne testit, joiden nimessä esiintyy _blogs are returned_.
+voidaan suorittaa ainoastaan ne testit, joiden nimessä esiintyy _blogs are returned_.
 
 Yksittäisen testitiedoston sisällä olevien testien suoritusta voidaan kontrolloida metodeilla _skip_ ja _only_ [ks. manuaali](https://facebook.github.io/jest/docs/en/api.html).
 
@@ -1574,7 +1574,7 @@ Käyttäjien lista voi näyttää esim. seuraavalta:
 
 #### 4.16* blogilistan laajennus, osa 5
 
-Laajenna käyttäjätunnusten luomista siten, että salasanan tulee olla vähintään 3 merkkiä pitkiä ja käyttäjätunnus on järjestelmässä uniikki. Jos täysi-ikäisyydelle ei määritellä luotaessa arvoa, on se oletusarvoisesti true.
+Laajenna käyttäjätunnusten luomista siten, että salasanan tulee olla vähintään 3 merkkiä pitkä ja käyttäjätunnus on järjestelmässä uniikki. Jos täysi-ikäisyydelle ei määritellä luotaessa arvoa, on se oletusarvoisesti true.
 
 Luomisoperaation tulee palauttaa sopiva statuskoodi ja kuvaava virheilmoitus, jos yritetään luoda epävalidi käyttäjä.
 
