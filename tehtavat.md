@@ -1539,7 +1539,7 @@ Toteuta sovellukseen mahdollisuus yksittäisen blogin poistoon.
 
 Käytä async/awaitia.
 
-Määrittele ensin toiminnallisuutta testaavat testit ja tämän jälkeen toteuta toiminnallisuus. Noudata operaation HTTP-rajapinnan suhteen [RESTful](osa3/#REST)-käytänteitä.
+Määrittele ensin toiminnallisuutta testaavat testit ja tämän jälkeen toteuta toiminnallisuus. Noudata operaation HTTP-rajapinnan suhteen [RESTful](/osa3#rest)-käytänteitä.
 
 Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
 
