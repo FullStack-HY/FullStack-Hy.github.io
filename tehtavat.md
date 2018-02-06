@@ -1014,6 +1014,8 @@ Joudut todennäköisesti tekemään fronendiin erinäisiä pieniä muutoksia ain
 
 Vie sovelluksen backend internetiin, esim. Herokuun.
 
+**Huom** eihän hakemisto _build_ ole gitignoroituna projektissasi?
+
 Testaa selaimen ja postmanin tai VS Code REST clientin avulla, että internetissä oleva backend toimii.
 
 **PRO TIP:** kun deployaat sovelluksen herokuun, kannattaa ainakin alkuvaiheissa pitää **KOKO AJAN** näkyvillä herokussa olevan sovelluksen loki antamalla komento <code>heroku logs -t</code>:
