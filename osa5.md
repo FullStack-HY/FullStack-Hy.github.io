@@ -2171,7 +2171,7 @@ console.log(loput)  // tulostuu [3, 4, 5, 6]
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.17 ja 5.18](/tehtävät#Redux-Unicafe)
+Tee nyt tehtävät [5.17 ja 5.18](/tehtävät#redux-unicafe)
 
 ### Lisää toiminnallisuutta ja ei-kontrolloitu lomake
 

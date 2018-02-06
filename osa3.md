@@ -846,7 +846,7 @@ Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnist�
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.1-3.6](tehtävät#expressin-alkeet)
+Tee nyt tehtävät [3.1-3.6](/tehtävät#expressin-alkeet)
 
 ## Huomioita HTTP pyyntötyyppien käytöstä
 
