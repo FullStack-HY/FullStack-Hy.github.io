@@ -590,7 +590,7 @@ const vastaus = keskiarvo(2, 5)
 
 ### Tehtäviä javascriptistä
 
-Tee nyt [tehtävät 1.3-1.5](../tehtävät#javascriptin-alkeet)
+Tee nyt [tehtävät 1.3-1.5](/tehtävät#javascriptin-alkeet)
 
 ### Olioiden metodit ja this
 
@@ -2270,4 +2270,4 @@ Internetissä on todella paljon Reactiin liittyvää materiaalia, tässä muutam
 
 ### Lisää React-tehtäviä
 
-Tee nyt [tehtävät 1.6-1.14](../tehtävät#lisää-reactia)
+Tee nyt [tehtävät 1.6-1.14](/tehtävät#lisää-reactia)

@@ -87,7 +87,7 @@ VS Code -plugineina löytyy myös hyödyllisiä valmiiksi määriteltyjä snippe
 
 ### Pakolliset tehtävät, tehtävien vaikutus arvosanaan
 
-Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](/tehtävät)
+Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](/tehtävät).
 
 ### linkkivinkit
 
@@ -103,7 +103,7 @@ Backendin toteutusympäristönä käytämme [Node.js](https://nodejs.org/en/):ä
 
 Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintään yhtä tuore (ks. komentoriviltä _node -v_).
 
-Kuten [osassa 1](/osa1#Javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
+Kuten [osassa 1](/osa1#javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
 
 Tavoitteenamme on tehdä [osan 2](/osa2) muistiinpanosovellukseen sopiva backend. Aloitetaan kuitenkin ensin perusteiden läpikäyminen toteuttamalla perinteinen "hello world"-sovellus.
 
@@ -296,7 +296,7 @@ Käynnistetään palvelin uudelleen (palvelin sammutetaan painamalla _ctrl_ ja _
 Headerin _Content-Type_ arvolla _application/json_ kerrotaan, että kyse on JSON-muotoisesta datasta. Muuttujassa _notes_ oleva taulukko muutetaan jsoniksi metodilla <code>JSON.stringify(notes)</code>.
 
 
-Kun avaamme selaimen, on tulostusasu sama kuin [osassa 2](/osa2/#datan-haku-palvelimelta) käytetyn [json-serverin](https://github.com/typicode/json-server) tarjoamalla muistiinpanojen listalla:
+Kun avaamme selaimen, on tulostusasu sama kuin [osassa 2](/osa2#datan-haku-palvelimelta) käytetyn [json-serverin](https://github.com/typicode/json-server) tarjoamalla muistiinpanojen listalla:
 
 ![]({{ "/assets/3/2.png" | absolute_url }})
 
@@ -511,7 +511,7 @@ Representational State Transfer eli REST on Roy Fieldingin vuonna 2000 ilmestyne
 
 Emme nyt rupea määrittelemään REST:iä Fieldingiläisittäin tai rupea väittämään mitä REST on tai mitä se ei ole vaan otamme hieman [kapeamman näkökulman](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services) miten REST tai RESTful API:t yleensä tulkitaan Web-sovelluksissa. Alkuperäinen REST-periaate ei edes sinänsä rajoitu Web-sovelluksiin.
 
-Mainitsimme jo [edellisestä osassa](osa3/#REST-API:n-käyttö), että yksittäisiä asioita, meidän tapauksessamme muistiinpanoja kutsutaan RESTful-ajattelussa _resursseiksi_. Jokaisella resurssilla on URL eli sen yksilöivä osoite.
+Mainitsimme jo [edellisestä osassa](/osa2#rest-api:n-käyttö), että yksittäisiä asioita, meidän tapauksessamme muistiinpanoja kutsutaan RESTful-ajattelussa _resursseiksi_. Jokaisella resurssilla on URL eli sen yksilöivä osoite.
 
 Erittäin yleinen konventio on muodostaa resurssien yksilöivät URLit liittäen resurssityypin nimi ja resurssin yksilöivä tunniste.
 
@@ -1593,7 +1593,7 @@ const Note = mongoose.model('Note', {
 module.exports = Note
 ```
 
-Noden [moduulien](https://nodejs.org/docs/latest-v8.x/api/modules.html) määrittely poikkeaa hiukan osassa 2 määrittelemistämme frontendin käyttämistä [ES6-moduuleista](/osa3/#refaktorointia---moduulit).
+Noden [moduulien](https://nodejs.org/docs/latest-v8.x/api/modules.html) määrittely poikkeaa hiukan osassa 2 määrittelemistämme frontendin käyttämistä [ES6-moduuleista](/osa2/#refaktorointia---moduulit).
 
 Moduulin ulos näkyvä osa määritellään asettamalla arvo muuttujalle _module.exports_. Asetamme arvoksi määritellyn modelin _Note_. Muut moduulin sisällä määritellyt asiat, esim. muuttujat _mongoose_ ja _url_ eivät näy moduulin käyttäjälle.
 
@@ -1678,7 +1678,7 @@ Palvelimen konsolissa näkyykin virheilmoitus:
 
 ![]({{ "/assets/3/15.png" | absolute_url }})
 
-Kysely on epäonnistunut ja kyselyä vastaava promise mennyt tilaan _rejected_. Koska emme käsittele promisen epäonnistumista, ei pyyntöön vastata koskaan. Osassa 2 tutustuimme jo [promisejen virhetilanteiden käsittelyyn](/osa2/#promise-ja-virheet).
+Kysely on epäonnistunut ja kyselyä vastaava promise mennyt tilaan _rejected_. Koska emme käsittele promisen epäonnistumista, ei pyyntöön vastata koskaan. Osassa 2 tutustuimme jo [promisejen virhetilanteiden käsittelyyn](/osa2#promise-ja-virheet).
 
 Lisätään tilanteeseen yksinkertainen virheidenkäsittelijä:
 

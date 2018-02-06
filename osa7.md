@@ -48,7 +48,7 @@ Emme voi kuitenkaan turvautua ikuisesti create-react-app:in magiaan ja nyt onkin
 
 Olemme toteuttaneet sovelluksia jakamalla koodin moduuleihin, joita on _importattu_ niitä tarvitseviin paikkoihin. Vaikka ES6-moduulit ovatkin Javascript-standardissa määriteltyjä, ei mikään selain vielä osaa käsitellä moduuleihin jaettua koodia.
 
-Selainta varten moduuleissa oleva koodi _bundlataan_, eli siitä muodostetaan yksittäinen, kaiken koodin sisältävä tiedosto. Kun veimme Reactilla toeutetun frontendin tuotantoon osan 3 luvussa [Frontendin tuotantoversio](/osa3/#Frontendin-tuotantoversio), suoritimme bundlauksen komennolla _npm run build_. Konepellin alla kyseinen npm-skripti suorittaa bundlauksen webpackia hyväksikäyttäen. Tuloksena on joukko hakemistoon _build_ sijoitettavia tiedostoja:
+Selainta varten moduuleissa oleva koodi _bundlataan_, eli siitä muodostetaan yksittäinen, kaiken koodin sisältävä tiedosto. Kun veimme Reactilla toeutetun frontendin tuotantoon osan 3 luvussa [Frontendin tuotantoversio](/osa3#frontendin-tuotantoversio), suoritimme bundlauksen komennolla _npm run build_. Konepellin alla kyseinen npm-skripti suorittaa bundlauksen webpackia hyväksikäyttäen. Tuloksena on joukko hakemistoon _build_ sijoitettavia tiedostoja:
 
 <pre>
 ├── asset-manifest.json
@@ -634,7 +634,7 @@ Source mapin käyttö mahdollistaa myös chromen debuggerin luontevan käytön
 
 ![]({{ "/assets/7/8.png" | absolute_url }})
 
-Kyseinen virhe on siis jo [osasta 1](/osa1#Metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
+Kyseinen virhe on siis jo [osasta 1](/osa1#metodien-käyttö-ja-this) tuttu this:in kadottaminen. Korjataan ongelma määrittelemällä metodi uudelleen meille jo kovin tutulla syntaksilla:
 
 ```js
 onClick = () => {
@@ -940,7 +940,7 @@ Ejektoidun sovelluksen konfiguraatioiden lukeminen on suositeltavaa ja sangen op
 
 ## Lisää tyyleistä
 
-Osissa 2 ja 6 on jo katsottu muutamaa tapaa tyylien lisäämiseen eli vanhan koulukunnan [yksittäistä CSS](osa2/#Tyylien-lisääminen)-tiedostoa, [inline-tyylejä](osa6/#Inline-tyylit) ja [UI-frameworkien](osa6/#Valmiit-käyttöliittymätyylikirjastot) kuten Bootstrapin käyttöä.
+Osissa 2 ja 6 on jo katsottu muutamaa tapaa tyylien lisäämiseen eli vanhan koulukunnan [yksittäistä CSS](/osa2#tyylien-lisääminen)-tiedostoa, [inline-tyylejä](/osa6#inline-tyylit) ja [UI-frameworkien](/osa6#valmiit-käyttöliittymätyylikirjastot) kuten Bootstrapin käyttöä.
 
 Tapoja on [monia muitakin](https://survivejs.com/react/advanced-techniques/styling-react/), katsotaan vielä lyhyestä kahta tapaa.
 
@@ -1165,7 +1165,7 @@ Web-sovellusten E2E-testaus tapahtuu simuloidun selaimen avulla esimerkiksi [Sel
 
 Chrome-selain on jo hetken sisältänyt [headless](https://developers.google.com/web/updates/2017/04/headless-chrome)-moodin. Käytetään nyt headless chromea sille Node API:n tarjoavan [Puppeteer](https://github.com/GoogleChrome/puppeteer)-kirjaston avulla.
 
-Tehdään muutama testi osan 3 muistiinpanosovelluksen ["Full stack"-versiolle](osa3/#Sovellus-internettiin), joka sisältää sekä backendin että frontin samassa projektissa.
+Tehdään muutama testi osan 3 muistiinpanosovelluksen ["Full stack"-versiolle](/osa3#sovellus-internettiin), joka sisältää sekä backendin että frontin samassa projektissa.
 
 Asennetan puppeteer komennolla
 
@@ -1338,7 +1338,7 @@ Lisää aiheesta [Puppeteerin Github-sivujen](https://github.com/GoogleChrome/pu
 
 ## Tyypitys
 
-Javascriptin muuttujien [dynaaminen tyypitys](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) aiheuttaa välillä ikäviä bugeja. Osassa 5 käsittelimme lyhyesti [PropTypejä](osa5/#PropTypes), eli mekanismia, jonka avulla React-komponenteille välitettävile propseille on mahdollista tehdä tyyppitarkastuksia.
+Javascriptin muuttujien [dynaaminen tyypitys](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) aiheuttaa välillä ikäviä bugeja. Osassa 5 käsittelimme lyhyesti [PropTypejä](/osa5#propTypes), eli mekanismia, jonka avulla React-komponenteille välitettävile propseille on mahdollista tehdä tyyppitarkastuksia.
 
 Viime aikoina on ollut havaittavissa nousevaa kiinnostusta [staattiseen tyypitykseen](https://en.wikipedia.org/wiki/Type_system#Static_type_checking).
 
@@ -1411,7 +1411,7 @@ tarjoaa näkökulmia aiheeseen.
 
 ### Frontti ja backend samassa repositoriossa
 
-Olemme kurssilla tehneet frontendin ja backendin omiin repositorioihinsa. Kyseessä on varsin tyypillinen ratkaisu. Teimme tosin deploymentin [kopioimalla](/osa3/#Staattisten-tiedostojen-tarjoaminen-backendistä) frontin bundlatun koodin backendin repositorion sisälle. Toinen, ehkä järkevämpi tilanne olisi ollut deployata frontin koodi erikseen, create-react-appilla tehtyjen sovellusten osalta se on todella helppoa oman [buildpackin](https://github.com/mars/create-react-app-buildpack) ansiosta.
+Olemme kurssilla tehneet frontendin ja backendin omiin repositorioihinsa. Kyseessä on varsin tyypillinen ratkaisu. Teimme tosin deploymentin [kopioimalla](/osa3#staattisten-tiedostojen-tarjoaminen-backendistä) frontin bundlatun koodin backendin repositorion sisälle. Toinen, ehkä järkevämpi tilanne olisi ollut deployata frontin koodi erikseen, create-react-appilla tehtyjen sovellusten osalta se on todella helppoa oman [buildpackin](https://github.com/mars/create-react-app-buildpack) ansiosta.
 
 Joskus voi kuitenkin olla tilanteita, missä koko sovellus halutaan samaan repositorioon. Tällöin yleinen ratkaisu on sijoittaa _package.json_ ja _webpack.config.js_ hakemiston juureen ja frontin sekä backendin koodi omiin hakemistoihinsa, esim. _client_ ja _server_.
 
@@ -1433,7 +1433,7 @@ WebSocket API:n suoran käyttämisen sijaan onkin suositeltavaa käyttää [Sock
 
 ### Virtual DOM
 
-Reactin yhteydessä mainitan usein käsite Virtual DOM. Mistä oikein on kyseä? Kuten [osassa 1](/osa1#Document-Object-Model-eli-DOM) mainittiin, selaimet tarjoavat [DOM API](https://developer.mozilla.org/fi/docs/DOM):n, jota hyväksikäyttäen selaimessa toimiva Javascript voi muokata sivun ulkoasun määritteleviä elementtejä.
+Reactin yhteydessä mainitan usein käsite Virtual DOM. Mistä oikein on kyseä? Kuten [osassa 0](/osa0#document-object-model-eli-dom) mainittiin, selaimet tarjoavat [DOM API](https://developer.mozilla.org/fi/docs/DOM):n, jota hyväksikäyttäen selaimessa toimiva Javascript voi muokata sivun ulkoasun määritteleviä elementtejä.
 
 Reactia käyttäessä ohjelmoija ei koskaan (tai parempi sanoa yleensä) manipuloi DOM:ia suoraan. React-komponenttien ulkoasun määrittelevä _render_-metodi palauttaa joukon [React](https://reactjs.org/docs/glossary.html#elements)-elementtejä. Vaikka osa elementeistä näyttä normaaleilta HTML-elementeiltä
 
@@ -1462,7 +1462,7 @@ Materiaalissa ei ole tuotu ehkä riittävän selkeästi esille sitä, että Reac
 
 Pienissä sovelluksissa React-komponenttien tilaan talletetaan sovelluksen käsittelemää dataa, eli komponenttien tilan voi näissä tapaukissa ajatella vastaavan MVC:n modeleita.
 
-React-sovellusten yheydessä ei kuitenkaan yleensä puhuta MVC-arkkitehtuurista ja jos käytössä on Redux niin silloin sovellukset noudattavat [Flux](https://facebook.github.io/flux/docs/in-depth-overview.html#content)-arkkitehtuuria ja Reactin rooliksi jää entistä enemmän pelkkä näkymien muodostaminen. Varsinainen sovelluslogiikka hallitaan Reduxin tilan ja action creatorien avulla. Jos käytössä on osasta 6 tuttu [redux thunk](/osa6#Asynkroniset-actionit-ja-redux-thunk), on sovelluslogiikka mahdollista eristää lähes täysin React-koodista.
+React-sovellusten yheydessä ei kuitenkaan yleensä puhuta MVC-arkkitehtuurista ja jos käytössä on Redux niin silloin sovellukset noudattavat [Flux](https://facebook.github.io/flux/docs/in-depth-overview.html#content)-arkkitehtuuria ja Reactin rooliksi jää entistä enemmän pelkkä näkymien muodostaminen. Varsinainen sovelluslogiikka hallitaan Reduxin tilan ja action creatorien avulla. Jos käytössä on osasta 6 tuttu [redux thunk](/osa6#asynkroniset-actionit-ja-redux-thunk), on sovelluslogiikka mahdollista eristää lähes täysin React-koodista.
 
 Koska sekä React että [Flux](https://facebook.github.io/flux/docs/in-depth-overview.html#content) ovat Facebookilla syntyneinä, voi ajatella, että Reactin pitäminen ainoastaan käyttöliittymästä huolehtivana kirjastona on sen oikeaoppista käyttöä. Flux-arkkitehtuurin noudattaminen tuo sovelluksiin tietyn overheadin ja jos on kyse pienestä sovelluksesta tai prototyypistä, saattaa Reatcin "väärinkäyttäminen" olla järkevää, sillä myöskään [overengineering](https://en.wikipedia.org/wiki/Overengineering) ei yleensä johda optimaaliseen tulokseen.
 
@@ -1712,9 +1712,9 @@ Pilvinatiiviuteen liittyvät usein äsken mainitut mikropalvelut ja serverless-a
 
 ## Hyödyllisiä kirjastoja ja mielenkiintoisia linkkejä
 
-Facebookin ylläpitämä kirjasto [immutable.js](immutable.js) tarjoaa muutamista tietorakenteista nimensä mukaisia _muuttumattomia_ toteutuksia. Kirjastosta voi olla hyötyä Reduxia käytettäessä, sillä kuten osasta 5 [muistamme](osa5/#puhtaat-funktiot,-immutable) reducerien on oltava puhtaita funktioita eli ne eivät saa muuttaa storen tilaa vaan niiden on korvattava se muutostilanteissa uudella.
+Facebookin ylläpitämä kirjasto [immutable.js](immutable.js) tarjoaa muutamista tietorakenteista nimensä mukaisia _muuttumattomia_ toteutuksia. Kirjastosta voi olla hyötyä Reduxia käytettäessä, sillä kuten osasta 5 [muistamme](/osa5#puhtaat-funktiot,-immutable) reducerien on oltava puhtaita funktioita eli ne eivät saa muuttaa storen tilaa vaan niiden on korvattava se muutostilanteissa uudella.
 
-[Redux-saga](https://redux-saga.js.org/) tarjoaa osassa 5 käsitellylle [redux thunkille](osa5/#redux-thunk) vaihtoehtoisen tavan tehdä asynkronisia actioneja. Jotkut hypettää ja tykkää, itse en.
+[Redux-saga](https://redux-saga.js.org/) tarjoaa osassa 5 käsitellylle [redux thunkille](/osa5#redux-thunk) vaihtoehtoisen tavan tehdä asynkronisia actioneja. Jotkut hypettää ja tykkää, itse en.
 
 Single page sovelluksissa analytiikkatietojen käyttäjien sivuston kanssa käymän interaktion kerääminen on [haastavampaa](https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications) kuin perinteisissä, kokonaiseen sivun lataamiseen perustuvissa web-sovelluksissa. [React Google Analytics](https://github.com/react-ga/react-ga) -kirjasto tuo tähän avun.
 

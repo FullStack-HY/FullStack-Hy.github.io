@@ -21,7 +21,7 @@ permalink: /osa6/
 
 ## Muistiinpano-sovelluksen refaktorointia
 
-Jatketaan osan 5 loppupuolella tehdyn muistiinpanosovelluksen yksinkertaistetun [redux-version](osa5/#Redux-muistiinpanot) laajentamista.
+Jatketaan osan 5 loppupuolella tehdyn muistiinpanosovelluksen yksinkertaistetun [redux-version](/osa5#redux-muistiinpanot) laajentamista.
 
 Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part5-6) tagissä _part5-6_.
 
@@ -116,7 +116,7 @@ Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-
 
 ## ESlint
 
-Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#Lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa.
+Konfiguroimme osassa 3 koodin tyylistä huolehtivan [ESlintin](/osa3#lint) backendiin. Otetaan nyt ESlint käyttöön myös frontendissa.
 
 Create-react-app on asentanut projektille eslintin valmiiksi, joten ei tarvita muuta kun sopiva konfiguraatio tiedoston _.eslintrc.js_.
 
@@ -1066,7 +1066,7 @@ Tee nyt tehtävät [6.6-6.9](/tehtävät#connect)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
-Laajennetan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](osa2/#Datan-haku-palvelimelta).
+Laajennetan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](/osa2#datan-haku-palvelimelta).
 
 Tallennetaan projektin juuren tiedostoon _db.json_ tietokannan alkutila:
 
@@ -1533,7 +1533,7 @@ ja omat sivunsa muistiinpanojen ja käyttäjien tietojen näyttämiseen:
 
 ![]({{ "/assets/6/7.png" | absolute_url }})
 
-[Vanhan koulukunnan websovelluksessa](osa1/#Perinteinen-web-sovellus) sovelluksen näyttämän sivun vaihto tapahtui siten että selain teki palvelimelle uuden HTTP GET -pyynnön ja renderöi sitten palvelimen palauttaman näkymää vastaavan HTML-koodin.
+[Vanhan koulukunnan websovelluksessa](/osa0#perinteinen-web-sovellus) sovelluksen näyttämän sivun vaihto tapahtui siten että selain teki palvelimelle uuden HTTP GET -pyynnön ja renderöi sitten palvelimen palauttaman näkymää vastaavan HTML-koodin.
 
 Single page appeissa taas ollaan todellisuudessa koko ajan samalla sivulla, ja selaimessa suoritettava Javascript-koodi luo illuusion eri "sivuista". Jos näkymää vaihdettaessa tehdään HTTP-kutsuja, niiden avulla haetaan ainoastaan JSON-muotoista dataa jota uuden näkymän näyttäminen ehkä edellyttää.
 
@@ -1930,7 +1930,7 @@ Tee nyt tehtävät [6.16-6.18](/tehtävät#router)
 
 ## Inline-tyylit
 
-Osan 2 [lopussa](/osa2#Tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
+Osan 2 [lopussa](/osa2#tyylien-lisääminen) lisäsimme React-sovellukseen tyylejä vanhan koulukunnan tapaan yhden koko sovelluksen tyylit määrittelevän CSS-tiedoston avulla.
 
 Olemme jo muutamaan kertaan määritelleet komponenteille [inline](https://react-cn.github.io/react/tips/inline-styles.html)-tyylejä, eli määritelleet CSS:ää suoraan komponentin muun koodin seassa.
 

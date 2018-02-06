@@ -1506,7 +1506,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat poistettua testeistä copypastea:
 
-Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#Testien-refaktorointi) tyyliä
+Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#testien-refaktorointi) tyyliä
 
 ```js
 const helper = require('./test_helper')
@@ -1555,7 +1555,7 @@ Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden t
 
 ### Blogilistan käyttäjät
 
-Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaan osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#Käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
+Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaan osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
 
 ### Varoitus vielä kerran
 
@@ -1565,7 +1565,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 Tee sovellukseen mahdollisuus luoda käyttäjiä tekemällä HTTP POST -pyyntö osoitteeseen _api/users_. Käyttäjillä on käyttäjätunnus, salasana ja nimi sekä totuusarvoinen kenttä, joka kertoo onko käyttäjä täysi-ikäinen.
 
-Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#Käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
+Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
 
 Tee järjestelmään myös mahdollisuus katsoa kaikkien käyttäjien tiedot sopivalla HTTP-pyynnöllä.
 
@@ -1759,7 +1759,7 @@ Notifikaation tulee olla näkyvillä muutaman sekunnin ajan. Värien lisäämine
 
 #### 5.5 blogilistan frontend, osa 5
 
-Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näytettävä osan 5 luvun [Kirjautumislomakkeen näyttäminen vain tarvittaessa](/osa5#Kirjautumislomakkeen näyttäminen-vain-tarvittaessa) tapaan. Voit halutessasi hyödyntää osassa 5 määriteltyä komponenttia _Togglable_.
+Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näytettävä osan 5 luvun [Kirjautumislomakkeen näyttäminen vain tarvittaessa](/osa5#kirjautumislomakkeen näyttäminen-vain-tarvittaessa) tapaan. Voit halutessasi hyödyntää osassa 5 määriteltyä komponenttia _Togglable_.
 
 #### 5.6* blogilistan frontend, osa 6
 
