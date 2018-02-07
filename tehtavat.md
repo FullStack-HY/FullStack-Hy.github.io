@@ -970,9 +970,9 @@ Generoi uuden puhelintiedon tunniste funktiolla [Math.random](https://developer.
 
 #### 3.6* puhelinluettelon backend osa 6
 
-Tee uuden numeron lisäykseen virheiden käsittely, pyyntö ei saa onnistua, jos
-- jos nimi tai numero puuttuu
-- lisättävälle nimelle on jo numero luettelossa
+Tee uuden numeron lisäykseen virheiden käsittely. Pyyntö ei saa onnistua, jos
+- nimi tai numero puuttuu
+- lisättävä nimi on jo luettelossa
 
 Vastaa asiaankuuluvalla statuskoodilla, liitä vastaukseen mukaan myös tieto, joka kertoo virheen syyn, esim:
 
