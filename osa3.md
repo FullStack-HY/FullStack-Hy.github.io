@@ -1793,7 +1793,7 @@ app.delete('/api/notes/:id', (request, response) => {
 
 Vastauksena on statauskoodi _204 no content_ molemmissa "onnistuneissa" tapauksissa, eli jos olio poistettiin tai olioa ei ollut mutta _id_ oli periaatteessa oikea. Takaisinkutsun parametrin _result_ perusteella olisi mahdollisuus haarautua ja palauttaa tilanteissa eri statuskoodi jos sille on tarvetta.
 
-Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate):
+Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate]Tässä ja myöhemmin sivulla on findOneAndUpdate, mutta koodissa alla findByIdAndUpdate, joka toimi ainakin harjoituskoodissa(http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate):
 
 ```js
 app.put('/api/notes/:id', (request, response) => {
