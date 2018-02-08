@@ -1822,7 +1822,7 @@ store.subscribe(() => {
 })
 ```
 
-eli koodi 
+eli koodi
 
 ```js
 const store = createStore(counterReducer)
@@ -1839,7 +1839,7 @@ store.dispatch({ type: 'ZERO' })
 store.dispatch({ type: 'DECREMENT' })
 ```
 
-aiheuttaisi tulostuksen 
+aiheuttaisi tulostuksen
 
 <pre>
 1
@@ -2114,7 +2114,7 @@ const noteReducer = (state = [], action) => {
 }
 ```
 
-Luomme tärkeyttä muuttaneesta muistiinpanosta kopion osasta 2 [tutulla syntaksilla](/osa2#muistiinpanon-tärkeyden-muutos) ja korvaamme tilan uudella tilalla, mihin otetaan muuttumattomat muistiinpanot ja muutettavasta sen muutettu kopio _changedNote_. 
+Luomme tärkeyttä muuttaneesta muistiinpanosta kopion osasta 2 [tutulla syntaksilla](/osa2#muistiinpanon-tärkeyden-muutos) ja korvaamme tilan uudella tilalla, mihin otetaan muuttumattomat muistiinpanot ja muutettavasta sen muutettu kopio _changedNote_.
 
 ### array spread -syntaksi
 
@@ -2220,7 +2220,7 @@ class App extends React.Component {
 }
 ```
 
-Molemmat toiminnallisuudet on toteutettu suoraviivaisesti. Huomionarvoista uuden muistiinpanon lisäämisessä on nyt se, että toisin kuin aiemmat Reactilla toteutetut lomakkeet, emme ole nyt sitoneet lomakkeen kentän arvoa komponentin _App_ tilaan. React kutsuu tälläisiä lomakkeita [ei-kontrolloiduiksi](https://reactjs.org/docs/uncontrolled-components.html). 
+Molemmat toiminnallisuudet on toteutettu suoraviivaisesti. Huomionarvoista uuden muistiinpanon lisäämisessä on nyt se, että toisin kuin aiemmat Reactilla toteutetut lomakkeet, emme ole nyt sitoneet lomakkeen kentän arvoa komponentin _App_ tilaan. React kutsuu tälläisiä lomakkeita [ei-kontrolloiduiksi](https://reactjs.org/docs/uncontrolled-components.html).
 
 > Ei-kontrolloiduilla lomakkeilla on tiettyjä rajoitteita (ne eivät esim. mahdollista lennossa annettavia validointiviestejä, lomakkeen lähetysnapin disabloimista sisällön perusteella ym...), meidän käyttötapaukseemme ne kuitenkin tällä kertaa sopivat.
 Voit halutessasi lukea aiheesta enemmän [täältä](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
@@ -2333,7 +2333,7 @@ import noteReducer from './noteReducer'
 const store = createStore(noteReducer)
 
 const render = () => {
-  ReactDOM.render(<App store={store}/>, 
+  ReactDOM.render(<App store={store}/>,
   document.getElementById('root'))
 }
 
@@ -2548,7 +2548,7 @@ NoteList.contextTypes = {
 }
 ```
 
-Muutos on siis hyvin pieni. Nyt propsien sijaan storen viite on <code>this.context.store</code>. Komponentille on myös pakko määritellä sen vastaanottaman kontekstin tyyppi: 
+Muutos on siis hyvin pieni. Nyt propsien sijaan storen viite on <code>this.context.store</code>. Komponentille on myös pakko määritellä sen vastaanottaman kontekstin tyyppi:
 
 ```js
 NoteList.contextTypes = {

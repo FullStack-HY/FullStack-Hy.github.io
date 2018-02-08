@@ -1914,7 +1914,7 @@ ReactDOM.render(
 
 Haluamme, että napin avulla tilassa oleva _value_ saadaan nollattua.
 
-Jotta saamme napin reagoimaan, on sille lisättävä _tapahtumankäsittelijä_. 
+Jotta saamme napin reagoimaan, on sille lisättävä _tapahtumankäsittelijä_.
 
 Tapahtumankäsittelijän tulee aina olla _funktio_. Jos tapahtumankäisttelijän paikalle yritetään laittaa jotain muuta, ei nappi toimi.
 
@@ -1959,7 +1959,7 @@ Entä seuraava:
 <button onClick={console.log('nappia painettu')}>nappi</button>
 ```
 
-konsoliin tulostuu kertaalleen _nappia painettu_, mutta nappia painellessa ei tapahdu mitään. Miksi tämä ei toimi vaikka tapahtumankäsittelijänä on nyt funktio _console.log_? 
+konsoliin tulostuu kertaalleen _nappia painettu_, mutta nappia painellessa ei tapahdu mitään. Miksi tämä ei toimi vaikka tapahtumankäsittelijänä on nyt funktio _console.log_?
 
 Ongelma on nyt siinä, että tapahtumankäsittelijänä on funktion kutsu, eli varsinaiseksi tapahtumankäsittelijäksi tulee funktion kutsun paluuarvo, joka on tässä tapauksessa _undefined_.
 
@@ -1973,7 +1973,7 @@ Myös seuraava yritys on virheellinen
 
 jälleen olemme yrittäneet laittaa tapahtumankäsittelijäksi funktiokutsun. Ei toimi. Tämä yritys aiheuttaa myös toisen ongelman. Kun komponenttia renderöidään, suoritetaan tapahtumankäsittelijänä oleva funktiokutsu _this.setState({value: 0})_ joka taas saa aikaan komponentin uudelleenrenderöinnin. Ja uudelleenrenderöinnin yhteydessä funktiota kutsutaan uudelleen käynnistäen jälleen uusi uudelleenrenderöinti, ja joudutaan päättymättömään rekursioon.
 
-Jos haluamme tietyn funktiokutsun tapahtuvan nappia painettaessa, toimii seuraava 
+Jos haluamme tietyn funktiokutsun tapahtuvan nappia painettaessa, toimii seuraava
 
 ```bash
 <button onClick={() => console.log('nappia painettu')}>nappi</button>
@@ -1989,7 +1989,7 @@ Saamme myös nollauksen toimimaan samalla tekniikalla
 
 eli nyt tapahtumankäsittelijä on funktio _() => this.setState({value: 0})_.
 
-Tapahtumakäsittelijäfunktioiden määrittely suoraan napin määrittelyn yhteydessä ei välttämättä ole paras mahdollinen idea. 
+Tapahtumakäsittelijäfunktioiden määrittely suoraan napin määrittelyn yhteydessä ei välttämättä ole paras mahdollinen idea.
 
 Usein tapahtumankäsittelijä määritelläänkin jossain muualla. Seuraavassa määritellään funktio metodin render alussa ja sijoitetaan se muuttujaan _handler_:
 
@@ -2079,7 +2079,7 @@ render() {
 }
 ```
 
-Koodi näyttää hankalalta mutta se ihme kyllä toimii. 
+Koodi näyttää hankalalta mutta se ihme kyllä toimii.
 
 Tapahtumankäsittelijäksi on nyt "rekisteröity" funktiokutsu:
 
@@ -2097,7 +2097,7 @@ const hello = () => {
 
   return handler
 }
-```  
+```
 
 funktion _paluuarvona_ on nyt toinen, muuttujaan _handler_ määritelty funktio.
 
@@ -2140,7 +2140,7 @@ render() {
 }
 ```
 
-Nyt meillä on kolme nappia joiden tapahtumankäsittelijät määritellään parametrin saavan funktion _hello_ avulla. 
+Nyt meillä on kolme nappia joiden tapahtumankäsittelijät määritellään parametrin saavan funktion _hello_ avulla.
 
 Ensimmäinen nappi määritellään seuraavasti
 
@@ -2162,7 +2162,7 @@ Toinen nappi määritellään seuraavasti
 <button onClick={hello('react')}>nappi</button>
 ```
 
-Tapahtumankäsittelijän määrittelevä funktiokutsu _hello('react')_.  palauttaa 
+Tapahtumankäsittelijän määrittelevä funktiokutsu _hello('react')_.  palauttaa
 
 ```bash
 () => { 
@@ -2199,7 +2199,7 @@ const hello = (who) => {
 ja koska funktio _hello_ sisältää ainoastaan yhden komennon, eli returnin, voidaan käyttää aaltosulutonta muotoa
 
 ```bash
-const hello = (who) => 
+const hello = (who) =>
   () => { 
     console.log('hello', who)
   }
@@ -2245,7 +2245,7 @@ tulee tapahtumankäsittelijäksi funktiokutsun _setToValue(1000)_ paluuarvo eli 
 () => { 
   this.setState({ value: 1000 })
 }
-```  
+```
 
 Kasvatusnapin generoima rivi on seuraava
 
@@ -2259,7 +2259,7 @@ Tapahtumankäsittelijän muodostaa funktiokutsu _setToValue(this.state.value+1)_
 () => { 
   this.setState({ value: 11 })
 }
-```  
+```
 
 ### Hyödyllistä materiaalia
 

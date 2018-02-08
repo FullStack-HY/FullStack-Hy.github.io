@@ -4,7 +4,7 @@ Tänne saa lisätä esimerkiksi:
 * Lisäyksiä materiaalin, joita ei kannata lisätä suoraan varsinaisen materiaalin sekaan
 * Omia oivalluksia, jotka haluat jakaa
 * JavaScriptin kummallisuuksia, joiden kanssa hakkaisit päätä seinään liian pitkään
-* Ja muuta vastaavaa mille et keksi parempaa paikkaa 
+* Ja muuta vastaavaa mille et keksi parempaa paikkaa
 
 ### Funktio, joka palauttaa funktion
 
@@ -25,7 +25,7 @@ Tässä mahdollisimman yksinkertainen esimerkki funktiosta, joka palauttaa funkt
    */
   const fooTulostajaFunktio = tulostajaGeneraattori('foo')
   const barTulostajaFunktio = tulostajaGeneraattori('bar')
-  
+
   fooTulostajaFunktio() //sama kuin console.log('foo')
   barTulostajaFunktio() //sama kuin console.log('bar')
 

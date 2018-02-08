@@ -1014,7 +1014,7 @@ Pari vihjettä:
 
 Laita backend toimimaan edellisessä osassa tehdyn puhelinluettelon frontendin kanssa muilta osin, paitsi mahdollisen puhelinnumeron muutoksen osalta jonka vastaava toiminnallisuus toteutetaan backendiin vasta tehtävässä 3.17.
 
-Joudut todennäköisesti tekemään fronendiin erinäisiä pieniä muutoksia ainakin backendin oletettujen urlien osalta. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
+Joudut todennäköisesti tekemään frontendiin erinäisiä pieniä muutoksia ainakin backendin oletettujen urlien osalta. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
 
 #### 3.10 puhelinluettelon backend osa 10
 
@@ -1041,7 +1041,7 @@ Huolehdi myös, että frontend toimii edelleen myös paikallisesti.
 ### mongoosen alkeet
 
 <div class='important'>
-Älä laita tietokannan salasanaa Githubiin! 
+Älä laita tietokannan salasanaa Githubiin!
 </div>
 
 #### 3.12 tietokanta komentoriviltä
@@ -1200,7 +1200,7 @@ Selaimella tarkastellen yksittäisen numerotiedon tulisi näyttää seuraavalta:
 
 #### 3.19* puhelinluettelo ja tietokanta, osa 7
 
-Huolehdi, että backendiin voi lisätä yhdelle nimelle ainoastaan yhden numeron. Fronendin nykyisestä versiosta ei duplikaatteja voi luoda, mutta suoraan Postmanilla tai VS Coden REST clientillä se onnistuu.
+Huolehdi, että backendiin voi lisätä yhdelle nimelle ainoastaan yhden numeron. Frontendin nykyisestä versiosta ei duplikaatteja voi luoda, mutta suoraan Postmanilla tai VS Coden REST clientillä se onnistuu.
 
 Jos HTTP POST -pyyntö yrittää lisätä nimeä, joka on jo puhelinluettelossa, tulee vastata sopivalla statuskoodilla ja lisätä vastaukseen asianmukainen virheilmoitus.
 
@@ -1596,7 +1596,7 @@ Tee testit, jotka varmistavat, että virheellisiä käyttäjiä ei luoda, ja ett
 
 Laajenna blogia siten, että blogiin tulee tieto sen lisänneestä käyttäjästä.
 
-Muokkaa blogien lisäystä osan 4 luvun [populate](osa4/#populate) tapaan siten, että blogin lisämisen yhteydessä määritellään blogin lisääjäksi _joku_ järjestelmän tietokannassa olevista käyttäjistä (esim. ensimmäisenä löytyvä). Tässä vaiheessa ei ole väliä kuka käyttäjistä määritellään lisääväksi. Toiminnallisuus viimeistellään tehtävässä 4.19.
+Muokkaa blogien lisäystä osan 4 luvun [populate](/osa4/#populate) tapaan siten, että blogin lisäämisen yhteydessä määritellään blogin lisääjäksi _joku_ järjestelmän tietokannassa olevista käyttäjistä (esim. ensimmäisenä löytyvä). Tässä vaiheessa ei ole väliä kuka käyttäjistä määritellään lisääväksi. Toiminnallisuus viimeistellään tehtävässä 4.19.
 
 Muokaa kaikkien blogien listausta siten, että blogien yhteydessä näytetään lisääjän tiedot:
 
@@ -1929,7 +1929,7 @@ it('after clicking name the details are displayed', () => {
   // haetaan tarkastettava, eli detaljit sisältävä osa komponentista
   const contentDiv = ...
   expect(contentDiv...)
-})  
+})
 ```
 
 **väärä** järjestys on siis seuraava
@@ -1940,10 +1940,10 @@ it('DOES NOT WORK', () => {
   const contentDiv = ...
 
   // klikataan liian myöhään
-  nameDiv.simulate('click')  
+  nameDiv.simulate('click')
 
   expect(contentDiv...)
-})  
+})
 ```
 
 ### integraatiotestaus
@@ -1968,7 +1968,7 @@ const user = {
 }
 
 localStorage.setItem('loggedBlogAppUser', JSON.stringify(user))
-```      
+```
 
 **Vihje 2:**
 
@@ -2089,7 +2089,7 @@ describe('unicafe reducer', () => {
       ok: 0,
       bad: 0
     })
-  })  
+  })
 })
 ```
 
@@ -2514,7 +2514,7 @@ Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimist
 Hyvä neuvo refaktorintiin niinkuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
 
 <div class="important">
-  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä. 
+  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä.
 </div>
 
 ### 7.1 käyttäjien näkymä
@@ -2575,7 +2575,7 @@ Laajenna sovellusta siten, että kommentointi onnistuu frontendista käsin:
 
 ### 7.8 redux, osa 1
 
-Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia. 
+Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia.
 
 Muuta tässä tehtävässä notifikaatio käyttämään Reduxia.
 
@@ -2596,7 +2596,7 @@ Tämä ja seuraava osa ovat kohtuullisen työläitä, mutta erittäin opettavais
 
 ### 7.11 redux, osa 3
 
-Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin. 
+Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin.
 
 ### 7.12 tyylit, osa 1
 

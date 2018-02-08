@@ -2005,7 +2005,7 @@ Monet UI-frameworkit sisältävät web-sovellusten käyttöön valmiiksi määri
 
 Monesta UI-frameworkista on tehty React-ystävällisiä versiota, joissa UI-frameworkin avulla määritellyistä "komponenteista" on tehty React-komponentteja. Esim. Bootstrapista on olemassa parikin React-versiota [reactstrap](http://reactstrap.github.io/) ja [react-bootstrap](https://react-bootstrap.github.io/).
 
-Katsotaan seuraavaksi kahta UI-framworkia bootstrapia ja [semantic ui](https://semantic-ui.com/):ta.  
+Katsotaan seuraavaksi kahta UI-framworkia bootstrapia ja [semantic ui](https://semantic-ui.com/):ta.
 Lisätään molempien avulla samantapaiset tyylit luvun [React-router](/osa6#React-router) sovellukseen.
 
 ### react bootstrap
@@ -2325,7 +2325,7 @@ const Login = ({ onLogin, history }) => {
           <input type='password' />
         </Form.Field>
         <Button type='submit'>login</Button>
-      </Form>   
+      </Form>
     </div>
   )
 }

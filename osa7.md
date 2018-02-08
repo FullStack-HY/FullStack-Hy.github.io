@@ -851,7 +851,7 @@ componentDidMount() {
 
 Jos kehitys- ja tuotantokonfiguraatio eriytyvät paljon, saattaa olla hyvä idea [eriyttää konfiguraatiot](https://webpack.js.org/guides/production/) omiin tiedostoihinsa.
 
-Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti suorittamalla komento 
+Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti suorittamalla komento
 
 ```bash
 npx static-server
@@ -1631,7 +1631,7 @@ Jos palvelin toteuttaisi REST API:n, joutuisimme todennäköisesti tekemään mo
 
 Jos kyseessä olisi usein käytetty toiminnallisuus, voitaisiin sitä varten toteuttaa oma REST-endpoint. Jos vastaavia skeaarioita olisi paljon, esim. kymmeniä, tulisi erittäin työlääksi toteuttaa kaikille toiminnallisuuksille oma REST-endpoint.
 
-GraphQL:n avulla toteutettava palvelin sopii tämänkaltaisiin tilanteiseen hyvin. 
+GraphQL:n avulla toteutettava palvelin sopii tämänkaltaisiin tilanteiseen hyvin.
 
 GraphQL:ssä periaatteena, on että selaimen koodi muodostaa _kyselyn_, joka kuvailee haluttua dataa ja lähettää sen API:lle HTTP POST -pyynnöllä. Toisin kuin REST:issä, GraphQL:ssä kaikki kyselyt kohdistetaan samaan osoitteeseen ja ovat POST-tyyppisiä.
 
@@ -1639,7 +1639,7 @@ Edellä kuvatun skenaarion data saataisiin haettua (suurinpiirtein) seuraavan ka
 
 ```bash
 query FetchBlogsQuery {
-  user(username: "mluukkai") {
+  user(username: 'mluukkai') {
     followedUsers {
       blogs {
         comments {
@@ -1665,7 +1665,7 @@ Palvelimen vastaus pyyntöön olisi suunilleen seuraavanlainen JSON-olio:
       blogs: {
         comments: {
           user: {
-            blogs: [ 
+            blogs: [
               'Goto considered harmful',
               'End to End Testing with Puppeteer and Jest',
               'Navigating your transition to GraphQL',
@@ -1675,17 +1675,17 @@ Palvelimen vastaus pyyntöön olisi suunilleen seuraavanlainen JSON-olio:
         }
       }
     }
-  }    
+  }
 }
 ```
 
-Sovelluslogiikka säilyy yksinkertaisena ja selaimen koodi saa täsmälleen haluamansa datan yksittäisellä kyselyllä. 
+Sovelluslogiikka säilyy yksinkertaisena ja selaimen koodi saa täsmälleen haluamansa datan yksittäisellä kyselyllä.
 
 GraphQL:ää käytettäessä sovelluksen datasta on määriteltävä [skeema](http://graphql.org/learn/schema/), joka kuvailee datan entiteettejä, eli esimerkkimme tapauksessa käyttäjiä, blogeja ja kommentteja sekä niiden suhteita, ks. lisää esim. blogista [Navigating your transition to GraphQL](https://dev-blog.apollodata.com/navigating-your-transition-to-graphql-28a4dfa3acfb).
 
 GraphQL:n nimi tuleekin siitä, että entiteettit ja niiden suhteet muodostavat usein, etenkin sosiaalisen median tapaisissa sovelluksessa eräänlaisen verkon, missä entiteetit liittyvät toisiin entiteetteihin erilaisten _suhteiden_ kautta.
 
-Nimestään huolimatta GraphQL:llä ei ole suoranaisesti mitään tekemistä tietokantojen kanssa, se ei ota mitään kantaa siihen miten data on tallennettu. GraphQL-periaattella toimivan API:n käyttämä data voi siis olla talletettu relaatiotietokantaan, dokumenttitietokantaan tai muille palvelimeille, joita GraphQL-palvelin käyttää vaikkapa REST:in välityksellä. GraphQL on täysin ohjelmointikieliriippumaton, sekä GraphQL-clientien että -servereiden toteuttamisen tueksi on olemassa kirjastoja useilla ohjelmointikielillä. 
+Nimestään huolimatta GraphQL:llä ei ole suoranaisesti mitään tekemistä tietokantojen kanssa, se ei ota mitään kantaa siihen miten data on tallennettu. GraphQL-periaattella toimivan API:n käyttämä data voi siis olla talletettu relaatiotietokantaan, dokumenttitietokantaan tai muille palvelimeille, joita GraphQL-palvelin käyttää vaikkapa REST:in välityksellä. GraphQL on täysin ohjelmointikieliriippumaton, sekä GraphQL-clientien että -servereiden toteuttamisen tueksi on olemassa kirjastoja useilla ohjelmointikielillä.
 
 GraphQL on jo melko iäkäs teknologia, se on ollut Facebookin sisäisessä käytössä jo vuodesta 2012 lähtien, teknologian voi siis todeta olevan "battle tested". Facebook julkaisi GraphQL:n vuonna 2015 ja se on pikkuhiljaa saanut enenevissä määrin huomiota ja nousee ehkä lähivuosina uhmaamaan REST:in valta-asemaa.
 
