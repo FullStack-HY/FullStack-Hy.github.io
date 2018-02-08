@@ -701,7 +701,7 @@ Koska muistiinpanot on talletettu palvelimen muistiin, uudelleenkäynnistys pala
 Jos käytät Visual Studio Codea, voit postmanin sijaan käyttää VS Coden
 [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) -pluginia.
 
-Kun plugin on asennettu, on se käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina.
+Kun plugin on asennettu, on sen käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina.
 
 Luodaan kaikki muistiinpanot hakevan pyynnön määrittelevä tiedosto _get_all_notes.rest_
 
