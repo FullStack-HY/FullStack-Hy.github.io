@@ -936,6 +936,12 @@ Tee Node-sovellus, joka tarjoaa osoitteessa <http://localhost:3001/api/persons> 
 
 ![]({{ "/assets/teht/19.png" | absolute_url }})
 
+<div class='important'>
+
+Koska nyt ei ole kyse fronendista ja Reactista, sovellusta <strong>ei luoda</strong> create-react-app:illa vaan komennolla <em>npm init</em> osan 3 luvun <a href="../osa3#node.js">Node.js</a> tapaan.
+
+</div>
+
 Huomaa, että Noden routejen määrittelyssä merkkijonon _api/persons_ kenoviiva käyttäytyy kuten mikä tahansa muu merkki.
 
 Sovellus pitää pystyä käynnistämään komennolla _npm start_.
@@ -1014,7 +1020,9 @@ Joudut todennäköisesti tekemään fronendiin erinäisiä pieniä muutoksia ain
 
 Vie sovelluksen backend internetiin, esim. Herokuun.
 
-**Huom** eihän hakemisto _build_ ole gitignoroituna projektissasi?
+**Huom1** komento _heroku_ toimii laitoksen koneilla ja fuksikannettavilla 9.2. alkaen. Jos et jostain syystä saa asennettua herokua koneellesi, voit käyttää komentoa [npx heroku-cli](https://www.npmjs.com/package/heroku-cli).
+
+**Huom2** eihän hakemisto _build_ ole gitignoroituna projektissasi?
 
 Testaa selaimen ja postmanin tai VS Code REST clientin avulla, että internetissä oleva backend toimii.
 
