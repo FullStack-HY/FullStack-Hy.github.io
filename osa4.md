@@ -1293,7 +1293,7 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ## Tehtäviä
 
