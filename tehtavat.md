@@ -1510,7 +1510,7 @@ Laajenna toteutusta siten, että testit menevät läpi.
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ### Lisää toiminnallisuutta ja testejä
 
@@ -1571,7 +1571,7 @@ Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perust
 
 ### Varoitus vielä kerran
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 #### 4.15 blogilistan laajennus, osa 4
 
@@ -1675,7 +1675,7 @@ Muista tehtäviä tehdessäsi kaikki debuggaukseen liittyvät käytänteet, erit
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ### kirjautuminen ja blogien luonti
 
@@ -1813,7 +1813,7 @@ class Blog extends React.Component {
 
 ### Varoitus vielä kerran
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 #### 5.7* blogilistan frontend, osa 7
 
@@ -1879,7 +1879,7 @@ Määrittele joillekin sovelluksesi komponenteille PropTypet.
 
 **HUOM:** jos jokin testi on rikki, ei kannata ongelmaa korjatessa suorittaa kaikkia testejä, vaan ainoastaan rikkinäistä testiä hyödyntäen [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout)-metodia.
 
-**HUOM2:** älä aliarvioi testissä tapahtuvan _console.logauksen_ hyödyllisyyttä! Normaalissa koodauksessa console.log on elintärkeä, testauksessa se on välillä suorastaan välttämätön sillä testejä suorittaessa et saa misään muualta feedbackiä.
+**HUOM2:** älä aliarvioi testissä tapahtuvan _console.logauksen_ hyödyllisyyttä! Normaalissa koodauksessa console.log on elintärkeä, testauksessa se on välillä suorastaan välttämätön sillä testejä suorittaessa et saa mistään muualta feedbackiä.
 
 Testejä suorittaessasi voit käyttää console.log-komentoja testeissä ja _sovelluksen koodissa_.
 
