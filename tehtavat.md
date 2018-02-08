@@ -1112,6 +1112,8 @@ Person
   })
 ```
 
+**HUOM2** jos määrittelet modelin nimeksi _Person_, muuttaa mongoose sen monikkomuotoon _people_, jota se käyttää vastaavan kokoelman nimenä.
+
 ### backend ja tietokanta
 
 Seuraavat tehtävät saattavat olla melko suoraviivaisia, tosin jos frontend-koodissasi sattuu olemaan bugeja tai epäyhteensopivuutta backendin kanssa, voi seurauksena olla myös mielenkiintoisia bugeja.
