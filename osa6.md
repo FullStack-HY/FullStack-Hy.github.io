@@ -253,7 +253,7 @@ Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lis
 
 Tällä hetkellähän tilassa on ainoastaan muistiinpanot sisältävä taulukko. Uudessa ratkaisussa tilalla on siis kaksi avainta, _notes_ jonka arvona muistiinpanot ovat sekä _filter_, jonka arvona on merkkijono joka kertoo mitkä muistiinpanoista tulisi näyttää ruudulla.
 
-### Yhdisteyt reducerit
+### Yhdistetyt reducerit
 
 Voisimme periaatteessa muokata jo olemassaolevaa reduceria ottamaan huomioon muuttuneen tilanteen. Parempi ratkaisu on kuitenkin määritellä tässä tilanteessa uusi, filtterin arvosta huolehtiva reduceri:
 
@@ -497,7 +497,7 @@ const notes = this.context.store.getState().notes
 const filter = this.context.store.getState().filter
 ```
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-2) tagissä _part6-2_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-2) tagissä _part6-2_.
 
 Sovelluksessa on vielä pieni kauneusvirhe, vaikka oletusarvosesti filtterin arvo on _ALL_, eli näytetään kaikki muistiinpanot, ei vastaava radiobutton ole valittuna. Ongelma on luonnollisestikin mahdollista korjata, mutta koska kyseessä on ikävä, mutta harmiton feature, jätämme korjauksen myöhemmäksi.
 
