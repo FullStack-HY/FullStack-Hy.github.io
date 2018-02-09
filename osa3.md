@@ -87,7 +87,7 @@ VS Code -plugineina löytyy myös hyödyllisiä valmiiksi määriteltyjä snippe
 
 ### Pakolliset tehtävät, tehtävien vaikutus arvosanaan
 
-Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](/tehtävät)
+Joissain yhteyksissä on ollut pientä epäselvyyttä mitä tiettyjen tehtävien pakollisuus tarkoittaa, ja mikä eipakollisten tehtävien rooli on. Tarkennusta asiaan tehtävien sivun [alussa](/tehtävät).
 
 ### linkkivinkit
 
@@ -103,7 +103,7 @@ Backendin toteutusympäristönä käytämme [Node.js](https://nodejs.org/en/):ä
 
 Kurssimateriaalia tehtäessä on ollut käytössä Node.js:n versio _v8.6.0_. Huolehdi että omasi on vähintään yhtä tuore (ks. komentoriviltä _node -v_).
 
-Kuten [osassa 1](/osa1#Javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
+Kuten [osassa 1](/osa1#javascriptiä) todettiin, selaimet eivät vielä osaa uusimpia Javascriptin ominaisuuksia ja siksi selainpuolen koodi täytyy kääntää eli _transpiloida_ esim [babel](https://babeljs.io/):illa. Backendissa tilanne on kuitenkin toinen, uusin Node hallitsee riittävissä määrin myös Javascriptin uusia versioita (muutamia vielä standardoimattomia ominaisuuksia lukuunottamatta), joten suoritamme Nodella suoraan kirjoittamaamme koodia ilman transpilointivaihetta.
 
 Tavoitteenamme on tehdä [osan 2](/osa2) muistiinpanosovellukseen sopiva backend. Aloitetaan kuitenkin ensin perusteiden läpikäyminen toteuttamalla perinteinen "hello world"-sovellus.
 
@@ -296,7 +296,7 @@ Käynnistetään palvelin uudelleen (palvelin sammutetaan painamalla _ctrl_ ja _
 Headerin _Content-Type_ arvolla _application/json_ kerrotaan, että kyse on JSON-muotoisesta datasta. Muuttujassa _notes_ oleva taulukko muutetaan jsoniksi metodilla <code>JSON.stringify(notes)</code>.
 
 
-Kun avaamme selaimen, on tulostusasu sama kuin [osassa 2](/osa2/#datan-haku-palvelimelta) käytetyn [json-serverin](https://github.com/typicode/json-server) tarjoamalla muistiinpanojen listalla:
+Kun avaamme selaimen, on tulostusasu sama kuin [osassa 2](/osa2#datan-haku-palvelimelta) käytetyn [json-serverin](https://github.com/typicode/json-server) tarjoamalla muistiinpanojen listalla:
 
 ![]({{ "/assets/3/2.png" | absolute_url }})
 
@@ -511,7 +511,7 @@ Representational State Transfer eli REST on Roy Fieldingin vuonna 2000 ilmestyne
 
 Emme nyt rupea määrittelemään REST:iä Fieldingiläisittäin tai rupea väittämään mitä REST on tai mitä se ei ole vaan otamme hieman [kapeamman näkökulman](https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services) miten REST tai RESTful API:t yleensä tulkitaan Web-sovelluksissa. Alkuperäinen REST-periaate ei edes sinänsä rajoitu Web-sovelluksiin.
 
-Mainitsimme jo [edellisestä osassa](osa3/#REST-API:n-käyttö), että yksittäisiä asioita, meidän tapauksessamme muistiinpanoja kutsutaan RESTful-ajattelussa _resursseiksi_. Jokaisella resurssilla on URL eli sen yksilöivä osoite.
+Mainitsimme jo [edellisestä osassa](/osa2#rest-api:n-käyttö), että yksittäisiä asioita, meidän tapauksessamme muistiinpanoja kutsutaan RESTful-ajattelussa _resursseiksi_. Jokaisella resurssilla on URL eli sen yksilöivä osoite.
 
 Erittäin yleinen konventio on muodostaa resurssien yksilöivät URLit liittäen resurssityypin nimi ja resurssin yksilöivä tunniste.
 
@@ -701,7 +701,7 @@ Koska muistiinpanot on talletettu palvelimen muistiin, uudelleenkäynnistys pala
 Jos käytät Visual Studio Codea, voit postmanin sijaan käyttää VS Coden
 [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) -pluginia.
 
-Kun plugin on asennettu, on se käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina.
+Kun plugin on asennettu, on sen käyttö erittäin helppoa. Tehdään projektin juureen hakemisto _requests_, jonka sisään talletetaan REST Client -pyynnöt _.rest_-päätteisinä tiedostoina.
 
 Luodaan kaikki muistiinpanot hakevan pyynnön määrittelevä tiedosto _get_all_notes.rest_
 
@@ -846,7 +846,7 @@ Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnist�
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.1-3.6](tehtävät#expressin-alkeet)
+Tee nyt tehtävät [3.1-3.6](/tehtävät#expressin-alkeet)
 
 ## Huomioita HTTP pyyntötyyppien käytöstä
 
@@ -1323,11 +1323,10 @@ Ei lisätä mongoa käsittelevää koodia heti backendin koodin sekaan, vaan teh
 ```js
 const mongoose = require('mongoose')
 
-// korvaa url oman tietokantasi urlilla!
+// korvaa url oman tietokantasi urlilla. ethän laita salasanaa Gothubiin!
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise;
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1365,10 +1364,13 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:fullstack@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 ```
 
 Valitettavasti mongoosen dokumentaatiossa käytetään joka paikassa takaisinkutsufunktioita, joten sieltä ei kannata suoraan copypasteta koodia, sillä promisejen ja vanhanaikaisten callbackien sotkeminen samaan koodiin ei ole kovin järkevää.
+
+<div class='important'>
+Kannattaa muistaa, että tietokannan salasanaa ei kannata laittaa missään vaiheessa Githubiin!
+</div>
 
 ### Skeema
 
@@ -1384,7 +1386,7 @@ const Note = mongoose.model('Note', {
 
 Modelin parametrina määritellään _muistiinpanon_ [skeema](http://mongoosejs.com/docs/guide.html), joka kertoo mongooselle, miten muistiinpano-oliot tulee tallettaa tietokantaan.
 
-Ensimmäisenä parametrina oleva _Note_ määrittelee, että mongoose tallettaa muistiinpanoa vastaavat oliot kokoelmaan nimeltään _notes_.
+Ensimmäisenä parametrina oleva _Note_ määrittelee, että mongoose tallettaa muistiinpanoa vastaavat oliot kokoelmaan nimeltään _notes_ sillä  [mongoosen konventiona](http://mongoosejs.com/docs/models.html) on määritellä kokoelmien nimet monikossa (esim. _notes_), kun niihin viitataan modelin määrittelyssä yksikkömuodossa (esim. _Note_).
 
 Mongoosen dokumentaatiossa skeema ja sitä vastaava model määritellään kumpikin erikseen:
 
@@ -1482,7 +1484,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1582,7 +1583,6 @@ const mongoose = require('mongoose')
 const url = 'mongodb://fullstack:sekred@ds211088.mlab.com:11088/fullstack-notes'
 
 mongoose.connect(url)
-mongoose.Promise = global.Promise
 
 const Note = mongoose.model('Note', {
   content: String,
@@ -1593,7 +1593,7 @@ const Note = mongoose.model('Note', {
 module.exports = Note
 ```
 
-Noden [moduulien](https://nodejs.org/docs/latest-v8.x/api/modules.html) määrittely poikkeaa hiukan osassa 2 määrittelemistämme frontendin käyttämistä [ES6-moduuleista](/osa3/#refaktorointia---moduulit).
+Noden [moduulien](https://nodejs.org/docs/latest-v8.x/api/modules.html) määrittely poikkeaa hiukan osassa 2 määrittelemistämme frontendin käyttämistä [ES6-moduuleista](/osa2/#refaktorointia---moduulit).
 
 Moduulin ulos näkyvä osa määritellään asettamalla arvo muuttujalle _module.exports_. Asetamme arvoksi määritellyn modelin _Note_. Muut moduulin sisällä määritellyt asiat, esim. muuttujat _mongoose_ ja _url_ eivät näy moduulin käyttäjälle.
 
@@ -1678,7 +1678,7 @@ Palvelimen konsolissa näkyykin virheilmoitus:
 
 ![]({{ "/assets/3/15.png" | absolute_url }})
 
-Kysely on epäonnistunut ja kyselyä vastaava promise mennyt tilaan _rejected_. Koska emme käsittele promisen epäonnistumista, ei pyyntöön vastata koskaan. Osassa 2 tutustuimme jo [promisejen virhetilanteiden käsittelyyn](/osa2/#promise-ja-virheet).
+Kysely on epäonnistunut ja kyselyä vastaava promise mennyt tilaan _rejected_. Koska emme käsittele promisen epäonnistumista, ei pyyntöön vastata koskaan. Osassa 2 tutustuimme jo [promisejen virhetilanteiden käsittelyyn](/osa2#promise-ja-virheet).
 
 Lisätään tilanteeseen yksinkertainen virheidenkäsittelijä:
 
@@ -1793,7 +1793,7 @@ app.delete('/api/notes/:id', (request, response) => {
 
 Vastauksena on statauskoodi _204 no content_ molemmissa "onnistuneissa" tapauksissa, eli jos olio poistettiin tai olioa ei ollut mutta _id_ oli periaatteessa oikea. Takaisinkutsun parametrin _result_ perusteella olisi mahdollisuus haarautua ja palauttaa tilanteissa eri statuskoodi jos sille on tarvetta.
 
-Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate):
+Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate]Tässä ja myöhemmin sivulla on findOneAndUpdate, mutta koodissa alla findByIdAndUpdate, joka toimi ainakin harjoituskoodissa(http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate):
 
 ```js
 app.put('/api/notes/:id', (request, response) => {
@@ -1826,7 +1826,7 @@ Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilu
 
 ### Tehtäviä
 
-Tee nyt tehtävät [3.16-3.19](/tehtävät#lisää-operaatioita)
+Tee nyt tehtävät [3.16-3.18](/tehtävät#lisää-operaatioita)
 
 ## Refaktorointia - promisejen ketjutus
 
@@ -1953,7 +1953,7 @@ Sovelluksen pitäisi toimia muutosten jälkeen. Aina kaikki ei kuitenkaan mene s
 
 ![]({{ "/images/3/21.png" | absolute_url }})
 
-eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan MONGO_URL kun koodi oletti sen olevan nimeltään MONGO_URI.
+eli tietokannan osoite olikin jostain syystä määrittelemätön. Komento _heroku config_ paljasti että olin vahingossa määritellyt ympäristömuuttujan _MONGO_URL_ kun koodi oletti sen olevan nimeltään _MONGODB_URI_.
 
 Muutoksen jälkeen sovellus ei toimi paikallisesti, koska ympäristömuuttujalla _MONGODB_URI_ ei ole mitään arvoa. Tapoja määritellä ympäristömuuttujalle arvo on monia, käytetään nyt [dotenv](https://www.npmjs.com/package/dotenv)-kirjastoa.
 

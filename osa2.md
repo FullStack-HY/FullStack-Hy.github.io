@@ -524,7 +524,7 @@ Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnist�
 
 ### Tehtäviä kokoelmien renderöinnistä
 
-Tee nyt [tehtävät 2.1-2.5](../tehtävät#kokoelmien-renderöinti)
+Tee nyt [tehtävät 2.1-2.5](/tehtävät#kokoelmien-renderöinti)
 
 ## Lomakkeet
 
@@ -756,7 +756,7 @@ addNote = (event) => {
 
 Ensin luodaan uutta muistiinpanoa vastaava olio _noteObject_, jonka sisältökentän arvo saadaan komponentin tilasta _this.state.newNote_. Yksikäsitteinen tunnus eli _id_ generoidaan kaikkien muistiinpanojen lukumäärän perusteella. Koska muistiinpanoja ei poisteta, menetelmä toimii sovelluksessamme. Komennon <code>Math.random()</code> avulla muistiinpanosta tulee 50% todennäköisyydellä tärkeä.
 
-Uusi muistiinpano lisätään vanhojen joukkoon oikeaoppisesti käyttämällä [osasta 1](/osa1#taulukon käsittelyä) tuttua taulukon metodia [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat):
+Uusi muistiinpano lisätään vanhojen joukkoon oikeaoppisesti käyttämällä [osasta 1](/osa1#taulukon-käsittelyä) tuttua taulukon metodia [concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat):
 
 ```js
 const notes = this.state.notes.concat(noteObject)
@@ -969,7 +969,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä lomakkeista
 
-Tee nyt tehtävät [2.6-2.10](../tehtävät#lomakkeet)
+Tee nyt tehtävät [2.6-2.10](/tehtävät#lomakkeet)
 
 ## Datan haku palvelimelta
 
@@ -1029,7 +1029,7 @@ Tutustumme palvelinpuolen toteuttamisen periaatteisiin tarkemmin kurssin [osassa
 Ensimmäisenä tehtävänämme on siis hakea React-sovellukseen jo olemassaolevat mustiinpanot osoitteesta <http://localhost:3001/notes>.
 
 
-Osan 1 [esimerkkiprojektissa](osa1/#elaimessa-suoritettava-sovelluslogiikka) nähtiin jo eräs tapa hakea Javascript-koodista palvelimella olevaa dataa. Esimerkin koodissa data haettiin [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)- eli XHR-olion avulla muodostetulla HTTP-pyynnöllä. Kyseessä on 1999 lanseerattu tekniikka, jota kaikki web-selaimet ovat jo pitkään tukeneet.
+Osan 0 [esimerkkiprojektissa](/osa0#selaimessa-suoritettava-sovelluslogiikka) nähtiin jo eräs tapa hakea Javascript-koodista palvelimella olevaa dataa. Esimerkin koodissa data haettiin [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)- eli XHR-olion avulla muodostetulla HTTP-pyynnöllä. Kyseessä on 1999 lanseerattu tekniikka, jota kaikki web-selaimet ovat jo pitkään tukeneet.
 
 Nykyään XHR:ää ei kuitenkaan kannata käyttää ja selaimet tukevatkin jo laajasti [fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch)-metodia, joka perustuu XHR:n käyttämän tapahtumapohjaisen mallin sijaan ns. [promiseihin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
@@ -1352,8 +1352,8 @@ Konsoliin tulostuu
 
 <pre>
 constructor
-will mount
 render
+will mount
 promise fulfilled
 render
 </pre>
@@ -1434,7 +1434,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä datan hakemisesta palvelimelta
 
-Tee nyt tehtävät [2.11-2.13](../tehtävät#datan-hakeminen-palvelimelta)
+Tee nyt tehtävät [2.11-2.13](/tehtävät#datan-hakeminen-palvelimelta)
 
 ## REST API:n käyttö
 
@@ -1486,7 +1486,7 @@ Kun nyt kokeillaan luoda uusi muistiinpano, konsoliin tulostus näyttää seuraa
 
 Uusi muistiinpano on siis _response_-olion kentän _data_ arvona. Palvelin on lisännyt muistiinpanolle tunnisteen, eli _id_-kentän.
 
-Joskus on hyödyllistä tarkastella HTTP-pyyntöjä [osan 1 alussa](osa1/#HTTP-GET) paljon käytetyn konsolin _Network_-välilehden kautta:
+Joskus on hyödyllistä tarkastella HTTP-pyyntöjä [osan 0 alussa](/osa0#http-get) paljon käytetyn konsolin _Network_-välilehden kautta:
 
 ![]({{ "/assets/2/12.png" | absolute_url }})
 
@@ -1516,7 +1516,7 @@ addNote = (event) => {
 }
 ```
 
-Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](osa1/#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden taulukon) ja tyhjennetään lomakkeen teksti.
+Palvelimen palauttama uusi muistiinpano siis lisätään tilassa olevien muiden muistiinpanojen joukkoon (kannattaa [muistaa tärkeä detalji](/osa0#taulukon-käsittelyä) siitä, että metodi _concat_ ei muuta komponentin alkuperäistä tilaa, vaan luo uuden taulukon) ja tyhjennetään lomakkeen teksti.
 
 Kun palvelimella oleva data alkaa vaikuttaa web-sovelluksen toimintalogiikkaan, tulee sovelluskehitykseen heti iso joukko uusia haasteita, joita tuo mukanaan mm. kommunikoinnin asynkronisuus. Debuggaamiseenkin tarvitaan uusia strategiota, debug-printtaukset ym. muuttuvat vain tärkeämmäksi, myös Javascriptin runtimen periaatteita ja React-komponenttien elinkaarta on pakko tuntea riittävällä tasolla, arvaileminen ei riitä.
 
@@ -1985,7 +1985,7 @@ Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [githubissa](https://git
 
 ### Tehtäviä palvelimen tilan päivittämisestä
 
-Tee nyt tehtävät [2.14-2.17](../tehtävät#palvelimella-olevan-datan-päivittäminen)
+Tee nyt tehtävät [2.14-2.17](/tehtävät#palvelimella-olevan-datan-päivittäminen)
 
 ## Tyylien lisääminen
 
@@ -2187,4 +2187,4 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ### Loppuhuipennus
 
-Tee nyt tehtävät [2.18 ja 2.19](../tehtävät#tyylit)
+Tee nyt tehtävät [2.18 ja 2.19](/tehtävät#tyylit)

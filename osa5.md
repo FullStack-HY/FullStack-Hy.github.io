@@ -163,7 +163,7 @@ export default App
 
 Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/FullStack-HY/part2-notes/tree/part5-1), tagissa _part5-1_.
 
-Kirjautumislomakkeen käsittely noudattaa samaa periaatetta kuin [osassa 2](/osa2#Lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_), joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
+Kirjautumislomakkeen käsittely noudattaa samaa periaatetta kuin [osassa 2](/osa2#lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan kentät _username_ ja _password_. Molemmille kentille on rekisteröity muutoksenkäsittelijä (_handleUsernameChange_ ja _handlePasswordChange_), joka synkronoi kenttään tehdyt muutokset komponentin _App_ tilaan. Kirjautumislomakkeen lähettämisestä vastaava metodi _login_ ei tee vielä mitään.
 
 Jos lomakkeella on paljon kenttiä, voi olla työlästä toteuttaa jokaiselle kentälle oma muutoksenkäsittelijä. React tarjoaakin tapoja, miten yhden muutoksenkäsittelijän avulla on mahdollista huolehtia useista syötekentistä. Jaetun käsittelijän on saatava jollain tavalla tieto minkä syötekentän muutos aiheutti tapahtuman. Eräs tapa tähän on lomakkeen syötekenttien nimeäminen.
 
@@ -525,7 +525,7 @@ Kirjautuneen käyttäjän tiedot tallentuvat nyt local storageen ja niitä voida
 
 Sovellusta on vielä laajennettava siten, että kun sivulle tullaan uudelleen, esim. selaimen uudelleenlataamisen yhteydessä, tulee sovelluksen tarkistaa löytyykö local storagesta tiedot kirjautuneesta käyttäjästä. Jos löytyy, asetetaan ne sovelluksen tilaan ja _noteServicelle_.
 
-Sopiva paikka tähän on _App_-komponentin metodi [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount) johon tutustuimme jo [osassa 2](/osa2#Komponenttien-lifecycle-metodit).
+Sopiva paikka tähän on _App_-komponentin metodi [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount) johon tutustuimme jo [osassa 2](/osa2#komponenttien-lifecycle-metodit).
 
 Kyseessä on siis ns. lifecycle-metodi, jota React-kutsuu juuri ennen kuin komponentti ollaan renderöimässä ensimmäistä kertaa. Metodissa on tällä hetkellä jo muistiinpanot palvelimelta lataava koodi. Laajennetaan koodia seuraavasti
 
@@ -996,7 +996,7 @@ Surffatessasi internetissä saatat vielä nähdä ennen Reactin versiota 0.16 te
 
 ## Tehtäviä
 
-Tee nyt tehtävä [5.11](/tehtävät#PropTypet)
+Tee nyt tehtävä [5.11](/tehtävät#proptypet)
 
 ## React-sovelluksen testaus
 
@@ -1822,7 +1822,7 @@ store.subscribe(() => {
 })
 ```
 
-eli koodi 
+eli koodi
 
 ```js
 const store = createStore(counterReducer)
@@ -1839,7 +1839,7 @@ store.dispatch({ type: 'ZERO' })
 store.dispatch({ type: 'DECREMENT' })
 ```
 
-aiheuttaisi tulostuksen 
+aiheuttaisi tulostuksen
 
 <pre>
 1
@@ -2114,7 +2114,7 @@ const noteReducer = (state = [], action) => {
 }
 ```
 
-Luomme tärkeyttä muuttaneesta muistiinpanosta kopion osasta 2 [tutulla syntaksilla](/osa2#Muistiinpanon-tärkeyden-muutos) ja korvaamme tilan uudella tilalla, mihin otetaan muuttumattomat muistiinpanot ja muutettavasta sen muutettu kopio _changedNote_. 
+Luomme tärkeyttä muuttaneesta muistiinpanosta kopion osasta 2 [tutulla syntaksilla](/osa2#muistiinpanon-tärkeyden-muutos) ja korvaamme tilan uudella tilalla, mihin otetaan muuttumattomat muistiinpanot ja muutettavasta sen muutettu kopio _changedNote_.
 
 ### array spread -syntaksi
 
@@ -2171,7 +2171,7 @@ console.log(loput)  // tulostuu [3, 4, 5, 6]
 
 ## Tehtäviä
 
-Tee nyt tehtävät [5.17 ja 5.18](/tehtävät#Redux-Unicafe)
+Tee nyt tehtävät [5.17 ja 5.18](/tehtävät#redux-unicafe)
 
 ### Lisää toiminnallisuutta ja ei-kontrolloitu lomake
 
@@ -2220,7 +2220,7 @@ class App extends React.Component {
 }
 ```
 
-Molemmat toiminnallisuudet on toteutettu suoraviivaisesti. Huomionarvoista uuden muistiinpanon lisäämisessä on nyt se, että toisin kuin aiemmat Reactilla toteutetut lomakkeet, emme ole nyt sitoneet lomakkeen kentän arvoa komponentin _App_ tilaan. React kutsuu tälläisiä lomakkeita [ei-kontrolloiduiksi](https://reactjs.org/docs/uncontrolled-components.html). 
+Molemmat toiminnallisuudet on toteutettu suoraviivaisesti. Huomionarvoista uuden muistiinpanon lisäämisessä on nyt se, että toisin kuin aiemmat Reactilla toteutetut lomakkeet, emme ole nyt sitoneet lomakkeen kentän arvoa komponentin _App_ tilaan. React kutsuu tälläisiä lomakkeita [ei-kontrolloiduiksi](https://reactjs.org/docs/uncontrolled-components.html).
 
 > Ei-kontrolloiduilla lomakkeilla on tiettyjä rajoitteita (ne eivät esim. mahdollista lennossa annettavia validointiviestejä, lomakkeen lähetysnapin disabloimista sisällön perusteella ym...), meidän käyttötapaukseemme ne kuitenkin tällä kertaa sopivat.
 Voit halutessasi lukea aiheesta enemmän [täältä](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
@@ -2333,7 +2333,7 @@ import noteReducer from './noteReducer'
 const store = createStore(noteReducer)
 
 const render = () => {
-  ReactDOM.render(<App store={store}/>, 
+  ReactDOM.render(<App store={store}/>,
   document.getElementById('root'))
 }
 
@@ -2548,7 +2548,7 @@ NoteList.contextTypes = {
 }
 ```
 
-Muutos on siis hyvin pieni. Nyt propsien sijaan storen viite on <code>this.context.store</code>. Komponentille on myös pakko määritellä sen vastaanottaman kontekstin tyyppi: 
+Muutos on siis hyvin pieni. Nyt propsien sijaan storen viite on <code>this.context.store</code>. Komponentille on myös pakko määritellä sen vastaanottaman kontekstin tyyppi:
 
 ```js
 NoteList.contextTypes = {

@@ -24,19 +24,20 @@ Arvosananja opintopistemäärä lasketaan _kaikkien_ tehtävien summan perusteel
 
 ## Arvosanarajat
 
-Kurssilla on yhteensä 152 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 144, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
+Kurssilla on yhteensä 149 tehtävää. Tehtävien maksimimääräksi lasketaan kuitenkin 141, sillä osan 7 tehtävistä kaikki eivät vaikuta arvosteluun.
 
 Arvosanarajat:
 
 | tehtävää  &nbsp;       | arvosana&nbsp;    | op  |
 | -------------- |:-----------------:       |:-----:|
-| 72    | 1/5  | 5   |
-| 82    | 2/5  | 5   |
-| 93    | 3/5  | 5   |
-| 104   | 4/5  | 5   |
-| 115   | 5/5  | 5   |
-| 126   | hyv  | 6   |
-| 137   | hyv  | 7   |
+| 70    | 1/5  | 5   |
+| 81    | 2/5  | 5   |
+| 92    | 3/5  | 5   |
+| 103   | 4/5  | 5   |
+| 113   | 5/5  | 5   |
+| 124   | hyv  | 6   |
+| 134   | hyv  | 7   |
+
 
 Ylimääräiset opintopisteet tullaan kirjaamaan kaikille arvosanalla "hyväksytty".
 
@@ -491,7 +492,7 @@ Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stat
 
 deadline 5.2. klo 23:59
 
-Osassa on 22 tehtävää, joista "pakollisia" on 13. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
+Osassa on 19 tehtävää, joista "pakollisia" on 13. On suositeltavaa että etenet seuraavaan osaan vasta kun olet tehnyt kaikki pakolliset tehtävät. Palautuksen tekemisen jälkeen et voi enää palauttaa osan tehtäviä.
 
 Osa sisältää kolme tehtäväsarjaa, joissa yksittäistä ohjelmaa laajennetaan pala palalta. Ohjelmien lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
@@ -764,6 +765,8 @@ Kurssin seuraavasta osasta alkaen alamme määrittelemään sovelluksemme _teste
 
 Jos koko sovelluksesi on tehty yhteen komponenttiin, refaktoroi sitä eriyttämällä sopivia komponentteja. Pidä kuitenkin edelleen kaikki tila juurikomponentissa.
 
+Riittää että erotat sovelluksesta kaksi kompoenttia. Hyviä kandidaatteja ovat esim. filtteröintilomake, yksittäisten henkilön tietojen esittäminen ja uuden henkilön lisäävä lomake.
+
 ### Datan hakeminen palvelimelta
 
 #### 2.11 puhelinluettelo osa 6
@@ -797,7 +800,7 @@ Talleta sovelluksen alkutila projektin juureen sijoitettavaan tiedostoon _db.jso
 }
 ```
 
-Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001>, että palvelin palauttaa henkilölistan.
+Käynnistä json-server porttiin 3001 ja varmista selaimella osoitteesta <http://localhost:3001/persons>, että palvelin palauttaa henkilölistan.
 
 Jos saat virheilmoituksen
 
@@ -933,6 +936,12 @@ Tee Node-sovellus, joka tarjoaa osoitteessa <http://localhost:3001/api/persons> 
 
 ![]({{ "/assets/teht/19.png" | absolute_url }})
 
+<div class='important'>
+
+Koska nyt ei ole kyse fronendista ja Reactista, sovellusta <strong>ei luoda</strong> create-react-app:illa vaan komennolla <em>npm init</em> osan 3 luvun <a href="../osa3#node.js">Node.js</a> tapaan.
+
+</div>
+
 Huomaa, että Noden routejen määrittelyssä merkkijonon _api/persons_ kenoviiva käyttäytyy kuten mikä tahansa muu merkki.
 
 Sovellus pitää pystyä käynnistämään komennolla _npm start_.
@@ -967,9 +976,9 @@ Generoi uuden puhelintiedon tunniste funktiolla [Math.random](https://developer.
 
 #### 3.6* puhelinluettelon backend osa 6
 
-Tee uuden numeron lisäykseen virheiden käsittely, pyyntö ei saa onnistua, jos
-- jos nimi tai numero puuttuu
-- lisättävälle nimelle on jo numero luettelossa
+Tee uuden numeron lisäykseen virheiden käsittely. Pyyntö ei saa onnistua, jos
+- nimi tai numero puuttuu
+- lisättävä nimi on jo luettelossa
 
 Vastaa asiaankuuluvalla statuskoodilla, liitä vastaukseen mukaan myös tieto, joka kertoo virheen syyn, esim:
 
@@ -1005,11 +1014,15 @@ Pari vihjettä:
 
 Laita backend toimimaan edellisessä osassa tehdyn puhelinluettelon frontendin kanssa muilta osin, paitsi mahdollisen puhelinnumeron muutoksen osalta jonka vastaava toiminnallisuus toteutetaan backendiin vasta tehtävässä 3.17.
 
-Joudut todennäköisesti tekemään fronendiin erinäisiä pieniä muutoksia ainakin backendin oletettujen urlien osalta. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
+Joudut todennäköisesti tekemään frontendiin erinäisiä pieniä muutoksia ainakin backendin oletettujen urlien osalta. Muista pitää selaimen konsoli koko ajan auki. Jos jotkut HTTP-pyynnöt epäonnistuvat, kannattaa katsoa _Network_-välilehdeltä mitä tapahtuu. Pidä myös silmällä mitä palvelimen konsolissa tapahtuu. Jos et tehnyt edellistä tehtävää, kannattaa POST-pyyntöä käsittelevässä tapahtumankäsittelijässä tulostaa konsoliin mukana tuleva data eli _request.body_.
 
 #### 3.10 puhelinluettelon backend osa 10
 
 Vie sovelluksen backend internetiin, esim. Herokuun.
+
+**Huom1** komento _heroku_ toimii laitoksen koneilla ja fuksikannettavilla 9.2. alkaen. Jos et jostain syystä saa asennettua herokua koneellesi, voit käyttää komentoa [npx heroku-cli](https://www.npmjs.com/package/heroku-cli).
+
+**Huom2** eihän hakemisto _build_ ole gitignoroituna projektissasi?
 
 Testaa selaimen ja postmanin tai VS Code REST clientin avulla, että internetissä oleva backend toimii.
 
@@ -1027,11 +1040,17 @@ Huolehdi myös, että frontend toimii edelleen myös paikallisesti.
 
 ### mongoosen alkeet
 
+<div class='important'>
+Älä laita tietokannan salasanaa Githubiin!
+</div>
+
 #### 3.12 tietokanta komentoriviltä
 
 Luo sovellukselle pilvessä oleva mongo mlabin avulla.
 
 Tee projektihakemistoon tiedosto _mongo.js_, jonka avulla voit lisätä tietokantaan puhelinnumeroja sekä listata kaikki kannassa olevat numerot.
+
+**Huom** jos/kun laitat tiedoston Githubiin, älä laita tietokannan salasanaa mukaan!
 
 Ohjelma toimii siten, että jos sille annetaan käynnistäessä kaksi komentoriviparametria, esim:
 
@@ -1048,7 +1067,7 @@ lisätään henkilö Joulupukki numero 040-1234556 luetteloon
 ja lisää uuden yhteystiedon tietokantaan. Huomaa, että jos nimi sisältää välilyöntejä, on se annettava hipsuissa:
 
 ```bash
-node mongo.js 'Arto Vihavainen' 040-1234556
+node mongo.js "Arto Vihavainen" 040-1234556
 ```
 
 Jos komentoriviparametreja ei anneta, eli ohjelma suoritetaan komennolla
@@ -1093,6 +1112,8 @@ Person
   })
 ```
 
+**HUOM2** jos määrittelet modelin nimeksi _Person_, muuttaa mongoose sen monikkomuotoon _people_, jota se käyttää vastaavan kokoelman nimenä.
+
 ### backend ja tietokanta
 
 Seuraavat tehtävät saattavat olla melko suoraviivaisia, tosin jos frontend-koodissasi sattuu olemaan bugeja tai epäyhteensopivuutta backendin kanssa, voi seurauksena olla myös mielenkiintoisia bugeja.
@@ -1103,7 +1124,7 @@ Muuta backendin kaikkien puhelintietojen näyttämistä siten, että se hakee n�
 
 Varmista, että frontend toimii muutosten jälkeen.
 
-Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduuliin samaan tapaan kuin osan 3 luvussa [tietokantamäärittelyjen eriyttäminen omaksi moduuliksi](osa3#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi)
+Tee tässä ja seuraavissa tehtävissä mongoose-spesifinen koodi omaan moduuliin samaan tapaan kuin osan 3 luvussa [tietokantamäärittelyjen eriyttäminen omaksi moduuliksi](/osa3#tietokantamäärittelyjen-eriyttäminen-omaksi-moduuliksi)
 
 #### 3.14* puhelinluettelo ja tietokanta, osa 2
 
@@ -1179,7 +1200,7 @@ Selaimella tarkastellen yksittäisen numerotiedon tulisi näyttää seuraavalta:
 
 #### 3.19* puhelinluettelo ja tietokanta, osa 7
 
-Huolehdi, että backendiin voi lisätä yhdelle nimelle ainoastaan yhden numeron. Fronendin nykyisestä versiosta ei duplikaatteja voi luoda, mutta suoraan Postmanilla tai VS Coden REST clientillä se onnistuu.
+Huolehdi, että backendiin voi lisätä yhdelle nimelle ainoastaan yhden numeron. Frontendin nykyisestä versiosta ei duplikaatteja voi luoda, mutta suoraan Postmanilla tai VS Coden REST clientillä se onnistuu.
 
 Jos HTTP POST -pyyntö yrittää lisätä nimeä, joka on jo puhelinluettelossa, tulee vastata sopivalla statuskoodilla ja lisätä vastaukseen asianmukainen virheilmoitus.
 
@@ -1439,7 +1460,7 @@ Huomaa, että joudut tekemään koodiin osan 4 materiaalin tyylin joukon muutoks
 npx jest -t 'blogs are returned'
 ```
 
-voidaan suoritta ainoastaan ne testit, joiden nimessä esiintyy _blogs are returned_.
+voidaan suorittaa ainoastaan ne testit, joiden nimessä esiintyy _blogs are returned_.
 
 Yksittäisen testitiedoston sisällä olevien testien suoritusta voidaan kontrolloida metodeilla _skip_ ja _only_ [ks. manuaali](https://facebook.github.io/jest/docs/en/api.html).
 
@@ -1489,7 +1510,7 @@ Laajenna toteutusta siten, että testit menevät läpi.
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ### Lisää toiminnallisuutta ja testejä
 
@@ -1497,7 +1518,7 @@ Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varma
 
 Refaktoroi projektin testit siten, että ne eivät enää ole riippuvaisia siitä, että HTTP GET -operaatioiden testit suoritetaan ennen uusien blogien lisäämisen testaamista. Määrittele myös sopivia apumetodeja, joiden avulla saat poistettua testeistä copypastea:
 
-Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#Testien-refaktorointi) tyyliä
+Testit voivat tämän tehtävän jälkeen noudattaa esim. osan 4 luvun [Testien refaktorointi](/osa4#testien-refaktorointi) tyyliä
 
 ```js
 const helper = require('./test_helper')
@@ -1530,7 +1551,7 @@ Toteuta sovellukseen mahdollisuus yksittäisen blogin poistoon.
 
 Käytä async/awaitia.
 
-Määrittele ensin toiminnallisuutta testaavat testit ja tämän jälkeen toteuta toiminnallisuus. Noudata operaation HTTP-rajapinnan suhteen [RESTful](osa3/#REST)-käytänteitä.
+Määrittele ensin toiminnallisuutta testaavat testit ja tämän jälkeen toteuta toiminnallisuus. Noudata operaation HTTP-rajapinnan suhteen [RESTful](/osa3#rest)-käytänteitä.
 
 Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
 
@@ -1546,17 +1567,17 @@ Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden t
 
 ### Blogilistan käyttäjät
 
-Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaan osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#Käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
+Seuraavien tehtävien myötä Blogilistalle luodaan käyttäjienhallinnan perusteet. Varminta on seurata melko tarkkaan osan 4 luvusta [Käyttäjien hallinta ja monimutkaisempi tietokantaskeema](/osa4#käyttäjien-hallinta-ja-monimutkaisempi-tietokantaskeema) alkavaa tarinaa. Toki luovuus on sallittua.
 
 ### Varoitus vielä kerran
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 #### 4.15 blogilistan laajennus, osa 4
 
 Tee sovellukseen mahdollisuus luoda käyttäjiä tekemällä HTTP POST -pyyntö osoitteeseen _api/users_. Käyttäjillä on käyttäjätunnus, salasana ja nimi sekä totuusarvoinen kenttä, joka kertoo onko käyttäjä täysi-ikäinen.
 
-Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#Käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
+Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
 
 Tee järjestelmään myös mahdollisuus katsoa kaikkien käyttäjien tiedot sopivalla HTTP-pyynnöllä.
 
@@ -1565,7 +1586,7 @@ Käyttäjien lista voi näyttää esim. seuraavalta:
 
 #### 4.16* blogilistan laajennus, osa 5
 
-Laajenna käyttäjätunnusten luomista siten, että salasanan tulee olla vähintään 3 merkkiä pitkiä ja käyttäjätunnus on järjestelmässä uniikki. Jos täysi-ikäisyydelle ei määritellä luotaessa arvoa, on se oletusarvoisesti true.
+Laajenna käyttäjätunnusten luomista siten, että salasanan tulee olla vähintään 3 merkkiä pitkä ja käyttäjätunnus on järjestelmässä uniikki. Jos täysi-ikäisyydelle ei määritellä luotaessa arvoa, on se oletusarvoisesti true.
 
 Luomisoperaation tulee palauttaa sopiva statuskoodi ja kuvaava virheilmoitus, jos yritetään luoda epävalidi käyttäjä.
 
@@ -1575,7 +1596,7 @@ Tee testit, jotka varmistavat, että virheellisiä käyttäjiä ei luoda, ja ett
 
 Laajenna blogia siten, että blogiin tulee tieto sen lisänneestä käyttäjästä.
 
-Muokkaa blogien lisäystä osan 4 luvun [populate](osa4/#populate) tapaan siten, että blogin lisämisen yhteydessä määritellään blogin lisääjäksi _joku_ järjestelmän tietokannassa olevista käyttäjistä (esim. ensimmäisenä löytyvä). Tässä vaiheessa ei ole väliä kuka käyttäjistä määritellään lisääväksi. Toiminnallisuus viimeistellään tehtävässä 4.19.
+Muokkaa blogien lisäystä osan 4 luvun [populate](/osa4/#populate) tapaan siten, että blogin lisäämisen yhteydessä määritellään blogin lisääjäksi _joku_ järjestelmän tietokannassa olevista käyttäjistä (esim. ensimmäisenä löytyvä). Tässä vaiheessa ei ole väliä kuka käyttäjistä määritellään lisääväksi. Toiminnallisuus viimeistellään tehtävässä 4.19.
 
 Muokaa kaikkien blogien listausta siten, että blogien yhteydessä näytetään lisääjän tiedot:
 
@@ -1654,7 +1675,7 @@ Muista tehtäviä tehdessäsi kaikki debuggaukseen liittyvät käytänteet, erit
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ### kirjautuminen ja blogien luonti
 
@@ -1750,7 +1771,7 @@ Notifikaation tulee olla näkyvillä muutaman sekunnin ajan. Värien lisäämine
 
 #### 5.5 blogilistan frontend, osa 5
 
-Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näytettävä osan 5 luvun [Kirjautumislomakkeen näyttäminen vain tarvittaessa](/osa5#Kirjautumislomakkeen näyttäminen-vain-tarvittaessa) tapaan. Voit halutessasi hyödyntää osassa 5 määriteltyä komponenttia _Togglable_.
+Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näytettävä osan 5 luvun [Kirjautumislomakkeen näyttäminen vain tarvittaessa](/osa5#kirjautumislomakkeen näyttäminen-vain-tarvittaessa) tapaan. Voit halutessasi hyödyntää osassa 5 määriteltyä komponenttia _Togglable_.
 
 #### 5.6* blogilistan frontend, osa 6
 
@@ -1792,7 +1813,7 @@ class Blog extends React.Component {
 
 ### Varoitus vielä kerran
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99.9% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 #### 5.7* blogilistan frontend, osa 7
 
@@ -1858,7 +1879,7 @@ Määrittele joillekin sovelluksesi komponenteille PropTypet.
 
 **HUOM:** jos jokin testi on rikki, ei kannata ongelmaa korjatessa suorittaa kaikkia testejä, vaan ainoastaan rikkinäistä testiä hyödyntäen [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout)-metodia.
 
-**HUOM2:** älä aliarvioi testissä tapahtuvan _console.logauksen_ hyödyllisyyttä! Normaalissa koodauksessa console.log on elintärkeä, testauksessa se on välillä suorastaan välttämätön sillä testejä suorittaessa et saa misään muualta feedbackiä.
+**HUOM2:** älä aliarvioi testissä tapahtuvan _console.logauksen_ hyödyllisyyttä! Normaalissa koodauksessa console.log on elintärkeä, testauksessa se on välillä suorastaan välttämätön sillä testejä suorittaessa et saa mistään muualta feedbackiä.
 
 Testejä suorittaessasi voit käyttää console.log-komentoja testeissä ja _sovelluksen koodissa_.
 
@@ -1908,7 +1929,7 @@ it('after clicking name the details are displayed', () => {
   // haetaan tarkastettava, eli detaljit sisältävä osa komponentista
   const contentDiv = ...
   expect(contentDiv...)
-})  
+})
 ```
 
 **väärä** järjestys on siis seuraava
@@ -1919,10 +1940,10 @@ it('DOES NOT WORK', () => {
   const contentDiv = ...
 
   // klikataan liian myöhään
-  nameDiv.simulate('click')  
+  nameDiv.simulate('click')
 
   expect(contentDiv...)
-})  
+})
 ```
 
 ### integraatiotestaus
@@ -1947,7 +1968,7 @@ const user = {
 }
 
 localStorage.setItem('loggedBlogAppUser', JSON.stringify(user))
-```      
+```
 
 **Vihje 2:**
 
@@ -2068,7 +2089,7 @@ describe('unicafe reducer', () => {
       ok: 0,
       bad: 0
     })
-  })  
+  })
 })
 ```
 
@@ -2493,7 +2514,7 @@ Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimist
 Hyvä neuvo refaktorintiin niinkuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
 
 <div class="important">
-  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä. 
+  Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä.
 </div>
 
 ### 7.1 käyttäjien näkymä
@@ -2554,7 +2575,7 @@ Laajenna sovellusta siten, että kommentointi onnistuu frontendista käsin:
 
 ### 7.8 redux, osa 1
 
-Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia. 
+Siirry käyttämään React-komponenttien tilan eli _staten_ sijaan Reduxia.
 
 Muuta tässä tehtävässä notifikaatio käyttämään Reduxia.
 
@@ -2575,7 +2596,7 @@ Tämä ja seuraava osa ovat kohtuullisen työläitä, mutta erittäin opettavais
 
 ### 7.11 redux, osa 3
 
-Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin. 
+Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin.
 
 ### 7.12 tyylit, osa 1
 

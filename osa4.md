@@ -461,7 +461,7 @@ Koska sovelluksemme backend on koodiltaan kuitenkin suhteellisen yksinkertainen,
 
 ### test-ympäristö
 
-Edellisen osan luvussa [Sovelluksen vieminen tuotantoon](osa3/##-Sovelluksen-vieminen tuotantoon) mainitsimme, että kun sovellusta suoritetaan Herokussa, on se _production_-moodissa.
+Edellisen osan luvussa [Sovelluksen vieminen tuotantoon](/osa3#sovelluksen-vieminen tuotantoon) mainitsimme, että kun sovellusta suoritetaan Herokussa, on se _production_-moodissa.
 
 Noden konventiona on määritellä projektin suoritusmoodi ympäristömuuttujan _NODE_ENV_ avulla. Lataammekin sovelluksen nykyisessä versiossa tiedostossa _.env_ määritellyt ympäristömuuttujat ainoastaan jos sovellus _ei ole_ production moodissa:
 
@@ -1293,11 +1293,11 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ### Varoitus
 
-Jos huomaat kirjottavasti sekaisin async/awaitia ja _then_-kutusja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99% varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 ## Tehtäviä
 
-Tee nyt tehtävät [4.8-4.11](/tehtävät#API:n-testaaminen)
+Tee nyt tehtävät [4.8-4.11](/tehtävät#api:n-testaaminen)
 
 ## Testien refaktorointi
 
@@ -1540,7 +1540,7 @@ Käytetty tapa API:n testaamiseen, eli HTTP-pyyntöinä tehtävät operaatiot ja
 
 ## Tehtäviä
 
-Tee nyt tehtävät [4.12-4.14](/tehtävät#Lisää-toiminnallisuutta-ja-testejä)
+Tee nyt tehtävät [4.12-4.14](/tehtävät#lisää-toiminnallisuutta-ja-testejä)
 
 ## Käyttäjien hallinta ja monimutkaisempi tietokantaskeema
 
@@ -1712,7 +1712,7 @@ Asennetaan salasanojen hashaamiseen käyttämämme [bcrypt](https://github.com/k
 npm install bcrypt --save
 ```
 
-Käyttäjien luominen tapahtuu osassa 3 läpikäytyjä [RESTful](osa3/#rest)-periaatteita seuraten tekemällä HTTP POST -pyyntö polkuun _users_.
+Käyttäjien luominen tapahtuu osassa 3 läpikäytyjä [RESTful](/osa3#rest)-periaatteita seuraten tekemällä HTTP POST -pyyntö polkuun _users_.
 
 Määritellään käyttäjienhallintaa varten oma _router_ tiedostoon _controllers/users.js_, ja liitetään se _index.js_-tiedostossa huolehtimaan polulle _/api/users/_ tulevista pyynnöistä:
 
@@ -2355,7 +2355,7 @@ Toteutamme kirjautumisen frontendin puolelle kurssin [seuraavassa osassa](/osa5)
 
 ## Tehtäviä
 
-Tee nyt tehtävät [4.15-4.21](/tehtavat#Blogilistan-käyttäjät)
+Tee nyt tehtävät [4.15-4.21](/tehtavat#blogilistan-käyttäjät)
 
 
 <!---
