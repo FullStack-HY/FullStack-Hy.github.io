@@ -298,9 +298,9 @@ määritellään _npm_ skripti _test_ suorittmaan testaus jestillä ja raportoim
   //...
   "scripts": {
     "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
-    "lint": "node_modules/.bin/eslint .",
-    "test": "node_modules/.bin/jest --verbose"
+    "watch": "nodemon index.js",
+    "lint": "eslint .",
+    "test": "jest --verbose"
   },
   //...
 }
@@ -480,9 +480,9 @@ Määrtellään nyt tiedostossa _package.js_, että testejä suorittaessa sovell
   // ...
   "scripts": {
     "start": "NODE_ENV=production node index.js",
-    "watch": "NODE_ENV=development node_modules/.bin/nodemon index.js",
-    "test": "NODE_ENV=test node_modules/.bin/jest --verbose",
-    "lint": "node_modules/.bin/eslint ."
+    "watch": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose",
+    "lint": "eslint ."
   },
   // ...
 }
@@ -503,9 +503,9 @@ ja muuttamalla _package.js_ kaikilla käyttöjärjestelmillä toimivaan muotoon
   // ...
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
-    "watch": "cross-env NODE_ENV=development node_modules/.bin/nodemon index.js",
-    "test": "cross-env NODE_ENV=test node_modules/.bin/jest --verbose",
-    "lint": "node_modules/.bin/eslint ."
+    "watch": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose",
+    "lint": "eslint ."
   },
   // ...
 }
