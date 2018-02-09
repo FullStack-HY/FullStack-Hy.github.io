@@ -1066,7 +1066,7 @@ Tee nyt tehtävät [6.6-6.9](/tehtävät#connect)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
-Laajennetan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](/osa2#datan-haku-palvelimelta).
+Laajennetaan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](/osa2#datan-haku-palvelimelta).
 
 Tallennetaan projektin juuren tiedostoon _db.json_ tietokannan alkutila:
 
