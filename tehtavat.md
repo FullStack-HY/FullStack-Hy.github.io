@@ -2289,7 +2289,7 @@ Sovelluksessa välitetään _redux store_ tällä hetkellä kaikille komponentei
 
 Ota käyttöön kirjasto [react-redux](https://github.com/reactjs/react-redux) ja muuta komponenttia _Notification_ niin, että se pääsee käsiksi tilaan _connect_-funktion välityksellä.
 
-Huomaa, että toimiakseen _connect_ edellyttää että sovelukselle on määriteltävä [Provider](https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store).
+Huomaa, että toimiakseen _connect_ edellyttää että sovellukselle on määriteltävä [Provider](https://github.com/reactjs/react-redux/blob/master/docs/api.md#provider-store).
 
 
 #### 6.7 paremmat anekdootit, osa 6

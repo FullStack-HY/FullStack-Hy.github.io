@@ -41,7 +41,7 @@ const noteReducer = (state = initalState, action) => {
 export default noteReducer
 ```
 
-Siirretään [action creatiorit](https://redux.js.org/docs/basics/Actions.html#action-creators), eli sopivia [action](https://redux.js.org/docs/basics/Actions.html)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
+Siirretään [action creatorit](https://redux.js.org/docs/basics/Actions.html#action-creators), eli sopivia [action](https://redux.js.org/docs/basics/Actions.html)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
 
 ```js
 const initalState = [
@@ -112,7 +112,7 @@ Normaalisti exportattujen funktioiden käyttöönotto tapahtuu aaltosulkusyntaks
 import { noteCreation } from './../reducers/noteReducer'
 ```
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-1) tagissä _part6-1_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-1) tagissä _part6-1_.
 
 ## ESlint
 
@@ -253,7 +253,7 @@ Päätämme toteuttaa filtteröinnin siten, että talletamme muistiinpanojen lis
 
 Tällä hetkellähän tilassa on ainoastaan muistiinpanot sisältävä taulukko. Uudessa ratkaisussa tilalla on siis kaksi avainta, _notes_ jonka arvona muistiinpanot ovat sekä _filter_, jonka arvona on merkkijono joka kertoo mitkä muistiinpanoista tulisi näyttää ruudulla.
 
-### Yhdisteyt reducerit
+### Yhdistetyt reducerit
 
 Voisimme periaatteessa muokata jo olemassaolevaa reduceria ottamaan huomioon muuttuneen tilanteen. Parempi ratkaisu on kuitenkin määritellä tässä tilanteessa uusi, filtterin arvosta huolehtiva reduceri:
 
@@ -497,7 +497,7 @@ const notes = this.context.store.getState().notes
 const filter = this.context.store.getState().filter
 ```
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-2) tagissä _part6-2_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-2) tagissä _part6-2_.
 
 Sovelluksessa on vielä pieni kauneusvirhe, vaikka oletusarvosesti filtterin arvo on _ALL_, eli näytetään kaikki muistiinpanot, ei vastaava radiobutton ole valittuna. Ongelma on luonnollisestikin mahdollista korjata, mutta koska kyseessä on ikävä, mutta harmiton feature, jätämme korjauksen myöhemmäksi.
 
@@ -775,7 +775,7 @@ ReactDOM.render(
 
 Lisäsimme jo edellisen osan lopussa sovellukseen _Providerin_, joten _connect_ oli tällä kertaa suoraan käytettävissä.
 
-### Huomio propsina välitetyn action creatoriin viittaamisesta
+### Huomio propsina välitettyyn action creatoriin viittaamisesta
 
 Tarkastellaan vielä erästä mielenkiintoista seikkaa komponentista _NoteForm_:
 
@@ -840,7 +840,7 @@ Connect on erittäin kätevä työkalu, mutta abstraktiutensa takia kenties käs
 
 Viimeistään nyt kannattaa katsoa kokonaisuudessaan Egghead.io:ta Reduxin kehittäjän Dan Abramovin loistava tuoriaali [Getting started with Redux](https://egghead.io/courses/getting-started-with-redux). Neljässä viimeisessä videossa käsitellään _connect_-metodia.
 
-Siinä vaiheessa kun videot on tehty, connectin käyttö oli asteen verran nykyistä hankalampaa, sillä esimerkeissä käyttämämme tapa määritellä connection toinen parametri _mapDispatchToProps_ suoraan _action creator_ -funktioiden avulla ei ollut vielä mahdollinen. Katsotaan seuraavassa luvussa lyhyesti vaihtoehtoista, "hankalampaa" tapaa, sitä näkee usein vanhemmassa React-koodissa, joten sen tunteminen on oleellista.
+Siinä vaiheessa kun videot on tehty, connectin käyttö oli asteen verran nykyistä hankalampaa, sillä esimerkeissä käyttämämme tapa määritellä connectin toinen parametri _mapDispatchToProps_ suoraan _action creator_ -funktioiden avulla ei ollut vielä mahdollinen. Katsotaan seuraavassa luvussa lyhyesti vaihtoehtoista, "hankalampaa" tapaa, sitä näkee usein vanhemmassa React-koodissa, joten sen tunteminen on oleellista.
 
 ### mapDispatchToPropsin vaihtoehtoinen käyttötapa
 
@@ -1066,7 +1066,7 @@ Tee nyt tehtävät [6.6-6.9](/tehtävät#connect)
 
 ## Redux-sovelluksen kommunikointi palvelimen kanssa
 
-Laajennetan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](/osa2#datan-haku-palvelimelta).
+Laajennetaan sovellusta siten, että muistiinpanot talletetaan backendiin. Käytetään osasta 2 tuttua [json-serveriä](/osa2#datan-haku-palvelimelta).
 
 Tallennetaan projektin juuren tiedostoon _db.json_ tietokannan alkutila:
 
