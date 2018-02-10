@@ -141,7 +141,7 @@ Määritellään sitten npm-skripti _build_ jonka avulla bundlaus suoritetaan
 ```bash
 // ...
 "scripts": {
-  "build": "node_modules/.bin/webpack"
+  "build": "webpack"
 },
 // ...
 ```
@@ -487,7 +487,7 @@ Tilanne paranee jo oleellisesti jos webpackia suoritetaan [watch](https://webpac
 {
   // ...
   "scripts": {
-    "build": "node_modules/.bin/webpack",
+    "build": "webpack",
     "watch": "webpack --watch"
   },
   // ...
@@ -509,7 +509,7 @@ Määritellään dev-serverin käynnistävä npm-skripti (äsken lisätty skript
 {
   // ...
   "scripts": {
-    "build": "node_modules/.bin/webpack",
+    "build": "webpack",
     "start": "webpack-dev-server"
   },
   // ...
@@ -776,7 +776,7 @@ Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https
 {
   // ...
   "scripts": {
-    "build": "node_modules/.bin/webpack --env production",
+    "build": "webpack --env production",
     "start": "webpack-dev-server --env development"
   },
   // ...

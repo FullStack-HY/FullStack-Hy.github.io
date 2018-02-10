@@ -2085,8 +2085,8 @@ Kannattaa ehkä tehdä linttaustakin varten _npm-skripti_:
   // ...
   "scripts": {
     "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
-    "lint": "node_modules/.bin/eslint ."
+    "watch": "nodemon index.js",
+    "lint": "eslint ."
   },
   // ...
 }
