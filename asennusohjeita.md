@@ -32,7 +32,7 @@ Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on
 
 Jos sinulla on pääkäyttäjän oikeudet, on asennus mahdollista suorittaa paketinhallintaa käyttäen. Tällöin täytyy kuitenkin varmistaa, että Nodesta tulee käyttöön riittävän tuore versio (vähintään 8.6). Jos ei, voi päivityksen hoitaa _nvm_-työkalulla. Jos jollakin on ohje tämän tekemiseen, niin otan mielellään pull requestin vastaan.
 
-Yksi vaihtoehto [NMV työkalulle](https://github.com/creationix/nvm#install-script). Tällä voi asentaa monta eri node versiota ja se asentaa ne käyttäjän HOME kansioon USER kansion sijaan (ei tartte admin oikeuksia).  
+Yksi vaihtoehto [NMV työkalulle](https://github.com/creationix/nvm#install-script). Tällä voi asentaa monta eri node versiota ja se asentaa ne käyttäjän HOME kansioon USER kansion sijaan (ei tartte admin oikeuksia).
 
 ### Mac
 
