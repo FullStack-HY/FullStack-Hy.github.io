@@ -942,7 +942,7 @@ Koska nyt ei ole kyse fronendista ja Reactista, sovellusta <strong>ei luoda</str
 
 </div>
 
-Huomaa, että Noden routejen määrittelyssä merkkijonon _api/persons_ kenoviiva käyttäytyy kuten mikä tahansa muu merkki.
+Huomaa, että Noden routejen määrittelyssä merkkijonon _api/persons_ vinoviiva käyttäytyy kuten mikä tahansa muu merkki.
 
 Sovellus pitää pystyä käynnistämään komennolla _npm start_.
 
