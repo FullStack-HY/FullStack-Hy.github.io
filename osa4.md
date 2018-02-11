@@ -483,7 +483,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 Yleinen käytäntö on määritellä sovelluksille omat moodinsa myös sovelluskehitykseen ja testaukseen.
 
-Määrtellään nyt tiedostossa _package.js_, että testejä suorittaessa sovelluksen _NODE_ENV_ saa arvokseen _test_:
+Määrtellään nyt tiedostossa _package.json_, että testejä suorittaessa sovelluksen _NODE_ENV_ saa arvokseen _test_:
 
 ```bash
 {
