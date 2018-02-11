@@ -2507,11 +2507,11 @@ Osassa on 23 tehtävää, arvostelussa tehtävien maksimiin tässä osassa laske
 
 Tämän osan tehtävissä jatketaan osissa 4 ja 5 tehtyä Bloglist-sovellusta. Suurin osa tämän osan tehtävistä on toisistaan riippumattomia "featureita", eli tehtäviä ei tarvitse tehdä järjestyksessä, voit jättää osan aivan hyvin toteuttamatta.
 
-Voit otaa pohjaksi oman sovelluksesi sijaan myös mallivastauksen koodin.
+Voit ottaa pohjaksi oman sovelluksesi sijaan myös mallivastauksen koodin.
 
 Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimista. Tämä on tilanne käytännössä aina sovelluksia laajennettaessa, eli vaikka refaktorointi voi olla hankalaa ja ikävääkin, on kyseessä oleellinen taito.
 
-Hyvä neuvo refaktorintiin niinkuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
+Hyvä neuvo niin refaktorointiin kuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
 
 <div class="important">
   Jos aiot tehdä tehtävät 7.8-7.11 eli siirtää sovelluksen tilanhallinnan reduxin vastuulle, saattaa olla helpompi tehdä reduxiin siirtymiseen vaadittava refaktorointi ennen muiden tehtävien tekemistä.
@@ -2586,7 +2586,7 @@ Siirrä kaikkien käyttäjien tietojen talletus Reduxiin. Varmista, että sekä 
 Tässä tehtävässä saattaa olla hyödyksi käyttää metodin _connect_ toista parametria
 [ownPropsia](https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props) joka on dokumentaation hienoisesta kryptisyydestä huolimatta [aika simppeli](https://stackoverflow.com/questions/41198842/what-is-the-use-of-the-ownprops-arg-in-mapstatetoprops-and-mapdispatchtoprops) asia.
 
-### 7.10 redux, osa 4
+### 7.10 redux, osa 3
 
 Siirrä myös blogien tietojen talletus Reduxiin.
 
@@ -2594,7 +2594,7 @@ Uuden blogin luomislomakkeen tilaa voit halutessasi hallita edelleen reactin til
 
 Tämä ja seuraava osa ovat kohtuullisen työläitä, mutta erittäin opettavaisia.
 
-### 7.11 redux, osa 3
+### 7.11 redux, osa 4
 
 Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin.
 
@@ -2630,7 +2630,7 @@ Ota sovellukseessasi käyttöön [snapshot testing](https://facebook.github.io/j
 
 Tee Puppeteeria tai haluamaasi kirjastoa käyttäviä headless-testejä, testaa ainakin paria toiminnallisuutta.
 
-### 7.20 Tyypitarkastuksia
+### 7.20 Tyyppitarkastuksia
 
 Lisää sovellukseen tyyppitarkastuksia Proptypeinä, Flown avulla tai Typescriptillä
 
