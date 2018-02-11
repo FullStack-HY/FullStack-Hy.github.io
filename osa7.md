@@ -1433,7 +1433,7 @@ WebSocket API:n suoran käyttämisen sijaan onkin suositeltavaa käyttää [Sock
 
 ### Virtual DOM
 
-Reactin yhteydessä mainitan usein käsite Virtual DOM. Mistä oikein on kyseä? Kuten [osassa 0](/osa0#document-object-model-eli-dom) mainittiin, selaimet tarjoavat [DOM API](https://developer.mozilla.org/fi/docs/DOM):n, jota hyväksikäyttäen selaimessa toimiva Javascript voi muokata sivun ulkoasun määritteleviä elementtejä.
+Reactin yhteydessä mainitaan usein käsite Virtual DOM. Mistä oikein on kyseä? Kuten [osassa 0](/osa0#document-object-model-eli-dom) mainittiin, selaimet tarjoavat [DOM API](https://developer.mozilla.org/fi/docs/DOM):n, jota hyväksikäyttäen selaimessa toimiva Javascript voi muokata sivun ulkoasun määritteleviä elementtejä.
 
 Reactia käyttäessä ohjelmoija ei koskaan (tai parempi sanoa yleensä) manipuloi DOM:ia suoraan. React-komponenttien ulkoasun määrittelevä _render_-metodi palauttaa joukon [React](https://reactjs.org/docs/glossary.html#elements)-elementtejä. Vaikka osa elementeistä näyttä normaaleilta HTML-elementeiltä
 
