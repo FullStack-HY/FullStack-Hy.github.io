@@ -185,7 +185,15 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then( () => { 
+    console.log('connected to database', process.env.MONGODB_URI) 
+  })
+  .catch( err => { 
+    console.log(err) 
+  })  
+
 mongoose.Promise = global.Promise
 
 app.use(cors())
@@ -204,6 +212,8 @@ app.listen(PORT, () => {
 ```
 
 Tiedostossa siis otetaan käyttöön joukko middlewareja, näistä yksi on polkuun _/api/notes_ kiinnitettävä _notesRouter_ (tai notes-kontrolleri niin kuin jotkut sitä kutsuisivat).
+
+Tietokannan yhteydenmuodostuksen suorittavaan funktioon on myös lisätty tapahtumankäsittelijä, joka ilmoittaa onko yhteyden muodostus onnistunut vai ei.
 
 Middlewareista kaksi _middleware.logger_ ja _middleware.error_ on määritelty hakemiston _utils_ tiedostossa _middleware.js_:
 
@@ -526,7 +536,15 @@ const config = require('./utils/config')
 
 // ...
 
-mongoose.connect(config.mongoUrl)
+mongoose
+  .connect(config.mongoUrl)
+  .then( () => { 
+    console.log('connected to database', config.mongoUrl) 
+  })
+  .catch( err => { 
+    console.log(err) 
+  })  
+
 
 // ...
 
@@ -583,7 +601,15 @@ const middleware = require('./utils/middleware')
 const notesRouter = require('./controllers/notes')
 const config = require('./utils/config')
 
-mongoose.connect(config.mongoUrl)
+mongoose
+  .connect(config.mongoUrl)
+  .then( () => { 
+    console.log('connected to database', config.mongoUrl) 
+  })
+  .catch( err => { 
+    console.log(err) 
+  })  
+  
 mongoose.Promise = global.Promise
 
 app.use(cors())
