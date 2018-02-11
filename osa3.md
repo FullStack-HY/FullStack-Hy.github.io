@@ -1206,7 +1206,7 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 ## Tehtäviä
 
-Tee nyt tehtävät [3.9-3.11](tehtävät#yhteys-frontendiin-ja-vienti-tuotantoon)
+Tee nyt tehtävät [3.9-3.11](/tehtävät#yhteys-frontendiin-ja-vienti-tuotantoon)
 
 ## Node-sovellusten debuggaaminen
 
