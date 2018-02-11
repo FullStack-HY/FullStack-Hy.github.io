@@ -1542,7 +1542,7 @@ Myös ESlintin [security-plugininen](https://github.com/nodesecurity/eslint-plug
 
 ## Tulevaisuuden trendit
 
-Katsotaan vielä lopuksi muutamaa huomisen tai oikeastaan jo tämän päivän tekniikkaa tai suuntia mitä kohti Web-sovelluskehitys on kulkemalla
+Katsotaan vielä lopuksi muutamaa huomisen tai oikeastaan jo tämän päivän tekniikkaa tai suuntia mitä kohti Web-sovelluskehitys on kulkemassa.
 
 ### Server side rendering, isomorfiset sovellukset ja universaali koodi
 
