@@ -1049,7 +1049,7 @@ tarkastaa express GET-tyyppisten HTTP-pyyntöjen yhteydessä ensin löytyykö py
 
 Nyt HTTP GET -pyyntö osoitteeseen _www.palvelimenosoite.com/index.html_ tai _www.palvelimenosoite.com_ näyttää Reactilla tehdyn frontendin. GET-pyynnön esim. osoitteeseen _www.palvelimenosoite.com/notes_ hoitaa backendin koodi.
 
-Koska tässä tapauksessa sekä frontend että backend toimivat samassa osoitteessa, voidaan React-sovelluksessa tapahtuva backendin _baseUrl_ määritellä [suhtellisena](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2) URL:ina, eli ilman palvelinta yksilöivää osaa:
+Koska tässä tapauksessa sekä frontend että backend toimivat samassa osoitteessa, voidaan React-sovelluksessa tapahtuva backendin _baseUrl_ määritellä [suhteellisena](https://www.w3.org/TR/WD-html40-970917/htmlweb.html#h-5.1.2) URL:ina, eli ilman palvelinta yksilöivää osaa:
 
 ```js
 import axios from 'axios'
@@ -1160,9 +1160,9 @@ Frontend on edelleen sovelluksen juuressa eli osoitteessa <https://fullstack-not
 
 > Sivuhuomautus: API:en versiointi
 >
->Joskus API:n urleissa ilmaistaan myös API:n versio. Eri versioita saatetaan tarvita, jos aikojen kuluessa API:in tehdään laajennuksia, jotka ilman versiointia hajoittaisivat olemassaolevia osia ohjelmista. Versioinnin avulla voidaan tuoda vanhojen rinnalle uusia, hieman eri tavalla voimivia versioita API:sta.
+>Joskus API:n urleissa ilmaistaan myös API:n versio. Eri versioita saatetaan tarvita, jos aikojen kuluessa API:in tehdään laajennuksia, jotka ilman versiointia hajoittaisivat olemassaolevia osia ohjelmista. Versioinnin avulla voidaan tuoda vanhojen rinnalle uusia, hieman eri tavalla toimivia versioita API:sta.
 >
->API:n version ilmaiseminen URL:issa ei kuitenkaan ole välttämättä, ainakaan kaikkien mielstä järkevää vaikka tapaa paljon käytetäänkin. Oikeasta tavasta API:n versiointiin [kiistellään ympäri internettiä](https://stackoverflow.com/questions/389169/best-practices-for-api-versioning).
+>API:n version ilmaiseminen URL:issa ei kuitenkaan ole välttämättä, ainakaan kaikkien mielestä järkevää vaikka tapaa paljon käytetäänkin. Oikeasta tavasta API:n versiointiin [kiistellään ympäri internettiä](https://stackoverflow.com/questions/389169/best-practices-for-api-versioning).
 
 ### Proxy
 
@@ -1454,7 +1454,7 @@ Note
 
 Kun koodi suoritetaan, kantaan talletetut muistiinpanot tulostuvat.
 
-Oliot haetaan kannasta _Note_-modelin metodilla [find](http://mongoosejs.com/docs/api.html#model_Model.find). Metodin parametdina on hakuehto. Koska hakuehtona on tyhjä olio <code>{}</code>, saimme kannasta kaikki _notes_-kokoelmaan talletetut oliot.
+Oliot haetaan kannasta _Note_-modelin metodilla [find](http://mongoosejs.com/docs/api.html#find_find). Metodin parametdina on hakuehto. Koska hakuehtona on tyhjä olio <code>{}</code>, saimme kannasta kaikki _notes_-kokoelmaan talletetut oliot.
 
 Hakuehdot noudattavat mongon [syntaksia](https://docs.mongodb.com/manual/reference/operator/).
 
@@ -1776,7 +1776,7 @@ Aina kun ohjelmoit ja projektissa on mukana backend **tulee ehdottomasti koko aj
 
 Toteutetaan vielä jäljellä olevat operaatiot, eli yksittäisen muistiinpanon poisto ja muokkaus.
 
-Poisto onnistuu helpoiten metodilla [findByIdAndRemove](http://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove):
+Poisto onnistuu helpoiten metodilla [findByIdAndRemove](http://mongoosejs.com/docs/api.html#findbyidandremove_findByIdAndRemove):
 
 ```js
 app.delete('/api/notes/:id', (request, response) => {
@@ -1793,7 +1793,7 @@ app.delete('/api/notes/:id', (request, response) => {
 
 Vastauksena on statauskoodi _204 no content_ molemmissa "onnistuneissa" tapauksissa, eli jos olio poistettiin tai olioa ei ollut mutta _id_ oli periaatteessa oikea. Takaisinkutsun parametrin _result_ perusteella olisi mahdollisuus haarautua ja palauttaa tilanteissa eri statuskoodi jos sille on tarvetta.
 
-Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate]Tässä ja myöhemmin sivulla on findOneAndUpdate, mutta koodissa alla findByIdAndUpdate, joka toimi ainakin harjoituskoodissa(http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate):
+Muistiinpanon tärkeyden muuttamisen mahdollistava olemassaolevan muistiinpanon päivitys onnistuu helposti metodilla [findOneAndUpdate](http://mongoosejs.com/docs/api.html#findoneandupdate_findOneAndUpdate). Tässä ja myöhemmin sivulla on _findOneAndUpdate_, mutta koodissa alla [findByIdAndUpdate](http://mongoosejs.com/docs/api.html#findbyidandupdate_findByIdAndUpdate), joka vastaa `findOneAndUpdate({ _id: id }, ...)` kutsua.
 
 ```js
 app.put('/api/notes/:id', (request, response) => {
@@ -1820,7 +1820,7 @@ Operaatio mahdollistaa myös muistiinpanon sisällön editoinnin. Päivämäär�
 
 Huomaa, että metodin _findOneAndUpdate_ parametrina tulee antaa normaali Javascript-olio, eikä uuden olion luomisessa käytettävä _Note_-konstruktorifunktiolla luotu olio.
 
-Pieni, mutta tärkeä detalji liittyen operaatioon _findOneAndUpdate_. Oletusarvoisesti tapahtumankäsittelijä saa parametrikseen _updatedNote_ päivitetyn olion [ennen muutosta](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate) olleen tilan. Lisäsimme operaatioon parametrin <code>{ new: true }</code> jotta saamme muuttuneen olion palautetuksi kutsujalle.
+Pieni, mutta tärkeä detalji liittyen operaatioon _findOneAndUpdate_. Oletusarvoisesti tapahtumankäsittelijä saa parametrikseen _updatedNote_ päivitetyn olion [ennen muutosta](http://mongoosejs.com/docs/api.html#findoneandupdate_findOneAndUpdate) olleen tilan. Lisäsimme operaatioon parametrin <code>{ new: true }</code> jotta saamme muuttuneen olion palautetuksi kutsujalle.
 
 Backend vaikuttaa toimivan postmanista VS Code REST clientistä tehtyjen kokeilujen perusteella ja myös frontend toimii moitteettomasti tietokantaa käyttävän backendin kanssa.
 
@@ -2085,8 +2085,8 @@ Kannattaa ehkä tehdä linttaustakin varten _npm-skripti_:
   // ...
   "scripts": {
     "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
-    "lint": "node_modules/.bin/eslint ."
+    "watch": "nodemon index.js",
+    "lint": "eslint ."
   },
   // ...
 }
