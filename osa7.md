@@ -1474,7 +1474,7 @@ Katsotaan kuitenkin muutamaa kurssispesifistä seikkaa.
 
 The Open Web Application Security Project eli [OWASP](https://www.owasp.org) julkaisee vuosittain listan Websovellusten yleisimmistä turvallisuusuhista. Tuorein lista on [täällä](https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf). Samat uhat ovat listalla vuodesta toiseen.
 
-Listaykkösenä on _injection_, joka tarkoittaa sitä, että sovellukseen esim, lomakkeen avulla lähetettävä teksti tulkitaankin aivan eri eri tavalla kun sovelluskehittäjä on tarkoittanut. Kuuluisin injektioiden muoto lienevät [SQL-injektiot](https://stackoverflow.com/questions/332365/how-does-the-sql-injection-from-the-bobby-tables-xkcd-comic-work).
+Listaykkösenä on _injection_, joka tarkoittaa sitä, että sovellukseen esim, lomakkeen avulla lähetettävä teksti tulkitaankin aivan eri tavalla kun sovelluskehittäjä on tarkoittanut. Kuuluisin injektioiden muoto lienevät [SQL-injektiot](https://stackoverflow.com/questions/332365/how-does-the-sql-injection-from-the-bobby-tables-xkcd-comic-work).
 
 Esim. jos ei-turvallisessa koodissa tehtäisiin seuravasti muotoiltu SQL-kysely:
 
