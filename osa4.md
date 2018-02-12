@@ -1974,7 +1974,7 @@ usersRouter.post('/', async (request, response) => {
 
 Formatointifunktion määritteleminen skeeman määrittelyn yhteydessä on sikäli luontevaa, että jos skeemaan tulee muutoksia, on formatointifunktio samassa tiedostossa ja todennäköisyys sen päivittämisen unohtamiselle pienenee.
 
-Tehdään sama muutos muistiinpanojen formatointiin, eli muutetaan _moden/note.js_ muotoon
+Tehdään sama muutos muistiinpanojen formatointiin, eli muutetaan _models/note.js_ muotoon
 
 ```js
 const mongoose = require('mongoose')
