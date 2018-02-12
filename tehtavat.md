@@ -1579,6 +1579,14 @@ Tee sovellukseen mahdollisuus luoda käyttäjiä tekemällä HTTP POST -pyyntö 
 
 Älä talleta tietokantaan salasanoja selväkielisenä vaan käytä osan 4 luvun [Käyttäjien luominen](/osa4#käyttäjien-luominen) tapaan _bcrypt_-kirjastoa.
 
+**HUOM** joillain windows-käyttäjillä on ollut ongelmia _bcrypt_:in kanssa. Jos törmäät ongelmiin, poista kirjasto komennolla
+
+```bash
+npm uninstall bcrypt --save 
+```
+
+ja asenna sen sijaan [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+
 Tee järjestelmään myös mahdollisuus katsoa kaikkien käyttäjien tiedot sopivalla HTTP-pyynnöllä.
 
 Käyttäjien lista voi näyttää esim. seuraavalta:

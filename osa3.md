@@ -1031,11 +1031,16 @@ Minifioitu koodi ei ole miellyttävää luettavaa. Koodin alku näyttää seuraa
 
 Eräs mahdollisuus frontendin tuotantoon viemiseen on kopioida tuotantokoodi, eli hakemisto _build_ backendin repositorion juureen ja määritellä backend näyttämään pääsivunaan frontendin _pääsivu_, eli tiedosto _build/index.html_.
 
-Aloitetaan kopioimalla frontendin tuotantokoodi backendin alle. Omalla koneellani kopiointi tapahtuu frontendin hakemistosta käsin komennolla
+Aloitetaan kopioimalla frontendin tuotantokoodi backendin alle, projektin juureen. Omalla koneellani kopiointi tapahtuu frontendin hakemistosta käsin komennolla
 
 ```bash
 cp -r build ../../osa3/notebackend
 ```
+
+Backendin sisältävän hakemiston tulee nyt näyttää seuraavalta:
+
+![]({{ "/images/3/11x.png" | absolute_url }})
+
 
 Jotta saamme expressin näyttämään _staattista sisältöä_ eli sivun _index.html_ ja sen lataaman Javascriptin ym. tarvitsemme expressiin sisäänrakennettua middlewarea [static](http://expressjs.com/en/starter/static-files.html).
 
