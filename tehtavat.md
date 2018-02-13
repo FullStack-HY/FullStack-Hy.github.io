@@ -1176,7 +1176,7 @@ näin vältyt monilta ikäviltä yllätyksiltä. Ja muistathan pitää _koko aja
 
 #### 3.16 puhelinluettelo ja tietokanta, osa 4
 
-Mutta backendiä siten, että numerotietojen poistaminen päivittyy tietokantaan.
+Muuta backendiä siten, että numerotietojen poistaminen päivittyy tietokantaan.
 
 Varmista, että frontend toimii muutosten jälkeen.
 
