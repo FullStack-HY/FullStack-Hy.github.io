@@ -1436,7 +1436,7 @@ Määrittele funktio _mostLikes_ joka saa parametrikseen taulukollisen blogeja. 
 ```js
 {
   author: "Edsger W. Dijkstra",
-  votes: 17
+  likes: 17
 }
 ```
 
