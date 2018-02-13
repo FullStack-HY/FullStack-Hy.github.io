@@ -1624,9 +1624,9 @@ Muuta blogien lisäämistä siten, että se on mahdollista vain, jos lisäyksen 
 
 #### 4.20* blogilistan laajennus, osa 9
 
-Osan 4 [esimerkissä](osa4/#kirjautuminen) token otetaan headereista apufunktion _getTokenFrom_ avulla.
+Osan 4 [esimerkissä](/osa4#kirjautuminen) token otetaan headereista apufunktion _getTokenFrom_ avulla.
 
-Jos käytit samaa ratkaisua, refaktoroi tokenin erottaminen [middlewareksi](osa3/#middlewaret), joka ottaa tokenin _Authorization_-headerista ja sijoittaa sen _request_-olion kenttään _token_.
+Jos käytit samaa ratkaisua, refaktoroi tokenin erottaminen [middlewareksi](/osa3#middlewaret), joka ottaa tokenin _Authorization_-headerista ja sijoittaa sen _request_-olion kenttään _token_.
 
 Eli kun rekisteröit middlewaren ennen routeja tiedostossa _index.js_
 
