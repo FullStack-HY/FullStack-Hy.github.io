@@ -1266,7 +1266,7 @@ Blogilistasovellus muistuttaa huomattavasti syksyn ohjelmistotuotantokurssin min
 
 #### 4.1 blogilista, osa 1
 
-Saat sähköpostitse yhteen tiedostoon koodatun sovellusrungon:
+Kuvitellaan tilanne, jossa saat sähköpostitse seuraavan, yhteen tiedostoon koodatun sovellusrungon:
 
 ```js
 const http = require('http')
