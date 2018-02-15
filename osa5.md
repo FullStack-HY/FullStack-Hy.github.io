@@ -1226,7 +1226,7 @@ class Togglable extends React.Component {
         <div style={hideWhenVisible}>
           <button onClick={this.toggleVisibility}>{this.props.buttonLabel}</button>
         </div>
-        <div style={showWhenVisible} class="togglableContent">
+        <div style={showWhenVisible} className="togglableContent">
           {this.props.children}
           <button onClick={this.toggleVisibility}>cancel</button>
         </div>
@@ -1251,7 +1251,7 @@ describe('<Togglable />', () => {
   beforeEach(() => {
     togglableComponent = shallow(
       <Togglable buttonLabel="show...">
-        <div class="testDiv" />
+        <div className="testDiv" />
       </Togglable>
     )
   })
