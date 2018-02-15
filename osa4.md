@@ -187,12 +187,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then( () => { 
-    console.log('connected to database', process.env.MONGODB_URI) 
+  .then( () => {
+    console.log('connected to database', process.env.MONGODB_URI)
   })
-  .catch( err => { 
-    console.log(err) 
-  })  
+  .catch( err => {
+    console.log(err)
+  })
 
 mongoose.Promise = global.Promise
 
@@ -301,7 +301,7 @@ Koska testejä on tarkoitus suorittaa ainoastaan sovellusta kehitettäessä, ase
 npm install --save-dev jest
 ```
 
-määritellään _npm_ skripti _test_ suorittmaan testaus jestillä ja raportoimaan testien suorituksesta _verbose_-tyylillä:
+määritellään _npm_ skripti _test_ suorittamaan testaus jestillä ja raportoimaan testien suorituksesta _verbose_-tyylillä:
 
 ```bash
 {
@@ -538,12 +538,12 @@ const config = require('./utils/config')
 
 mongoose
   .connect(config.mongoUrl)
-  .then( () => { 
-    console.log('connected to database', config.mongoUrl) 
+  .then( () => {
+    console.log('connected to database', config.mongoUrl)
   })
-  .catch( err => { 
-    console.log(err) 
-  })  
+  .catch( err => {
+    console.log(err)
+  })
 
 
 // ...
@@ -603,13 +603,13 @@ const config = require('./utils/config')
 
 mongoose
   .connect(config.mongoUrl)
-  .then( () => { 
-    console.log('connected to database', config.mongoUrl) 
+  .then( () => {
+    console.log('connected to database', config.mongoUrl)
   })
-  .catch( err => { 
-    console.log(err) 
-  })  
-  
+  .catch( err => {
+    console.log(err)
+  })
+
 mongoose.Promise = global.Promise
 
 app.use(cors())
