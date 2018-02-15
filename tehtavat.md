@@ -1176,7 +1176,7 @@ näin vältyt monilta ikäviltä yllätyksiltä. Ja muistathan pitää _koko aja
 
 #### 3.16 puhelinluettelo ja tietokanta, osa 4
 
-Mutta backendiä siten, että numerotietojen poistaminen päivittyy tietokantaan.
+Muuta backendiä siten, että numerotietojen poistaminen päivittyy tietokantaan.
 
 Varmista, että frontend toimii muutosten jälkeen.
 
@@ -1266,7 +1266,7 @@ Blogilistasovellus muistuttaa huomattavasti syksyn ohjelmistotuotantokurssin min
 
 #### 4.1 blogilista, osa 1
 
-Saat sähköpostitse yhteen tiedostoon koodatun sovellusrungon:
+Kuvitellaan tilanne, jossa saat sähköpostitse seuraavan, yhteen tiedostoon koodatun sovellusrungon:
 
 ```js
 const http = require('http')
@@ -1436,7 +1436,7 @@ Määrittele funktio _mostLikes_ joka saa parametrikseen taulukollisen blogeja. 
 ```js
 {
   author: "Edsger W. Dijkstra",
-  votes: 17
+  likes: 17
 }
 ```
 
@@ -1624,9 +1624,9 @@ Muuta blogien lisäämistä siten, että se on mahdollista vain, jos lisäyksen 
 
 #### 4.20* blogilistan laajennus, osa 9
 
-Osan 4 [esimerkissä](osa4/#kirjautuminen) token otetaan headereista apufunktion _getTokenFrom_ avulla.
+Osan 4 [esimerkissä](/osa4#kirjautuminen) token otetaan headereista apufunktion _getTokenFrom_ avulla.
 
-Jos käytit samaa ratkaisua, refaktoroi tokenin erottaminen [middlewareksi](osa3/#middlewaret), joka ottaa tokenin _Authorization_-headerista ja sijoittaa sen _request_-olion kenttään _token_.
+Jos käytit samaa ratkaisua, refaktoroi tokenin erottaminen [middlewareksi](/osa3#middlewaret), joka ottaa tokenin _Authorization_-headerista ja sijoittaa sen _request_-olion kenttään _token_.
 
 Eli kun rekisteröit middlewaren ennen routeja tiedostossa _index.js_
 

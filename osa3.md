@@ -2174,7 +2174,7 @@ Yksittäisen sääntö on helppo kytkeä [pois päältä](https://eslint.org/doc
 },
 ```
 
-**HUOM** kun teet tiedostoon muutoksia tiedostoon _.eslint.js_, kannattaa muutosten jälkeen suorittaa linttaus komentoriviltä ja varmistaa että konfiguraatio ei ole viallinen:
+**HUOM** kun teet muutoksia tiedostoon _.eslintrc.js_, kannattaa muutosten jälkeen suorittaa linttaus komentoriviltä ja varmistaa että konfiguraatio ei ole viallinen:
 
 ![]({{ "/images/3/25.png" | absolute_url }})
 
