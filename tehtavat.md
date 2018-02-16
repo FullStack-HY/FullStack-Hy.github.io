@@ -1416,7 +1416,7 @@ Tee myös tämän ja seuraavien kohtien testit kukin oman _describe_-lohkon sis�
 
 #### 4.6* apufunktioita ja yksikkötestejä, osa 4
 
-Tämä ja seuraava tehtävä ovat jo hieman haastavampia. Tehävien tekeminen ei ole osan jatkon kannalta oleellista, eli voi olla hyvä idea palata näihin vasta kun muu osa on kahlattu läpi.
+Tämä ja seuraava tehtävä ovat jo hieman haastavampia. Tehtävien tekeminen ei ole osan jatkon kannalta oleellista, eli voi olla hyvä idea palata näihin vasta kun muu osa on kahlattu läpi.
 
 Määrittele funktio _mostBlogs_ joka saa parametrikseen taulukollisen blogeja. Funktio selvittää _kirjoittajan_, kenellä on eniten blogeja. Funktion paluuarvo kertoo myös ennätysblogaajan blogien määrän:
 
