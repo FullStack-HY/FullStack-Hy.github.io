@@ -194,8 +194,6 @@ mongoose
     console.log(err)
   })
 
-mongoose.Promise = global.Promise
-
 app.use(cors())
 app.use(bodyParser.json())
 app.use(express.static('build'))
@@ -609,8 +607,6 @@ mongoose
   .catch( err => {
     console.log(err)
   })
-
-mongoose.Promise = global.Promise
 
 app.use(cors())
 app.use(bodyParser.json())
