@@ -189,7 +189,7 @@ Lisätään _input_ elementteihin nimet _name_-attribuutteina ja vaihdetaan mole
       onChange={this.handleLoginFieldChange}
     />
   </div>
-  <button type="sbumit">kirjaudu</butto>
+  <button type="submit">kirjaudu</button>
 </form>
 ```
 
