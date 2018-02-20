@@ -1267,7 +1267,7 @@ test('a note can be deleted', async () => {
     .get('/api/notes')
 
   await api
-    .delete(`/api/notes/${addedNote.body.id}`)
+    .delete(`/api/notes/${addedNote.body._id}`)
     .expect(204)
 
   const notesAfterDelete = await api
