@@ -1257,7 +1257,7 @@ describe('<Togglable />', () => {
   })
 
   it('renders its children', () => {
-    expect(togglableComponent.contains(<div class="testDiv" />)).toEqual(true)
+    expect(togglableComponent.contains(<div className="testDiv" />)).toEqual(true)
   })
 
   it('at start the children are not displayed', () => {
