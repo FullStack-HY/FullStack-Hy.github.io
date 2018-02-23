@@ -1057,7 +1057,7 @@ test('a valid note can be added ', async () => {
 })
 ```
 
-Kuten odotimme ja toimimme, menee testi läpi.
+Kuten odotimme ja toivoimme, menee testi läpi.
 
 Tehdään myös testi, joka varmistaa, että muistiinpanoa, jolle ei ole asetettu sisältöä, ei talleteta
 
