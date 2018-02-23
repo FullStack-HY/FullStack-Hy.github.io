@@ -35,3 +35,16 @@ Tässä mahdollisimman yksinkertainen esimerkki funktiosta, joka palauttaa funkt
   console.log(fooTulostajaFunktio)
   console.log(barTulostajaFunktio)
   ```
+  
+### Autentikointi testeissä
+  
+Voit lisätä authorization-headerin testeihin näin:
+  
+```
+await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .set('Authorization', 'bearer eyJhbGciOiJIUzI...')
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+```
