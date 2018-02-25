@@ -831,7 +831,7 @@ Eräs keino viitteen saamiseen on React-komponenttien attribuutti [ref](https://
 
 Muutetaan lomakkeen renderöivää koodia seuraavasti:
 
-```react
+```bash
 <div>
   <Togglable buttonLabel="new note" ref={component => this.noteForm = component}>
     <NoteForm
