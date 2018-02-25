@@ -1659,6 +1659,10 @@ ei kenttä _blog.user_ ole tyypiltään merkkijono vaan _object_. Eli jos haluat
 if ( blog.user.toString() === userid.toString() ) ...
 ```
 
+### Tehtävien palautus
+
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+
 ## Osa 5
 
 Deadline 4.3. klo 23:59
@@ -2158,6 +2162,9 @@ Huolehdi siitä, että anekdootit pysyvät äänten mukaisessa suuruusjärjetyks
 
 Tee sovellukseen mahdollisuus uusien anekdoottien lisäämiselle.
 
+### Tehtävien palautus
+
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
 
 ## Osa 6
 
@@ -2504,6 +2511,10 @@ Tutustu [bootstrapin](https://react-bootstrap.github.io/layout/grid/) tai [seman
 
 Lisää vielä vapaavalintaisia tyylejä valitsemallasi UI frameworkilla. Voit merkata tehtävän, jos käytät aikaa vapaavalitaisten tyylien lisäämiseen noin 30 minuuttia.
 
+### Tehtävien palautus
+
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
+
 ## osa 7
 
 Deadline 11.3. klo 23:59
@@ -2650,3 +2661,7 @@ Toteuta sovelluksellesi esim. [Travis CI](https://travis-ci.org/):n avulla jatku
 ### 7.23 Kurssipalaute
 
 Anna kurssille palautetta osoitteessa <https://ilmo.cs.helsinki.fi/kurssit/servlet/Valinta>
+
+### Tehtävien palautus
+
+Palauta tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/fs-stats/).
