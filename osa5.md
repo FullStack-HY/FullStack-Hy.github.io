@@ -33,9 +33,9 @@ Kaksi edellistä osaa keskittyivät lähinnä backendin toiminnallisuuteen. Edel
 
 Frontend näyttää tällä hetkellä olemassaolevat muistiinpanot ja antaa muuttaa niiden tilaa. Uusia muistiinpanoja ei kuitenkaan voi lisätä, sillä osan 4 muutosten myötä backend edellyttää, että lisäyksen mukana on käyttäjän identiteetin varmistava token.
 
-Toteutetaan nyt osa käyttäjienhallinnan edellyttämästä toiminnallisuudesta frontendiin. Aloitetaan käyttäjän kirjaantumisesta. Oletetaan vielä tässä osassa, että käyttäjät luodaan suoraan backendiin.
+Toteutetaan nyt osa käyttäjienhallinnan edellyttämästä toiminnallisuudesta frontendiin. Aloitetaan käyttäjän kirjautumisesta. Oletetaan vielä tässä osassa, että käyttäjät luodaan suoraan backendiin.
 
-Sovelluksen yläosaan on nyt lisätty kirjautumislomake, myös uuden muistinpanon lisäämisestä huolehtiva lomake on siirretty sivun yläosaan:
+Sovelluksen yläosaan on nyt lisätty kirjautumislomake, myös uuden muistiinpanon lisäämisestä huolehtiva lomake on siirretty sivun yläosaan:
 
 ![]({{ "/assets/5/1.png" | absolute_url }})
 
@@ -226,7 +226,7 @@ handleLoginFieldChange = (event) => {
 }
 ```
 
-Kirjautuminen tapahtuu tekemällä HTTP POST -pyyntö palvelimen osoitteeseen _api/login_. Eristetään pyynnön tekevä koodi omaan moduuliin tiedostoon _services/login.js_
+Kirjautuminen tapahtuu tekemällä HTTP POST -pyyntö palvelimen osoitteeseen _api/login_. Eristetään pyynnön tekevä koodi omaan moduuliin, tiedostoon _services/login.js_.
 
 Käytetään nyt promisejen sijaan _async/await_-syntaksia HTTP-pyynnön tekemiseen:
 
@@ -269,7 +269,7 @@ Kirjautumisen onnistuessa nollataan kirjautumislomakkeen kentät _ja_ talletetaa
 
 Jos kirjautuminen epäonnistuu, eli metodin _loginService.login_ suoritus aiheuttaa poikkeuksen, ilmoitetaan siitä käyttäjälle.
 
-Onnistunut kirjautuminen ei nyt näy sovelluksen käyttäjälle mitenkään. Muokataan sovellusta vielä siten, että kirjautumislomake näkyy vain _jos käyttäjä ei ole kirjautuneena_ eli _this.state.user === null_ ja uuden muistiinpanon luomislomake vain _jos käyttäjä on kirjaantuneena_, eli (eli _this.state.user_ sisältää kirjautuneen käyttäjän tiedot.
+Onnistunut kirjautuminen ei nyt näy sovelluksen käyttäjälle mitenkään. Muokataan sovellusta vielä siten, että kirjautumislomake näkyy vain _jos käyttäjä ei ole kirjautuneena_ eli _this.state.user === null_ ja uuden muistiinpanon luomislomake vain _jos käyttäjä on kirjautuneena_, eli (eli _this.state.user_ sisältää kirjautuneen käyttäjän tiedot.
 
 Määritellään ensin komponentin _App_ metodiin render apufunktiot lomakkeiden generointia varten:
 
