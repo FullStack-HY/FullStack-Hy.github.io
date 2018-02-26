@@ -2110,7 +2110,7 @@ Varmista testeissä _deep-freeze_-kirjaston avulla, että kyseessä on _puhdas f
 
 Aloita laajentamalla reduceria siten, että molemmat testeistä menevät läpi. Lisää tämän jälkeen loput testit ja niiden toteuttava toiminnallisuus.
 
-Osan 2 luvun [Muistiinpanon tärkeyden muutos](osa2/#Muistiinpanon-tärkeyden-muutos) olion kopiointiin liittyvät asiat saattavat olla hyödyksi.
+Osan 2 luvun [Muistiinpanon tärkeyden muutos](/osa2#Muistiinpanon-tärkeyden-muutos) olion kopiointiin liittyvät asiat saattavat olla hyödyksi.
 
 #### 5.18 unicafe revisited, osa 2
 
