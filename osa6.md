@@ -23,7 +23,7 @@ permalink: /osa6/
 
 Jatketaan osan 5 loppupuolella tehdyn muistiinpanosovelluksen yksinkertaistetun [redux-version](/osa5#redux-muistiinpanot) laajentamista.
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part5-6) tagissä _part5-6_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part5-6) tagissä _part5-6_.
 
 Tehdään koodiin muutamia rakenteellisia muutoksia. Siirretään reducerin määrittelevä tiedosto _noteReducer.js_ hakemistoon _src/reducers_.
 
@@ -648,7 +648,7 @@ class NoteList extends React.Component {
 
 Storen _dispatch_-funktiota ei enää tarvitse kutsua, sillä _connect_ on muokannut action creatorin _importanceToggling_ sellaiseen muotoon, joka sisältää  dispatchauksen.
 
-_mapDispatchToProps_ lienee aluksi hieman haastava ymmärtää, etenkin sen kohta käsiteltävä [vaihtoehtoinen käyttötapa](osa6/mapDispatchToPropsin-toinen-muoto).
+_mapDispatchToProps_ lienee aluksi hieman haastava ymmärtää, etenkin sen kohta käsiteltävä [vaihtoehtoinen käyttötapa](/osa6/#mapdispatchtopropsin-vaihtoehtoinen-käyttötapa).
 
 Connectin aikaansaamaa tilannetta voidaan havainnollistaa seuraavasti:
 
@@ -744,7 +744,7 @@ export default connect(
 
 Koska komponentti ei tarvitse storen tilasta mitään, on funktion _connect_ ensimmäinen parametri _null_.
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-3) tagissä _part6-3_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-3) tagissä _part6-3_.
 
 ### Provider
 
@@ -1056,7 +1056,7 @@ filterClicked = (value) => () => {
 ```
 
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-4) tagissä _part6-4_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-4) tagissä _part6-4_.
 
 Mukana on myös edellisestä unohtunut _VisibilityFilter_-komponentin _connect_-funktiota käyttävä versio, jota on myös paranneltu siten, että nappi _kaikki_ on oletusarvoisesti valittuna. Koodissa on pieni ikävä copypaste mutta kelvatkoon.
 
@@ -1299,7 +1299,7 @@ export const noteCreation = (data) => {
 
 Muistiinpanojen tärkeyden muuttaminen olisi mahdollista toteuttaa samalla periaatteella, eli tehdä palvelimelle ensin asynkroninen metodikutsu ja sen jälkeen dispatchata sopiva action.
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-5) tagissä _part6-5_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-5) tagissä _part6-5_.
 
 ## Tehtäviä
 
@@ -1466,7 +1466,7 @@ export default connect(
 )(NoteForm)
 ```
 
-Sovelluksen tämänhetkinen koodi on [githubissa](hhttps://github.com/FullStack-HY/redux-notes/tree/part6-6) tagissä _part6-6_.
+Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/FullStack-HY/redux-notes/tree/part6-6) tagissä _part6-6_.
 
 ### Redux DevTools
 
