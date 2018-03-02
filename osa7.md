@@ -307,7 +307,7 @@ const config = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -320,7 +320,7 @@ const config = {
 }
 ```
 
-Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _loaders_.
+Loaderit määritellään kentän _module_ alle sijoitettavaan taulukkoon _rules_.
 
 Yksittäisen loaderin määrittely on kolmiosainen:
 
