@@ -95,7 +95,7 @@ Tehdään nyt React-projektille sopiva webpack-konfiguraatio kokonaan käsin.
 Luodaan projektia varten hakemisto ja sen sisälle seuraavat hakemistot (build ja src) sekä tiedostot:
 
 <pre>
-├── build
+├── dist
 ├── package.json
 ├── src
 │   └── index.js
@@ -118,7 +118,7 @@ Tiedoston _package.json_ sisältö voi olla esim. seuraava:
 Asennetaan webpack komennolla
 
 ```bash
-npm install --save webpack
+npm install --save-dev webpack webpack-cli
 ```
 
 Webpackin toiminta konfiguroidaan tiedostoon _webpack.config.js_, laitetaan sen alustavaksi sisällöksi seuraava
@@ -129,7 +129,7 @@ const path = require('path')
 const config = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   }
 }
@@ -141,7 +141,7 @@ Määritellään sitten npm-skripti _build_ jonka avulla bundlaus suoritetaan
 ```bash
 // ...
 "scripts": {
-  "build": "webpack"
+  "build": "webpack --mode=development"
 },
 // ...
 ```
@@ -154,9 +154,9 @@ const hello = (name) => {
 }
 ```
 
-Kun nyt suoritamme komennon _npm run build_ webpack bundlaa koodin. Tuloksena on hakemistoon _build_ sijoitettava tiedosto _bundle.js_:
+Kun nyt suoritamme komennon _npm run build_ webpack bundlaa koodin. Tuloksena on hakemistoon _dist_ sijoitettava tiedosto _bundle.js_:
 
-![]({{ "/assets/7/1.png" | absolute_url }})
+![]({{ "/images/7/1.png" | absolute_url }})
 
 Tiedostossa on paljon erikoisen näköistä tavaraa. Lopussa on mukana myös kirjoittamamme koodi.
 
@@ -184,27 +184,32 @@ App()
 
 Kun nyt suoritamme bundlauksen komennolla _npm run build_ huomaamme webpackin havainneen molemmat tiedostot:
 
-![]({{ "/assets/7/2.png" | absolute_url }})
+![]({{ "/images/7/2.png" | absolute_url }})
 
-Kirjoittamamme koodi on bundlen lopussa:
+Kirjoittamamme koodi löytyy melko kryptisesti muotoiltuna bundlen lopussa:
 
 ```js
-const hello = (name) => {
-  console.log(`hello ${name}`)
-}
-
-Object(__WEBPACK_IMPORTED_MODULE_0__App__["a" /* default */])()
-
-/***/ }),
-/* 1 */
+/***/ "./src/App.js":
+/*!********************!*\
+  !*** ./src/App.js ***!
+  \********************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const App = () => {
-  return null
-}
+eval("__webpack_require__.r(__webpack_exports__);\nconst App = () => {\n  return null;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/App.js?");
 
-/* harmony default export */ __webpack_exports__["a"] = (App);
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App */ \"./src/App.js\");\n\n\nconst hello = name => {\n  console.log(`hello ${name}`);\n};\n\nObject(_App__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/index.js?");
 ```
 
 ### Konfiguraatiotiedosto
@@ -229,6 +234,20 @@ Konfiguraatio on Javascriptia ja tapahtuu eksporttaamalla määrittelyt sisält�
 Tämän hetkinen minimaalinen määrittely on aika ilmeinen, kenttä [entry](https://webpack.js.org/concepts/#entry) kertoo sen tiedoston, mistä bundlaus aloitetaan.
 
 Kenttä [output](https://webpack.js.org/concepts/#output) taas kertoo minne muodostettu bundle sijoitetaan. Kohdehakemisto täytyy määritellä _absoluuttisena polkuna_, se taas onnistuu helposti [path.resolve](https://nodejs.org/docs/latest-v8.x/api/path.html#path_path_resolve_paths)-metodilla. [\_\_dirname](https://nodejs.org/docs/latest/api/globals.html#globals_dirname) on Noden globaali muuttuja, joka viittaa nykyiseen hakemistoon.
+
+### Webpack 4
+
+Helmikuun viimeisten päivien aikana julkaistu Webpackin versio 4 on vähentänyt välttämättömän konfiguroinnin määrää määrittelemällä Webpackille joukon oletusarvoisia konfiguraatioita. 
+
+Konfiguraatiossamme _entryllä_ ja _outputilla_ on niiden oletusarvo, eli voisimme myös jättää ne määrittelemättä, ja tiedoston _webpack.config.js_ sisällöksi kävisi:
+
+```js
+const config = {
+}
+module.exports = config
+```
+
+Jätämme kuitenkin _entryn_ ja _outputin_ määrittelyt tiedostoon.
 
 ### Reactin bundlaaminen
 
