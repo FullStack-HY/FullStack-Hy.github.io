@@ -130,7 +130,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'main.js'
   }
 }
 module.exports = config
@@ -154,7 +154,7 @@ const hello = (name) => {
 }
 ```
 
-Kun nyt suoritamme komennon _npm run build_ webpack bundlaa koodin. Tuloksena on hakemistoon _dist_ sijoitettava tiedosto _bundle.js_:
+Kun nyt suoritamme komennon _npm run build_ webpack bundlaa koodin. Tuloksena on hakemistoon _dist_ sijoitettava tiedosto _main.js_:
 
 ![]({{ "/images/7/1.png" | absolute_url }})
 
@@ -223,7 +223,7 @@ const config = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'main.js'
   }
 }
 module.exports = config
@@ -282,7 +282,7 @@ const App = () => (
 export default App
 ```
 
-Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston _build/index.html_ joka lataa _script_-tagin avulla bundlatun Javascriptin:
+Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston dist/index.html_ joka lataa _script_-tagin avulla bundlatun Javascriptin:
 
 ```html
 <!DOCTYPE html>
@@ -293,7 +293,7 @@ Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston _build/index.ht
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/javascript" src="./bundle.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
 ```
@@ -322,8 +322,8 @@ Määritellään projektiimme Reactin käyttämän JSX:n normaaliksi Javascripti
 const config = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
   },
   module: {
     rules: [
@@ -363,7 +363,7 @@ npm install --save-dev babel-core babel-loader babel-preset-react
 
 Nyt bundlaus onnistuu.
 
-Huomaamme, että Reactin bundlaaminen koodin mukaan on kasvattanut tiedostoa _build/bundle.js_ melkoisesti, rivejä tiedostossa on noin 7500. Lopussa on sovelluksemme  loaderin käsittelyn jälkeinen koodi. Komponentin _App_ määrittely on muuttunut muotoon
+Huomaamme, että Reactin bundlaaminen koodin mukaan on kasvattanut tiedostoa dist/main.js_ melkoisesti, rivejä tiedostossa on noin 7500. Lopussa on sovelluksemme  loaderin käsittelyn jälkeinen koodi. Komponentin _App_ määrittely on muuttunut muotoon
 
 ```js
 const App = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -375,7 +375,7 @@ const App = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 
 Eli JSX-syntaksin sijaan komponentit luodaan pelkällä Javascriptilla käyttäen Reactin funktiota [createElement](https://reactjs.org/docs/react-without-jsx.html).
 
-Sovellusta voi nyt kokeilla avaamalla tiedoston _build/index.html_ selaimen _open file_ -toiminnolla:
+Sovellusta voi nyt kokeilla avaamalla tiedoston dist/index.html_ selaimen _open file_ -toiminnolla:
 
 ![]({{ "/assets/7/4.png" | absolute_url }})
 
@@ -484,7 +484,7 @@ Transpilointi hajoaa, ja CSS:ää varten onkin otettava käyttöön [css](https:
 
 [css-loaderin](https://webpack.js.org/loaders/css-loader/) tehtävänä on ladata _CSS_-tiedostot, ja [style-loader](https://webpack.js.org/loaders/style-loader/) generoi koodiin CSS:t sisältävän _style_-elementin.
 
-Näin konfiguroituna CSS-määrittelyt sisällytetään sovelluksen Javascriptin sisältävään tiedostoon _bundle.js_. Sovelluksen päätiedostossa _index.html_ ei siis ole tarvetta erikseen ladata CSS:ää.
+Näin konfiguroituna CSS-määrittelyt sisällytetään sovelluksen Javascriptin sisältävään tiedostoon _main.js_. Sovelluksen päätiedostossa _index.html_ ei siis ole tarvetta erikseen ladata CSS:ää.
 
 CSS voidaan tarpeen vaatiessa myös generoida omaan tiedostoonsa esim. [extract-text](https://github.com/webpack-contrib/extract-text-webpack-plugin)-pluginin avulla.
 
@@ -541,11 +541,11 @@ Lisätään tiedostoon _webpack.config.js_ kenttä _devServer_
 const config = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "build"),
+    contentBase: path.resolve(__dirname, "dist"),
     compress: true,
     port: 3000
   },
@@ -555,7 +555,7 @@ const config = {
 
 Komento _npm start_ käynnistää nyt dev-serverin porttiin, eli sovelluskehitys tapahtuu avaamalla tuttuun tapaan selain osoitteeseen <http://localhos:3000>. Kun teemme koodiin muutoksia, reloadaa selain automaattisesti itsensä.
 
-Päivitysprosessi on nopea, dev-serveriä käytettäessä webpack ei bundlaa koodia normaaliin tapaan tiedostoksi _bundle.js_, bundlauksen tuotos on olemassa ainoastaan keskusmuistissa.
+Päivitysprosessi on nopea, dev-serveriä käytettäessä webpack ei bundlaa koodia normaaliin tapaan tiedostoksi _main.js_, bundlauksen tuotos on olemassa ainoastaan keskusmuistissa.
 
 Laajennetaan koodia muuttamalla komponentin _App_ määrittelyä seuraavasti:
 
@@ -620,7 +620,7 @@ Sovellus ei enää toimi, ja konsoli kertoo virheestä
 Tiedämme tietenkin nyt että virhe on metodissa onClick, mutta jos olisi kyse suuremmasta sovelluksesta, on virheilmoitus sikäli hyvin ikävä, että se kertoo virheen sijainnin _bundlatussa koodissa_:
 
 <pre>
-bundle.js:16732 Uncaught TypeError: Cannot read property 'setState' of undefined
+main.js:16732 Uncaught TypeError: Cannot read property 'setState' of undefined
 </pre>
 
 mutta ei sitä missä kohtaa alkuperäistä koodia virhe sijaitsee.
@@ -686,7 +686,7 @@ ja kehottamalla _babel-loader_:ia käyttämään pluginia:
 
 ### Koodin minifiointi
 
-Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _bundle.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _bundle.js_ koko 702917 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
+Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _main.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _main.js_ koko 702917 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
 
 Jos tiedoston sisältöä tarkastelee, huomaa että sitä voisi optimoida huomattavasti koon suhteen esim. poistamalla kommentit. Tiedostoa ei kuitenkaan kannata lähteä optimoimaan käsin, sillä tarkoitusta varten on olemassa monia työkaluja.
 
@@ -714,10 +714,10 @@ const config = {
 }
 ```
 
-Kun sovellus bundlataan uudelleen, pienenee tuloksena oleva _bundle.js_ mukavasti
+Kun sovellus bundlataan uudelleen, pienenee tuloksena oleva _main.js_ mukavasti
 
 ```bash
--rw-r--r--  1 mluukkai  984178727   288651 Jan  6 15:46 bundle.js
+-rw-r--r--  1 mluukkai  984178727   288651 Jan  6 15:46 main.js
 ```
 
 Minifioinnin lopputulos on kuin vanhan liiton c-koodia, kommentit ja jopa turhat välilyönnit ja rivinvaihtot on poistettu ja muuttujanimet ovat yksikirjaimisia:
@@ -876,7 +876,7 @@ Tuotantoversiota eli bundlattua sovellusta on mahdollista kokeilla lokaalisti su
 npx static-server
 ```
 
-hakemistossa _build_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
+hakemistossa _dist_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
 
 ### Production build
 
@@ -1294,7 +1294,7 @@ Testi ei yllättäen mene läpi. Jos testissä tulostetaan konsoliin olion page 
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"><div><h1>Muistiinpanot</h1><div><button>näytä vain tärkeät</button></div><div class="notes"></div><form><input value=""><button>tallenna</button></form></div></div>
-  <script type="text/javascript" src="/static/js/bundle.js"></script>
+  <script type="text/javascript" src="/static/js/main.js"></script>
 </body></html>
 ```
 
@@ -1363,12 +1363,12 @@ Viime aikoina on ollut havaittavissa nousevaa kiinnostusta [staattiseen tyypityk
 
 Javascriptistä on olemassa useita staattisesti tyypitettyjä versioita, suosituimmat näistä ovat Facebookin kehittämä [flow](https://flow.org/) ja Microsofin [typescript](https://www.typescriptlang.org/).
 
-Flown käyttöönottaminen create-react-app:illa toteutettuun sovellukseen on [helppoa](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow). Tiedostossa _.flowconfig_ kannattaa ignoroida hakemistoissa _node_modules_ ja _build_ olevat tiedostot
+Flown käyttöönottaminen create-react-app:illa toteutettuun sovellukseen on [helppoa](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-flow). Tiedostossa _.flowconfig_ kannattaa ignoroida hakemistoissa _node_modules_ ja _dist_ olevat tiedostot
 
 ```bash
 [ignore]
 .*/node_modules/.*
-.*/build/.*
+.*/dist/.*
 ```
 
 Flow tarkastaa ainoastaan ne tiedostot, joiden alussa on kommentissa oleva merkintä _@flow_:
