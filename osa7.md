@@ -282,7 +282,7 @@ const App = () => (
 export default App
 ```
 
-Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston dist/index.html_ joka lataa _script_-tagin avulla bundlatun Javascriptin:
+Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston _dist/index.html_ joka lataa _script_-tagin avulla bundlatun Javascriptin:
 
 ```html
 <!DOCTYPE html>
