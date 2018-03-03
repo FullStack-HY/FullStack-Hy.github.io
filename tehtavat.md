@@ -2114,7 +2114,7 @@ Osan 2 luvun [Muistiinpanon tärkeyden muutos](/osa2#Muistiinpanon-tärkeyden-mu
 
 #### 5.18 unicafe revisited, osa 2
 
-Toteuta sitten sovelluksen koko sovellus.
+Toteuta sitten sovelluksen koko sen varsinainen toiminnallisuus.
 
 Älä unohda, että joudut huolehtimaan siitä, että sovellus uudelleenrenderöi itsensä storen muutosten yhteydessä esim. seuraavasti:
 
