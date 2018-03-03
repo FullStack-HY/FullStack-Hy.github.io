@@ -1549,7 +1549,7 @@ Toinen ongelmistamme on se, että sovellus hakee näytettävät muistiinpanot pa
 
 
 ```js
-componentWillMount() {
+componentDidMount() {
   noteService.getAll().then(notes =>
     this.setState({ notes })
   )
