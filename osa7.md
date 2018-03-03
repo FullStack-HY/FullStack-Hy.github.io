@@ -570,7 +570,7 @@ Kannattaa huomata, että virheviestit eivät renderöidy selaimeen kuten create-
 
 Sovellus toimii hyvin ja kehitys on melko sujuvaa.
 
-### sourcemappaus
+### Sourcemappaus
 
 Erotetaan napin klikkauksenkäsittelijä omaksi funktioksi:
 
@@ -600,15 +600,20 @@ class App extends React.Component {
 
 Sovellus ei enää toimi, ja konsoli kertoo virheestä
 
-![]({{ "/assets/7/6.png" | absolute_url }})
+![]({{ "/images/7/6.png" | absolute_url }})
 
-Tiedämme tietenkin nyt että virhe on metodissa onClick, mutta jos olisi kyse suuremmasta sovelluksesta, on virheilmoitus sikäli hyvin ikävä, että se kertoo virheen sijainnin _bundlatussa koodissa_:
+Tiedämme tietenkin nyt että virhe on metodissa onClick, mutta jos olisi kyse suuremmasta sovelluksesta, on virheilmoitus sikäli hyvin ikävä, että sen ilmoittama paikka:
 
 <pre>
-main.js:16732 Uncaught TypeError: Cannot read property 'setState' of undefined
+App.js:38 Uncaught TypeError: Cannot read property 'setState' of undefined
+    at onClick (App.js:38)
 </pre>
 
-mutta ei sitä missä kohtaa alkuperäistä koodia virhe sijaitsee.
+ei vastaa alkuperäisen koodin virheen sijaintia. Jos klikkaamme virheilmoitusta, huomaamme, että näytettävä koodi on jotain ihan muuta kuin kirjoittamamme koodi:
+
+![]({{ "/images/7/6a.png" | absolute_url }})
+
+Haluamme tietenkin, että virheilmoitusten yhteydessä näytetään kirjoittamamme koodi. 
 
 Korjaus on onneksi hyvin helppo, pyydetään webpackia generoimaan bundlelle ns. [source map](https://webpack.js.org/configuration/devtool/), jonka avulla bundlea suoritettaessa tapahtuva virhe on mahdollista _mäpätä_ alkuperäisen koodin vastaavaan kohtaan.
 
@@ -671,38 +676,37 @@ ja kehottamalla _babel-loader_:ia käyttämään pluginia:
 
 ### Koodin minifiointi
 
-Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _main.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _main.js_ koko 702917 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 702917 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
+Kun sovellus viedään tuotantoon, on siis käytössä tiedostoon _main.js_ webpackin generoima koodi. Vaikka sovelluksemme sisältää omaa koodia vain muutaman rivin, on tiedoston _main.js_ koko 557450 tavua, sillä se sisältää myös kaiken React-kirjaston koodin. Tiedoston koollahan on sikäli väliä, että selain joutuu lataamaan tiedoston kun sovellusta aletaan käyttämään. Nopeilla internetyhteyksillä 557450 tavua ei sinänsä ole ongelma, mutta jos mukaan sisällytetään enemmän kirjastoja, alkaa sovelluksen lataaminen pikkuhiljaa hidastua etenkin mobiilikäytössä.
 
 Jos tiedoston sisältöä tarkastelee, huomaa että sitä voisi optimoida huomattavasti koon suhteen esim. poistamalla kommentit. Tiedostoa ei kuitenkaan kannata lähteä optimoimaan käsin, sillä tarkoitusta varten on olemassa monia työkaluja.
 
 Javascript-tiedostojen optimointiprosessista käytetään nimitystä _minifiointi_. Alan johtava työkalu tällä hetkellä lienee [UglifyJS](http://lisperator.net/uglifyjs/).
 
-Otetaan Uglify käyttöön asentamalla webpackin [uglifyjs-webpack-plugin](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/) komennolla:
+Webpackin versiosta 4 alkaen pluginia ei ole tarvinnut konfiguroida erikseen, riittää että muutetaan tiedoston _package.json_ määrittelyä siten, että koodin bundlaus tapahtumaan _production_-moodissa:
 
-```bash
-npm install --save-dev uglifyjs-webpack-plugin
-```
-
-[Pluginin](https://webpack.js.org/concepts/#plugins) konfigurointi tapahtuu seuraavasti:
-
-```js
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
-const config = {
-  // ...
-  module: {
+```json
+{
+  "name": "webpack-osa7",
+  "version": "0.0.1",
+  "description": "practising webpack",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --mode=development"
+  },
+  "license": "MIT",
+  "dependencies": {
     // ...
   },
-  plugins: [
-    new UglifyJsPlugin()
-  ]
+  "devDependencies": {
+    // ...
+  }
 }
 ```
 
 Kun sovellus bundlataan uudelleen, pienenee tuloksena oleva _main.js_ mukavasti
 
 ```bash
--rw-r--r--  1 mluukkai  984178727   288651 Jan  6 15:46 main.js
+-rw-r--r--  1 mluukkai  984178727  101944 Mar  3 21:29 main.js
 ```
 
 Minifioinnin lopputulos on kuin vanhan liiton c-koodia, kommentit ja jopa turhat välilyönnit ja rivinvaihtot on poistettu ja muuttujanimet ovat yksikirjaimisia:
@@ -774,26 +778,12 @@ class App extends React.Component {
 
 Koodissa on nyt kovakoodattuna sovelluskehityksessä käytettävän palvelimen osoite. Miten saamme osoitteen hallitusti muutettua osoittamaan internetissä olevaan backendiin bundlatessamme koodin?
 
-Lisätään webpackia käyttäviin npm-skripteihin [ympäristömuuttujien](https://webpack.js.org/guides/environment-variables/) avulla tapahtuva määrittely siitä, onko kyse sovelluskehitysmoodista _development_ vai tuotantomoodista _production_:
-
-```bash
-{
-  // ...
-  "scripts": {
-    "build": "webpack --env production",
-    "start": "webpack-dev-server --env development"
-  },
-  // ...
-}
-```
-
-Muutetaan sitten _webpack.config.js_ oliosta [funktioksi](https://webpack.js.org/configuration/configuration-types/#exporting-a-function):
+Muutetaan _webpack.config.js_ oliosta [funktioksi](https://webpack.js.org/configuration/configuration-types/#exporting-a-function):
 
 ```js
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const config = (env) => {
+const config = (env, argv) => {
 
   return {
     entry: './src/index.js',
@@ -816,30 +806,46 @@ const config = (env) => {
 module.exports = config
 ```
 
-Määrittely on muuten täysin sama, mutta aiemmin eksportattu olio on nyt määritellyn funktion paluuarvo. Funktio saa parametrin _env_, joka saa npm-skriptissä asetetun arvon. Tämän ansiosta on mahdollista muodostaa erilainen konfiguraatio development- ja production-moodeisssa.
+Määrittely on muuten täysin sama, mutta aiemmin eksportattu olio on nyt määritellyn funktion paluuarvo. Funktio saa parametrit _env_ ja _argv_, joista jälkimmäisen avulla saamme selville npm-skriptissä määritellyn _moden_.
 
 Webpackin [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):in avulla voimme määritellä globaaleja _vakioarvoja_, joita on mahdollista käyttää bundlattavassa koodissa. Määritellään nyt vakio _BACKEND_URL_, joka saa eri arvon riippuen siitä ollaanko kehitysympäristössä vai tehdäänkö tuotantoon sopivaa bundlea:
 
-```js
+```bash
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 
-const config = (env) => {
-  const backend_url = env === 'production'
+const config = (env, argv) => {
+  console.log('argv', argv.mode)
+
+  const backend_url = argv.mode === 'production'
     ? 'https://radiant-plateau-25399.herokuapp.com/api/notes'
     : 'http://localhost:3001/notes'
 
   return {
-    // ...
+    entry: './src/index.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'main.js'
+    },
+    devServer: {
+      contentBase: path.resolve(__dirname, "dist"),
+      compress: true,
+      port: 3000
+    },
+    devtool: 'source-map',
+    module: {
+      // ...
+    },  
     plugins: [
-      new UglifyJsPlugin(),
       new webpack.DefinePlugin({
         BACKEND_URL: JSON.stringify(backend_url)
       })
-    ]
+    ]    
   }
+
 }
+
+module.exports = config
 ```
 
 Määriteltyä vakiota käytetään koodissa seuraavasti:
@@ -862,45 +868,6 @@ npx static-server
 ```
 
 hakemistossa _dist_ jolloin sovellus käynnistyy oletusarvoisesti osoitteeseen <http://localhost:9080>.
-
-### Production build
-
-Kun kokeilemme suorittaa bundlattua sovellusta, [React devtools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) huomauttaa että bundlessa on vielä pieni ongelma
-
-![]({{ "/assets/7/10.png" | absolute_url }})
-
-[Production build](https://reactjs.org/docs/optimizing-performance.html) on optimoitu versio React-koodista, josta on mm. poistettu sovelluskehitystä helpottavat, mutta koodia hidastavat varoitukset. Tuotantokäytössä kannattaakin aina käyttää production buildia.
-
-Ongelma on helppo korjata [Reactin dokumentaation ohjetta](https://reactjs.org/docs/optimizing-performance.html) soveltaen:
-
-```js
-const config = (env) => {
-  const backend_url = env === 'production'
-    ? 'https://radiant-plateau-25399.herokuapp.com/api/notes'
-    : 'http://localhost:3001/notes'
-
-  return {
-    // ...
-    plugins: [
-      new UglifyJsPlugin(),
-      new webpack.DefinePlugin({
-        BACKEND_URL: JSON.stringify(backend_url),
-        'process.env.NODE_ENV': JSON.stringify(env)
-      })
-    ]
-  }
-}
-```
-
-Konsoli varmistaa että bundle on nyt oikein muodostettu
-
-![]({{ "/assets/7/11.png" | absolute_url }})
-
-Konfiguraatio on edelleen oikea myös sovelluskehitysmoodissa:
-
-![]({{ "/assets/7/12.png" | absolute_url }})
-
-
 
 ### Polyfill
 
