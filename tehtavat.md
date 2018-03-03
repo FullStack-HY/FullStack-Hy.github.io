@@ -1918,7 +1918,7 @@ Tee testi, joka varmistaa, että komponentti renderöi blogin titlen, authorin j
 
 Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia.
 
-#### 5.13 blogilistan testit, osa 2
+#### 5.13* blogilistan testit, osa 2
 
 Tee testi, joka varmistaa, että jos komponentin _like_-nappia painetaan kahdesti, komponentin propsina saamaa tapahtumankäsittelijäfunktiota kutsutaan kaksi kertaa.
 
