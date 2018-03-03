@@ -300,9 +300,9 @@ Tarvitsemme sovellukselle myös "pääsivuna" toimivan tiedoston _dist/index.htm
 
 Kun bundlaamme sovelluksen, törmäämme kuitenkin ongelmaan
 
-![]({{ "/assets/7/3.png" | absolute_url }})
+![]({{ "/images/7/3.png" | absolute_url }})
 
-### loaderit
+### Loaderit
 
 Webpack mainitsee että saatamme tarvita _loaderin_ tiedoston _App.js_ käsittelyyn. Webpack ymmärtää itse vain Javascriptia ja vaikka se saattaa meiltä matkan varrella olla unohtunutkin, käytämme Reactia ohjelmoidessamme [JSX](https://facebook.github.io/jsx/):ää näkymien renderöintiin, eli esim. seuraava
 
@@ -363,14 +363,15 @@ npm install --save-dev babel-core babel-loader babel-preset-react
 
 Nyt bundlaus onnistuu.
 
-Huomaamme, että Reactin bundlaaminen koodin mukaan on kasvattanut tiedostoa dist/main.js_ melkoisesti, rivejä tiedostossa on noin 7500. Lopussa on sovelluksemme  loaderin käsittelyn jälkeinen koodi. Komponentin _App_ määrittely on muuttunut muotoon
+Jos katsomme bundlattua koodia, huomaamme, että komponentti _App_ on muuttunut muotoon
 
 ```js
-const App = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  'div',
-  null,
-  'hello webpack'
-);
+const App = () => 
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+    'div',
+    null,
+    'hello webpack'
+  )
 ```
 
 Eli JSX-syntaksin sijaan komponentit luodaan pelkällä Javascriptilla käyttäen Reactin funktiota [createElement](https://reactjs.org/docs/react-without-jsx.html).
@@ -496,31 +497,15 @@ npm install style-loader css-loader --save-dev
 
 bundlaus toimii taas ja sovellus saa uudet tyylit.
 
-### watch ja webpack-dev-server
+### Webpack-dev-server
 
 Sovelluskehitys onnistuu jo, mutta development workflow on suorastaan hirveä (alkaa jo muistuttaa Javalla tapahtuvaa sovelluskehitystä...), muutosten jälkeen koodin on bundlattava ja selain uudelleenladattava jos haluamme testata koodia.
 
-Tilanne paranee jo oleellisesti jos webpackia suoritetaan [watch](https://webpack.js.org/guides/development/#using-watch-mode)-moodissa. Määritellään tätä varten npm-skripti:
-
-```bash
-{
-  // ...
-  "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
-  },
-  // ...
-}
-```
-
-Nyt bundlaus tapahtuu automaattisesti koodin editoinnin yhteydessä.
-
-Vielä paremman ratkaisun tarjoaa [webpack-dev-server](https://webpack.js.org/guides/development/#using-webpack-dev-server). Asennetaan se komennolla
+Ratkaisun tarjoaa [webpack-dev-server](https://webpack.js.org/guides/development/#using-webpack-dev-server). Asennetaan se komennolla
 
 ```bash
 npm install --save-dev webpack-dev-server
 ```
-
 
 Määritellään dev-serverin käynnistävä npm-skripti (äsken lisätty skripti _watch_ on poistettu koska sille ei ole käyttöä):
 
@@ -528,8 +513,8 @@ Määritellään dev-serverin käynnistävä npm-skripti (äsken lisätty skript
 {
   // ...
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server"
+    "build": "webpack --mode=development",
+    "start": "webpack-dev-server --mode=development"
   },
   // ...
 }
@@ -553,7 +538,7 @@ const config = {
 }
 ```
 
-Komento _npm start_ käynnistää nyt dev-serverin porttiin, eli sovelluskehitys tapahtuu avaamalla tuttuun tapaan selain osoitteeseen <http://localhos:3000>. Kun teemme koodiin muutoksia, reloadaa selain automaattisesti itsensä.
+Komento _npm start_ käynnistää nyt dev-serverin porttiin, eli sovelluskehitys tapahtuu avaamalla tuttuun tapaan selain osoitteeseen <http://localhost:3000>. Kun teemme koodiin muutoksia, reloadaa selain automaattisesti itsensä.
 
 Päivitysprosessi on nopea, dev-serveriä käytettäessä webpack ei bundlaa koodia normaaliin tapaan tiedostoksi _main.js_, bundlauksen tuotos on olemassa ainoastaan keskusmuistissa.
 
