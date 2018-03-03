@@ -566,7 +566,7 @@ class App extends React.Component {
 
 Kannattaa huomata, että virheviestit eivät renderöidy selaimeen kuten create-react-app:illa tehdyissä sovelluksissa, eli on seurattava tarkasti konsolia:
 
-![]({{ "/assets/7/5.png" | absolute_url }})
+![]({{ "/images/7/5.png" | absolute_url }})
 
 Sovellus toimii hyvin ja kehitys on melko sujuvaa.
 
