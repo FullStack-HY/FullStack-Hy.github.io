@@ -1865,7 +1865,7 @@ Järjestä sovellus näyttämään blogit _likejen_ mukaisessa suuruusjärjestyk
 
 Lisää nappi blogin poistamiselle.
 
-Toteuta myös poiston tekevä logiikka. Laajenna backendiä siten, että ne blogit, joihin ei liity lisääjää, ovat kaikkien kirjautuneiden käyttäjien poistettavissa.
+Toteuta myös poiston tekevä logiikka. Laajenna backendiä siten, että ne blogit, joihin ei liity lisääjää (joita syntyi ennen kun olimme lisänneet järjestelmään käyttäjiä), ovat kaikkien kirjautuneiden käyttäjien poistettavissa.
 
 Ohjelmasi voi näyttää esim. seuraavalta:
 
@@ -1876,7 +1876,7 @@ Kuvassa näkyvä poiston varmistus on helppo toteuttaa funktiolla
 
 #### 5.10* blogilistan frontend, osa 10
 
-Näytä poistonappi ainoastaan jos kyseessä on kirjautuneen käyttäjän lisäämä blogi _tai_ blogi, jolle ei ole määritelty lisääjää.
+Näytä poistonappi ainoastaan jos kyseessä on kirjautuneen käyttäjän lisäämä blogi _tai_ blogi, jolle ei ole määritelty lisääjää (joita siis syntyi järjestelmään ennen käyttäjien olemassaoloa).
 
 ### PropTypet
 
