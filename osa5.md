@@ -1103,6 +1103,18 @@ Jos haluat ajaa testit "normaalisti", se onnistuu komennolla
 CI=true npm test
 ```
 
+Mikäli testejä suoritettaessa ei löydetä tiedostossa _src/setupTests.js_ tehtyä adapterin konfigurointia, auttaa seuraavan asetuksen lisääminen tiedostoon package-lock.json:
+
+```
+  "jest": {
+    ...
+    "setupFiles": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    ...
+  }
+```
+
 ### Testien sijainti
 
 Reactissa on (ainakin) [kaksi erilaista](https://medium.com/@JeffLombardJr/organizing-tests-in-jest-17fc431ff850) konventiota testien sijoittamiseen. Sijoitimme testit ehkä vallitsevan tavan mukaan, eli samaan hakemistoon missä testattava komponentti sijaitsee.
