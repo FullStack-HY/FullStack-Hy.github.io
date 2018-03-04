@@ -41,7 +41,7 @@ const noteReducer = (state = initalState, action) => {
 export default noteReducer
 ```
 
-Siirretään [action creatorit](https://redux.js.org/docs/basics/Actions.html#action-creators), eli sopivia [action](https://redux.js.org/docs/basics/Actions.html)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
+Siirretään [action creatorit](https://redux.js.org/advanced/async-actions#synchronous-action-creators), eli sopivia [action](https://redux.js.org/basics/actions)-olioita generoivat apufunktiot reducerin kanssa samaan moduuliin:
 
 ```js
 const initalState = [
@@ -294,7 +294,7 @@ export const filterChange = (filter) => {
 export default filterReducer
 ```
 
-Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa reduceria funktion [combineReducers](https://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html) avulla.
+Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolevaa reduceria funktion [combineReducers](https://redux.js.org/api-reference/combinereducers) avulla.
 
 Määritellään yhdistetty reduceri tiedostossa _index.js_:
 

@@ -1728,11 +1728,11 @@ Tehdään uusi create-react-app-sovellus ja asennetaan siihen _redux_ komennolla
 npm install redux --save
 ```
 
-Fluxin tapaan Reduxissa sovelluksen tila talletetaan [storeen](https://redux.js.org/docs/basics/Store.html).
+Fluxin tapaan Reduxissa sovelluksen tila talletetaan [storeen](https://redux.js.org/basics/store).
 
 Koko sovelluksen tila talletetaan _yhteen_ storen tallettamaan Javascript-objektiin. Koska sovelluksemme ei tarvitse mitään muuta tilaa kuin laskurin arvon, talletetaan se storeen suoraan. Jos sovelluksen tila olisi monipuolisempi, talletettaisiin "eri asiat" storessa olevan olioon erillisinä kenttinä.
 
-Storen tilaa muutetaan [actionien](https://redux.js.org/docs/basics/Actions.html) avulla. Actionit ovat olioita, joilla on vähintään actionin _tyypin_ määrittelevä kenttä _type_. Sovelluksessamme tarvitsemme esimerkiksi seuraavaa actionia:
+Storen tilaa muutetaan [actionien](https://redux.js.org/basics/actions) avulla. Actionit ovat olioita, joilla on vähintään actionin _tyypin_ määrittelevä kenttä _type_. Sovelluksessamme tarvitsemme esimerkiksi seuraavaa actionia:
 
 ```js
 {
@@ -1742,7 +1742,7 @@ Storen tilaa muutetaan [actionien](https://redux.js.org/docs/basics/Actions.html
 
 Jos actioneihin liittyy dataa, määritellään niille tarpeen vaatiessa muitakin kenttiä. Laskurisovelluksemme on kuitenkin niin yksinkertainen, että actioneille riittää pelkkä tyyppikenttä.
 
-Actionien vaikutus sovelluksen tilaan määritellään [reducerin](https://redux.js.org/docs/basics/Reducers.html) avulla. Käytännössä reducer on funktio, joka saa parametrikseen olemassaolevan staten tilan sekä actionin ja _palauttaa_ staten uuden tilan.
+Actionien vaikutus sovelluksen tilaan määritellään [reducerin](https://redux.js.org/basics/reducers) avulla. Käytännössä reducer on funktio, joka saa parametrikseen olemassaolevan staten tilan sekä actionin ja _palauttaa_ staten uuden tilan.
 
 Määritellään nyt sovelluksellemme reduceri:
 
@@ -1791,13 +1791,13 @@ const counterReducer = (state = 0, action) => {
 const store = createStore(counterReducer)
 ```
 
-Store käyttää nyt reduceria käsitelläkseen _actioneja_, jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/docs/api/Store.html#dispatch)-metodilla:
+Store käyttää nyt reduceria käsitelläkseen _actioneja_, jotka _dispatchataan_ eli "lähetetään" storagelle sen [dispatch](https://redux.js.org/api-reference/store#dispatch(action))-metodilla:
 
 ```js
 store.dispatch({type: 'INCREMENT'})
 ```
 
-Storen tilan saa selville metodilla [getState](https://redux.js.org/docs/api/Store.html#getState).
+Storen tilan saa selville metodilla [getState](https://redux.js.org/api-reference/store#getstate()).
 
 Esim. seuraava koodi
 
@@ -1823,7 +1823,7 @@ tulostaisi konsoliin
 
 sillä ensin storen tila on 0. Kolmen _INCREMENT_-actionin jälkeen tila on 3, ja lopulta actionien _ZERO_ ja _DECREMENT_ jälkeen -1.
 
-Kolmas tärkeä metodi storella on [subscribe](https://redux.js.org/docs/api/Store.html#subscribe), jonka avulla voidaan määritellä takaisinkutsufunktioita, joita store kutsuu sen tilan muuttumisen yhteydessä.
+Kolmas tärkeä metodi storella on [subscribe](https://redux.js.org/api-reference/store#subscribe(listener)), jonka avulla voidaan määritellä takaisinkutsufunktioita, joita store kutsuu sen tilan muuttumisen yhteydessä.
 
 Jos esim. lisäisimme seuraavan funktion subscribellä, tulostuisi _jokainen storen muutos_ konsoliin.
 
@@ -2281,7 +2281,7 @@ Kyseessä on jälleen tuttu _funktio, joka palauttaa funktion_, eli kullekin mui
 
 ### action creatorit
 
-Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikeastaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/docs/basics/Actions.html#action-creators):
+Alamme huomata, että jo näinkin yksinkertaisessa sovelluksessa Reduxin käyttö yksinkertaistaa sovelluksen ulkoasusta vastaavaa koodia melkoisesti. React-komponenttien on oikeastaan tarpeetonta tuntea reduxin actionien tyyppejä ja esitysmuotoja. Eristetään ne erilliseen olioon, jonka metodit ovat [action creatoreja](https://redux.js.org/advanced/async-actions#synchronous-action-creators):
 
 ```js
 const actionFor = {
