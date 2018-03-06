@@ -2017,7 +2017,7 @@ const Note = mongoose.model('Note', noteSchema)
 module.exports = Note
 ```
 
-ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _formatNote(note)_ muotoon _Note.format(note)_ ja kutsu _notes.map(format.Note)_ muotoon _notes.map(Note.format)_
+ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _formatNote(note)_ muotoon _Note.format(note)_ ja kutsu _notes.map(formatNote)_ muotoon _notes.map(Note.format)_
 
 Testien suoritus varmistaa, että sovelluksemme ei hajonnut refaktoroinnin myötä.
 
