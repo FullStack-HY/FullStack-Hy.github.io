@@ -1620,7 +1620,7 @@ Oletetaan että kokoelmassa _users_ on kaksi käyttäjää:
     _id: 123456
   },
   {
-    content: 'hellas',
+    username: 'hellas',
     _id: 141414
   }
 ]
