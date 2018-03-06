@@ -1101,8 +1101,6 @@ test('note without content is not added ', async () => {
   const response = await api
     .get('/api/notes')
 
-  const contents = response.body.map(r => r.content)
-
   expect(response.body.length).toBe(intialNotes.body.length)
 })
 ```
