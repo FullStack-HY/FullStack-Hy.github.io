@@ -2525,6 +2525,8 @@ Tämän osan tehtävissä jatketaan osissa 4 ja 5 tehtyä Bloglist-sovellusta. S
 
 Voit ottaa pohjaksi oman sovelluksesi sijaan myös mallivastauksen koodin.
 
+**HUOM** jos et ole tehnyt jonkun osan tehtäviä, ei palautussovelluksessa ole linkkiä osan mallivastaukseen. Pääset kuitenkin mallivastaukseen kirjoittamalla linkin suoraan selaimen osoiteriville.
+
 Useimmat tämän osan tehtävistä vaativat olemassaolevan koodin refaktoroimista. Tämä on tilanne käytännössä aina sovelluksia laajennettaessa, eli vaikka refaktorointi voi olla hankalaa ja ikävääkin, on kyseessä oleellinen taito.
 
 Hyvä neuvo niin refaktorointiin kuin uudenkin koodin kirjoittamiseen on _pienissä askelissa eteneminen_, koodia ei kannata hajottaa totaalisesti refaktorointia tehdessä pitkäksi aikaa, se on käytännössä varma resepti hermojen menettämiseen.
