@@ -1101,8 +1101,6 @@ test('note without content is not added ', async () => {
   const response = await api
     .get('/api/notes')
 
-  const contents = response.body.map(r => r.content)
-
   expect(response.body.length).toBe(intialNotes.body.length)
 })
 ```
@@ -1620,7 +1618,7 @@ Oletetaan että kokoelmassa _users_ on kaksi käyttäjää:
     _id: 123456
   },
   {
-    content: 'hellas',
+    username: 'hellas',
     _id: 141414
   }
 ]
@@ -2019,7 +2017,7 @@ const Note = mongoose.model('Note', noteSchema)
 module.exports = Note
 ```
 
-ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _formatNote(note)_ muotoon _Note.format(note)_ ja kutsu _notes.map(format.Note)_ muotoon _notes.map(Note.format)_
+ja muutetaan tiedostosta _controllers/notes.js_ metotodikutsut _formatNote(note)_ muotoon _Note.format(note)_ ja kutsu _notes.map(formatNote)_ muotoon _notes.map(Note.format)_
 
 Testien suoritus varmistaa, että sovelluksemme ei hajonnut refaktoroinnin myötä.
 
