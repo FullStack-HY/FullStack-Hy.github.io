@@ -2219,7 +2219,7 @@ class AnecdoteForm extends React.Component {
 }
 ```
 
-Tämä ei ole hyvä tapa. Eriytä action-olioiden luominen [action creator](https://redux.js.org/docs/basics/Actions.html#action-creators) -funktioihin. Sijoita creatorit tiedostoon _src/reducers/anecdoteReducer.js_.
+Tämä ei ole hyvä tapa. Eriytä action-olioiden luominen [action creator](https://redux.js.org/basics/actions#action-creators) -funktioihin. Sijoita creatorit tiedostoon _src/reducers/anecdoteReducer.js_.
 
 #### 6.3 paremmat anekdootit, osa 2
 
@@ -2262,7 +2262,7 @@ Laajenna sovellusta siten, että se näyttää _Notification_-komponentin avulla
 
 ![]({{ "/assets/teht/37.png" | absolute_url }})
 
-Notifikaation asettamista ja poistamista varten kannattaa kannattaa toteuttaa [action creatorit](https://redux.js.org/docs/basics/Actions.html#action-creators).
+Notifikaation asettamista ja poistamista varten kannattaa kannattaa toteuttaa [action creatorit](https://redux.js.org/basics/actions#action-creators).
 
 #### 6.5 paremmat anekdootit, osa 4
 
