@@ -2260,7 +2260,7 @@ Uuden muistiinpanon sisältö saadaan suoraan lomakkeen syötekentästä, johon 
 Tärkeyden muuttaminen tapahtuu klikkaamalla muistiinpanon nimeä. Käsittelijä on erittäin yksinkertainen:
 
 ```js
-toggleImportance = (id) => (event.target.note.value) => {
+toggleImportance = (id) => () => {
   store.dispatch({
     type: 'TOGGLE_IMPORTANCE',
     data: { id }
