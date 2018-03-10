@@ -1295,7 +1295,7 @@ Ei ole kuitenkaan ihan selvää, mihin kohtaan komponentin koodia komento _axios
 
 Reactin luokkien avulla määritellyillä komponenteilla voidaan määritellä joukko [lifecycle](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class)-metodeita, eli metodeita, joita React kutsuu tietyssä komponentin "elinkaaren" vaiheessa.
 
-Yleinen tapa datan palvelimelta tapahtuvaan hakemiseen on suorittaa se metodissa [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount). React kutsuu metodia sen jälkeen kun konstruktori on suoritettu ja _render_-metodia ollaan kutsumassa ensimmäistä kertaa.
+Yleinen tapa datan palvelimelta tapahtuvaan hakemiseen on suorittaa se metodissa [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount). React kutsuu metodia sen jälkeen kun konstruktori on suoritettu ja _render_-metodi on suoritettu ensimmäistä kertaa.
 
 Muutetaan sovellusta nyt seuraavasti.
 

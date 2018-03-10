@@ -527,7 +527,7 @@ Sovellusta on vielä laajennettava siten, että kun sivulle tullaan uudelleen, e
 
 Sopiva paikka tähän on _App_-komponentin metodi [componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount) johon tutustuimme jo [osassa 2](/osa2#komponenttien-lifecycle-metodit).
 
-Kyseessä on siis ns. lifecycle-metodi, jota React-kutsuu juuri ennen kuin komponentti ollaan renderöimässä ensimmäistä kertaa. Metodissa on tällä hetkellä jo muistiinpanot palvelimelta lataava koodi. Laajennetaan koodia seuraavasti
+Kyseessä on siis ns. lifecycle-metodi, jota React-kutsuu heti komponentin ensimmäisen renderöinnin jälkeen. Metodissa on tällä hetkellä jo muistiinpanot palvelimelta lataava koodi. Laajennetaan koodia seuraavasti
 
 ```js
 componentDidMount() {
