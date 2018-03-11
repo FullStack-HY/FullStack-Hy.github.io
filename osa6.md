@@ -1189,7 +1189,7 @@ noteService.getAll().then(notes =>
 > await toimii ainoastaan _async_-funktioiden sisällä, ja _index.js_:ssä oleva koodi ei ole funktiossa, joten päädyimme tilanteen yksinkertaisuuden takia tällä kertaa jättämään _async_:in käyttämättä.
 
 
-Päätetään kuitenkin siirtää muistiinpanojen alustus _App_-komponentin metodiin _[componentDidMount](https://reactjs.org/docs/react-component.html#componentDidMount)_, se on luonteva paikka alustuksille, sillä metodi suoritetaan ennen kuin sovelluksemme renderöidään ensimmäistä kertaa.
+Päätetään kuitenkin siirtää muistiinpanojen alustus _App_-komponentin metodiin _[componentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount)_, se on luonteva paikka alustuksille, sillä metodi suoritetaan ennen kuin sovelluksemme renderöidään ensimmäistä kertaa.
 
 Jotta saamme action creatorin _noteInitialization_ käyttöön komponentissa _App_ tarvitsemme jälleen _connect_-metodin apua:
 
