@@ -2601,7 +2601,7 @@ Muuta tässä tehtävässä notifikaatio käyttämään Reduxia.
 
 Siirrä kaikkien käyttäjien tietojen talletus Reduxiin. Varmista, että sekä kaikkien käyttäjien että yksittäisen käyttäjän näkymät toimivat edelleen.
 
-Tässä tehtävässä saattaa olla hyödyksi käyttää metodin _connect_ toista parametria
+Tässä tehtävässä saattaa olla hyödyksi käyttää metodin _mapStateToProps_ toista parametria
 [ownPropsia](https://github.com/reactjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props) joka on dokumentaation hienoisesta kryptisyydestä huolimatta [aika simppeli](https://stackoverflow.com/questions/41198842/what-is-the-use-of-the-ownprops-arg-in-mapstatetoprops-and-mapdispatchtoprops) asia.
 
 ### 7.10 redux, osa 3
