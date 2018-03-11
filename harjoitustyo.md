@@ -20,7 +20,7 @@ Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös 
 
 Rekisteröi sovelluksesi repositio tekemällä "palautus osaan 8" osoitteessa  <https://studies.cs.helsinki.fi/fsstats>
 
-Muista myös ilmoittautua kurssille Web-oodissa!
+Muista myös ilmoittautua kurssille WebOodissa!
 
 Tee README.md:hen lyhyt kuvaus sovelluksesta.
 
