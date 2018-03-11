@@ -12,13 +12,15 @@ Harjoitustyö on mahdollista tehdä myös pari- tai ryhmätyönä.
 
 Harjoitustyöhön saa ohjausta salissa BK107 maanantaisin klo 14-17 ensimmäisellä viikolla pajaa ei vielä pidetä.
 
-Ennakkotiedoista poiketen kurssilla _ei ole_ aloitustilaisuutta maanantaina 12.3.!
+**Ennakkotiedoista poiketen kurssilla ei ole aloitustilaisuutta maanantaina 12.3!**
 
 Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös harjoitustyön kanavana.
 
-## Aiheen rekisteröinti
+## Ilmoittautuminen ja aiheen rekisteröinti
 
 Rekisteröi sovelluksesi repositio tekemällä "palautus osaan 8" osoitteessa  <https://studies.cs.helsinki.fi/fsstats>
+
+Muista myös ilmoittautua kurssille Web-oodissa!
 
 Tee README.md:hen lyhyt kuvaus sovelluksesta.
 
