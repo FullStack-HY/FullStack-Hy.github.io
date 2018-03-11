@@ -1,10 +1,8 @@
 ---
 layout: page
-title: harjoitustyö
+title: Full Stack -websovelluskehitys harjoitustyö 1-10 op
 permalink: /harjoitustyo/
 ---
-
-# Full Stack -websovelluskehitys harjoitustyö 1-10 op
 
 Harjoitustyössä toteutetaan vapaavalintainen sovellus Reactilla ja/tai Nodella. Sovelluksen backendia ei siis ole pakko toteuttaa Nodella. Myös React Nativella toteutettu mobiilisovellus on mahdollinen. 
 
