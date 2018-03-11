@@ -18,7 +18,7 @@ Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös 
 
 ## Aiheen rekisteröinti
 
-Rekisteröi sovelluksesi repositio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fsstats>
+Rekisteröi sovelluksesi repositorio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fsstats>
 
 Tee README.md:hen lyhyt kuvaus sovelluksesta.
 
@@ -36,6 +36,6 @@ Pari- tai ryhmätöissä jokaisen on pidettävä omaa työaikakirjanpitoa.
 
 Ilman työaikakirjanpitoa kurssin maksimiopintopistemäärä on 1 op.
 
-## Työn vamistuminen ja arvostelu
+## Työn valmistuminen ja arvostelu
 
 Kun työsi on valmis arvosteltavaksi, lähetä email osoitteeseen mluukkai@cs.helsinki.fi. Työn tulee valmistua torstaihin 31.5. klo 23:59 mennessä
