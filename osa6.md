@@ -2233,7 +2233,7 @@ Aloitetaan asentamalla [react-semantic-ui](https://react.semantic-ui.com)-kirjas
 npm install --save semantic-ui-react
 ````
 
-Lisätään sitten sovelluksen tiedostoon _public/index.html_  head-tagin sisään semanticin css-määrittelyt lataava rivi:
+Lisätään sitten sovelluksen tiedostoon _public/index.html_ head-tagin sisään semanticin css-määrittelyt lataava rivi:
 
 ```html
 <head>
