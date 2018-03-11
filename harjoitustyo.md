@@ -1,7 +1,7 @@
 ---
 layout: page
 title: harjoitustyö
-permalink: /harjoitustyö/
+permalink: /harjoitustyo/
 ---
 
 # Full Stack -websovelluskehitys harjoitustyö 1-10 op
