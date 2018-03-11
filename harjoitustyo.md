@@ -10,7 +10,9 @@ Opintopistemäärä määrittyy käytettyjen työtuntien mukaan, yksi opintopist
 
 Harjoitustyö on mahdollista tehdä myös pari- tai ryhmätyönä.
 
-Harjoitustyöhön saa ohjausta salissa BK107 maanantaisin klo 14-17.
+Harjoitustyöhön saa ohjausta salissa BK107 maanantaisin klo 14-17 ensimmäisellä viikolla pajaa ei vielä pidetä.
+
+Ennakkotiedoista poiketen kurssilla _ei ole_ aloitustilaisuutta maanantaina 12.3.!
 
 Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös harjoitustyön kanavana.
 
