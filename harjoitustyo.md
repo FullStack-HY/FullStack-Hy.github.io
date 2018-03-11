@@ -6,7 +6,7 @@ permalink: /harjoitustyo/
 
 Harjoitustyössä toteutetaan vapaavalintainen sovellus Reactilla ja/tai Nodella. Sovelluksen backendia ei siis ole pakko toteuttaa Nodella. Myös React Nativella toteutettu mobiilisovellus on mahdollinen.
 
-Opintopistemäärä määrittyy käytettyjen työtuntien mukaan, yksi opintopiste vastaa 17.5 tuntia. Työ arvostellaan skaalalla hyväksytty/hylätty. Hylkäämiseen voi johtaa ainoastaa se, että et ole itse tehnyt työtäsi tai jos tuntikirjanpito ja GitHub-repositorion commit-historia eivät vastaa toisiaan.
+Opintopistemäärä määrittyy käytettyjen työtuntien mukaan, yksi opintopiste vastaa 17.5 tuntia. Työ arvostellaan skaalalla hyväksytty/hylätty. Hylkäämiseen voi johtaa ainoastaa se, että et ole itse tehnyt työtäsi tai jos tuntikirjanpito ja GitHub-repositorion commit-historia eivät vastaa toisiaan. Työtunteihin lasketaan kaikki sovelluksen tekemiseen käytetty aika, eli vaikka tekisit backendin jollain muulla tekniikalla kuin Nodella, lasketaan se silti työaikaan.
 
 Harjoitustyö on mahdollista tehdä myös pari- tai ryhmätyönä.
 
