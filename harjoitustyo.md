@@ -4,9 +4,9 @@ title: Full Stack -websovelluskehitys harjoitustyö 1-10 op
 permalink: /harjoitustyo/
 ---
 
-Harjoitustyössä toteutetaan vapaavalintainen sovellus Reactilla ja/tai Nodella. Sovelluksen backendia ei siis ole pakko toteuttaa Nodella. Backendia ei myöskään tarvitse toteuttaa itse, valmiit rajapinnat tai palvelut kuten [Firebase](https://firebase.google.com/) kelpaavat. Frontend on mahdollista tehdä myös jollain muulla järkevällä tavalla kuin Reactilla, esim. [Vue.js](https://vuejs.org/):llä. Tällöin olisi hyvä jos sovelluksella olisi Nodella tehty backend.
+Harjoitustyössä toteutetaan vapaavalintainen sovellus Reactilla ja/tai Nodella. Myös React Nativella toteutettu mobiilisovellus on mahdollinen. 
 
-Myös React Nativella toteutettu mobiilisovellus on mahdollinen.
+Sovelluksen backendia ei siis ole pakko toteuttaa Nodella. Backendia ei myöskään tarvitse toteuttaa itse, valmiit rajapinnat tai palvelut kuten [Firebase](https://firebase.google.com/) kelpaavat. Frontend on mahdollista tehdä myös jollain muulla järkevällä tavalla kuin Reactilla, esim. [Vue.js](https://vuejs.org/):llä. Tällöin olisi hyvä jos sovelluksella olisi Nodella tehty backend.
 
 Opintopistemäärä määrittyy käytettyjen työtuntien mukaan, yksi opintopiste vastaa 17.5 tuntia. Työ arvostellaan skaalalla hyväksytty/hylätty. Hylkäämiseen voi johtaa ainoastaa se, että et ole itse tehnyt työtäsi tai jos tuntikirjanpito ja GitHub-repositorion commit-historia eivät vastaa toisiaan. Työtunteihin lasketaan kaikki sovelluksen tekemiseen käytetty aika, eli vaikka tekisit backendin jollain muulla tekniikalla kuin Nodella, lasketaan se silti työaikaan.
 
@@ -20,7 +20,7 @@ Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös 
 
 ## Ilmoittautuminen ja aiheen rekisteröinti
 
-Rekisteröi sovelluksesi repositorio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fs-stats>
+Rekisteröi sovelluksesi repositorio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fs-stats>. Rekisteröi aiheesi mielellään maaliskuun aikana.
 
 Muista myös ilmoittautua kurssille WebOodissa!
 
