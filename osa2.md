@@ -49,7 +49,7 @@ Paradoksaalista kyllä tämä näyttää olevan tilanne, vaikka kokematon ohjelm
 
 Eli kun joku ei toimi, älä arvaile vaan logaa tai käytä jotain muita debuggauskeinoja.
 
-**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisetsi" plussalla, eli sen sijaan että kirjoittaisit
+**HUOM** kun käytät komentoa _console.log_ debuggaukseen, älä yhdistele asioita "javamaisesti" plussalla, eli sen sijaan että kirjoittaisit
 
 ```js
 console.log('propsin arvo on' + props)
@@ -61,7 +61,7 @@ erottele tulostettavat asiat pilkulla:
 console.log('propsin arvo on', props)
 ```
 
-Jos yhdistät merkkijonoon olion, tuloksena on suhteellisen hyödytön tulostustmuoto
+Jos yhdistät merkkijonoon olion, tuloksena on suhteellisen hyödytön tulostusmuoto
 
 ```bash
 propsin arvo on [Object object]
@@ -73,7 +73,7 @@ kun taas pilkulla tulostettavat asiat erotellessa saat developer-konsoliin olion
 
 Pajan ja telegrammin havaintojen perusteella tapahtumankäsittely on osoittautunut haastavaksi.
 
-Osassa 1 on nyt uusi luku [tapahtumäakasittely revisited](/osa1#tapahtumankäsittely-revisited) joka käy aihepiiriä läpi.
+Osassa 1 on nyt uusi luku [tapahtumankasittely revisited](/osa1#tapahtumankäsittely-revisited) joka käy aihepiiriä läpi.
 
 ### Visual Studio Coden snippetit
 
@@ -94,7 +94,7 @@ Kun lisäät linkin, laita linkin yhteyteen pieni kuvaus mitä linkin takaa löy
 
 ## Taulukkojen käyttö Javascriptissä
 
-Tästä osasta lähtien käytämme runsaasti Javascriptin [taulukkojen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) funktionaalisia käsittelymetodeja, kuten _find_, _filter_ ja _map_. Periaate niissä on täysin sama kuin Java 8:sta tutuissa streameissa, joita on käytetty jo runsaan vuoden ajan laitoksen Ohjelmoinnin perusteissa ja jatkokurssilla.
+Tästä osasta lähtien käytämme runsaasti Javascriptin [taulukoiden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) funktionaalisia käsittelymetodeja, kuten _find_, _filter_ ja _map_. Periaate niissä on täysin sama kuin Java 8:sta tutuissa streameissa, joita on käytetty jo runsaan vuoden ajan laitoksen Ohjelmoinnin perusteissa ja jatkokurssilla.
 
 Jos taulukon funktionaalinen käsittely tuntuu vielä vieraalta, kannattaa katsoa Youtubessa olevasta videosarjasarjasta _Functional Programming in JavaScript_ ainakin kolme ensimmäistä osaa
 -  [Higher-order functions](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
