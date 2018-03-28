@@ -32,6 +32,24 @@ Tarkista komennoilla _node -v_ ja _npm -v_ että asennus onnistui ja koneella on
 
 Jos sinulla on pääkäyttäjän oikeudet, on asennus mahdollista suorittaa paketinhallintaa käyttäen. Tällöin täytyy kuitenkin varmistaa, että Nodesta tulee käyttöön riittävän tuore versio (vähintään 8.6). Jos ei, voi päivityksen hoitaa _nvm_-työkalulla. Jos jollakin on ohje tämän tekemiseen, niin otan mielellään pull requestin vastaan.
 
+Pääkäyttäjän oikeuksilla voi Noden asentaa myös suoraan NodeSourcen repositoriosta. 
+
+Mene ensin kotihakemistoon ja hae sitten tarvittava script (esimerkissä uusin 8.x Node.js):
+
+```$ cd ~```
+
+```$ curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh```
+
+Voit tekstieditorilla katsoa mitä script tekee ja jos tunnet sen turvalliseksi, suorita se:
+
+```$ sudo bash nodesource_setup.sh```
+
+PPA on nyt lisätty paketinhallintaasi ja voit asentaa Noden sen kautta:
+
+```$ sudo apt install nodejs```
+
+Tarkista vielä, että Node on asennettu ja versio on tarpeeksi tuore komennolla ```$ nodejs -v```. Version pitäisi olla vähintään 8.10.0. Asenna vielä `build-essential` komennolla ```$ sudo apt install build-essential```. Jotkut npm-paketit saattavat vaatia sen olemassaoloa.
+
 Yksi vaihtoehto [NMV työkalulle](https://github.com/creationix/nvm#install-script). Tällä voi asentaa monta eri node versiota ja se asentaa ne käyttäjän HOME kansioon USER kansion sijaan (ei tartte admin oikeuksia).
 
 ### Mac
