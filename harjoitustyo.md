@@ -12,13 +12,11 @@ Opintopistemäärä määrittyy käytettyjen työtuntien mukaan, yksi opintopist
 
 Harjoitustyö on mahdollista tehdä myös pari- tai ryhmätyönä.
 
-Harjoitustyöhön saa ohjausta salissa B221 maanantaisin klo 14-17 ja pääsiäisen jälkeen myös torstaisin klo 14-17 salissa BK107.
-
 Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös harjoitustyön kanavana.
 
 ## Ilmoittautuminen ja aiheen rekisteröinti
 
-Rekisteröi sovelluksesi repositorio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fs-stats>. Rekisteröi aiheesi mielellään maaliskuun aikana.
+Rekisteröi sovelluksesi repositorio tekemällä "palautus osaan 8" osoitteessa <https://studies.cs.helsinki.fi/fs-stats>. 
 
 Muista myös ilmoittautua kurssille WebOodissa!
 
@@ -40,4 +38,10 @@ Ilman työaikakirjanpitoa kurssin maksimiopintopistemäärä on 1 op.
 
 ## Työn valmistuminen ja arvostelu
 
-Kun työsi on valmis arvosteltavaksi, lähetä email osoitteeseen mluukkai@cs.helsinki.fi. Työn tulee valmistua torstaihin 31.5. klo 23:59 mennessä
+Kun työsi on valmis arvosteltavaksi, lähetä email osoitteeseen mluukkai@cs.helsinki.fi.
+
+[Kevään](https://courses.helsinki.fi/fi/tkt21010/121540755) harjoitustyöt tulee palauttaa torstaihin 31.5. klo 23:59 mennessä.
+
+[Kesäkuun alussa alkavassa](https://courses.helsinki.fi/fi/TKT21010/124468615) harjoitustyössä deadline on 31.12. klo 23:59.
+
+Voit laajentaa keväällä aloittamaasi työtä kesäkuussa alkavassa harjoitustyössä. 
