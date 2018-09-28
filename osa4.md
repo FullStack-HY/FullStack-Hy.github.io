@@ -1659,9 +1659,9 @@ Mikään ei kuitenkaan määrää dokumenttitietokannoissa, että viitteet on ta
     notes: [221212, 221255]
   },
   {
-    content: 'hellas',
+    username: 'hellas',
     _id: 141414,
-    notes: [141414]
+    notes: [221244]
   }
 ]
 ```
@@ -1688,7 +1688,7 @@ Dokumenttitietokannat tarjoavat myös radikaalisti erilaisen tavan datan organis
     ]
   },
   {
-    content: 'hellas',
+    username: 'hellas',
     _id: 141414,
     notes: [
       {
