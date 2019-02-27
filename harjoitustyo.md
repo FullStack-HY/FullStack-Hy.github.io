@@ -16,7 +16,7 @@ Full Stack -kurssin Telegram-kanava <https://t.me/fullstackcourse> toimii myös 
 
 ## Ilmoittautuminen ja aiheen rekisteröinti
 
-Tee sovellukselle repositorio ja kerro siitä mailitse mluukkai@helsinki.fi
+Tee sovellukselle repositorio ja kerro siitä mailitse mluukkai@cs.helsinki.fi
 
 Muista myös ilmoittautua kurssille WebOodissa!
 
