@@ -28,10 +28,6 @@ export const getNavigation = (language, t) => {
       text: t('navigation:partners'),
       path: getTranslationPath('/companies', language),
     },
-    {
-      text: t('navigation:challenge'),
-      path: getTranslationPath('/challenge', language),
-    },
   ];
 };
 

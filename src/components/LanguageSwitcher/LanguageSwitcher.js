@@ -19,10 +19,7 @@ const LanguageSwitcher = ({ lang }) => {
   return (
     <div className="language-switcher">
       <Language language="fi" active={lang} />
-
       <Language language="en" active={lang} />
-
-      <Language language="zh" active={lang} />
     </div>
   );
 };

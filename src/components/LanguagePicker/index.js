@@ -6,7 +6,6 @@ import styles from './LanguagePicker.module.scss';
 const options = [
   { value: 'fi', label: 'Suomi' },
   { value: 'en', label: 'English' },
-  { value: 'zh', label: '中文' },
 ];
 
 const LanguagePicker = ({

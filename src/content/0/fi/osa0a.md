@@ -7,7 +7,7 @@ lang: fi
 
 <div class="content">
 
-Kurssilla tutustutaan JavaScriptilla tapahtuvaan moderniin websovelluskehitykseen. Pääpaino on React-kirjaston avulla toteutettavissa single page -sovelluksissa, ja niitä tukevissa Node.js:llä toteutetuissa REST ja GraphQL-rajapinnoissa. Tämän vuoden kurssin uusissa osissa tutustutaan TypeScriptiin, React Nativeen ja jatkuvaan integraatioon.
+Kurssilla tutustutaan JavaScriptilla tapahtuvaan moderniin websovelluskehitykseen. Pääpaino on React-kirjaston avulla toteutettavissa single page -sovelluksissa, ja niitä tukevissa Node.js:llä toteutetuissa REST ja GraphQL-rajapinnoissa.
 
 Kurssilla käsitellään myös sovellusten testaamista, konfigurointia ja suoritusympäristöjen hallintaa sekä NoSQL-tietokantoja.
 
@@ -53,8 +53,6 @@ Kurssin oletusarvoinen laajuus on 5 opintopistettä. Arvosana määräytyy kaikk
 Koe pidetään moodlessa perjantaina 12.3. Koe on suoritettavissa koko vuorokauden ajan.
 
 Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. 
-
-### Arvosanarajat: 5-7 opintopisteen suoritus
 
 Arvosana/opintopisterajat:
 
