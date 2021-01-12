@@ -3,7 +3,7 @@ import './Some.scss';
 import React from 'react';
 
 const urls = {
-  github: 'https://github.com/fullstack-hy2020/fullstack-hy2020.github.io',
+  github: 'https://github.com/FullStack-HY/FullStack-Hy.github.io',
   twitter: 'https://twitter.com/moocfi',
   facebook: 'https://www.facebook.com/Moocfi',
   youtube:

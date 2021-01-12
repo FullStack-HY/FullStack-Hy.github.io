@@ -103,13 +103,13 @@ Asenna myös joku järkevä web-devausta tukeva tekstieditori, enemmän kuin suo
 
 Älä koodaa nanolla, Notepadilla tai Geditillä. Myöskään NetBeans ei ole omimmillaan Web-devauksessa ja se on myös turhan raskas verrattuna esim. Visual Studio Codeen.
 
-Asenna koneeseesi heti myös [Node.js](https://nodejs.org/en/). Materiaali on tehty versiolla 10.18, älä asenna mitään sitä vanhempaa versiota. Asennusohjeita löytyy [Node.js:n sivulta](https://nodejs.org/en/download/package-manager/).
+Asenna koneeseesi heti myös [Node.js](https://nodejs.org/en/). Materiaali on tehty versiolla 14.8, älä asenna mitään sitä vanhempaa versiota. Asennusohjeita löytyy [Node.js:n sivulta](https://nodejs.org/en/download/package-manager/).
 
 Noden myötä koneelle asentuu myös [npm](https://www.npmjs.com/get-npm) (alunperin lyhennelmä <i>Node Package Manager</i> -nimelle), jota tulemme tarvitsemaan kurssin aikana aktiivisesti. Tuoreen Noden kera asentuu myös [npx](https://www.npmjs.com/package/npx), jota tarvitaan myös muutaman kerran.
 
 ### Typoja materiaalissa
 
-Jos löydät kirjoitusvirheen tai jokin asia on ilmaistu epäselvästi tai kielioppisääntöjen vastaisesti, tee <i>pull request</i> repositoriossa <https://github.com/fullstack-hy2020/fullstack-hy2020.github.io> olevaan kurssimateriaaliin. Esim. tämän sivun Markdown-muotoinen lähdekoodi löytyy repositoryn alta osoitteesta <https://github.com/fullstack-hy2020/fullstack-hy2020.github.io/blob/source/src/content/0/fi/osa0a.md>
+Jos löydät kirjoitusvirheen tai jokin asia on ilmaistu epäselvästi tai kielioppisääntöjen vastaisesti, tee <i>pull request</i> repositoriossa <https://github.com/FullStack-HY/FullStack-Hy.github.io/> olevaan kurssimateriaaliin. Esim. tämän sivun Markdown-muotoinen lähdekoodi löytyy repositoryn alta osoitteesta <https://github.com/FullStack-HY/FullStack-Hy.github.io//blob/source/src/content/0/fi/osa0a.md>
 
 Materiaalin jokaisen osan alalaidassa on linkki <em>Ehdota muutosta materiaalin sisältöön</em>, jota klikkaamalla pääset suoraan editoimaan sivun lähdekoodia.
 

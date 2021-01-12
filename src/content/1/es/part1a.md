@@ -412,7 +412,7 @@ part2
   countries
 ```
 
-Vea [esto](https://github.com/fullstack-hy2020/example-submission-repository)! 
+Vea [esto](https://github.com/FullStack-HY/example-submission-repository)! 
 
 Para cada parte del curso hay un directorio, que se ramifica en directorios que contienen una serie de ejercicios, como "unicafe" para la parte 1. 
 

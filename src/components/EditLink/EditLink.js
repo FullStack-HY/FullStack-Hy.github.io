@@ -18,7 +18,7 @@ const EditLink = ({ part, letter }) => {
         href={
           lang === 'zh'
             ? `https://github.com/RichardStark/fullstack-hy2020.github.io/edit/source/src/content/${part}/${lang}/${link}${letter}.md`
-            : `https://github.com/fullstack-hy2020/fullstack-hy2020.github.io/edit/source/src/content/${part}/${lang}/${link}${letter}.md`
+            : `https://github.com/FullStack-HY/FullStack-Hy.github.io/edit/source/src/content/${part}/${lang}/${link}${letter}.md`
         }
       >
         <span>{t('proposeChanges')}</span>
