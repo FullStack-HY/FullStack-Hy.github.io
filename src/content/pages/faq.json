@@ -21,30 +21,6 @@
     ],
   "en": [
     {
-      "title": "Will there be a new course 2021?",
-      "text": [
-        "Yes, the new version of the course will start 15.3.2021.<br><br>There won't be major changes in the course content.<br><br> The 2020 version can be expanded in the 2021 version, see more <a href='/en/part0/general_info#expanding-on-a-previously-completed-course'>here</a>. "
-      ]
-    },
-    {
-      "title": "How do I sign up for the course?",
-      "text": [
-        "You don't have to sign up until you want to do the course exam. The exam is done in the Moodle-system of the Open University. You can find more information <a href='/en/part0/general_info#grading'>here</a>. <br><br>Please note that only persons with Finnish social security number can take part in exams and get official ECTS credits. <br><br>For the course certificate signup or Finnish social security number are not needed."
-      ]
-    },
-    {
-      "title": "How many credits is the course?",
-      "text": [
-        "The course is 3-12 ECTS credits <a href='/en/part0/general_info#grading'>depending on the amount of returned exercises</a>. After completing the course you can continue to deepen your knowledge on the subject matter by doing the 1-10 ETCS credit <a href='/en/part0/general_info#full-stack-project'>Full Stack project</a>. <br><br>Please note that only persons with Finnish social security number can get official ECTS credits. <br><br>For the course certificate signup or Finnish social security number are not needed."
-      ]
-    },
-    {
-      "title": "When is the deadline for the exercises and the exam?",
-      "text": [
-        "You can complete the course at your own pace. Deadline for the exercises is 1st March 2021 at 23.59.59. <br><br>If you want Open university credits, the deadline for the exam is 10th January 2021 at 23.59.59. Do keep in mind that you have to sign up for the exam no later than the day before the deadline 9.1.2021."
-      ]
-    },
-    {
       "title": "How do I submit the exercises?",
       "text": [
         "The exercises are submitted to GitHub, and by marking the exercises as done in the exercise submission system. You can read more from <a href='/en/part0/general_info#submitting-exercises'>here</a>. "
@@ -63,45 +39,9 @@
       ]
     },
     {
-      "title": "When and how can I get my credits?",
+      "title": "I do not have studyright in University of Helsinki. Can I sign up for this course?",
       "text": [
-        "You can get your credits after submitting enough exercises for passing the course, passing the course exam and letting us know through the exercise submission system that you are ready with the course. The deadline is 10th January 2021. Read more <a href='/en/part0/general_info/#grading'>here</a>. <br><br>Please note that only persons with Finnish social security number can get official ECTS credits. <br><br>For the course certificate signup or Finnish social security number are not needed."
-      ]
-    },
-    {
-      "title": "Do I get a certificate after completing the course?",
-      "text": [
-        "Yes! You can download the certificate after completing the course from the exercise submission system. For the course certificate signup to Open university and Finnish social security number are not needed."
-      ]
-    },
-    {
-      "title": "Do I need a Finnish social security number to get the course certificate?",
-      "text": [
-        "For the course certificate Finnish social security number is not needed. You can download the certificate after completing the course from the exercise submission system."
-      ]
-    },
-      {
-      "title": "Should I signup to Open University to get the course certificate?",
-      "text": [
-        "For the course certificate signup to Open University is not needed. You can download the certificate after completing the course from the exercise submission system."
-      ]
-    },
-    {
-      "title": "What has changed since the last year?",
-      "text": [
-        "There are only minor changes to parts 0-4. Part 5d, <i>end to end -testing</i> using the Cypress.io- library is almost completely new material.  Using custom hooks has been moved from part 5 to part 7 with some new content. <br><br> Part 6, which is about Redux, concentrates on the new, hook-based, redux api. The material on react-router in part 7 has also been updated to use the hook-api. Semantic UI React has been replaced with the MaterialUI library due to lack of maintenance. <br><br> Part 8 on GraphQL has major updates especially on Apollo Client, which finally has stable hook based apis. Part 9 on TypeScript is completely new. <br><br> Last year's course material can be found from <a href='https://fullstackopen-2019.github.io/'>https://fullstackopen-2019.github.io/</a>."
-      ]
-    },
-    {
-      "title": "I started the course last year, how should I continue?",
-      "text": [
-        "Read more from <a href='/en/part0/general_info#expanding-on-a-previously-completed-course'>here</a>"
-      ]
-    },
-    {
-      "title": "I heard that I could get a job interview by completing the course.",
-      "text": [
-        "That's right. If you complete the course with full credits, and complete the practical work with 10 credits, you get a job interview with our partners. Read more <a href='/en/part0/general_info#interview-promise'>here</a>. Please note that only persons with Finnish social security number can get take part to exam and get official ECTS credits."
+        "No, but there shall be a open version of the course starting at 15th March <a href='https://fullstackopen.com/'>here!</a>"
       ]
     }
   ],

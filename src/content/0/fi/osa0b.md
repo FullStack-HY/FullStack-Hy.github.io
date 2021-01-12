@@ -58,7 +58,7 @@ Välilehti <i>Response</i> näyttää, miltä pyyntöön vastauksena lähetetty 
 
 ![](../../images/0/5e.png)
 
-Sivu sisältää [div](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)-elementin, jonka sisällä on otsikko sekä tieto luotujen muistiinpanojen määrästä, linkki sivulle <i>muistiinpanot</i> ja kuvaa vastaava [img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)-tagi.
+Sivu sisältää [div](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)-elementin, jonka sisällä on otsikko sekä tieto luotujen muistiinpanojen määrästä, linkki sivulle <i>notes</i> ja kuvaa vastaava [img](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)-tagi.
 
 img-tagin ansiosta selain tekee toisenkin <i>HTTP-pyynnön</i>, jonka avulla se hakee kuvan <i>kuva.png</i> palvelimelta. Pyynnön tiedot näyttävät seuraavalta:
 
@@ -577,9 +577,9 @@ Single page app -tyylin noustua suosioon on ilmestynyt useita jQueryä "modernim
 
 Angularin suosio kuitenkin romahti siinä vaiheessa kun Angular-tiimi [ilmoitti](https://jaxenter.com/angular-2-0-announcement-backfires-112127.html) lokakuussa 2014, että version 1 kehitys lopetetaan ja Angular 2 ei tule olemaan taaksepäin yhteensopiva ykkösversion kanssa. Angular 2 ja uudemmat versiot eivät ole saaneet kovin innostunutta vastaanottoa.
 
-Nykyisin suosituin tapa toteuttaa web-sovellusten selainpuolen logiikka on Facebookin kehittämä [React](https://reactjs.org/)-kirjasto. Tulemme tutustumaan kurssin aikana Reactiin ja sen kanssa yleisesti käytettyyn [Redux](https://github.com/reactjs/redux)-kirjastoon.
+Nykyisin, tai oikeastaan jo lähes puolen vuosikymmenen ajan, suosituin tapa toteuttaa web-sovellusten selainpuolen logiikka on Facebookin kehittämä [React](https://reactjs.org/)-kirjasto. Tulemme tutustumaan kurssin aikana Reactiin ja sen kanssa yleisesti käytettyyn [Redux](https://github.com/reactjs/redux)-kirjastoon.
 
-Reactin asema näyttää tällä hetkellä vahvalta, mutta JavaScript-maailma ei lepää koskaan. Viime aikoina kiinnostusta on alkanut herättää mm. uudempi tulokas [Vue.js](https://vuejs.org/).
+Reactin asema näyttää tällä hetkellä vahvalta, mutta JavaScript-maailma ei lepää koskaan. Muutama vuosi sitten hieman uudempi tulokas [Vue.js](https://vuejs.org/) herätti jossain määrin kiinnostusta, mutta ei sekään näytä nousseen uhkaamaan Reactin asemaa.
 
 ### Full stack -websovelluskehitys
 
