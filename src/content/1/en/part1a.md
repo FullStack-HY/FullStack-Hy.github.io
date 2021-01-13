@@ -35,23 +35,33 @@ Chrome should launch automatically. Open the browser console **immediately**. Al
 The code of the application resides in the <i>src</i> folder. Let's simplify the default code such that the contents of the file <i>index.js</i> look like:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
+```
+
+and file <i>App.js</i> looks like this
+
+```js
+import React from 'react'
 const App = () => (
   <div>
-    <p>Hello world</p>
+    <p>Hello world lo23</p>
   </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'))
+export default App
 ```
 
-The files <i>App.js</i>, <i>App.css</i>, <i>App.test.js</i>, <i>logo.svg</i>, <i>setupTests.js</i> and <i>reportWebVitals.js</i> may be deleted as they are not needed in our application right now.
+The files <i>App.css</i>, <i>App.test.js</i>, <i>logo.svg</i>, <i>setupTests.js</i> and <i>reportWebVitals.js</i> may be deleted as they are not needed in our application right now.
 
 ### Component
 
-The file <i>index.js</i> now defines a React-[component](https://reactjs.org/docs/components-and-props.html) with the name <i>App</i> and the command on the final line
+The file <i>App.js</i> now defines a React-[component](https://reactjs.org/docs/components-and-props.html) with the name <i>App</i>. The command on the final line of file <i>index.js</i> 
 
 ```js
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -148,9 +158,6 @@ It seems like React components are returning HTML markup. However, this is not t
 After compiling, our application looks like this:
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-
 const App = () => {
   const now = new Date()
   const a = 10
@@ -166,11 +173,6 @@ const App = () => {
     )
   )
 }
-
-ReactDOM.render(
-  React.createElement(App, null),
-  document.getElementById('root')
-)
 ```
 
 The compiling is handled by [Babel](https://babeljs.io/repl/). Projects created with *create-react-app* are configured to compile automatically. We will learn more about this topic in [part 7](/en/part7) of this course.
@@ -193,7 +195,7 @@ but when writing JSX, the tag needs to be closed:
 
 ### Multiple components
 
-Let's modify the application as follows (NB: imports at the top of the file are left out in these <i>examples</i>, now and in the future. They are still needed for the code to work):
+Let's modify the file <i>App.js</i> as follows (NB: import at the top of the file and export at the bottom are left out in these <i>examples</i>, now and in the future. They are still needed for the code to work):
 
 ```js
 // highlight-start

@@ -35,23 +35,33 @@ Chromen pitäisi aueta automaattisesti. Avaa konsoli **välittömästi**. Avaa m
 Sovelluksen koodi on hakemistossa <i>src</i>. Yksinkertaistetaan valmiina olevaa koodia siten, että tiedoston <i>index.js</i> sisällöksi tulee:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
+```
+
+ja tiedoston <i>App.js</i> sisällöksi
+
+```js
+import React from 'react'
 const App = () => (
   <div>
-    <p>Hello world</p>
+    <p>Hello world lo23</p>
   </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('root'))
+export default App
 ```
 
-Tiedostot <i>App.js</i>, <i>App.css</i>, <i>App.test.js</i>, <i>logo.svg</i> ja <i>reportWebVitals.js</i> voi poistaa sillä niitä emme sovelluksessamme nyt tarvitse.
+Tiedostot <i>App.css</i>, <i>App.test.js</i>, <i>logo.svg</i> ja <i>reportWebVitals.js</i> voi poistaa sillä niitä emme sovelluksessamme nyt tarvitse.
 
 ### Komponentti
 
-Tiedosto <i>index.js</i> määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään <i>App</i> ja viimeisen rivin komento
+Tiedosto <i>App.js</i> määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään <i>App</i>. Tiedoston  <i>index.js</i> viimeisen rivin komento
 
 ```js
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -73,7 +83,7 @@ const App = () => (
 
 Kuten arvata saattaa, komponentti renderöityy <i>div</i>-tagina, jonka sisällä on <i>p</i>-tagin sisällä oleva teksti <i>Hello world</i>.
 
-Teknisesti ottaen komponentti on määritelty Javascript-funktiona. Seuraava siis on funktio (joka ei saa yhtään parametria):
+Teknisesti ottaen komponentti on määritelty JavaScript-funktiona. Seuraava siis on funktio (joka ei saa yhtään parametria):
 
 ```js
 () => (
@@ -105,7 +115,7 @@ const App = () => {
 
 eli funktio palauttaa sisältämänsä lausekkeen arvon.
 
-Komponentin määrittelevä funktio voi sisältää mitä tahansa Javascript-koodia. Muuta komponenttisi seuraavaan muotoon ja katso mitä konsolissa tapahtuu:
+Komponentin määrittelevä funktio voi sisältää mitä tahansa JavaScript-koodia. Muuta komponenttisi seuraavaan muotoon ja katso mitä konsolissa tapahtuu:
 
 ```js
 const App = () => {
@@ -117,6 +127,14 @@ const App = () => {
   )
 }
 ```
+
+*Huom*: älä poista tiedoston <i>App.js</i> viimeistä riviä 
+
+```js
+export default App
+```
+
+muuten komponentti ei näy tiedostoon <i>index.js</i>!
 
 Komponenttien sisällä on mahdollista renderöidä myös dynaamista sisältöä.
 
@@ -139,18 +157,15 @@ const App = () => {
 }
 ```
 
-Aaltosulkeiden sisällä oleva Javascript-koodi evaluoidaan ja evaluoinnin tulos upotetaan määriteltyyn kohtaan komponentin tuottamaa HTML-koodia.
+Aaltosulkeiden sisällä oleva JavaScript-koodi evaluoidaan ja evaluoinnin tulos upotetaan määriteltyyn kohtaan komponentin tuottamaa HTML-koodia.
 
 ### JSX
 
 Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa Javascriptiä. React komponenttien palauttama JSX käännetään konepellin alla Javascriptiksi.
 
-Käännösvaiheen jälkeen ohjelmamme näyttää seuraavalta:
+Käännösvaiheen jälkeen komponentin määrittelevä koodi näyttää seuraavalta:
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-
 const App = () => {
   const now = new Date()
   const a = 10
@@ -166,11 +181,6 @@ const App = () => {
     )
   )
 }
-
-ReactDOM.render(
-  React.createElement(App, null),
-  document.getElementById('root')
-)
 ```
 
 Käännöksen hoitaa [Babel](https://babeljs.io/repl/). Create-react-app:illa luoduissa projekteissa käännös on konfiguroitu tapahtumaan automaattisesti. Tulemme tutustumaan aiheeseen tarkemmin kurssin [osassa 7](/osa7).
@@ -193,7 +203,7 @@ mutta JSX:ää kirjoittaessa tagi on pakko sulkea:
 
 ### Monta komponenttia
 
-Muutetaan sovellusta seuraavasti (yläreunan importit jätetään <i>esimerkeistä</i> nyt ja jatkossa pois, niiden on kuitenkin oltava koodissa jotta ohjelma toimisi):
+Muutetaan tiedostoa <i>App.js</i> seuraavasti (ylärivin import ja alimman rivin export jätetään <i>esimerkeistä</i> nyt ja jatkossa pois, niiden on kuitenkin oltava koodissa jotta ohjelma toimisi):
 
 ```js
 // highlight-start
@@ -214,8 +224,6 @@ const App = () => {
     </div>
   )
 }
-
-ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
 Olemme määritelleet uuden komponentin <i>Hello</i>, jota käytetään komponentista <i>App</i>. Komponenttia voidaan luonnollisesti käyttää monta kertaa:
