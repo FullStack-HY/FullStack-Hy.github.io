@@ -1020,7 +1020,7 @@ Seuraavassa muutamia linkkejä:
 <div class="tasks">
   <h3>Tehtävät 1.6.-1.14.</h3>
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Tehtävät palautetaan **yksi osa kerrallaan**. Kun olet palauttanut osan tehtävät, et voi enää palauttaa saman osan tekemättä jättämiäsi tehtäviä.
 
@@ -1038,11 +1038,22 @@ Sovelluksen tulee näyttää jokaisen palautteen lukumäärä. Sovellus voi näy
 
 Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran ajan, esim. kun selain refreshataan, tilastot saavat hävitä.
 
-Voit tehdä koko sovelluksen tiedostoon <i>index.js</i>. Tiedoston sisältö voi olla aluksi seuraava
+Kannattaa noudattaa samaa rakennetta kuin materiaalissa ja edellisessä tehtävässä, eli tiedoston <i>index.js</i> sisältö on seuraava:
+
+```js
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+)
+```
+
+Muun sovelluksen voi tehdä tiedostoon <i>App.js</i>. Tiedoston sisältö voi olla aluksi seuraava
 
 ```js
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 
 const App = () => {
   // tallenna napit omaan tilaansa
@@ -1057,9 +1068,7 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, 
-  document.getElementById('root')
-)
+export default App
 ```
 
 <h4>1.7: unicafe step2</h4>
@@ -1151,32 +1160,30 @@ Laajenna seuraavaa sovellusta siten, että siihen tulee nappi, jota painamalla s
 
 ```js
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 
-const App = (props) => {
+const App = () => {
+  const anecdotes = [
+    'If it hurts, do it more often',
+    'Adding manpower to a late software project makes it later!',
+    'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+    'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+    'Premature optimization is the root of all evil.',
+    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
+  ]
+   
   const [selected, setSelected] = useState(0)
 
   return (
     <div>
-      {props.anecdotes[selected]}
+      {anecdotes[selected]}
     </div>
   )
 }
 
-const anecdotes = [
-  'If it hurts, do it more often',
-  'Adding manpower to a late software project makes it later!',
-  'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-  'Premature optimization is the root of all evil.',
-  'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-]
-
-ReactDOM.render(
-  <App anecdotes={anecdotes} />,
-  document.getElementById('root')
-)
+export default App
 ```
+
+Tiedoston <i>index.js</i> sisätö on sama kuin edellisissä tehtävissä.
 
 Google kertoo, miten voit generoida Javascriptilla sopivia satunnaisia lukuja. Muista, että voit testata esim. satunnaislukujen generointia konsolissa.
 
@@ -1224,6 +1231,6 @@ Ja sitten vielä lopullinen versio, joka näyttää eniten ääniä saaneen anek
 
 Jos suurimman äänimäärän saaneita anekdootteja on useita, riittää että niistä näytetään yksi.
 
-Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

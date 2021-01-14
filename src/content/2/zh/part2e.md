@@ -366,8 +366,8 @@ React的哲学，事实上，是这个极端的对立面。 由于将 CSS、 HTM
 
 注意 ：即使您捕获并处理异常，错误消息也会打印到控制台。
 
-<!-- This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
-这是本课程这一章节的最后一个练习，现在是时候把你的代码推送到 GitHub，并将所有完成的练习标记到[练习提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)。
+<!-- This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
+这是本课程这一章节的最后一个练习，现在是时候把你的代码推送到 GitHub，并将所有完成的练习标记到[练习提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)。
 
 </div>
 

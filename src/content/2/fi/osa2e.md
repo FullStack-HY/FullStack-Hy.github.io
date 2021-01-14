@@ -299,6 +299,6 @@ Korjaa ongelma osan 2 esimerkin [promise ja virheet](/osa2/palvelimella_olevan_d
 
 **HUOM** vaikka käsittelet poikkeuksen koodissa, virheilmoitus tulostuu silti konsoliin.
 
-Tämä oli osan viimeinen tehtävä ja on aika sekä puskea koodi githubiin että merkata tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Tämä oli osan viimeinen tehtävä ja on aika sekä puskea koodi githubiin että merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

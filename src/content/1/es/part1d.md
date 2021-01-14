@@ -1010,7 +1010,7 @@ Puede encontrar útiles los siguientes enlaces:
 <div class="tasks">
   <h3> Ejercicios 1.6.-1.14.</h3>
 
-Envíe sus soluciones a los ejercicios enviando primero su código a GitHub y luego marcando los ejercicios completados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Envíe sus soluciones a los ejercicios enviando primero su código a GitHub y luego marcando los ejercicios completados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Recuerde, envíe **todos** los ejercicios de una parte **en una sola presentación**. Una vez que haya enviado sus soluciones para una parte, **ya no podrá enviar más ejercicios a esa parte**. 
 
@@ -1220,6 +1220,6 @@ Ahora implemente la versión final de la aplicación que muestra la anécdota co
 
 Si se empatan varias anécdotas en el primer lugar, es suficiente con solo mostrar uno de ellos.
 
-Este fue el último ejercicio de esta parte del curso y es hora de enviar tu código a GitHub y marcar todos tus ejercicios terminados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso y es hora de enviar tu código a GitHub y marcar todos tus ejercicios terminados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

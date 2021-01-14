@@ -1008,7 +1008,7 @@ You may find the following links useful:
 <div class="tasks">
   <h3>Exercises  1.6.-1.14.</h3>
 
-Submit your solutions to the exercises by first pushing your code to GitHub and then marking the completed exercises into the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Submit your solutions to the exercises by first pushing your code to GitHub and then marking the completed exercises into the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Remember, submit **all** the exercises of one part **in a single submission**. Once you have submitted your solutions for one part, **you cannot submit more exercises to that part any more**.
 
@@ -1032,11 +1032,22 @@ The application must display the total number of collected feedback for each cat
 
 Note that your application needs to work only during a single browser session. Once you refresh the page, the collected feedback is allowed to disappear.
 
-You can implement the application in a single <i>index.js</i> file. You can use the code below as a starting point for your application.
+It is advisable to use the same structure that is used in mateerial and previous exercise. File <i>index.js</i> is as follows:
+
+```js
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+)
+```
+
+You can use the code below as a starting point for your the file <i>App.js</i>:
 
 ```js
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 
 const App = () => {
   // save clicks of each button to its own state
@@ -1051,9 +1062,7 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, 
-  document.getElementById('root')
-)
+export default App
 ```
 
 <h4>1.7: unicafe step2</h4>
@@ -1146,32 +1155,30 @@ Expand the following application by adding a button that can be clicked to displ
 
 ```js
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
 
-const App = (props) => {
+const App = () => {
+  const anecdotes = [
+    'If it hurts, do it more often',
+    'Adding manpower to a late software project makes it later!',
+    'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+    'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+    'Premature optimization is the root of all evil.',
+    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
+  ]
+   
   const [selected, setSelected] = useState(0)
 
   return (
     <div>
-      {props.anecdotes[selected]}
+      {anecdotes[selected]}
     </div>
   )
 }
 
-const anecdotes = [
-  'If it hurts, do it more often',
-  'Adding manpower to a late software project makes it later!',
-  'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-  'Premature optimization is the root of all evil.',
-  'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-]
-
-ReactDOM.render(
-  <App anecdotes={anecdotes} />,
-  document.getElementById('root')
-)
+export default App
 ```
+
+Content of the file <i>index.js</i> is same as in previous exercises. 
 
 Google will tell you how to generate random numbers in JavaScript. Remember that you can test generating random numbers e.g. straight in the console of your browser.
 
@@ -1219,6 +1226,6 @@ Now implement the final version of the application that displays the anecdote wi
 
 If multiple anecdotes are tied for first place it is sufficient to just show one of them.
 
-This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

@@ -132,6 +132,6 @@ Puede marcar este ejercicio como finalizado si utiliza una hora o más para dise
 
 ¿Como lo hicimos? ¡Danos tu opinión sobre el curso en Moodle!
 
-Este fue el último ejercicio de esta parte del curso y es hora de enviar el código a GitHub y marcar todos los ejercicios terminados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso y es hora de enviar el código a GitHub y marcar todos los ejercicios terminados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

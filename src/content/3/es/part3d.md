@@ -440,6 +440,6 @@ Puede encontrar el código para nuestra aplicación actual en su totalidad en la
 
 Agregue ESlint a su aplicación y corrija todas las advertencias.
 
-Este fue el último ejercicio de esta parte del curso. Es hora de enviar su código a GitHub y marcar todos sus ejercicios terminados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso. Es hora de enviar su código a GitHub y marcar todos sus ejercicios terminados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

@@ -625,6 +625,6 @@ Fix the bug so that after multiple votes in a row, the notification for the last
 This can be done by cancelling the removal of the previous notification when a new notification is displayed whenever necessary. 
 The [documentation](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) for the setTimeout function might also be useful for this.
 
-This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your completed exercises to the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your completed exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

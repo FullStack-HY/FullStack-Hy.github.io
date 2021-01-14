@@ -921,9 +921,9 @@ JavaScript 的世界发展得很快，也带来了一系列的挑战。 工具�
 <div class="tasks"> 
   <h3>Exercises 0.1.-0.6.</h3>
 
-<!-- The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-这些练习是通过 GitHub 提交的，并在[submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中将练习标记为已完成。
+这些练习是通过 GitHub 提交的，并在[submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中将练习标记为已完成。
 
 <!-- You can submit all of the exercises into the same repository, or use multiple different repositories. If you submit exercises from different parts into the same repository, name your directories well. If you use a private repository to submit the exercises, add _mluukkai_ as a collaborator to it. -->
 
@@ -1043,8 +1043,8 @@ end note
 
 创建一个图表描述如下情况，用户使用应用的 SPA 版本创建一个新的Note 。
 
-<!-- This was the last exercise, and it's time to push your answers to GitHub and mark the exercises as done in the [submission application](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- This was the last exercise, and it's time to push your answers to GitHub and mark the exercises as done in the [submission application](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-这是最后一个练习，是时候将你的答案推送到 GitHub，并在[提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)将练习标记为已完成。
+这是最后一个练习，是时候将你的答案推送到 GitHub，并在[提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)将练习标记为已完成。
 
 </div>

@@ -1503,8 +1503,8 @@ describe('Blog app', function() {
 <!-- This exercise might be a bit trickier. One solution is to find all of the blogs and then compare them in the callback function of a [then](https://docs.cypress.io/api/commands/then.html#DOM-element) command.  -->
 这项工作可能有点棘手。 一个解决方案是找到所有的博客，然后在[then](https://docs.cypress.io/api/commands/then.html#dom-element)命令的回调函数中对它们进行比较。
 
-<!-- This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
-这是本章节的最后一个练习，是时候将您的代码推送到 github，并标记您在[exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中完成的练习。
+<!-- This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
+这是本章节的最后一个练习，是时候将您的代码推送到 github，并标记您在[exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中完成的练习。
 
 
 </div>

@@ -336,7 +336,7 @@ const App = () => {
 
   <h4>1.5: kurssitiedot step5</h4>
 
-Viedään muutos vielä yhtä askelta pidemmälle, eli tehdään kurssista ja sen osista yksi Javascript-olio. Korjaa kaikki mikä menee rikki.
+Viedään muutos vielä yhtä askelta pidemmälle, eli tehdään kurssista ja sen osista yksi JavaScript-olio. Korjaa kaikki mikä menee rikki.
 
 ```js
 const App = () => {

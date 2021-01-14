@@ -404,7 +404,7 @@ Nyt käännös menee läpi ja Reactin generoimaan DOM:iin ei tule ylimääräist
 <div class="tasks">
   <h3>Tehtävät 1.1-1.2</h3>
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Voit palauttaa kurssin kaikki tehtävät samaan repositorioon, tai käyttää useita repositorioita. Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hakemistojen nimentää.  Jos käytät privaattirepositorioa tehtävien palautukseen liitä repositoriolle collaboratoriksi <i>mluukkai</i>
 
@@ -440,8 +440,19 @@ $ code .
 Luo create-react-app:illa uusi sovellus. Muuta <i>index.js</i> muotoon
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(
+  <App />, 
+  document.getElementById('root')
+)
+```
+
+ja tiedosto <i>App.js</i> muotoon
+
+```js
+import React from 'react'
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -469,12 +480,14 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+export default App
 ```
 
-ja poista ylimääräiset tiedostot (App.js, App.css, App.test.js, logo.svg, reportWebVitals.js).
+ja poista ylimääräiset tiedostot (App.css, App.test.js, logo.svg, reportWebVitals.js, setupTests.js).
 
 Koko sovellus on nyt ikävästi yhdessä komponentissa. Refaktoroi sovelluksen koodi siten, että se koostuu kolmesta uudesta komponentista: <i>Header</i>, <i>Content</i> ja <i>Total</i>. Kaikki data pidetään edelleen komponentissa <i>App</i>, joka välittää tarpeelliset tiedot kullekin komponentille <i>props:ien</i> avulla. <i>Header</i> huolehtii kurssin nimen renderöimisestä, <i>Content</i> osista ja niiden tehtävämääristä ja <i>Total</i> tehtävien yhteismäärästä.
+
+Tee uudet komponentit tiedostoon <i>App.js</i>.
 
 Komponentin <i>App</i> runko tulee olemaan suunnilleen seuraavanlainen:
 

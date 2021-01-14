@@ -68,12 +68,12 @@ lang: zh
 <!-- However, note that the deadline for taking exam for University of Helsinki credits is 10.1.2020.  -->
 不过注意，赫尔辛基大学的学分考试截止日期是2020年1月10号。
 
-<!-- Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [the submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [the submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-<!-- 我们对各章节已提交的练习所用时间做了统计，可以在[提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中找到。 -->
+<!-- 我们对各章节已提交的练习所用时间做了统计，可以在[提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中找到。 -->
 
-<!-- Exercise completion time statistics can be found via the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
-练习完成的时间统计可以通过[提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)进行查看。
+<!-- Exercise completion time statistics can be found via the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
+练习完成的时间统计可以通过[提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)进行查看。
 
 ### Grading 
 【课程成绩】
@@ -90,9 +90,9 @@ lang: zh
 
 如果你想获得大学学分，还有一个必须通过的课程考试。 这次考试不会计入你的成绩。 学分是[开放大学](https://courses.helsinki.fi/en/aytkt21009en/131840261)所提供的，如果要 [申请](/zh/part0/基础知识/#sign-up-for-the-exam)大学学分，你必须有一个芬兰的社保号码。
 
-<!-- You can download the course certificate from the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen) once you have completed enough exercises for a passing grade. For getting the course certificate, a Finnish social security number is not needed. -->
+<!-- You can download the course certificate from the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021) once you have completed enough exercises for a passing grade. For getting the course certificate, a Finnish social security number is not needed. -->
 
-一旦你完成了足够的练习后，满足成绩通过的条件，你可以从 [提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)下载课程证书。 获得课程证书，不需要芬兰社保号码。
+一旦你完成了足够的练习后，满足成绩通过的条件，你可以从 [提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)下载课程证书。 获得课程证书，不需要芬兰社保号码。
 
 #### 3 credits 
 【如何获得3学分】
@@ -205,9 +205,9 @@ React Native 章节的学分
 <!-- Note that for getting university credits you need a Finnish social security number. -->
 注意，为了获得大学学分，你需要一个芬兰社保号码。
 
-<!-- If you want to receive credits, save your **University of Helsinki** student number to [the exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)in the _my submissions_ view. If you are not a student at the University of Helsinki, you can get a student number by registering for the course through the [Open university](https://fullstackopen.com/osa0/yleista/#kokeeseen-ilmoittautuminen). -->
+<!-- If you want to receive credits, save your **University of Helsinki** student number to [the exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021)in the _my submissions_ view. If you are not a student at the University of Helsinki, you can get a student number by registering for the course through the [Open university](https://fullstackopen.com/osa0/yleista/#kokeeseen-ilmoittautuminen). -->
 
-如果你想要获得学分，在 [考试提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中*我的提交*页面保存好你的赫尔辛基大学的学号。
+如果你想要获得学分，在 [考试提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中*我的提交*页面保存好你的赫尔辛基大学的学号。
 
 ![](../../images/0/28b.png)
 
@@ -225,9 +225,9 @@ React Native 章节的学分
 ### Course certificate 
 【结业证书】
 
-<!-- Even if you do not register to Open university for the exam, you can download the course certificate from the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen) once you have completed enough exercises for a passing grade. <i>For getting the certificate, a Finnish social security number is not needed.</i> -->
+<!-- Even if you do not register to Open university for the exam, you can download the course certificate from the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021) once you have completed enough exercises for a passing grade. <i>For getting the certificate, a Finnish social security number is not needed.</i> -->
 
-即使你没有因为考试而注册公开大学，只要你完成了结业所需的足够的练习数量，你就可以从 [提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen) 中下载课程的结业证书。如果只想要获得结业证书，你不需要提供芬兰社保账号。
+即使你没有因为考试而注册公开大学，只要你完成了结业所需的足够的练习数量，你就可以从 [提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021) 中下载课程的结业证书。如果只想要获得结业证书，你不需要提供芬兰社保账号。
 
 ### Expanding on a previously completed course 
 【拓展之前完成的课程】
@@ -254,9 +254,9 @@ React Native 章节的学分
 
 此外你只能按整个章节进行替换。 例如，如果你已经完成了一个章节 50% 的练习，那你就不能替换，需要重新开始这个章节的课程。
 
-<!-- "Credit transfer" of previously completed parts happens in the <i>my submissions</i> tab of the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- "Credit transfer" of previously completed parts happens in the <i>my submissions</i> tab of the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-可以利用 [提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中*我的提交*标签来“学分转换”以前完成的章节。
+可以利用 [提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中*我的提交*标签来“学分转换”以前完成的章节。
 
 <!-- If you have previously passed the course exam (excluding the exam for 3-credit course) and you are now expanding your course, you do not have to do the exam again. -->
 
@@ -280,9 +280,9 @@ React Native 章节的学分
 ### Submitting exercises 
 【练习提交】
 
-<!-- The exercises are submitted through GitHub and marking the exercises as done on the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- The exercises are submitted through GitHub and marking the exercises as done on the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-练习是通过 GitHub 提交的，并在[提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中将练习标记为已完成。
+练习是通过 GitHub 提交的，并在[提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中将练习标记为已完成。
 
 <!-- If you are submitting exercises from different parts to the same repository, use some sensible system for naming your directories. You can of course create a new repository for each part. If you are using a private repository, add <i>mluukkai</i> as a collaborator. -->
 
@@ -355,9 +355,9 @@ Enroll on the course through Open University by 9 Jan 2021 [here](https://www.av
 <!-- After course enrollment: Note that you also have to save your student ID number to the my submissions tab in the [submission system](https://studies.cs.helsinki.fi/stats/myinfo) . If you used your institution’s HAKA identification to log in to Moodle, please send a message to avoin-student@helsinki.fi and ask for your University of Helsinki student ID. -->
 注册完课程后：注意你还需要将你的学生ID保存到[提交系统的](https://studies.cs.helsinki.fi/stats/myinfo)我的提交标签页面。如果你使用你的学院的HAKA认证来登录Moodle，请发送信息到 avoin-student@helsinki.fi 来询问你的赫尔辛基大学的学生ID。
 
-<!-- Note that you also have to save your student ID number to the "my submissions" view in the [submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
+<!-- Note that you also have to save your student ID number to the "my submissions" view in the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021). -->
 
-<!-- 请注意，您还必须将您的学生 ID 号保存到 [提交系统](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中的“我的提交”视图中。 -->
+<!-- 请注意，您还必须将您的学生 ID 号保存到 [提交系统](https://study.cs.helsinki.fi/stats/courses/fullstack2021)中的“我的提交”视图中。 -->
 
 <!-- Include your full name, email address used for enrollment, date of birth, and the name of the course in the email. -->
 在邮件中包括你的全名，用来注册的email地址，出生日期，以及课程名称。

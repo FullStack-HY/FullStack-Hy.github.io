@@ -1114,6 +1114,6 @@ Realice una prueba que verifique que los blogs estén ordenados de acuerdo con l
 
 Este ejercicio puede ser un poco más complicado. Una solución es encontrar todos los blogs y luego compararlos en la función de devolución de llamada de un comando [then](https://docs.cypress.io/api/commands/then.html#DOM-element).
 
-Este fue el último ejercicio de esta parte, y es hora de enviar su código a github y marcar los ejercicios que completó en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen) .
+Este fue el último ejercicio de esta parte, y es hora de enviar su código a github y marcar los ejercicios que completó en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021) .
 
 </div>

@@ -620,7 +620,7 @@ Usted mismo sufrirá fatiga de JavaScript durante este curso. Afortunadamente pa
 <div class="tasks"> 
   <h3> Ejercicios 0.1.-0.6.</h3>
 
-Los ejercicios se envían a través de GitHub y marcando los ejercicios como realizados en el [sistema de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Los ejercicios se envían a través de GitHub y marcando los ejercicios como realizados en el [sistema de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Puede enviar todos los ejercicios al mismo repositorio o utilizar varios repositorios diferentes. Si envía ejercicios de diferentes partes al mismo repositorio, nombre bien sus directorios. Si utiliza un repositorio privado para enviar los ejercicios, agregue a _mluukkai_ como colaborador.
 
@@ -704,6 +704,6 @@ Cree un diagrama que describa la situación en la que el usuario accede a la ver
 
 Cree un diagrama que represente la situación en la que el usuario crea una nueva nota utilizando la versión de una sola página de la aplicación.
 
-Este fue el último ejercicio, y es hora de enviar sus respuestas a GitHub y marcar los ejercicios como hechos en la [solicitud de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio, y es hora de enviar sus respuestas a GitHub y marcar los ejercicios como hechos en la [solicitud de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>
