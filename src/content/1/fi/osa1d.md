@@ -259,6 +259,7 @@ Taulukolle _allClicks_ kutsutaan metodia [join](https://developer.mozilla.org/en
 Muutetaan sovellusta siten, että näppäilyhistorian renderöinnistä vastaa komponentti _History_:
 
 ```js
+// highlight-start
 const History = (props) => {
   if (props.allClicks.length === 0) {
     return (
@@ -274,6 +275,7 @@ const History = (props) => {
     </div>
   )
 }
+// highlight-end
 
 const App = () => {
   // ...
@@ -282,8 +284,8 @@ const App = () => {
     <div>
       <div>
         {left}
-        <button onClick={handleLeftClick}>left</button>
-        <button onClick={handleRightClick}>right</button>
+        <button handleClick={handleLeftClick}>left</button>
+        <button handleClick={handleRightClick}>right</button>
         {right}
         <History allClicks={allClicks} /> // highlight-line
       </div>
@@ -330,8 +332,8 @@ const History = (props) => {
 }
 
 // highlight-start
-const Button = ({ onClick, text }) => (
-  <button onClick={onClick}>
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
     {text}
   </button>
 )
@@ -370,9 +372,9 @@ const App = () => {
 
 ### Vanha React
 
-Tällä kurssilla käyttämämme tapa React-komponenttien tilan määrittelyyn, eli [state hook](https://reactjs.org/docs/hooks-state.html) on siis uutta Reactia ja käytettävissä alkuvuodesta 2019 ilmestyneestä versiosta [16.8.0](https://www.npmjs.com/package/react/v/16.8.0) lähtien. Ennen hookeja Javascript-funktioina määriteltyihin React-komponentteihin ei ollut mahdollista saada tilaa ollenkaan, tilaa edellyttävät komponentit oli pakko määritellä [Class](https://reactjs.org/docs/react-component.html)-komponentteina Javascriptin luokkasyntaksia hyödyntäen.
+Tällä kurssilla käyttämämme tapa React-komponenttien tilan määrittelyyn, eli [state hook](https://reactjs.org/docs/hooks-state.html) on siis uutta Reactia ja käytettävissä alkuvuodesta 2019 ilmestyneestä versiosta [16.8.0](https://www.npmjs.com/package/react/v/16.8.0) lähtien. Ennen hookeja JavaScript-funktioina määriteltyihin React-komponentteihin ei ollut mahdollista saada tilaa ollenkaan, tilaa edellyttävät komponentit oli pakko määritellä [class](https://reactjs.org/docs/react-component.html)-komponentteina Javascriptin luokkasyntaksia hyödyntäen.
 
-Olemme tällä kurssilla tehneet hieman radikaalinkin ratkaisun käyttää pelkästään hookeja ja näin ollen opetella heti alusta asti ohjelmoimaan "huomisen" Reactia. Luokkasyntaksin hallitseminen on kuitenkin sikäli tärkeää, että vaikka funktiona määriteltävät komponentit ovat Reactin tulevaisuus, on maailmassa miljardeja rivejä vanhaa Reactia, jota kenties sinäkin joudut jonain päivänä ylläpitämään. Dokumentaation ja internetistä löytyvien esimerkkien suhteen tilanne on sama, törmäät class-komponentteihin välittömästi.
+Olemme tällä kurssilla tehneet hieman radikaalinkin ratkaisun käyttää pelkästään hookeja ja näin ollen opetella heti alusta asti ohjelmoimaan tämän päivän Reactia. Luokkasyntaksin hallitseminen on kuitenkin sikäli tärkeää, että vaikka funktiona määriteltävät komponentit ovat Reactin nykypäivä ja tulevaisuus, on maailmassa miljardeja rivejä vanhaa Reactia, jota kenties sinäkin joudut jonain päivänä ylläpitämään. Dokumentaation ja internetistä löytyvien esimerkkien suhteen tilanne on sama, törmäät class-komponentteihin välittömästi.
 
 Tutustummekin riittävällä tasolla class-komponentteihin kurssin [seitsemännessä](/osa7) osassa.
 
@@ -521,7 +523,7 @@ Edellisten vuosien kurssin perusteella tapahtumankäsittely on osoittautunut mon
 
 Tarkastellaan asiaa vielä uudelleen.
 
-Oletetaan, että käytössä on äärimmäisen yksinkertainen sovellus:
+Oletetaan, että käytössä on äärimmäisen yksinkertainen sovellus, jonka komponentti <i>App</i> on määritelty seuraavasti:
 
 ```js
 const App = (props) => {
@@ -534,11 +536,6 @@ const App = (props) => {
     </div>
   )
 }
-
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root')
-)
 ```
 
 Haluamme, että napin avulla tilan tallettava muuttuja _value_ saadaan nollattua.
@@ -1010,7 +1007,7 @@ const App = props => {
 
 ### Hyödyllistä materiaalia
 
-Internetissä on todella paljon Reactiin liittyvää materiaalia. Tällä hetkellä ongelman muodostaa kuitenkin se, että käytämme kurssilla niin uutta Reactia, että melko suuri osa internetistä löytyvästä tavarasta on meidän kannaltamme vanhentunutta ja käyttää <i>Class</i>-syntaksia komponenttien määrittelyyn.
+Internetissä on todella paljon Reactiin liittyvää materiaalia. Välillä ongelman muodostaa kuitenkin se, että käytämme kurssilla uutta Reactia, ja edelleen aika suuri osa internetistä löytyvästä tavarasta on meidän kannaltamme vanhentunutta ja käyttää <i>Class</i>-syntaksia komponenttien määrittelyyn.
 
 Seuraavassa muutamia linkkejä:
 
