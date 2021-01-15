@@ -81,11 +81,34 @@ Passing event handlers to the child components of the <i>App</i> component has r
 
 We will now do the 'frontend', or the browser-side application logic, in React for an application that's similar to the example application from [part 0](/en/part0)
 
-Let's start with the following:
+Let's start with the following (the file <i>App.js</i>):
 
 ```js
 import React from 'react'
+
+const App = (props) => {
+  const { notes } = props
+
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        <li>{notes[0].content}</li>
+        <li>{notes[1].content}</li>
+        <li>{notes[2].content}</li>
+      </ul>
+    </div>
+  )
+}
+
+export default App
+```
+
+The file <i>index.js</i> looks like:
+
+```js
 import ReactDOM from 'react-dom'
+import App from './App.js'
 
 const notes = [
   {
@@ -107,21 +130,6 @@ const notes = [
     important: true
   }
 ]
-
-const App = (props) => {
-  const { notes } = props
-
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
-    </div>
-  )
-}
 
 ReactDOM.render(
   <App notes={notes} />,
@@ -410,8 +418,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 ```
 
-[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The <i>React</i> module is placed into a variable called _React_ and <i>React-DOM</i> to variable _ReactDOM_.
-
+[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>React-DOM</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
 
 Let's move our <i>Note</i> component into its own module. 
 

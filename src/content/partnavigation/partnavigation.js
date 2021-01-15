@@ -11,13 +11,11 @@ module.exports = {
       d: 'Monimutkaisempi tila, Reactin debuggaus',
     },
     '2': {
-      /*
       a: 'Kokoelmien renderöinti ja moduulit',
       b: 'Lomakkeiden käsittely',
       c: 'Palvelimella olevan datan hakeminen',
       d: 'Palvelimella olevan datan muokkaaminen',
       e: 'Tyylien lisääminen React-sovellukseen',
-      */
     },
     '3': {
       /*
@@ -74,13 +72,11 @@ module.exports = {
       d: 'A more complex state, debugging React apps',
     },
     '2': {
-      /*
       a: 'Rendering a collection, modules',
       b: 'Forms',
       c: 'Getting data from server',
       d: 'Altering data in server',
       e: 'Adding styles to React app',
-      */
     },
     '3': {
       /*
