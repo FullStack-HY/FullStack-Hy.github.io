@@ -379,7 +379,6 @@ const App = ({ notes }) => { //highlight-line
 
 If you have forgotten what destructuring means and how it works, review [this](/en/part1/component_state_event_handlers#destructuring).
 
-
 We'll separate displaying a single note into its own component <i>Note</i>: 
 
 ```js
@@ -411,14 +410,14 @@ Note that the <i>key</i> attribute must now be defined for the <i>Note</i> compo
 
 A whole React application can be written in a single file. Although that is, of course, not very practical. Common practice is to declare each component in their own file as an <i>ES6-module</i>.
 
-We have been using modules the whole time. The first few lines of the file:
+We have been using modules the whole time. The first few lines of the file <i>index.js</i>:
 
 ```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
 
-[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>React-DOM</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
+[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
 
 Let's move our <i>Note</i> component into its own module. 
 
@@ -443,11 +442,10 @@ Because this is a React-component, we must import React.
 
 The last line of the module [exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) the declared module, the variable <i>Note</i>.
 
-Now the file that is using the component - <i>index.js</i> - can [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) the module: 
+Now the file that is using the component - <i>App.js</i> - can [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) the module: 
 
 ```js
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Note from './components/Note' // highlight-line
 
 const App = ({ notes }) => {

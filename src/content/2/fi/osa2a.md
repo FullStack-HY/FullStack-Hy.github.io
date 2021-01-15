@@ -447,11 +447,10 @@ Koska kyseessä on React-komponentti, tulee React importata komponentissa.
 
 Moduulin viimeisenä rivinä [eksportataan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) määritelty komponentti, eli muuttuja <i>Note</i>.
 
-Nyt komponenttia käyttävä tiedosto <i>index.js</i> voi [importata](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) moduulin:
+Nyt komponenttia käyttävä tiedosto <i>App.js</i> voi [importata](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) moduulin:
 
 ```js
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Note from './components/Note' // highlight-line
 
 const App = ({notes}) => {
