@@ -468,45 +468,6 @@ Huomaa, että itse määriteltyä komponenttia importatessa komponentin sijainti
 
 Piste alussa viittaa nykyiseen hakemistoon, eli kyseessä on nykyisen hakemiston alihakemisto <i>components</i> ja sen sisällä tiedosto <i>Note.js</i>. Tiedoston päätteen voi jättää pois.
 
-Koska myös <i>App</i> on komponentti, eristetään sekin omaan moduuliinsa. Koska kyseessä on sovelluksen juurikomponentti, sijoitetaan se suoraan hakemistoon <i>src</i>. Tiedoston sisältö on seuraava:
-
-```js
-import React from 'react'
-import Note from './components/Note'
-
-const App = ({ notes }) => {
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        {notes.map((note, i) => 
-          <Note key={note.id} note={note} />
-        )}
-      </ul>
-    </div>
-  )
-}
-
-export default App // highlight-line
-```
-
-Tiedoston <i>index.js</i> sisällöksi jää:
-
-```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'  // highlight-line
-
-const notes = [
-  // ...
-]
-
-ReactDOM.render(
-  <App notes={notes} />,
-  document.getElementById('root')
-)
-```
-
 Moduuleilla on paljon muutakin käyttöä kuin mahdollistaa komponenttien määritteleminen omissa tiedostoissaan, palaamme moduuleihin tarkemmin myöhemmin kurssilla.
 
 Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1)

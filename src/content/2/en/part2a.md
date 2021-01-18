@@ -463,50 +463,9 @@ Note that when importing our own components, their location must be given <i>in 
 
 The period - <i>.</i> - in the beginning refers to the current directory, so the module's location is a file called <i>Note.js</i> in the <i>components</i> sub-directory of the current directory. The filename extension - _.js_ - can be omitted.
 
-<i>App</i> is a component as well, so let's declare it in its own module as well. Since it is the root component of the application, we'll place it in the <i>src</i> directory. The contents of the file are as follows: 
-
-```js
-import React from 'react'
-import Note from './components/Note'
-
-const App = ({ notes }) => {
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        {notes.map((note) => 
-          <Note key={note.id} note={note} />
-        )}
-      </ul>
-    </div>
-  )
-}
-
-export default App // highlight-line
-```
-
-What's left in the <i>index.js</i> file is: 
-
-```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'  // highlight-line
-
-const notes = [
-  // ...
-]
-
-ReactDOM.render(
-  <App notes={notes} />,
-  document.getElementById('root')
-)
-```
-
 Modules have plenty of other uses other than enabling component declarations to be separated into their own files. We will get back to them later in this course. 
 
-
 The current code of the application can be found on [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1).
-
 
 Note that the <i>master</i> branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1):
 

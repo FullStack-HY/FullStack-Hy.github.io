@@ -64,7 +64,7 @@ Joskus on hyödyllistä tarkastella HTTP-pyyntöjä [osan 0 alussa](/osa0/web_so
 
 Voimme esim. tarkastaa onko POST-pyynnön mukana menevä data juuri se mitä oletimme, onko headerit asetettu oikein ym.
 
-Koska POST-pyynnössä lähettämämme data oli Javascript-olio, osasi axios automaattisesti asettaa pyynnön <i>Content-type</i> headerille oikean arvon eli <i>application/json</i>.
+Koska POST-pyynnössä lähettämämme data oli JavaScript-olio, osasi axios automaattisesti asettaa pyynnön <i>Content-type</i> headerille oikean arvon eli <i>application/json</i>.
 
 Uusi muistiinpano ei vielä renderöidy ruudulle, sillä emme aseta komponentille <i>App</i> uutta tilaa muistiinpanon luomisen yhteydessä. Viimeistellään sovellus vielä tältä osin:
 
@@ -187,7 +187,7 @@ ES6:n [template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 console.log(`importance of ${id} needs to be toggled`)
 ```
 
-Merkkijonon sisälle voi nyt määritellä "dollari-aaltosulku"-syntaksilla kohtia, minkä sisälle evaluoidaan javascript-lausekkeita, esim. muuttujan arvo. Huomaa, että template stringien hipsutyyppi poikkeaa Javascriptin normaaleista merkkijonojen käyttämistä hipsuista.
+Merkkijonon sisälle voi nyt määritellä "dollari-aaltosulku"-syntaksilla kohtia, minkä sisälle evaluoidaan JavaScript-lausekkeita, esim. muuttujan arvo. Huomaa, että template stringien hipsutyyppi poikkeaa Javascriptin normaaleista merkkijonojen käyttämistä hipsuista.
 
 Yksittäistä json-serverillä olevaa muistiinpanoa voi muuttaa kahdella tavalla, joko <i>korvaamalla</i> sen tekemällä HTTP PUT -pyyntö muistiinpanon yksilöivään osoitteeseen tai muuttamalla ainoastaan joidenkin muistiinpanon kenttien arvoja HTTP PATCH -pyynnöllä.
 
@@ -477,7 +477,7 @@ Tämä kaikki on hieman monimutkaista ja asian selittäminen varmaan vain vaikeu
 
 [You do not know JS](https://github.com/getify/You-Dont-Know-JS) sarjan kirja "Async and performance" selittää asian [hyvin](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md) mutta tarvitsee selitykseen kohtuullisen määrän sivuja.
 
-Promisejen ymmärtäminen on erittäin keskeistä modernissa Javascript-sovelluskehityksessä, joten asiaan kannattaa uhrata kohtuullisessa määrin aikaa.
+Promisejen ymmärtäminen on erittäin keskeistä modernissa JavaScript-sovelluskehityksessä, joten asiaan kannattaa uhrata kohtuullisessa määrin aikaa.
 
 ### Kehittyneempi tapa olioliteraalien määrittelyyn
 
