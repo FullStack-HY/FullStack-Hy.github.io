@@ -465,9 +465,9 @@ The period - <i>.</i> - in the beginning refers to the current directory, so the
 
 Modules have plenty of other uses other than enabling component declarations to be separated into their own files. We will get back to them later in this course. 
 
-The current code of the application can be found on [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1).
+The current code of the application can be found on [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part2-1).
 
-Note that the <i>master</i> branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1):
+Note that the <i>master</i> branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy/part2-notes/tree/part2-1):
 
 ![](../../images/2/2e.png)
 

@@ -90,7 +90,7 @@ export default App
 ```
 
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-1), branch <i>part5-1</i>.
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-1), branch <i>part5-1</i>.
 
 
 The login form is handled the same way we handled forms in 
@@ -330,7 +330,7 @@ The solution isn't perfect, but we'll leave it for now.
 Our main component <i>App</i> is at the moment way too large. The changes we did now are a clear sign that the forms should be refactored into their own components. However, we will leave that for an optional exercise. 
 
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-2), branch <i>part5-2</i>.
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-2), branch <i>part5-2</i>.
 
 ### Creating new notes
 
@@ -552,7 +552,7 @@ window.localStorage.clear()
 ```
 
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-3), branch <i>part5-3</i>.
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-3), branch <i>part5-3</i>.
 
 </div>
 

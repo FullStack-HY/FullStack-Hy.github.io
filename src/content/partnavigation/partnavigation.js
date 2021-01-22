@@ -18,12 +18,10 @@ module.exports = {
       e: 'Tyylien lisääminen React-sovellukseen',
     },
     '3': {
-      /*
       a: 'Node.js ja Express',
       b: 'Sovellus internetiin',
       c: 'Tietojen tallettaminen MongoDB-tietokantaan',
       d: 'Validointi ja ESLint',
-      */
     },
     '4': {
       /*
@@ -79,12 +77,10 @@ module.exports = {
       e: 'Adding styles to React app',
     },
     '3': {
-      /*
       a: 'Node.js and Express',
       b: 'Deploying app to internet',
       c: 'Saving data to MongoDB',
       d: 'Validation and ESLint',
-      */
     },
     '4': {
       /*

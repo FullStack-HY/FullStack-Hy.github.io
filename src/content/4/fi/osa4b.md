@@ -104,7 +104,7 @@ Oma tekemämme eri ympäristöjen konfiguroinnista huolehtiva _config_-moduuli t
 
 Muualle koodiin ei muutoksia tarvita.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-2), branchissä <i>part4-2</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-2), branchissä <i>part4-2</i>.
 
 ### supertest
 
@@ -424,7 +424,7 @@ notesRouter.get('/', async (request, response) => {
 
 Voimme varmistaa refaktoroinnin onnistumisen selaimella, sekä suorittamalla juuri määrittelemämme testit.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-3), branchissa <i>part4-3</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-3), branchissa <i>part4-3</i>.
 
 ### Lisää testejä ja backendin refaktorointia
 
@@ -733,7 +733,7 @@ notesRouter.delete('/:id', async (request, response, next) => {
 })
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-4), haarassa <i>part4-4</i>. 
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-4), haarassa <i>part4-4</i>. 
 
 ### Try-catchin eliminointi
 
@@ -825,7 +825,7 @@ notesRouter.get('/:id', async (request, response) => {
 })
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-5), haarassa <i>part4-5</i>. 
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-5), haarassa <i>part4-5</i>. 
 
 ### Testin beforeEach-metodin optimointi
 
@@ -1143,7 +1143,7 @@ Testeihin jää vielä parannettavaa mutta on jo aika siirtyä eteenpäin.
 
 Käytetty tapa API:n testaamiseen, eli HTTP-pyyntöinä tehtävät operaatiot ja tietokannan tilan tarkastelu Mongoosen kautta ei ole suinkaan ainoa tai välttämättä edes paras tapa tehdä API-tason integraatiotestausta. Universaalisti parasta tapaa testien tekoon ei ole, vaan kaikki on aina suhteessa käytettäviin resursseihin ja testattavaan ohjelmistoon.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-6), branchissa <i>part4-6</i>
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-6), branchissa <i>part4-6</i>
 
 </div>
 
