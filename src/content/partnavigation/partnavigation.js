@@ -18,47 +18,47 @@ module.exports = {
       e: 'Tyylien lisääminen React-sovellukseen',
     },
     '3': {
+      /*
       a: 'Node.js ja Express',
       b: 'Sovellus internetiin',
       c: 'Tietojen tallettaminen MongoDB-tietokantaan',
       d: 'Validointi ja ESLint',
+      */
     },
     '4': {
+      /*
       a: 'Sovelluksen rakenne ja testauksen alkeet',
       b: 'Backendin testaaminen',
       c: 'Käyttäjien hallinta',
       d: 'Token-perustainen kirjautuminen',
+      */
     },
     '5': {
+      /*
       a: 'Kirjautuminen frontendissä',
       b: 'props.children ja proptypet',
       c: 'React-sovellusten testaaminen',
       d: 'End to end -testaus',
+      */
     },
     '6': {
+      /*
       a: 'Flux-arkkitehtuuri ja Redux',
       b: 'Monta reduseria',
       c: 'Redux-sovelluksen kommunikointi palvelimen kanssa',
       d: 'connect',
+      */
     },
     '7': {
+      /*
       a: 'React-router',
       b: 'custom-hookit',
       c: 'Lisää tyyleistä',
       d: 'Webpack',
       e: 'Luokkakomponentit, Sekalaista',
       f: 'Tehtäviä: blogilistan laajennus',
+      */
     },
-    '8': {
-      a: 'GraphQL-palvelin',
-      b: 'React ja GraphQL',
-      c: 'Tietokanta ja käyttäjien hallinta',
-      d: 'Kirjautuminen ja välimuistin päivitys',
-      e: 'Fragmentit ja subskriptiot',
-    },
-    '9': {},
-    '10': {},
-    '11': {},
   },
   en: {
     '0': {
@@ -79,62 +79,46 @@ module.exports = {
       e: 'Adding styles to React app',
     },
     '3': {
+      /*
       a: 'Node.js and Express',
       b: 'Deploying app to internet',
       c: 'Saving data to MongoDB',
       d: 'Validation and ESLint',
+      */
     },
     '4': {
+      /*
       a: 'Structure of backend application, introduction to testing',
       b: 'Testing the backend',
       c: 'User administration',
       d: 'Token authentication',
+      */
     },
     '5': {
+      /*
       a: 'Login in frontend',
       b: 'props.children and proptypes',
       c: 'Testing React apps',
       d: 'End to end -testing',
+      */
     },
     '6': {
+      /*
       a: 'Flux-architecture and Redux',
       b: 'Many reducers',
       c: 'Communicating with server in a redux application',
       d: 'connect',
+      */
     },
     '7': {
+    /*
       a: 'React-router',
       b: 'Custom hooks',
       c: 'More about styles',
       d: 'Webpack',
       e: 'Class components, Miscellaneous',
       f: 'Exercises: extending the bloglist',
-    },
-    '8': {
-      a: 'GraphQL-server',
-      b: 'React and GraphQL',
-      c: 'Database and user administration',
-      d: 'Login and updating the cache',
-      e: 'Fragments and subscriptions',
-    },
-    '9': {
-      a: 'Background and introduction',
-      b: 'First steps with Typescript',
-      c: 'Typing the express app',
-      d: 'React with types',
-    },
-    '10': {
-      a: 'Introduction to React Native',
-      b: 'React Native basics',
-      c: 'Communicating with server',
-      d: 'Testing and extending our application',
-    },
-    '11': {
-      a: 'Introduction to CI/CD',
-      b: 'Getting started with GitHub Actions',
-      c: 'Deployment',
-      d: 'Keeping green',
-      e: 'Expanding Further',
+      */
     },
   },
   zh: {

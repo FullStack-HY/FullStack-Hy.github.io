@@ -37,7 +37,7 @@ Se espera que haga <i>al menos</i> todos los ejercicios que no están marcados c
 
 La velocidad para completar el curso es bastante flexible y los ejercicios se pueden enviar hasta las 23:59 [EET](https://en.wikipedia.org/wiki/Eastern_European_Time) del 10 de enero de 2021.
 
-Las estadísticas del tiempo de finalización del ejercicio se pueden encontrar en el [sistema de presentación](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Las estadísticas del tiempo de finalización del ejercicio se pueden encontrar en el [sistema de presentación](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 ### Calificación
 
@@ -47,7 +47,7 @@ El número de créditos y la calificación final están determinados por el núm
 
 Si desea obtener créditos universitarios, también hay un examen de curso que no cuenta para su calificación final, pero debe aprobarse. Para [registrarse](/en/part0/general_info/#sign-up-for-the-exam) para créditos universitarios proporcionados por [Open University](https://courses.helsinki.fi/en/aytkt21009en/131840261), debe tener un número de seguro social finlandés.
 
-Una vez que haya completado suficientes ejercicios para aprobar, puede descargar el certificado del curso desde el [sistema de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). No se requiere un número de seguro social finlandés.
+Una vez que haya completado suficientes ejercicios para aprobar, puede descargar el certificado del curso desde el [sistema de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021). No se requiere un número de seguro social finlandés.
 
 #### 3 créditos
 
@@ -108,7 +108,7 @@ Al enviar ejercicios para la parte 10 de los cursos, React Native, puede obtener
 Tenga en cuenta que para recibir créditos universitarios, necesita un número de seguro social finlandés.
 
 Si desea recibir créditos, guarde su número de estudiante de la <b>Universidad de Helsinki</b> en
-[el sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)
+[el sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021)
 
 ![](../../images/0/28b.png)
 
@@ -122,7 +122,7 @@ Puede ver su calificación en Weboodi aproximadamente cuatro semanas después de
 
 ### Certificado del curso
 
-Incluso si no se registra en Open University para el examen, aún puede descargar el certificado del curso desde el [sistema de presentación](https://studies.cs.helsinki.fi/stats/courses/fullstackopen) una vez que haya completado suficientes ejercicios para aprobar. <i>Para obtener el certificado, no se necesita un número de seguro social finlandés.</i>
+Incluso si no se registra en Open University para el examen, aún puede descargar el certificado del curso desde el [sistema de presentación](https://study.cs.helsinki.fi/stats/courses/fullstack2021) una vez que haya completado suficientes ejercicios para aprobar. <i>Para obtener el certificado, no se necesita un número de seguro social finlandés.</i>
 
 ### Ampliación de un curso completado anteriormente
 
@@ -138,7 +138,7 @@ Puede sustituir <i>partes</i> de este curso por partes que haya enviado anterior
 
 Solo puede sustituir partes enteras. Por ejemplo, si ha enviado previamente el 50% de los ejercicios en una parte, no puede sustituirlos; deberá comenzar de nuevo en esa parte del curso.
 
-La "transferencia de crédito" de las partes completadas anteriormente ocurre en la pestaña <i>mis envíos</i> del [sistema de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+La "transferencia de crédito" de las partes completadas anteriormente ocurre en la pestaña <i>mis envíos</i> del [sistema de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Si ya aprobó el examen del curso (excluyendo el examen del curso de tres créditos) y ahora está ampliando su curso, no es necesario que vuelva a realizar el examen.
 
@@ -155,7 +155,7 @@ El material del curso del año pasado se puede encontrar [aquí](https://fullsta
 
 ### Envío de ejercicios
 
-Los ejercicios se envían a través de GitHub y se marcan como hechos en el [sistema de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Los ejercicios se envían a través de GitHub y se marcan como hechos en el [sistema de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Si está enviando ejercicios de diferentes partes al mismo repositorio, use algún sistema sensato para nombrar sus directorios. Por supuesto, puede crear un nuevo repositorio para cada parte. Si está utilizando un repositorio privado, agregue <i>mluukkai</i> como colaborador.
 

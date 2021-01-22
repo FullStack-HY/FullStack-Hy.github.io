@@ -10,17 +10,13 @@ lang: en
 
 The appearance of our current application is quite modest. In [exercise 0.2](/en/part0/fundamentals_of_web_apps#exercises-0-1-0-6), the assignment was to go through Mozilla's [CSS tutorial](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
 
-
 Before we move onto the next part, let's take a look at how we can add styles to a React application. There are several different ways of doing this and we will take a look at the other methods later on. At first, we will add CSS to our application the old-school way; in a single file without using a [CSS preprocessor](https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor) (although this is not entirely true as we will learn later on). 
-
-
 
 Let's add a new <i>index.css</i> file under the <i>src</i> directory and then add it to the application by importing it in the <i>index.js</i> file:
 
 ```js
 import './index.css'
 ```
-
 
 Let's add the following CSS rule to the <i>index.css</i> file:
 
@@ -30,12 +26,11 @@ h1 {
 }
 ```
 
+**Note:** when the content of the file <i>index.js</i> changes, React does not notice the automatiaclly so you must refresh the browser to see your changes!
 
 CSS rules comprise of <i>selectors</i> and <i>declarations</i>. The selector defines which elements the rule should be applied to. The selector above is <i>h1</i>, which will match all of the <i>h1</i> header tags in our application.
 
-
 The declaration sets the _color_ property to the value <i>green</i>.
-
 
 One CSS rule can contain an arbitrary number of properties. Let's modify the previous rule to make the text cursive, by defining the font style as <i>italic</i>:
 
@@ -277,7 +272,7 @@ const Footer = () => {
   return (
     <div style={footerStyle}>
       <br />
-      <em>Note app, Department of Computer Science, University of Helsinki 2020</em>
+      <em>Note app, Department of Computer Science, University of Helsinki 2021</em>
     </div>
   )
 }
@@ -336,6 +331,6 @@ Fix the issue according to the example shown in [promise and errors](/en/part2/a
 
 **Note** that even if you handle the exception, the error message is printed to the console.
 
-This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

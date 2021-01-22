@@ -617,6 +617,6 @@ Haga lo mismo con los componentes <i>Filter</i> y <i>AnecdoteForm</i>.
 
 Solucione el error para que después de varios votos seguidos, la notificación del último voto se muestre durante cinco segundos. Esto se puede hacer cancelando la eliminación de la notificación anterior cuando se muestra una nueva notificación cuando sea necesario. La [documentación](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) de la función setTimeout también puede ser útil para esto.
 
-Este fue el último ejercicio de esta parte del curso y es hora de enviar su código a GitHub y marcar todos los ejercicios completados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso y es hora de enviar su código a GitHub y marcar todos los ejercicios completados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

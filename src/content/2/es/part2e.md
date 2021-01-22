@@ -301,6 +301,6 @@ Solucione el problema de acuerdo con el ejemplo que se muestra en [promesa y err
 
 **Tenga en cuenta** que incluso si maneja la excepción, el mensaje de error se imprime en el consola.
 
-Este fue el último ejercicio de esta parte del curso. Es hora de enviar su código a GitHub y marcar todos sus ejercicios terminados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso. Es hora de enviar su código a GitHub y marcar todos sus ejercicios terminados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

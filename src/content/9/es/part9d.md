@@ -1376,6 +1376,6 @@ La forma más fácil, pero seguramente no la más elegante, de hacer este ejerci
 
 Amplíe su solución para que admita <i>todos los tipos de entrada</i> y muestre un mensaje de error si faltan algunos valores obligatorios o tienen un formato incorrecto. No necesita preocuparse por los posibles errores en la respuesta del servidor.
 
-Este fue el último ejercicio de esta parte del curso y es hora de enviar el código a GitHub y marcar todos los ejercicios terminados en el [sistema de envío de ejercicios](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Este fue el último ejercicio de esta parte del curso y es hora de enviar el código a GitHub y marcar todos los ejercicios terminados en el [sistema de envío de ejercicios](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

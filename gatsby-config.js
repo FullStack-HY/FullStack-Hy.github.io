@@ -136,10 +136,10 @@ const plugins = [
 
 module.exports = {
   siteMetadata: {
-    title: 'Full Stack open 2020',
+    title: 'Full Stack -websovelluskehitys',
     description: '',
     author: 'Houston Inc. Consulting oy',
-    siteUrl: 'https://fullstack-hy2020.github.io/',
+    siteUrl: 'https://fullstack-hy.github.io/',
   },
   plugins,
 };

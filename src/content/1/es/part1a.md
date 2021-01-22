@@ -2,7 +2,7 @@
 mainImage: ../../../images/part-1.svg 
 part: 1 
 letter: a 
-lang: en 
+lang: es
 --- 
 
 <div class="content"> 
@@ -395,7 +395,7 @@ Ahora se compila con éxito y el DOM generado por React ya no contiene el elemen
 <div class="tasks"> 
   <h3>Ejercicios 1.1.-1.2.</h3> 
 
-Los ejercicios se envían a través de GitHub y marcando los ejercicios completados en la [solicitud de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). 
+Los ejercicios se envían a través de GitHub y marcando los ejercicios completados en la [solicitud de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021). 
 
 Puede enviar todos los ejercicios de este curso al mismo repositorio o utilizar varios repositorios. Si envía ejercicios de diferentes partes en el mismo repositorio, utilice un esquema de nomenclatura razonable para los directorios. 
 
@@ -412,7 +412,7 @@ part2
   countries
 ```
 
-Vea [esto](https://github.com/fullstack-hy2020/example-submission-repository)! 
+Vea [esto](https://github.com/FullStack-HY/example-submission-repository)! 
 
 Para cada parte del curso hay un directorio, que se ramifica en directorios que contienen una serie de ejercicios, como "unicafe" para la parte 1. 
 

@@ -2,7 +2,7 @@
 mainImage: ../../../images/part-2.svg
 part: 2
 letter: a
-lang: en
+lang: es
 ---
 
 <div class="content">
@@ -608,7 +608,7 @@ Agregué este capítulo al material después de que la respuesta del modelo para
 
 <h3>Ejercicios 2.1.-2.5.</h3>
 
-Los ejercicios se envían a través de GitHub y marcando los ejercicios como realizados en el [sistema de envío](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+Los ejercicios se envían a través de GitHub y marcando los ejercicios como realizados en el [sistema de envío](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 Puede enviar todos los ejercicios al mismo repositorio o utilizar varios repositorios diferentes. Si envía ejercicios de diferentes partes al mismo repositorio, nombre bien sus directorios.
 
@@ -621,7 +621,7 @@ Tenga en cuenta que esta parte tiene más ejercicios que los anteriores, por lo 
 <h4>2.1: Información del curso paso6</h4>
 
 
-Terminemos el código para renderizar los contenidos del curso de los ejercicios 1.1 - 1.5. Puede comenzar con el código de las respuestas del modelo. Las respuestas modelo para la parte 1 se pueden encontrar yendo al [sistema de presentación](https://studies.cs.helsinki.fi/stats/courses/fullstackopen), haga clic en <i>my submissions</i> en el arriba, y en la fila correspondiente a la parte 1 debajo de la columna <i>solutions</i> haga clic en <i>show</i>. Para ver la solución al ejercicio de <i>información del curso</i>, haga clic en _index.js_ debajo de <i>kurssitiedot</i> ("kurssitiedot" significa "información del curso").
+Terminemos el código para renderizar los contenidos del curso de los ejercicios 1.1 - 1.5. Puede comenzar con el código de las respuestas del modelo. Las respuestas modelo para la parte 1 se pueden encontrar yendo al [sistema de presentación](https://study.cs.helsinki.fi/stats/courses/fullstack2021), haga clic en <i>my submissions</i> en el arriba, y en la fila correspondiente a la parte 1 debajo de la columna <i>solutions</i> haga clic en <i>show</i>. Para ver la solución al ejercicio de <i>información del curso</i>, haga clic en _index.js_ debajo de <i>kurssitiedot</i> ("kurssitiedot" significa "información del curso").
 
 
 **Tenga en cuenta que si copia un proyecto de un lugar a otro, es posible que deba eliminar el directorio <i>node_modules</i> e instalar las dependencias nuevamente con el comando _npm install_ antes de que pueda iniciar la aplicación.**
