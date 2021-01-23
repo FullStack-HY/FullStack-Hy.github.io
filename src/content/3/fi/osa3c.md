@@ -600,7 +600,7 @@ Todennäköisesti voi olla kannattavaa edetä frontin ja backin integroinnissa t
 
 Kun kuvioissa on mukana tietokanta, on tietokannan tilan tarkastelu MongoDB Atlasin hallintanäkymästä varsin hyödyllistä, usein myös suoraan tietokantaa käyttävät Node-apuohjelmat, kuten tiedostoon <i>mongo.js</i> kirjoittamamme koodi auttavat sovelluskehityksen edetessä.
 
-Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [Githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-4), branchissa <i>part3-4</i>.
+Sovelluksen tämän hetkinen koodi on kokonaisuudessaan [Githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-4), branchissa <i>part3-4</i>.
 
 </div>
 
@@ -868,7 +868,7 @@ Pieni, mutta tärkeä detalji liittyen operaatioon <em>findByIdAndUpdate</em>. O
 
 Backend vaikuttaa toimivan postmanista ja VS Coden REST-clientistä tehtyjen kokeilujen perusteella, ja myös frontend toimii moitteettomasti tietokantaa käyttävän backendin kanssa.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-5), branchissa <i>part3-5</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-5), branchissa <i>part3-5</i>.
 
 </div>
 
