@@ -278,16 +278,12 @@ The configuration will be saved in the _.eslintrc.js_ file:
 module.exports = {
     'env': {
         'commonjs': true,
-        'es6': true,
+        'es2021': true,
         'node': true
     },
     'extends': 'eslint:recommended',
-    'globals': {
-        'Atomics': 'readonly',
-        'SharedArrayBuffer': 'readonly'
-    },
     'parserOptions': {
-        'ecmaVersion': 2018
+        'ecmaVersion': 12
     },
     'rules': {
         'indent': [
@@ -305,7 +301,15 @@ module.exports = {
         'semi': [
             'error',
             'never'
-        ]
+        ],
+        'eqeqeq': 'error',
+            'no-trailing-spaces': 'error',
+    'object-curly-spacing': [
+        'error', 'always'
+    ],
+    'arrow-spacing': [
+        'error', { 'before': true, 'after': true }
+    ]
     }
 }
 ```
