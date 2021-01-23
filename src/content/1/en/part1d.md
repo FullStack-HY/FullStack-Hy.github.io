@@ -1032,7 +1032,7 @@ The application must display the total number of collected feedback for each cat
 
 Note that your application needs to work only during a single browser session. Once you refresh the page, the collected feedback is allowed to disappear.
 
-It is advisable to use the same structure that is used in mateerial and previous exercise. File <i>index.js</i> is as follows:
+It is advisable to use the same structure that is used in material and previous exercise. File <i>index.js</i> is as follows:
 
 ```js
 import ReactDOM from 'react-dom'
