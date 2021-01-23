@@ -714,7 +714,7 @@ It's never a bad idea to print the object that caused the exception to the conso
 
 ```js
 .catch(error => {
-  console.log(error)
+  console.log(error)  // highlight-line
   response.status(400).send({ error: 'malformatted id' })
 })
 ```
@@ -760,10 +760,13 @@ const errorHandler = (error, request, response, next) => {
   next(error)
 }
 
+// this has to be the last loaded middleware.
 app.use(errorHandler)
 ```
 
 The error handler checks if the error is a <i>CastError</i> exception, in which case we know that the error was caused by an invalid object id for Mongo. In this situation the error handler will send a response to the browser with the response object passed as a parameter. In all other error situations, the middleware passes the error forward to the default Express error handler. 
+
+Note that the error handling middleware has to be the last loaded middleware!
 
 ### The order of middleware loading
 
@@ -774,7 +777,7 @@ The correct order is the following:
 ```js
 app.use(express.static('build'))
 app.use(express.json())
-app.use(logger)
+app.use(requestLogger)
 
 app.post('/api/notes', (request, response) => {
   const body = request.body
@@ -799,7 +802,7 @@ app.use(errorHandler)
 The json-parser middleware should be among the very first middleware loaded into Express. If the order was the following:
 
 ```js
-app.use(logger) // request.body is undefined!
+app.use(requestLogger) // request.body is undefined!
 
 app.post('/api/notes', (request, response) => {
   // request.body is undefined!
