@@ -118,11 +118,34 @@ props value is [Object object]
 - Note 应用实际上是在创建一个和提醒、便笺相关的应用，因此以下的Note均翻译为便笺。
 
 <!-- Let's start with the following: -->
-让我们从如下代码开始:
+让我们从如下代码开始( <i>App.js</i>):
 
 ```js
 import React from 'react'
+
+const App = (props) => {
+  const { notes } = props
+
+  return (
+    <div>
+      <h1>Notes</h1>
+      <ul>
+        <li>{notes[0].content}</li>
+        <li>{notes[1].content}</li>
+        <li>{notes[2].content}</li>
+      </ul>
+    </div>
+  )
+}
+
+export default App
+```
+
+<i>index.js</i> 内容如下:
+
+```js
 import ReactDOM from 'react-dom'
+import App from './App.js'
 
 const notes = [
   {
@@ -144,21 +167,6 @@ const notes = [
     important: true
   }
 ]
-
-const App = (props) => {
-  const { notes } = props
-
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
-    </div>
-  )
-}
 
 ReactDOM.render(
   <App notes={notes} />,
@@ -475,7 +483,7 @@ const App = ({ notes }) => {
 可以在单个文件中编写整个 React 应用。 虽然实践中很少这么用。 通常的做法是将每个组件在其自己的文件中，声明为一个<i>ES6-模块</i>。
 
 <!-- We have been using modules the whole time. The first few lines of the file: -->
-我们一直在使用模块。比如文件的前几行:
+我们一直在使用模块。比如 <i>index.js</i>:文件的前几行:
 
 ```js
 import React from 'react'
@@ -484,6 +492,9 @@ import ReactDOM from 'react-dom'
 
 <!-- [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in the code. The <i>react</i> module is placed into a variable called _React_ and <i>react-dom</i> to variable _ReactDOM_. -->
 为了让它们能够在代码中使用，就[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 了两个模块： <i>React</i> 模块被放入一个名为 React 的变量中， <i>React-DOM</i> 模块放到了 ReactDOM 变量中。
+
+[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
+为了让它们能够在代码中使用，就[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 了两个模块：  <i>react-dom</i>  模块放到了 _ReactDOM_ 变量中，主应用的模块被放入一个名为 _App_ 的变量中。
 
 <!-- Let's move our <i>Note</i> component into its own module.  -->
 让我们将我们的<i>Note</i> 组件移动到它自己的模块中。
@@ -516,11 +527,10 @@ export default Note
 模块的最后一行  [exports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) ，是在声明模块，即变量<i>Note</i>。
 
 <!-- Now the file using the component, <i>index.js</i>, can [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) the module:  -->
-现在使用这个组件的文件，即<i>index.js</i>，可以 [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 这个模块了:
+现在使用这个组件的文件，即<i>App.js</i>，可以 [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) 这个模块了:
 
 ```js
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Note from './components/Note' // highlight-line
 
 const App = ({ notes }) => {
@@ -542,9 +552,9 @@ const App = ({ notes }) => {
 开头的 _句点_ 指的是当前工作目录，因此模块的位置是当前<i>components</i> 的子目录中的一个名为<i>Note.js</i> 的文件。 文件扩展名(_.js_)可以省略。
 
 <!--<i>App</i> is a component as well, so let's declare it in its own module as well. Since it is the root component of the application, we'll place it in the <i>src</i> directory. The contents of the file are as follows:--> 
-<i>App</i>也是一个组件，所以让我们在它自己的模块中声明它。 因为它是应用的根组件，所以我们将它放在  <i>src</i> 目录中。 文件内容如下:
+<!-- <i>App</i>也是一个组件，所以让我们在它自己的模块中声明它。 因为它是应用的根组件，所以我们将它放在  <i>src</i> 目录中。 文件内容如下: -->
 
-```js
+<!-- ```js
 import React from 'react'
 import Note from './components/Note'
 
@@ -563,12 +573,12 @@ const App = ({ notes }) => {
 
 
 export default App // highlight-line
-```
+``` -->
 
 <!-- What's left in the <i>index.js</i> file is:  -->
-<i>index.js</i> 文件剩下的内容是:
+<!-- <i>index.js</i> 文件剩下的内容是: -->
 
-```js
+<!-- ```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'  // highlight-line
@@ -581,7 +591,7 @@ ReactDOM.render(
   <App notes={notes} />,
   document.getElementById('root')
 )
-```
+``` -->
 
 <!-- Modules have plenty of other uses other than enabling component declarations to be separated into their own files. We will get back into them later in this course.  -->
 
