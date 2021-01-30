@@ -24,12 +24,10 @@ module.exports = {
       d: 'Validointi ja ESLint',
     },
     '4': {
-      /*
       a: 'Sovelluksen rakenne ja testauksen alkeet',
       b: 'Backendin testaaminen',
       c: 'Käyttäjien hallinta',
       d: 'Token-perustainen kirjautuminen',
-      */
     },
     '5': {
       /*
@@ -83,12 +81,10 @@ module.exports = {
       d: 'Validation and ESLint',
     },
     '4': {
-      /*
       a: 'Structure of backend application, introduction to testing',
       b: 'Testing the backend',
       c: 'User administration',
       d: 'Token authentication',
-      */
     },
     '5': {
       /*
