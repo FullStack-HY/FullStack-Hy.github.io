@@ -30,12 +30,10 @@ module.exports = {
       d: 'Token-perustainen kirjautuminen',
     },
     '5': {
-      /*
       a: 'Kirjautuminen frontendissä',
       b: 'props.children ja proptypet',
       c: 'React-sovellusten testaaminen',
       d: 'End to end -testaus',
-      */
     },
     '6': {
       /*
@@ -87,12 +85,10 @@ module.exports = {
       d: 'Token authentication',
     },
     '5': {
-      /*
       a: 'Login in frontend',
       b: 'props.children and proptypes',
       c: 'Testing React apps',
       d: 'End to end -testing',
-      */
     },
     '6': {
       /*

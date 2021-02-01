@@ -255,6 +255,84 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://gith
 
 Jos sovelluksessa on useampia rajapintoja jotka vaativat kirjautumisen, kannattaa JWT:n validointi eriyttää omaksi middlewarekseen, tai käyttää jotain jo olemassa olevaa kirjastoa kuten [express-jwt](https://github.com/auth0/express-jwt).
 
+
+### Token-perustaisen kirjautumisen ongelmat
+
+Token-kirjautuminen on helppo toteuttaa, mutta se sisältää yhden ongelman. Kun API:n asiakas, esim. webselaimessa toimiva React-sovellus saa tokenin, luottaa API tämän jälkeen tokeniin sokeasti. Entä jos tokenin haltijalta tulisi poistaa käyttöoikeus? 
+
+Ratkaisuja tähän on kaksi. Yksinkertaisempi on asettaa tokenille voimassaoloaika:
+
+```js
+loginRouter.post('/', async (request, response) => {
+  const body = request.body
+
+  const user = await User.findOne({ username: body.username })
+  const passwordCorrect = user === null
+    ? false
+    : await bcrypt.compare(body.password, user.passwordHash)
+
+  if (!(user && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
+    })
+  }
+
+  const userForToken = {
+    username: user.username,
+    id: user._id,
+  }
+
+  // token expires in 60*60 seconds, that is, in one hour
+  // highlight-start
+  const token = jwt.sign(
+    userForToken, 
+    process.env.SECRET,
+    { expiresIn: 60*60 }
+  )
+  // highlight-end
+
+  response
+    .status(200)
+    .send({ token, username: user.username, name: user.name })
+})
+```
+
+Kun tokenin voimassaoloaika päättyy, on asiakassovelluksen hankittava uusi token esim. pakottamalla käyttäjä kirjaantumaan uudelleen sovellukseen. 
+
+Virheenkäsittelijämiddleware tulee laajentaa siten, että se antaa vanhentuneen tokenin tapauksessa asianmukaisen virheilmoituksen:
+
+```js
+const errorHandler = (error, request, response, next) => {
+  logger.error(error.message)
+
+  if (error.name === 'CastError') {
+    return response.status(400).send({ error: 'malformatted id' })
+  } else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message })
+  } else if (error.name === 'JsonWebTokenError') {
+    return response.status(401).json({
+      error: 'invalid token'
+    })
+  // highlight-start  
+  } else if (error.name === 'TokenExpiredError') {
+    return response.status(401).json({
+      error: 'token expired'
+    })
+  }
+  // highlight-end
+
+  next(error)
+}
+```
+
+Mitä lyhemmäksi tokenin voimassaolo asetetaan, sitä turvallisempi ratkaisu on. Eli jos token päätyy vääriin käsiin, tai käyttäjän pääsy järjestelmään tulee estää, on token käytettävissä ainoastaan rajallisen ajan. Toistaalta tokenin lyhyt voimassaolo aiheuttaa vaivaa API:n käyttäjälle. Kirjaantuminen pitää tehdä useammin.
+
+Toinen ratkaisu on tallettaa API:ssa tietokantaan tieto jokaisesta asiakkaalle myönnetystä tokenista, ja tarkastaa jokaisen API-pyynnön yhteydessä onko käyttöoikeus edelleen voimassa. Tällöin tokenin voimassaolo voidaan tarvittaessa poistaa välittömästi. Tälläista ratkaisua kutsutaan usen <i>palivelinpuolen sessioksi</i> (engl. server side session).
+
+Tämän ratkaisun negatiivinen puoli on sen backendiin lisäämä monimutkaisuus sekä hienoinen vaikutus suorituskysyyn. Jos tokenin voimassaolo joudutaan tarkastamaan tietokannasta, on se hitaampaa kuin tokenista itsestään tarkastattava voimassaolo. Usein tokeneita vastaava sessio, eli tieto tokenia vastaavasta käyttäjästä, talletetaankin esim. avain-arvo-periaattella toimivaan [Redis](https://redis.io/)-tietokantaan, joka on toiminnallisuudeltaan esim MongoDB:tä tai relaatiotietokantoja rajoittuneempi, mutta toimii tietynlaisissa käyttöskenaarioissa todella nopeasti.
+
+Käytettäessä palvelinpuolen sessioita, token ei useinkaan sisällä jwt-tokenien tapaan mitään tietoa käyttäjäistä (esim. käyttäjätunnusta), sen sijaan token on ainoastaan satunnainen merkkijono, jota vastaava käyttäjä haetaan palvelimella sessiot tallettavasta tietokannasta. On myös yleistä, että palvelinpuolen sessiota käytettäessä tieto käyttäjän identiteestisä välitetään Authorization-headerin sijaan evästeiden (engl. cookie) välityksellä. 
+
 ### Loppuhuomioita
 
 Koodissa on tapahtunut paljon muutoksia ja matkan varrella on tapahtunut tyypillinen kiivaasti etenevän ohjelmistoprojektin ilmiö: suuri osa testeistä on hajonnut. Koska kurssin tämä osa on jo muutenkin täynnä uutta asiaa, jätämme testien korjailun vapaaehtoiseksi harjoitustehtäväksi.

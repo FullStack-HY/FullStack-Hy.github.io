@@ -105,7 +105,7 @@ describe('Note app', function() {
   it('front page can be opened', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -135,7 +135,7 @@ describe('Note app', () => { // highlight-line
   it('front page can be opened', () => { // highlight-line
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -152,7 +152,7 @@ describe('Note app', function() {
   it('front page can be opened',  function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
 // highlight-start
@@ -187,7 +187,7 @@ describe('Note app',  function() {
 
   it('login form can be opened', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -208,11 +208,11 @@ describe('Note app', function() {
 
   it('front page can be opened', function() {
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
   it('login form can be opened', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -228,7 +228,7 @@ We can access the first and the last input field on the page, and write to them 
 
 ```js
 it('user can login', function () {
-  cy.contains('login').click()
+  cy.contains('log in').click()
   cy.get('input:first').type('mluukkai')
   cy.get('input:last').type('salainen')
 })  
@@ -283,7 +283,7 @@ The test becomes
 describe('Note app',  function() {
   // ..
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')  // highlight-line    
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
@@ -305,7 +305,7 @@ Note that the CSS [id-selector](https://developer.mozilla.org/en-US/docs/Web/CSS
 The test first clicks the button opening the login form like so
 
 ```js
-cy.contains('login').click()
+cy.contains('log in').click()
 ```
 
 <!-- Kun lomake on täytetty, lähetetään lomake klikkaamalla nappia -->
@@ -373,7 +373,7 @@ describe('Note app', function() {
   // highlight-start
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -420,7 +420,7 @@ describe('Note app', function() {
   // ...
 
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -430,7 +430,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -609,15 +609,12 @@ The tests and the current frontend code can be found from [github](https://githu
 
 ### Failed login test
 
-<!-- Tehdään nyt testi joka varmistaa, että kirjautumisyritys epäonnistuu jos salasana on väärä. -->
 Let's make a test to ensure that a login attempt fails if the password is wrong. 
 
-<!-- Cypress suorittaa oletusarvoisesti aina kaikki testit, ja testien määrän kasvaessa se alkaa olla aikaavievää. Uutta testiä kehitellessä tai rikkinäistä testiä debugatessa voidaan määritellä testi komennon <i>it</i> sijaan komennolla <i>it.only</i>, jolloin Cypress suorittaa ainoastaan sen testin. Kun testi on valmiina, voidaan <i>only</i> poistaa. -->
 Cypress will run all tests each time by default, and as the number of tests increases it starts to become quite time consuming. 
 When developing a new test or when debugging a broken test, we can define the test with <i>it.only</i> instead of <i>it</i>, so that Cypress will only run the required test.
 When the test is working, we can remove <i>.only</i>.
 
-<!-- Testin ensimmäinen versio näyttää seuraavalta: -->
 First  version of our tests is as follows:
 
 ```js
@@ -625,7 +622,7 @@ describe('Note app', function() {
   // ...
 
   it.only('login fails with wrong password', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('wrong')
     cy.get('#login-button').click()
@@ -719,12 +716,12 @@ it('login fails with wrong password', function() {
     .and('have.css', 'border-style', 'solid')
 })
 ```
-<!-- Viimeistellään testi vielä siten, että se varmistaa myös, että sovellus ei renderöi onnistuneesta kirjautumista kuvaavaa tekstiä <i>'Matti Luukkainen logged in'</i>: -->
+
 Let's finish the test so that it also checks that the application does not render the success message <i>'Matti Luukkainen logged in'</i>:
 
 ```js
-it.only('login fails with wrong password', function() {
-  cy.contains('login').click()
+it('login fails with wrong password', function() {
+  cy.contains('log in').click()
   cy.get('#username').type('mluukkai')
   cy.get('#password').type('wrong')
   cy.get('#login-button').click()
@@ -738,7 +735,6 @@ it.only('login fails with wrong password', function() {
 })
 ```
 
-<!-- Komentoa <i>should</i> käytetään aina ketjutettuna komennon <i>get</i> (tai muun vastaavan ketjutettavissa olevan komennon) perään. Testissä käytetty <i>cy.get('html')</i> tarkoittaa käytännössä koko sovelluksen näkyvillä olevaa sisältöä. -->
 <i>Should</i> should always be chained with <i>get</i> (or another chainable command).
 We used <i>cy.get('html')</i> to access the whole visible content of the application. 
 
@@ -750,7 +746,7 @@ Currently we have the following tests:
 ```js 
 describe('Note app', function() {
   it('user can login', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -758,13 +754,13 @@ describe('Note app', function() {
     cy.contains('Matti Luukkainen logged in')
   })
 
-  it.only('login fails with wrong password', function() {
+  it('login fails with wrong password', function() {
     // ...
   })
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -1053,7 +1049,7 @@ Unfortunately, we have some copypaste in the tests now, because the code for sea
 In these kinds of situations, it is possible to use the [as](https://docs.cypress.io/api/commands/as.html) command:
 
 ```js
-it.only('other of those can be made important', function () {
+it('other of those can be made important', function () {
   cy.contains('second note').parent().find('button').as('theButton')
   cy.get('@theButton').click()
   cy.get('@theButton').should('contain', 'make not important')
@@ -1071,7 +1067,7 @@ Finally, some notes on how Cypress works and debugging your tests.
 The form of the Cypress tests gives the impression that the tests are normal JavaScript code, and we could for example try this:
 
 ```js
-const button = cy.contains('login')
+const button = cy.contains('log in')
 button.click()
 debugger() 
 cy.contains('logout').click()
@@ -1212,7 +1208,6 @@ describe('Blog app', function() {
 
 #### 5.19: bloglist end to end testing, step3
 
-<!-- Tee testi, joka varmistaa, että kirjaantunut käyttäjä pystyy luomaan blogin. Testin runko voi näyttää seuraavalta -->
 Make a test which checks that a logged in user can create a new blog. 
 The structure of the test could be as follows
 
@@ -1220,7 +1215,7 @@ The structure of the test could be as follows
 describe('Blog app', function() {
   // ...
 
-  describe.only('When logged in', function() {
+  describe('When logged in', function() {
     beforeEach(function() {
       // log in user here
     })

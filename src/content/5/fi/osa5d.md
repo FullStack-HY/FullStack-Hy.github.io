@@ -43,7 +43,7 @@ ja määritellään npm-skripti käynnistämistä varten.
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 db.json",
+    "eslint": "eslint .",
     "cypress:open": "cypress open"  // highlight-line
   },
   // ...
@@ -87,7 +87,7 @@ describe('Note ', function() {
   it('front page can be opened', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -111,7 +111,7 @@ describe('Note app', () => { // highlight-line
   it('front page can be opened', () => { // highlight-line
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -125,7 +125,7 @@ describe('Note app', function() {
   it('front page can be opened',  function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
 // highlight-start
@@ -155,7 +155,7 @@ describe('Note app',  function() {
 
   it('login form can be opened', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -174,11 +174,11 @@ describe('Note app', function() {
 
   it('front page can be opened', function() {
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
   it('login form can be opened', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -191,7 +191,7 @@ Voimme hakea lomakkeen ensimmäisen ja viimeisen input-kentän ja kirjoittaa nii
 
 ```js
 it('user can login', function () {
-  cy.contains('login').click()
+  cy.contains('log in').click()
   cy.get('input:first').type('mluukkai')
   cy.get('input:last').type('salainen')
 })  
@@ -241,7 +241,7 @@ Testi muuttuu muotoon
 describe('Note app',  function() {
   // ..
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')  // highlight-line    
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
@@ -260,7 +260,7 @@ Huomaa, että CSS:n [id-selektori](https://developer.mozilla.org/en-US/docs/Web/
 Testissä klikataan ensin kirjaantumislomakkeen avaavaa nappia seuraavasti
 
 ```js
-cy.contains('login').click()
+cy.contains('log in').click()
 ```
 
 Kun lomake on täytetty, lähetetään lomake klikkaamalla nappia
@@ -318,7 +318,7 @@ describe('Note app', function() {
   // highlight-start
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -359,7 +359,7 @@ describe('Note app', function() {
   // ...
 
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -369,7 +369,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -537,7 +537,7 @@ describe('Note app', function() {
   // ...
 
   it.only('login fails with wrong password', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('wrong')
     cy.get('#login-button').click()
@@ -623,8 +623,8 @@ it('login fails with wrong password', function() {
 Viimeistellään testi vielä siten, että se varmistaa myös, että sovellus ei renderöi onnistuneesta kirjautumista kuvaavaa tekstiä <i>'Matti Luukkainen logged in'</i>:
 
 ```js
-it.only('login fails with wrong password', function() {
-  cy.contains('login').click()
+it('login fails with wrong password', function() {
+  cy.contains('log in').click()
   cy.get('#username').type('mluukkai')
   cy.get('#password').type('wrong')
   cy.get('#login-button').click()
@@ -647,7 +647,7 @@ Sovelluksemme testit näyttävät tällä hetkellä seuraavalta:
 ```js 
 describe('Note app', function() {
   it('user can login', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -655,13 +655,13 @@ describe('Note app', function() {
     cy.contains('Matti Luukkainen logged in')
   })
 
-  it.only('login fails with wrong password', function() {
+  it('login fails with wrong password', function() {
     // ...
   })
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -911,7 +911,7 @@ Testissä on ikävästi copypastea, rivien alku eli napin etsivä koodi on sama.
 Tälläisissä tilanteissa on mahdollista hyödyntää komentoa [as](https://docs.cypress.io/api/commands/as.html): 
 
 ```js
-it.only('other of those can be made important', function () {
+it('other of those can be made important', function () {
   cy.contains('second note').parent().find('button').as('theButton')
   cy.get('@theButton').click()
   cy.get('@theButton').should('contain', 'make not important')
@@ -924,10 +924,10 @@ Nyt ensimmäinen rivi etsii oikean napin, ja tallentaa sen komennon <i>as</i> av
 
 Vielä osan lopuksi muutamia huomioita Cypressin toimintaperiaatteesta sekä testien debuggaamisesta.
 
-Cypressissä testien kirjoitusasu antaa vaikutelman, että testit ovat normaalia javascript-koodia, ja että voisimme esim. yrittää seuraavaa:
+Cypressissä testien kirjoitusasu antaa vaikutelman, että testit ovat normaalia JavaScript-koodia, ja että voisimme esim. yrittää seuraavaa:
 
 ```js
-const button = cy.contains('login')
+const button = cy.contains('log in')
 button.click()
 debugger() 
 cy.contains('logout').click()
@@ -962,7 +962,7 @@ Olemme toistaiseksi suorittaneet Cypress-testejä ainoastaan graafisen test runn
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 --watch db.json",
+    "eslint": "eslint .",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run" // highlight-line
   },
@@ -1051,7 +1051,7 @@ Tee testi, joka varmistaa, että kirjaantunut käyttäjä pystyy luomaan blogin.
 describe('Blog app', function() {
   // ...
 
-  describe.only('When logged in', function() {
+  describe('When logged in', function() {
     beforeEach(function() {
       // log in user here
     })
