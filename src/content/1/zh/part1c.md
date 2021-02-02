@@ -233,6 +233,9 @@ ReactDOM.render(
 )
 ```
 
+<!-- **Note** when you change file <i>index.js</i> React does not refresh the page automatically so you need to relead the browser page to get the new content shown. -->
+注意，当你修改 <i>index.js</i> 文件时， React 并不会自动刷新，所以你需要重新加载浏览器页面，新的内容才会展示出来。
+
 <!-- The root component is given the value of the counter in the _counter_ prop. The root component renders the value to the screen. But what happens when the value of _counter_ changes? Even if we were to add the command -->
 App 组件通过counter属性，接收到counter的值。 根组件随即将值渲染到屏幕上。 当计数器的值发生变化时会发生什么呢？ 即，如果我们要添加命令
 

@@ -365,7 +365,7 @@ const errorHandler = (error, request, response, next) => {
 <div class="tasks">
 
 
-### Exercises 4.15.-4.22.
+### Exercises 4.15.-4.23.
 <!-- In the next exercises, basics of user management will be implemented for the Bloglist application. The safest way is to follow the story from part 4 chapter [User administration](/zh/part4/用户管理) to the chapter [Token-based authentication](/zh/part4/密钥认证). You can of course also use your creativity.  -->
 在接下来的练习中，我们将为 Bloglist 应用实现基本的用户管理。 最安全的方法是遵循第4章 [User administration](/zh/part4/用户管理)到[Token-based authentication](/zh/part4/密钥认证)这一章的内容。 当然，你也可以运用你的创造力。
 
@@ -498,6 +498,66 @@ if ( blog.user.toString() === userid.toString() ) ...
 ```
 
 #### 4.22*:  bloglist expansion, 步骤10
+
+<!-- Both the new blog creation and blog deletion need to find out the identity of the user who is doing the operation. The middleware _tokenExtractor_ that we did in exercise 4.20 helps but still both the handlers of <i>post</i> and <i>delete</i> operations need to find out who is the user holding a specific token. -->
+无论是博客的创建和删除都需要找到用户的唯一标识，来确定是谁在做相关操作。我们在 4.20 练习中的 _tokenExtractor_ 中间件能够帮上忙，但  <i>post</i> 和  <i>delete</i> 操作仍需要找到哪个用户拥有这个特定的token。
+
+<!-- Do now a new middleware _userExtractor_, that finds out the user and sets it to the request object. When you register the middleware in <i>app.js</i> -->
+现在使用一个新的中间件 _userExtractor_ ， 来找到这个用户并将它包装成请求对象。在 <i>app.js</i> 中注册这个中间件。
+
+```js
+app.use(middleware.userExtractor)
+```
+
+<!-- the user will be set in the field _request.user_: -->
+用户的信息放到 _request.user_ 字段中：
+
+```js
+blogsRouter.post('/', async (request, response) => {
+  // get user from request object
+  const user = request.user
+  // ..
+})
+
+blogsRouter.delete('/:id', async (request, response) => {
+  // get user from request object
+  const user = request.user
+  // ..
+})
+```
+
+<!-- Note that it is possible to register a middleware only for a specific set of routes. So instead of using _userExtractor_ with all the routes -->
+注意可以为一系列特定的路由注册中间件。所以不必像如下这样使用 _userExtractor_  来注册所有路由。
+
+```js
+// use the middleware in all routes
+app.use(userExtractor) // highlight-line
+
+app.use('/api/blogs', blogsRouter)  
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+```
+
+<!-- we could register it to be only executed eith path <i>/api/blogs</i> routes:  -->
+我们可以只在 <i>/api/blogs</i> 这个路由上注册：
+
+```js
+// use the middleware only in /api/blogs routes
+app.use('/api/blogs', userExtractor, blogsRouter) // highlight-line
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+```
+
+<!-- As can be seen, this happens by chainig multiple middlewares as the parameter of function  <i>use</i>. It would also be possible to register a middleware only for a specific operation: -->
+可以看出，这是由chainig 连接起来的多个中间件，他们作为<i>use</i>函数的参数。也可以仅为特定操作注册中间件：
+
+```js
+router.post('/', userExtractor, async (request, response) => {
+  // ...
+}
+```
+
+#### 4.23*:  bloglist expansion, 步骤11
 <!-- After adding token based authentication the tests for adding a new blog broke. down Fix now the tests. Write also a new test that ensures that adding a blog fails with proper status code <i>401 Unauthorized</i> it token is not provided. -->
 <!-- After adding token based authentication the tests for adding a new blog broke down. Fix the tests. Also write a new test to ensure adding a blog fails with the proper status code <i>401 Unauthorized</i> if a token is not provided. -->
 在添加了基于令牌的身份验证之后，添加新博客的测试中断了。 修复测试，并编写一个新的测试，以确保如果添加一个博客失败，且是因为令牌不存在导致的，会伴随恰当的状态返回码<i>401 Unauthorized</i>。
