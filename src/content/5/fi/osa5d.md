@@ -997,7 +997,7 @@ Testin rungon tulee olla seuraavanlainen
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     cy.visit('http://localhost:3000')
   })
 
@@ -1020,7 +1020,7 @@ Testien runko laajenee seuraavasti
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     // create here a user to backend
     cy.visit('http://localhost:3000')
   })

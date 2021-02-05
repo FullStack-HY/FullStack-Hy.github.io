@@ -561,7 +561,7 @@ Current application code can be found on [Github](https://github.com/fullstack-h
 ### Exercises 5.1.-5.4.
 
 
-We will now create a frontend for the bloglist backend we created in the last part. You can use [this application](https://github.com/fullstack-hy2020/bloglist-frontend) from GitHub as the base of your solution. The application expects your backend to be running on port 3001. 
+We will now create a frontend for the bloglist backend we created in the last part. You can use [this application](https://github.com/fullstack-hy/bloglist-frontend/) from GitHub as the base of your solution. The application expects your backend to be running on port 3003. 
 
 It is enough to submit your finished solution. You can do a commit after each exercise, but that is not necessary. 
 
@@ -572,15 +572,15 @@ It might be best to use the backend from model answers of part 4.
 While doing the exercises, remember all of the debugging methods we have talked about, especially keeping an eye on the console. 
 
 
-**Warning:** If you notice you are mixing async/await and _then_ commands, it's 99.9%  certain you are doing something wrong. Use either or, never both. 
+**Warning:** If you notice you are mixing in same function async/await and _then_ commands, it's 99.9%  certain you are doing something wrong. Use either or, never both. 
 
 #### 5.1: bloglist frontend, step1
 
 
-Clone the application from [Github](https://github.com/fullstack-hy2020/bloglist-frontend) with the command: 
+Clone the application from [Github](https://github.com/fullstack-hy/bloglist-frontend) with the command: 
 
 ```bash
-git clone https://github.com/fullstack-hy2020/bloglist-frontend
+git clone https://github.com/fullstack-hy/bloglist-frontend
 ```
 
 
