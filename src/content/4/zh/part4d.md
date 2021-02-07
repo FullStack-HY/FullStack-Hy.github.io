@@ -346,6 +346,92 @@ const errorHandler = (error, request, response, next) => {
 
 如果应用有很多接口都需要认证，JWT 认证应当被分拆到它们自己的中间件中。一些现成的类库，如[express-jwt](https://www.npmjs.com/package/express-jwt)可以使用。
 
+### Problems of Token-based authentication
+【基于Token 认证带来的问题】
+
+<!-- Token authentication is pretty easy to implement, but it contains one problem. Once the API user, eg. a React app gets a token, the API has a blind trust to the token holder. What if the access rights of the token holder should be revoken? -->
+Token 认证实现起来十分容易，但是包含一个问题。一旦API 用户， 比如说React app 获得了一个token， API 会盲目地信任这个token的持有者。万一这个token 持有者的访问权限被回收了呢？
+
+<!-- There are two solutions to the problem. Easier one is to limit the validity period of a token: -->
+关于这个问题有两种解决方案。简单一点的是限制token 的有效时间：
+
+```js
+loginRouter.post('/', async (request, response) => {
+  const body = request.body
+
+  const user = await User.findOne({ username: body.username })
+  const passwordCorrect = user === null
+    ? false
+    : await bcrypt.compare(body.password, user.passwordHash)
+
+  if (!(user && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
+    })
+  }
+
+  const userForToken = {
+    username: user.username,
+    id: user._id,
+  }
+
+  // token expires in 60*60 seconds, that is, in one hour
+  // highlight-start
+  const token = jwt.sign(
+    userForToken, 
+    process.env.SECRET,
+    { expiresIn: 60*60 }
+  )
+  // highlight-end
+
+  response
+    .status(200)
+    .send({ token, username: user.username, name: user.name })
+})
+```
+
+<!-- Once the token expires, the client app needs to get a new token. Usually this happens by forcing the user to relogin to the app. -->
+一旦token 过期， 客户端程序需要重新获取一个新的token。通常通过强制用户重新登录app 的方式实现。
+
+<!-- The error handling middleware should be extended to give a proper error in the case of a expired token: -->
+一旦token过期， 错误处理中间件应当扩展来给出一个合适的错误提示
+
+```js
+const errorHandler = (error, request, response, next) => {
+  logger.error(error.message)
+
+  if (error.name === 'CastError') {
+    return response.status(400).send({ error: 'malformatted id' })
+  } else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message })
+  } else if (error.name === 'JsonWebTokenError') {
+    return response.status(401).json({
+      error: 'invalid token'
+    })
+  // highlight-start  
+  } else if (error.name === 'TokenExpiredError') {
+    return response.status(401).json({
+      error: 'token expired'
+    })
+  }
+  // highlight-end
+
+  next(error)
+}
+```
+
+<!-- The shorter the expiration time, the more safe the solution is. So if the token gets into wrong hands, or the user access to the system needs to be revoken, token is usable only a limited amount of time. On the other hand, a short expiration time forces is a potantial pain to a user, one must login to the system more frequently. -->
+过期时间设置得越短，该方案就越安全。所以如果token 给错了人， 或者用户对系统的访问权限需要被回收，token 需要给一个限定的时间。另一方面来说，较短的过期时间会给用户带来潜在的痛苦，因为他们需要更频繁地登录系统。
+
+<!-- The other solution is to save info about each token to backend database and to check for each API request if the access right corresponding to the token is still valid. With this scheme, the access rights can be revoked at any time. This kind of solution is often called a <i>server side session</i>. -->
+另一种解决方案是为每一个token在后台数据库中保存信息，并在每个API请求时都去后台查询该token 是否有对应的访问权限。通过这种方式，访问权限可以随意收回。这种方式通常被叫做<i>服务器端的session</i>。
+
+<!-- The negative aspect of server side sessions is the increased complexity in the backend and also the effect on performance since the token validity needs to be checked for each API request from database. A database access is considerably slower compared to checking the validity from the token itself. That is why it is a quite common to save the session corresponding to a token to a <i>key-value-database</i> such as [Redis](https://redis.io/) that is limited in functionality compared to eg. MongoDB or relational database but extremely fast in some usage scenarios. -->
+服务器端的session 的弊端是增加了后台的复杂先，并且会由于每个API都要向后台数据库的认证token的合法性而产生性能影响。与只是单纯验证token有效性本身，数据库的访问要慢许多。这就是为什么保存token 对应的session通常是保存到例如 [Redis](https://redis.io/) 的 <i>键值对数据库</i>中， 虽然这种数据库在功能让与例如MongoDB或者关系型数据库相比有些劣势，但是在某些应用场景下是十分高效的。
+
+When server side sessions are used, the token is quite often just a rendom string, that does not include any information about the user as it is quite often the case when jwt-tokens are used. For each API request the server fetches the relevant information about the identitity of the user from the database. It is also quite usual that instead of using Authorization-header, <i>cookies</i> are used as the mechanism for transferring the token between the client and the server.
+当使用服务器端的session时，token 通常是一个随机字符串，并不会像jwt-token那样包含任何用户信息。每个API请求向服务器从数据库中获取该用户相关的认证信息。更常规的做法不是用认证头，而是用 <i>cookies</i>  作为客户端与服务端之间传输token 的机制。
+
 ### End notes
 【结束吧】
 
