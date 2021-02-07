@@ -288,7 +288,7 @@ export const createNote = (data) => {
 
 El cambio de importancia de las notas podría implementarse utilizando el mismo principio, lo que significa realizar una llamada de método asincrónico al servidor y luego enviar una acción apropiada.
 
-El estado actual del código para la aplicación se puede encontrar en [github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3) en la rama <i>part6-3</i>.
+El estado actual del código para la aplicación se puede encontrar en [github](https://github.com/fullstack-hy/redux-notes/tree/part6-3) en la rama <i>part6-3</i>.
 
 </div>
 
@@ -476,7 +476,7 @@ const NewNote = () => {
 }
 ```
 
-El estado actual del código para la aplicación se puede encontrar en [github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-4) en la rama <i>part6-4</i>.
+El estado actual del código para la aplicación se puede encontrar en [github](https://github.com/fullstack-hy/redux-notes/tree/part6-4) en la rama <i>part6-4</i>.
 
 </div>
 

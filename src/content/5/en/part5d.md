@@ -1155,7 +1155,7 @@ The structure of the test must be as follows
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     cy.visit('http://localhost:3000')
   })
 
@@ -1182,7 +1182,7 @@ The test structure extends like so
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     // create here a user to backend
     cy.visit('http://localhost:3000')
   })
@@ -1252,7 +1252,8 @@ This exercise might be a bit trickier. One solution is to find all of the blogs 
 
 If you use a `map` on an a selection from cypress, mind that it uses a [jQuery map](https://api.jquery.com/map/#map-callback). This means that the arguments of the callback function are swapped from an [ordinary Javascript map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) (i.e. you use `(i, el) => {...}` instead of `(el, i) => {...}`).
 
-This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Note that you might end up having problems if you click a like button many times in row. It might be that cypress does the clicking so fast that it does not have time to update the app state in between the clicks. One remedy for this is to wait the number of likes to update in between all clicks.
 
+This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
 
 </div>

@@ -36,12 +36,10 @@ module.exports = {
       d: 'End to end -testaus',
     },
     '6': {
-      /*
       a: 'Flux-arkkitehtuuri ja Redux',
       b: 'Monta reduseria',
       c: 'Redux-sovelluksen kommunikointi palvelimen kanssa',
       d: 'connect',
-      */
     },
     '7': {
       /*
@@ -91,12 +89,10 @@ module.exports = {
       d: 'End to end -testing',
     },
     '6': {
-      /*
       a: 'Flux-architecture and Redux',
       b: 'Many reducers',
       c: 'Communicating with server in a redux application',
       d: 'connect',
-      */
     },
     '7': {
     /*

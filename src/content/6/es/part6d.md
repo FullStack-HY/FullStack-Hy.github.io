@@ -342,7 +342,7 @@ export default connect(
 Dado que el componente no necesita acceder al estado del store, simplemente podemos pasar <i>null</i> como el primer parámetro de _connect_.
 
 
-Puede encontrar el código para nuestra aplicación actual en su totalidad en la rama part6-5 de [este repositorio de Github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-5).
+Puede encontrar el código para nuestra aplicación actual en su totalidad en la rama part6-5 de [este repositorio de Github](https://github.com/fullstack-hy/redux-notes/tree/part6-5).
 
 
 ### Hacer referencia a los creadores de acciones pasados ​​como props

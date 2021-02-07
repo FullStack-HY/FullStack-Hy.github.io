@@ -382,8 +382,8 @@ export default connect(
 <!-- Since the component does not need to access the store's state, we can simply pass <i>null</i> as the first parameter to _connect_.  -->
 由于组件不需要访问存储的状态，我们可以简单地将<i>null</i> 作为连接的第一个参数。
 
-<!-- You can find the code for our current application in its entirety in the <i>part6-5</i> branch of [this Github repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-5). -->
-您可以在 [this Github repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-5)的<i>part6-5</i> 分支中找到我们当前应用的全部代码
+<!-- You can find the code for our current application in its entirety in the <i>part6-5</i> branch of [this Github repository](https://github.com/fullstack-hy/redux-notes/tree/part6-5). -->
+您可以在 [this Github repository](https://github.com/fullstack-hy/redux-notes/tree/part6-5)的<i>part6-5</i> 分支中找到我们当前应用的全部代码
 
 ### Referencing action creators passed as props
 <!-- Let's direct our attention to one interesting detail in the <i>NewNote</i> component: -->

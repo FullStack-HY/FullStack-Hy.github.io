@@ -453,7 +453,7 @@ También es posible enviar acciones al store usando la consola.
 
 ![](../../images/6/13ea.png)
 
-Puede encontrar el código para nuestra aplicación actual en su totalidad en la rama <i>part6-2</i> de [este repositorio de Github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-2).
+Puede encontrar el código para nuestra aplicación actual en su totalidad en la rama <i>part6-2</i> de [este repositorio de Github](https://github.com/fullstack-hy/redux-notes/tree/part6-2).
 
 </div>
 

@@ -1176,7 +1176,7 @@ const App = () => {
 
 Regresaremos a la división de presentacional/contenedor más adelante en esta parte.
 
-El código de la aplicación Redux se puede encontrar en [Github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-1), rama <i>part6-1</i>.
+El código de la aplicación Redux se puede encontrar en [Github](https://github.com/fullstack-hy/redux-notes/tree/part6-1), rama <i>part6-1</i>.
 
 </div>
 
