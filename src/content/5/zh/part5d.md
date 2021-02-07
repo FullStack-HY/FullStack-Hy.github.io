@@ -126,7 +126,7 @@ describe('Note app', function() {
   it('front page can be opened', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -168,7 +168,7 @@ describe('Note app', () => { // highlight-line
   it('front page can be opened', () => { // highlight-line
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 })
 ```
@@ -189,7 +189,7 @@ describe('Note app', function() {
   it('front page can be opened',  function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
 // highlight-start
@@ -231,7 +231,7 @@ describe('Note app',  function() {
 
   it('login form can be opened', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -259,11 +259,11 @@ describe('Note app', function() {
 
   it('front page can be opened', function() {
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2020')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
   })
 
   it('login form can be opened', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -285,7 +285,7 @@ describe('Note app', function() {
 
 ```js
 it('user can login', function () {
-  cy.contains('login').click()
+  cy.contains('log in').click()
   cy.get('input:first').type('mluukkai')
   cy.get('input:last').type('salainen')
 })  
@@ -347,7 +347,7 @@ const LoginForm = ({ ... }) => {
 describe('Note app',  function() {
   // ..
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')  // highlight-line    
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
@@ -373,7 +373,7 @@ describe('Note app',  function() {
 测试首先单击打开登录表单的按钮，如下所示
 
 ```js
-cy.contains('login').click()
+cy.contains('log in').click()
 ```
 
 
@@ -453,7 +453,7 @@ describe('Note app', function() {
   // highlight-start
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -509,7 +509,7 @@ describe('Note app', function() {
   // ...
 
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -519,7 +519,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -744,7 +744,7 @@ describe('Note app', function() {
   // ...
 
   it.only('login fails with wrong password', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('wrong')
     cy.get('#login-button').click()
@@ -864,8 +864,8 @@ it('login fails with wrong password', function() {
 让我们完成测试，这样它还可以检查应用没把渲染成功消息'Matti Luukkainen logged in'展示出来:
 
 ```js
-it.only('login fails with wrong password', function() {
-  cy.contains('login').click()
+it('login fails with wrong password', function() {
+  cy.contains('log in').click()
   cy.get('#username').type('mluukkai')
   cy.get('#password').type('wrong')
   cy.get('#login-button').click()
@@ -896,7 +896,7 @@ it.only('login fails with wrong password', function() {
 ```js 
 describe('Note app', function() {
   it('user can login', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -904,13 +904,13 @@ describe('Note app', function() {
     cy.contains('Matti Luukkainen logged in')
   })
 
-  it.only('login fails with wrong password', function() {
+  it('login fails with wrong password', function() {
     // ...
   })
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('input:first').type('mluukkai')
       cy.get('input:last').type('salainen')
       cy.get('#login-button').click()
@@ -1261,7 +1261,7 @@ it('other of those can be made important', function () {
 在这种情况下，可以使用[as](https://docs.cypress.io/api/commands/as.html)命令:
 
 ```js
-it.only('other of those can be made important', function () {
+it('other of those can be made important', function () {
   cy.contains('second note').parent().find('button').as('theButton')
   cy.get('@theButton').click()
   cy.get('@theButton').should('contain', 'make not important')
@@ -1282,7 +1282,7 @@ it.only('other of those can be made important', function () {
 Cypress 测试的形式给人的印象是，测试是正常的 JavaScript 代码，我们可以试试这个: 
 
 ```js
-const button = cy.contains('login')
+const button = cy.contains('log in')
 button.click()
 debugger() 
 cy.contains('logout').click()
@@ -1463,7 +1463,7 @@ describe('Blog app', function() {
 describe('Blog app', function() {
   // ...
 
-  describe.only('When logged in', function() {
+  describe('When logged in', function() {
     beforeEach(function() {
       // log in user here
     })
