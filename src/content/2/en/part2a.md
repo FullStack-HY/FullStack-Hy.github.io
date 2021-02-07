@@ -413,8 +413,8 @@ A whole React application can be written in a single file. Although that is, of 
 We have been using modules the whole time. The first few lines of the file <i>index.js</i>:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App.js'
 ```
 
 [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
