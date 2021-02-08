@@ -70,7 +70,7 @@ Suoritukseen edellytetään tehtävien lisäksi hyväksytysti suoritettu koe.
 
 ### Kurssisuorituksen laajentaminen avoimessa yliopistossa
 
-Kurssista on tarjolla avoimen [yliopiston puolella](https://studies.helsinki.fi/opintotarjonta/cur/hy-CUR-136055679/Avoin_yo_Full_Stack_websovelluskehitys_2021_3_12_op) 15.2.2021 alkava laajennettu versio (laajuus 5-12 opintopistettä), missä voit laajentaa halutessasi kurssisuoritustasi. 
+Kurssista on tarjolla avoimen [yliopiston puolella](https://studies.helsinki.fi/opintotarjonta/cur/hy-CUR-136055679/Avoin_yo_Full_Stack_websovelluskehitys_2021_3_12_op) 15.3.2021 alkava laajennettu versio (laajuus 5-12 opintopistettä), missä voit laajentaa halutessasi kurssisuoritustasi. 
 ### Tehtävien palauttaminen
 
 Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021/).
