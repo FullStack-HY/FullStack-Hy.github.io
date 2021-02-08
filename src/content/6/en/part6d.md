@@ -122,7 +122,6 @@ const ConnectedNotes = connect(mapStateToProps)(Notes) // highlight-line
 export default ConnectedNotes
 ```
 
-
 The <i>Notes</i> component can access the state of the store directly, e.g. through <i>props.notes</i> that contains the list of notes.  Similarly, <i>props.filter</i> references the value of the filter.
 
 The situation that results from using <i>connect</i> with the <i>mapStateToProps</i> function we defined can be visualized like this:
@@ -606,15 +605,12 @@ More about this [here](https://www.simplethread.com/cant-replace-redux-with-hook
 
 The <i>redux store</i> is currently being accessed by the components through the <em>useSelector</em> and <em>useDispatch</em> hooks.
 
-Modify the <i>AnecdoteList</i> component so that it uses the _connect_ function instead of the hooks. You may need to implement your own <i>mapStateToProps</i> and <i>mapDispatchToProps</i> functions.
-
+Modify the <i>Notification</i> component so that it uses the _connect_ function instead of the hooks. 
 #### 6.20 anecdotes and connect, step2
 
 Do the same for the <i>Filter</i> and <i>AnecdoteForm</i> components.
-
 #### 6.21 anecdotes, the grand finale
 
-<!-- Sovellukseen on (todennäköisesti) jäänyt eräs hieman ikävä bugi. Jos vote-näppäintä painellaan useasti peräkkäin, notifikaatio näkyy ruudulla hieman miten sattuu. Esimerkiksi jos äänestetään kaksi kertaa kolmen sekunnin välein, näkyy jälkimmäinen notifikaatio ruudulla ainoastaan kahden sekunnin verran (olettaen että notifikaation näyttöaika on 5 sekuntia). Tämä johtuu siitä, että ensimmäisen äänestyksen notifikaation tyhjennys tyhjentääkin myöhemmän äänestyksen notifikaation. -->
 You (probably) have one nasty bug in your application. If the user clicks the vote button multiple times in a row, the notification is displayed funnily. For example if a user votes twice in three seconds, 
 the last notification is only displayed for two seconds (assuming the notification is normally shown for 5 seconds). This happens because removing the first notification accidentally removes the second notification. 
 

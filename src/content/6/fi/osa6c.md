@@ -290,7 +290,7 @@ Sovelluksen tämänhetkinen koodi on [githubissa](https://github.com/fullstack-h
 
 Hae sovelluksen käynnistyessä anekdootit json-serverillä toteutetusta backendistä.
 
-Backendin alustavan sisällön saat esim. [täältä](https://github.com/fullstack-hy2020/misc/blob/master/anecdotes.json).
+Backendin alustavan sisällön saat esim. [täältä](https://github.com/fullstack-hy/misc/blob/master/anecdotes.json).
 
 #### 6.14 anekdootit ja backend, step2
 

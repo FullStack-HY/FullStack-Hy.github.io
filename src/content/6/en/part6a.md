@@ -593,11 +593,9 @@ console.log(rest)     // prints [3, 4, 5, 6]
 
 ### Exercises 6.1.-6.2.
 
-
 Let's make a simplified version of the unicafe-exercise from part 1. Let's handle the state management with Redux. 
 
-
-You can take the project from this repository https://github.com/fullstack-hy2020/unicafe-redux for the base of your project. 
+You can take the project from this repository https://github.com/fullstack-hy/unicafe-redux for the base of your project. 
 
 
 <i>Start by removing the git-configuration of the cloned repository, and by installing dependencies</i>
@@ -610,9 +608,7 @@ npm install
 
 #### 6.1: unicafe revisited, step1
 
-
 Before implementing the functionality of the UI, let's implement the functionality required by the store. 
-
 
 We have to save the number of each kind of feedback to the store, so the form of the state in the store is: 
 
@@ -623,7 +619,6 @@ We have to save the number of each kind of feedback to the store, so the form of
   bad: 2
 }
 ```
-
 
 The project has the following base for a reducer: 
 
@@ -693,9 +688,7 @@ describe('unicafe reducer', () => {
 })
 ```
 
-
 **Implement the reducer and its tests.**
-
 
 In the tests, make sure that the reducer is an <i>immutable function</i> with the <i>deep-freeze</i>-library. 
 Ensure that the provided first test passes, because Redux expects that the reducer returns a sensible original state when it is called so that the first parameter <i>state</i>, which represents the previous state, is 
@@ -710,8 +703,9 @@ example above.
 
 #### 6.2: unicafe revisited, step2
 
-
 Now implement the actual functionality of the application. 
+
+Note that since all the code is in the file <i>index.js</i> and you have to manually reload the page after each change since the automatic reloading of the browser content does not work for that page!
 
 </div>
 
@@ -1189,7 +1183,7 @@ The code of the Redux application can be found on [Github](https://github.com/fu
 ### Exercises 6.3.-6.8.
 
 
-Let's make a new version of the anecdote voting application from part 1. Take the project from this repository https://github.com/fullstack-hy2020/redux-anecdotes to base your solution on.  
+Let's make a new version of the anecdote voting application from part 1. Take the project from this repository https://github.com/fullstack-hy/redux-anecdotes to base your solution on.  
 
 
 If you clone the project into an existing git-repository, <i>remove the git-configuration of the cloned application:</i> 

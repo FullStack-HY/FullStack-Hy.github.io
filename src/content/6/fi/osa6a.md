@@ -544,7 +544,7 @@ console.log(loput)  // tulostuu [3, 4, 5, 6]
 
 Tehdään hieman yksinkertaistettu versio osan 1 unicafe-tehtävästä. Hoidetaan sovelluksen tilan käsittely Reduxin avulla.
 
-Voit ottaa sovelluksesi pohjaksi repositoriossa https://github.com/fullstack-hy2020/unicafe-redux  olevan projektin.
+Voit ottaa sovelluksesi pohjaksi repositoriossa https://github.com/fullstack-hy/unicafe-redux  olevan projektin.
 
 <i>Aloita poistamalla kloonatun sovelluksen git-konfiguraatio ja asentamalla riippuvuudet</i>
 
@@ -646,6 +646,8 @@ Reducerin toteutuksessa kannattaa ottaa mallia ylläolevasta [redux-muistiinpano
 #### 6.2: unicafe revisited, step2
 
 Toteuta sitten sovellukseen koko sen varsinainen toiminnallisuus. 
+
+Huomaa, että koska kaikki koodi on tiedostossa <i>index.js</i> joudut uudelleenlataamaan selaimen koodiin tehtävien muutosten jälkeen, sillä React ei automaattisesti huomaa tiedostoon <i>index.js</i> tehtyjä muutoksia.
 
 </div>
 
@@ -1095,7 +1097,7 @@ Redux-sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https:
 
 ### Tehtävät 6.3.-6.8.
 
-Toteutetaan nyt versio toisesta ensimmäisen osan anekdoottien äänestyssovelluksesta. Ota ratkaisusi pohjaksi repositoriossa https://github.com/fullstack-hy2020/redux-anecdotes oleva projekti.
+Toteutetaan nyt versio toisesta ensimmäisen osan anekdoottien äänestyssovelluksesta. Ota ratkaisusi pohjaksi repositoriossa https://github.com/fullstack-hy/redux-anecdotes oleva projekti.
 
 Jos kloonaat projektin olemassaolevan git-repositorion sisälle, <i>poista kloonatun sovelluksen git-konfiguraatio:</i>
 
