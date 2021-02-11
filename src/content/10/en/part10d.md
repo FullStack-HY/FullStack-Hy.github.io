@@ -301,8 +301,8 @@ describe('RepositoryList', () => {
   describe('RepositoryListContainer', () => {
     it('renders repository information correctly', () => {
       const repositories = {
+        totalCount: 8,
         pageInfo: {
-          totalCount: 8,
           hasNextPage: true,
           endCursor:
             'WyJhc3luYy1saWJyYXJ5LnJlYWN0LWFzeW5jIiwxNTg4NjU2NzUwMDc2XQ==',
@@ -628,6 +628,7 @@ So cursor is just a serialized presentation of an item in an ordered list. Let's
 ```javascript
 {
   repositories(first: 2) {
+    totalCount
     edges {
       node {
         id
@@ -639,7 +640,6 @@ So cursor is just a serialized presentation of an item in an ordered list. Let's
     pageInfo {
       endCursor
       startCursor
-      totalCount
       hasNextPage
     }
   }
@@ -652,6 +652,7 @@ The <em>first</em> argument tells the API to return only the first two repositor
 {
   "data": {
     "repositories": {
+      "totalCount": 10,
       "edges": [
         {
           "node": {
@@ -673,7 +674,6 @@ The <em>first</em> argument tells the API to return only the first two repositor
       "pageInfo": {
         "endCursor": "WyJ6ZWl0LnN3ciIsMTU4OTU0MzkzMzg2N10=",
         "startCursor": "WyJ6ZWl0Lm5leHQuanMiLDE1ODk1NDM5OTc1NTdd",
-        "totalCount": 10,
         "hasNextPage": true
       }
     }
@@ -688,6 +688,7 @@ Let's say that we want to get the next set of items <i>after</i> the last item o
 ```javascript
 {
   repositories(first: 2, after: "WyJ6ZWl0LnN3ciIsMTU4OTU0MzkzMzg2N10=") {
+    totalCount
     edges {
       node {
         id
@@ -699,7 +700,6 @@ Let's say that we want to get the next set of items <i>after</i> the last item o
     pageInfo {
       endCursor
       startCursor
-      totalCount
       hasNextPage
     }
   }
@@ -863,6 +863,7 @@ Here's an example query:
     id
     fullName
     reviews(first: 2, after: "WyIxYjEwZTRkOC01N2VlLTRkMDAtODg4Ni1lNGEwNDlkN2ZmOGYuamFyZWRwYWxtZXIuZm9ybWlrIiwxNTg4NjU2NzUwMDgwXQ==") {
+      totalCount
       edges {
         node {
           id
@@ -880,7 +881,6 @@ Here's an example query:
       pageInfo {
         endCursor
         startCursor
-        totalCount
         hasNextPage
       }
     }
