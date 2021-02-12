@@ -590,9 +590,9 @@ export class RepositoryListContainer extends React.Component {
   renderHeader = () => {
     // this.props contains the component's props
     const props = this.props;
-    
+
     // ...
-  
+
     return (
       <RepositoryListHeader
       // ...
@@ -681,7 +681,7 @@ The <em>first</em> argument tells the API to return only the first two repositor
 }
 ```
 
-In the result object, we have the <em>edges</em> array containing items with <em>node</em> and <em>cursor</em> attributes. As we know, the <em>node</em> contains the repository itself. The <em>cursor</em> on the other is a Base64 encoded representation of the node. It contains the repository's id and date of repository's creation as a timestamp. This is the information we need to point to the item when they are ordered by the creation time of the repository. The <em>pageInfo</em> contains information such as the cursor of the first and the last item in the array.
+The format of the result object and the arguments are based on the [Relay's GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm), which has become a quite common pagination specification and has been widely adopted for example in the [GitHub's GraphQL API](https://docs.github.com/en/graphql). In the result object, we have the <em>edges</em> array containing items with <em>node</em> and <em>cursor</em> attributes. As we know, the <em>node</em> contains the repository itself. The <em>cursor</em> on the other is a Base64 encoded representation of the node. In this case, it contains the repository's id and date of repository's creation as a timestamp. This is the information we need to point to the item when they are ordered by the creation time of the repository. The <em>pageInfo</em> contains information such as the cursor of the first and the last item in the array.
 
 Let's say that we want to get the next set of items <i>after</i> the last item of the current set, which is the "zeit/swr" repository. We can set the <em>after</em> argument of the query as the value of the <em>endCursor</em> like this:
 
@@ -764,7 +764,66 @@ export default RepositoryList;
 
 Try scrolling to the end of the reviewed repositories list and you should see the message in the logs.
 
-Next, we need to fetch more repositories once the end of the list is reached. This can be achieved using the [fetchMore](https://www.apollographql.com/docs/react/data/pagination/#cursor-based) function provided by the <em>useQuery</em> hook. Let's alter the <em>useRepositories</em> hook so that it returns a decorated <em>fetchMore</em> function, which calls the actual <em>fetchMore</em> function with the <em>endCursor</em> and updates the query correctly with the fetched data:
+Next, we need to fetch more repositories once the end of the list is reached. This can be achieved using the [fetchMore](https://www.apollographql.com/docs/react/data/pagination/#cursor-based) function provided by the <em>useQuery</em> hook. To describe Apollo Client, how to merge the existing repositories in the cache with the next set of repositories, we can use a [field policy](https://www.apollographql.com/docs/react/caching/cache-field-behavior/). In general, field policies can be used to customize the cache behavior during read and write operations with [read](https://www.apollographql.com/docs/react/caching/cache-field-behavior/#the-read-function) and [merge](https://www.apollographql.com/docs/react/caching/cache-field-behavior/#the-merge-function) functions. 
+
+Let's add a field policy for the <em>repositories</em> query in the <i>apolloClient.js</i> file:
+
+```javascript
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import Constants from 'expo-constants';
+import { relayStylePagination } from '@apollo/client/utilities'; // highlight-line
+
+const { apolloUri } = Constants.manifest.extra;
+
+const httpLink = createHttpLink({
+  uri: apolloUri,
+});
+
+// highlight-start
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        repositories: relayStylePagination(),
+      },
+    },
+  },
+});
+// highlight-end
+
+const createApolloClient = (authStorage) => {
+  const authLink = setContext(async (_, { headers }) => {
+    try {
+      const accessToken = await authStorage.getAccessToken();
+
+      return {
+        headers: {
+          ...headers,
+          authorization: accessToken ? `Bearer ${accessToken}` : '',
+        },
+      };
+    } catch (e) {
+      console.log(e);
+
+      return {
+        headers,
+      };
+    }
+  });
+
+  return new ApolloClient({
+    link: authLink.concat(httpLink),
+    cache, // highlight-line
+  });
+};
+
+export default createApolloClient;
+```
+
+As mentioned earlier, the format of the pagination's result object and the arguments are based on the Relay's pagination specification. Luckily, Apollo Client provides a predefined field policy, `relayStylePagination`, which can be used in this case.
+
+Next, let's alter the <em>useRepositories</em> hook so that it returns a decorated <em>fetchMore</em> function, which calls the actual <em>fetchMore</em> function with appropriate	arguments so that we can fetch the next set of repositories:
 
 ```javascript
 const useRepositories = (variables) => {
@@ -774,37 +833,22 @@ const useRepositories = (variables) => {
   });
 
   const handleFetchMore = () => {
-    const canFetchMore =
-      !loading && data && data.repositories.pageInfo.hasNextPage;
+    const canFetchMore = !loading && data?.repositories.pageInfo.hasNextPage;
 
     if (!canFetchMore) {
       return;
     }
 
     fetchMore({
-      query: GET_REPOSITORIES,
       variables: {
         after: data.repositories.pageInfo.endCursor,
         ...variables,
-      },
-      updateQuery: (previousResult, { fetchMoreResult }) => {
-        const nextResult = {
-          repositories: {
-            ...fetchMoreResult.repositories,
-            edges: [
-              ...previousResult.repositories.edges,
-              ...fetchMoreResult.repositories.edges,
-            ],
-          },
-        };
-
-        return nextResult;
       },
     });
   };
 
   return {
-    repositories: data ? data.repositories : undefined,
+    repositories: data?.repositories,
     fetchMore: handleFetchMore,
     loading,
     ...result,
@@ -814,7 +858,7 @@ const useRepositories = (variables) => {
 
 Make sure you have the <em>pageInfo</em> and the <em>cursor</em> fields in your <em>repositories</em> query as described in the pagination examples. You will also need to include the <em>after</em> and <em>first</em> arguments for the query.
 
-The <em>handleFetchMore</em> function will call the Apollo Client's <em>fetchMore</em> function if there are more items to fetch, which is determined by the <em>hasNextPage</em> property. We also want to prevent fetching more items if fetching is already in process. In this case, <em>loading</em> will be <em>true</em>. In the <em>fetchMore</em> function we are providing the query with an <em>after</em> variable, which receives the latest <em>endCursor</em> value. In the <em>updateQuery</em> we will merge the previous edges with the fetched edges and update the query so that the <em>pageInfo</em> contains the latest information.
+The <em>handleFetchMore</em> function will call the Apollo Client's <em>fetchMore</em> function if there are more items to fetch, which is determined by the <em>hasNextPage</em> property. We also want to prevent fetching more items if fetching is already in process. In this case, <em>loading</em> will be <em>true</em>. In the <em>fetchMore</em> function we are providing the query with an <em>after</em> variable, which receives the latest <em>endCursor</em> value.
 
 The final step is to call the <em>fetchMore</em> function in the <em>onEndReach</em> handler:
 
@@ -888,6 +932,27 @@ Here's an example query:
 }
 ```
 
+The cache's field policy can be similar as with the <em>repositories</em> query:
+
+```javascript
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        repositories: relayStylePagination(),
+      },
+    },
+    // highlight-start
+    Repository: {
+      fields: {
+        reviews: relayStylePagination(),
+      },
+    },
+    // highlight-end
+  },
+});
+```
+
 As with the reviewed repositories list, use a relatively small <em>first</em> argument value while you are trying out the infinite scrolling. You might need to create a few new users and use them to create a few new reviews to make the reviews list long enough to scroll. Set the value of the <em>first</em> argument high enough so that the <em>onEndReach</em> handler isn't called immediately after the view is loaded, but low enough so that you can see that more reviews are fetched once you reach the end of the list. Once everything is working as intended you can use a larger value for the <em>first</em> argument.
 
 #### Exercise 10.26: the user's reviews view
@@ -947,9 +1012,10 @@ Here is the confirmation alert that should pop out once the user presses the del
 
 ![Application preview](../../images/10/22.jpg)
 
-You can delete a review using the <em>deleteReview</em> mutation. This mutation has a single argument, which is the id of the review to be deleted. After the mutation has been performed, the easiest way to update the review list's query is to call the [refetch](https://www.apollographql.com/docs/react/data/queries/#refetching) function. 
+You can delete a review using the <em>deleteReview</em> mutation. This mutation has a single argument, which is the id of the review to be deleted. After the mutation has been performed, the easiest way to update the review list's query is to call the [refetch](https://www.apollographql.com/docs/react/data/queries/#refetching) function.
 
 This was the last exercise in this section. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fs-react-native-2021). Note that exercises in this section should be submitted to the part 4 in the exercise submission system.
+
 </div>
 
 <div class="content">
