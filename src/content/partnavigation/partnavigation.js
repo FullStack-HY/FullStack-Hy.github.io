@@ -42,14 +42,12 @@ module.exports = {
       d: 'connect',
     },
     '7': {
-      /*
       a: 'React-router',
       b: 'custom-hookit',
       c: 'Lisää tyyleistä',
       d: 'Webpack',
       e: 'Luokkakomponentit, Sekalaista',
       f: 'Tehtäviä: blogilistan laajennus',
-      */
     },
   },
   en: {
@@ -95,14 +93,12 @@ module.exports = {
       d: 'connect',
     },
     '7': {
-    /*
       a: 'React-router',
       b: 'Custom hooks',
       c: 'More about styles',
       d: 'Webpack',
       e: 'Class components, Miscellaneous',
       f: 'Exercises: extending the bloglist',
-      */
     },
   },
   zh: {
