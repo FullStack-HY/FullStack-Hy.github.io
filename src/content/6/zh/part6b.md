@@ -170,7 +170,7 @@ const reducer = combineReducers({
 })
  // highlight-end
 
-const store = createStore(reducer)
+const store = createStore(reducer, composeWithDevTools())
 
 console.log(store.getState())
 

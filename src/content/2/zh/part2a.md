@@ -486,8 +486,8 @@ const App = ({ notes }) => {
 我们一直在使用模块。比如 <i>index.js</i>:文件的前几行:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App.js'
 ```
 
 <!-- [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in the code. The <i>react</i> module is placed into a variable called _React_ and <i>react-dom</i> to variable _ReactDOM_. -->
