@@ -160,7 +160,7 @@ Notelist 组件实际上不需要关于选择哪个过滤器的信息，因此�
 我们只需要在便笺props中给它正确过滤的便笺:
 
 ```js
-const Notes = (props) => { // highlight-line
+const Notes = (props) => {
   const dispatch = useDispatch()
 
   return(

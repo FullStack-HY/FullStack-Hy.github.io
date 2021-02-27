@@ -49,7 +49,7 @@ npm install react-bootstrap
   <link
     rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
     crossorigin="anonymous"
   />
   // ...
@@ -576,9 +576,11 @@ React-bootstrap 和 MaterialUI 之间的区别并不大，这取决于你觉得�
 <!-- I myself have not used MaterialUI a lot, but my first impressions are positive. Its documentation is a bit better than react-bootstrap's.  -->
 我自己并没有使用很多MaterialUI，但我的第一印象是积极的。 它的文档比起React引导程序要好一点。
 <!-- According to https://www.npmtrends.com/ which tracks the popularity of different npm-libraries MaterialUI passed react-bootstrap in popularity at the end of 2018: -->
-根据追踪不同 npm 流行程度的 https://www.npmtrends.com/ 数据库, MaterialUI 在2018年底超过了 react-bootstrap:
+<!-- The difference between react-bootstrap and MaterialUI is not big. It's up to you which one you find better looking.  I myself have not used MaterialUI a lot, but my first impressions are positive. Its documentation is a bit better than react-bootstrap's. According to https://www.npmtrends.com/ which tracks the popularity of different npm-libraries MaterialUI passed react-bootstrap in popularity at the end of 2018 and has since that widened the gap: -->
 
-![](../../images/7/68ea.png)
+react-bootstrap 与 MaterialUI 的差别并不大。取决于你更喜欢那种样式。我自己使用MaterialUI比较少，但是我的第一印象是正面的。它的文档比react-bootstrap要好一些。根据追踪不同 npm 流行程度的 https://www.npmtrends.com/ 数据库, MaterialUI 在2018年底超过了 react-bootstrap，并且从那时起差距在拉大:
+
+![](../../images/7/2021.png)
 
 <!-- In the two previous examples, we used the UI frameworks with the help of React-integration libraries. -->
 在前面的两个示例中，我们借助于 React-integration 库使用了 UI 框架。

@@ -167,13 +167,13 @@ import React, {useEffect} from 'react' // highlight-line
 import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 import VisibilityFilter from './components/VisibilityFilter'
-import noteService from './services/notes'
+import noteService from './services/notes' // highlight-line
 import { initializeNotes } from './reducers/noteReducer' // highlight-line
 import { useDispatch } from 'react-redux' // highlight-line
 
 const App = () => {
-  const dispatch = useDispatch()
   // highlight-start
+  const dispatch = useDispatch()
   useEffect(() => {
     noteService
       .getAll().then(notes => dispatch(initializeNotes(notes)))
@@ -342,7 +342,7 @@ export const createNote = (data) => {
 当应用启动时，从使用 json-server 实现的后端获取八卦。
 
 <!-- As the initial backend data, you can use, e.g. [this](https://github.com/fullstack-hy2020/misc/blob/master/anecdotes.json). -->
-作为初始的后端数据，你可以使用，例如[this](https://github.com/fullstack-hy2020/misc/blob/master/anecdotes.json)。
+作为初始的后端数据，你可以使用，例如[this](https://github.com/fullstack-hy/misc/blob/master/anecdotes.json)。
 
 #### 6.14 Anecdotes and the backend, 步骤2
 <!-- Modify the creation of new anecdotes, such that the anecdotes are stored in the backend. -->

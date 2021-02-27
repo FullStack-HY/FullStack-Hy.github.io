@@ -1399,7 +1399,7 @@ it('then example', function() {
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     cy.visit('http://localhost:3000')
   })
 
@@ -1428,7 +1428,7 @@ describe('Blog app', function() {
 ```js 
 describe('Blog app', function() {
   beforeEach(function() {
-    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.request('POST', 'http://localhost:3003/api/testing/reset')
     // create here a user to backend
     cy.visit('http://localhost:3000')
   })
@@ -1507,9 +1507,12 @@ describe('Blog app', function() {
 
 如果你是从cypress 使用的 `map` ， 记住它实际上是使用的  [jQuery map](https://api.jquery.com/map/#map-callback) 。 也就是说回调函数的入参与[ordinary Javascript map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 相比是颠倒的。（比如说，你应该使用`(i, el) => {...}` 而不是`(el, i) => {...}` ）。
 
+<!-- Note that you might end up having problems if you click a like button many times in row. It might be that cypress does the clicking so fast that it does not have time to update the app state in between the clicks. One remedy for this is to wait the number of likes to update in between all clicks. -->
+
+注意如果你点击一行中的喜欢按钮多次，可能出现一些问题。可能是由于cypress 不能点击那么快，以致于在两次点击直接没有时间更新状态。一个改进方法是在所有点击之中等待状态更新。
+
 <!-- This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
 这是本章节的最后一个练习，是时候将您的代码推送到 github，并标记您在[exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中完成的练习。
-
 
 </div>
 

@@ -222,7 +222,7 @@ const App = () => {
 **使用 函数式组件的一个显著好处是不必处理 Javascript 类的 _this_ 引用的自引用。**
 
 <!-- In my opinion, and the opinion of many others, Class Components offer basically no benefits over Functional components enhanced with hooks, with the exception of the so-called [error boundary](https://reactjs.org/docs/error-boundaries.html) mechanism, which currently (16th February 2020) isn't yet in use by functional components. -->
-在我看来，以及其他许多人的看法中，类组件基本上没有比通过Hook增强的函数组件提供任何好处，除了所谓的[错误边界](https://reactjs.org/docs/error-boundaries.html)机制，它目前(2020年2月16日)还没有被函数组件使用。
+在我看来，以及其他许多人的看法中，类组件基本上没有比通过Hook增强的函数组件提供任何好处，除了所谓的[错误边界](https://reactjs.org/docs/error-boundaries.html)机制，它目前(2021年2月15日)还没有被函数组件使用。
 
 <!-- When writing fresh code [there is no rational reason to use Class Components](https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both) if the project is using React with a version number 16.8 or greater. On the other hand, [there is currently no need to rewrite all old React code](https://reactjs.org/docs/hooks-faq.html#do-i-need-to-rewrite-all-my-class-components) as Functional components. -->
 在编写新代码时，如果项目使用的是 React 16.8或更高，那么[没有理由使用类组件](https://reactjs.org/docs/hooks-faq.html#should-i-use-hooks-classes-or-a-mix-of-both)。 另一方面，[目前没有必要重写所有旧的React代码](https://reactjs.org/docs/hooks-faq.html#do-i-need-to-rewrite-all-my-class-components)作为函数组件。
@@ -322,7 +322,7 @@ ReactDOM.render(
 
 ### React/node-application security
 <!-- So far during the course we have not touched on information security at all. We do not have much time this for now either, but fortunately the department has a MOOC-course [Securing Software](https://cybersecuritybase.github.io/securing/) for this important topic. -->
-到目前为止，我们还没有触及安全。 我们现在也没有太多的时间，但是幸运的是系里有一个 MOOC-course [Securing Software](https://cybersecuritybase.mooc.fi/module-2.1)来处理这个重要的话题。
+到目前为止，我们还没有触及许多的安全知识。 我们现在也没有太多的时间，但是幸运的是系里有一个 MOOC-course [Securing Software](https://cybersecuritybase.mooc.fi/module-2.1)来处理这个重要的话题。
 
 <!-- We will, however, take a look at some things specific to this course. -->
 不过，我们还是要看一下这门课程的一些具体内容。
@@ -683,8 +683,8 @@ Lambda 的主要特点是，它支持在云中执行单个函数，如今 Google
 <!-- For single page applications the gathering of analytics data on the interaction between the users and the page is [more challenging](https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications) than for traditional web-applications where the entire page is loaded. The [React Google Analytics](https://github.com/react-ga/react-ga) -library offers a solution. -->
 对于单页应用来说，收集用户和页面交互的分析数据比传统的加载整个页面的网页应用 [更具有挑战性](https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications)。 [React Google Analytics](https://github.com/react-ga/react-ga)  数据库提供了一个解决方案。
 
-<!-- You can take advantage of your React know-how when developing mobile applications using Facebook's extremely popular [React Native](https://facebook.github.io/react-native/) -library. -->
-在使用 Facebook 非常流行的 [React Native](https://facebook.github.io/react-native/) 库开发移动应用时，你可以利用你的 React 知道如何开发。
+<!-- You can take advantage of your React know-how when developing mobile applications using Facebook's extremely popular [React Native](https://facebook.github.io/react-native/) -library, that is topic of the [part 10](/en/part10) of the course.-->
+在使用 Facebook 非常流行的 [React Native](https://facebook.github.io/react-native/) 库开发移动应用时，你可以利用你的 React 知道如何开发，这也是本课程[第十章](/zh/part10)的内容。
 
 <!-- When it comes to the tools used for the management and bundling of JavaScript projects the community has been very fickle. Best practices have changed rapidly (the years are approximations, nobody remembers that far back in the past): -->
 当涉及到用于管理和捆绑 JavaScript 项目的工具时，社区变化很大。 最佳实践发生了迅速的变化(年份是近似值，没有人记得那么久以前) :
