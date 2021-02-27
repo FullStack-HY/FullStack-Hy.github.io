@@ -736,8 +736,8 @@ const SignIn = () => {
 export default SignIn;
 ```
 
-<!-- Set up a route for this <em>SignIn</em> component in the <em>Main</em> component. Also add a tab with text "Sign in" in to the app bar next to the "Repositories" tab. User should be able to navigate between the two views by pressing the tabs (hint: use the [Link](https://reacttraining.com/react-router/native/api/Link) component and its [component](https://reacttraining.com/react-router/native/api/Link/component-func) prop). -->
-为这个<em>SignIn</em>组件在<em>Main</em>组件中创建一个路由。同时在app工具栏的"Repositories" tab 旁增加一个"Sign in" tab。用户能够通过点击导航中的tab在不同的视图中切换（提示：使用[Link](https://reacttraining.com/react-router/native/api/Link) 组件以及它的 [组件属性](https://reacttraining.com/react-router/native/api/Link/component-func) 
+<!-- Set up a route for this <em>SignIn</em> component in the <em>Main</em> component. Also add a tab with text "Sign in" in to the app bar next to the "Repositories" tab. User should be able to navigate between the two views by pressing the tabs (hint: you can use the React router's [Link](https://reacttraining.com/react-router/native/api/Link) component).. -->
+为这个<em>SignIn</em>组件在<em>Main</em>组件中创建一个路由。同时在app工具栏的"Repositories" tab 旁增加一个"Sign in" tab。用户能够通过点击导航中的tab在不同的视图中切换。（提示：你可以使用React router 的[Link](https://reacttraining.com/react-router/native/api/Link) 组件）
 
 #### Exercise 10.7: scrollable app bar
 

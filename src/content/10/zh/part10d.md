@@ -663,7 +663,7 @@ useQuery(GET_REPOSITORY, {
 
 <!-- You can use for example [react-native-picker](https://www.npmjs.com/package/react-native-picker-select) library, or [React Native Paper](https://callstack.github.io/react-native-paper/) library's [Menu](https://callstack.github.io/react-native-paper/menu.html) component to implement the ordering principle's selection. You can use the <em>FlatList</em> component's [ListHeaderComponent](https://reactnative.dev/docs/flatlist#listheadercomponent) prop to provide the list with a header containing the selection component. -->
 
-你可以使用类似 [react-native-picker](https://www.npmjs.com/package/react-native-picker-select) 类库，或者 [React Native Paper](https://callstack.github.io/react-native-paper/)  类库的  [Menu](https://callstack.github.io/react-native-paper/menu.html)组件来实现排序策略的选择，你可以使用 <em>FlatList</em> 组件的  [ListHeaderComponent](https://reactnative.dev/docs/flatlist#listheadercomponent) 属性来提供给列表一个表头，并包含选择的组件。
+你可以使用类似  [@react-native-picker/picker](https://docs.expo.io/versions/latest/sdk/picker/)  类库，或者 [React Native Paper](https://callstack.github.io/react-native-paper/)  类库的  [Menu](https://callstack.github.io/react-native-paper/menu.html)组件来实现排序策略的选择，你可以使用 <em>FlatList</em> 组件的  [ListHeaderComponent](https://reactnative.dev/docs/flatlist#listheadercomponent) 属性来提供给列表一个表头，并包含选择的组件。
 
 <!-- The final version of the feature, depending on the selection component in use, should look something like this: -->
 该功能的最终版本，取决于使用的选择组件，应当按如下所示：
