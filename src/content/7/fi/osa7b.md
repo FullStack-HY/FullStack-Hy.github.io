@@ -399,7 +399,7 @@ Tällöin menettäisimme suurelta osin <i>useField</i>-hookin edut. Eli keksi t�
 
 Palataan hetkeksi tehtäväsarjan [2.12-14](/osa2/palvelimella_olevan_datan_hakeminen#tehtavat-2-11-2-14) tunnelmiin.
 
-Ota pohjaksi repositoriossa https://github.com/fullstack-hy/country-hook oleva koodi. 
+Ota pohjaksi repositoriossa https://github.com/fullstack-hy2020/country-hook oleva koodi. 
 
 Sovelluksen avulla on mahdollista hakea maiden tietoja https://restcountries.eu/ rajapinnasta. Jos maa löytyy, näytetään maan perustiedot
 
