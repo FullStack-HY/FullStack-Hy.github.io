@@ -40,26 +40,25 @@ The part **deadlines** are at Mondays 23:59.
 
 | osa            | deadline&nbsp; &nbsp; |
 | -------------- | :-------------------: |
-| part 0          |        Monday 25.1.       |
-| part 1          |        Monday 1.2.        |
-| part 2          |        Monday 8.2.        |
-| part 3          |        Monday 15.2.       |
-| part 4          |        Monday 22.2.       |
-| part 5          |        Monday 1.3.        |
-| part 6          |        Monday 8.3.        |
-| part 7          |        Monday 15.3.       |
+| parts 0 and 1   |        Monday 31.1.        |
+| part 2          |        Monday 7.2.        |
+| part 3          |        Monday 14.2.       |
+| part 4          |        Monday 21.2.       |
+| part 5          |        Monday 28.2.        |
+| part 6          |        Monday 7.3.        |
+| part 7          |        Monday 8.3.       |
 
-Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [submission sytem](https://study.cs.helsinki.fi/stats/courses/fullstack2021/).
+Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [submission sytem](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
 ### Grading
 
 Course is worth 5-7 credits depending on the number of submitted exercises. The grade and number of credits are determined by the number of submitted exercises, so also the exercises without stars count towards your final grade. 
 
-Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade.  The exam is in Moodle at Friday 12th March. 
+Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade. The exam is in Moodle at Friday 11th March. 
 
 Credits and grades are calculated as follows:
 
-| excercises     | credits | grade | 
+| excercises     | credits | grade |
 | ------------ | :------------: | :------: |
 | 138          |       7        | 5        |
 | 127          |       6        | 5        |
@@ -73,11 +72,11 @@ Note that for an accepted grade you must pass the exam.
 
 ### Extending your course in Open University
 
-You can extend your course in [Open university](https://studies.helsinki.fi/courses/cur/hy-CUR-136061621/Open_uni_Full_Stack_Web_Development_2021_3_12_cr) where the open version of the course starts at 15.3.2021. The open version contains some more parts and it is worth 5 to 12 credits. 
+You can extend your course in [Open university](https://studies.helsinki.fi/courses/cur/otm-dbf5a51d-2121-4110-af0f-f1e8f0b74fb9) where the open version of the course starts at 15.3.2021. The open version contains some more parts and it is worth 5 to 14 credits. 
 
 ### Submitting exercises
 
-The exercises are submitted through GitHub and marking them as done on the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021/).
+The exercises are submitted through GitHub and marking them as done on the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
 If you are submitting exercises from different parts to the same repository, use some sensible system for naming your directories. You can of course create a new repository for each part. If you are using a private repository, add <i>mluukkai</i> as a collaborator.
 
@@ -89,7 +88,7 @@ Many of the exercises build a larger application bit by bit. In these cases, sub
 
 ### Full stack project
 
-A full stack project worth 1-10 credits will be available through Open University.
+A full stack project worth 5, 7, 10  credits will be available through Open University.
 
 For the project, an application is implemented in React and/or Node, though implementing a mobile application in React Native is also possible.
 
@@ -97,7 +96,7 @@ The number of credits is based on hours of work done. One credit is approximatel
 
 It is possible to complete the project as a pair or a group.
 
-For more information, see the [Open University page](https://studies.helsinki.fi/opintotarjonta/cur/hy-CUR-136121125/Open_uni_Full_Stack_Web_Development_Project_2021).
+For more information, see the [Open University page](https://studies.helsinki.fi/opintotarjonta/cur/otm-67e986ac-78ad-4e2b-aef7-e01cc7f4ec3c/_Full_Stack_websovelluskehitys_harjoitusty%C3%B6).
 
 ### Before you start
 
