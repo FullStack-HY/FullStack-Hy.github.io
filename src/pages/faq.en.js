@@ -5,7 +5,7 @@ import FaqPage from '../components/FaqPage';
 const FAQ = () => (
   <FaqPage
     lang="en"
-    title="FAQ | Full stack open 2020"
+    title="FAQ | Full stack open 2022"
     seoDescription="Frequently asked questions"
   />
 );
