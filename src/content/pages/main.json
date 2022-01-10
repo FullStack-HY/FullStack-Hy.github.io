@@ -4,7 +4,7 @@
     "intro": "Ota haltuusi React, Redux, Node.js, MongoDB, GraphQL ja TypeScript! Kurssilla tutustutaan JavaScriptilla tapahtuvaan moderniin websovelluskehitykseen. Pääpaino on React-kirjaston avulla toteutettavissa single page -sovelluksissa, ja niitä tukevissa Node.js:llä toteutetuissa REST-rajapinnoissa.",
     "current": [
       "Enenn kuin aloitat, lue huolellisesti kurssin järjestelyjen kuvaus <a href='/osa0/yleista'>Osasta O</a>",
-      "Ohjausta tehtäviin zoom-pajoissa:<ul><li>torstaina 14-16</li><li>nn</li></ul>",
+      "Ohjausta tehtäviin zoom-pajoissa:<ul><li>maanantaina 10-12 (24.1. alkaen) <a href='https://helsinki.zoom.us/j/64867737553?pwd=L1hSbGJZb0xrNWk3R0dZZWl3VXRaQT09'>zoom</a></li><li>torstaina 14-16</li></ul>",
       "Kurssiin liittyvää keskustelua Discordissa, kanavalla <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> sekä Telegramissa, kanavalla <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>, tule mukaan! <ul><li>Huom: kaikki epäasialliset, halventavat ja jotain ihmisryhmää syrjivät kommentit kanavalla ovat kiellettyjä ja tälläisten kommenttien esittäjät poistetaan kanavalta.</li></ul>",
       "Yhteistyökumppaneina kurssilla on <a href='https://www.houston-inc.com/'>Houston Inc</a>, <a href='https://www.terveystalo.com/fi/Yritystietoa/Terveystalo-tyontantajana/Digital-Health/'>Terveystalo</a>, <a href='https://elisa.fi/'>Elisa</a>, <a href='https://www.kesko.fi/'>K-ryhmä</a>, <a href='https://www.instagram.com/unitytechnologies/?hl=en'>Unity Technologies</a>, <a href='https://careers.konecranes.com/Konecranes/'>Konecranes</a> ja <a href='https://www.smartly.io/'>Smartly.io</a>. Katso <a href='https://www.youtube.com/playlist?list=PLumQiZ25uijis31zaRL7rhzLalSwLqUtm'>täältä</a> yhteistyökumppaniemme asiantuntijoiden vierailuluentoja kurssin aihepiireistä."
     ],
@@ -24,6 +24,7 @@
     "intro": "Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go! This course will introduce you to modern JavaScript-based web development. The main focus is on building single page applications with ReactJS that use REST APIs built with Node.js.",
     "current": [
       "Make sure to read the instructions in <a href='/en/part0/general_info'>Part 0</a> thoroughly before you start!",
+      "Help for exercises in zoom-workhops:<ul><li>Mondays 10-12 (starting 24.1.) <a href='https://helsinki.zoom.us/j/64867737553?pwd=L1hSbGJZb0xrNWk3R0dZZWl3VXRaQT09'>zoom</a></li><li>Thursdays 14-16</li></ul>",
       "You can discuss the course and related topics in our dedicated group on Discord <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> and on Telegram: <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>. Please join the conversation!"
     ],
     "telegram": "Telegram is a whatsapp / messenger-style discussion forum application that can be used with a browser, mobile devices, and Windows / Linux / OSX clients.",
