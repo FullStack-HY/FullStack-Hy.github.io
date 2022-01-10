@@ -35,13 +35,12 @@ Osien **deadlinet** ovat maanantaisin klo 23:59.
 
 | osa            | deadline&nbsp; &nbsp; |
 | -------------- | :-------------------: |
-| osat 0 ja 1    |        ma 31.1.        |
+| osat 0 ja 1    |        ma 31.1.       |
 | osa 2          |        ma 7.2.        |
 | osa 3          |        ma 14.2.       |
 | osa 4          |        ma 21.2.       |
-| osa 5          |        ma 28.8.        |
-| osa 6          |        ma 7.3.        |
-| osa 7          |        ma 14.3.       |
+| osa 5          |        ma 28.2.       |
+| osat 6 ja 7    |        ma 14.3.       |
 
 Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussovelluksesta](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 

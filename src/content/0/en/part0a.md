@@ -40,13 +40,12 @@ The part **deadlines** are at Mondays 23:59.
 
 | osa            | deadline&nbsp; &nbsp; |
 | -------------- | :-------------------: |
-| parts 0 and 1   |        Monday 31.1.        |
+| parts 0 and 1   |        Monday 31.1.   |
 | part 2          |        Monday 7.2.        |
 | part 3          |        Monday 14.2.       |
 | part 4          |        Monday 21.2.       |
 | part 5          |        Monday 28.2.        |
-| part 6          |        Monday 7.3.        |
-| part 7          |        Monday 8.3.       |
+| parts 6 and 7   |        Monday 14.3.       |
 
 Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [submission sytem](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
