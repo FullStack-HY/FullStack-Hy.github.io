@@ -16,9 +16,7 @@ Code will conform to contemporary best practices from  [part 1](/en/part1) onwar
 
 Open the [example application](https://studies.cs.helsinki.fi/exampleapp) in your browser. Sometimes this takes a while. 
 
-**The 1st rule of web development**: Always keep the Developer Console open on your web browser. On macOS, open the console by pressing _F12_ or _option-cmd-i_ simultaneously. 
-On Windows or Linux, open the console by pressing _F12_ or _ctrl-shift-i_ simultaneously.
-The console can also be opened via the [context menu](https://en.wikipedia.org/wiki/Menu_key).
+**The 1st rule of web development**: Always keep the Developer Console open on your web browser. On macOS, open the console by pressing _F12_ or _option-cmd-i_ simultaneously.  On Windows or Linux, open the console by pressing _F12_ or _ctrl-shift-i_ simultaneously. The console can also be opened via the [context menu](https://en.wikipedia.org/wiki/Menu_key).
 
 Remember to <i>always</i> keep the Developer Console open when developing web applications. 
 
@@ -120,7 +118,7 @@ In traditional web applications the browser is "dumb". It only fetches HTML data
 The example uses [Express](https://expressjs.com/) from Node.js. 
 This course will use Node.js and Express to create web servers. 
 
-### Running application logic on the browser
+### Running application logic in the browser
 
 Keep the Developer Console open. Empty the console by clicking the 🚫 symbol, or by typing clear() in the console. 
 Now when you go to the [notes](https://studies.cs.helsinki.fi/exampleapp/notes) page, the browser does 4 HTTP requests: 
@@ -179,8 +177,7 @@ We can try going to the address <https://studies.cs.helsinki.fi/exampleapp/data.
 
 ![](../../images/0/10e.png)
 
-There we find the notes in [JSON](https://en.wikipedia.org/wiki/JSON) "raw data". 
-By default, Chromium-based browsers are not too good at displaying JSON data. Plugins can be used to handle the formatting. Install, for example, [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) on Chrome, and reload the page. The data is now nicely formatted: 
+There we find the notes in [JSON](https://en.wikipedia.org/wiki/JSON) "raw data". By default, Chromium-based browsers are not too good at displaying JSON data. Plugins can be used to handle the formatting. Install, for example, [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) on Chrome, and reload the page. The data is now nicely formatted: 
 
 ![Formatted JSON output](../../images/0/11e.png)
 
@@ -380,7 +377,7 @@ A class selector definition always starts with a period, and contains the name o
 
 The classes are [attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class), which can be added to HTML elements. 
 
-CSS attributes can be examined on the <i>elements</i> tab on the console:  
+CSS attributes can be examined on the <i>elements</i> tab of the console:  
 
 ![Screenshot of the Elements tab on the developer console](../../images/0/17e.png)
 
