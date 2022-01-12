@@ -224,7 +224,8 @@ const handleLeftClick = () => {
 
 However, __don't__ do this. As mentioned previously, the state of React components like _allClicks_ must not be mutated directly. Even if mutating state appears to work in some cases, it can lead to problems that are very hard to debug.
 
-Let's take a closer look at how the clicking history is rendered to the page:
+Let's take a closer look at how the clicking 
+is rendered to the page:
 
 ```js
 const App = () => {
@@ -273,8 +274,8 @@ const App = () => {
   return (
     <div>
       {left}
-      <button handleClick={handleLeftClick}>left</button>
-      <button handleClick={handleRightClick}>right</button>
+      <button onClick={handleLeftClick}>left</button>
+      <button onClick={handleRightClick}>right</button>
       {right}
       <History allClicks={allClicks} /> // highlight-line
     </div>
@@ -360,7 +361,7 @@ const App = () => {
 
 In this course we use the [state hook](https://reactjs.org/docs/hooks-state.html) to add state to our React components, which is part of the newer versions of React and is available from version [16.8.0](https://www.npmjs.com/package/react/v/16.8.0) onwards. Before the addition of hooks, there was no way to add state to functional components. Components that required state had to be defined as [class](https://reactjs.org/docs/react-component.html) components, using the JavaScript class syntax.
 
-In this course we have made the slightly radical decision to use hooks exclusively from day one, to ensure that we are learning the the current and future style of React. Even though functional components are the future of React, it is still important to learn the class syntax, as there are billions of lines of legacy React code that you might end up maintaining someday. The same applies to documentation and examples of React that you may stumble across on the internet.
+In this course we have made the slightly radical decision to use hooks exclusively from day one, to ensure that we are learning the current and future style of React. Even though functional components are the future of React, it is still important to learn the class syntax, as there are billions of lines of legacy React code that you might end up maintaining someday. The same applies to documentation and examples of React that you may stumble across on the internet.
 
 We will learn more about React class components later on in the course.
 
@@ -382,7 +383,7 @@ Keep both your code and the web page open together **at the same time, all the t
 
 If and when your code fails to compile and your browser lights up like a Christmas tree:
 
-![](../../images/1/6e.png)
+![](../../images/1/6x.png)
 
 don't write more code but rather find and fix the problem **immediately**. There has yet to be a moment in the history of coding where code that fails to compile would miraculously start working after writing large amounts of additional code. I highly doubt that such an event will transpire during this course either.
 
@@ -830,6 +831,7 @@ const App = () => {
   
   // highlight-start
   const setToValue = (newValue) => () => {
+    console.log('value now', newValue)  // print the new value to console
     setValue(newValue)
   }
   // highlight-end
@@ -857,6 +859,7 @@ The event handler is set to the return value of _setToValue(1000)_ which is the 
 
 ```js
 () => {
+  console.log('value now', 1000)
   setValue(1000)
 }
 ```
@@ -871,6 +874,7 @@ The event handler is created by the function call _setToValue(value + 1)_ which 
 
 ```js
 () => {
+  console.log('value now', 11)
   setValue(11)
 }
 ```
@@ -882,6 +886,7 @@ const App = () => {
   const [value, setValue] = useState(10)
 
   const setToValue = (newValue) => {
+    console.log('value now', newValue)
     setValue(newValue)
   }
 
@@ -946,6 +951,7 @@ const App = () => {
   const [value, setValue] = useState(10)
 
   const setToValue = newValue => {
+    console.log('value now', newValue)
     setValue(newValue)
   }
 
@@ -980,6 +986,7 @@ const App = () => {
   const [value, setValue] = useState(10)
 
   const setToValue = newValue => {
+    console.log('value now', newValue)
     setValue(newValue)
   }
 
@@ -1000,7 +1007,7 @@ The internet is full of React-related material. However, we use the new style of
 
 You may find the following links useful:
 
-- The React [official documentation](https://reactjs.org/docs/hello-world.html) is worth checking out at some point, although most of it will become relevant only later on in the course. Also, everything related to class-based components is irrelevant to us;
+- The [official React documentation](https://reactjs.org/docs/hello-world.html) is worth checking out at some point, although most of it will become relevant only later on in the course. Also, everything related to class-based components is irrelevant to us;
 - Some courses on [Egghead.io](https://egghead.io) like [Start learning React](https://egghead.io/courses/start-learning-react) are of high quality, and recently updated [The Beginner's Guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) is also relatively good; both courses introduce concepts that will also be introduced later on in this course. **NB** The first one uses class components but the latter uses the new functional ones.
 
 </div>
@@ -1008,7 +1015,7 @@ You may find the following links useful:
 <div class="tasks">
   <h3>Exercises  1.6.-1.14.</h3>
 
-Submit your solutions to the exercises by first pushing your code to GitHub and then marking the completed exercises into the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Submit your solutions to the exercises by first pushing your code to GitHub and then marking the completed exercises into the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
 Remember, submit **all** the exercises of one part **in a single submission**. Once you have submitted your solutions for one part, **you cannot submit more exercises to that part any more**.
 
@@ -1044,7 +1051,7 @@ ReactDOM.render(
 )
 ```
 
-You can use the code below as a starting point for your the file <i>App.js</i>:
+You can use the code below as a starting point for the <i>App.js</i> file:
 
 ```js
 import React, { useState } from 'react'
@@ -1110,18 +1117,18 @@ Change your application to display statistics only once feedback has been gather
 Let's continue refactoring the application. Extract the following two components:
 
 - <i>Button</i> for defining the buttons used for submitting feedback
-- <i>Statistic</i> for displaying a single statistic, e.g. the average score.
+- <i>StatisticLine</i> for displaying a single statistic, e.g. the average score.
 
-To be clear: the <i>Statistic</i> component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics:
+To be clear: the <i>StatisticLine</i> component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics:
 
 ```js
 const Statistics = (props) => {
   /// ...
   return(
     <div>
-      <Statistic text="good" value ={...} />
-      <Statistic text="neutral" value ={...} />
-      <Statistic text="bad" value ={...} />
+      <StatisticLine text="good" value ={...} />
+      <StatisticLine text="neutral" value ={...} />
+      <StatisticLine text="bad" value ={...} />
       // ...
     </div>
   )
@@ -1141,7 +1148,7 @@ Remember to keep your console open at all times. If you see this warning in your
 
 ![](../../images/1/17a.png)
 
-Then perform the necessary actions to make the warning disappear. Try Googling the error message if you get stuck.
+Then perform the necessary actions to make the warning disappear. Try pasting the error message into a search engine if you get stuck.
 
 <i>Typical source of an error `Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.` is Chrome extension. Try going to `chrome://extensions/` and try disabling them one by one and refreshing React app page; the error should eventually disappear.</i>
 
@@ -1160,10 +1167,11 @@ const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
     'Adding manpower to a late software project makes it later!',
-    'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+    'The first 90 percent of the code accounts for the first 10 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
     'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
     'Premature optimization is the root of all evil.',
-    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
+    'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
+    'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
    
   const [selected, setSelected] = useState(0)
@@ -1180,7 +1188,7 @@ export default App
 
 Content of the file <i>index.js</i> is same as in previous exercises. 
 
-Google will tell you how to generate random numbers in JavaScript. Remember that you can test generating random numbers e.g. straight in the console of your browser.
+Find out how to generate random numbers in JavaScript, eg. via search engine or on [Mozilla Developer Network](https://developer.mozilla.org). Remember that you can test generating random numbers e.g. straight in the console of your browser.
 
 Your finished application could look something like this:
 
@@ -1216,7 +1224,7 @@ const copy = [...points]
 copy[2] += 1     
 ```
 
-Using an array might be the simpler choice in this case. Googling will provide you with lots of hints on how to create a zero-filled array of a desired length, like [this](https://stackoverflow.com/questions/20222501/how-to-create-a-zero-filled-javascript-array-of-arbitrary-length/22209781).
+Using an array might be the simpler choice in this case. Searching the Internet will provide you with lots of hints on how to [create a zero-filled array of a desired length](https://stackoverflow.com/questions/20222501/how-to-create-a-zero-filled-javascript-array-of-arbitrary-length/22209781).
 
 <h4>1.14*: anecdotes step3</h4>
 
@@ -1226,6 +1234,6 @@ Now implement the final version of the application that displays the anecdote wi
 
 If multiple anecdotes are tied for first place it is sufficient to just show one of them.
 
-This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
 </div>
