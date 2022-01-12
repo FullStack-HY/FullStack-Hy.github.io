@@ -1511,8 +1511,8 @@ describe('Blog app', function() {
 
 注意如果你点击一行中的喜欢按钮多次，可能出现一些问题。可能是由于cypress 不能点击那么快，以致于在两次点击直接没有时间更新状态。一个改进方法是在所有点击之中等待状态更新。
 
-<!-- This was the last exercise of this part, and its time to push your code to github and mark the exercises you completed in the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen). -->
-这是本章节的最后一个练习，是时候将您的代码推送到 github，并标记您在[exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen)中完成的练习。
+
+这是本章节的最后一个练习，是时候将您的代码推送到 github，并标记您在[exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022/)中完成的练习。
 
 </div>
 

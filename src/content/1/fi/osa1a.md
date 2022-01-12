@@ -20,13 +20,13 @@ $ cd part1
 
 Kaikki tässä (ja jatkossa) annettavat merkillä <em>$</em> alkavat komennot on kirjoitettu terminaaliin eli komentoriville. Merkkiä <em>$</em> ei tule kirjoittaa, sillä se edustaa komentokehotetta.
 
-Sovellus käynnistetään seuraavasti
+Sovellus käynnistetään seuraavasti:
 
 ```bash
 $ npm start
 ```
 
-Sovellus käynnistyy oletusarvoisesti localhostin porttiin 3000, eli osoitteeseen <http://localhost:3000>
+Sovellus käynnistyy oletusarvoisesti localhostin porttiin 3000, eli osoitteeseen <http://localhost:3000>.
 
 Chromen pitäisi aueta automaattisesti. Avaa konsoli **välittömästi**. Avaa myös tekstieditori siten, että näet koodin ja web-sivun samaan aikaan ruudulla:
 
@@ -47,21 +47,20 @@ ReactDOM.render(
 ja tiedoston <i>App.js</i> sisällöksi
 
 ```js
-import React from 'react'
 const App = () => (
   <div>
-    <p>Hello world lo23</p>
+    <p>Hello world</p>
   </div>
 )
 
 export default App
 ```
 
-Tiedostot <i>App.css</i>, <i>App.test.js</i>, <i>logo.svg</i> ja <i>reportWebVitals.js</i> voi poistaa sillä niitä emme sovelluksessamme nyt tarvitse.
+Tiedostot <i>App.css</i>, <i>App.test.js</i>, <i>index.css</i>, <i>logo.svg</i>, <i>reportWebVitals.js</i> ja <i>setupTests.js</i> voi poistaa, sillä emme tarvitse niitä.
 
 ### Komponentti
 
-Tiedosto <i>App.js</i> määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään <i>App</i>. Tiedoston  <i>index.js</i> viimeisen rivin komento
+Tiedosto <i>App.js</i> määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään <i>App</i>. Tiedoston <i>index.js</i> viimeisen rivin komento
 
 ```js
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -83,7 +82,7 @@ const App = () => (
 
 Kuten arvata saattaa, komponentti renderöityy <i>div</i>-tagina, jonka sisällä on <i>p</i>-tagin sisällä oleva teksti <i>Hello world</i>.
 
-Teknisesti ottaen komponentti on määritelty JavaScript-funktiona. Seuraava siis on funktio (joka ei saa yhtään parametria):
+Teknisesti ottaen komponentti on määritelty JavaScript-funktiona. Seuraava on siis funktio (joka ei saa yhtään parametria):
 
 ```js
 () => (
@@ -99,9 +98,9 @@ joka sijoitetaan vakioarvoiseen muuttujaan <i>App</i>
 const App = ...
 ```
 
-Javascriptissa on muutama tapa määritellä funktioita. Käytämme nyt Javascriptin hieman uudemman version [EcmaScript 6:n](http://es6-features.org/#Constants) eli ES6:n [nuolifunktiota](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (arrow functions).
+JavaScriptissa on muutama tapa määritellä funktioita. Käytämme nyt JavaScriptin hieman uudemman version [ECMAScript 6:n](http://es6-features.org/#Constants) eli ES6:n [nuolifunktiota](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) (arrow functions).
 
-Koska funktio koostuu vain yhdestä lausekkeesta, on käytössämme lyhennysmerkintä, joka vastaa oikeasti seuraavaa koodia:
+Koska funktio koostuu vain yhdestä lausekkeesta, käytössämme on lyhennysmerkintä, joka vastaa seuraavaa koodia:
 
 ```js
 const App = () => {
@@ -134,7 +133,7 @@ const App = () => {
 export default App
 ```
 
-muuten komponentti ei näy tiedostoon <i>index.js</i>!
+muuten komponentti ei näy tiedostoon <i>index.js!</i>
 
 Komponenttien sisällä on mahdollista renderöidä myös dynaamista sisältöä.
 
@@ -161,7 +160,7 @@ Aaltosulkeiden sisällä oleva JavaScript-koodi evaluoidaan ja evaluoinnin tulos
 
 ### JSX
 
-Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa Javascriptiä. React komponenttien palauttama JSX käännetään konepellin alla Javascriptiksi.
+Näyttää siltä, että React-komponentti palauttaa HTML-koodia. Näin ei kuitenkaan ole. React-komponenttien ulkoasu kirjoitetaan yleensä [JSX](https://reactjs.org/docs/introducing-jsx.html):ää käyttäen. Vaikka JSX näyttää HTML:ltä, kyseessä on kuitenkin tapa kirjoittaa JavaScriptiä. React-komponenttien palauttama JSX käännetään konepellin alla JavaScriptiksi.
 
 Käännösvaiheen jälkeen komponentin määrittelevä koodi näyttää seuraavalta:
 
@@ -185,9 +184,9 @@ const App = () => {
 
 Käännöksen hoitaa [Babel](https://babeljs.io/repl/). Create-react-app:illa luoduissa projekteissa käännös on konfiguroitu tapahtumaan automaattisesti. Tulemme tutustumaan aiheeseen tarkemmin kurssin [osassa 7](/osa7).
 
-Reactia olisi myös mahdollista kirjoittaa "suoraan Javascriptinä" käyttämättä JSX:ää. Kukaan täysijärkinen ei kuitenkaan niin tee.
+Reactia olisi mahdollista kirjoittaa myös "suoraan JavaScriptinä" käyttämättä JSX:ää, mutta tämä ei ole järkevää.
 
-Käytännössä JSX on melkein kuin HTML:ää sillä erotuksella, että mukaan voi upottaa helposti dynaamista sisältöä kirjoittamalla sopivaa Javascriptiä aaltosulkeiden sisälle. Idealtaan JSX on melko lähellä monia palvelimella käytettäviä templating-kieliä kuten Java Springin yhteydessä käytettävää thymeleafia.
+Käytännössä JSX on melkein kuin HTML:ää sillä erotuksella, että mukaan voi upottaa helposti dynaamista sisältöä kirjoittamalla sopivaa JavaScriptiä aaltosulkeiden sisälle. Idealtaan JSX on melko lähellä monia palvelimella käytettäviä templating-kieliä kuten Java Springin yhteydessä käytettävää Thymeleafia.
 
 JSX on "XML:n kaltainen", eli jokainen tagi tulee sulkea. Esimerkiksi rivinvaihto on tyhjä elementti, joka voidaan kirjoittaa HTML:ssä seuraavasti
 
@@ -245,13 +244,13 @@ const App = () => {
 
 Komponenttien tekeminen Reactissa on helppoa ja komponentteja yhdistelemällä monimutkaisempikin sovellus on mahdollista pitää kohtuullisesti ylläpidettävänä. Reactissa filosofiana onkin koostaa sovellus useista, pieneen asiaan keskittyvistä uudelleenkäytettävistä komponenteista.
 
-Vahva konventio on myös se, että sovelluksen ylimpänä oleva <i>juurikomponentti</i> on nimeltään <i>App</i>. Tosin kuten [osassa 6](/osa6) tulemme näkemään on tilanteita, joissa komponentti <i>App</i> ei ole suoraan juuressa, vaan se kääritään sopivan apukomponentin sisään.  
+Vahva konventio on myös se, että sovelluksen ylimpänä oleva <i>juurikomponentti</i> on nimeltään <i>App</i>. Tosin kuten [osassa 6](/osa6) tulemme näkemään, on tilanteita, joissa komponentti <i>App</i> ei ole suoraan juuressa, vaan se kääritään sopivan apukomponentin sisään.  
 
 ### props: tiedonvälitys komponenttien välillä
 
 Komponenteille on mahdollista välittää dataa [propsien](https://reactjs.org/docs/components-and-props.html) avulla.
 
-Muutetaan komponenttia <i>Hello</i> seuraavasti
+Muutetaan komponenttia <i>Hello</i> seuraavasti:
 
 ```js
 const Hello = (props) => { // highlight-line
@@ -263,7 +262,7 @@ const Hello = (props) => { // highlight-line
 }
 ```
 
-komponentin määrittelevällä funktiolla on nyt parametri <i>props</i>. Parametri saa arvokseen olion, jonka kenttinä ovat kaikki eri "propsit", jotka komponentin käyttäjä määrittelee.
+Komponentin määrittelevällä funktiolla on nyt parametri <i>props</i>. Parametri saa arvokseen olion, jonka kenttinä ovat kaikki eri "propsit", jotka komponentin käyttäjä määrittelee.
 
 Propsit määritellään seuraavasti:
 
@@ -279,7 +278,7 @@ const App = () => {
 }
 ```
 
-Propseja voi olla mielivaltainen määrä ja niiden arvot voivat olla "kovakoodattuja" merkkijonoja tai Javascript-lausekkeiden tuloksia. Jos propsin arvo muodostetaan Javascriptillä, tulee se olla aaltosulkeissa.
+Propseja voi olla mielivaltainen määrä ja niiden arvot voivat olla "kovakoodattuja" merkkijonoja tai JavaScript-lausekkeiden tuloksia. Jos propsin arvo muodostetaan JavaScriptillä, sen tulee olla aaltosulkeissa.
 
 Muutetaan koodia siten, että komponentti <i>Hello</i> käyttää kahta propsia:
 
@@ -318,7 +317,7 @@ React on konfiguroitu antamaan varsin hyviä virheilmoituksia. Kannattaa kuitenk
 
 ![](../../images/1/2a.png)
 
-Kannattaa myös muistaa, että React-koodissakin on mahdollista ja kannattavaa lisätä koodin sekaan sopivia konsoliin tulostavia <em>console.log()</em>-komentoja. Tulemme hieman [myöhemmin](#react-sovellusten-debuggaus) tutustumaan muutamiin muihinkin tapoihin debugata Reactia.
+Kannattaa muistaa myös, että React-koodissakin on mahdollista ja kannattavaa lisätä koodin sekaan sopivia konsoliin tulostavia <em>console.log()</em>-komentoja. Tulemme hieman [myöhemmin](#react-sovellusten-debuggaus) tutustumaan muutamiin muihinkin tapoihin debugata Reactia.
 
 Kannattaa pitää mielessä, että **React-komponenttien nimien tulee alkaa isolla kirjaimella**. Jos yrität määritellä komponentin seuraavasti:
 
@@ -333,7 +332,7 @@ const footer = () => {
 }
 ```
 
-ja ottaa se käyttöön
+ja ottaa sen käyttöön
 
 ```js
 const App = () => {
@@ -349,7 +348,7 @@ const App = () => {
 
 sivulle ei kuitenkaan ilmesty näkyviin Footer-komponentissa määriteltyä sisältöä, vaan React luo sivulle ainoastaan tyhjän <i>footer</i>-elementin. Jos muutat komponentin nimen alkamaan isolla kirjaimella, React luo sivulle <i>div</i>-elementin, joka määriteltiin Footer-komponentissa.
 
-Kannattaa myös pitää mielessä, että React-komponentin sisällön tulee (yleensä) sisältää **yksi juurielementti**. Eli jos yrittäisimme määritellä komponentin <i>App</i> ilman uloimmaista <i>div</i>-elementtiä:
+Kannattaa pitää mielessä myös, että React-komponentin sisällön tulee (yleensä) sisältää **yksi juurielementti**. Eli jos yrittäisimme määritellä komponentin <i>App</i> ilman uloimmaista <i>div</i>-elementtiä
 
 ```js
 const App = () => {
@@ -397,18 +396,18 @@ const App = () => {
 }
 ```
 
-Nyt käännös menee läpi ja Reactin generoimaan DOM:iin ei tule ylimääräistä div-elementtiä.
+Nyt käännös menee läpi, ja Reactin generoimaan DOM:iin ei tule ylimääräistä div-elementtiä.
 
 </div>
 
 <div class="tasks">
   <h3>Tehtävät 1.1-1.2</h3>
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
 
-Voit palauttaa kurssin kaikki tehtävät samaan repositorioon, tai käyttää useita repositorioita. Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hakemistojen nimentää.  Jos käytät privaattirepositorioa tehtävien palautukseen liitä repositoriolle collaboratoriksi <i>mluukkai</i>
+Voit palauttaa kurssin kaikki tehtävät samaan repositorioon tai käyttää useita repositorioita. Jos palautat eri osien tehtäviä samaan repositorioon, nimeä hakemistot järkevästi. Jos käytät privaattirepositorioa tehtävien palautukseen, liitä repositoriolle collaboratoriksi <i>mluukkai</i>.
 
-Eräs varsin toimiva hakemistorakenne palautusrepositoriolle on [tässä esimerkkirepositoriossa käytetty tapa](https://github.com/FullStack-HY/palauitusrepositorio), jossa kutakin osaa kohti on oma hakemistonsa, joka vielä jakautuu tehtäväsarjat (esim. osan 1 <i>kurssitiedot</i>) sisältäviin hakemistoihin:
+Eräs varsin toimiva hakemistorakenne palautusrepositoriolle on [tässä esimerkkirepositoriossa käytetty tapa](https://github.com/FullStack-HY2020/palauitusrepositorio), jossa kutakin osaa kohti on oma hakemistonsa, joka vielä jakautuu tehtäväsarjat (esim. osan 1 <i>kurssitiedot</i>) sisältäviin hakemistoihin:
 
 ```
 osa0
@@ -425,9 +424,9 @@ Kunkin tehtäväsarjan ohjelmasta kannattaa palauttaa kaikki sovelluksen sisält
 
 Tehtävät palautetaan **yksi osa kerrallaan**. Kun olet palauttanut osan tehtävät, et voi enää palauttaa saman osan tekemättä jättämiäsi tehtäviä.
 
-Huomaa, että tässä osassa on muitakin tehtäviä kuin allaolevat, eli <i>älä tee palautusta</i> ennen kun olet tehnyt osan tehtävistä kaikki mitkä haluat palauttaa.
+Huomaa, että tässä osassa on muitakin tehtäviä kuin allaolevat. <i>Älä siis tee palautusta</i> ennen kun olet tehnyt osan tehtävistä kaikki, jotka haluat palauttaa.
 
-**Vinkki:** Kun olet avaamassa tehtävääsi Visual Studio Codella, huomaathan avata koko projektin kansion editoriin. Tämä mahdollistaa editorissa helpomman tiedostojen välillä siirtymisen ja paremmat automaattiset täydennykset. Saat tämän tehtyä siirtymällä terminaalissa projektin kansioon ja suorittamalla komennon:
+**Vinkki:** Kun olet avaamassa tehtävääsi Visual Studio Codella, huomaathan avata koko projektin kansion editoriin. Tämä mahdollistaa editorissa helpomman tiedostojen välillä siirtymisen ja paremmat automaattiset täydennykset. Tämä onnistuu siirtymällä terminaalissa projektin kansioon ja komentamalla:
 
 ```bash
 $ code .
@@ -435,7 +434,7 @@ $ code .
 
   <h4>1.1: kurssitiedot, step1</h4>
 
-<i>Tässä tehtävässä aloitettavaa ohjelmaa kehitellään eteenpäin muutamassa seuraavassa tehtävässä. Tässä ja kurssin aikana muissakin vastaantulevissa tehtäväsarjoissa ohjelman lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.</i>
+<i>Tässä tehtävässä aloitettavaa ohjelmaa kehitellään eteenpäin muutamassa seuraavassa tehtävässä. Tässä ja kurssin aikana muissakin vastaan tulevissa tehtäväsarjoissa ohjelman lopullisen version palauttaminen riittää. Voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.</i>
 
 Luo create-react-app:illa uusi sovellus. Muuta <i>index.js</i> muotoon
 
@@ -483,7 +482,7 @@ const App = () => {
 export default App
 ```
 
-ja poista ylimääräiset tiedostot (App.css, App.test.js, logo.svg, reportWebVitals.js, setupTests.js).
+ja poista ylimääräiset tiedostot (App.css, App.test.js, index.css, logo.svg, reportWebVitals.js, setupTests.js).
 
 Koko sovellus on nyt ikävästi yhdessä komponentissa. Refaktoroi sovelluksen koodi siten, että se koostuu kolmesta uudesta komponentista: <i>Header</i>, <i>Content</i> ja <i>Total</i>. Kaikki data pidetään edelleen komponentissa <i>App</i>, joka välittää tarpeelliset tiedot kullekin komponentille <i>props:ien</i> avulla. <i>Header</i> huolehtii kurssin nimen renderöimisestä, <i>Content</i> osista ja niiden tehtävämääristä ja <i>Total</i> tehtävien yhteismäärästä.
 
@@ -505,7 +504,7 @@ const App = () => {
 }
 ```
 
-**VAROITUS** create-react-app tekee projektista automaattisesti git-repositorion, ellei sovellusta luoda jo olemassaolevan repositorion sisälle. Todennäköisesti **et halua** että projektista tulee repositorio, joten suorita projektin juuressa komento _rm -rf .git_.
+**VAROITUS** create-react-app tekee projektista automaattisesti Git-repositorion, ellei sovellusta luoda jo olemassa olevan repositorion sisälle. Todennäköisesti **et halua**, että projektista tulee repositorio, joten suorita projektin juuressa komento _rm -rf .git_.
 
 <h4>1.2: kurssitiedot, step2</h4>
 
