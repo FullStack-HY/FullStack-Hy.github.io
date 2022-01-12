@@ -6,6 +6,8 @@ lang: en
 
 <div class="intro">
 
+<i>*THIS PART HAS NOT YET BEEN UPDATED*</i>
+
 In this part, we will continue our work on the backend. Our first major theme will be writing unit and integration tests for the backend. After we have covered testing, we will take a look at implementing user authentication and authorization.
 
 Exercise deadline for this part Monday 21.2.
