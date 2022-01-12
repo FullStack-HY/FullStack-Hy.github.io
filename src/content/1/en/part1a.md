@@ -353,7 +353,7 @@ const App = () => {
 
 the result is an error message.
 
-![](../../images/1/3e.png)
+![](../../images/1/3c.png)
 
 Using a root element is not the only working option. An <i>array</i> of components is also a valid solution:
 
