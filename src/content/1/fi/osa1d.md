@@ -1058,7 +1058,7 @@ ReactDOM.render(
 Muun sovelluksen voi tehdä tiedostoon <i>App.js</i>. Tiedoston sisältö voi olla aluksi seuraava:
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const App = () => {
   // tallenna napit omaan tilaansa
@@ -1164,7 +1164,7 @@ Ohjelmistotuotannossa tunnetaan lukematon määrä [anekdootteja](http://www.com
 Laajenna seuraavaa sovellusta siten, että siihen tulee nappi, jota painamalla sovellus näyttää <i>satunnaisen</i> ohjelmistotuotantoon liittyvän anekdootin:
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const App = () => {
   const anecdotes = [

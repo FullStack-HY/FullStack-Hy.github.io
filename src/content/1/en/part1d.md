@@ -1054,7 +1054,7 @@ ReactDOM.render(
 You can use the code below as a starting point for the <i>App.js</i> file:
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const App = () => {
   // save clicks of each button to its own state
@@ -1161,7 +1161,7 @@ The world of software engineering is filled with [anecdotes](http://www.comp.nus
 Expand the following application by adding a button that can be clicked to display a <i>random</i> anecdote from the field of software engineering: 
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const App = () => {
   const anecdotes = [
