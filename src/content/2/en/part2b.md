@@ -116,7 +116,7 @@ The target in this case is the form that we have defined in our component.
 
 How do we access the data contained in the form's <i>input</i> element?
 
-### Kontrolloitu komponentti
+### Controlled component
 
 There are many ways to accomplish this; the first method we will take a look at is through the use of so-called [controlled components](https://reactjs.org/docs/forms.html#controlled-components).
 

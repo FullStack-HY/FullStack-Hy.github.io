@@ -19,19 +19,19 @@ Tehdään projektin juurihakemistoon tiedosto <i>db.json</i>, jolla on seuraava 
     {
       "id": 1,
       "content": "HTML is easy",
-      "date": "2020-01-10T17:30:31.098Z",
+      "date": "2022-1-17T17:30:31.098Z",
       "important": true
     },
     {
       "id": 2,
-      "content": "Browser can execute only Javascript",
-      "date": "2020-01-10T18:39:34.091Z",
+      "content": "Browser can execute only JavaScript",
+      "date": "2022-1-17T18:39:34.091Z",
       "important": false
     },
     {
       "id": 3,
       "content": "GET and POST are the most important methods of HTTP protocol",
-      "date": "2020-01-10T19:20:14.298Z",
+      "date": "2022-1-17T19:20:14.298Z",
       "important": true
     }
   ]
@@ -85,7 +85,7 @@ xhttp.open('GET', '/data.json', true)
 xhttp.send()
 ```
 
-Heti alussa HTTP-pyyntöä vastaavalle <em>xhttp</em>-oliolle rekisteröidään <i>tapahtumankäsittelijä</i>, jota Javascript runtime kutsuu kun <em>xhttp</em>-olion tila muuttuu. Jos tilanmuutos tarkoittaa että pyynnön vastaus on saapunut, käsitellään data halutulla tavalla.
+Heti alussa HTTP-pyyntöä vastaavalle <em>xhttp</em>-oliolle rekisteröidään <i>tapahtumankäsittelijä</i>, jota JavaScript -runtime kutsuu kun <em>xhttp</em>-olion tila muuttuu. Jos tilanmuutos tarkoittaa että pyynnön vastaus on saapunut, käsitellään data halutulla tavalla.
 
 Huomionarvoista on se, että tapahtumankäsittelijän koodi on määritelty jo ennen kun itse pyyntö lähetetään palvelimelle. Tapahtumankäsittelijäfunktio tullaan kuitenkin suorittamaan vasta jossain myöhäisemmässä vaiheessa. Koodin suoritus ei siis etene synkronisesti "ylhäältä alas", vaan <i>asynkronisesti</i>, JavaScript kutsuu sille rekisteröityä tapahtumankäsittelijäfunktiota jossain vaiheessa.
 
@@ -143,17 +143,17 @@ Nykyään lähes kaikki JavaScript-projektit määritellään node "pakkausmanag
 
 ```json
 {
-  "name": "part2-notes",
+  "name": "notes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -180,7 +180,6 @@ Nykyään lähes kaikki JavaScript-projektit määritellään node "pakkausmanag
     ]
   }
 }
-
 ```
 
 Tässä vaiheessa meitä kiinnostaa osa <i>dependencies</i>, joka määrittelee mitä <i>riippuvuuksia</i> eli ulkoisia kirjastoja projektilla on.
@@ -197,21 +196,24 @@ Nyt axios on mukana riippuvuuksien joukossa:
 
 ```json
 {
+  "name": "notes",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "axios": "^0.21.1", // highlight-line
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.24.0", // highlight-line
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.3"
   },
   // ...
 }
 ```
 
-Sen lisäksi, että komento <em>npm install</em> lisäsi axiosin riippuvuuksien joukkoon, se myös <i>latasi</i> kirjaston koodin. Koodi löytyy muiden riippuvuuksien tapaan projektin juuren hakemistosta <i>node_modules</i>, mikä kuten huomata saattaa sisältääkin runsaasti kaikenlaista.
+Sen lisäksi, että komento <em>npm install</em> lisäsi axiosin riippuvuuksien joukkoon, se myös <i>latasi</i> kirjaston koodin. Koodi löytyy muiden riippuvuuksien tapaan projektin juuren alla olevasta hakemistosta <i>node_modules</i>, mikä kuten huomata saattaa sisältääkin runsaasti kaikenlaista.
 
 Tehdään toinenkin pieni lisäys. Asennetaan myös <i>json-server</i> projektin <i>sovelluskehityksen aikaiseksi</i> riippuvuudeksi komennolla
 
@@ -287,7 +289,7 @@ Konsoliin tulostuu seuraavaa
 
 ![](../../images/2/16b.png)
 
-**Huom:** kun tiedostoon <i>index.js</i> lisätään sisältöä, React ei havaitse muutosta automaattisesti, eli joudut refreshaamaan selaimen, jotta näet muutokset! 
+**Huom:** kun tiedostoon <i>index.js</i> lisätään sisältöä, React ei välttämättä havaitse muutosta automaattisesti, eli joudut ehkä refreshaamaan selaimen, jotta näet muutokset! 
 
 Axiosin metodi _get_ palauttaa [promisen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
@@ -301,7 +303,7 @@ Promise siis edustaa asynkronista operaatiota. Promise voi olla kolmessa eri til
 - jos operaatio päättyy onnistuneesti, menee promise tilaan <i>fulfilled</i>, josta joskus käytetään nimitystä <i>resolved</i>
 - kolmas mahdollinen tila on <i>rejected</i>, joka edustaa epäonnistunutta operaatiota
 
-Esimerkkimme ensimmäinen promise on <i>fulfilled</i>, eli vastaa onnistunutta `axios.get('http://localhost:3001/notes')` pyyntöä. Promiseista toinen taas on <i>rejected</i>, syy selviää konsolista, eli yritettiin tehdä HTTP GET -pyyntöä osoitteeseen, jota ei ole olemassa.
+Esimerkkimme ensimmäinen promise on <i>fulfilled</i>, eli vastaa onnistunutta pyyntöä _axios.get('http://localhost:3001/notes')_. Promiseista toinen taas on <i>rejected</i>, syy selviää konsolista, eli yritettiin tehdä HTTP GET -pyyntöä osoitteeseen, jota ei ole olemassa.
 
 Jos ja kun haluamme tietoon promisea vastaavan operaation tuloksen, tulee promiselle rekisteröidä tapahtumankuuntelija. Tämä tapahtuu metodilla <em>then</em>:
 
@@ -317,7 +319,7 @@ Konsoliin tulostuu seuraavaa
 
 ![](../../images/2/17e.png)
 
-Javascriptin suoritusympäristö kutsuu <em>then</em>-metodin avulla rekisteröityä takaisinkutsufunktiota antaen sille parametriksi olion <em>response</em>, joka sisältää kaiken oleellisen HTTP GET -pyynnön vastaukseen liittyvän, eli palautetun <i>datan</i>, <i>statuskoodin</i> ja <i>headerit</i>.
+JavaScriptin suoritusympäristö kutsuu <em>then</em>-metodin avulla rekisteröityä takaisinkutsufunktiota antaen sille parametriksi olion <em>response</em>, joka sisältää kaiken oleellisen HTTP GET -pyynnön vastaukseen liittyvän, eli palautetun <i>datan</i>, <i>statuskoodin</i> ja <i>headerit</i>.
 
 Promise-oliota ei ole yleensä tarvetta tallettaa muuttujaan, ja onkin tapana ketjuttaa metodin <em>then</em> kutsu suoraan axiosin metodin kutsun perään:
 
@@ -449,7 +451,7 @@ response => {
 })
 ```
 
-Siinä vaiheessa kun data saapuu palvelimelta, Javascriptin runtime kutsuu rekisteröityä tapahtumankäsittelijäfunktiota, joka tulostaa konsoliin <i>promise fulfilled</i> sekä tallettaa tilaan palvelimen palauttamat muistiinpanot funktiolla <em>setNotes(response.data)</em>.
+Siinä vaiheessa kun data saapuu palvelimelta, JavaScriptin runtime kutsuu rekisteröityä tapahtumankäsittelijäfunktiota, joka tulostaa konsoliin <i>promise fulfilled</i> sekä tallettaa tilaan palvelimen palauttamat muistiinpanot funktiolla <em>setNotes(response.data)</em>.
 
 Kuten aina, <i>tilan päivittävän funktion kutsu aiheuttaa komponentin uudelleen renderöitymisen</i>. Tämän seurauksena konsoliin tulostuu <i>render 3 notes</i> ja palvelimelta haetut muistiinpanot renderöityvät ruudulle.
 
@@ -526,7 +528,7 @@ useEffect(() => {
 
 Sovelluksessa on tällä hetkellä vielä se ongelma, että jos lisäämme uusia muistiinpanoja, ne eivät tallennu palvelimelle asti. Eli kun uudelleenlataamme sovelluksen, kaikki lisäykset katoavat. Korjaus asiaan tulee pian.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part2-4), branchissa <i>part2-4</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part2-4), branchissa <i>part2-4</i>.
 
 ### Sovelluskehityksen suoritusympäristö
 
@@ -534,7 +536,7 @@ Sovelluksemme kokonaisuuden konfiguraatiosta on pikkuhiljaa muodostunut melko mo
 
 ![](../../images/2/18e.png)
 
-React-sovelluksen muodostavaa JavaScript-koodia siis suoritetaan selaimessa. Selain hakee Javascriptin <i>React dev serveriltä</i>, joka on se ohjelma, mikä käynnistyy kun suoritetaan komento <em>npm start</em>. Dev-serveri muokkaa sovelluksen Javascriptin selainta varten sopivaan muotoon, se mm. yhdistelee eri tiedostoissa olevan JavaScript-koodin yhdeksi tiedostoksi. Puhumme enemmän dev-serveristä kurssin [osassa 7](/osa7).
+React-sovelluksen muodostavaa JavaScript-koodia siis suoritetaan selaimessa. Selain hakee JavaScriptin <i>React dev serveriltä</i>, joka on se ohjelma, mikä käynnistyy kun suoritetaan komento <em>npm start</em>. Dev-serveri muokkaa sovelluksen JavaScriptin selainta varten sopivaan muotoon, se mm. yhdistelee eri tiedostoissa olevan JavaScript-koodin yhdeksi tiedostoksi. Puhumme enemmän dev-serveristä kurssin [osassa 7](/osa7).
 
 JSON-muodossa olevan datan selaimessa pyörivä React-sovellus siis hakee koneella portissa 3001 käynnissä olevalta <i>json-serveriltä</i>, joka taas saa JSON-datan tiedostosta <i>db.json</i>.
 

@@ -19,19 +19,19 @@ Create a file named <i>db.json</i> in the root directory of the project with the
     {
       "id": 1,
       "content": "HTML is easy",
-      "date": "2019-05-30T17:30:31.098Z",
+      "date": "2022-1-17T17:30:31.098Z",
       "important": true
     },
     {
       "id": 2,
       "content": "Browser can execute only JavaScript",
-      "date": "2019-05-30T18:39:34.091Z",
+      "date": "2022-1-17T18:39:34.091Z",
       "important": false
     },
     {
       "id": 3,
       "content": "GET and POST are the most important methods of HTTP protocol",
-      "date": "2019-05-30T19:20:14.298Z",
+      "date": "2022-1-17T19:20:14.298Z",
       "important": true
     }
   ]
@@ -143,17 +143,17 @@ Nowadays, practically all JavaScript projects are defined using the node package
 
 ```json
 {
-  "name": "part2-notes",
+  "name": "notes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -197,15 +197,18 @@ Axios is now included among the other dependencies:
 
 ```json
 {
+  "name": "notes",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "axios": "^0.21.1", // highlight-line
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.24.0", // highlight-line
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.3"
   },
   // ...
 }
@@ -285,7 +288,7 @@ If you open <http://localhost:3000> in the browser, this should be printed to th
 
 ![](../../images/2/16b.png)
 
-**Note:** when the content of the file <i>index.js</i> changes, React does not notice that automatically so you must refresh the browser to see your changes! A simple workaround to make React notice the change automatically, is to create a file named <i>.env</i> in the root directory of the project and add this line `FAST_REFRESH=false`. Restart the app for the applied changes to take effect.
+**Note:** when the content of the file <i>index.js</i> changes, React does not always notice that automatically so you might need to refresh the browser to see your changes! A simple workaround to make React notice the change automatically, is to create a file named <i>.env</i> in the root directory of the project and add this line <i>FAST_REFRESH=false</i>. Restart the app for the applied changes to take effect.
 
 Axios' method _get_ returns a [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises).
 
@@ -299,7 +302,7 @@ In other words, a promise is an object that represents an asynchronous operation
 2. The promise is <i>fulfilled</i>: It means that the operation has completed and the final value is available, which generally is a successful operation. This state is sometimes also called <i>resolved</i>.
 3. The promise is <i>rejected</i>: It means that an error prevented the final value from being determined, which generally represents a failed operation.
 
-The first promise in our example is <i>fulfilled</i>, representing a successful `axios.get('http://localhost:3001/notes')` request. The second one, however, is <i>rejected</i>, and the console tells us the reason. It looks like we were trying to make an HTTP GET request to a non-existent address.
+The first promise in our example is <i>fulfilled</i>, representing a successful _axios.get('http://localhost:3001/notes')_ request. The second one, however, is <i>rejected</i>, and the console tells us the reason. It looks like we were trying to make an HTTP GET request to a non-existent address.
 
 If, and when, we want to access the result of the operation represented by the promise, we must register an event handler to the promise. This is achieved using the method <em>then</em>:
 
@@ -542,13 +545,9 @@ At this point in development, all the parts of the application happen to reside 
 
 <div class="tasks">
 
-
 <h3>Exercises 2.11.-2.14.</h3>
 
-
 <h4>2.11: The Phonebook Step6</h4>
-
-
 
 We continue with developing the phonebook. Store the initial state of the application in the file <i>db.json</i>, which should be placed in the root of the project.
 
