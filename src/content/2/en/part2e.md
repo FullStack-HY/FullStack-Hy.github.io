@@ -26,7 +26,7 @@ h1 {
 }
 ```
 
-**Note:** when the content of the file <i>index.js</i> changes, React does not notice the automatiaclly so you must refresh the browser to see your changes!
+**Note:** when the content of the file <i>index.js</i> changes, React does not notice that automatically so you must refresh the browser to see your changes!
 
 CSS rules comprise of <i>selectors</i> and <i>declarations</i>. The selector defines which elements the rule should be applied to. The selector above is <i>h1</i>, which will match all of the <i>h1</i> header tags in our application.
 
@@ -134,7 +134,7 @@ const Notification = ({ message }) => {
   }
 
   return (
-    <div className="error">
+    <div className='error'>
       {message}
     </div>
   )
@@ -212,26 +212,20 @@ Now we are ready to add the logic for displaying the error message. Let's change
   }
 ```
 
-
 When the error occurs we add a descriptive error message to the <em>errorMessage</em> state. At the same time we start a timer, that will set the <em>errorMessage</em> state to <em>null</em> after five seconds.
-
 
 The result looks like this:
 
 ![](../../images/2/26e.png)
 
 
-The code for the current state of our application can be found in the  <i>part2-7</i> branch on [github](https://github.com/fullstack-hy/part2-notes/tree/part2-7).
-
+The code for the current state of our application can be found in the  <i>part2-7</i> branch on [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-7).
 
 ### Inline styles
 
-
 React also makes it possible to write styles directly in the code as so-called [inline styles](https://react-cn.github.io/react/tips/inline-styles.html).
 
-
 The idea behind defining inline styles is extremely simple. Any React component or element can be provided with a set of CSS properties as a JavaScript object through the [style](https://reactjs.org/docs/dom-elements.html#style) attribute.
-
 
 CSS rules are defined slightly differently in JavaScript than in normal CSS files. Let's say that we wanted to give some element the color green and italic font that's 16 pixels in size. In CSS, it would look like this:
 
@@ -243,7 +237,6 @@ CSS rules are defined slightly differently in JavaScript than in normal CSS file
 }
 ```
 
-
 But as a React inline style object it would look like this:
 
 ```js
@@ -254,9 +247,7 @@ But as a React inline style object it would look like this:
 }
 ```
 
-
 Every CSS property is defined as a separate property of the JavaScript object. Numeric values for pixels can be simply defined as integers. One of the major differences compared to regular CSS, is that hyphenated (kebab case) CSS properties are written in camelCase.
-
 
 Next, we could add a "bottom block" to our application by creating a <i>Footer</i> component and define the following inline styles for it:
 
@@ -297,7 +288,7 @@ const App = () => {
 
 Inline styles come with certain limitations. For instance, so-called [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) can't be used straightforwardly.
 
-Inline styles and some of the other ways of adding styles to React components go completely against the grain of old conventions. Traditionally, it has been considered the best practice to entirely separate CSS from the content (HTML) and functionality (JavaScript). According to this older school of thought, the goal was to write CSS, HTML, and JavaScript into their separate files.
+Inline styles and some of the other ways of adding styles to React components go completely against the grain of old conventions. Traditionally, it has been considered best practice to entirely separate CSS from the content (HTML) and functionality (JavaScript). According to this older school of thought, the goal was to write CSS, HTML, and JavaScript into their separate files.
 
 
 The philosophy of React is, in fact, the polar opposite of this. Since the separation of CSS, HTML, and JavaScript into separate files did not seem to scale well in larger applications, React bases the division of the application along the lines of its logical functional entities.
@@ -305,7 +296,7 @@ The philosophy of React is, in fact, the polar opposite of this. Since the separ
 
 The structural units that make up the application's functional entities are React components. A React component defines the HTML for structuring the content, the JavaScript functions for determining functionality, and also the component's styling; all in one place. This is to create individual components that are as independent and reusable as possible.
 
-The code of the final version of our application can be found in the  <i>part2-8</i> branch on [github](https://github.com/fullstack-hy/part2-notes/tree/part2-8).
+The code of the final version of our application can be found in the  <i>part2-8</i> branch on [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part2-8).
 
 </div>
 
@@ -331,6 +322,6 @@ Fix the issue according to the example shown in [promise and errors](/en/part2/a
 
 **Note** that even if you handle the exception, the error message is printed to the console.
 
-This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 </div>

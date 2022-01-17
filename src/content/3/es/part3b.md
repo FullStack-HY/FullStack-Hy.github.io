@@ -279,7 +279,7 @@ Hay varias formas de lograr esto (por ejemplo, colocando tanto el código de bac
 
 En algunas situaciones, puede ser sensato implementar el código del frontend como su propia aplicación. Con las aplicaciones creadas con create-react-app es [sencillo](https://github.com/mars/create-react-app-buildpack) .
 
-El código actual del backend se puede encontrar en [Github](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-3), en la rama <i>part3-3</i>. Los cambios en el código del frontend están en la rama <i>part3-1</i> del [repositorio del frontend](https://github.com/fullstack-hy/part2-notes/tree/part3-1).
+El código actual del backend se puede encontrar en [Github](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-3), en la rama <i>part3-3</i>. Los cambios en el código del frontend están en la rama <i>part3-1</i> del [repositorio del frontend](https://github.com/fullstack-hy2020/part2-notes/tree/part3-1).
 
 </div>
 

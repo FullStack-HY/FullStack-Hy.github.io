@@ -604,8 +604,8 @@ The first command searches for a component containing the text <i>another note c
 <!-- Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make not important</i>. -->
 The second command checks that the text on the button has changed to <i>make not important</i>.
 
-<!-- Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-9), branchissa <i>part5-9</i>. -->
-The tests and the current frontend code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-9) branch <i>part5-9</i>.
+<!-- Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-9), branchissa <i>part5-9</i>. -->
+The tests and the current frontend code can be found from [github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-9) branch <i>part5-9</i>.
 
 ### Failed login test
 
@@ -936,8 +936,8 @@ describe('Note app', function() {
 })
 ```
 
-<!-- Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>. -->
-The tests and the frontend code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-10) branch <i>part5-10</i>.
+<!-- Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-10), branchissa <i>part5-10</i>. -->
+The tests and the frontend code can be found from [github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-10) branch <i>part5-10</i>.
 
 ### Changing the importance of a note
 
@@ -1126,8 +1126,8 @@ Now we can run our tests from the command line with the command <i>npm run test:
 <!-- Huomaa, että testien suorituksesta tallentuu video hakemistoon <i>cypress/videos/</i>, hakemisto lienee syytä gitignoroida. -->
 Note that video of the test execution will be saved to <i>cypress/videos/</i>, so you should probably git ignore this directory. 
 
-<!-- Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-11), branchissa <i>part5-11</i>. -->
-The frontend- and the test code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-11) branch <i>part5-11</i>.
+<!-- Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-11), branchissa <i>part5-11</i>. -->
+The frontend- and the test code can be found from [github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-11) branch <i>part5-11</i>.
 
 </div>
 
