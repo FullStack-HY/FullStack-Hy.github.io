@@ -348,7 +348,6 @@ We can finally begin using the data fetched from the server.
 Let's try and request the notes from our local server and render them, initially as the App component. Please note that this approach has many issues, as we're rendering the entire <i>App</i> component only when we successfully retrieve a response:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
@@ -386,7 +385,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 The <i>App</i> component changes as follows:
 
 ```js
-import React, { useState, useEffect } from 'react' // highlight-line
+import { useState, useEffect } from 'react' // highlight-line
 import axios from 'axios' // highlight-line
 import Note from './components/Note'
 

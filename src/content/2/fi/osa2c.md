@@ -350,7 +350,6 @@ Tehdään se aluksi "huonosti", eli lisätään sovellusta vastaavan komponentin
 
 ```js
 import ReactDOM from 'react-dom'
-import React from 'react'
 import App from './App'
 
 import axios from 'axios'
@@ -386,7 +385,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 Komponentti <i>App</i> muuttuu seuraavasti:
 
 ```js
-import React, { useState, useEffect } from 'react' // highlight-line
+import { useState, useEffect } from 'react' // highlight-line
 import axios from 'axios' // highlight-line
 import Note from './components/Note'
 
