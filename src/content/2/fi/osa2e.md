@@ -25,7 +25,7 @@ h1 {
 }
 ```
 
-**Huom:** kun tiedostoon <i>index.js</i> lisätään sisältöä, React ei havaitse muutosta automaattisesti, eli joudut refreshaamaan selaimen, jotta näet muutokset! 
+**Huom:** kun tiedostoon <i>index.js</i> lisätään sisältöä, React ei välttämättä havaitse muutosta automaattisesti, eli saatat joutua refreshaamaan selaimen, jotta näet muutokset! 
 
 CSS-säännöt koostuvat valitsimesta eli <i>selektorista</i> ja määrittelystä eli <i>deklaraatiosta</i>. Valitsin määrittelee, mihin elementteihin sääntö kohdistuu. Valitsimena on nyt <i>h1</i> eli kaikki sovelluksessa käytetyt <i>h1</i>-otsikkotägit.
 
@@ -244,7 +244,7 @@ const Footer = () => {
   return (
     <div style={footerStyle}>
       <br />
-      <em>Note app, Department of Computer Science, University of Helsinki 2021</em>
+      <em>Note app, Department of Computer Science, University of Helsinki 2022</em>
     </div>
   )
 }

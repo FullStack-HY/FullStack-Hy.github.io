@@ -26,7 +26,7 @@ h1 {
 }
 ```
 
-**Note:** when the content of the file <i>index.js</i> changes, React does not notice that automatically so you must refresh the browser to see your changes!
+**Note:** when the content of the file <i>index.css</i> changes, React might not notice that automatically so you may need to refresh the browser to see your changes!
 
 CSS rules comprise of <i>selectors</i> and <i>declarations</i>. The selector defines which elements the rule should be applied to. The selector above is <i>h1</i>, which will match all of the <i>h1</i> header tags in our application.
 
@@ -263,7 +263,7 @@ const Footer = () => {
   return (
     <div style={footerStyle}>
       <br />
-      <em>Note app, Department of Computer Science, University of Helsinki 2021</em>
+      <em>Note app, Department of Computer Science, University of Helsinki 2022</em>
     </div>
   )
 }
