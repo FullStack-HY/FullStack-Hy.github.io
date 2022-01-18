@@ -613,9 +613,9 @@ If there are ten or fewer countries, but more than one, then all countries match
 
 ![](../../images/2/19b2.png)
 
-When there is only one country matching the query, then the basic data of the country, its flag and the languages spoken there, are shown:
+When there is only one country matching the query, then the basic data of the country (eg. capital and area), its flag and the languages spoken there, are shown:
 
-![](../../images/2/19b3.png)
+![](../../images/2/19c3.png)
 
 **NB**: It is enough that your application works for most of the countries. Some countries, like <i>Sudan</i>, can be hard to support, since the name of the country is part of the name of another country, <i>South Sudan</i>. You need not to worry about these edge cases.
 
@@ -635,16 +635,16 @@ In this exercise it is also enough that your application works for most of the c
 
 **There is still a lot to do in this part, so don't get stuck on this exercise!**
 
-Add to the view showing the data of a single country, the weather report for the capital of that country. There are dozens of providers for weather data. One suggested API is [https://openweathermap.org](https://openweathermap.org).
+Add to the view showing the data of a single country, the weather report for the capital of that country. There are dozens of providers for weather data. One suggested API is [https://openweathermap.org](https://openweathermap.org). Note that it might take some minutes until a generated api key is valid.
 
-![](../../images/2/19ba.png)
+![](../../images/2/19x.png)
+
+If you use Open weather map, [here](https://openweathermap.org/weather-conditions#Icon-list) is the description how to get weather icons.
 
 **NB:** In some browsers (such as Firefox) the chosen API might send an error response, which indicates that HTTPS encryption is not supported, although the request URL starts with _http://_. This issue can be fixed by completing the exercise using Chrome.
 
-<!-- **Huom:** tarvitset melkein kaikkia säätietoja tarjoavia palveluja käyttääksesi api-avaimen. Älä talleta avainta versionhallintaan, eli älä kirjoita avainta suoraan koodiin.  Avaimen arvo kannattaa määritellä ns. [ympäristömuuttujana](https://create-react-app.dev/docs/adding-custom-environment-variables/). -->
 **NB:** You need an api-key to use almost every weather service. Do not save the api-key to source control! Nor hardcode the api-key to your source code. Instead use an [environment variable](https://create-react-app.dev/docs/adding-custom-environment-variables/) to save the key.
 
-<!-- Oletetaan että api-avaimen arvo on <i>t0p53cr3t4p1k3yv4lu3</i>. Kun ohjelma käynnistetään seuraavasti -->
 Assuming the api-key is <i>t0p53cr3t4p1k3yv4lu3</i>, when the application is started like so:
 
 ```bash

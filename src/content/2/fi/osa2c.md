@@ -615,11 +615,9 @@ Jos maita on kymmenen tai alle, mutta yli 1 näytetään hakuehdon täyttävät 
 
 Kun ehdon täyttäviä maita on enää yksi, näytetään maan perustiedot, lippu sekä siellä puhutut kielet:
 
-![](../../images/2/19b3.png)
+![](../../images/2/19c3.png)
 
-**Huom1:** API on muuttunut hieman ja ei tarjoa enää maiden asukasmääriä. Voit korvata asukasmäärän haluamallasi API:sta löytyvällä informaatiolla.
-
-**Huom2:** riittää että sovelluksesi toimii suurimmalle osalle maista. Jotkut maat kuten <i>Sudan</i> voivat tuottaa ongelmia, sillä maan nimi on toisen maan <i>South Sudan</i> osa. Näistä corner caseista ei tarvitse välittää.
+**Huom:** riittää että sovelluksesi toimii suurimmalle osalle maista. Jotkut maat kuten <i>Sudan</i> voivat tuottaa ongelmia, sillä maan nimi on toisen maan <i>South Sudan</i> osa. Näistä corner caseista ei tarvitse välittää.
 
 **Huom3:** saatat törmätä ongelmiin tässä tehtävässä, jos määrittelet komponentteja "väärässä paikassa", nyt kannattaakin ehdottomasti kerrata edellisen osan luku [älä määrittele komponenttia komponentin sisällä](/osa1/monimutkaisempi_tila_reactin_debuggaus#ala-maarittele-komponenttia-komponentin-sisalla).
 
@@ -640,9 +638,11 @@ Tässäkin tehtävässä riittää, että ohjelmasi toimii suurella osalla maita
 
 **Tässä osassa on vielä paljon tekemistä, joten älä juutu tähän tehtävään!**
 
-Lisää yksittäisen maan näkymään pääkaupungin säätiedotus. Säätiedotuksen tarjoavia palveluita on kymmeniä. Itse käytin [https://weatherstack.com/](https://weatherstack.com/):ia. 
+Lisää yksittäisen maan näkymään pääkaupungin säätiedotus. Säätiedotuksen tarjoavia palveluita on kymmeniä. Itse käytin [https://openweathermap.org/](https://openweathermap.org/:ia. Huomaa että api-avaimen luomisen jälkeen saattaa kulua hetki ennen kuin avain alkaa toimia.
 
-![](../../images/2/19ba.png)
+![](../../images/2/19x.png)
+
+Jos käytät Open weather mapia, [täällä](https://openweathermap.org/weather-conditions#Icon-list) on ohje sääikonien generointiin.
 
 **Huom:** tarvitset melkein kaikkia säätietoja tarjoavia palveluja käyttääksesi api-avaimen. Älä talleta avainta versionhallintaan, eli älä kirjoita avainta suoraan koodiin.  Avaimen arvo kannattaa määritellä ns. [ympäristömuuttujana](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 

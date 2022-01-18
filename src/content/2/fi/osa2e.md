@@ -222,7 +222,7 @@ CSS-säännöt määritellään JavaScriptin avulla hieman eri tavalla kuin norm
 Vastaava tyyli kirjoitetaan Reactin inline-tyylin määrittelevänä oliona seuraavasti:
 
 ```js
- {
+{
   color: 'green',
   fontStyle: 'italic',
   fontSize: 16

@@ -240,7 +240,7 @@ CSS rules are defined slightly differently in JavaScript than in normal CSS file
 But as a React inline style object it would look like this:
 
 ```js
- {
+{
   color: 'green',
   fontStyle: 'italic',
   fontSize: 16
