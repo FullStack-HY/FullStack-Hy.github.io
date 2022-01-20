@@ -37,7 +37,7 @@ const noteSchema = new mongoose.Schema({
   // highlight-start
   content: {
     type: String,
-    minlength: 5,
+    minLength: 5,
     required: true
   },
   date: { 
@@ -53,7 +53,7 @@ const noteSchema = new mongoose.Schema({
 The <i>content</i> field is now required to be at least five characters long. The <i>date</i> field is set as required, meaning that it can not be missing. The same constraint is also applied to the <i>content</i> field, since the minimum length constraint allows the field to be missing. We have not added any constraints to the <i>important</i> field, so its definition in the schema has not changed.
 
 
-The <i>minlength</i> and <i>required</i> validators are [built-in](https://mongoosejs.com/docs/validation.html#built-in-validators) and provided by Mongoose. The Mongoose [custom validator](https://mongoosejs.com/docs/validation.html#custom-validators) functionality allows us to create new validators, if none of the built-in ones cover our needs.
+The <i>minLength</i> and <i>required</i> validators are [built-in](https://mongoosejs.com/docs/validation.html#built-in-validators) and provided by Mongoose. The Mongoose [custom validator](https://mongoosejs.com/docs/validation.html#custom-validators) functionality allows us to create new validators, if none of the built-in ones cover our needs.
 
 
 If we try to store an object in the database that breaks one of the constraints, the operation will throw an exception. Let's change our handler for creating a new note so that it passes any potential exceptions to the error handler middleware:
@@ -263,7 +263,7 @@ npm install eslint --save-dev
 After this we can initialize a default ESlint configuration with the command:
 
 ```bash
-node_modules/.bin/eslint --init
+npx eslint --init
 ```
 
 
@@ -328,7 +328,7 @@ Let's immediately change the rule concerning indentation, so that the indentatio
 Inspecting and validating a file like _index.js_ can be done with the following command:
 
 ```bash
-node_modules/.bin/eslint index.js
+npx eslint index.js
 ```
 
 It is recommended to create a separate _npm script_ for linting:
@@ -446,24 +446,19 @@ This includes a rule that warns about _console.log_ commands. [Disabling](https:
 
 If there is something wrong in your configuration file, the lint plugin can behave quite erratically.
 
-
 Many companies define coding standards that are enforced throughout the organization through the ESlint configuration file. It is not recommended to keep reinventing the wheel over and over again, and it can be a good idea to adopt a ready-made configuration from someone else's project into yours. Recently many projects have adopted the Airbnb [Javascript style guide](https://github.com/airbnb/javascript) by taking Airbnb's [ESlint](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) configuration into use.
 
-
-You can find the code for our current application in its entirety in the <i>part3-7</i> branch of [this github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-7).
+You can find the code for our current application in its entirety in the <i>part3-7</i> branch of [this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-7).
 </div>
 
 <div class="tasks">
 
-
 ### Exercise 3.22.
-
 
 #### 3.22: Lint configuration
 
-
 Add ESlint to your application and fix all the warnings.
 
-This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+This was the last exercise of this part of the course. It's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 </div>

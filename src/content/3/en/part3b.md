@@ -7,10 +7,8 @@ lang: en
 
 <div class="content">
 
-<!-- Yhdistetään seuraavaksi [osassa 2](/osa2) tekemämme frontend omaan backendiimme.  -->
 Next let's connect the frontend we made in [part 2](/en/part2) to our own backend.
 
-<!-- Edellisessä osassa backendinä toiminut json-server tarjosi muistiinpanojen listan osoitteessa http://localhost:3001/notes fronendin käyttöön. Backendimme urlien rakenne on hieman erilainen, muistiinpanot löytyvät osoitteesta http://localhost:3001/api/notes, eli muutetaan frontendin tiedostossa <i>src/services/notes.js</i> määriteltyä muuttujaa _baseUrl_ seuraavasti: -->
 In the previous part, the frontend could ask for the list of notes from the json-server we had as a backend, from the address http://localhost:3001/notes.
 Our backend has a slightly different url structure now, as the notes can be found at http://localhost:3001/api/notes. Let's change the attribute __baseUrl__ in the <i>src/services/notes.js</i> like so:
 
@@ -26,6 +24,18 @@ const getAll = () => {
 // ...
 
 export default { getAll, create, update }
+```
+  
+We will also need to change the url specified in the effect in <i>App.js</i>:
+  
+```js
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/api/notes')
+      .then(res => {
+        setNotes(res.data)
+      })
+  }, [])
 ```
 
 <!-- Frontendin tekemä GET-pyyntö osoitteeseen <http://localhost:3001/api/notes> ei jostain syystä toimi: -->
@@ -51,7 +61,7 @@ Keep in mind, that [same origin policy](https://developer.mozilla.org/en-US/docs
 
 We can allow requests from other <i>origins</i> by using Node's [cors](https://github.com/expressjs/cors) middleware.
 
-Install <i>cors</i> with the command
+In your backend repository, install <i>cors</i> with the command
 
 ```bash
 npm install cors
@@ -80,7 +90,7 @@ Now that the whole stack is ready, let's move our application to the internet. W
 
 >If you have never used Heroku before, you can find instructions from [Heroku documentation](https://devcenter.heroku.com/articles/getting-started-with-nodejs) or by Googling.
 
-Add a file called  <i>Procfile</i> to the project's root to tell Heroku how to start the application. 
+Add a file called  <i>Procfile</i> to the backend project's root to tell Heroku how to start the application. 
 
 ```bash
 web: npm start
@@ -103,7 +113,8 @@ Create a Git repository in the project directory, and add <i>.gitignore</i> with
 ```bash
 node_modules
 ```
-
+Create Heroku account in https://devcenter.heroku.com/
+Install Heroku package using the command: npm install -g heroku
 Create a Heroku application with the command <i>heroku create</i>, commit your code to the repository and move it to Heroku with command <i>git push heroku main</i>.
 
 If everything went well, the application works:
@@ -114,7 +125,7 @@ If not, the issue can be found by reading heroku logs with command <i>heroku log
 
 >**NB** At least in the beginning it's good to keep an eye on the heroku logs at all times. The best way to do this is with command <i>heroku logs -t</i> which prints the logs to console whenever something happens on the server. 
 
->**NB** If you are deploying from a git repository where your code is not on the main branch (i.e. if you are altering the [notes repo](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-2) from the last lesson) you will need to run _git push heroku HEAD:master_. If you have already done a push to heroku, you may need to run _git push heroku HEAD:main --force_.
+>**NB** If you are deploying from a git repository where your code is not on the main branch (i.e. if you are altering the [notes repo](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2) from the last lesson) you will need to run _git push heroku HEAD:master_. If you have already done a push to heroku, you may need to run _git push heroku HEAD:main --force_.
 
 The frontend also works with the backend on Heroku. You can check this by changing the backend's address on the frontend to be the backend's address in Heroku instead of <i>http://localhost:3001</i>.
 
@@ -213,7 +224,7 @@ The setup that is ready for product deployment looks as follows:
 
 ![](../../images/3/101.png)
 
-Unlike when runnig app in development environment, now everything is in the same node/express-backend that runs in localhost:3001. When brower goes to the page, the file  <i>index.html</i> is rendered. That causes the browser to fetch the product version of the React app. Once it starts to run, it fetches the json-data from the address localhost:3001/api/notes.
+Unlike when running the app in a development environment, everything is now in the same node/express-backend that runs in localhost:3001. When the browser goes to the page, the file <i>index.html</i> is rendered. That causes the browser to fetch the product version of the React app. Once it starts to run, it fetches the json-data from the address localhost:3001/api/notes.
 
 ### The whole app to internet
 
@@ -231,7 +242,7 @@ The setup looks like now as follows:
 
 ![](../../images/3/102.png)
 
-The node/express-backend resides now in Heroku server. When the root address that is of the from https://glacial-ravine-74819.herokuapp.com/ is accessed, browser loads and executes the React app that fetches the json-data from the Heroku server.
+The node/express-backend now resides in the Heroku server. When the root address that is of the form https://glacial-ravine-74819.herokuapp.com/ is accessed, the browser loads and executes the React app that fetches the json-data from the Heroku server.
 
 ###  Streamlining deploying of the frontend 
 
@@ -241,8 +252,8 @@ To create a new production build of the frontend without extra manual work, let'
 {
   "scripts": {
     //...
-    "build:ui": "rm -rf build && cd ../part2-notes/ && npm run build --prod && cp -r build ../notes-backend",
-    "deploy": "git push heroku master",
+    "build:ui": "rm -rf build && cd ../part2-notes/ && npm run build && cp -r build ../notes-backend",
+    "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
     "logs:prod": "heroku logs --tail"
   }
@@ -301,7 +312,7 @@ There are multiple ways to achieve this (for example placing both backend and fr
 
 In some situations it may be sensible to deploy the frontend code as its own application. With apps created with create-react-app it is [straightforward](https://github.com/mars/create-react-app-buildpack).
 
-Current code of the backend can be found on [Github](https://github.com/fullstack-hy/part3-notes-backend/tree/part3-3), in the branch <i>part3-3</i>. The changes in frontend code are in <i>part3-1</i> branch of the [frontend repository](https://github.com/fullstack-hy2020/part2-notes/tree/part3-1).
+Current code of the backend can be found on [Github](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-3), in the branch <i>part3-3</i>. The changes in frontend code are in <i>part3-1</i> branch of the [frontend repository](https://github.com/fullstack-hy/part2-notes/tree/part3-1).
 
 </div>
 
@@ -321,7 +332,7 @@ You will probably have to do some small changes to the frontend, at least to the
 
 Deploy the backend to the internet, for example to Heroku. 
 
-**NB** the command _heroku_ works on the department's computers and the freshman laptops. If for some reason you cannot [install](https://devcenter.heroku.com/articles/heroku-cli) Heroku to your computer, you can use the command [npx heroku-cli](https://www.npmjs.com/package/heroku-cli).
+**NB** the command _heroku_ works on the department's computers and the freshman laptops. If for some reason you cannot [install](https://devcenter.heroku.com/articles/heroku-cli) Heroku to your computer, you can use the command [npx heroku](https://www.npmjs.com/package/heroku).
 
 Test the deployed backend with a browser and Postman or VS Code REST client to ensure it works. 
 
