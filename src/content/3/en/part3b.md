@@ -139,6 +139,30 @@ When the application is deployed, we must create a [production build](https://re
 
 A production build of applications created with <i>create-react-app</i> can be created with command [npm run build](https://github.com/facebookincubator/create-react-app#npm-run-build-or-yarn-build).
 
+**NOTE:** at the time of writing (20th January 2022) create-react-app had a bug that causes the wollowing error _TypeError: MiniCssExtractPlugin is not a constructor_
+
+A possible fix is found from [here](https://github.com/facebook/create-react-app/issues/11930). Add the following to the file <i>package.json</i> 
+
+```json
+{
+  // ...
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  }
+}
+```
+
+and run commands
+
+```
+rm -rf package-lock.json
+rm -rf node_modules
+npm cache clean --force
+npm install
+```
+
+After these _npm run build_ should work.
+
 Let's run this command from the <i>root of the frontend project</i>.
 
 This creates a directory called <i>build</i> (which contains the only HTML file of our application, <i>index.html</i> ) which contains the directory <i>static</i>. [Minified](<https://en.wikipedia.org/wiki/Minification_(programming)>) version of our application's JavaScript code will be generated to the <i>static</i>  directory. Even though the application code is in multiple files, all of the JavaScript will be minified into one file. Actually all of the code from all of the application's dependencies will also be minified into this single file. 
@@ -230,7 +254,7 @@ Unlike when running the app in a development environment, everything is now in t
 
 After ensuring that the production version of the application works locally, commit the production build of the frontend to the backend repository, and push the code to Heroku again. 
 
-[The application](https://glacial-ravine-74819.herokuapp.com/) works perfectly, except we haven't added the functionality for changing the importance of a note to the backend yet. 
+[The application](https://obscure-harbor-49797.herokuapp.com/) works perfectly, except we haven't added the functionality for changing the importance of a note to the backend yet. 
 
 ![](../../images/3/30ea.png)
 
@@ -306,7 +330,7 @@ After a restart, the React development environment will work as a [proxy](https:
 
 Now the frontend is also fine, working with the server both in development- and production mode. 
 
-A negative aspect of our approach is how complicated it is to deploy the frontend. Deploying a new version requires generating new production build of the frontend and copying it to the backend repository. This makes creating an automated [deployment pipeline](https://martinfowler.com/bliki/DeploymentPipeline.html) more difficult. Deployment pipeline means an automated and controlled way to move the code from the computer of the developer through different tests and quality checks to the production environment. 
+A negative aspect of our approach is how complicated it is to deploy the frontend. Deploying a new version requires generating new production build of the frontend and copying it to the backend repository. This makes creating an automated [deployment pipeline](https://martinfowler.com/bliki/DeploymentPipeline.html) more difficult. Deployment pipeline means an automated and controlled way to move the code from the computer of the developer through different tests and quality checks to the production environment. Building a deployment pipeline is the topic of [part 11](https://fullstackopen.com/en/part11) of this course.
 
 There are multiple ways to achieve this (for example placing both backend and frontend code [to the same repository](https://github.com/mars/heroku-cra-node) ) but we will not go into those now. 
 

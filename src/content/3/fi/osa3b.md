@@ -71,7 +71,7 @@ Selaimessa toimiva frontendin koodi siis hakee datan osoitteessa localhost:3001 
 
 Kun koko "stäkki" on saatu vihdoin kuntoon, siirretään sovellus Internetiin. Käytetään seuraavassa vanhaa kunnon [Herokua](https://www.heroku.com).
 
-> <i>Jos et ole koskaan käyttänyt Herokua, löydät käyttöohjeita kurssin [Tietokantasovellus](https://materiaalit.github.io/tsoha-18/viikko1/)-materiaalista ja googlaamalla...</i>
+> <i>Jos et ole koskaan käyttänyt Herokua, löydät käyttöohjeita kurssin [Tietokantasovellus](https://hy-tsoha.github.io/materiaali/osa-3/#sovellus-tuotantoon)-materiaalista ja googlaamalla...</i>
 
 Lisätään backendin projektin juureen tiedosto <i>Procfile</i>, joka kertoo Herokulle, miten sovellus käynnistetään:
 
@@ -119,6 +119,28 @@ Kun sovellus viedään tuotantoon, täytyy siitä tehdä [production build](http
 <i>create-react-app</i>:in avulla tehdyistä sovelluksista saadaan tehtyä tuotantoversio komennolla [_npm run build_](https://github.com/facebookincubator/create-react-app#npm-run-build-or-yarn-build).
 
 Suoritetaan nyt komento <i>frontendin projektin juuressa</i>.
+
+**HUOM:** tätä kirjoitettaessa (20.1.2022) create-react-app:issa on pieni bugi, ja jos komento aiheuttaa virheilmoituksen _TypeError: MiniCssExtractPlugin is not a constructor_, korjaus ongelmaan löytyy [täältä](https://github.com/facebook/create-react-app/issues/11930), eli lisää tiedostoon <i>package.json</i> 
+
+```json
+{
+  // ...
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  }
+}
+```
+
+ja suorita komennot
+
+```bash
+rm -rf package-lock.json
+rm -rf node_modules
+npm cache clean --force
+npm install
+```
+
+Komennon _npm run build_ pitäisi taas toimia.
 
 Komennon seurauksena syntyy hakemiston <i>build</i> (joka sisältää jo sovelluksen ainoan html-tiedoston <i>index.html</i>) sisään hakemisto <i>static</i>, jonka alle generoituu sovelluksen JavaScript-koodin [minifioitu](<https://en.wikipedia.org/wiki/Minification_(programming)>) versio. Vaikka sovelluksen koodi on kirjoitettu useaan tiedostoon, generoituu kaikki JavaScript yhteen tiedostoon. Samaan tiedostoon tulee  myös kaikkien sovelluksen koodin tarvitsemien riippuvuuksien koodi.
 
@@ -208,7 +230,7 @@ Toisin kuin sovelluskehitysympäristössä, kaikki sovelluksen tarvitsema löyty
 
 Kun sovelluksen "Internetiin vietävä" tuotantoversio todetaan toimivaksi paikallisesti, commitoidaan frontendin tuotantoversio backendin repositorioon ja pushataan koodi uudelleen Herokuun.
 
-[Sovellus](https://glacial-ravine-74819.herokuapp.com/) toimii moitteettomasti lukuun ottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
+[Sovellus](https://obscure-harbor-49797.herokuapp.com/) toimii moitteettomasti lukuun ottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
 
 ![](../../images/3/30ea.png)
 
