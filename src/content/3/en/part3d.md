@@ -70,7 +70,7 @@ app.post('/api/notes', (request, response, next) => { // highlight-line
 
   note.save()
     .then(savedNote => {
-      response.json(savedNote.toJSON())
+      response.json(savedNote)
     })
     .catch(error => next(error)) // highlight-line
 })
@@ -98,63 +98,6 @@ When validating an object fails, we return the following default error message f
 
 ![](../../images/3/50.png)
 
-### Promise chaining
-
-Many of the route handlers changed the response data into the right format by implicitly calling the _toJSON_ method from _response.json_. For the sake of an example, we can also perform this operation explicitly by calling the _toJSON_ method on the object passed as a parameter to _then_:
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note.save()
-    .then(savedNote => {
-      response.json(savedNote.toJSON())
-    })
-    .catch(error => next(error)) 
-})
-```
-
-We can accomplish the same functionality in a much cleaner way with [promise chaining](https://javascript.info/promise-chaining):
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note
-    .save()
-    // highlight-start
-    .then(savedNote => {
-      return savedNote.toJSON()
-    })
-    .then(savedAndFormattedNote => {
-      response.json(savedAndFormattedNote)
-    }) 
-    // highlight-end
-    .catch(error => next(error)) 
-})
-```
-
-
-In the first _then_ we receive _savedNote_ object returned by Mongoose and format it. The result of the operation is returned. Then as [we discussed earlier](/en/part2/altering_data_in_server#extracting-communication-with-the-backend-into-a-separate-module), the _then_ method of a promise also returns a promise and we can access the formatted note by registering a new callback function with the _then_ method.
-
-We can clean up our code even more by using the more compact syntax for arrow functions:
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note
-    .save()
-    .then(savedNote => savedNote.toJSON()) // highlight-line
-    .then(savedAndFormattedNote => {
-      response.json(savedAndFormattedNote)
-    }) 
-    .catch(error => next(error)) 
-})
-```
-
-In this example, Promise chaining does not provide much of a benefit. The situation would change if there were many asynchronous operations that had to be done in sequence. We will not dive further into the topic. In the next part of the course we will learn about the <i>async/await</i> syntax in JavaScript, that will make writing subsequent asynchronous operations a lot easier.
-
 ### Deploying the database backend to production
 
 The application should work almost as-is in Heroku. We do have to generate a new production build of the frontend due to the changes that we have made to our frontend. 
@@ -180,21 +123,16 @@ The application should now work. Sometimes things don't go according to plan. If
 For some reason the URL of the database was undefined. The <i>heroku config</i> command revealed that I had accidentally defined the URL to the <em>MONGO\_URL</em> environment variable, when the code expected it to be in <em>MONGODB\_URI</em>.
 
 You can find the code for our current application in its entirety in the <i>part3-5</i> branch of [this github repository](https://github.com/fullstack-hy2019/part3-notes-backend/tree/part3-5).
-</div>
 
 </div>
 
 <div class="tasks">
 
-
 ### Exercises 3.19.-3.21.
-
 
 #### 3.19: Phonebook database, step7
 
-
 Add validation to your phonebook application, that will make sure that a newly added person has a unique name. Our current frontend won't allow users to try and create duplicates, but we can attempt to create them directly with Postman or the VS Code REST client.
-
 
 Mongoose does not offer a built-in validator for this purpose. Install the [mongoose-unique-validator](https://github.com/blakehaswell/mongoose-unique-validator#readme) package with npm and use it instead.
 
@@ -204,9 +142,7 @@ If an HTTP POST request tries to add a name that is already in the phonebook, th
 
 Expand the validation so that the name stored in the database has to be at least three characters long, and the phone number must have at least 8 digits.
 
-
 Expand the frontend so that it displays some form of error message when a validation error occurs. Error handling can be implemented by adding a <em>catch</em> block as shown below:
-
 
 ```js
 personService
@@ -229,9 +165,7 @@ You can display the default error message returned by Mongoose, even though they
 
 #### 3.21 Deploying the database backend to production
 
-
 Generate a new "full stack" version of the application by creating a new production build of the frontend, and copy it to the backend repository. Verify that everything works locally by using the entire application from the address <http://localhost:3001/>.
-
 
 Push the latest version to Heroku and verify that everything works there as well.
 
@@ -239,14 +173,11 @@ Push the latest version to Heroku and verify that everything works there as well
 
 <div class="content">
 
-
 ### Lint
-
 
 Before we move onto the next part, we will take a look at an important tool called [lint](<https://en.wikipedia.org/wiki/Lint_(software)>). Wikipedia says the following about lint:
 
 > <i>Generically, lint or a linter is any tool that detects and flags errors in programming languages, including stylistic errors. The term lint-like behavior is sometimes applied to the process of flagging suspicious language usage. Lint-like tools generally perform static analysis of source code.</i>
-
 
 In compiled statically typed languages like Java, IDEs like NetBeans can point out errors in the code, even ones that are more than just compile errors. Additional tools for performing [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) like [checkstyle](https://checkstyle.sourceforge.io), can be used for expanding the capabilities of the IDE to also point out problems related to style, like indentation.
 
@@ -259,18 +190,15 @@ Let's install ESlint as a development dependency to the backend project with the
 npm install eslint --save-dev
 ```
 
-
 After this we can initialize a default ESlint configuration with the command:
 
 ```bash
 npx eslint --init
 ```
 
-
 We will answer all of the questions:
 
 ![](../../images/3/52be.png)
-
 
 The configuration will be saved in the _.eslintrc.js_ file:
 
@@ -283,7 +211,7 @@ module.exports = {
     },
     'extends': 'eslint:recommended',
     'parserOptions': {
-        'ecmaVersion': 12
+        'ecmaVersion': 'latest'
     },
     'rules': {
         'indent': [
@@ -301,19 +229,10 @@ module.exports = {
         'semi': [
             'error',
             'never'
-        ],
-        'eqeqeq': 'error',
-            'no-trailing-spaces': 'error',
-    'object-curly-spacing': [
-        'error', 'always'
-    ],
-    'arrow-spacing': [
-        'error', { 'before': true, 'after': true }
-    ]
+        ]
     }
 }
 ```
-
 
 Let's immediately change the rule concerning indentation, so that the indentation level is two spaces.
 
@@ -323,7 +242,6 @@ Let's immediately change the rule concerning indentation, so that the indentatio
     2
 ],
 ```
-
 
 Inspecting and validating a file like _index.js_ can be done with the following command:
 

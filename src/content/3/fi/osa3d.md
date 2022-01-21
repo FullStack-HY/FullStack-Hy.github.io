@@ -63,7 +63,7 @@ app.post('/api/notes', (request, response, next) => { // highlight-line
 
   note.save()
     .then(savedNote => {
-      response.json(savedNote.toJSON())
+      response.json(savedNote)
     })
     .catch(error => next(error)) // highlight-line
 })
@@ -88,62 +88,6 @@ const errorHandler = (error, request, response, next) => {
 Validoinnin epäonnistuessa palautetaan validaattorin oletusarvoinen virheviesti:
 
 ![](../../images/3/50.png)
-
-### Promisejen ketjutus
-
-Useat routejen tapahtumankäsittelijöistä muuttivat palautettavan datan oikeaan formaattiin kutsumalla palautetuille olioille niiden metodia _toJSON_. Esimerkiksi uuden muistiinpanon luomisessa metodia kutsutaan _then_:in parametrina palauttamalle oliolle:
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note.save()
-    .then(savedNote => {
-      response.json(savedNote.toJSON())
-    })
-    .catch(error => next(error)) 
-})
-```
-
-Voisimme tehdä saman myös hieman tyylikkäämmin [promiseja ketjuttamalla](https://javascript.info/promise-chaining):
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note
-    .save()
-    // highlight-start
-    .then(savedNote => {
-      return savedNote.toJSON()
-    })
-    .then(savedAndFormattedNote => {
-      response.json(savedAndFormattedNote)
-    }) 
-    // highlight-end
-    .catch(error => next(error)) 
-})
-```
-
-Eli ensimmäisen _then_:in takaisinkutsussa otamme Mongoosen palauttaman olion _savedNote_ ja formatoimme sen. Operaation tulos palautetaan returnilla. Kuten osassa 2 [todettiin](/osa2/palvelimella_olevan_datan_muokkaaminen#palvelimen-kanssa-tapahtuvan-kommunikoinnin-eristaminen-omaan-moduuliin), promisen then-metodi palauttaa myös promisen. Eli kun palautamme _savedNote.toJSON()_:n takaisinkutsufunktiosta, syntyy promise, jonka arvona on formatoitu muistiinpano. Pääsemme käsiksi arvoon rekisteröimällä _then_-kutsulla uuden tapahtumankäsittelijän.
-
-Selviämme vieläkin tiiviimmällä koodilla käyttämällä nuolifunktion lyhempää muotoa:
-
-```js
-app.post('/api/notes', (request, response, next) => {
-  // ...
-
-  note
-    .save()
-    .then(savedNote => savedNote.toJSON()) // highlight-line
-    .then(savedAndFormattedNote => {
-      response.json(savedAndFormattedNote)
-    }) 
-    .catch(error => next(error)) 
-})
-```
-
-Esimerkkimme tapauksessa promisejen ketjutuksesta ei ole suurta hyötyä. Tilanne alkaa muuttua, jos joudumme tekemään useita peräkkäisiä asynkronisia operaatiota. Emme kuitenkaan mene asiaan sen tarkemmin. Tutustumme seuraavassa osassa JavaScriptin <i>async/await</i>-syntaksiin, jota käyttämällä peräkkäisten asynkronisten operaatioiden tekeminen helpottuu oleellisesti.
 
 ### Tietokantaa käyttävän version vieminen tuotantoon
 
@@ -253,7 +197,7 @@ module.exports = {
     },
     'extends': 'eslint:recommended',
     'parserOptions': {
-        'ecmaVersion': 12
+        'ecmaVersion': 'latest'
     },
     'rules': {
         'indent': [
@@ -274,6 +218,7 @@ module.exports = {
         ]
     }
 }
+
 ```
 Muutetaan heti konfiguraatioista sisennystä määrittelevä sääntö siten, että sisennystaso on kaksi välilyöntiä:
 
@@ -300,7 +245,7 @@ Kannattaa ehkä tehdä linttaustakin varten _npm-skripti_:
     "start": "node index.js",
     "dev": "nodemon index.js",
     // ...
-    "lint": "eslint ."
+    "lint": "eslint ." // highlight-line
   },
   // ...
 }
