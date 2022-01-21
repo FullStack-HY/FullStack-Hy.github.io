@@ -18,7 +18,7 @@ Debugging Node applications is slightly more difficult than debugging JavaScript
 
 The Visual Studio Code debugger can be useful in some situations. You can launch the application in debugging mode like this:
 
-![](../../images/3/35.png)
+![](../../images/3/35x.png)
 
 Note that the application shouldn't be running in another console, otherwise the port will already be in use.
 
@@ -26,7 +26,7 @@ __NB__ A newer version of Visual Studio Code may have _Run_ instead of _Debug_. 
 
 Below you can see a screenshot where the code execution has been paused in the middle of saving a new note:
 
-![](../../images/3/36e.png)
+![](../../images/3/36x.png)
 
 The execution has stopped at the <i>breakpoint</i> in line 63. In the console you can see the value of the <i>note</i> variable. In the top left window you can see other things related to the state of the application.
 
@@ -66,7 +66,9 @@ When bugs occur, <i>the worst of all possible strategies</i> is to continue writ
 
 ### MongoDB
 
-In order to store our saved notes indefinitely, we need a database. Most of the courses taught at the University of Helsinki use relational databases. In this course we will use [MongoDB](https://www.mongodb.com/) which is a so-called [document database](https://en.wikipedia.org/wiki/Document-oriented_database).
+In order to store our saved notes indefinitely, we need a database. Most of the courses taught at the University of Helsinki use relational databases. In most parts of this course we will use [MongoDB](https://www.mongodb.com/) which is a so-called [document database](https://en.wikipedia.org/wiki/Document-oriented_database).
+
+The reason for using using Mongo as the database is it's lower complexity with respect to a relational database. [The part 13](https://fullstackopen.com/en/part13) of the course shows how to build node.js backends that use a relational database.
 
 Document databases differ from relational databases in how they organize data as well as the query languages they support. Document databases are usually categorized under the [NoSQL](https://en.wikipedia.org/wiki/NoSQL) umbrella term.
 
@@ -76,53 +78,44 @@ Read now the chapters on [collections](https://docs.mongodb.com/manual/core/data
 
 Naturally, you can install and run MongoDB on your own computer. However, the internet is also full of Mongo database services that you can use. Our preferred MongoDB provider in this course will be [MongoDB Atlas](https://www.mongodb.com/atlas/database).
 
-Once you've created and logged into your account, Atlas will recommend creating a cluster (In later versions of MongoDB Atlas, you may see create a database):
 
-![](../../images/3/57.png)
 
-Let's choose <i>AWS</i> as the provider and <i>Frankfurt</i> as the region, and create a cluster.
+Once you've created and logged into your account, let us start by selecting the free option:
 
-![](../../images/3/58.png)
+![](../../images/3/mongo1.png)
 
-Let's wait for the cluster to be ready for use. This can take approximately 10 minutes.
+Pick the cloud provider and location and create the cluster:
+
+![](../../images/3/mongo2.png)
+
+Let's wait for the cluster to be ready for use. This can takes some minutes.
 
 **NB** do not continue before the cluster is ready.
 
-Let's use the <i>database access</i> tab for creating user credentials for the database. Please note that these are not the same credentials you use for logging into MongoDB Atlas. These will be used for your application to connect to the database.
+Let's use the <i>security</i> tab for creating user credentials for the database. Please note that these are not the same credentials you use for logging into MongoDB Atlas. These will be used for your application to connect to the database.
 
-![](../../images/3/59.png)
+![](../../images/3/mongo3.png)
 
-Let's grant the user with permissions to read and write to the databases.
+Next we have to define the IP addresses that are allowed access to the database. For the sake of simplicity we will allow access from all IP addresses:
 
-![](../../images/3/60.png)
-
-**NB:** Some people reported the new user credentials not working immediately after creation. In some cases it has taken minutes before the credentials started working.
-
-Next we have to define the IP addresses that are allowed access to the database.
-
-![](../../images/3/61ea.png)
-
-For the sake of simplicity we will allow access from all IP addresses:
-
-![](../../images/3/62.png)
+![](../../images/3/mongo4.png)
 
 Finally we are ready to connect to our database. Start by clicking <i>connect</i>:
 
-![](../../images/3/63ea.png)
+![](../../images/3/mongo5.png)
 
 and choose <i>Connect your application</i>:
 
-![](../../images/3/64ea.png)
+![](../../images/3/mongo6.png)
 
 The view displays the <i>MongoDB URI</i>, which is the address of the database that we will supply to the MongoDB client library we will add to our application.
 
 The address looks like this:
 
 ```bash
-mongodb+srv://fullstack:<PASSWORD>@cluster0-ostce.mongodb.net/test?retryWrites=true
+mongodb+srv://fullstack:$<password>@cluster0.o1opl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 ```
-N.B. If later in this section you experience repeated troubles connecting and making requests to MongoDB, it may be necessary to use an older connection string. To configure your connection string in MongoDb Atlas, go to 'Connect', then 'Connect your application.' Under 'Select your driver and application,' change the Node.js version to '2.2.12 or later'. Your connection string will look different from the examples in this course, but replacing the <password> and database name fields will work the same.
-  
+
 We are now ready to use the database.
 
 We could use the database directly from our JavaScript code with the [official MongoDb Node.js driver](https://mongodb.github.io/node-mongodb-native/) library, but it is quite cumbersome to use. We will instead use the [Mongoose](http://mongoosejs.com/index.html) library that offers a higher level API.
@@ -148,7 +141,7 @@ if (process.argv.length < 3) {
 const password = process.argv[2]
 
 const url =
-  `mongodb+srv://fullstack:${password}@cluster0-ostce.mongodb.net/test?retryWrites=true`
+  `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
 mongoose.connect(url)
 
@@ -184,27 +177,23 @@ When the code is run with the command <i>node mongo.js password</i>, Mongo will 
 
 **NB:** Please note the password is the password created for the database user, not your MongoDB Atlas password.  Also, if you created password with special characters, then you'll need to [URL encode that password](https://docs.atlas.mongodb.com/troubleshoot-connection/#special-characters-in-connection-string-password).
 
-We can view the current state of the database from the MongoDB Atlas from <i>Collections</i>, in the Overview tab.
+We can view the current state of the database from the MongoDB Atlas from <i>Browse collections</i>, in the Database tab.
 
-![](../../images/3/65.png)
+![](../../images/3/mongo7.png)
 
-As the view states, the <i>document</i> matching the note has been added to the <i>notes</i> collection in the <i>test</i> database.
+As the view states, the <i>document</i> matching the note has been added to the <i>notes</i> collection in the <i>myFirstDatabase</i> database.
 
-![](../../images/3/66a.png)
+![](../../images/3/mongo8.png)
 
-We should give a better name to the database. Like the documentation says, we can change the name of the database from the URI:
-
-![](../../images/3/67.png)
-
-Let's destroy the <i>test</i> database. Let's now change the name of database referenced in our connection string to <i>note-app</i> instead, by modifying the URI:
+Let's destroy the default database <i>myFirstDatabase</i> and change the name of database referenced in our connection string to <i>noteApp</i> instead, by modifying the URI:
 
 ```bash
-mongodb+srv://fullstack:<PASSWORD>@cluster0-ostce.mongodb.net/note-app?retryWrites=true
+mongodb+srv://fullstack:$<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority
 ```
 
-Let's run our code again.
+Let's run our code again:
 
-![](../../images/3/68.png)
+![](../../images/3/mongo9.png)
 
 The data is now stored in the right database. The view also offers the <i>create database</i> functionality, that can be used to create new databases from the website. Creating the database like this is not necessary, since MongoDB Atlas automatically creates a new database when an application tries to connect to a database that does not exist yet.
 
