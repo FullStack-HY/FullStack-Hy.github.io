@@ -14,16 +14,14 @@ The easiest way to get started by far is by using a tool called [create-react-ap
 Let's create an application called <i>part1</i> and navigate to its directory.
 
 ```bash
-$ npx create-react-app part1
-$ cd part1
+npx create-react-app part1
+cd part1
 ```
-
-Every command, here and in the future, starting with the character <em>$</em> is typed into a terminal prompt, aka the command-line. The character <em>$</em> is not to be typed out because it represents the prompt.
 
 The application is run as follows
 
 ```bash
-$ npm start
+npm start
 ```
 
 By default, the application runs in localhost port 3000 with the address <http://localhost:3000>

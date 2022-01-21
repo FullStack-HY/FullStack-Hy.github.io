@@ -370,7 +370,7 @@ const mongoose = require('mongoose')
 
 // DO NOT SAVE YOUR PASSWORD TO GITHUB!!
 const url =
-  'mongodb+srv://fullstack:sekred@cluster0-ostce.mongodb.net/note-app?retryWrites=true'
+  `mongodb+srv://fullstack:<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority`
 
 mongoose.connect(url)
 
@@ -514,7 +514,7 @@ npm install dotenv
 To use the library, we create a <i>.env</i> file at the root of the project. The environment variables are defined inside of the file, and it can look like this:
 
 ```bash
-MONGODB_URI='mongodb+srv://fullstack:sekred@cluster0-ostce.mongodb.net/note-app?retryWrites=true'
+MONGODB_URI=mongodb+srv://fullstack:<pasdsword>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority
 PORT=3001
 ```
 
@@ -543,6 +543,16 @@ app.listen(PORT, () => {
 ```
 
 It's important that <i>dotenv</i> gets imported before the <i>note</i> model is imported. This ensures that the environment variables from the <i>.env</i> file are available globally before the code from the other modules is imported.
+
+Once the file .env has been gitignored, Heroku does not get the database url from the repository, so you have to set it yourself. That can be done throught the heroku dasboard as follows:
+
+![](../../images/3/herokuConfig.png)
+
+or from command line with the command:
+
+```
+heroku config:set MONGODB_URI='mongodb+srv://fullstack:<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority'
+```
 
 ### Using database in route handlers
 

@@ -361,7 +361,7 @@ const mongoose = require('mongoose')
 
 // ÄLÄ KOSKAAN TALLETA SALASANOJA GitHubiin!
 const url =
-  'mongodb+srv://fullstack:<password>@cluster0-ostce.mongodb.net/note-app?retryWrites=true'
+  `mongodb+srv://fullstack:<password>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority`
 
 mongoose.connect(url)
 
@@ -504,7 +504,7 @@ npm install dotenv
 Sovelluksen juurihakemistoon tehdään sitten tiedosto nimeltään <i>.env</i>, jonne tarvittavien ympäristömuuttujien arvot määritellään. Tiedosto näyttää seuraavalta:
 
 ```bash
-MONGODB_URI=mongodb+srv://fullstack:<password>@cluster0-ostce.mongodb.net/note-app?retryWrites=true
+MONGODB_URI=mongodb+srv://fullstack:<pasdsword>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority
 PORT=3001
 ```
 
@@ -515,11 +515,6 @@ Määrittelimme samalla aiemmin kovakoodaamamme sovelluksen käyttämän portin 
 **Tiedosto <i>.env</i> tulee heti gitignorata, sillä emme halua julkaista tiedoston sisältöä verkkoon!**
 
 ![](../../images/3/45ae.png)
-
-Kun .env on gitignorattu, ei Heroku saa tarvitsemiaan tietoja GitHubin kautta, vaan ne pitää asettaa itse.
-Tämän voi tehdä esimerkiksi dashboardin kautta menemällä asetuksiin:
-
-![](../../images/3/herokuConfig.png)
 
 dotenvissä määritellyt ympäristömuuttujat otetaan koodissa käyttöön komennolla <em>require('dotenv').config()</em> ja niihin viitataan Nodessa kuten "normaaleihin" ympäristömuuttujiin syntaksilla <em>process.env.MONGODB_URI</em>.
 
@@ -540,6 +535,18 @@ app.listen(PORT, () => {
 ```
 
 On tärkeää, että <i>dotenv</i> otetaan käyttöön ennen modelin <i>note</i> importtaamista. Tällöin varmistutaan siitä, että tiedostossa <i>.env</i> olevat ympäristömuuttujat ovat alustettuja kun moduulin koodia importoidaan.
+
+Kannattaa huomata että kun .env on gitignorattu, ei Heroku saa tietoonsa tietokannan osoitetta repositoriosta, vaan se on asetettava itse.
+
+Tämän voi tehdä esimerkiksi dashboardin kautta menemällä asetuksiin:
+
+![](../../images/3/herokuConfig.png)
+
+Toinen vaihtoehto on kertoa ympäristömuuttujan herokulle arvo komentoriviltä
+
+```
+heroku config:set MONGODB_URI='mongodb+srv://fullstack:<pasdsword>@cluster0.o1opl.mongodb.net/noteApp?retryWrites=true&w=majority'
+```
 
 ### Tietokannan käyttö reittien käsittelijöissä
 

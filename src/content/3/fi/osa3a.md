@@ -61,13 +61,13 @@ console.log('hello world')
 Voimme suorittaa ohjelman joko "suoraan" nodella, komentorivillä
 
 ```bash
-$ node index.js
+node index.js
 ```
 
 tai [npm-skriptinä](https://docs.npmjs.com/misc/scripts)
 
 ```bash
-$ npm start
+npm start
 ```
 
 npm-skripti <i>start</i> toimii koska määrittelimme sen tiedostoon <i>package.json</i>:

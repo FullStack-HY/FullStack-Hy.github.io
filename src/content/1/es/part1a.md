@@ -14,8 +14,8 @@ La forma más fácil de empezar es utilizando una herramienta llamada [create-re
 Creemos una aplicación llamada <i>part1</i> y naveguemos hasta su directorio.
 
 ```bash
-$ npx create-react-app part1 
-$ cd part1
+npx create-react-app part1 
+cd part1
 ```
 
 Cada comando, aquí y en el futuro, comenzando con el carácter <em>$</em> se escribe en una terminal prompt, también conocido como interfaz de línea de comandos. El carácter <em>$</em> no se debe escribir porque representa el mensaje. 
@@ -23,7 +23,7 @@ Cada comando, aquí y en el futuro, comenzando con el carácter <em>$</em> se es
 La aplicación se ejecuta de la siguiente manera:
 
 ```bash
-$ npm start
+npm start
 ```
 
 De forma predeterminada, la aplicación se ejecuta en el puerto localhost 3000 con la dirección <http://localhost:3000> 

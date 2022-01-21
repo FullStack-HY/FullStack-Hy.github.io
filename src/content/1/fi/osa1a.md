@@ -14,16 +14,14 @@ Ehdottomasti helpoin tapa päästä alkuun on [create-react-app](https://github.
 Luodaan sovellus nimeltään <i>part1</i> ja mennään sovelluksen sisältämään hakemistoon:
 
 ```bash
-$ npx create-react-app part1
-$ cd part1
+npx create-react-app part1
+cd part1
 ```
-
-Kaikki tässä (ja jatkossa) annettavat merkillä <em>$</em> alkavat komennot on kirjoitettu terminaaliin eli komentoriville. Merkkiä <em>$</em> ei tule kirjoittaa, sillä se edustaa komentokehotetta.
 
 Sovellus käynnistetään seuraavasti:
 
 ```bash
-$ npm start
+npm start
 ```
 
 Sovellus käynnistyy oletusarvoisesti localhostin porttiin 3000, eli osoitteeseen <http://localhost:3000>.
@@ -429,7 +427,7 @@ Huomaa, että tässä osassa on muitakin tehtäviä kuin allaolevat. <i>Älä si
 **Vinkki:** Kun olet avaamassa tehtävääsi Visual Studio Codella, huomaathan avata koko projektin kansion editoriin. Tämä mahdollistaa editorissa helpomman tiedostojen välillä siirtymisen ja paremmat automaattiset täydennykset. Tämä onnistuu siirtymällä terminaalissa projektin kansioon ja komentamalla:
 
 ```bash
-$ code .
+code .
 ```
 
   <h4>1.1: kurssitiedot, step1</h4>
