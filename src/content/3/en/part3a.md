@@ -988,37 +988,27 @@ Output in browser after GET request:
   
 ![](../../images/3/22e.png)
 
-
-
 Notice that the forward slash in the route <i>api/persons</i> is not a special character, and is just like any other character in the string. 
-
 
 The application must be started with the command _npm start_.
 
-
 The application must also offer an _npm run dev_ command that will run the application and restart the server whenever changes are made and saved to a file in the source code.
  
-
-
 #### 3.2: Phonebook backend step2
-
 
 Implement a page at the address <http://localhost:3001/info> that looks roughly like this:
 
-![](../../images/3/23ea.png)
+![](../../images/3/23x.png)
 
 
 The page has to show the time that the request was received and how many entries are in the phonebook at the time of processing the request.
-
 
 #### 3.3: Phonebook backend step3
 
 
 Implement the functionality for displaying the information for a single phonebook entry. The url for getting the data for a person with the id 5 should be <http://localhost:3001/api/persons/5>
 
-
 If an entry for the given id is not found, the server has to respond with the appropriate status code.
-
 
 #### 3.4: Phonebook backend step4
 
