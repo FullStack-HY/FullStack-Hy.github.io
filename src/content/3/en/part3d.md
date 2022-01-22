@@ -93,7 +93,6 @@ const errorHandler = (error, request, response, next) => {
 }
 ```
 
-
 When validating an object fails, we return the following default error message from Mongoose:
 
 ![](../../images/3/50.png)
@@ -164,9 +163,7 @@ Add validation to your phonebook application, that will make sure that phone num
 
 Use a [Custom validatior](https://mongoosejs.com/docs/validation.html#custom-validators) to implement the second part of the validation.
 
-
 If an HTTP POST request tries to add a name that is already in the phonebook, the server must respond with an appropriate status code and error message.
-
 
 #### 3.21 Deploying the database backend to production
 
