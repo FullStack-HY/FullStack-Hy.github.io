@@ -820,8 +820,6 @@ Tee Node-sovellus, joka tarjoaa osoitteessa <http://localhost:3001/api/persons> 
 
 ![](../../images/3/22e.png)
 
-Huomaa, että Noden routejen määrittelyssä merkkijonon <i>api/persons</i> vinoviiva käyttäytyy kuten mikä tahansa muu merkki.
-
 Sovellus pitää pystyä käynnistämään komennolla _npm start_.
 
 Komennolla _npm run dev_ käynnistettäessa sovelluksen tulee käynnistyä uudelleen, kun koodiin tehdään muutoksia.
