@@ -46,7 +46,7 @@ Next, let's change the scripts in our <i>package.json</i> so that when tests are
 }
 ```
 
-We also added the [runInBand](https://jestjs.io/docs/en/cli.html#--runinband) option to the npm script that executes the tests. This option will prevent Jest from running tests in parallel; we will discuss its significance once our tests start using the database.
+We also added the [runInBand](https://jestjs.io/docs/cli#--runinband) option to the npm script that executes the tests. This option will prevent Jest from running tests in parallel; we will discuss its significance once our tests start using the database.
 
 
 We specified the mode of the application to be <i>development</i> in the _npm run dev_ script that uses nodemon. We also specified that the default _npm start_ command will define the mode as <i>production</i>.
@@ -72,7 +72,11 @@ We can then achieve cross-platform compatibility by using the cross-env library 
   // ...
 }
 ```
+**NB**: If you are deploying this aplication to heroku, keep in mind that if cross-env is saved as a development dependency, it would cause an application error on your web server. To fix this, change cross-env to a production dependency by running this in the command line:
 
+```bash
+npm i cross-env -P
+```
 
 Now we can modify the way that our application runs in different modes. As an example of this, we could define the application to use a separate test database when it is running tests.
 
@@ -155,9 +159,9 @@ The test imports the Express application from the <i>app.js</i> module and wraps
 
 Our test makes an HTTP GET request to the <i>api/notes</i> url and verifies that the request is responded to with the status code 200. The test also verifies that the <i>Content-Type</i> header is set to <i>application/json</i>, indicating that the data is in the desired format. (If you're not familiar with the RegEx syntax of `/application\/json/`, you can learn more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions).)
 
-The test contains some details that we will explore [a bit later on](/en/part4/testing_the_backend#async-await). The arrow function that defines the test is preceded by the <i>async</i> keyword and the method call for the <i>api</i> object is preceded by the <i>await</i> keyword. We will write a few tests and then take a closer look at this async/await magic. Do not concern yourself with them for now, just be assured that the example tests work correctly. The async/await syntax is related to the fact that making a request to the API is an <i>asynchronous</i> operation. The [Async/await syntax](https://facebook.github.io/jest/docs/en/asynchronous.html) can be used for writing asynchronous code with the appearance of synchronous code.
+The test contains some details that we will explore [a bit later on](/en/part4/testing_the_backend#async-await). The arrow function that defines the test is preceded by the <i>async</i> keyword and the method call for the <i>api</i> object is preceded by the <i>await</i> keyword. We will write a few tests and then take a closer look at this async/await magic. Do not concern yourself with them for now, just be assured that the example tests work correctly. The async/await syntax is related to the fact that making a request to the API is an <i>asynchronous</i> operation. The [Async/await syntax](https://jestjs.io/docs/asynchronous) can be used for writing asynchronous code with the appearance of synchronous code.
 
-Once all the tests (there is currently only one) have finished running we have to close the database connection used by Mongoose. This can be easily achieved with the [afterAll](https://facebook.github.io/jest/docs/en/api.html#afterallfn-timeout) method:
+Once all the tests (there is currently only one) have finished running we have to close the database connection used by Mongoose. This can be easily achieved with the [afterAll](https://jestjs.io/docs/api#afterallfn-timeout) method:
 
 ```js
 afterAll(() => {
@@ -177,6 +181,18 @@ module.exports = {
   testEnvironment: 'node'
 }
 ```
+Another error you may come across is your test takes longer than the default Jest test timeout of 5000 ms. This can be solved by adding a third parameter to the test function:
+  
+```js
+test('notes are returned as json', async () => {
+  await api
+    .get('/api/notes')
+    .expect(200)
+    .expect('Content-Type', /application\/json/)
+}, 100000)
+```
+  
+This third parameter sets the timeout to be 100000 ms. A long timeout ensures that our test won't fail due to the time it takes to run. (A long timeout may not be what you want for tests based on performance or speed, but this is fine for our example tests).
 
 One tiny but important detail: at the [beginning](/en/part4/structure_of_backend_application_introduction_to_testing#project-structure) of this part we extracted the Express application into the <i>app.js</i> file, and the role of the <i>index.js</i> file was changed to launch the application at the specified port with Node's built-in <i>http</i> object:
 
@@ -230,7 +246,7 @@ test('the first note is about HTTP methods', async () => {
 })
 ```
 
-Both tests store the response of the request to the _response_ variable, and unlike the previous test that used the methods provided by _supertest_ for verifying the status code and headers, this time we are inspecting the response data stored in <i>response.body</i> property. Our tests verify the format and content of the response data with the [expect](https://facebook.github.io/jest/docs/en/expect.html#content) method of Jest.
+Both tests store the response of the request to the _response_ variable, and unlike the previous test that used the methods provided by _supertest_ for verifying the status code and headers, this time we are inspecting the response data stored in <i>response.body</i> property. Our tests verify the format and content of the response data with the [expect](https://jestjs.io/docs/expect#expectvalue) method of Jest.
 
 
 The benefit of using the async/await syntax is starting to become evident. Normally we would have to use callback functions to access the data returned by promises, but with the new syntax things are a lot more comfortable:
@@ -271,7 +287,7 @@ module.exports = {
 
 Testing appears to be easy and our tests are currently passing. However, our tests are bad as they are dependent on the state of the database (that happens to be correct in my test database). In order to make our tests more robust, we have to reset the database and generate the needed test data in a controlled manner before we run the tests.
 
-Our tests are already using the [afterAll](https://facebook.github.io/jest/docs/en/api.html#afterallfn-timeout) function of Jest to close the connection to the database after the tests are finished executing. Jest offers many other [functions](https://facebook.github.io/jest/docs/en/setup-teardown.html#content) that can be used for executing operations once before any test is run, or every time before a test is run.
+Our tests are already using the [afterAll](https://jestjs.io/docs/api#afterallfn-timeout) function of Jest to close the connection to the database after the tests are finished executing. Jest offers many other [functions](https://jestjs.io/docs/setup-teardown) that can be used for executing operations once before any test is run, or every time before a test is run.
 
 Let's initialize the database <i>before every test</i> with the [beforeEach](https://jestjs.io/docs/en/api.html#beforeeachfn-timeout) function:
 
@@ -333,7 +349,7 @@ test('a specific note is within the returned notes', async () => {
 })
 ```
 
-Pay special attention to the expect in the latter test. The <code>response.body.map(r => r.content)</code> command is used to create an array containing the content of every note returned by the API. The [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem) method is used for checking that the note given to it as a parameter is in the list of notes returned by the API.
+Pay special attention to the expect in the latter test. The <code>response.body.map(r => r.content)</code> command is used to create an array containing the content of every note returned by the API. The [toContain](https://jestjs.io/docs/expect#tocontainitem) method is used for checking that the note given to it as a parameter is in the list of notes returned by the API.
 
 ### Running tests one by one
 
@@ -351,7 +367,7 @@ npm test -- tests/note_api.test.js
 The <i>-t</i> option can be used for running tests with a specific name:
 
 ```js
-npm test -- -t 'a specific note is within the returned notes'
+npm test -- -t "a specific note is within the returned notes"
 ```
 
 The provided parameter can refer to the name of the test or the describe block. The parameter can also contain just a part of the name. The following command will run all of the tests that contain <i>notes</i> in their name:
@@ -362,7 +378,7 @@ npm test -- -t 'notes'
 
 <!-- *HUOM*: yksittäisiä testejä suoritettaessa saattaa mongoose-yhteys  jäädä auki, mikäli yhtään yhteyttä hyödyntävää testiä ei ajeta. Ongelma seurannee siitä, että supertest alustaa yhteyden, mutta jest ei suorita afterAll-osiota. -->
 **NB**: When running a single test, the mongoose connection might stay open if no tests using the connection are run. 
-The problem might be due to the fact that supertest primes the connection, but jest does not run the afterAll portion of the code. 
+The problem might be due to the fact that supertest primes the connection, but Jest does not run the afterAll portion of the code. 
 
 ### async/await
 
@@ -476,7 +492,7 @@ test('a valid note can be added', async () => {
   await api
     .post('/api/notes')
     .send(newNote)
-    .expect(200)
+    .expect(201)
     .expect('Content-Type', /application\/json/)
 
   const response = await api.get('/api/notes')
@@ -608,7 +624,7 @@ test('a valid note can be added ', async () => {
   await api
     .post('/api/notes')
     .send(newNote)
-    .expect(200)
+    .expect(201)
     .expect('Content-Type', /application\/json/)
 
   const notesAtEnd = await helper.notesInDb() // highlight-line
@@ -976,7 +992,7 @@ The asynchronous nature of JavaScript can lead to surprising behavior, and for t
 ### Exercises 4.8.-4.12.
 
 
-**NB:** the material uses the [toContain](https://facebook.github.io/jest/docs/en/expect.html#tocontainitem) matcher in several places to verify that an array contains a specific element. It's worth noting that the method uses the === operator for comparing and matching elements, which means that it is often not well-suited for matching objects. In most cases, the appropriate method for verifying objects in arrays is the [toContainEqual](https://facebook.github.io/jest/docs/en/expect.html#tocontainequalitem) matcher. However, the model solutions don't check for objects in arrays with matchers, so using the method is not required for solving the exercises.
+**NB:** the material uses the [toContain](https://jestjs.io/docs/expect#tocontainitem) matcher in several places to verify that an array contains a specific element. It's worth noting that the method uses the === operator for comparing and matching elements, which means that it is often not well-suited for matching objects. In most cases, the appropriate method for verifying objects in arrays is the [toContainEqual](https://jestjs.io/docs/expect#tocontainequalitem) matcher. However, the model solutions don't check for objects in arrays with matchers, so using the method is not required for solving the exercises.
 
 
 **Warning:** If you find yourself using async/await and <i>then</i> methods in the same code, it is almost guaranteed that you are doing something wrong. Use one or the other and don't mix the two.
@@ -1126,7 +1142,7 @@ describe('addition of a new note', () => {
     await api
       .post('/api/notes')
       .send(newNote)
-      .expect(200)
+      .expect(201)
       .expect('Content-Type', /application\/json/)
 
 
@@ -1192,7 +1208,7 @@ There is still room for improvement, but it is time to move forward.
 This way of testing the API, by making HTTP requests and inspecting the database with Mongoose, is by no means the only nor the best way of conducting API-level integration tests for server applications. There is no universal best way of writing tests, as it all depends on the application being tested and available resources.
 
 
-You can find the code for our current application in its entirety in the <i>part4-6</i> branch of [this Github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-6).
+You can find the code for our current application in its entirety in the <i>part4-6</i> branch of [this Github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-6).
 
 </div>
 

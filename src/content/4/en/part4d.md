@@ -167,7 +167,7 @@ notesRouter.post('/', async (request, response) => {
   const token = getTokenFrom(request)
 
   const decodedToken = jwt.verify(token, process.env.SECRET)
-  if (!token || !decodedToken.id) {
+  if (!decodedToken.id) {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
@@ -189,7 +189,7 @@ notesRouter.post('/', async (request, response) => {
 })
 ```
 
-The helper function _getTokenFrom_ isolates the token from the <i>authorization</i> header. The validity of the token is checked with _jwt.verify_. The method also decodes the token, or returns the Object which the token was based on: 
+The helper function _getTokenFrom_ isolates the token from the <i>authorization</i> header. The validity of the token is checked with _jwt.verify_. The method also decodes the token, or returns the Object which the token was based on. If there is no token passed, it will return error <i>"jwt must be provided"</i>.
 
 ```js
 const decodedToken = jwt.verify(token, process.env.SECRET)
@@ -197,10 +197,10 @@ const decodedToken = jwt.verify(token, process.env.SECRET)
 
 The object decoded from the token contains the <i>username</i> and <i>id</i> fields, which tells the server who made the request. 
 
-If there is no token, or the object decoded from the token does not contain the user's identity (_decodedToken.id_ is undefined), error status code [401 unauthorized](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2) is returned and the reason for the failure is explained in the response body. 
+If the object decoded from the token does not contain the user's identity (_decodedToken.id_ is undefined), error status code [401 unauthorized](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2) is returned and the reason for the failure is explained in the response body. 
 
 ```js
-if (!token || !decodedToken.id) {
+if (!decodedToken.id) {
   return response.status(401).json({
     error: 'token missing or invalid'
   })
@@ -265,7 +265,7 @@ If the application has multiple interfaces requiring identification, JWT's valid
 
 ### Problems of Token-based authentication
 
-Token authentication is pretty easy to implement, but it contains one problem. Once the API user, eg. a React app gets a token, the API has a blind trust to the token holder. What if the access rights of the token holder should be revoken?
+Token authentication is pretty easy to implement, but it contains one problem. Once the API user, eg. a React app gets a token, the API has a blind trust to the token holder. What if the access rights of the token holder should be revoked?
 
 There are two solutions to the problem. Easier one is to limit the validity period of a token:
 
@@ -332,7 +332,7 @@ const errorHandler = (error, request, response, next) => {
 }
 ```
 
-The shorter the expiration time, the more safe the solution is. So if the token gets into wrong hands, or the user access to the system needs to be revoken, token is usable only a limited amount of time. On the other hand, a short expiration time forces is a potantial pain to a user, one must login to the system more frequently.
+The shorter the expiration time, the more safe the solution is. So if the token gets into wrong hands, or the user access to the system needs to be revoked, the token is usable only a limited amount of time. On the other hand, a short expiration time forces a potential pain to a user, one must login to the system more frequently.
 
 The other solution is to save info about each token to backend database and to check for each API request if the access right corresponding to the token is still valid. With this scheme, the access rights can be revoked at any time. This kind of solution is often called a <i>server side session</i>.
 
@@ -384,7 +384,7 @@ Add a feature which adds the following restrictions to creating new users: Both 
 
 The operation must respond with a suitable status code and some kind of an error message if invalid user is created. 
 
-**NB** Do not test password restrictions with Mongoose validations. It is not a good idea because the password received by the backend and the password hash saved to the database are not the same thing. The password length should be validated in the controller like we did in [part 3](/en/part3/validation_and_es_lint) before using Mongoose validation. 
+**NB** Do not test password restrictions with Mongoose validations. It is not a good idea because the password received by the backend and the password hash saved to the database are not the same thing. The password length should be validated in the controller like we did in [part 3](/en/part3/node_js_and_express) before using Mongoose validation. 
 
 Also, implement tests which check that invalid users are not created and invalid add user operation returns a suitable status code and error message. 
 
@@ -464,7 +464,7 @@ if ( blog.user.toString() === userid.toString() ) ...
 
 Both the new blog creation and blog deletion need to find out the identity of the user who is doing the operation. The middleware _tokenExtractor_ that we did in exercise 4.20 helps but still both the handlers of <i>post</i> and <i>delete</i> operations need to find out who is the user holding a specific token.
 
-Do now a new middleware _userExtractor_, that finds out the user and sets it to the request object. When you register the middleware in <i>app.js</i>
+Now create a new middleware _userExtractor_, that finds out the user and sets it to the request object. When you register the middleware in <i>app.js</i>
 
 ```js
 app.use(middleware.userExtractor)
@@ -497,7 +497,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 ```
 
-we could register it to be only executed eith path <i>/api/blogs</i> routes: 
+we could register it to be only executed with path <i>/api/blogs</i> routes: 
 
 ```js
 // use the middleware only in /api/blogs routes
@@ -506,7 +506,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 ```
 
-As can be seen, this happens by chainig multiple middlewares as the parameter of function  <i>use</i>. It would also be possible to register a middleware only for a specific operation:
+As can be seen, this happens by chaining multiple middlewares as the parameter of function  <i>use</i>. It would also be possible to register a middleware only for a specific operation:
 
 ```js
 router.post('/', userExtractor, async (request, response) => {
@@ -520,7 +520,7 @@ After adding token based authentication the tests for adding a new blog broke do
 
 [This](https://github.com/visionmedia/supertest/issues/398) is most likely useful when doing the fix.
 
-This is the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+This is the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your finished exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 <!---
 note left of user

@@ -194,7 +194,7 @@ The ids of the notes are stored within the user document as an array of Mongo id
 The type of the field is <i>ObjectId</i> that references <i>note</i>-style documents. Mongo does not inherently know that this is a field that references notes, the syntax is purely related to and defined by Mongoose.
 
 
-Let's expand the schema of the note defined in the <i>model/note.js</i> file so that the note contains information about the user who created it:
+Let's expand the schema of the note defined in the <i>models/note.js</i> file so that the note contains information about the user who created it:
 
 ```js
 const noteSchema = new mongoose.Schema({
@@ -387,6 +387,10 @@ The test case obviously will not pass at this point. We are essentially practici
 
 Let's validate the uniqueness of the username with the help of Mongoose validators. As we mentioned in exercise [3.19](/en/part3/validation_and_es_lint#exercises-3-19-3-21), Mongoose does not have a built-in validator for checking the uniqueness of a field. We can find a ready-made solution for this from the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) npm package. Let's install it:
 
+  //There are few issues with updated mongoose-unique-validator, a recommended version is 2.0.1. Tested various versions before concluding. 
+  //Error with other versions: "User validation failed: _id: Error, expected `_id` to be unique"
+  //Link to the issue: https://github.com/blakehaswell/mongoose-unique-validator/issues/88#issuecomment-429189084
+  
 ```bash
 npm install mongoose-unique-validator
 ```
@@ -430,12 +434,23 @@ usersRouter.get('/', async (request, response) => {
 })
 ```
 
+For making new users in a production or development environment, you may send a POST request to ```/api/users/``` via Postman or REST Client in the following format:
+```js
+{
+    "notes": [],
+    "username": "root",
+    "name": "Superuser",
+    "password": "salainen"
+}
+
+```
+
 The list looks like this:
 
 ![](../../images/4/9.png)
 
 
-You can find the code for our current application in its entirety in the <i>part4-7</i> branch of [this github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-7).
+You can find the code for our current application in its entirety in the <i>part4-7</i> branch of [this github repository](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-7).
 
 ### Creating a new note
 

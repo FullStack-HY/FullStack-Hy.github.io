@@ -225,7 +225,7 @@ const mongoose = require('mongoose')
 
 logger.info('connecting to', config.MONGODB_URI)
 
-mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB')
   })
@@ -313,7 +313,6 @@ noteSchema.set('toJSON', {
 module.exports = mongoose.model('Note', noteSchema)
 ```
 
-
 To recap, the directory structure looks like this after the changes have been made:
 
 ```bash
@@ -370,7 +369,7 @@ const blogSchema = new mongoose.Schema({
 const Blog = mongoose.model('Blog', blogSchema)
 
 const mongoUrl = 'mongodb://localhost/bloglist'
-mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect(mongoUrl)
 
 app.use(cors())
 app.use(express.json())
@@ -420,14 +419,12 @@ One best practice is to commit your code every time it is in a stable state. Thi
 
 ### Testing Node applications
 
-
 We have completely neglected one essential area of software development, and that is automated testing.
-
 
 Let's start our testing journey by looking at unit tests. The logic of our application is so simple, that there is not much that makes sense to test with unit tests. Let's create a new file <i>utils/for_testing.js</i> and write a couple of simple functions that we can use for test writing practice:
 
 ```js
-const palindrome = (string) => {
+const reverse = (string) => {
   return string
     .split('')
     .reverse()
@@ -443,7 +440,7 @@ const average = (array) => {
 }
 
 module.exports = {
-  palindrome,
+  reverse,
   average,
 }
 ```
@@ -498,33 +495,32 @@ Alternatively, Jest can look for a configuration file with the default name <i>j
 ```js
 module.exports = {
   testEnvironment: 'node',
-};
+}
 ```
 
-Let's create a separate directory for our tests called <i>tests</i> and create a new file called <i>palindrome.test.js</i> with the following contents:
+Let's create a separate directory for our tests called <i>tests</i> and create a new file called <i>reverse.test.js</i> with the following contents:
 
 ```js
-const palindrome = require('../utils/for_testing').palindrome
+const reverse = require('../utils/for_testing').reverse
 
-test('palindrome of a', () => {
-  const result = palindrome('a')
+test('reverse of a', () => {
+  const result = reverse('a')
 
   expect(result).toBe('a')
 })
 
-test('palindrome of react', () => {
-  const result = palindrome('react')
+test('reverse of react', () => {
+  const result = reverse('react')
 
   expect(result).toBe('tcaer')
 })
 
-test('palindrome of releveler', () => {
-  const result = palindrome('releveler')
+test('reverse of releveler', () => {
+  const result = reverse('releveler')
 
   expect(result).toBe('releveler')
 })
 ```
-
 
 The ESLint configuration we added to the project in the previous part complains about the _test_ and _expect_ commands in our test file, since the configuration does not allow <i>globals</i>. Let's get rid of the complaints by adding <i>"jest": true</i> to the <i>env</i> property in the <i>.eslintrc.js</i> file.
 
@@ -546,50 +542,43 @@ module.exports = {
 }
 ```
 
-In the first row, the test file imports the function to be tested and assigns it to a variable called _palindrome_:
+In the first row, the test file imports the function to be tested and assigns it to a variable called _reverse_:
 
 ```js
-const palindrome = require('../utils/for_testing').palindrome
+const reverse = require('../utils/for_testing').reverse
 ```
-
 
 Individual test cases are defined with the _test_ function. The first parameter of the function is the test description as a string. The second parameter is a <i>function</i>, that defines the functionality for the test case. The functionality for the second test case looks like this:
 
 ```js
 () => {
-  const result = palindrome('react')
+  const result = reverse('react')
 
   expect(result).toBe('tcaer')
 }
 ```
 
-
-First we execute the code to be tested, meaning that we generate a palindrome for the string <i>react</i>. Next we verify the results with the [expect](https://facebook.github.io/jest/docs/en/expect.html#content) function. Expect wraps the resulting value into an object that offers a collection of <i>matcher</i> functions, that can be used for verifying the correctness of the result. Since in this test case we are comparing two strings, we can use the [toBe](https://facebook.github.io/jest/docs/en/expect.html#tobevalue) matcher.
-
+First we execute the code to be tested, meaning that we generate a reverse for the string <i>react</i>. Next we verify the results with the [expect](https://jestjs.io/docs/expect#expectvalue) function. Expect wraps the resulting value into an object that offers a collection of <i>matcher</i> functions, that can be used for verifying the correctness of the result. Since in this test case we are comparing two strings, we can use the [toBe](https://jestjs.io/docs/expect#tobevalue) matcher.
 
 As expected, all of the tests pass:
 
-![](../../images/4/1.png)
-
+![](../../images/4/1x.png)
 
 Jest expects by default that the names of test files contain <i>.test</i>. In this course, we will follow the convention of naming our tests files with the extension <i>.test.js</i>.
-
 
 Jest has excellent error messages, let's break the test to demonstrate this:
 
 ```js
 test('palindrom of react', () => {
-  const result = palindrome('react')
+  const result = reverse('react')
 
   expect(result).toBe('tkaer')
 })
 ```
 
-
 Running the tests above results in the following error message:
 
-![](../../images/4/2e.png)
-
+![](../../images/4/2x.png)
 
 Let's add a few tests for the _average_ function, into a new file <i>tests/average.test.js</i>.
 
@@ -611,11 +600,9 @@ describe('average', () => {
 })
 ```
 
-
 The test reveals that the function does not work correctly with an empty array (this is because in JavaScript dividing by zero results in <i>NaN</i>):
 
 ![](../../images/4/3.png)
-
 
 Fixing the function is quite easy:
 
@@ -643,14 +630,11 @@ describe('average', () => {
 })
 ```
 
-
 Describe blocks can be used for grouping tests into logical collections. The test output of Jest also uses the name of the describe block:
 
-![](../../images/4/4.png)
-
+![](../../images/4/4x.png)
 
 As we will see later on <i>describe</i> blocks are necessary when we want to run some shared setup or teardown operations for a group of tests.
-
 
 Another thing to notice is that we wrote the tests in quite a compact way, without assigning the output of the function being tested to a variable:
 
@@ -741,7 +725,7 @@ If defining your own test input list of blogs is too much work, you can use the 
 You are bound to run into problems while writing tests. Remember the things that we learned about [debugging](/en/part3/saving_data_to_mongo_db#debugging-node-applications) in part 3. You can print things to the console with _console.log_ even during test execution. It is even possible to use the debugger while running tests, you can find instructions for that [here](https://jestjs.io/docs/en/troubleshooting).
 
 
-**NB:** if some test is failing, then it is recommended to only run that test while you are fixing the issue. You can run a single test with the [only](https://facebook.github.io/jest/docs/en/api.html#testonlyname-fn-timeout) method.
+**NB:** if some test is failing, then it is recommended to only run that test while you are fixing the issue. You can run a single test with the [only](https://jestjs.io/docs/api#testonlyname-fn-timeout) method.
 
 
 Another way of running a single test (or describe block) is to specify the name of the test to be run with the [-t](https://jestjs.io/docs/en/cli.html) flag:
