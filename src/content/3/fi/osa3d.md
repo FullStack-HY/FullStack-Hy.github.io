@@ -89,6 +89,26 @@ Validoinnin epäonnistuessa palautetaan validaattorin oletusarvoinen virheviesti
 
 ![](../../images/3/50.png)
 
+Huomaamme kuitenkin että sovelluksessa on pieni ongelma, validaatiota ei suoriteta muistiinpanojen päivityksen yhteydessä. [Dokumentaatio](https://github.com/blakehaswell/mongoose-unique-validator#find--updates) kertoo mistä on kyse, validaatiota ei suoriteta oletusarvoisesti metodin <i>findOneAndUpdate</i> suorituksen yhteydessä.
+
+Korjaus on onneksi helppo. Muotoillaan routea muutenkin hieman siistimmäksi:
+
+```js
+app.put('/api/notes/:id', (request, response, next) => {
+  const { content, important } = request.body // highlight-line
+
+  Note.findByIdAndUpdate(
+    request.params.id, 
+    { content, important }, // highlight-line
+    { new: true, runValidators: true, context: 'query' } // highlight-line
+  ) 
+    .then(updatedNote => {
+      response.json(updatedNote)
+    })
+    .catch(error => next(error))
+})
+```
+
 ### Tietokantaa käyttävän version vieminen tuotantoon
 
 Sovelluksen pitäisi toimia tuotannossa eli Herokussa lähes sellaisenaan. Frontendin muutosten takia on tehtävä siitä uusi tuotantoversio ja kopioitava se backendiin. 

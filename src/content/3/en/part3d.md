@@ -97,6 +97,27 @@ When validating an object fails, we return the following default error message f
 
 ![](../../images/3/50.png)
 
+We notice that the backend has now a problem: validations are not done when editing a note.
+The [documentation](https://github.com/blakehaswell/mongoose-unique-validator#find--updates) explains what is the problem, validations are not run by default when <i>findOneAndUpdate</i> is executed.
+
+The fix is easy. Let us also reformulate the route code a bit:
+
+```js
+app.put('/api/notes/:id', (request, response, next) => {
+  const { content, important } = request.body // highlight-line
+
+  Note.findByIdAndUpdate(
+    request.params.id, 
+    { content, important }, // highlight-line
+    { new: true, runValidators: true, context: 'query' } // highlight-line
+  ) 
+    .then(updatedNote => {
+      response.json(updatedNote)
+    })
+    .catch(error => next(error))
+})
+```
+
 ### Deploying the database backend to production
 
 The application should work almost as-is in Heroku. We do have to generate a new production build of the frontend due to the changes that we have made to our frontend. 
