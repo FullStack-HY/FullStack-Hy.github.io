@@ -382,4 +382,6 @@ Generate a production build of your frontend, and add it to the internet applica
 
 Also make sure that the frontend still works locally. 
 
+If you have problems to get the app working make sure that your directory structure matches the one of [the example app](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-3).
+
 </div>
