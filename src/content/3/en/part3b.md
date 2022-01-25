@@ -183,7 +183,7 @@ We begin by copying the production build of the frontend to the root of the back
 cp -r build ../notes-backend
 ```
 
-If you are using a Windows computer, you may use either [copy](https://www.windows-commandline.com/windows-copy-command-syntax-examples/) or [xcopy](https://www.windows-commandline.com/xcopy-command-syntax-examples/) command instead. Otherwise, simply do a copy and paste.
+If you are using a Windows computer, you may use either [copy](https://www.windows-commandline.com/windows-copy-command-syntax-examples/) or [xcopy](https://www.windows-commandline.com/xcopy-command-syntax-examples/) command instead. Otherwise, simply do a copy and paste. 
 
 The backend directory should now look as follows:
 
@@ -297,6 +297,8 @@ Note that the directory paths in the script <i>build:ui</i> depend on the locati
 ```md
 npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
 ```
+
+Another opstion is the use of [shx](https://www.npmjs.com/package/shx).
 
 ### Proxy
 
