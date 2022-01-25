@@ -53,7 +53,6 @@ module.exports = {
 }
 ```
 
-<!-- Loggeri tarjoaa kaksi funktiota, normaalien logiviesteihin tarkoitetun funktion _info_ sekä virhetilanteisiin tarkoitetun funktion _error_. -->
 The logger has two functions, __info__ for printing normal log messages, and __error__ for all error messages. 
 
 Extracting logging into its own module is a good idea in more ways than one. If we wanted to start writing logs to a file or send them to an external logging service like [graylog](https://www.graylog.org/) or [papertrail](https://papertrailapp.com) we would only have to make changes in one place.
@@ -339,6 +338,69 @@ There is no strict directory structure or file naming convention that is require
 You can find the code for our current application in its entirety in the <i>part4-1</i> branch of [this Github repository](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-1).
 
 If you clone the project for yourself, run the _npm install_ command before starting the application with _npm start_.
+
+### Note on exports
+
+We have used two different kings of exports in this parts. Firstly, eg. the file <i>utils/logger.js</i> does the export as follows:
+
+```js
+const info = (...params) => {
+  console.log(...params)
+}
+
+const error = (...params) => {
+  console.error(...params)
+}
+
+// highlight-start
+module.exports = {
+  info, error
+}
+// highlight-end
+```
+
+The file exports <i>an object</i> that has two fields, both of which are functions. The functions can be used with two different ways. The first option is to require the whole object and refer to functions throught he object using the dot notation: 
+
+```js
+const logger = require('./utils/logger')
+
+logger.info('message')
+
+logger.error('error message')
+```
+The other option is to destructure the functions to own variables in the <i>require</i> statement:
+
+```js
+const { info, error } = require('./utils/logger')
+
+info('message')
+error('error message')
+```
+
+The latter may be preferable way if only small portion of exported functions are used in a file.
+
+Eg. in file <i>controller/notes.js</i> exporting happens as follows:
+
+```js
+const notesRouter = require('express').Router()
+const Note = require('../models/note')
+
+// ...
+
+module.exports = notesRouter // highlight-line
+```
+
+In this case there is just one "thing" exported, so the only way to use it is the following:
+
+```js
+const notesRouter = require('./controllers/notes')
+
+// ...
+
+app.use('/api/notes', notesRouter)
+```
+
+Now the exported "thing" (in this case a router object) is assigned to a variable and used as such.
 
 </div>
 

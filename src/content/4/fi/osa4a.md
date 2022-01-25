@@ -326,6 +326,70 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://gith
 
 Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnistämistä eli komentoa _npm start_.
 
+### Huomio eksporteista
+
+Olemme käyttäneet tässä osassa kahta eri tapaa eksporttaukseen. Esimerkiksi tiedostossa <i>utils/logger.js</i> eksporttaus tapahtuu seuraavasti:
+
+```js
+const info = (...params) => {
+  console.log(...params)
+}
+
+const error = (...params) => {
+  console.error(...params)
+}
+
+// highlight-start
+module.exports = {
+  info, error
+}
+// highlight-end
+```
+
+Tiedosto eksporttaa olion, joka sisältää kenttinään kaksi funktiota. Funktioihin päästään käsiksi kahdella vaihtoehtoisella tavalla. Voidaan joko ottaa käyttöön koko eksportoitava olio, jolloin funktioihin viitataan olion kautta:
+
+```js
+const logger = require('./utils/logger')
+
+logger.info('message')
+
+logger.error('error message')
+```
+
+Toinen vaihoehto on destrukturoida funktiot omiin muuttujiin <i>require</i>-kutsun yhteydessä:
+
+```js
+const { info, error } = require('./utils/logger')
+
+info('message')
+error('error message')
+```
+
+Jälkimäinen tapa voi olla selkeämpi erityisesti jos ollaan kiinnostunut ainoastaan joistain eksportatuista funktioista.
+
+Tiedostossa <i>controller/notes.js</i> eksporttaus taas tapahtuu seuraavasti
+
+```js
+const notesRouter = require('express').Router()
+const Note = require('../models/note')
+
+// ...
+
+module.exports = notesRouter // highlight-line
+```
+
+Tässä tapauksessa exportataan ainoastaan yksi "asia", joten mahdollisia käyttötapojakin on vain yksi:
+
+```js
+const notesRouter = require('./controllers/notes')
+
+// ...
+
+app.use('/api/notes', notesRouter)
+```
+
+Eli eksportoitava asia (tässä tilanteessa router-olio) sijoitetaan muuttujaan ja käytetään sitä sellaisenaan.
+
 </div>
 
 <div class="tasks">
