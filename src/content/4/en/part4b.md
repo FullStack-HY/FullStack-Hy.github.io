@@ -1159,7 +1159,6 @@ describe('addition of a new note', () => {
       .expect(201)
       .expect('Content-Type', /application\/json/)
 
-
     const notesAtEnd = await helper.notesInDb()
     expect(notesAtEnd).toHaveLength(helper.initialNotes.length + 1)
 
