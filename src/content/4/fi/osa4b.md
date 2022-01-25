@@ -980,15 +980,25 @@ Kun testi on valmis, refaktoroi operaatio käyttämään promisejen sijaan async
 
 Huomaa, että joudut tekemään koodiin [materiaalin tapaan](/osa4/backendin_testaaminen#test-ymparisto) hieman muutoksia (mm. testausympäristön määrittely), jotta saat järkevästi tehtyä omaa tietokantaa käyttäviä API-tason testejä.
 
-**HUOM 1:** Testejä suorittaessa saatat törmätä seuraavaan varoitukseen:
+**HUOM 1:** Testejä suorittaessa törmät ehkä seuraavaan varoitukseen:
 
 ![](../../images/4/8a.png)
 
-Jos näin käy, toimi [ohjeen](https://mongoosejs.com/docs/jest.html) mukaan ja lisää projektin hakemiston juureen tiedosto <i>jest.config.js</i> jolla on seuraava sisältö:
 
-```js
-module.exports = {
-  testEnvironment: 'node'
+Kyse lienee Mongoosen version 6.x aiheuttamasta ongelmasta, versiossa 5.x ei samaa virhettä esiinny. Itseasiassa [Mongoosen dokumentaatio](https://mongoosejs.com/docs/jest.html) ei suosittele Mongoosea käyttävien sovellusten testaamista Jestillä.
+
+Virheilmoituksesta pääsee eroon lisäämällä testien suoritukseen option <i>--forceExit</i>:
+
+```json
+{
+  // ..
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint .",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit" // highlight-line
+  },
+  // ...
 }
 ```
 
@@ -1188,7 +1198,7 @@ Toteuta sovellukseen mahdollisuus yksittäisen blogin poistoon.
 
 Käytä async/awaitia. Noudata operaation HTTP-rajapinnan suhteen [RESTful](/osa3/node_js_ja_express#rest)-käytänteitä.
 
-Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
+Toteuttaa ominaisuudelle myös testit.
 
 #### 4.14* blogilistan laajennus, step2
 
@@ -1198,6 +1208,6 @@ Käytä async/awaitia.
 
 Tarvitsemme muokkausta lähinnä <i>likejen</i> lukumäärän päivittämiseen. Toiminnallisuuden voi toteuttaa samaan tapaan kuin muistiinpanon päivittäminen toteutettiin [osassa 3](/osa3/tietojen_tallettaminen_mongo_db_tietokantaan#muut-operaatiot).
 
-Saat toteuttaa ominaisuudelle testit jos haluat. Jos et, varmista ominaisuuden toimivuus esim. Postmanilla.
+Toteuttaa ominaisuudelle myös testit.
 
 </div>

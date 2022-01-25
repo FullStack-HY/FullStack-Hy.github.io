@@ -190,7 +190,6 @@ One way to get rid of this is to run tests with option <i>--forceExit</i>:
 }
 ```
 
-
 Another error you may come across is your test takes longer than the default Jest test timeout of 5000 ms. This can be solved by adding a third parameter to the test function:
   
 ```js
@@ -1029,11 +1028,20 @@ Notice that you will have to make similar changes to the code that were made [in
 
 ![](../../images/4/8a.png)
 
-If this happens, follow the [instructions](https://mongoosejs.com/docs/jest.html) and create a new <i>jest.config.js</i> file at the root of the project with the following contents:
+The problem is quite likely caused by the Mongoose version 6.x, the problem does not appear when the version 5.x is used. Actually [Mongoose documentation](https://mongoosejs.com/docs/jest.html) does not recommend testing Mongoose applications with Jest.
 
-```js
-module.exports = {
-  testEnvironment: 'node'
+One way to get rid of this is to run tests with option <i>--forceExit</i>:
+
+```json
+{
+  // ..
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint .",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit" // highlight-line
+  },
+  // ...
 }
 ```
 
@@ -1215,7 +1223,6 @@ The test output is grouped according to the <i>describe</i> blocks:
 
 ![](../../images/4/7.png)
 
-
 There is still room for improvement, but it is time to move forward.
 
 This way of testing the API, by making HTTP requests and inspecting the database with Mongoose, is by no means the only nor the best way of conducting API-level integration tests for server applications. There is no universal best way of writing tests, as it all depends on the application being tested and available resources.
@@ -1227,34 +1234,24 @@ You can find the code for our current application in its entirety in the <i>part
 
 <div class="tasks">
 
-
 ### Exercises 4.13.-4.14.
-
 
 #### 4.13 Blog list expansions, step1
 
-
 Implement functionality for deleting a single blog post resource.
-
 
 Use the async/await syntax. Follow [RESTful](/en/part3/node_js_and_express#rest) conventions when defining the HTTP API.
 
-
-Feel free to implement tests for the functionality if you want to. Otherwise verify that the functionality works with Postman or some other tool.
-
+Implement tests for the functionality.
 
 #### 4.14 Blog list expansions, step2
 
-
 Implement functionality for updating the information of an individual blog post.
-
 
 Use async/await.
 
-
 The application mostly needs to update the amount of <i>likes</i> for a blog post. You can implement this functionality the same way that we implemented updating notes in [part 3](/en/part3/saving_data_to_mongo_db#other-operations).
 
-
-Feel free to implement tests for the functionality if you want to. Otherwise verify that the functionality works with Postman or some other tool.
+Implement tests for the functionality.
 
 </div>
