@@ -410,52 +410,160 @@ const notes = useSelector(({ filter, notes }) => {
 })
 ```
 
-There is a slight cosmetic flaw in our application. Even though the filter is set to <i>ALL</i> by default, the associated radio button is not selected. Naturally this issue can be fixed, but since this is an unpleasant but ultimately harmless bug we will save the fix for later. 
+There is a slight cosmetic flaw in our application. Even though the filter is set to <i>ALL</i> by default, the associated radio button is not selected. Naturally this issue can be fixed, but since this is an unpleasant but ultimately harmless bug we will save the fix for later. To ease these common Redux related problems 
 
-### Redux DevTools
+### Redux Toolkit
 
-There is an extension [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) that can be installed on Chrome, in which the state of the Redux-store and the action that changes it can be monitored from the console of the browser.
+As we have seen so far, Redux's configuration and state management implementation requires quit a lot of effort. This is manifested for example in the reducer and action creator related code which has somewhat repetitive boilerplate code. [Redux Toolkit](https://redux-toolkit.js.org/) is a library which solves these common Redux related problems. The library for example greatly simplifies the configuration of Redux store and offers a large variety of tools to ease the state management.
 
-When debugging, in addition to the browser extension we also have the software library [redux-devtools-extension](https://www.npmjs.com/package/redux-devtools-extension). Let's install it using the command:
+Let's start using Redux Toolkit in our application by refactoring the existing code. First, we will need to install the library:
 
-```js
-npm install --save-dev redux-devtools-extension
+```
+npm install @reduxjs/toolkit
 ```
 
-We'll have to slightly change the definition of the store to get the library up and running:
+Next, open the <i>index.js</i> file which currently creates the Redux store. Instead of Redux's <em>createStore</em> function, let's create the store using Redux Toolkit's [configureStore](https://redux-toolkit.js.org/api/configureStore) function:
 
 ```js
-// ...
-import { createStore, combineReducers } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension' // highlight-line
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit' // highlight-line
+import App from './App'
 
 import noteReducer from './reducers/noteReducer'
 import filterReducer from './reducers/filterReducer'
 
-const reducer = combineReducers({
-  notes: noteReducer,
-  filter: filterReducer
+ // highlight-start
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
+    filter: filterReducer
+  }
 })
+// highlight-end
 
-const store = createStore(
-  reducer,
-  // highlight-start
-  composeWithDevTools()
-  // highlight-end
+console.log(store.getState())
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 )
-
-export default store
 ```
 
-Now when you open the console, the <i>redux</i> tab looks like this:
+We already got rid of a few lines codes now that we don't need the <em>combineReducers</em> function to create the reducer for the store.
+
+Let's move on to refactoring the reducers, which really brings forth the benefits of Redux Toolkit. With Redux Toolkit, we can easily create reducer and related action creators using the [createSlice](https://redux-toolkit.js.org/api/createSlice) function. We can use the <em>createSlice</em> function to refactor the reducer and action creators in the <i>reducers/noteReducer.js</i> file in the following manner:
+
+Siirrytään seuraavaksi reducereiden refaktorointiin, jossa Redux Toolkitin edut tulevat parhaiten esiin. Redux Toolkitin avulla reducerit ja niihin liittyvät action creatorit voi luoda kätevästi [createSlice](https://redux-toolkit.js.org/api/createSlice)-funktion avulla. Avataan tiedosto <i>reducers/noteReducer.js</i> ja refaktoroidaan se käyttämään <em>createSlice</em>-funktiota:
+
+```js
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = [
+  {
+    content: 'reducer defines how redux store works',
+    important: true,
+    id: 1,
+  },
+  {
+    content: 'state of store can contain any data',
+    important: false,
+    id: 2,
+  },
+]
+
+const generateId = () =>
+  Number((Math.random() * 1000000).toFixed(0))
+
+// highlight-start
+const noteSlice = createSlice({
+  name: 'notes',
+  initialState,
+  reducers: {
+    createNote(state, action) {
+      const content = action.payload
+
+      state.push({
+        content,
+        important: false,
+        id: generateId(),
+      })
+    },
+    toggleImportanceOf(state, action) {
+      const id = action.payload
+
+      const noteToChange = state.find(n => n.id === id)
+
+      const changedNote = { 
+        ...noteToChange, 
+        important: !noteToChange.important 
+      }
+
+      return state.map(note =>
+        note.id !== id ? note : changedNote 
+      )     
+    }
+  },
+})
+// highlight-end
+```
+
+The <em>createSlice</em> function's <em>name</em> parameter definites the prefix which use in the action's type values. For example the <em>createNote</em> action defined later will have the type value of <em>notes/createNote</em>. It is a good practice to give the parameter a value which is unique among the reducers. This way there won't be unexpected collisions between the application's action type values. The <em>initialState</em> parameter defines the reducer's initial state. The <em>reducers</em> parameter the reducer itself as an object, of which functions handle state changes caused by certain action. Note that the <em>action.payload</em> in the functions contains the the argument provided by calling the action creator:
+
+```js
+dispatch(createNote('Redux Toolkit is awesome!'))
+```
+
+If you followed closely, you might have noticed that inside the <em>createNote</em> action, there seems to happend something that violates the reducers' immutability principle mentioned earlier:
+
+```js
+createNote(state, action) {
+  const content = action.payload
+
+  state.push({
+    content,
+    important: false,
+    id: generateId(),
+  })
+}
+```
+
+We are mutating <em>state</em> argument's array by calling the <em>push</em> method instead of retuning a new instance of the array. What's this all about? Redux Toolkit utilizes the [Immer](https://immerjs.github.io/immer/) library with reducers created by <em>createSlice</em> function, which makes it possible to mutate the <em>state</em> argument inside the reducer. Immer uses the mutated state to produce a new, immutable state and thus the state changes remain immutable. Note that state can be changed without "mutating" it, as we have done with the <em>toggleImportanceOf</em> action. Nevertheless mutating the state will often come in handy especially when complex state need to be updated.
+
+The <em>createSlice</em> function returns an object containing the reducer as well as the actions creators defined by the <em>reducers</em> parameter. The reducer can be accessed by the <em>noteSlice.reducer</em> property wehere as the action creators by the <em>noteSlice.actions</em> property. We can produce the file's exports in the following way:
+
+```js
+const noteSlice = createSlice(/* ... */)
+
+// highlight-start
+export const { createNote, toggleImportanceOf } = noteSlice.actions
+
+export default noteSlice.reducer
+// highlight-end
+```
+
+The imports in other files will work just as they did before:
+
+```js
+import noteReducer, { createNote, toggleImportanceOf } from './reducers/noteReducer'
+```
+
+### Redux DevTools
+
+[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=fi) is an Chrome addon which offers useful development tools for Redux. It can be used for example to inspect the Redux store's state and dispatched actions through the browser's console. When the store is created using Redux Toolkit's <em>configureStore</em> function, no additional configuration is needed is order to Redux DevTools to work.
+
+Once the addon in installed, clicking the <i>Redux</i> tab in the browser's console should open the development tools:
 
 ![](../../images/6/11ea.png)
 
-The effect of each action to the store can be easily observed 
+You can insped how dispacthing a certain action changes the state by clicking the action:
 
 ![](../../images/6/12ea.png)
 
-It's also possible to dispatch actions to the store using the console
+It is also possible do dispatch actions to the store using the development tools:
 
 ![](../../images/6/13ea.png)
 
@@ -465,17 +573,13 @@ You can find the code for our current application in its entirety in the <i>part
 
 <div class="tasks">
 
-
 ### Exercises 6.9.-6.12.
 
-
-Let's continue working on the anecdote application using redux that we started in exercise 6.3. 
-
+Let's continue working on the anecdote application using Redux that we started in exercise 6.3. 
 
 #### 6.9 Better anecdotes, step7
 
-<!-- Ota sovelluksessasi käyttöön Redux DevTools. Siirrä Redux-storen määrittely omaan tiedostoon <i>store.js</i>. -->
-Start using Redux DevTools. Move defining the Redux-store into its own file <i>store.js</i>.
+Install Redux Toolkit for the project. Move the Redux store creation into its own file <i>store.js</i> and use Redux Toolkit's <em>configureStore</em> to create the store. Also, start using Redux DevTools to debugging the application's state easier.
 
 #### 6.10 Better anecdotes, step8
 
@@ -522,7 +626,7 @@ const Notification = () => {
 }
 ```
 
-You will have to make changes to the application's existing reducer. Create a separate reducer for the new functionality and refactor the application so that it uses a combined reducer as shown in this part of the course material.
+You will have to make changes to the application's existing reducer. Create a separate reducer for the new functionality by using the Redux Toolkit's <em>createSlice</em> function. Also refactor the application so that it uses a combined reducer as shown in this part of the course material.
 
 The application does not have to use the <i>Notification</i> component in any intelligent way at this point in the exercises. It is enough for the application to display the initial value set for the message in the <i>notificationReducer</i>.
 
@@ -532,20 +636,15 @@ Extend the application so that it uses the <i>Notification</i> component to disp
 
 ![](../../images/6/8ea.png)
 
-
-It's recommended to create separate [action creators](https://redux.js.org/basics/actions#action-creators) for setting and removing notifications.
-
+It's recommended to create separate [action creators](https://redux-toolkit.js.org/api/createSlice#reducers) for setting and removing notifications.
 
 #### 6.12* Better anecdotes, step10
-
 
 Implement filtering for the anecdotes that are displayed to the user.
 
 ![](../../images/6/9ea.png)
 
-
-Store the state of the filter in the redux store. It is recommended to create a new reducer and action creators for this purpose.
-
+Store the state of the filter in the redux store. It is recommended to create a new reducer and action creators for this purpose. Implement the reducer and action creators using the Redux Toolkit's <em>createSlice</em> function.
 
 Create a new <i>Filter</i> component for displaying the filter. You can use the following code as a template for the component:
 
