@@ -22,8 +22,6 @@ The user can close the login form by clicking the <i>cancel</i> button.
 Let's start by extracting the login form into its own component:
 
 ```js
-import React from 'react'
-
 const LoginForm = ({
    handleSubmit,
    handleUsernameChange,
@@ -203,7 +201,7 @@ We can add any React elements we want between the opening and closing tags of <i
 The code for the <i>Togglable</i> component is shown below:
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Togglable = (props) => {
   const [visible, setVisible] = useState(false)
@@ -255,12 +253,9 @@ Unlike the "normal" props we've seen before, <i>children</i> is automatically ad
 />
 ```
 
-
 Then <i>props.children</i> is an empty array.
 
-
 The <i>Togglable</i> component is reusable and we can use it to add similar visibility toggling functionality to the form that is used for creating new notes.
-
 
 Before we do that, let's extract the form for creating notes into its own component:
 
@@ -294,28 +289,24 @@ Next let's define the form component inside of a <i>Togglable</i> component:
 ```
 
 
-You can find the code for our current application in its entirety in the <i>part5-4</i> branch of [this github repository](https://github.com/fullstack-hy2020/part2-notes/tree/part5-4).
+You can find the code for our current application in its entirety in the <i>part5-4</i> branch of [this github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-4).
 
 
 ### State of the forms
 
-<!-- Koko sovelluksen tila on nyt sijoitettu komponenttiin _App_.  -->
 The state of the application currently is in the _App_ component.
 
-<!-- Reactin dokumentaatio antaa seuraavan [ohjeen](https://reactjs.org/docs/lifting-state-up.html) tilan sijoittamisesta: -->
 React documentation says the [following](https://reactjs.org/docs/lifting-state-up.html) about where to place the state:
 
-> <i>Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor.</i>
+<i>Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor.</i>
 
-<!-- Jos mietitään lomakkeiden tilaa, eli esimerkiksi uuden muistiinpanon sisältöä sillä hetkellä kun muistiinpanoa ei vielä ole luotu, ei komponentti _App_ oikeastaan tarvitse niitä mihinkään, ja voisimme aivan hyvin siirtää tilan lomakkeisiin liittyvän tilan niitä vastaaviin komponentteihin. -->
 If we think about the state of the forms, so for example the contents of a new note before it has been created, the _App_ component does not actually need it for anything. 
 We could just as well move the state of the forms to the corresponding components. 
 
-<!-- Muistiinpanosta huolehtiva komponentti muuttuu seuraavasti: -->
 The component for a note changes like so: 
 
 ```js
-import React, {useState} from 'react' 
+import { useState } from 'react' 
 
 const NoteForm = ({ createNote }) => {
   const [newNote, setNewNote] = useState('') 
@@ -386,8 +377,8 @@ const App = () => {
 <!-- Vastaava muutos voitaisiin tehdä myös kirjautumislomakkeelle, mutta jätämme sen vapaaehtoiseksi harjoitustehtäväksi. -->
 We could do the same for the log in form, but we'll leave that for an optional exercise. 
 
-<!-- Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-5), branchissa <i>part5-5</i>. -->
-The application code can be found from [github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-5),
+<!-- Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-5), branchissa <i>part5-5</i>. -->
+The application code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-5),
 branch <i>part5-5</i>.
 
 ### References to components with ref
@@ -401,7 +392,7 @@ There are many ways to implement closing the form from the parent component, but
 Let's make the following changes to the <i>App</i> component:
 
 ```js
-import React, { useState, useRef } from 'react' // highlight-line
+import { useState, useEffect, useRef } from 'react' // highlight-line
 
 const App = () => {
   // ...
@@ -417,16 +408,14 @@ const App = () => {
 }
 ```
 
-
 The [useRef](https://reactjs.org/docs/hooks-reference.html#useref) hook is used to create a <i>noteFormRef</i> ref, that is assigned to the <i>Togglable</i> component containing the creation note form. The <i>noteFormRef</i> variable acts as a reference to the component. This hook ensures the same reference (ref) is kept throughout re-renders of the component.
-
 
 We also make the following changes to the <i>Togglable</i> component:
 
 ```js
-import React, { useState, useImperativeHandle } from 'react' // highlight-line
+import { useState, forwardRef, useImperativeHandle } from 'react' // highlight-line
 
-const Togglable = React.forwardRef((props, ref) => { // highlight-line
+const Togglable = forwardRef((props, ref) => { // highlight-line
   const [visible, setVisible] = useState(false)
 
   const hideWhenVisible = { display: visible ? 'none' : '' }
@@ -488,7 +477,7 @@ This trick works for changing the state of a component, but it looks a bit unple
 
 There are also [other use cases](https://reactjs.org/docs/refs-and-the-dom.html) for refs than accessing React components.
 
-You can find the code for our current application in its entirety in the <i>part5-6</i> branch of [this github repository](https://github.com/fullstack-hy2020/part2-notes/tree/part5-6).
+You can find the code for our current application in its entirety in the <i>part5-6</i> branch of [this github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-6).
 
 ### One point about components
 
@@ -530,7 +519,9 @@ The <i>ref</i> attribute is used for assigning a reference to each of the compon
 </div>
 
 <div class="tasks">
+
 ### Exercises 5.5.-5.10.
+
 #### 5.5 Blog list frontend, step5
 
 Change the form for creating blog posts so that it is only displayed when appropriate. Use functionality similar to what was shown [earlier in this part of the course material](/en/part5/props_children_and_proptypes#displaying-the-login-form-only-when-appropriate). If you wish to do so, you can use the <i>Togglable</i> component defined in part 5.
@@ -539,11 +530,12 @@ By default the form is not visible
 
 ![](../../images/5/13ae.png)
 
-It expands when button <i>new note</i> is clicked
+It expands when button <i>create new blog</i> is clicked
 
 ![](../../images/5/13be.png)
 
 The form closes when a new blog is created.
+
 #### 5.6 Blog list frontend, step6
 
 Separate the form for creating a new blog into its own component (if you have not already done so), and move all the states required for creating a new blog to this component. 
@@ -552,15 +544,12 @@ The component must work like the <i>NoteForm</i> component from the [material](/
 
 #### 5.7* Blog list frontend, step7
 
-<!-- Lisää yksittäiselle blogille nappi, jonka avulla voi kontrolloida näytetäänkö kaikki blogiin liittyvät tiedot. -->
 Let's add a button to each blog, which controls whether all of the details about the blog are shown or not.
 
-<!-- Klikkaamalla nappia sen täydelliset tiedot aukeavat. -->
 Full details of the blog open when the button is clicked.
 
 ![](../../images/5/13ea.png)
 
-<!-- Uusi napin klikkaus pienentää näkymän. -->
 And the details are hidden when the button is clicked again. 
 
 At this point the <i>like</i> button does not need to do anything.
@@ -632,7 +621,7 @@ Modify the application to list the blog posts by the number of <i>likes</i>. Sor
 
 #### 5.10*: Blog list frontend, step10
 
-Add a new button for deleting blog posts. Also implement the logic for deleting blog posts in the backend.
+Add a new button for deleting blog posts. Also implement the logic for deleting blog posts in the frontend.
 
 Your application could look something like this:
 
@@ -730,6 +719,7 @@ npm install --save-dev eslint-plugin-jest
 Let's create a <i>.eslintrc.js</i> file with the following contents:
 
 ```js
+/* eslint-env node */
 module.exports = {
   "env": {
       "browser": true,
@@ -827,7 +817,7 @@ The react-devtools also reveals that the component does not have name:
 Fortunately this is easy to fix
 
 ```js
-import React, { useState, useImperativeHandle } from 'react'
+import { useState, useImperativeHandle } from 'react'
 import PropTypes from 'prop-types'
 
 const Togglable = React.forwardRef((props, ref) => {
@@ -839,7 +829,7 @@ Togglable.displayName = 'Togglable' // highlight-line
 export default Togglable
 ```
 
-You can find the code for our current application in its entirety in the <i>part5-7</i> branch of [this github repository](https://github.com/fullstack-hy2020/part2-notes/tree/part5-7).
+You can find the code for our current application in its entirety in the <i>part5-7</i> branch of [this github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-7).
 
 </div>
 

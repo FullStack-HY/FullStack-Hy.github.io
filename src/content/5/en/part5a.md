@@ -8,16 +8,14 @@ lang: en
 <div class="content">
 
 
-In the last two parts, we have mainly concentrated on the backend, and the frontend does not yet support the user management we implemented to the backend in part 4.
-
+In the last two parts, we have mainly concentrated on the backend, and the frontend, that we developed in [part 2](/en/part2) does not yet support the user management we implemented to the backend in part 4.
 
 At the moment the frontend shows existing notes, and lets users change the state of a note from important to not important and vice versa. New notes cannot be added anymore because of the changes made to the backend in part 4: the backend now expects that a token verifying a user's identity is sent with the new note. 
 
-
 We'll now implement a part of the required user management functionality in the frontend. Let's begin with user login. Throughout this part we will assume that new users will not be added from the frontend. 
 
-
-A login form has now been added to the top of the page. The form for adding new notes has also been moved to the top of the list of notes. 
+### Handling login
+A login form has now been added to the top of the page. The form for adding new notes has also been moved to the bottom of the list of notes. 
 
 ![](../../images/5/1e.png)
 
@@ -89,9 +87,11 @@ const App = () => {
 export default App
 ```
 
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-1), branch <i>part5-1</i>. If you clone the repo, don't forget to run _npm install_ before attempting to run the frontend.
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-1), branch <i>part5-1</i>.
+The frontend will not display any notes if it's not connected to the backend. You can start the backend with _npm run dev_ in its folder from Part 4. This will run the backend on port 3001. While that is active, in a separate terminal window you can start the frontend with _npm start_, and now you can see the notes that are saved in your MongoDB database from Part 4.
 
+Keep this in mind from now on.
 
 The login form is handled the same way we handled forms in 
 [part 2](/en/part2/forms). The app state has fields for  <i>username</i> and <i>password</i> to store the data from the form. The form fields have event handlers, which synchronize changes in the field to the state of the <i>App</i> component. The event handlers are simple: An object is given to them as a parameter, and they destructure the field <i>target</i> from the object and save its value to the state.
@@ -125,7 +125,7 @@ export default { login }
 The method for handling the login can be implemented as follows: 
 
 ```js
-import loginService from './services/login' 
+import loginService from './services/login' // highlight-line
 
 const App = () => {
   // ...
@@ -330,7 +330,7 @@ The solution isn't perfect, but we'll leave it for now.
 Our main component <i>App</i> is at the moment way too large. The changes we did now are a clear sign that the forms should be refactored into their own components. However, we will leave that for an optional exercise. 
 
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-2), branch <i>part5-2</i>.
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-2), branch <i>part5-2</i>.
 
 ### Creating new notes
 
@@ -387,7 +387,7 @@ const create = async newObject => {
 }
 
 const update = (id, newObject) => {
-  const request = axios.put(`${ baseUrl } /${id}`, newObject)
+  const request = axios.put(`${ baseUrl }/${id}`, newObject)
   return request.then(response => response.data)
 }
 
@@ -485,7 +485,7 @@ Changes to the login method are as follows:
 ```
 
 
-The details of a logged-in user are now saved to the local storage, and they can be viewed on the console: 
+The details of a logged-in user are now saved to the local storage, and they can be viewed on the console (by typing _window.localStorage_ to the console): 
 
 ![](../../images/5/3e.png)
 
@@ -552,7 +552,7 @@ window.localStorage.clear()
 ```
 
 
-Current application code can be found on [Github](https://github.com/fullstack-hy2020/part2-notes/tree/part5-3), branch <i>part5-3</i>.
+Current application code can be found on [Github](https://github.com/fullstack-hy/part2-notes/tree/part5-3), branch <i>part5-3</i>.
 
 </div>
 
@@ -679,15 +679,15 @@ The notifications must be visible for a few seconds. It is not compulsory to add
 
 ### A note on using local storage
 
-At the [end](/osa4/token_perustainen_kirjautuminen#token-perustaisen-kirjautumisen-ongelmat) of the last part we mentioned that the challenge of the token based authentication is how to cope with the situation when the API access of the token holder to the API needs to be revoked.
+At the [end](/en/part4/token_authentication#problems-of-token-based-authentication) of the last part we mentioned that the challenge of the token based authentication is how to cope with the situation when the API access of the token holder to the API needs to be revoked.
 
 There are two solutions to the problem. The first one is to limit the validity period of a token. This forces the user to relogin to the app once the token has expired. The other approach is to save the validity information of each token to the backend database. This solution is often called a <i>server side session</i>.
 
-No matter how the validity of tokens is checked and ensured, saving a token in the local storage might contain a security risk if the application has a security vulnerability that allows [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) attacks. A XSS attack is possible if the application would allow a user to inject arbitrary JavaScript code e.g. using a form that the app would then execute. When using React in a sensible manner it should not be possible since [React sanitizes](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks) all text that it renders, meaning that it is not executing the rendered content as JavaScript.
+No matter how the validity of tokens is checked and ensured, saving a token in the local storage might contain a security risk if the application has a security vulnerability that allows [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/) attacks. A XSS attack is possible if the application would allow a user to inject arbitrary JavaScript code (e.g. using a form) that the app would then execute. When using React in a sensible manner it should not be possible since [React sanitizes](https://reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks) all text that it renders, meaning that it is not executing the rendered content as JavaScript.
 
 If one wants to play safe, the best option is to not store a token to the local storage. This might be an option in situations where leaking a token might have tragic consequences.
 
-It has been suggested that  the identity of a signed in user should be saved as [httpOnly cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies), so that JavaScript code could not have any access the token. The drawback of this solution is that it would make implementing SPA-applications a bit more complex. One would need at least to implement a separate page for logging in.
+It has been suggested that  the identity of a signed in user should be saved as [httpOnly cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies), so that JavaScript code could not have any access to the token. The drawback of this solution is that it would make implementing SPA-applications a bit more complex. One would need at least to implement a separate page for logging in.
 
 However it is good to notice that even the use of a httpOnly cookies does not guarantee anything. It has even been suggested that httpOnly cookies are [not any safer than](https://academind.com/tutorials/localstorage-vs-cookies-xss/) the use of local storage. 
 

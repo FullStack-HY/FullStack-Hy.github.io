@@ -367,7 +367,7 @@ describe('<Togglable />', () => {
   test('renders its children', () => {
     expect(
       component.container.querySelector('.testDiv')
-    ).toBeDefined()
+    ).not.toBe(null)
   })
 
   test('at start the children are not displayed', () => {
@@ -388,7 +388,7 @@ describe('<Togglable />', () => {
 ```
 
 
-The _beforeEach_ function gets called before each test, which then renders the <i>Togglable</i> component into the _component_ variable 
+The _beforeEach_ function gets called before each test, which then renders the <i>Togglable</i> component into the _component_ variable.
 
 
 The first test verifies that the <i>Togglable</i> component renders its child component `<div className="testDiv" />`.
@@ -456,15 +456,13 @@ const button = component.getByText('show...')
 fireEvent.click(button)
 ```
 
-<!-- Käytännössä siis loimme <i>fireEventin</i> avulla tapahtuman <i>click</i> nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>fireEventin</i> avulla. -->
 In practice we used the <i>fireEvent</i> to create a <i>click</i> event for the button component. 
 We can also simulate text input with <i>fireEvent</i>.
 
-<!-- Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta -->
-Let's make a test for the <i>NoteForm</i> component. The code of the component is as follows
+Let's make a test for the <i>NoteForm</i> component. The code of the component is as follows.
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const NoteForm = ({ createNote }) => {
   const [newNote, setNewNote] = useState('')
@@ -501,10 +499,8 @@ const NoteForm = ({ createNote }) => {
 export default NoteForm
 ```
 
-<!-- Lomakkeen toimintaperiaatteena on kutsua sille propsina välitettyä funktiota _createNote_ uuden muistiinpanon tiedot parametrina. -->
 The form works by calling the _createNote_ function it received as props with the details of the new note.
 
-<!-- Testi on seuraavassa: -->
 The test is as follows:
 
 ```js
@@ -547,8 +543,7 @@ The second expectation checks, that the event handler is called with the right p
 
 <!-- [Testauskattavuus](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting) saadaan helposti selville suorittamalla testit komennolla -->
 We can easily find out the [coverage](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting)
-of our tests by running them with the command
-
+of our tests by running them with the command.
 
 ```js
 CI=true npm test -- --coverage
@@ -563,7 +558,7 @@ The report will tell us the lines of untested code in each component:
 ![](../../images/5/19ea.png)
 
 
-You can find the code for our current application in its entirety in the <i>part5-8</i> branch of [this Github repository](https://github.com/fullstack-hy2020/part2-notes/tree/part5-8).
+You can find the code for our current application in its entirety in the <i>part5-8</i> branch of [this Github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-8).
 </div>
 
 
@@ -574,7 +569,7 @@ You can find the code for our current application in its entirety in the <i>part
 #### 5.13: Blog list tests, step1
 
 <!-- Tee testi, joka varmistaa että blogin näyttävä komponentti renderöi blogin titlen, authorin mutta ei renderöi oletusarvoisesti urlia eikä likejen määrää. -->
-Make a test which checks that the component displaying a blog renders the blog's title and author, but does not render its url or number of likes by default
+Make a test which checks that the component displaying a blog renders the blog's title and author, but does not render its url or number of likes by default.
 
 <!-- Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia. -->
 Add CSS-classes to the component to help the testing as necessary. 
@@ -606,7 +601,7 @@ If, for example, you set an <i>input</i> element's id attribute as 'author':
 ```
 
 <!-- saat haettua kentän testissä seuraavasti -->
-You can access the contents of the field with
+You can access the contents of the field with:
 
 ```js
 const author = component.container.querySelector('#author')
@@ -622,10 +617,8 @@ In the previous part of the course material, we wrote integration tests for the 
 
 So far all of our tests for the frontend have been unit tests that have validated the correct functioning of individual components. Unit testing is useful at times, but even a comprehensive suite of unit tests is not enough to validate that the application works as a whole.
 
-<!-- Voisimme tehdä myös frontendille useiden komponenttien yhteistoiminnallisuutta testaavia integraatiotestejä, mutta se on oleellisesti yksikkötestausta hankalampaa, sillä itegraatiotesteissä jouduttaisiin ottamaan kantaa mm. palvelimelta haettavan datan mockaamiseen. Päätämmekin keskittyä koko sovellusta testaavien end to end -testien tekemiseen, jonka parissa jatkamme tämän osan viimeisessä jaksossa. -->
 We could also make integration tests for the frontend. Integration testing tests the collaboration of multiple components. It is considerably more difficult than unit testing, as we would have to for example mock data from the server. 
-We chose to concentrate making end to end tests to test the whole application, which we will work on in the last chapter of this part.
-
+We chose to concentrate on making end to end tests in order to test the whole application. We will work on the end to end tests in the last chapter of this part.
 
 ### Snapshot testing
 

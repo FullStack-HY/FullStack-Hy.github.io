@@ -19,11 +19,9 @@ E2E-testeihin liittyy myös ikäviä puolia. Niiden konfigurointi on haastavampa
 
 Ongelmana on  usein myös se, että käyttöliittymän kautta tehtävät testit saattavat olla epäluotettavia eli englanniksi [flaky](https://hackernoon.com/flaky-tests-a-war-that-never-ends-9aa32fdef359), osa testeistä menee välillä läpi ja välillä ei, vaikka koodissa ei muuttuisi mikään.
 
-
 ### Cypress
 
 [Cypress](https://www.cypress.io/)-niminen E2E-testaukseen soveltuva kirjasto on kasvattanut nopeasti suosiotaan viimeisen reilun vuoden aikana. Cypress on poikkeuksellisen helppokäyttöinen, kaikenlaisen säätämisen ja tunkkaamisen määrä esim. Seleniumin käyttöön verrattuna on lähes olematon. Cypressin toimintaperiaate poikkeaa radikaalisti useimmista E2E-testaukseen sopivista kirjastoista, sillä Cypress-testit ajetaan kokonaisuudessaan selaimen sisällä. Muissa lähestymistavoissa testit suoritetaan Node-prosessissa, joka on yhteydessä selaimeen  ohjelmointirajapintojen kautta.
-
 
 Tehdään tämän osan lopuksi muutamia end to end -testejä muistiinpanosovellukselle. 
 
@@ -80,7 +78,7 @@ Kun backend ja frontend ovat käynnissä, voidaan käynnistää Cypress komennol
 npm run cypress:open
 ```
 
-Ensimmäisen käynnistyksen yhteydessä sovellukselle syntyy hakemisto <i>cypress</i>, jonka alihakemistoon <i>integration</i> on tarkoitus sijoittaa testit. Cypress luo valmiiksi joukon esimerkkitestejä hakemistoon <i>integration/examples</i>. Poistetaan esimerkit ja luodaan ensimmäinen oma testi tiedostoon <i>note\_app.spec.js</i>:
+Ensimmäisen käynnistyksen yhteydessä sovellukselle syntyy hakemisto <i>cypress</i>, jonka alihakemistoon <i>integration</i> on tarkoitus sijoittaa testit. Cypress luo valmiiksi joukon esimerkkitestejä kyseiseen hakemistoon. Poistetaan esimerkit ja luodaan ensimmäinen oma testi tiedostoon <i>note\_app.spec.js</i>:
 
 ```js
 describe('Note ', function() {
@@ -319,8 +317,8 @@ describe('Note app', function() {
   describe('when logged in', function() {
     beforeEach(function() {
       cy.contains('log in').click()
-      cy.get('input:first').type('mluukkai')
-      cy.get('input:last').type('salainen')
+      cy.get('#username').type('mluukkai')
+      cy.get('#password').type('salainen')
       cy.get('#login-button').click()
     })
     // highlight-end
@@ -370,8 +368,8 @@ describe('Note app', function() {
   describe('when logged in', function() {
     beforeEach(function() {
       cy.contains('log in').click()
-      cy.get('input:first').type('mluukkai')
-      cy.get('input:last').type('salainen')
+      cy.get('#username').type('mluukkai')
+      cy.get('#password').type('salainen')
       cy.get('#login-button').click()
     })
 
@@ -522,7 +520,7 @@ Ensimmäinen komento etsii ensin komponentin, missä on teksti <i>another note c
 
 Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make not important</i>.
 
-Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
+Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
 
 ### Epäonnistuneen kirjautumisen testi
 
@@ -662,8 +660,8 @@ describe('Note app', function() {
   describe('when logged in', function() {
     beforeEach(function() {
       cy.contains('log in').click()
-      cy.get('input:first').type('mluukkai')
-      cy.get('input:last').type('salainen')
+      cy.get('#username').type('mluukkai')
+      cy.get('#password').type('salainen')
       cy.get('#login-button').click()
     })
 
@@ -817,7 +815,7 @@ describe('Note app', function() {
 })
 ```
 
-Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
+Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
 
 ### Muistiinpanon tärkeyden muutos
 
@@ -848,7 +846,7 @@ describe('when logged in', function() {
 
 Miten komento [cy.contains](https://docs.cypress.io/api/commands/contains.html) tarkalleen ottaen toimii?
 
-Kun klikkaamme komentoa _cy.contains('second note')_ Cypressin [test runnerista](https://docs.cypress.io/guides/core-concepts/test-runner.htm) nähdään, että komento löytää elementin, jonka sisällä on teksti <i>second note</i>:
+Kun klikkaamme komentoa _cy.contains('second note')_ Cypressin [test runnerista](https://docs.cypress.io/guides/core-concepts/test-runner.html) nähdään, että komento löytää elementin, jonka sisällä on teksti <i>second note</i>:
 
 ![](../../images/5/34ea.png)
 
@@ -974,7 +972,7 @@ Nyt siis voimme suorittaa Cypress-testit komentoriviltä komennolla <i>npm run t
 
 Huomaa, että testien suorituksesta tallentuu video hakemistoon <i>cypress/videos/</i>, hakemisto lienee syytä gitignoroida.
 
-Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
+Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
 
 </div>
 
@@ -1080,10 +1078,10 @@ Tee testi, joka varmistaa, että blogin lisännyt käyttäjä voi poistaa blogin
 
 Tee testi, joka varmistaa, että blogit järjestetään likejen mukaiseen järjestykseen, eniten likejä saanut blogi ensin.
 
-Tämä tehtävä saattaa olla hieman edeltäviä haastavampi. Eräs ratkaisutapa on etsiä kaikki blogit ja tarkastella tulosta [then](https://docs.cypress.io/api/commands/then.html#DOM-element)-komennon takaisinkutsufunktiossa.
+Tämä tehtävä saattaa olla hieman edeltäviä haastavampi. Eräs ratkaisutapa on etsiä [as](https://docs.cypress.io/api/commands/as)-komentoa hyödyntäen kaikki blogit ja tarkastella tulosta [then](https://docs.cypress.io/api/commands/then.html#DOM-element)-komennon takaisinkutsufunktiossa.
 
 Saatat törmätä tässä tehtävässä ongelmaan jos klikkaat monta kertaa peräkkäin <i>like</i>-nappia. Saattaa olla, että näin tehdessä liketykset tehdään samalle oliolle, eli cypress ei "ehdi" välissä päivittää sovelluksen tilaa. Eräs tapa korjata ongelma on odottaa jokaisen klikkauksen jälkeen että likejen lukumäärä päivittyy ja tehdä uusi liketys vasta tämän jälkeen.
 
-Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
 
 </div>

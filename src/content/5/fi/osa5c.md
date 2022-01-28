@@ -421,7 +421,7 @@ Käytännössä siis loimme <i>fireEventin</i> avulla tapahtuman <i>click</i> na
 Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta
 
 ```js
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const NoteForm = ({ createNote }) => {
   const [newNote, setNewNote] = useState('')
@@ -508,7 +508,7 @@ Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/l
 
 ![](../../images/5/19ea.png)
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
 
 </div>
 
