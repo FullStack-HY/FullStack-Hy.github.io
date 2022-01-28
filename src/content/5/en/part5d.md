@@ -1248,6 +1248,6 @@ If you use a `map` on a selection from cypress, mind that it uses a [jQuery map]
 
 Note that you might end up having problems if you click a like button many times in row. It might be that cypress does the clicking so fast that it does not have time to update the app state in between the clicks. One remedy for this is to wait for the number of likes to update in between all clicks.
 
-This was the last exercise of this part, and it's time to push your code to github and mark the exercises you completed in the [exercise submission system](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
+This was the last exercise of this part, and it's time to push your code to github and mark the exercises you completed in the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 </div>
