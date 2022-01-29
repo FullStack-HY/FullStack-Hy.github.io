@@ -19,6 +19,8 @@ Let's install the library with the command:
 npm install --save-dev @testing-library/react @testing-library/jest-dom
 ```
 
+We installed also [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/) that provices some nice Jest-related helper methods.
+
 Let's first write tests for the component that is responsible for rendering a note:
 
 ```js
@@ -324,7 +326,6 @@ const Togglable = React.forwardRef((props, ref) => {
   )
 })
 ```
-
 
 The tests are shown below:
 
