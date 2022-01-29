@@ -242,12 +242,25 @@ Haimme nyt halutun tekstin sisältävän elemementin sisällön tulostettavaksi:
 
 Sisällön näyttämisen lisäksi toinen <i>Note</i>-komponenttien vastuulla oleva asia on huolehtia siitä, että painettaessa noten yhteydessä olevaa nappia, tulee propsina välitettyä tapahtumankäsittelijäfunktiota _toggleImportance_ kutsua.
 
+Asennetaan testiä varten apukirjasto [user-event](https://testing-library.com/docs/ecosystem-user-event/):
+
+```
+npm install --save-dev @testing-library/user-event
+```
+
+Tällä hetkellä (28.1.2022) create-react-appin ja user-event olettamien kirjstojen välillä on pieni yhteensopivuusero joka korjautuu kun asetetaan kirjastosta jest-watch-typeahead tietty verio:
+
+```
+npm install -D --exact jest-watch-typeahead@0.6.5
+```
+
 Testaus onnistuu seuraavasti:
 
 ```js
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react' // highlight-line
-import { prettyDOM } from '@testing-library/dom' 
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event' // highlight-line
 import Note from './Note'
 
 // ...
@@ -260,12 +273,12 @@ test('clicking the button calls event handler once', async () => {
 
   const mockHandler = jest.fn()
 
-  const component = render(
+  render(
     <Note note={note} toggleImportance={mockHandler} />
   )
 
-  const button = component.getByText('make not important')
-  fireEvent.click(button)
+  const button = screen.getByText('make not important')
+  userEvent.click(button)
 
   expect(mockHandler.mock.calls).toHaveLength(1)
 })
@@ -280,11 +293,11 @@ const mockHandler = jest.fn()
 Testi hakee renderöidystä komponentista napin <i>tekstin perusteella</i> ja klikkaa sitä:
 
 ```js
-const button = getByText('make not important')
-fireEvent.click(button)
+const button = screen.getByText('make not important')
+userEvent.click(button)
 ```
 
-Klikkaaminen tapahtuu metodin [fireEvent](https://testing-library.com/docs/api-events#fireevent) avulla.
+Klikkaaminen tapahtuu userEvent-olion metodin [click](https://testing-library.com/docs/ecosystem-user-event/#clickelement-eventinit-options) avulla.
 
 Testin ekspektaatio varmistaa, että <i>mock-funktiota</i> on kutsuttu täsmälleen kerran:
 
@@ -301,7 +314,7 @@ Esimerkissämme mock-funktio sopi tarkoitukseen erinomaisesti, sillä sen avulla
 Tehdään komponentille <i>Togglable</i> muutama testi. Lisätään komponentin lapset renderöivään div-elementtiin CSS-luokka <i>togglableContent</i>:
 
 ```js
-const Togglable = React.forwardRef((props, ref) => {
+const Togglable = forwardRef((props, ref) => {
   // ...
 
   return (
@@ -325,101 +338,84 @@ Testit ovat seuraavassa
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import Togglable from './Togglable'
 
 describe('<Togglable />', () => {
-  let component
+  let container
 
   beforeEach(() => {
-    component = render(
+    container = render(
       <Togglable buttonLabel="show...">
-        <div className="testDiv" />
+        <div className="testDiv" >
+          togglable content
+        </div>
       </Togglable>
-    )
+    ).container
   })
 
   test('renders its children', () => {
-    expect(
-      component.container.querySelector('.testDiv')
-    ).toBeDefined()
+    screen.findAllByText('togglable content')
   })
 
   test('at start the children are not displayed', () => {
-    const div = component.container.querySelector('.togglableContent')
-
+    const div = container.querySelector('.togglableContent')
     expect(div).toHaveStyle('display: none')
   })
 
   test('after clicking the button, children are displayed', () => {
-    const button = component.getByText('show...')
-    fireEvent.click(button)
+    const button = screen.getByText('show...')
+    userEvent.click(button)
 
-    const div = component.container.querySelector('.togglableContent')
+    const div = container.querySelector('.togglableContent')
     expect(div).not.toHaveStyle('display: none')
   })
-
 })
 ```
 
-Ennen jokaista testiä suoritettava _beforeEach_ renderöi <i>Togglable</i>-komponentin muuttujaan _component_.
+Ennen jokaista testiä suoritettava _beforeEach_ renderöi <i>Togglable</i>-komponentin ja tallettaa paluuarvon kentän _container_ saman nimiseen muuttujaan.
 
-Ensimmäinen testi tarkastaa, että <i>Togglable</i> renderöi sen lapsikomponentin `<div className="testDiv" />`. 
+Ensimmäinen testi tarkastaa, että <i>Togglable</i> renderöi sen lapsikomponentin
 
-Loput testit varmistavat metodia [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) käyttäen, että Togglablen sisältämä lapsikomponentti on alussa näkymättömissä, eli sen sisältävään <i>div</i>-elementtiin liittyy tyyli `{ display: 'none' }`, ja että nappia painettaessa komponentti näkyy, eli näkymättömäksi tekevää tyyliä <i>ei</i> enää ole. 
-
-Nappi etsitään jälleen nappiin liittyvän tekstin perusteella. Nappi oltaisiin voitu etsiä myös CSS-selektorin avulla
-
-```js
-const button = component.container.querySelector('button')
+```
+<div className="testDiv" >
+  togglable content
+</div>
 ```
 
-Komponentissa on kaksi nappia, mutta koska [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) palauttaa <i>ensimmäisen</i> löytyvän napin, löytyy napeista oikea.
+Loput testit varmistavat metodia [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) käyttäen, että Togglablen sisältämä lapsikomponentti on alussa näkymättömissä, eli sen sisältävään <i>div</i>-elementtiin liittyy tyyli _{ display: 'none' }_, ja että nappia painettaessa komponentti näkyy, eli näkymättömäksi tekevää tyyliä <i>ei</i> enää ole. 
 
-Lisätään vielä mukaan testi, joka varmistaa että auki togglattu sisältö saadaan piilotettua painamalla komponentin toisena olevaa nappia
+Lisätään vielä mukaan testi, joka varmistaa että auki togglattu sisältö saadaan piilotettua painamalla komponentin nappia <i>cancel</i>:
 
 ```js
-test('toggled content can be closed', () => {
-  const button = component.container.querySelector('button')
-  fireEvent.click(button)
+describe('<Togglable />', () => {
 
-  const closeButton = component.container.querySelector(
-    'button:nth-child(2)'
-  )
-  fireEvent.click(closeButton)
+  // ...
 
-  const div = component.container.querySelector('.togglableContent')
-  expect(div).toHaveStyle('display: none')
+  test('toggled content can be closed', () => {
+    const button = screen.getByText('show...')
+    userEvent.click(button)
+
+    const closeButton = screen.getByText('cancel')
+    userEvent.click(closeButton)
+
+    const div = container.querySelector('.togglableContent')
+    expect(div).toHaveStyle('display: none')
+  })
 })
 ```
-
-eli määrittelimme selektorin, joka palauttaa toisena olevan napin `button:nth-child(2)`. Testeissä ei kuitenkaan ole viisasta olla riippuvainen komponentin nappien järjestyksestä, joten parempi onkin hakea napit niiden tekstin perusteella:
-
-```js
-test('toggled content can be closed', () => {
-  const button = component.getByText('show...')
-  fireEvent.click(button)
-
-  const closeButton = component.getByText('cancel')
-  fireEvent.click(closeButton)
-
-  const div = component.container.querySelector('.togglableContent')
-  expect(div).toHaveStyle('display: none')
-})
-```
-
-Käyttämämme _getByText_ on vain yksi monista [queryistä](https://testing-library.com/docs/api-queries#queries), joita <i>react-testing-library</i> tarjoaa.
 
 ### Lomakkeiden testaus
 
-Käytimme jo edellisissä testeissä [fireEvent](https://testing-library.com/docs/api-events#fireevent)-funktiota nappien klikkaamiseen:
+Käytimme jo edellisissä testeissä [userEvent]([user-event](https://testing-library.com/docs/ecosystem-user-event/))-kirjaston _fireEvent_-funktiota nappien klikkaamiseen:
 
 ```js
-const button = component.getByText('show...')
-fireEvent.click(button)
+const button = screen.getByText('show...')
+userEvent.click(button)
 ```
 
-Käytännössä siis loimme <i>fireEventin</i> avulla tapahtuman <i>click</i> nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>fireEventin</i> avulla.
+Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>userEventin</i> avulla.
 
 Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta
 
@@ -467,35 +463,167 @@ Testi on seuraavassa:
 
 ```js
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import NoteForm from './NoteForm'
+import userEvent from '@testing-library/user-event'
 
 test('<NoteForm /> updates parent state and calls onSubmit', () => {
   const createNote = jest.fn()
 
-  const component = render(
-    <NoteForm createNote={createNote} />
-  )
+  render(<NoteForm createNote={createNote} />)
 
-  const input = component.container.querySelector('input')
-  const form = component.container.querySelector('form')
+  const input = screen.getByRole('textbox')
+  const sendButton = screen.getByText('save')
 
-  fireEvent.change(input, { 
-    target: { value: 'testing of forms could be easier' } 
-  })
-  fireEvent.submit(form)
+  userEvent.type(input, 'testing a form...' )
+  userEvent.click(sendButton)
 
   expect(createNote.mock.calls).toHaveLength(1)
-  expect(createNote.mock.calls[0][0].content).toBe('testing of forms could be easier' )
+  expect(createNote.mock.calls[0][0].content).toBe('testing a form...' )
 })
 ```
 
-Syötekenttään <i>input</i> kirjoittamista simuloidaan tekemällä syötekenttään tapahtuma <i>change</i> ja määrittelemällä sopiva olio, joka määrittelee syötekenttään 'kirjoitetun' sisällön.
+Syötekenttä etsitään metodin [getByRole](https://testing-library.com/docs/queries/byrole) avulla. 
 
-Lomake lähetetään simuloimalla tapahtuma <i>submit</i> lomakkeelle.
+Syötekenttään kirjoitetaan userEvent:in tarjoaman metodin [type](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options) avulla.
 
 Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee saman sisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
+
+### Lisää komponenttien etsimisestä
+
+Oletetaan että lomakkeella olisi useita syötekenttiä:
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+        />
+        // highlight-start
+        <input
+          value={...}
+          onChange={...}
+        />
+        // highlight-end
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+Nyt testissä käytetty  syötekentän etsimistapa 
+
+```js
+const input = screen.getByRole('textbox')
+```
+
+aiheuttai virheen:
+
+![](../../images/5/40.png)
+
+Testi ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne ylipäätään on se mitä halutaan). Testi korjautuisi seuraavasti:
+
+```js
+const inputs = screen.getByRole('textbox')
+
+userEvent.type(input[0], 'testing a form...' )
+```
+
+Metodi <i>getAllByRole</i>  palauttaa taulukon, ja oikea tekstikenttä on taulukossa ensimmäisenä. Testi on kuitenkin hieman epäilyttävä, sillä se luottaa tekstikenttien järjestykseen.
+
+Syötekentille määritellään usein placehoder-teksti, joka ohjaa käyttäjää kirjoittamaan syötekenttään oikean arvon. Lisätään placeholder lomakkeellemme
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+          placeholder='write here note content' // highlight-line 
+        />
+        <input
+          value={...}
+          onChange={...}
+        />    
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+Nyt oikean syötekentän etsiminen onnistuu metodin [getByPlaceholderText](https://testing-library.com/docs/queries/byplaceholdertext) avulla:
+
+```js
+test('<NoteForm /> updates parent state and calls onSubmit', () => {
+  const createNote = jest.fn()
+
+  render(<NoteForm createNote={createNote} />) 
+
+  const input = screen.getByPlaceholderText('write here note content') // highlight-line 
+  const sendButton = screen.getByText('save')
+
+  userEvent.type(input, 'testing a form...' )
+  userEvent.click(sendButton)
+
+  expect(createNote.mock.calls).toHaveLength(1)
+  expect(createNote.mock.calls[0][0].content).toBe('testing a form...' )
+})
+```
+
+Kaikkein joustavimman tavan tarjoaa aiemmin [tässä luvussa](/osa5/react_sovellusten_testaaminen#sisallon-etsiminen-testattavasta-komponentista) esitellyn _render_-metodin palauttaman olion _content_-kentän metodi <i>querySelector</i>, joka mahdollistaa komponenttien etsimisen mielivaltaisten CSS-selektorien avulla. 
+
+Jos esim. määrittelisimme syötekentälle yksilöivän attribuutin _id_:
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+          id='note-input' // highlight-line 
+        />
+        <input
+          value={...}
+          onChange={...}
+        />    
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+testi löytäisi elementin seuraavasti:
+
+```js
+const { content } = render(<NoteForm createNote={createNote} />)
+
+const input = content.querySelector('#note-input')
+```
+
+Jätämme koodiin placeholderiin perustuvan ratkaisun.
 
 ### Testauskattavuus
 
@@ -511,7 +639,7 @@ Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/l
 
 ![](../../images/5/19ea.png)
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
 
 </div>
 
