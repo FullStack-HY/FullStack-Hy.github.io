@@ -75,28 +75,74 @@ npm install axios
 We'll change the initialization of the state in <i>noteReducer</i>, such that by default there are no notes:
 
 ```js
-const noteReducer = (state = [], action) => {
+const noteSlice = createSlice({
+  name: 'notes',
+  initialState: [], // highlight-line
   // ...
-}
+})
 ```
 
-A quick way to initialize the state based on the data on the server is to fetch the notes in the file <i>index.js</i> and dispatch the action <i>NEW\_NOTE</i> for each of them:
+Let's also add a new action <em>appendNote</em> for adding a note object:
+
+```js
+const noteSlice = createSlice({
+  name: 'notes',
+  initialState,
+  reducers: {
+    createNote(state, action) {
+      const content = action.payload
+
+      state.push({
+        content,
+        important: false,
+        id: generateId(),
+      })
+    },
+    toggleImportanceOf(state, action) {
+      const id = action.payload
+
+      const noteToChange = state.find(n => n.id === id)
+
+      const changedNote = { 
+        ...noteToChange, 
+        important: !noteToChange.important 
+      }
+
+      return state.map(note =>
+        note.id !== id ? note : changedNote 
+      )     
+    },
+    // highlight-start
+    appendNote(state, action) {
+      state.push(action.payload)
+    }
+    // highlight-end
+  },
+})
+
+export const { createNote, toggleImportanceOf, appendNote } = noteSlice.actions // highlight-line
+
+export default noteSlice.reducer
+```
+
+A quick way to initialize the notes state based on the data received from the server is to fetch the notes in the <i>index.js</i> file and dispatch an action using the <em>appendNote</em> action creator for each individual note object:
 
 ```js
 // ...
 import noteService from './services/notes' // highlight-line
+import noteReducer, { apppendNote } from './reducers/noteReducer' // highlight-line
 
-const reducer = combineReducers({
-  notes: noteReducer,
-  filter: filterReducer,
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
+    filter: filterReducer,
+  }
 })
-
-const store = createStore(reducer, composeWithDevTools())
 
 // highlight-start
 noteService.getAll().then(notes =>
   notes.forEach(note => {
-    store.dispatch({ type: 'NEW_NOTE', data: note })
+    store.dispatch(appendNote(note))
   })
 )
 // highlight-end
@@ -104,45 +150,72 @@ noteService.getAll().then(notes =>
 // ...
 ```
 
-
-
-Let's add support in the reducer for the action <i>INIT\_NOTES</i>, using which the initialization can be done by dispatching a single action. Let's also create an action creator function _initializeNotes_.
+Dispatching multiple actions seems a bit 	impractical. Let's add an action creator <em>setNotes</em> which can be used to directly replace the notes array. We'll get the action creator from the <em>createSlice</em> function by implementing the <em>setNotes</em> action:
 
 ```js
 // ...
-const noteReducer = (state = [], action) => {
-  console.log('ACTION:', action)
-  switch (action.type) {
-    case 'NEW_NOTE':
-      return [...state, action.data]
-    case 'INIT_NOTES':   // highlight-line
-      return action.data // highlight-line
-    // ...
-  }
-}
 
-export const initializeNotes = (notes) => {
-  return {
-    type: 'INIT_NOTES',
-    data: notes,
-  }
-}
+const noteSlice = createSlice({
+  name: 'notes',
+  initialState,
+  reducers: {
+    createNote(state, action) {
+      const content = action.payload
 
-// ...
+      state.push({
+        content,
+        important: false,
+        id: generateId(),
+      })
+    },
+    toggleImportanceOf(state, action) {
+      const id = action.payload
+
+      const noteToChange = state.find(n => n.id === id)
+
+      const changedNote = { 
+        ...noteToChange, 
+        important: !noteToChange.important 
+      }
+
+      return state.map(note =>
+        note.id !== id ? note : changedNote 
+      )     
+    },
+    appendNote(state, action) {
+      state.push(action.payload)
+    },
+    // highlight-start
+    setNotes(state, action) {
+      return action.payload
+    }
+    // highlight-end
+  },
+})
+
+export const { createNote, toggleImportanceOf, appendNote, setNotes } = noteSlice.actions // highlight-line
+
+export default noteSlice.reducer
 ```
 
-
-<i>index.js</i> simplifies:
+Nyt <i>index.js</i> yksinkertaistuu:
 
 ```js
-import noteReducer, { initializeNotes } from './reducers/noteReducer'
 // ...
+import noteService from './services/notes'
+import noteReducer, { setNotes } from './reducers/noteReducer' // highlight-line
+
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
+    filter: filterReducer,
+  }
+})
 
 noteService.getAll().then(notes =>
-  store.dispatch(initializeNotes(notes))
+  store.dispatch(setNotes(notes)) // highlight-line
 )
 ```
-
 
 > **NB:** why didn't we use await in place of promises and event handlers (registered to _then_-methods)?
 >
@@ -181,7 +254,7 @@ export default App
 ```
 
 <!-- Hookin useEffect käyttö aiheuttaa eslint-varoituksen: -->
-Using the useEffect hook causes an eslint-warning:
+Using the useEffect hook causes an eslint warning:
 
 ![](../../images/6/26ea.png)
 
@@ -193,7 +266,7 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     noteService
-      .getAll().then(notes => dispatch(initializeNotes(notes)))
+      .getAll().then(notes => dispatch(setNotes(notes)))
   }, [dispatch]) // highlight-line
 
   // ...
@@ -213,7 +286,7 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     noteService
-      .getAll().then(notes => dispatch(initializeNotes(notes)))   
+      .getAll().then(notes => dispatch(setNotes(notes)))   
       // highlight-start
   },[]) // eslint-disable-line react-hooks/exhaustive-deps  
   // highlight-end
@@ -282,20 +355,17 @@ const NewNote = (props) => {
 export default NewNote
 ```
 
-Because the backend generates ids for the notes, we'll change the action creator _createNote_
+Because the backend generates ids for the notes, we'll change the action creator <em>createNote</em> accordingly:
 
 ```js
-export const createNote = (data) => {
-  return {
-    type: 'NEW_NOTE',
-    data,
-  }
+createNote(state, action) {
+  state.push(action.payload)
 }
 ```
 
 Changing the importance of notes could be implemented using the same principle, meaning making an asynchronous method call to the server and then dispatching an appropriate action.
 
-The current state of the code for the application can be found on [github](https://github.com/fullstack-hy/redux-notes/tree/part6-3) in the branch <i>part6-3</i>.
+The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy/redux-notes/tree/part6-3) in the branch <i>part6-3</i>.
 
 </div>
 
@@ -350,75 +420,33 @@ const NewNote = () => {
 }
 ```
 
-Both components would only use the function provided to them as a prop without caring about the communication with the server that is happening in the background.
+In this implementation, both components would dispatch an action without the need to know about the communication between the server that happens behind the scenes. These kind <i>async actions</i> can be implemented using the [Redux Thunk](https://github.com/reduxjs/redux-thunk) library. The use of the library doesn't need any additional configuration when the Redux store is created using the Redux Toolkit's <em>configureStore</em> function.
 
-Now let's install the [redux-thunk](https://github.com/gaearon/redux-thunk)-library, which enables us to create <i>asynchronous actions</i>. Installation is done with the command:
+With Redux Thunk it is possible to implement <i>action creators</i> which return a function instead of an object. The function receive's Redux store's <em>dispatch</em> and <em>getState</em> methods as parameters. This allows for example implementations of asynchronous action creators, which first wait for completion of a certain asynchronous operation and after that dispatch some action, which changes the store's state.
 
-```bash
-npm install redux-thunk
-```
-
-The redux-thunk-library is a so-called <i>redux-middleware</i>, which must be initialized along with the initialization of the store. While we're here, let's extract the definition of the store into its own file <i>src/store.js</i>:
+We can define an action creator <em>initializeNotes</em> which initializes the notes based on the data received from the server:
 
 ```js
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk' // highlight-line
-import { composeWithDevTools } from 'redux-devtools-extension'
+// ...
+import noteService from '../services/notes' // highlight-line
 
-import noteReducer from './reducers/noteReducer'
-import filterReducer from './reducers/filterReducer'
+const noteSlice = createSlice(/* ... */)
 
-const reducer = combineReducers({
-  notes: noteReducer,
-  filter: filterReducer,
-})
+export const { createNote, toggleImportanceOf, setNotes, appendNote } = noteSlice.actions
 
-const store = createStore(
-  reducer,
-  composeWithDevTools(
-    applyMiddleware(thunk) // highlight-line
-  )
-)
-
-export default store
-```
-
-After the changes the file <i>src/index.js</i> looks like this
-
-```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux' 
-import store from './store' // highlight-line
-import App from './App'
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
-```
-
-Thanks to redux-thunk, it is possible to define <i>action creators</i> so that they return a function having the <i>dispatch</i>-method of redux-store as its parameter. As a result of this, one can make asynchronous action creators, which first wait for some operation to finish, after which they then dispatch the real action.
-
-
-
-Now we can define the action creator, <i>initializeNotes</i>, that initializes the state of the notes as follows:
-
-```js
+// highlight-start
 export const initializeNotes = () => {
   return async dispatch => {
     const notes = await noteService.getAll()
-    dispatch({
-      type: 'INIT_NOTES',
-      data: notes,
-    })
+    dispatch(setNotes(notes))
   }
 }
+// highlight-end
+
+export default noteSlice.reducer
 ```
 
-In the inner function, meaning the <i>asynchronous action</i>, the operation first fetches all the notes from the server and then <i>dispatches</i> the notes to the action, which adds them to the store.
+In the inner function, meaning the <i>asynchronous action</i>, the operation first fetches all the notes from the server and then <i>dispatches</i> the <em>setNotes</em> action, which adds them to the store.
 
 The component <i>App</i> can now be defined as follows:
 
@@ -444,18 +472,60 @@ const App = () => {
 
 The solution is elegant. The initialization logic for the notes has been completely separated to outside the React component.
 
-The action creator _createNote_, which adds a new note looks like this
+Next, let's replace the <em>createNote</em> action creator created by the <em>createSlice</em> function with an asynchronous action creator:
 
 ```js
+// ...
+import noteService from '../services/notes'
+
+const noteSlice = createSlice({
+  name: 'notes',
+  initialState,
+  reducers: {
+    // highlight-start
+    toggleImportanceOf(state, action) {
+      const id = action.payload
+
+      const noteToChange = state.find(n => n.id === id)
+
+      const changedNote = { 
+        ...noteToChange, 
+        important: !noteToChange.important 
+      }
+
+      return state.map(note =>
+        note.id !== id ? note : changedNote 
+      )     
+    },
+    appendNote(state, action) {
+      state.push(action.payload)
+    },
+    setNotes(state, action) {
+      return action.payload
+    }
+    // highlight-end
+  },
+})
+
+export const { toggleImportanceOf, appendNote, setNotes } = noteSlice.actions // highlight-line
+
+export const initializeNotes = () => {
+  return async dispatch => {
+    const notes = await noteService.getAll()
+    dispatch(setNotes(notes))
+  }
+}
+
+// highlight-start
 export const createNote = content => {
   return async dispatch => {
     const newNote = await noteService.createNew(content)
-    dispatch({
-      type: 'NEW_NOTE',
-      data: newNote,
-    })
+    dispatch(appendNote(newNote))
   }
 }
+// highlight-end
+
+export default noteSlice.reducer
 ```
 
 The principle here is the same: first an asynchronous operation is executed, after which the action changing the state of the store is <i>dispatched</i>.
@@ -482,7 +552,42 @@ const NewNote = () => {
 }
 ```
 
-The current state of the code for the application can be found on [github](https://github.com/fullstack-hy/redux-notes/tree/part6-4) in the branch <i>part6-4</i>.
+Finally, let's clean up the <i>index.js</i> file a bit by moving the code related to the creation of the Redux store into its own, <i>store.js</i> file:
+
+```js
+import { configureStore } from '@reduxjs/toolkit'
+
+import noteReducer from './reducers/noteReducer'
+import filterReducer from './reducers/filterReducer'
+
+const store = configureStore({
+  reducer: {
+    notes: noteReducer,
+    filter: filterReducer
+  }
+})
+
+export default store
+```
+
+After the changes, the content of the <i>index.js</i> is the following:
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux' 
+import store from './store' // highlight-line
+import App from './App'
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy/redux-notes/tree/part6-4) in the branch <i>part6-4</i>.
 
 </div>
 
@@ -493,16 +598,16 @@ The current state of the code for the application can be found on [github](https
 
 #### 6.15 Anecdotes and the backend, step3
 
-Modify the initialization of redux-store to happen using asynchronous action creators, which are made possible by the <i>redux-thunk</i>-library.
+Modify the initialization of Redux store to happen using asynchronous action creators, which are made possible by the Redux Thunk library.
 
 #### 6.16 Anecdotes and the backend, step4
 
-Also modify the creation of a new anecdote to happen using asynchronous action creators, made possible by the <i>redux-thunk</i>-library.
+Also modify the creation of a new anecdote to happen using asynchronous action creators, made possible by the Redux Thunk library.
 
 
 #### 6.17 Anecdotes and the backend, step5
 
-Voting does not yet save changes to the backend. Fix the situation with the help of the <i>redux-thunk</i>-library.
+Voting does not yet save changes to the backend. Fix the situation with the help of the Redux Thunk library.
 
 #### 6.18 Anecdotes and the backend, step6
 
@@ -515,13 +620,13 @@ setTimeout(() => {
 }, 5000)
 ```
 
-Make an asynchronous action creator, which enables one to provide the notification as follows:
+Make an action creator, which enables one to provide the notification as follows:
 
 ```js
 dispatch(setNotification(`you voted '${anecdote.content}'`, 10))
 ```
 
-the first parameter is the text to be rendered and the second parameter is the time to display the notification given in seconds. 
+The first parameter is the text to be rendered and the second parameter is the time to display the notification given in seconds. 
 
 Implement the use of this improved notification in your application.
 
