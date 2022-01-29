@@ -7,21 +7,17 @@ lang: en
 
 <div class="content">
 
-
 There are many different ways of testing React applications. Let's take a look at them next.
-
 
 Tests will be implemented with the same [Jest](http://jestjs.io/) testing library developed by Facebook that was used in the previous part. Jest is actually configured by default to applications created with create-react-app.
 
 In addition to Jest, we also need another testing library that will help us render components for testing purposes. The current best option for this is [react-testing-library](https://github.com/testing-library/react-testing-library) which has seen rapid growth in popularity in recent times.
-
 
 Let's install the library with the command:
 
 ```js
 npm install --save-dev @testing-library/react @testing-library/jest-dom
 ```
-
 
 Let's first write tests for the component that is responsible for rendering a note:
 
@@ -39,7 +35,6 @@ const Note = ({ note, toggleImportance }) => {
   )
 }
 ```
-
 
 Notice that the <i>li</i> element has the [CSS](https://reactjs.org/docs/dom-elements.html#classname) classname <i>note</i>, that is used to access the component in our tests.
 
@@ -71,8 +66,7 @@ test('renders content', () => {
 })
 ```
 
-
-After the initial configuration, the test renders the component with the [render](https://testing-library.com/docs/react-testing-library/api#render) method provided by the react-testing-library:
+After the initial configuration, the test renders the component with the [render](https://testing-library.com/docs/react-testing-library/api#render) function provided by the react-testing-library:
 
 ```js
 const component = render(
@@ -82,9 +76,7 @@ const component = render(
 
 Normally React components are rendered to the <i>DOM</i>. The render method we used renders the components in a format that is suitable for tests without rendering them to the DOM.
 
-
 _render_ returns an object that has several [properties](https://testing-library.com/docs/react-testing-library/api#render-result). One of the properties is called <i>container</i>, and it contains all of the HTML rendered by the component.
-
 
 In the expectation, we verify that the component renders the correct text, which in this case is the content of the note:
 
@@ -94,12 +86,9 @@ expect(component.container).toHaveTextContent(
 )
 ```
 
-
 ### Running tests
 
-
 Create-react-app configures tests to be run in watch mode by default, which means that the _npm test_ command will not exit once the tests have finished, and will instead wait for changes to be made to the code. Once new changes to the code are saved, the tests are executed automatically after which Jest goes back to waiting for new changes to be made.
-
 
 If you want to run tests "normally", you can do so with the command:
 
@@ -107,27 +96,19 @@ If you want to run tests "normally", you can do so with the command:
 CI=true npm test
 ```
 
-
 **NB:** the console may issue a warning if you have not installed Watchman. Watchman is an application developed by Facebook that watches for changes that are made to files. The program speeds up the execution of tests and at least starting from macOS Sierra, running tests in watch mode issues some warnings to the console, that can be removed by installing Watchman.
-
 
 Instructions for installing Watchman on different operating systems can be found on the official Watchman website: https://facebook.github.io/watchman/
 
-
 ### Test file location
-
 
 In React there are (at least) [two different conventions](https://medium.com/@JeffLombardJr/organizing-tests-in-jest-17fc431ff850) for the test file's location. We created our test files according to the current standard by placing them in the same directory as the component being tested.
 
-
 The other convention is to store the test files "normally" in their own separate directory. Whichever convention we choose, it is almost guaranteed to be wrong according to someone's opinion.
-
 
 Personally, I do not like this way of storing tests and application code in the same directory. The reason we choose to follow this convention is that it is configured by default in applications created by create-react-app.
 
-
 ### Searching for content in a component
-
 
 The react-testing-library package offers many different ways of investigating the content of the component being tested. Let's slightly expand our test:
 

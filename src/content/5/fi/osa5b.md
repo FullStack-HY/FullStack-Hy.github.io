@@ -740,7 +740,8 @@ module.exports = {
           "error", { "before": true, "after": true }
       ],
       "no-console": 0,
-      "react/prop-types": 0
+      "react/prop-types": 0,
+      "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {
@@ -780,7 +781,7 @@ Tehdään lintausta varten npm-skripti:
 
 Komponentti _Togglable_ aiheuttaa ikävän näköisen varoituksen <i>Component definition is missing display name</i>: 
 
-![](../../images/5/25ea.png)
+![](../../images/5/25x.png)
 
 Komponentin "nimettömyys" käy ilmi myös React Development Toolsilla:
 

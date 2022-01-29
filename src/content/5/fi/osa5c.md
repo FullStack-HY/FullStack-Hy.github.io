@@ -40,7 +40,6 @@ const Note = ({ note, toggleImportance }) => {
 
 Huomaa, että muistiinpanon sisältävällä <i>li</i>-elementillä on [CSS](https://reactjs.org/docs/dom-elements.html#classname)-luokka <i>note</i>, pääsemme sen avulla muistiinpanoon käsiksi testistä.
 
-
 ### Komponentin renderöinti testiä varten
 
 Tehdään testi tiedostoon <i>src/components/Note.test.js</i>, eli samaan hakemistoon, missä komponentti itsekin sijaitsee.
@@ -50,7 +49,7 @@ Ensimmäinen testi varmistaa, että komponentti renderöi muistiinpanon sisäll�
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Note from './Note'
 
 test('renders content', () => {
@@ -59,34 +58,26 @@ test('renders content', () => {
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  expect(component.container).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  const element = screen.getByText('Component testing is done with react-testing-library')
+  expect(element).toBeDefined()
 })
 ```
 
-Alun konfiguroinnin jälkeen testi renderöi komponentin metodin react-testing-library-kirjaston tarjoaman [render](https://testing-library.com/docs/react-testing-library/api#render) avulla:
+Alun konfiguroinnin jälkeen testi renderöi komponentin metodin react-testing-library-kirjaston tarjoaman funktion [render](https://testing-library.com/docs/react-testing-library/api#render) avulla:
 
 ```js
-const component = render(
-  <Note note={note} />
-)
+render(<Note note={note} />)
 ```
 
 Normaalisti React-komponentit renderöityvät <i>DOM</i>:iin. Nyt kuitenkin renderöimme komponentteja testeille sopivaan muotoon laittamatta niitä DOM:iin. 
 
-_render_ palauttaa olion, jolla on useita [kenttiä](https://testing-library.com/docs/react-testing-library/api#render-result). Yksi kentistä on <i>container</i>, se sisältää koko komponentin renderöimän HTML:n.
-
-Ekspektaatiossa varmistamme, että komponenttiin on renderöitynyt oikea teksti, eli muistiinpanon sisältö:
+Testin renderöimään näkymään päästään käsiksi muuttujan [screen](https://testing-library.com/docs/queries/about#screen) kautta. Haetaan screenistä metodin [getByText](https://testing-library.com/docs/queries/bytext) avulla elementtiä, missä on muistiinpanon sisältö ja varmistetaan että elementti on olemassa:
 
 ```js
-expect(component.container).toHaveTextContent(
-  'Component testing is done with react-testing-library'
-)
+  const element = screen.getByText('Component testing is done with react-testing-library')
+  expect(element).toBeDefined()
 ```
 
 ### Testien suorittaminen
@@ -114,73 +105,88 @@ Itse en pidä siitä, että testit ja normaali koodi ovat samassa hakemistossa. 
 
 ### Sisällön etsiminen testattavasta komponentista
 
-react-testing-library-kirjasto tarjoaa runsaasti tapoja, miten voimme tutkia testattavan komponentin sisältöä. Laajennetaan testiämme hiukan:
+react-testing-library-kirjasto tarjoaa runsaasti tapoja, miten voimme tutkia testattavan komponentin sisältöä. Itseasiassa testimme viimeisellä rivillä oleva expect-on turha
 
 ```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
+
 test('renders content', () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  // tapa 1
-  expect(component.container).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  const element = screen.getByText('Component testing is done with react-testing-library')
 
-  // tapa 2
-  const element = component.getByText(
-    'Component testing is done with react-testing-library'
-  )
-  expect(element).toBeDefined()
-
-  // tapa 3
-  const div = component.container.querySelector('.note')
-  expect(div).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  expect(element).toBeDefined() // highlight-line
 })
 ```
 
-Ensimmäinen tapa eli metodi <i>toHaveTextContent</i> siis etsii tiettyä tekstiä koko komponentin renderöimästä HTML:stä. <i>toHaveTextContent</i> on eräs monista [jest-dom](https://github.com/testing-library/jest-dom#tohavetextcontent)-kirjaston tarjoamista "matcher"-metodeista.
+Testi hajoaa, jos _getByText_ ei löydä halutun tekstin sisältävää elementtiä.
 
-Toisena käytimme render-metodin palauttamaan olioon liittyvää [getByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext)-metodia, joka palauttaa sen elementin, jolla on parametrina määritelty teksti. Jos elementtiä ei ole, tapahtuu poikkeus. Eli mitään ekspektaatiota ei välttämättä edes tarvittaisi.
+Jos haluamme etsiä testattavia komponentteja [CSS-selektorien](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) avulla, voimme renderin palauttaman [container](https://testing-library.com/docs/angular-testing-library/api/#container)-olion metodia [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector):
+ 
+```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
 
-Kolmas tapa on etsiä komponentin sisältä tietty elementti metodilla [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector), joka saa parametrikseen [CSS-selektorin](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
+test('renders content', () => {
+  const note = {
+    content: 'Component testing is done with react-testing-library',
+    important: true
+  }
 
-Kaksi viimeistä tapaa siis hakevat metodien <i>getByText</i> ja <i>querySelector</i> avulla renderöidystä komponentista jonkin ehdon täyttävän elementin. Vastaavalla periaatteella toimivia "query"-metodeja, on tarjolla [lukuisia](https://testing-library.com/docs/dom-testing-library/api-queries).
+  const { container } = render(<Note note={note} />) // highlight-line
+
+// highlight-start
+  const div = container.querySelector('.note')
+  expect(div).toHaveTextContent(
+    'Component testing is done with react-testing-library'
+  )
+  // highlight-end
+})
+```
+
+Muitakin tapoja on, esim. [byTestId](https://testing-library.com/docs/queries/bytestid/), joka etsii elementtejä erikseen testejä varten luotujen id-kenttien perusteella.
 
 ### Testien debuggaaminen
 
 Testejä tehdessä törmäämme tyypillisesti erittäin moniin ongelmiin. 
 
-Renderin palauttaman olion metodilla [debug](https://testing-library.com/docs/react-testing-library/api#debug) voimme tulostaa komponentin tuottaman HTML:n konsoliin, eli kun muutamme testiä seuraavasti:
+Olion _screen_ olion metodilla [debug](https://testing-library.com/docs/queries/about/#screendebug) voimme tulostaa komponentin tuottaman HTML:n konsoliin, eli kun muutamme testiä seuraavasti:
 
 ```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
+
 test('renders content', () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  component.debug() // highlight-line
+  screen.debug() // highlight-line
 
   // ...
+
 })
 ```
 
 konsoliin tulostuu komponentin generoima HTML:
 
 ```js
-console.log node_modules/@testing-library/react/dist/index.js:90
+console.log
   <body>
     <div>
       <li
@@ -195,13 +201,12 @@ console.log node_modules/@testing-library/react/dist/index.js:90
   </body>
 ```
 
-On myös mahdollista etsiä komponentista pienempi osa, ja tulostaa sen HTML-koodi, tällöin tarvitsemme metodia _prettyDOM_, joka löytyy react-testing-library:n mukana tulevasta kirjastosta <i>@testing-library/dom</i>:
+On myös mahdollista etsiä komponentista pienempi osa, ja tulostaa sen HTML-koodi:
 
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
-import { prettyDOM } from '@testing-library/dom' // highlight-line
+import { render, screen } from '@testing-library/react'
 import Note from './Note'
 
 test('renders content', () => {
@@ -210,21 +215,19 @@ test('renders content', () => {
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
-  
-  // highlight-start
-  const li = component.container.querySelector('li')
-  console.log(prettyDOM(li))
-  // highlight-end
+  render(<Note note={note} />)
+
+  const element = screen.getByText('Component testing is done with react-testing-library')
+
+  screen.debug(element)  // highlight-line
+
+  expect(element).toBeDefined()
 })
 ```
 
-Eli haimme selektorin avulla komponentin sisältä <i>li</i>-elementin ja tulostimme sen HTML:n konsoliin:
+Haimme nyt halutun tekstin sisältävän elemementin sisällön tulostettavaksi:
 
 ```js
-console.log src/components/Note.test.js:21
   <li
     class="note"
   >
