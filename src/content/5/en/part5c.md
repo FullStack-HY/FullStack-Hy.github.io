@@ -38,7 +38,7 @@ const Note = ({ note, toggleImportance }) => {
 }
 ```
 
-Notice that the <i>li</i> element has the [CSS](https://reactjs.org/docs/dom-elements.html#classname) classname <i>note</i>, that is used to access the component in our tests.
+Notice that the <i>li</i> element has the [CSS](https://reactjs.org/docs/dom-elements.html#classname) classname <i>note</i>, that could be used to access the component in our tests.
 
 ### Rendering the component for tests
 
@@ -49,7 +49,7 @@ The first test verifies that the component renders the contents of the note:
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Note from './Note'
 
 test('renders content', () => {
@@ -58,34 +58,27 @@ test('renders content', () => {
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  expect(component.container).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  const element = screen.getByText('Component testing is done with react-testing-library')
+  expect(element).toBeDefined()
 })
 ```
 
 After the initial configuration, the test renders the component with the [render](https://testing-library.com/docs/react-testing-library/api#render) function provided by the react-testing-library:
 
 ```js
-const component = render(
-  <Note note={note} />
-)
+ender(<Note note={note} />)
 ```
 
 Normally React components are rendered to the <i>DOM</i>. The render method we used renders the components in a format that is suitable for tests without rendering them to the DOM.
 
-_render_ returns an object that has several [properties](https://testing-library.com/docs/react-testing-library/api#render-result). One of the properties is called <i>container</i>, and it contains all of the HTML rendered by the component.
+We can use the variable [screen](https://testing-library.com/docs/queries/about#screen) to access the rendered component. We use the metdhod [getByText](https://testing-library.com/docs/queries/bytext) of the screen to search for an element that has the note content and ensure that it exists:
 
-In the expectation, we verify that the component renders the correct text, which in this case is the content of the note:
 
 ```js
-expect(component.container).toHaveTextContent(
-  'Component testing is done with react-testing-library'
-)
+ const element = screen.getByText('Component testing is done with react-testing-library')
+  expect(element).toBeDefined()
 ```
 
 ### Running tests
@@ -112,81 +105,90 @@ Personally, I do not like this way of storing tests and application code in the 
 
 ### Searching for content in a component
 
-The react-testing-library package offers many different ways of investigating the content of the component being tested. Let's slightly expand our test:
+The react-testing-library package offers many different ways of investigating the content of the component being tested. Actually the expect in our test is not needed at all
+
 
 ```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
+
 test('renders content', () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  // method 1
-  expect(component.container).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  const element = screen.getByText('Component testing is done with react-testing-library')
 
-  // method 2
-  const element = component.getByText(
-    'Component testing is done with react-testing-library'
-  )
-  expect(element).toBeDefined()
-
-  // method 3
-  const div = component.container.querySelector('.note')
-  expect(div).toHaveTextContent(
-    'Component testing is done with react-testing-library'
-  )
+  expect(element).toBeDefined() // highlight-line
 })
 ```
 
+Text fails if _getByText_ does not find the component it is looking for.
 
-The first way uses method <i>toHaveTextContent</i> to search for a matching text from the entire HTML code rendered by the component.   
-<i>toHaveTextContent</i> is one of many "matcher"-methods that are provided by the  [jest-dom](https://github.com/testing-library/jest-dom#tohavetextcontent) library.
+We could also use [CSS-selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to find rendered elements by using the method [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) of the object [container](https://testing-library.com/docs/react-testing-library/api/#containerr) that is one of the fields returned by the render:
+ 
+```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
 
+test('renders content', () => {
+  const note = {
+    content: 'Component testing is done with react-testing-library',
+    important: true
+  }
 
-The second way uses the [getByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) method of the object returned by the render method. The method returns the element that contains the given text. An exception occurs if no such element exists. For this reason, we would technically not need to specify any additional expectation.
+  const { container } = render(<Note note={note} />) // highlight-line
 
-The third way is to search for a specific element that is rendered by the component with the [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) method that receives a [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) as its parameter.
+// highlight-start
+  const div = container.querySelector('.note')
+  expect(div).toHaveTextContent(
+    'Component testing is done with react-testing-library'
+  )
+  // highlight-end
+})
+```
 
-<!-- Kaksi viimeistä tapaa siis hakevat metodien <i>getByText</i> ja <i>querySelector</i> avulla renderöidystä komponentista jonkin ehdon täyttävän elementin. Vastaavalla periaatteella toimivia "query"-metodeja, on tarjolla [lukuisia](https://testing-library.com/docs/dom-testing-library/api-queries). -->
-The last two methods use the methods <i>getByText</i> and <i>querySelector</i> to find an element matching some condition from the rendered component. 
-There are numerous similiar query methods [available](https://testing-library.com/docs/dom-testing-library/api-queries).
+There are also other methods, eg. [getByTestId](https://testing-library.com/docs/queries/bytestid/), that is looking for elements based on id-attributes that are inserted to code sepcifically for testing purposes.
 
 ### Debugging tests
-
 
 We typically run into many different kinds of problems when writing our tests.
 
 
-The object returned by the render method has a [debug](https://testing-library.com/docs/react-testing-library/api#debug) method that can be used to print the HTML rendered by the component to the console. Let's try this out by making the following changes to our code:
+Object _screen_ has method [debug](https://testing-library.com/docs/queries/about/#screendebug) that can be used to print the HTML of a component to terminal. If we change the test as follows:
 
 ```js
+import React from 'react'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import Note from './Note'
+
 test('renders content', () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
+  render(<Note note={note} />)
 
-  component.debug() // highlight-line
+  screen.debug() // highlight-line
 
   // ...
+
 })
 ```
 
-
-We can see the HTML generated by the component in the console:
+the HTML gets printed to the console:
 
 ```js
-console.log node_modules/@testing-library/react/dist/index.js:90
+console.log
   <body>
     <div>
       <li
@@ -201,14 +203,12 @@ console.log node_modules/@testing-library/react/dist/index.js:90
   </body>
 ```
 
-
-It is also possible to search for a smaller part of the component and print its HTML code. In order to do this, we need the _prettyDOM_ method that can be imported from the <i>@testing-library/dom</i> package that is automatically installed with react-testing-library:
+It is also possible to use the same method to print a searched element to console:
 
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
-import { prettyDOM } from '@testing-library/dom'  // highlight-line
+import { render, screen } from '@testing-library/react'
 import Note from './Note'
 
 test('renders content', () => {
@@ -217,20 +217,19 @@ test('renders content', () => {
     important: true
   }
 
-  const component = render(
-    <Note note={note} />
-  )
-  const li = component.container.querySelector('li')
-  
-  console.log(prettyDOM(li)) // highlight-line
+  render(<Note note={note} />)
+
+  const element = screen.getByText('Component testing is done with react-testing-library')
+
+  screen.debug(element)  // highlight-line
+
+  expect(element).toBeDefined()
 })
 ```
 
-
-We used the selector to find the <i>li</i> element inside of the component, and printed its HTML to the console:
+Now the HTML of the searched element gets printed:
 
 ```js
-console.log src/components/Note.test.js:21
   <li
     class="note"
   >
@@ -240,22 +239,35 @@ console.log src/components/Note.test.js:21
     </button>
   </li>
 ```
-
 ### Clicking buttons in tests
 
+
 In addition to displaying content, the <i>Note</i> component also makes sure that when the button associated with the note is pressed, the _toggleImportance_ event handler function gets called.
+
+Let us install a library [user-event](https://testing-library.com/docs/ecosystem-user-event/) that makes simulating user input a bit easier:
+
+```
+npm install --save-dev @testing-library/user-event
+```
+
+At the moment of writing (28.1.2022) there is a mismatch between the version of a dependency jest-watch-typeahead that create-react-appin and user-event are using. The problem is fixed by installing a spefific version:
+
+```
+npm install -D --exact jest-watch-typeahead@0.6.5
+```
 
 Testing this functionality can be accomplished like this:
 
 ```js
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react' // highlight-line
-import { prettyDOM } from '@testing-library/dom'
+import '@testing-library/jest-dom/extend-expect'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event' // highlight-line
 import Note from './Note'
 
 // ...
 
-test('clicking the button calls event handler once', () => {
+test('clicking the button calls event handler once', async () => {
   const note = {
     content: 'Component testing is done with react-testing-library',
     important: true
@@ -263,16 +275,22 @@ test('clicking the button calls event handler once', () => {
 
   const mockHandler = jest.fn()
 
-  const component = render(
+  render(
     <Note note={note} toggleImportance={mockHandler} />
   )
 
-  const button = component.getByText('make not important')
-  fireEvent.click(button)
+  const button = screen.getByText('make not important')
+  userEvent.click(button)
 
   expect(mockHandler.mock.calls).toHaveLength(1)
 })
 ```
+
+
+
+
+
+
 
 There's a few interesting things related to this test. The event handler is [mock](https://facebook.github.io/jest/docs/en/mock-functions.html) function defined with Jest:
 
@@ -282,12 +300,13 @@ const mockHandler = jest.fn()
 
 The test finds the button <i>based on the text</i> from the rendered component and clicks the element:
 
+
 ```js
-const button = component.getByText('make not important')
-fireEvent.click(button)
+const button = screen.getByText('make not important')
+userEvent.click(button)
 ```
 
-Clicking happens with the [fireEvent](https://testing-library.com/docs/api-events#fireevent) method.
+Clicking happens with the method [click](https://testing-library.com/docs/ecosystem-user-event/#clickelement-eventinit-options) of the userEvent-library.
 
 
 The expectation of the test verifies that the <i>mock function</i> has been called exactly once.
@@ -296,19 +315,16 @@ The expectation of the test verifies that the <i>mock function</i> has been call
 expect(mockHandler.mock.calls).toHaveLength(1)
 ```
 
-
 [Mock objects and functions](https://en.wikipedia.org/wiki/Mock_object) are commonly used stub components in testing that are used for replacing dependencies of the components being tested. Mocks make it possible to return hardcoded responses, and to verify the number of times the mock functions are called and with what parameters.
 
-
 In our example, the mock function is a perfect choice since it can be easily used for verifying that the method gets called exactly once.
-
 
 ### Tests for the <i>Togglable</i> component
 
 Let's write a few tests for the <i>Togglable</i> component. Let's add the <i>togglableContent</i> CSS classname to the div that returns the child components.
 
 ```js
-const Togglable = React.forwardRef((props, ref) => {
+const Togglable = forwardRef((props, ref) => {
   // ...
 
   return (
@@ -332,105 +348,77 @@ The tests are shown below:
 ```js
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import Togglable from './Togglable'
 
 describe('<Togglable />', () => {
-  let component
+  let container
 
   beforeEach(() => {
-    component = render(
+    container = render(
       <Togglable buttonLabel="show...">
-        <div className="testDiv" />
+        <div className="testDiv" >
+          togglable content
+        </div>
       </Togglable>
-    )
+    ).container
   })
 
   test('renders its children', () => {
-    expect(
-      component.container.querySelector('.testDiv')
-    ).not.toBe(null)
+    screen.findAllByText('togglable content')
   })
 
   test('at start the children are not displayed', () => {
-    const div = component.container.querySelector('.togglableContent')
-
+    const div = container.querySelector('.togglableContent')
     expect(div).toHaveStyle('display: none')
   })
 
   test('after clicking the button, children are displayed', () => {
-    const button = component.getByText('show...')
-    fireEvent.click(button)
+    const button = screen.getByText('show...')
+    userEvent.click(button)
 
-    const div = component.container.querySelector('.togglableContent')
+    const div = container.querySelector('.togglableContent')
     expect(div).not.toHaveStyle('display: none')
   })
-
 })
 ```
 
 
-The _beforeEach_ function gets called before each test, which then renders the <i>Togglable</i> component into the _component_ variable.
+The _beforeEach_ function gets called before each test, which then renders the <i>Togglable</i> component and saves the field _container_ of the return value.
 
+The first test verifies that the <i>Togglable</i> component renders its child component 
 
-The first test verifies that the <i>Togglable</i> component renders its child component `<div className="testDiv" />`.
-
-
-The remaining tests use the [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) method to verify that the child component of the <i>Togglable</i> component is not visible initially, by checking that the style of the <i>div</i> element contains `{ display: 'none' }`. Another test verifies that when the button is pressed the component is visible, meaning that the style for hiding the component <i>is no longer</i> assigned to the component.
-
-
-The button is searched for once again based on the text that it contains. The button could have been located also with the help of a CSS selector:
-
-```js
-const button = component.container.querySelector('button')
+```
+<div className="testDiv" >
+  togglable content
+</div>
 ```
 
-
-The component contains two buttons, but since [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) returns the <i>first</i> matching button, we happen to get the button that we wanted.
-
+The remaining tests use the [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) method to verify that the child component of the <i>Togglable</i> component is not visible initially, by checking that the style of the <i>div</i> element contains _{ display: 'none' }_. Another test verifies that when the button is pressed the component is visible, meaning that the style for hiding the component <i>is no longer</i> assigned to the component.
 
 Let's also add a test that can be used to verify that the visible content can be hidden by clicking the second button of the component:
 
 ```js
-test('toggled content can be closed', () => {
-  const button = component.container.querySelector('button')
-  fireEvent.click(button)
+describe('<Togglable />', () => {
 
-  const closeButton = component.container.querySelector(
-    'button:nth-child(2)'
-  )
-  fireEvent.click(closeButton)
+  // ...
 
-  const div = component.container.querySelector('.togglableContent')
-  expect(div).toHaveStyle('display: none')
+  test('toggled content can be closed', () => {
+    const button = screen.getByText('show...')
+    userEvent.click(button)
+
+    const closeButton = screen.getByText('cancel')
+    userEvent.click(closeButton)
+
+    const div = container.querySelector('.togglableContent')
+    expect(div).toHaveStyle('display: none')
+  })
 })
 ```
-
-
-We defined a selector that returns the second button `button:nth-child(2)`. It's not a wise move to depend on the order of the buttons in the component, and it is recommended to find the elements based on their text:
-
-```js
-test('toggled content can be closed', () => {
-  const button = component.getByText('show...')
-  fireEvent.click(button)
-
-  const closeButton = component.getByText('cancel')
-  fireEvent.click(closeButton)
-
-  const div = component.container.querySelector('.togglableContent')
-  expect(div).toHaveStyle('display: none')
-})
-```
-
-
-The _getByText_ method that we used is just one of the many [queries](https://testing-library.com/docs/api-queries#queries) <i>react-testing-library</i> offers.
-
-
-
 
 ### Testing the forms
 
-<!-- Käytimme jo edellisissä testeissä [fireEvent](https://testing-library.com/docs/api-events#fireevent)-funktiota nappien klikkaamiseen: -->
 We already used the [fireEvent](https://testing-library.com/docs/api-events#fireevent) function in our previous tests to click buttons.
 
 ```js

@@ -38,7 +38,7 @@ const Note = ({ note, toggleImportance }) => {
 }
 ```
 
-Huomaa, että muistiinpanon sisältävällä <i>li</i>-elementillä on [CSS](https://reactjs.org/docs/dom-elements.html#classname)-luokka <i>note</i>, pääsemme sen avulla muistiinpanoon käsiksi testistä.
+Huomaa, että muistiinpanon sisältävällä <i>li</i>-elementillä on [CSS](https://reactjs.org/docs/dom-elements.html#classname)-luokka <i>note</i>, pääsemme sen avulla halutessamme muistiinpanoon käsiksi testistä. Emme kuitenkaan ensisijaisesti käytä CSS-luokkia testauksessa.
 
 ### Komponentin renderöinti testiä varten
 
@@ -127,9 +127,9 @@ test('renders content', () => {
 })
 ```
 
-Testi hajoaa, jos _getByText_ ei löydä halutun tekstin sisältävää elementtiä.
+Testi ei mene läpi, jos _getByText_ ei löydä halutun tekstin sisältävää elementtiä.
 
-Jos haluamme etsiä testattavia komponentteja [CSS-selektorien](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) avulla, voimme renderin palauttaman [container](https://testing-library.com/docs/angular-testing-library/api/#container)-olion metodia [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector):
+Jos haluamme etsiä testattavia komponentteja [CSS-selektorien](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) avulla, voimme renderin palauttaman [container](https://testing-library.com/docs/react-testing-library/api/#container)-olion metodia [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector):
  
 ```js
 import React from 'react'
@@ -154,7 +154,7 @@ test('renders content', () => {
 })
 ```
 
-Muitakin tapoja on, esim. [byTestId](https://testing-library.com/docs/queries/bytestid/), joka etsii elementtejä erikseen testejä varten luotujen id-kenttien perusteella.
+Muitakin tapoja on, esim. [getByTestId](https://testing-library.com/docs/queries/bytestid/), joka etsii elementtejä erikseen testejä varten luotujen id-kenttien perusteella.
 
 ### Testien debuggaaminen
 
