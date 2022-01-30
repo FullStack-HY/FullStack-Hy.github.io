@@ -129,7 +129,7 @@ test('renders content', () => {
 
 Testi ei mene läpi, jos _getByText_ ei löydä halutun tekstin sisältävää elementtiä.
 
-Jos haluamme etsiä testattavia komponentteja [CSS-selektorien](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) avulla, voimme renderin palauttaman [container](https://testing-library.com/docs/react-testing-library/api/#container)-olion metodia [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector):
+Jos haluamme etsiä testattavia komponentteja [CSS-selektorien](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) avulla, se onnistuu renderin palauttaman [container](https://testing-library.com/docs/react-testing-library/api/#container)-olion metodilla [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector):
  
 ```js
 import React from 'react'
