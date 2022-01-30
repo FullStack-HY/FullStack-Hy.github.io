@@ -9,7 +9,7 @@ lang: fi
 
 Reactilla tehtyjen frontendien testaamiseen on monia tapoja. Aloitetaan niihin tutustuminen nyt.
 
-Testit tehdään samaan tapaan kuin edellisessä osassa eli Facebookin [Jest](http://jestjs.io/)-kirjastolla. Jest onkin valmiiksi konfiguroitu create-react-app:illa luotuihin projekteihin.
+Testit tehdään samaan tapaan kuin edellisessä osassa eli Facebookin [Jest](http://jestjs.io/)-kirjastolla. Jest onkin valmiiksi konfiguroitu create-react-app:lla luotuihin projekteihin.
 
 Tarvitsemme Jestin lisäksi testaamiseen apukirjaston, jonka avulla React-komponentteja voidaan renderöidä testejä varten. 
 
@@ -73,7 +73,7 @@ render(<Note note={note} />)
 
 Normaalisti React-komponentit renderöityvät <i>DOM</i>:iin. Nyt kuitenkin renderöimme komponentteja testeille sopivaan muotoon laittamatta niitä DOM:iin. 
 
-Testin renderöimään näkymään päästään käsiksi olion [screen](https://testing-library.com/docs/queries/about#screen) kautta. Haetaan screenistä metodin [getByText](https://testing-library.com/docs/queries/bytext) avulla elementtiä, missä on muistiinpanon sisältö ja varmistetaan että elementti on olemassa:
+Testin renderöimään näkymään päästään käsiksi olion [screen](https://testing-library.com/docs/queries/about#screen) kautta. Haetaan screenistä metodin [getByText](https://testing-library.com/docs/queries/bytext) avulla elementtiä, jossa on muistiinpanon sisältö ja varmistetaan että elementti on olemassa:
 
 ```js
   const element = screen.getByText('Component testing is done with react-testing-library')
@@ -82,7 +82,7 @@ Testin renderöimään näkymään päästään käsiksi olion [screen](https://
 
 ### Testien suorittaminen
 
-Create-react-app:issa on konfiguroitu testit oletusarvoisesti suoritettavaksi ns. watch-moodissa, eli jos suoritat testit komennolla _npm test_, jää konsoli odottamaan koodissa tapahtuvia muutoksia. Muutosten jälkeen testit suoritetaan automaattisesti ja Jest alkaa taas odottamaan uusia muutoksia koodiin.
+Create-react-app:ssa on konfiguroitu testit oletusarvoisesti suoritettavaksi ns. watch-moodissa, eli jos suoritat testit komennolla _npm test_, jää konsoli odottamaan koodissa tapahtuvia muutoksia. Muutosten jälkeen testit suoritetaan automaattisesti ja Jest alkaa taas odottamaan uusia muutoksia koodiin.
 
 Jos haluat ajaa testit "normaalisti", se onnistuu komennolla
 
@@ -90,7 +90,7 @@ Jos haluat ajaa testit "normaalisti", se onnistuu komennolla
 CI=true npm test
 ```
 
-**HUOM:** konsoli saattaa herjata virhettä, jos sinulla ei ole asennettuna watchmania. Watchman on Facebookin kehittämä tiedoston muutoksia tarkkaileva ohjelma. Ohjelma nopeuttaa testien ajoa ja ainakin osx sierrasta ylöspäin jatkuva testien vahtiminen aiheuttaa käyttäjillä virheilmoituksia. Näistä ilmoituksista pääsee eroon asentamalla Watchmanin.
+**HUOM:** konsoli saattaa herjata virhettä, jos sinulla ei ole asennettuna watchmania. Watchman on Facebookin kehittämä tiedoston muutoksia tarkkaileva ohjelma. Ohjelma nopeuttaa testien ajoa ja ainakin OSX Sierrasta ylöspäin jatkuva testien vahtiminen aiheuttaa käyttäjillä virheilmoituksia. Näistä ilmoituksista pääsee eroon asentamalla Watchmanin.
 
 Ohjeet ohjelman asentamiseen eri käyttöjärjestelmille löydät Watchmanin sivulta:
 https://facebook.github.io/watchman/
@@ -101,11 +101,11 @@ Reactissa on (ainakin) [kaksi erilaista](https://medium.com/@JeffLombardJr/organ
 
 Toinen tapa olisi sijoittaa testit "normaaliin" tapaan omaan erilliseen hakemistoon. Valitaanpa kumpi tahansa tapa, on varmaa että se on jonkun mielestä täysin väärä.
 
-Itse en pidä siitä, että testit ja normaali koodi ovat samassa hakemistossa. Noudatamme kuitenkin nyt tätä tapaa, sillä se on oletusarvo create-react-app:illa konfiguroiduissa sovelluksissa.
+Itse en pidä siitä, että testit ja normaali koodi ovat samassa hakemistossa. Noudatamme kuitenkin nyt tätä tapaa, sillä se on oletusarvo create-react-app:lla konfiguroiduissa sovelluksissa.
 
 ### Sisällön etsiminen testattavasta komponentista
 
-react-testing-library-kirjasto tarjoaa runsaasti tapoja, miten voimme tutkia testattavan komponentin sisältöä. Itseasiassa testimme viimeisellä rivillä oleva expect-on turha
+react-testing-library-kirjasto tarjoaa runsaasti tapoja, miten voimme tutkia testattavan komponentin sisältöä. Itse asiassa testimme viimeisellä rivillä oleva expect on turha
 
 ```js
 import React from 'react'
@@ -160,7 +160,7 @@ Muitakin tapoja on, esim. [getByTestId](https://testing-library.com/docs/queries
 
 Testejä tehdessä törmäämme tyypillisesti erittäin moniin ongelmiin. 
 
-Olion _screen_ olion metodilla [debug](https://testing-library.com/docs/queries/about/#screendebug) voimme tulostaa komponentin tuottaman HTML:n konsoliin, eli kun muutamme testiä seuraavasti:
+Olion _screen_ -olion metodilla [debug](https://testing-library.com/docs/queries/about/#screendebug) voimme tulostaa komponentin tuottaman HTML:n konsoliin, eli kun muutamme testiä seuraavasti:
 
 ```js
 import React from 'react'
@@ -248,7 +248,7 @@ Asennetaan testiä varten apukirjasto [user-event](https://testing-library.com/d
 npm install --save-dev @testing-library/user-event
 ```
 
-Tällä hetkellä (28.1.2022) create-react-appin ja user-event olettamien kirjstojen välillä on pieni yhteensopivuusero joka korjautuu kun asetetaan kirjastosta jest-watch-typeahead tietty verio:
+Tällä hetkellä (28.1.2022) create-react-appin ja user-eventin olettamien kirjstojen välillä on pieni yhteensopivuusero joka korjautuu kun asetetaan kirjastosta jest-watch-typeahead tietty verio:
 
 ```
 npm install -D --exact jest-watch-typeahead@0.6.5
@@ -374,7 +374,7 @@ describe('<Togglable />', () => {
 })
 ```
 
-Ennen jokaista testiä suoritettava _beforeEach_ renderöi <i>Togglable</i>-komponentin ja tallettaa paluuarvon kentän _container_ saman nimiseen muuttujaan.
+Ennen jokaista testiä suoritettava _beforeEach_ renderöi <i>Togglable</i>-komponentin ja tallettaa paluuarvon kentän _container_ samannimiseen muuttujaan.
 
 Ensimmäinen testi tarkastaa, että <i>Togglable</i> renderöi sen lapsikomponentin
 
@@ -415,7 +415,7 @@ const button = screen.getByText('show...')
 userEvent.click(button)
 ```
 
-Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>userEventin</i> avulla.
+Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> -nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>userEventin</i> avulla.
 
 Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta
 
@@ -488,7 +488,7 @@ Syötekenttä etsitään metodin [getByRole](https://testing-library.com/docs/qu
 
 Syötekenttään kirjoitetaan userEvent:in tarjoaman metodin [type](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options) avulla.
 
-Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee saman sisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
+Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee samansisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
 
 ### Lisää elementtien etsimisestä
 
@@ -526,7 +526,7 @@ Nyt testissä käytetty syötekentän etsimistapa
 const input = screen.getByRole('textbox')
 ```
 
-aiheuttai virheen:
+aiheuttaisi virheen:
 
 ![](../../images/5/40.png)
 
@@ -588,7 +588,7 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
 
 Kaikkein joustavimman tavan tarjoaa aiemmin [tässä luvussa](/osa5/react_sovellusten_testaaminen#sisallon-etsiminen-testattavasta-komponentista) esitellyn _render_-metodin palauttaman olion _content_-kentän metodi <i>querySelector</i>, joka mahdollistaa komponenttien etsimisen mielivaltaisten CSS-selektorien avulla. 
 
-Jos esim. määrittelisimme syötekentälle yksilöivän attribuutin _id_:
+Jos esim. määrittelisimme syötekentälle yksilöivän attribuutin _id_,
 
 ```js
 const NoteForm = ({ createNote }) => {
@@ -635,7 +635,7 @@ CI=true npm test -- --coverage
 
 ![](../../images/5/18ea.png)
 
-Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/lcov-report</i>. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomat koodirivit:
+Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/lcov-report</i>. HTML-muotoinen raportti kertoo mm. yksittäisen komponentin testaamattomat koodirivit:
 
 ![](../../images/5/19ea.png)
 
@@ -665,7 +665,7 @@ Tee uuden blogin luomisesta huolehtivalle lomakkelle testi, joka varmistaa, ett�
 
 Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia tai id:itä.
 
-Jos esim. määrittelet <i>input</i>-elementille id:n 'author':
+Jos esim. määrittelet <i>input</i>-elementille id:n 'author',
 
 ```js
 <input
@@ -675,7 +675,7 @@ Jos esim. määrittelet <i>input</i>-elementille id:n 'author':
 />
 ```
 
-saat haettua kentän testissä seuraavasti
+saat haettua kentän testissä seuraavasti:
 
 ```js
 const author = component.container.querySelector('#author')
@@ -687,7 +687,7 @@ const author = component.container.querySelector('#author')
 
 ### Frontendin integraatiotestaus
 
-Suoritimme edellisessä osassa backendille integraatiotestejä, jotka testasivat backendin tarjoaman API:n läpi backendia ja tietokantaa. Backendin testauksessa tehtiin tietoinen päätös olla kirjoittamatta yksikkötestejä sillä backendin koodi on melko suoraviivaista ja ongelmat tulevatkin esiin todennäköisemmin juuri monimutkaisemmissa skenaarioissa, joita integraatiotestit testaavat hyvin.
+Suoritimme edellisessä osassa backendille integraatiotestejä, jotka testasivat backendin tarjoaman API:n läpi backendia ja tietokantaa. Backendin testauksessa tehtiin tietoinen päätös olla kirjoittamatta yksikkötestejä, sillä backendin koodi on melko suoraviivaista ja ongelmat tulevatkin esiin todennäköisemmin juuri monimutkaisemmissa skenaarioissa, joita integraatiotestit testaavat hyvin.
 
 Toistaiseksi kaikki frontendiin tekemämme testit ovat olleet yksittäisten komponenttien oikeellisuutta valvovia yksikkötestejä. Yksikkötestaus on toki välillä hyödyllistä, mutta kattavinkaan yksikkötestaus ei riitä antamaan riittävää luotettavuutta sille, että järjestelmä toimii kokonaisuudessaan.
 
