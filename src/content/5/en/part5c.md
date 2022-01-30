@@ -73,7 +73,7 @@ ender(<Note note={note} />)
 
 Normally React components are rendered to the <i>DOM</i>. The render method we used renders the components in a format that is suitable for tests without rendering them to the DOM.
 
-We can use the variable [screen](https://testing-library.com/docs/queries/about#screen) to access the rendered component. We use the metdhod [getByText](https://testing-library.com/docs/queries/bytext) of the screen to search for an element that has the note content and ensure that it exists:
+We can use the object [screen](https://testing-library.com/docs/queries/about#screen) to access the rendered component. We use the metdhod [getByText](https://testing-library.com/docs/queries/bytext) of the screen to search for an element that has the note content and ensure that it exists:
 
 
 ```js
@@ -128,7 +128,7 @@ test('renders content', () => {
 })
 ```
 
-Text fails if _getByText_ does not find the component it is looking for.
+Text fails if _getByText_ does not find the element it is looking for.
 
 We could also use [CSS-selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) to find rendered elements by using the method [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) of the object [container](https://testing-library.com/docs/react-testing-library/api/#containerr) that is one of the fields returned by the render:
  
@@ -155,7 +155,7 @@ test('renders content', () => {
 })
 ```
 
-There are also other methods, eg. [getByTestId](https://testing-library.com/docs/queries/bytestid/), that is looking for elements based on id-attributes that are inserted to code sepcifically for testing purposes.
+There are also other methods, eg. [getByTestId](https://testing-library.com/docs/queries/bytestid/), that is looking for elements based on id-attributes that are inserted to the code specifically for testing purposes.
 
 ### Debugging tests
 
@@ -250,7 +250,7 @@ Let us install a library [user-event](https://testing-library.com/docs/ecosystem
 npm install --save-dev @testing-library/user-event
 ```
 
-At the moment of writing (28.1.2022) there is a mismatch between the version of a dependency jest-watch-typeahead that create-react-appin and user-event are using. The problem is fixed by installing a spefific version:
+At the moment of writing (28.1.2022) there is a mismatch between the version of a dependency jest-watch-typeahead that create-react-appin and user-event are using. The problem is fixed by installing a spefic version:
 
 ```
 npm install -D --exact jest-watch-typeahead@0.6.5
@@ -287,19 +287,13 @@ test('clicking the button calls event handler once', async () => {
 ```
 
 
-
-
-
-
-
-There's a few interesting things related to this test. The event handler is [mock](https://facebook.github.io/jest/docs/en/mock-functions.html) function defined with Jest:
+There are a few interesting things related to this test. The event handler is [mock](https://facebook.github.io/jest/docs/en/mock-functions.html) function defined with Jest:
 
 ```js
 const mockHandler = jest.fn()
 ```
 
 The test finds the button <i>based on the text</i> from the rendered component and clicks the element:
-
 
 ```js
 const button = screen.getByText('make not important')
@@ -384,7 +378,6 @@ describe('<Togglable />', () => {
 })
 ```
 
-
 The _beforeEach_ function gets called before each test, which then renders the <i>Togglable</i> component and saves the field _container_ of the return value.
 
 The first test verifies that the <i>Togglable</i> component renders its child component 
@@ -419,15 +412,14 @@ describe('<Togglable />', () => {
 
 ### Testing the forms
 
-We already used the [fireEvent](https://testing-library.com/docs/api-events#fireevent) function in our previous tests to click buttons.
+We already used the _click_ function of the [user-event](https://testing-library.com/docs/ecosystem-user-event/) in our previous tests to click buttons.
 
 ```js
-const button = component.getByText('show...')
-fireEvent.click(button)
+const button = screen.getByText('show...')
+userEvent.click(button)
 ```
 
-In practice we used the <i>fireEvent</i> to create a <i>click</i> event for the button component. 
-We can also simulate text input with <i>fireEvent</i>.
+We can also simulate text input with <i>userEvent</i>.
 
 Let's make a test for the <i>NoteForm</i> component. The code of the component is as follows.
 
@@ -452,7 +444,7 @@ const NoteForm = ({ createNote }) => {
   }
 
   return (
-    <div className="formDiv"> // highlight-line
+    <div className="formDiv">
       <h2>Create a new note</h2>
 
       <form onSubmit={addNote}>
@@ -475,43 +467,172 @@ The test is as follows:
 
 ```js
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import NoteForm from './NoteForm'
+import userEvent from '@testing-library/user-event'
 
 test('<NoteForm /> updates parent state and calls onSubmit', () => {
   const createNote = jest.fn()
 
-  const component = render(
-    <NoteForm createNote={createNote} />
-  )
+  render(<NoteForm createNote={createNote} />)
 
-  const input = component.container.querySelector('input')
-  const form = component.container.querySelector('form')
+  const input = screen.getByRole('textbox')
+  const sendButton = screen.getByText('save')
 
-  fireEvent.change(input, { 
-    target: { value: 'testing of forms could be easier' } 
-  })
-  fireEvent.submit(form)
+  userEvent.type(input, 'testing a form...' )
+  userEvent.click(sendButton)
 
   expect(createNote.mock.calls).toHaveLength(1)
-  expect(createNote.mock.calls[0][0].content).toBe('testing of forms could be easier' )
+  expect(createNote.mock.calls[0][0].content).toBe('testing a form...' )
 })
 ```
 
-<!-- Syötekenttään <i>input</i> kirjoittamista simuloidaan tekemällä syötekenttään tapahtuma <i>change</i> ja määrittelemällä sopiva olio, joka määrittelee syötekenttään 'kirjoitetun' sisällön. -->
-We can simulate writing to <i>input</i> fields by creating a <i>change</i> event to them, and defining an object, which contains the text 'written' to the field.
+Tests gets the acces to the the input field using the function [getByRole](https://testing-library.com/docs/queries/byrole). 
 
-<!-- Lomake lähetetään simuloimalla tapahtuma <i>submit</i> lomakkeelle. -->
-The form is sent by simulating the <i>submit</i> event to the form.
+Method [type](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options) of the userEvent is used to write text to the input field.
 
-<!-- Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee saman sisältöinen muistiinpano kuin lomakkeelle kirjoitetaan. -->
 The first test expectation ensures, that submitting the form calls the _createNote_ method. 
 The second expectation checks, that the event handler is called with the right parameters - that a note with the correct content is created when the form is filled. 
 
+### About finding the elements
+
+Let us assume that the form would have two imput fields
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+        />
+        // highlight-start
+        <input
+          value={...}
+          onChange={...}
+        />
+        // highlight-end
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+Now the approach that our test uses to find the input field
+
+```js
+const input = screen.getByRole('textbox')
+```
+
+would cause an error
+
+![](../../images/5/40.png)
+
+The error message suggests to use <i>getAllByRole</i>. Test could be fixed as follows:
+
+```js
+const inputs = screen.getByRole('textbox')
+
+userEvent.type(input[0], 'testing a form...' )
+```
+
+Method <i>getAllByRole</i> returns now an array and the right input field is the first element of the array. However, this approach is a bit suspicious since it relies order of the input fields.
+
+
+Quite often input fileds have a <i>placehoder</i> text that hints user what kind of input is expected. Let us add a placeholder to our form:
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+          placeholder='write here note content' // highlight-line 
+        />
+        <input
+          value={...}
+          onChange={...}
+        />    
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+Now finding the right input field is easy with method [getByPlaceholderText](https://testing-library.com/docs/queries/byplaceholdertext):
+
+```js
+test('<NoteForm /> updates parent state and calls onSubmit', () => {
+  const createNote = jest.fn()
+
+  render(<NoteForm createNote={createNote} />) 
+
+  const input = screen.getByPlaceholderText('write here note content') // highlight-line 
+  const sendButton = screen.getByText('save')
+
+  userEvent.type(input, 'testing a form...' )
+  userEvent.click(sendButton)
+
+  expect(createNote.mock.calls).toHaveLength(1)
+  expect(createNote.mock.calls[0][0].content).toBe('testing a form...' )
+})
+```
+
+The most flexible way of finding elements in tests is the method <i>querySelector</i> of the _content_ object, that is returned by _render_, as was mentioned [earlier in this part](/en/part5/testing_react_apps#searching-for-content-in-a-component). Any CSS selector can be used with this method for searching elements in tests.
+
+Consider eg. that we would define an unique _id_ to the input field:
+
+```js
+const NoteForm = ({ createNote }) => {
+  // ...
+
+  return (
+    <div>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addNote}>
+        <input
+          value={newNote}
+          onChange={handleChange}
+          id='note-input' // highlight-line 
+        />
+        <input
+          value={...}
+          onChange={...}
+        />    
+        <button type="submit">save</button>
+      </form>
+    </div>
+  )
+}
+```
+
+The input element could now be found in the test as follows:
+
+```js
+const { content } = render(<NoteForm createNote={createNote} />)
+
+const input = content.querySelector('#note-input')
+```
+
+However we shall stick to a approach using _getByPlaceholderText_ in the test. 
+
 ### Test coverage
 
-<!-- [Testauskattavuus](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting) saadaan helposti selville suorittamalla testit komennolla -->
 We can easily find out the [coverage](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting)
 of our tests by running them with the command.
 
@@ -521,16 +642,13 @@ CI=true npm test -- --coverage
 
 ![](../../images/5/18ea.png)
 
-<!-- Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/lcov-report</i>. HTML-muotoinen raportti kertoo mm. yksittäisen komponenttien testaamattomat koodirivit: -->
 A quite primitive HTML report will be generated to the <i>coverage/lcov-report</i> directory. 
 The report will tell us the lines of untested code in each component:
 
 ![](../../images/5/19ea.png)
 
-
-You can find the code for our current application in its entirety in the <i>part5-8</i> branch of [this Github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-8).
+You can find the code for our current application in its entirety in the <i>part5-8</i> branch of [this GitHub repository](https://github.com/fullstack-hy/part2-notes/tree/part5-8).
 </div>
-
 
 <div class="tasks">
 

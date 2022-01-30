@@ -73,7 +73,7 @@ render(<Note note={note} />)
 
 Normaalisti React-komponentit renderöityvät <i>DOM</i>:iin. Nyt kuitenkin renderöimme komponentteja testeille sopivaan muotoon laittamatta niitä DOM:iin. 
 
-Testin renderöimään näkymään päästään käsiksi muuttujan [screen](https://testing-library.com/docs/queries/about#screen) kautta. Haetaan screenistä metodin [getByText](https://testing-library.com/docs/queries/bytext) avulla elementtiä, missä on muistiinpanon sisältö ja varmistetaan että elementti on olemassa:
+Testin renderöimään näkymään päästään käsiksi olion [screen](https://testing-library.com/docs/queries/about#screen) kautta. Haetaan screenistä metodin [getByText](https://testing-library.com/docs/queries/bytext) avulla elementtiä, missä on muistiinpanon sisältö ja varmistetaan että elementti on olemassa:
 
 ```js
   const element = screen.getByText('Component testing is done with react-testing-library')
@@ -490,7 +490,7 @@ Syötekenttään kirjoitetaan userEvent:in tarjoaman metodin [type](https://test
 
 Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee saman sisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
 
-### Lisää komponenttien etsimisestä
+### Lisää elementtien etsimisestä
 
 Oletetaan että lomakkeella olisi useita syötekenttiä:
 
@@ -520,7 +520,7 @@ const NoteForm = ({ createNote }) => {
 }
 ```
 
-Nyt testissä käytetty  syötekentän etsimistapa 
+Nyt testissä käytetty syötekentän etsimistapa 
 
 ```js
 const input = screen.getByRole('textbox')
@@ -530,7 +530,7 @@ aiheuttai virheen:
 
 ![](../../images/5/40.png)
 
-Testi ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne ylipäätään on se mitä halutaan). Testi korjautuisi seuraavasti:
+Virheilmoitus ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne ylipäätään on se mitä halutaan). Testi korjautuisi seuraavasti:
 
 ```js
 const inputs = screen.getByRole('textbox')
