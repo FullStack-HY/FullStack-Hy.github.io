@@ -19,7 +19,7 @@ Let's install the library with the command:
 npm install --save-dev @testing-library/react @testing-library/jest-dom
 ```
 
-We installed also [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/) that provices some nice Jest-related helper methods.
+We installed also [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/) that provides some nice Jest-related helper methods.
 
 Let's first write tests for the component that is responsible for rendering a note:
 
@@ -73,7 +73,7 @@ ender(<Note note={note} />)
 
 Normally React components are rendered to the <i>DOM</i>. The render method we used renders the components in a format that is suitable for tests without rendering them to the DOM.
 
-We can use the object [screen](https://testing-library.com/docs/queries/about#screen) to access the rendered component. We use the metdhod [getByText](https://testing-library.com/docs/queries/bytext) of the screen to search for an element that has the note content and ensure that it exists:
+We can use the object [screen](https://testing-library.com/docs/queries/about#screen) to access the rendered component. We use screen's method [getByText](https://testing-library.com/docs/queries/bytext) to search for an element that has the note content and ensure that it exists:
 
 
 ```js
@@ -203,7 +203,7 @@ console.log
   </body>
 ```
 
-It is also possible to use the same method to print a searched element to console:
+It is also possible to use the same method to print a wanted element to console:
 
 ```js
 import React from 'react'
@@ -227,7 +227,7 @@ test('renders content', () => {
 })
 ```
 
-Now the HTML of the searched element gets printed:
+Now the HTML of the wanted element gets printed:
 
 ```js
   <li
@@ -287,7 +287,7 @@ test('clicking the button calls event handler once', async () => {
 ```
 
 
-There are a few interesting things related to this test. The event handler is [mock](https://facebook.github.io/jest/docs/en/mock-functions.html) function defined with Jest:
+There are a few interesting things related to this test. The event handler is a [mock](https://facebook.github.io/jest/docs/en/mock-functions.html) function defined with Jest:
 
 ```js
 const mockHandler = jest.fn()
@@ -488,7 +488,7 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
 })
 ```
 
-Tests gets the acces to the the input field using the function [getByRole](https://testing-library.com/docs/queries/byrole). 
+Tests gets the access to the the input field using the function [getByRole](https://testing-library.com/docs/queries/byrole). 
 
 Method [type](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options) of the userEvent is used to write text to the input field.
 
@@ -497,7 +497,7 @@ The second expectation checks, that the event handler is called with the right p
 
 ### About finding the elements
 
-Let us assume that the form would have two imput fields
+Let us assume that the form would have two input fields
 
 ```js
 const NoteForm = ({ createNote }) => {
@@ -531,7 +531,7 @@ Now the approach that our test uses to find the input field
 const input = screen.getByRole('textbox')
 ```
 
-would cause an error
+would cause an error:
 
 ![](../../images/5/40.png)
 
@@ -543,7 +543,7 @@ const inputs = screen.getByRole('textbox')
 userEvent.type(input[0], 'testing a form...' )
 ```
 
-Method <i>getAllByRole</i> returns now an array and the right input field is the first element of the array. However, this approach is a bit suspicious since it relies order of the input fields.
+Method <i>getAllByRole</i> now returns an array and the right input field is the first element of the array. However, this approach is a bit suspicious since it relies on the order of the input fields.
 
 
 Quite often input fileds have a <i>placehoder</i> text that hints user what kind of input is expected. Let us add a placeholder to our form:
@@ -714,6 +714,6 @@ Jest offers a completely different alternative to "traditional" testing called [
 
 The fundamental principle is to compare the HTML code defined by the component after it has changed to the HTML code that existed before it was changed.
 
-If the snapshot notices some change in the HTML defined by the component, then either it is new functionality or a "bug" caused by accident. Snapshot tests notify the developer if the HTML code of the component changes. The developer has to tell Jest if the change was desired or undesired. If the change to the HTML code is unexpected it strongly implies a bug, and the developer can become aware of these potential issues easily thanks to snapshot testing.
+If the snapshot notices some change in the HTML defined by the component, then either it is new functionality or a "bug" caused by accident. Snapshot tests notify the developer if the HTML code of the component changes. The developer has to tell Jest if the change was desired or undesired. If the change to the HTML code is unexpected, it strongly implies a bug, and the developer can become aware of these potential issues easily thanks to snapshot testing.
 
 </div>
