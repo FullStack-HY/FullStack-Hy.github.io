@@ -387,7 +387,7 @@ Otetaan Redux Toolkit käyttöön sovelluksessamme refaktoroimalla nykyistä koo
 npm install @reduxjs/toolkit
 ```
 
-Avataan sen jälkeen <i>index.js</i>-tiedosto, jossa nykyinen Redux-store luodaan. Käytetään Reduxin <em>createStore</em>-funktion sijaan luonnissa Redux Toolkitin [configureStore](https://redux-toolkit.js.org/api/configureStore)-funktiota:
+Avataan sen jälkeen <i>index.js</i>-tiedosto, jossa nykyinen Redux-store luodaan. Käytetään storen luonnissa Reduxin <em>createStore</em>-funktion sijaan luonnissa Redux Toolkitin [configureStore](https://redux-toolkit.js.org/api/configureStore)-funktiota:
 
 ```js
 import React from 'react'
@@ -418,12 +418,12 @@ ReactDOM.render(
 )
 ```
 
-Pääsimme eroon jo muutamasta koodirivistä, kun reducerin muodostamiseen ei enää tarvita <em>combineReducers</em>-funktiota.
+Pääsimme eroon jo muutamasta koodirivistä, kun reducerin muodostamiseen ei enää tarvita <em>combineReducers</em>-funktiota. Tulemme pian näkemään, että <em>configureStore</em>-funktion käytöstä on myös monia muita hyötyjä, kuten kehitystyökalujen ja usein käytettyjen kirjastojen vaivaton käyttöönotto ilman erillistä konfiguraatiota.
 
 Siirrytään seuraavaksi reducereiden refaktorointiin, jossa Redux Toolkitin edut tulevat parhaiten esiin. Redux Toolkitin avulla reducerin ja siihen liittyvät action creatorit voi luoda kätevästi [createSlice](https://redux-toolkit.js.org/api/createSlice)-funktion avulla. Voimme refaktoroida <i>reducers/noteReducer.js</i>-tiedostossa olevan reducerin ja action creatorit <em>createSlice</em>-funktion avulla seuraavasti:
 
 ```js
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit' // highlight-line
 
 const initialState = [
   {
@@ -480,7 +480,13 @@ const noteSlice = createSlice({
 dispatch(createNote('Redux Toolkit is awesome!'))
 ```
 
-Jos olit tarkanna, saatoit huomata, että actionin <em>createNote</em> kohdalla tapahtuu jotain, mikä vaikuttaa rikkovan aiemmin mainittua reducereiden immutabiliteetin periaatetta:
+Tämä dispatch-kutsu vastaa seuraavan objektin dispatchaamista:
+
+```js
+dispatch({ type: 'notes/createNote', payload: 'Redux Toolkit is awesome!' })
+```
+
+Jos olit tarkkanna, saatoit huomata, että actionin <em>createNote</em> kohdalla tapahtuu jotain, mikä vaikuttaa rikkovan aiemmin mainittua reducereiden immutabiliteetin periaatetta:
 
 ```js
 createNote(state, action) {
@@ -494,7 +500,9 @@ createNote(state, action) {
 }
 ```
 
-Mutatoimme <em>state</em>-argumentin taulukkoa kutsumalla <em>push</em>-metodia sen sijaan, että palauttaisimme uuden instanssin taulukosta. Mistä on kyse? Redux Toolkit hyödyntää <em>createSlice</em>-funktion avulla määritellyissä reducereissa [Immer](https://immerjs.github.io/immer/)-kirjastoa, joka mahdollistaa <em>state</em>-argumentin mutatoinnin reducerin sisällä. Immer muodostaa mutatoidun tilan perusteella uuden, immutablen tilan ja näin tilamuutosten immutabiliteetti säilyy. Huomaa, että tilaa voi muuttaa myös "mutatoimatta", kuten esimerkiksi <em>toggleImportanceOf</em> -actionin kanssa on tehty. Mutatointi osoittautuu kuitenkin usein hyödylliseksi etenkin rakenteeltaan monimutkaisen tilan päivittämisessä.
+Mutatoimme <em>state</em>-argumentin taulukkoa kutsumalla <em>push</em>-metodia sen sijaan, että palauttaisimme uuden instanssin taulukosta. Mistä on kyse?
+
+Redux Toolkit hyödyntää <em>createSlice</em>-funktion avulla määritellyissä reducereissa [Immer](https://immerjs.github.io/immer/)-kirjastoa, joka mahdollistaa <em>state</em>-argumentin mutatoinnin reducerin sisällä. Immer muodostaa mutatoidun tilan perusteella uuden, immutablen tilan ja näin tilamuutosten immutabiliteetti säilyy. Huomaa, että tilaa voi muuttaa myös "mutatoimatta", kuten esimerkiksi <em>toggleImportanceOf</em> -actionin kohdalla on tehty. Mutatointi osoittautuu kuitenkin usein hyödylliseksi etenkin rakenteeltaan monimutkaisen tilan päivittämisessä.
 
 Funktio <em>createSlice</em> palauttaa objektin, joka sisältää sekä reducerin, että <em>reducers</em>-parametrin actioneiden mukaiset action creatorit. Reducer on palautetussa objektissa <em>noteSlice.reducer</em>-kentässä, kun taas action creatorit <em>noteSlice.actions</em>-kentässä. Voimme muodostaa tiedoston exportit kätevästi seuraavalla tavalla:
 
@@ -603,13 +611,13 @@ Notifikaation asettamista ja poistamista varten kannattaa toteuttaa [action crea
 
 #### 6.12* paremmat anekdootit, step10
 
-Toteuta sovellukseen näytettävien muistiinpanojen filtteröiminen
+Toteuta sovellukseen näytettävien muistiinpanojen filtteröiminen:
 
 ![](../../images/6/9ea.png)
 
 Säilytä filtterin tila Redux-storessa, eli käytännössä kannattaa jälleen luoda uusi reduceri ja action creatorit. Hyödynnä tässä Redux Toolkitin <em>createSlice</em>-funktiota.
 
-Tee filtterin ruudulla näyttämistä varten komponentti <i>Filter</i>. Voit ottaa sen pohjaksi seuraavan
+Tee filtterin ruudulla näyttämistä varten komponentti <i>Filter</i>. Voit ottaa sen pohjaksi seuraavan koodin:
 
 ```js
 import React from 'react'

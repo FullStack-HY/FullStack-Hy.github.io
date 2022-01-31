@@ -198,7 +198,7 @@ export const { createNote, toggleImportanceOf, appendNote, setNotes } = noteSlic
 export default noteSlice.reducer
 ```
 
-Nyt <i>index.js</i> yksinkertaistuu:
+Now, the code in the <i>index.js</i> file looks a lot better:
 
 ```js
 // ...
@@ -363,7 +363,7 @@ createNote(state, action) {
 }
 ```
 
-Changing the importance of notes could be implemented using the same principle, meaning making an asynchronous method call to the server and then dispatching an appropriate action.
+Changing the importance of notes could be implemented using the same principle, by making an asynchronous method call to the server and then dispatching an appropriate action.
 
 The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy/redux-notes/tree/part6-3) in the branch <i>part6-3</i>.
 
@@ -389,7 +389,7 @@ Modify the creation of new anecdotes, such that the anecdotes are stored in the 
 
 ### Asynchronous actions and redux thunk
 
-Our approach is OK, but it is not great that the communication with the server happens inside the functions of the components. It would be better if the communication could be abstracted away from the components, such that they don't have to do anything else but call the appropriate <i>action creator</i>. As an example, <i>App</i> would initialize the state of the application as follows:
+Our approach is quite good, but it is not great that the communication with the server happens inside the functions of the components. It would be better if the communication could be abstracted away from the components, such that they don't have to do anything else but call the appropriate <i>action creator</i>. As an example, <i>App</i> would initialize the state of the application as follows:
 
 ```js
 const App = () => {
@@ -422,7 +422,7 @@ const NewNote = () => {
 
 In this implementation, both components would dispatch an action without the need to know about the communication between the server that happens behind the scenes. These kind <i>async actions</i> can be implemented using the [Redux Thunk](https://github.com/reduxjs/redux-thunk) library. The use of the library doesn't need any additional configuration when the Redux store is created using the Redux Toolkit's <em>configureStore</em> function.
 
-With Redux Thunk it is possible to implement <i>action creators</i> which return a function instead of an object. The function receive's Redux store's <em>dispatch</em> and <em>getState</em> methods as parameters. This allows for example implementations of asynchronous action creators, which first wait for completion of a certain asynchronous operation and after that dispatch some action, which changes the store's state.
+With Redux Thunk it is possible to implement <i>action creators</i> which return a function instead of an object. The function receive's Redux store's <em>dispatch</em> and <em>getState</em> methods as parameters. This allows for example implementations of asynchronous action creators, which first wait for the completion of a certain asynchronous operation and after that dispatch some action, which changes the store's state.
 
 We can define an action creator <em>initializeNotes</em> which initializes the notes based on the data received from the server:
 
@@ -470,7 +470,7 @@ const App = () => {
 }
 ```
 
-The solution is elegant. The initialization logic for the notes has been completely separated to outside the React component.
+The solution is elegant. The initialization logic for the notes has been completely separated from the React component.
 
 Next, let's replace the <em>createNote</em> action creator created by the <em>createSlice</em> function with an asynchronous action creator:
 
@@ -528,7 +528,7 @@ export const createNote = content => {
 export default noteSlice.reducer
 ```
 
-The principle here is the same: first an asynchronous operation is executed, after which the action changing the state of the store is <i>dispatched</i>.
+The principle here is the same: first, an asynchronous operation is executed, after which the action changing the state of the store is <i>dispatched</i>. Redux Toolkit offers a multitude of tools to simplify asynchronous state management. Suitable tools for this use case are for example the [createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk) function and the [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) API.
 
 The component <i>NewNote</i> changes as follows:
 

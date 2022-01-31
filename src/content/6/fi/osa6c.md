@@ -45,7 +45,7 @@ ja lisätään tiedoston <i>package.json</i> osaan <i>scripts</i> rivi
 
 Käynnistetään json-server komennolla _npm run server_.
 
-Tehdään sitten tuttuun tapaan <i>axiosia</i> hyödyntävä backendistä dataa hakeva metodi tiedostoon <i>services/notes.js</i>
+Tehdään sitten tuttuun tapaan <i>axiosia</i> hyödyntävä backendistä dataa hakeva metodi tiedostoon <i>services/notes.js</i>:
 
 ```js
 import axios from 'axios'
@@ -76,7 +76,7 @@ const noteSlice = createSlice({
 })
 ```
 
-Lisätään lisäksi uusi action <em>appendNote</em> note-objektin lisäämistä varten:
+Lisätään lisäksi uusi action <em>appendNote</em> muistiinpano-objektin lisäämistä varten:
 
 ```js
 const noteSlice = createSlice({
@@ -144,7 +144,7 @@ noteService.getAll().then(notes =>
 // ...
 ```
 
-Monen actionin dispatchaaminen vaikuttaa hieman epäkäytännölliseltä. Lisätään action creatori <em>setNotes</em>, jonka avulla notes-taulukon voi suoraan korvata. Saamme <em>createSlice</em>-funktion avulla haluamamme action creatorin, kun määrittelemme <em>setNotes</em> actionin:
+Monen actionin dispatchaaminen vaikuttaa hieman epäkäytännölliseltä. Lisätään action creatori <em>setNotes</em>, jonka avulla muistiinpanojen taulukon voi suoraan korvata. Saamme <em>createSlice</em>-funktion avulla haluamamme action creatorin, kun määrittelemme <em>setNotes</em>-actionin:
 
 ```js
 // ...
@@ -218,7 +218,7 @@ noteService.getAll().then(notes =>
 Päätetään kuitenkin siirtää muistiinpanojen alustus <i>App</i>-komponentiin, eli kuten yleensä dataa palvelimelta haettaessa, käytetään <i>effect hookia</i>:
 
 ```js
-import React, {useEffect} from 'react' // highlight-line
+import React, { useEffect } from 'react' // highlight-line
 import NewNote from './components/NowNote'
 import Notes from './components/Notes'
 import VisibilityFilter from './components/VisibilityFilter'
@@ -375,7 +375,7 @@ Muuta uusien anekdoottien luomista siten, että anekdootit talletetaan backendii
 
 ### Asynkroniset actionit ja redux thunk
 
-Lähestymistapamme on ok, mutta siinä mielessä ikävä, että palvelimen kanssa kommunikointi tapahtuu komponentit määrittelvien funktioiden koodissa. Olisi parempi, jos kommunikointi voitaisiin abstrahoida komponenteilta siten, että niiden ei tarvitsisi kuin kutsua sopivaa <i>action creatoria</i>, esim. <i>App</i> alustaisi sovelluksen tilan seuraavasti:
+Lähestymistapamme on melko hyvä, mutta siinä mielessä ikävä, että palvelimen kanssa kommunikointi tapahtuu komponentit määrittelevien funktioiden koodissa. Olisi parempi, jos kommunikointi voitaisiin abstrahoida komponenteilta siten, että niiden ei tarvitsisi kuin kutsua sopivaa <i>action creatoria</i>, esim. <i>App</i> alustaisi sovelluksen tilan seuraavasti:
 
 ```js
 const App = () => {
@@ -406,9 +406,9 @@ const NewNote = () => {
 }
 ```
 
-Molemmat komponentit dispatchaisivat ainoastaan actionin, välittämättä siitä että taustalla tapahtuu todellisuudessa palvelimen kanssa tapahtuvaa kommunikointia. Tämän kaltaisten <i>asynkronisten actioneiden</i> käyttö onnistuu [Redux Thunk](https://github.com/reduxjs/redux-thunk)-kirjaston avulla. Kirjaston käyttö ei vaadi ylimääräistä konfiguraatiota, kun Redux-store on luotu Redux Toolkitin <em>configureStore</em>-funktiolla.
+Molemmat komponentit dispatchaisivat ainoastaan actionin, välittämättä siitä, että taustalla tapahtuu todellisuudessa palvelimen kanssa tapahtuvaa kommunikointia. Tämän kaltaisten <i>asynkronisten actioneiden</i> käyttö onnistuu [Redux Thunk](https://github.com/reduxjs/redux-thunk)-kirjaston avulla. Kirjaston käyttö ei vaadi ylimääräistä konfiguraatiota, kun Redux-store on luotu Redux Toolkitin <em>configureStore</em>-funktiolla.
 
-Redux Thunkin ansiosta on mahdollista määritellä <i>action creatoreja</i>, jotka palauttavat objektin sijaan funktion. Tämän funktion parametrina on Redux-storen <em>dispatch</em>- ja <em>getState</em>-metodi. Tämän ansiosta on mahdollista tehdä asynkronisia action creatoreja, jotka ensin odottavat jonkin toimenpiteen valmistumista ja vasta sen jälkeen dispatchaavat varsinaisen actionin.
+Redux Thunkin ansiosta on mahdollista määritellä <i>action creatoreja</i>, jotka palauttavat objektin sijaan funktion. Tämän funktion parametreina ovat Redux-storen <em>dispatch</em>- ja <em>getState</em>-metodi. Tämän ansiosta on mahdollista toteuttaa asynkronisia action creatoreja, jotka ensin odottavat jonkin asynkronisen toimenpiteen valmistumista ja vasta sen jälkeen dispatchaavat varsinaisen actionin.
 
 Voimme nyt määritellä muistiinpanojen alkutilan palvelimelta hakevan action creatorin <em>initializeNotes</em> seuraavasti:
 
@@ -432,7 +432,7 @@ export const initializeNotes = () => {
 export default noteSlice.reducer
 ```
 
-Sisemmässä funktiossaan, eli <i>asynkronisessa actionissa</i> operaatio hakee ensin palvelimelta kaikki muistiinpanot ja sen jälkeen <i>dispatchaa</i> muistiinpanot storeen lisäävän actionin, <em>setNotes</em>.
+Sisemmässä funktiossaan, eli <i>asynkronisessa actionissa</i>, operaatio hakee ensin palvelimelta kaikki muistiinpanot ja sen jälkeen <i>dispatchaa</i> muistiinpanot storeen lisäävän actionin, <em>setNotes</em>.
 
 Komponentti <i>App</i> voidaan nyt määritellä seuraavasti:
 
@@ -514,7 +514,7 @@ export const createNote = content => {
 export default noteSlice.reducer
 ```
 
-Periaate on jälleen sama, ensin suoritetaan asynkroninen operaatio, ja sen valmistuttua <i>dispatchataan</i> storen tilaa muuttava action.
+Periaate on jälleen sama, ensin suoritetaan asynkroninen operaatio, ja sen valmistuttua <i>dispatchataan</i> storen tilaa muuttava action. Redux Toolkit tarjoaa monia työkaluja asynkronisen tilanhallinnan helpottamiseksi. Tähän käyttötarkoitukseen soveltuvat mm. [createAsyncThunk](https://redux-toolkit.js.org/api/createAsyncThunk)-funktio ja [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)-API.
 
 Komponentti <i>NewNote</i> muuttuu seuraavasti:
 
