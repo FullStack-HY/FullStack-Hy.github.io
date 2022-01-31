@@ -85,18 +85,20 @@ describe('Note ', function() {
   it('front page can be opened', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
   })
 })
 ```
 
 Testin suoritus käynnistetään avautuneesta ikkunasta:
 
-![](../../images/5/40ea.png)
+![](../../images/5/40x.png)
+
+**HUOM**: saatat joutua käynnistämään Cypressin uudelleen sen jälkeen kun poistat esimerkkitestit.
 
 Testin suoritus avaa selaimen ja näyttää miten sovellus käyttäytyy testin edetessä:
 
-![](../../images/5/32ae.png)
+![](../../images/5/32x.png)
 
 Testi näyttää rakenteeltaan melko tutulta. <i>describe</i>-lohkoja käytetään samaan tapaan kuin Jestissä ryhmittelemään yksittäisiä testitapauksia, jotka on määritelty <i>it</i>-metodin avulla. Nämä osat Cypress on lainannut sisäisesti käyttämältään [Mocha](https://mochajs.org/)-testikirjastolta.  
 
@@ -109,7 +111,7 @@ describe('Note app', () => { // highlight-line
   it('front page can be opened', () => { // highlight-line
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
   })
 })
 ```
@@ -123,7 +125,7 @@ describe('Note app', function() {
   it('front page can be opened',  function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
   })
 
 // highlight-start
@@ -137,7 +139,7 @@ describe('Note app', function() {
 
 havaitsee Cypress ongelman
 
-![](../../images/5/33ea.png)
+![](../../images/5/33x.png)
 
 Poistetaan virheeseen johtanut testi koodista.
 
@@ -153,7 +155,7 @@ describe('Note app',  function() {
 
   it('login form can be opened', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('log in').click()
+    cy.contains('login').click()
   })
 })
 ```
@@ -172,11 +174,11 @@ describe('Note app', function() {
 
   it('front page can be opened', function() {
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2021')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
   })
 
   it('login form can be opened', function() {
-    cy.contains('log in').click()
+    cy.contains('login').click()
   })
 })
 ```
@@ -189,7 +191,7 @@ Voimme hakea lomakkeen ensimmäisen ja viimeisen input-kentän ja kirjoittaa nii
 
 ```js
 it('user can login', function () {
-  cy.contains('log in').click()
+  cy.contains('login').click()
   cy.get('input:first').type('mluukkai')
   cy.get('input:last').type('salainen')
 })  
@@ -239,7 +241,7 @@ Testi muuttuu muotoon
 describe('Note app',  function() {
   // ..
   it('user can log in', function() {
-    cy.contains('log in').click()
+    cy.contains('login').click()
     cy.get('#username').type('mluukkai')  // highlight-line    
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
@@ -258,7 +260,7 @@ Huomaa, että CSS:n [id-selektori](https://developer.mozilla.org/en-US/docs/Web/
 Testissä klikataan ensin kirjaantumislomakkeen avaavaa nappia seuraavasti
 
 ```js
-cy.contains('log in').click()
+cy.contains('login').click()
 ```
 
 Kun lomake on täytetty, lähetetään lomake klikkaamalla nappia
@@ -316,7 +318,7 @@ describe('Note app', function() {
   // highlight-start
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('log in').click()
+      cy.contains('login').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -346,7 +348,7 @@ cy.get('input')
 
 Jos kenttiä olisi useampia, testi hajoaisi
 
-![](../../images/5/31ea.png)
+![](../../images/5/31x.png)
 
 Tämän takia olisi jälleen parempi lisätä lomakkeen kentälle <i>id</i> ja hakea kenttä testissä id:n perusteella.
 
@@ -357,7 +359,7 @@ describe('Note app', function() {
   // ...
 
   it('user can log in', function() {
-    cy.contains('log in').click()
+    cy.contains('login').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -367,7 +369,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('log in').click()
+      cy.contains('login').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -429,7 +431,7 @@ module.exports = app
 
 eli lisäyksen jälkeen HTTP POST -operaatio backendin endpointiin <i>/api/testing/reset</i> tyhjentää tietokannan.
 
-Backendin testejä varten muokattu koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part5-1), branchissä <i>part5-1</i>.
+Backendin testejä varten muokattu koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part5-1), branchissä <i>part5-1</i>.
 
 Muutetaan nyt testien <i>beforeEach</i>-alustuslohkoa siten, että se nollaa palvelimen tietokannan aina ennen testien suorittamista.
 
@@ -520,7 +522,7 @@ Ensimmäinen komento etsii ensin komponentin, missä on teksti <i>another note c
 
 Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make not important</i>.
 
-Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
+Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
 
 ### Epäonnistuneen kirjautumisen testi
 
@@ -535,7 +537,7 @@ describe('Note app', function() {
   // ...
 
   it.only('login fails with wrong password', function() {
-    cy.contains('log in').click()
+    cy.contains('login').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('wrong')
     cy.get('#login-button').click()
@@ -622,7 +624,7 @@ Viimeistellään testi vielä siten, että se varmistaa myös, että sovellus ei
 
 ```js
 it('login fails with wrong password', function() {
-  cy.contains('log in').click()
+  cy.contains('login').click()
   cy.get('#username').type('mluukkai')
   cy.get('#password').type('wrong')
   cy.get('#login-button').click()
@@ -645,7 +647,7 @@ Sovelluksemme testit näyttävät tällä hetkellä seuraavalta:
 ```js 
 describe('Note app', function() {
   it('user can login', function() {
-    cy.contains('log in').click()
+    cy.contains('login').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -659,7 +661,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('log in').click()
+      cy.contains('login').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -815,7 +817,7 @@ describe('Note app', function() {
 })
 ```
 
-Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
+Testit ja frontendin koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
 
 ### Muistiinpanon tärkeyden muutos
 
@@ -925,7 +927,7 @@ Vielä osan lopuksi muutamia huomioita Cypressin toimintaperiaatteesta sekä tes
 Cypressissä testien kirjoitusasu antaa vaikutelman, että testit ovat normaalia JavaScript-koodia, ja että voisimme esim. yrittää seuraavaa:
 
 ```js
-const button = cy.contains('log in')
+const button = cy.contains('login')
 button.click()
 debugger() 
 cy.contains('logout').click()
@@ -972,7 +974,7 @@ Nyt siis voimme suorittaa Cypress-testit komentoriviltä komennolla <i>npm run t
 
 Huomaa, että testien suorituksesta tallentuu video hakemistoon <i>cypress/videos/</i>, hakemisto lienee syytä gitignoroida.
 
-Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
+Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
 
 </div>
 
