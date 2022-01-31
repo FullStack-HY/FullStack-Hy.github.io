@@ -455,7 +455,7 @@ After the changes, an HTTP POST request to the <i>/api/testing/reset</i> endpoin
   npm run start:test
 ```
 
-The modified backend code can be found from [github](https://github.com/fullstack-hy/part3-notes-backend/tree/part5-1) branch <i>part5-1</i>.
+The modified backend code can be found from [GitHub](https://github.com/fullstack-hy/part3-notes-backend/tree/part5-1) branch <i>part5-1</i>.
 
 Next we will change the <i>beforeEach</i> block so that it empties the server's database before tests are run. 
 
@@ -547,7 +547,7 @@ The first command searches for a component containing the text <i>another note c
 
 The second command checks that the text on the button has changed to <i>make not important</i>.
 
-The tests and the current frontend code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-9) branch <i>part5-9</i>.
+The tests and the current frontend code can be found from [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part5-9) branch <i>part5-9</i>.
 
 ### Failed login test
 
@@ -766,7 +766,6 @@ Cypress.Commands.add('login', ({ username, password }) => {
 })
 ```
 
-<!-- Komennon käyttö on helppoa, testi yksinkertaisuu ja selkeytyy: -->
 Using our custom command is easy, and our test becomes cleaner:
 
 ```js 
@@ -785,7 +784,6 @@ describe('when logged in', function() {
 })
 ```
 
-<!-- Sama koskee oikeastaan myös uuden muistiinpanon luomista. Sitä varten on olemassa testi, joka luo muistiinpanon lomakkeen avulla. Myös muistiinpanon tärkeyden muuttamista testaavan testin <i>beforeEach</i>-alustuslohkossa luodaan muistiinpano lomakkeen avulla:  -->
 The same applies to creating a new note now that we think about it. We have a test which makes a new note using the form. We also make a new note in the <i>beforeEach</i> block of the test testing changing the importance of a note: 
 
 ```js
@@ -816,7 +814,6 @@ describe('Note app', function() {
 })
 ```
 
-<!-- Eristetään myös muistiinpanon lisääminen omaksi komennoksi, joka tekee lisäämisen suoraan HTTP POST:lla: -->
 Let's make a new custom command for making a new note. The command will make a new note with an HTTP POST request: 
 
 ```js
@@ -834,10 +831,8 @@ Cypress.Commands.add('createNote', ({ content, important }) => {
 })
 ```
 
-<!-- Komennon suoritus edellyttää, että käyttäjä on kirjaantuneena sovelluksessa ja käyttäjän tiedot talletettuna sovelluksen localStorageen. -->
 The command expects the user to be logged in and the user's details to be saved to localStorage. 
 
-<!-- Testin alustuslohko yksinkertaistuu seuraavasti: -->
 Now the formatting block becomes:
 
 ```js
@@ -867,12 +862,10 @@ describe('Note app', function() {
 })
 ```
 
-<!-- Testit ja frontendin koodi on kokonaisuudessaan [githubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>. -->
-The tests and the frontend code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-10) branch <i>part5-10</i>.
+The tests and the frontend code can be found from [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part5-10) branch <i>part5-10</i>.
 
 ### Changing the importance of a note
 
-<!-- Tarkastellaan vielä aiemmin tekemäämme testiä, joka varmistaa että muistiinpanon tärkeyttä on mahdollista muuttaa. Muutetaan testin alustuslohkoa siten, että se luo yhden sijaan kolme muistiinpanoa: -->
 Lastly let's take a look at the test we did for changing the importance of a note. 
 First we'll change the formatting block so that it creates three notes instead of one:
 
@@ -899,26 +892,19 @@ describe('when logged in', function() {
 })
 ```
 
-<!-- Miten komento [cy.contains](https://docs.cypress.io/api/commands/contains.html) tarkalleen ottaen toimii? -->
 How does the [cy.contains](https://docs.cypress.io/api/commands/contains.html) command actually work?
 
-<!-- Kun klikkaamme komentoa _cy.contains('second note')_ Cypressin [test runnerista](https://docs.cypress.io/guides/core-concepts/test-runner.htm) nähdään, että komento löytää elementin, jonka sisällä on teksti <i>second note</i>: -->
 When we click the _cy.contains('second note')_ command in Cypress [Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html), we see that the command searches for the element containing the text <i>second note</i>:
 
-![](../../images/5/34ea.png)
+![](../../images/5/34x.png)
 
-
-<!-- Klikkaamalla seuraavaa riviä _.contains('make important')_, nähdään että löydetään nimenomaan  -->
 By clicking the next line _.contains('make important')_ we see that the test uses 
-<!-- <i>second note</i>:a vastaava tärkeyden muutoksen tekevä nappi: -->
 the 'make important' button corresponding to <i>second note</i>:
 
-![](../../images/5/35ea.png)
+![](../../images/5/35x.png)
 
-<!-- Peräkkäin ketjutettuna toisena oleva <i>contains</i>-komento siis <i>jatkaa</i> hakua ensimmäisen komennon löytämän komponentin sisältä. -->
 When chained, the second <i>contains</i> command <i>continues</i> the search from within the component found by the first command. 
 
-<!-- Jos emme ketjuttaisi komentoja, eli olisimme kirjoittaneet  -->
 If we had not chained the commands, and instead wrote:
 
 ```js
@@ -926,15 +912,12 @@ cy.contains('second note')
 cy.contains('make important').click()
 ```
 
-<!-- tulos olisi ollut aivan erilainen, toinen rivi painaisi väärän muistiinpanon nappia:  -->
 the result would have been totally different. The second line of the test would click the button of a wrong note:
 
-![](../../images/5/36ea.png)
+![](../../images/5/36x.png)
 
-<!-- Testejä tehdessä kannattaa siis ehdottomasti varmistaa test runnerista, että testit etsivät niitä elementtejä, joita niiden on tarkoitus tutkia! -->
 When coding tests, you should check in the test runner that the tests use the right components!
 
-<!-- Muutetaan komponenttia _Note_ siten, että muistiinpanon teksti renderöitään <i>span</i>-komponentin sisälle -->
 Let's change the _Note_ component so that the text of the note is rendered to a <i>span</i>.
 
 ```js
@@ -951,12 +934,10 @@ const Note = ({ note, toggleImportance }) => {
 }
 ```
 
-<!-- Testit hajoavat! Kuten test runner paljastaa, komento _cy.contains('second note')_ palauttaakin nyt ainoastaan tekstin sisältävän komponentin, ja nappi on sen ulkopuolella: -->
 Our tests break! As the test runner reveals,  _cy.contains('second note')_ now returns the component containing the text, and the button is not in it. 
 
-![](../../images/5/37ea.png)
+![](../../images/5/37x.png)
 
-<!-- Eräs tapa korjata ongelma on seuraavassa: -->
 One way to fix this is the following:
 
 ```js
@@ -967,16 +948,14 @@ it('one of those can be made important', function () {
 })
 ```
 
-<!-- Ensimmäisellä rivillä etsitään komennon [parent](https://docs.cypress.io/api/commands/parent.htm) tekstin <i>second note</i> sisältävän elementin vanhemman alla oleva nappi ja painetaan sitä. Toinen rivi varmistaa, että napin teksti muuttuu. -->
 In the first line, we use the [parent](https://docs.cypress.io/api/commands/parent.html) command to access the parent element of the element containing <i>second note</i> and find the button from within it. 
 Then we click the button, and check that the text on it changes. 
 
-<!-- Huomaa, että napin etsimiseen käytetään komentoa [find](https://docs.cypress.io/api/commands/find.html#Syntax). Komento [cy.get](https://docs.cypress.io/api/commands/get.html) ei sovellu tähän tilanteeseen, sillä se etsii elementtejä aina <i>koko</i> sivulta ja palauttaisi nyt kaikki sovelluksen viisi nappia. -->
 Note that we use the command [find](https://docs.cypress.io/api/commands/find.html#Syntax) to search for the button. We cannot use [cy.get](https://docs.cypress.io/api/commands/get.html) here, because it always searches from the <i>whole</i> page and would return all 5 buttons on the page. 
 
-<!-- Testissä on ikävästi copypastea, rivien alku eli napin etsivä koodi on sama.  -->
+
 Unfortunately, we have some copy-paste in the tests now, because the code for searching for the right button is always the same. 
-<!-- Tälläisissä tilanteissa on mahdollista hyödyntää komentoa [as](https://docs.cypress.io/api/commands/as.html):  -->
+
 In these kinds of situations, it is possible to use the [as](https://docs.cypress.io/api/commands/as.html) command:
 
 ```js
@@ -987,14 +966,12 @@ it('one of those can be made important', function () {
 })
 ```
 
-<!-- Nyt ensimmäinen rivi etsii oikean napin, ja tallentaa sen komennon <i>as</i> avulla nimellä <i>theButton</i>. Seuraavat rivit pääsevät nimettyyn elementtiin käsiksi komennolla <i>cy.get('@theButton')</i>. -->
 Now the first line finds the right button, and uses <i>as</i> to save it as <i>theButton</i>. The following lines can use the named element with <i>cy.get('@theButton')</i>.
 
 ### Running and debugging the tests
 
 Finally, some notes on how Cypress works and debugging your tests.
 
-<!-- Cypressissä testien kirjoitusasu antaa vaikutelman, että testit ovat normaalia javascript-koodia, ja että voisimme esim. yrittää seuraavaa: -->
 The form of the Cypress tests gives the impression that the tests are normal JavaScript code, and we could for example try this:
 
 ```js
@@ -1004,14 +981,11 @@ debugger()
 cy.contains('logout').click()
 ```
 
-<!-- Näin kirjoitettu koodi ei kuitenkaan toimi. Kun Cypress suorittaa testin, se lisää jokaisen _cy_-komennon suoroitusjonoon. Kun testimetodin koodi on suoritettu loppuun, suorittaa Cypress yksi kerrallaan suoritusjonoon lisätyt _cy_-komennot. -->
 This won't work however. When Cypress runs a test, it adds each _cy_ command to an execution queue. 
 When the code of the test method has been executed, Cypress will execute each command in the queue one by one. 
 
-<!-- Cypressin komennot palauttavat aina _undefined_, eli yllä olevassa koodissa komento _button.click()_ aiheuttaisi virheen ja yritys käynnistää debuggeri ei pysäyttäisi koodia Cypress-komentojen suorituksen välissä, vaan jo ennen kuin yhtään Cypress-komentoa olisi suoritettu. -->
 Cypress commands always return _undefined_, so _button.click()_ in the above code would cause an error. An attempt to start the debugger would not stop the code between executing the commands, but before any commands have been executed. 
 
-<!-- Cypress-komennot ovat <i>promisen kaltaisia</i>, joten jos niiden palauttamia arvoja halutaan käsitellä, se tulee tehdä komennon [then](https://docs.cypress.io/api/commands/then.html) avulla. Esim. seuraava testi tulostaisi sovelluksen <i>kaikkien</i> nappien lukumäärän ja klikkaisi napeista ensimmäistä: -->
 Cypress commands are <i>like promises</i>, so if we want to access their return values, we have to do it using the [then](https://docs.cypress.io/api/commands/then.html) command. 
 For example, the following test would print the number of buttons in the application, and click the first button: 
 
@@ -1024,7 +998,6 @@ it('then example', function() {
 })
 ```
 
-<!-- Myös testien suorituksen pysäyttäminen debuggeriin on [mahdollista](https://docs.cypress.io/api/commands/debug.html). Debuggeri käynnistyy vain jos Cypress test runnerin developer konsoli on auki.  -->
 Stopping the test execution with the debugger is [possible](https://docs.cypress.io/api/commands/debug.html). The debugger starts only if Cypress test runner's developer console is open. 
 
 The developer console is all sorts of useful when debugging your tests. 
@@ -1049,11 +1022,11 @@ It is also possible to run them [from the command line](https://docs.cypress.io/
 
 Now we can run our tests from the command line with the command <i>npm run test:e2e</i>
 
-![](../../images/5/39ea.png)
+![](../../images/5/39x.png)
 
 Note that videos of the test execution will be saved to <i>cypress/videos/</i>, so you should probably git ignore this directory. 
 
-The frontend and the test code can be found from [github](https://github.com/fullstack-hy/part2-notes/tree/part5-11) branch <i>part5-11</i>.
+The frontend and the test code can be found from [GitHub](https://github.com/fullstack-hy/part2-notes/tree/part5-11) branch <i>part5-11</i>.
 
 </div>
 

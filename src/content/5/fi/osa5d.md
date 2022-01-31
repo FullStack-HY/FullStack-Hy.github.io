@@ -850,13 +850,12 @@ Miten komento [cy.contains](https://docs.cypress.io/api/commands/contains.html) 
 
 Kun klikkaamme komentoa _cy.contains('second note')_ Cypressin [test runnerista](https://docs.cypress.io/guides/core-concepts/test-runner.html) nähdään, että komento löytää elementin, jonka sisällä on teksti <i>second note</i>:
 
-![](../../images/5/34ea.png)
-
+![](../../images/5/34x.png)
 
 Klikkaamalla seuraavaa riviä _.contains('make important')_, nähdään että löydetään nimenomaan 
 <i>second note</i>:a vastaava tärkeyden muutoksen tekevä nappi:
 
-![](../../images/5/35ea.png)
+![](../../images/5/35x.png)
 
 Peräkkäin ketjutettuna toisena oleva <i>contains</i>-komento siis <i>jatkaa</i> hakua ensimmäisen komennon löytämän komponentin sisältä.
 
@@ -869,7 +868,7 @@ cy.contains('make important').click()
 
 tulos olisi ollut aivan erilainen, toinen rivi painaisi väärän muistiinpanon nappia: 
 
-![](../../images/5/36ea.png)
+![](../../images/5/36x.png)
 
 Testejä tehdessä kannattaa siis ehdottomasti varmistaa test runnerista, että testit etsivät niitä elementtejä, joita niiden on tarkoitus tutkia!
 
@@ -891,7 +890,7 @@ const Note = ({ note, toggleImportance }) => {
 
 Testit hajoavat! Kuten test runner paljastaa, komento _cy.contains('second note')_ palauttaakin nyt ainoastaan tekstin sisältävän komponentin, ja nappi on sen ulkopuolella:
 
-![](../../images/5/37ea.png)
+![](../../images/5/37x.png)
 
 Eräs tapa korjata ongelma on seuraavassa:
 
@@ -970,7 +969,7 @@ Olemme toistaiseksi suorittaneet Cypress-testejä ainoastaan graafisen test runn
 
 Nyt siis voimme suorittaa Cypress-testit komentoriviltä komennolla <i>npm run test:e2e</i>
 
-![](../../images/5/39ea.png)
+![](../../images/5/39x.png)
 
 Huomaa, että testien suorituksesta tallentuu video hakemistoon <i>cypress/videos/</i>, hakemisto lienee syytä gitignoroida.
 
