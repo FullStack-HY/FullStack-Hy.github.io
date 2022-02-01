@@ -242,7 +242,7 @@ Komponentti <i>Togglable</i> on uusiokäytettävä, ja voimme käyttää sitä t
 Eristetään ensin muistiinpanojen luominen omaksi komponentiksi
 
 ```js
-const NoteForm = ({ onSubmit, handleChange, value}) => {
+const NoteForm = ({ onSubmit, handleChange, value }) => {
   return (
     <div>
       <h2>Create a new note</h2>
@@ -391,7 +391,7 @@ const App = () => {
 Komponenttia <i>Togglable</i> laajennetaan seuraavasti
 
 ```js
-import { useState, useImperativeHandle } from 'react' // highlight-line
+import { useState, useImperativeHandle, forwardRef } from 'react' // highlight-line
 
 const Togglable = forwardRef((props, ref) => { // highlight-line
   const [visible, setVisible] = useState(false)

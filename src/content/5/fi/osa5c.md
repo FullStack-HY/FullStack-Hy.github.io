@@ -356,7 +356,7 @@ describe('<Togglable />', () => {
   })
 
   test('renders its children', () => {
-    screen.findAllByText('togglable content')
+    screen.getByText('togglable content')
   })
 
   test('at start the children are not displayed', () => {
@@ -625,6 +625,75 @@ const input = content.querySelector('#note-input')
 
 Jätämme koodiin placeholderiin perustuvan ratkaisun.
 
+Vielä muutama tärkeä huomio. Jos komponentti renderöisi samaan HTML-elementtiin tekstiä seuraavasti
+
+```js
+const Note = ({ note, toggleImportance }) => {
+  const label = note.important
+    ? 'make not important' : 'make important'
+
+  return (
+    <li className='note'>
+      Your awesome note: {note.content} // highlight-line
+      <button onClick={toggleImportance}>{label}</button>
+    </li>
+  )
+}
+
+export default Note
+```
+
+ei testissä käyttämämme _getByText_ löydä elementtiä
+
+```js 
+test('renders content', () => {
+  const note = {
+    content: 'Does not work anymore :(',
+    important: true
+  }
+
+  render(<Note note={note} />)
+
+  const element = screen.getByText('Does not work anymore :(')
+
+  expect(element).toBeDefined()
+})
+```
+
+Komento _getByText_ nimittäin etsii elementtiä missä on <i>ainoastaan parametrina teksti</i> eikä mitään muuta. Jos halutaan etsiä komponenttia joka <i>sisältää</i> tekstin, voidaan joko lisätä komennolle ekstraoptio 
+
+```js 
+const element = screenscreen.getByText(
+  'Does not work anymore :(', { exact: false }
+)
+```
+
+tai käyttää komentoa _findByText_:
+
+```js 
+const element = await screen.findByText('Does not work anymore :(')
+```
+
+On tärkeä huomata, että toisin kuin muut _ByText_-komennoista, _findByText_ palauttaa promisen!
+
+On myös jotain tilanteita, missä komennon muoto _queryByText_ on käyttökelpoinen. Komento palauttaa elementin mutta <i>ei aiheuta poikkeusta</i> jos etsittävää elementtiä ei löydy. 
+
+Komentoa voidaan hyödyntää esim. varmistamaan, että jokin asia <i>ei renderöidy</i>:
+
+```js 
+test('renders no shit', () => {
+  const note = {
+    content: 'This is a reminder',
+    important: true
+  }
+
+  render(<Note note={note} />)
+
+  const element = screen.queryByText('do not want this shit to be rendered')
+  expect(element).toBeNull()
+})
+```
+
 ### Testauskattavuus
 
 [Testauskattavuus](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting) saadaan helposti selville suorittamalla testit komennolla
@@ -662,24 +731,6 @@ Tee testi, joka varmistaa, että jos komponentin <i>like</i>-nappia painetaan ka
 #### 5.16*: blogilistan testit, step4
 
 Tee uuden blogin luomisesta huolehtivalle lomakkelle testi, joka varmistaa, että lomake kutsuu propseina saamaansa takaisinkutsufunktiota oikeilla tiedoilla siinä vaiheessa kun blogi luodaan.
-
-Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia tai id:itä.
-
-Jos esim. määrittelet <i>input</i>-elementille id:n 'author',
-
-```js
-<input
-  id='author'
-  value={author}
-  onChange={() => {}}
-/>
-```
-
-saat haettua kentän testissä seuraavasti:
-
-```js
-const author = component.container.querySelector('#author')
-```
 
 </div>
 

@@ -631,10 +631,79 @@ const input = content.querySelector('#note-input')
 
 However we shall stick to a approach using _getByPlaceholderText_ in the test. 
 
+Let us look to couple of details before moving on. Let us assume that a component would render test to an HTML-element as follows:
+
+```js
+const Note = ({ note, toggleImportance }) => {
+  const label = note.important
+    ? 'make not important' : 'make important'
+
+  return (
+    <li className='note'>
+      Your awesome note: {note.content} // highlight-line
+      <button onClick={toggleImportance}>{label}</button>
+    </li>
+  )
+}
+
+export default Note
+```
+
+the _getByText_ command that the test uses does <i>not</i> find the element
+
+```js 
+test('renders content', () => {
+  const note = {
+    content: 'Does not work anymore :(',
+    important: true
+  }
+
+  render(<Note note={note} />)
+
+  const element = screen.getByText('Does not work anymore :(')
+
+  expect(element).toBeDefined()
+})
+```
+
+Command _getByText_ looks for an element that has exactly the text that it has as parameter, and nothing more. If we want to look for element that <i>contains</i> the text, we could use a extra option:
+
+```js 
+const element = screenscreen.getByText(
+  'Does not work anymore :(', { exact: false }
+)
+```
+
+or we could use the command _findByText_:
+
+```js 
+const element = await screen.findByText('Does not work anymore :(')
+```
+
+It is important to notice that unlike the othet _ByText_ commands, _findByText_ returns a promise!
+
+There are situation where yet another form of the command _queryByText_ is useful. The command returns the element but <i>it does not cause an exception</i> if the element is not found.
+
+We could eg. use the command to ensure that something <i>is not rendered</i> to the component:
+
+```js 
+test('renders no shit', () => {
+  const note = {
+    content: 'This is a reminder',
+    important: true
+  }
+
+  render(<Note note={note} />)
+
+  const element = screen.queryByText('do not want this shit to be rendered')
+  expect(element).toBeNull()
+})
+```
+
+
 ### Test coverage
 
-We can easily find out the [coverage](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting)
-of our tests by running them with the command.
+We can easily find out the [coverage](https://github.com/facebookincubator/create-react-app/blob/ed5c48c81b2139b4414810e1efe917e04c96ee8d/packages/react-scripts/template/README.md#coverage-reporting) of our tests by running them with the command.
 
 ```js
 CI=true npm test -- --coverage
@@ -656,44 +725,21 @@ You can find the code for our current application in its entirety in the <i>part
 
 #### 5.13: Blog list tests, step1
 
-<!-- Tee testi, joka varmistaa että blogin näyttävä komponentti renderöi blogin titlen, authorin mutta ei renderöi oletusarvoisesti urlia eikä likejen määrää. -->
 Make a test which checks that the component displaying a blog renders the blog's title and author, but does not render its url or number of likes by default.
 
-<!-- Lisää komponenttiin tarvittaessa testausta helpottavia CSS-luokkia. -->
 Add CSS-classes to the component to help the testing as necessary. 
 
 #### 5.14*: Blog list tests, step2
 
-<!-- Tee testi, joka varmistaa että myös url ja likejen määrä näytetään kun blogin kaikki tiedot näyttävää nappia on painettu. -->
 Make a test which checks that the blog's url and number of likes are shown when the button controlling the shown details has been clicked. 
 
-#### 5.15*: Blog list tests, step3
+#### 5.15: Blog list tests, step3
 
-<!-- Tee testi, joka varmistaa, että jos komponentin <i>like</i>-nappia painetaan kahdesti, komponentin propsina saamaa tapahtumankäsittelijäfunktiota kutsutaan kaksi kertaa. -->
 Make a test which ensures that if the <i>like</i> button is clicked twice, the event handler the component received as props is called twice. 
 
-#### 5.16*: Blog list tests, step4
+#### 5.16: Blog list tests, step4
 
-<!-- Tee uuden blogin luomisesta huolehtivalle lomakkelle testi, joka varmistaa, että lomake kutsuu propseina saamaansa takaisinkutsufunktiota oikeilla tiedoilla siinä vaiheessa kun blogi luodaan. -->
 Make a test for the new blog form. The test should check, that the form calls the event handler it received as props with the right details when a new blog is created. 
-
-<!-- Jos esim. määrittelet <i>input</i>-elementille id:n 'author': -->
-If, for example, you set an <i>input</i> element's id attribute as 'author':
-
-```js
-<input
-  id='author'
-  value={author}
-  onChange={() => {}}
-/>
-```
-
-<!-- saat haettua kentän testissä seuraavasti -->
-You can access the contents of the field with:
-
-```js
-const author = component.container.querySelector('#author')
-```
 
 </div>
 

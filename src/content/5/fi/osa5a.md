@@ -519,7 +519,7 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://gith
 
 Teemme nyt edellisen osan tehtävissä tehtyä bloglist-backendia käyttävän frontendin. 
 
-Voit ottaa tehtävien pohjaksi [Githubissa](https://github.com/fullstack-hy/bloglist-frontend/) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
+Voit ottaa tehtävien pohjaksi [Githubissa](https://github.com/fullstack-hy2020/bloglist-frontend) olevan sovellusrungon. Sovellus olettaa, että backend on käynnissä koneesi portissa 3003.
 
 Lopullisen version palauttaminen riittää. Voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
 
