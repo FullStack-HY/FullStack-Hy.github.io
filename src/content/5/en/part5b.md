@@ -832,6 +832,9 @@ export default Togglable
 
 You can find the code for our current application in its entirety in the <i>part5-7</i> branch of [this github repository](https://github.com/fullstack-hy/part2-notes/tree/part5-7).
 
+Note that create-react-app has also a [default ESLint-configuration](https://www.npmjs.com/package/eslint-config-react-app), that we have now overriden. [The documentation](https://create-react-app.dev/docs/setting-up-your-editor/#extending-or-replacing-the-default-eslint-config) mentions that it is ok to replace the default but does not encourage to that:
+ <i>We highly recommend extending the base config, as removing it could introduce hard-to-find issues</i>.
+
 </div>
 
 <div class="tasks">
