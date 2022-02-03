@@ -469,7 +469,7 @@ const noteSlice = createSlice({
 // highlight-end
 ```
 
-<em>createSlice</em>-funktion <em>name</em>-parametri määrittelee etuliitteen, jota käytetään actioneiden type-arvoissa. Esimerkiksi myöhemmin määritelty <em>createNote</em>-action saa type-arvon <em>notes/createNote</em>. Parametrin arvona on hyvä käyttää muiden reducereiden kesken uniikkia nimeä, niin sovelluksen actioneiden type-arvoissa ei tapahdu odottamattomia yhteentörmäyksiä. Parametri <em>initialState</em> määrittelee reducerin alustavan tilan. Parametri <em>reducers</em> määrittelee itse reducerin objektina, jonka funktiot käsittelevät tietyn actionin aiheuttamat tilamuutokset. Huomaa, että funktioissa <em>action.payload</em> sisältää action creatorin kutsussa annetun argumentin:
+<em>createSlice</em>-funktion <em>name</em>-parametri määrittelee etuliitteen, jota käytetään actioneiden type-arvoissa. Esimerkiksi myöhemmin määritelty <em>createNote</em>-action saa type-arvon <em>notes/createNote</em>. Parametrin arvona on hyvä käyttää muiden reducereiden kesken uniikkia nimeä, jotta sovelluksen actioneiden type-arvoissa ei tapahtuisi odottamattomia yhteentörmäyksiä. Parametri <em>initialState</em> määrittelee reducerin alustavan tilan. Parametri <em>reducers</em> määrittelee itse reducerin objektina, jonka funktiot käsittelevät tietyn actionin aiheuttamat tilamuutokset. Huomaa, että funktioissa <em>action.payload</em> sisältää action creatorin kutsussa annetun argumentin:
 
 ```js
 dispatch(createNote('Redux Toolkit is awesome!'))
@@ -497,7 +497,9 @@ createNote(state, action) {
 
 Mutatoimme <em>state</em>-argumentin taulukkoa kutsumalla <em>push</em>-metodia sen sijaan, että palauttaisimme uuden instanssin taulukosta. Mistä on kyse?
 
-Redux Toolkit hyödyntää <em>createSlice</em>-funktion avulla määritellyissä reducereissa [Immer](https://immerjs.github.io/immer/)-kirjastoa, joka mahdollistaa <em>state</em>-argumentin mutatoinnin reducerin sisällä. Immer muodostaa mutatoidun tilan perusteella uuden, immutablen tilan ja näin tilamuutosten immutabiliteetti säilyy. Huomaa, että tilaa voi muuttaa myös "mutatoimatta", kuten esimerkiksi <em>toggleImportanceOf</em> -actionin kohdalla on tehty. Mutatointi osoittautuu kuitenkin usein hyödylliseksi etenkin rakenteeltaan monimutkaisen tilan päivittämisessä.
+Redux Toolkit hyödyntää <em>createSlice</em>-funktion avulla määritellyissä reducereissa [Immer](https://immerjs.github.io/immer/)-kirjastoa, joka mahdollistaa <em>state</em>-argumentin mutatoinnin reducerin sisällä. Immer muodostaa mutatoidun tilan perusteella uuden, immutablen tilan ja näin tilamuutosten immutabiliteetti säilyy.
+
+Huomaa, että tilaa voi muuttaa myös "mutatoimatta", kuten esimerkiksi <em>toggleImportanceOf</em> -actionin kohdalla on tehty. Tällöin funktio palauttaa uuden tilan. Mutatointi osoittautuu kuitenkin usein hyödylliseksi etenkin rakenteeltaan monimutkaisen tilan päivittämisessä.
 
 Funktio <em>createSlice</em> palauttaa objektin, joka sisältää sekä reducerin, että <em>reducers</em>-parametrin actioneiden mukaiset action creatorit. Reducer on palautetussa objektissa <em>noteSlice.reducer</em>-kentässä, kun taas action creatorit <em>noteSlice.actions</em>-kentässä. Voimme muodostaa tiedoston exportit kätevästi seuraavalla tavalla:
 
@@ -515,6 +517,61 @@ Importit toimivat muissa tiedostoissa tavalliseen tapaan:
 
 ```js
 import noteReducer, { createNote, toggleImportanceOf } from './reducers/noteReducer'
+```
+
+Joudumme hieman muuttamaan testiemme rakennetta, ReduxToolkitin nimeämiskäytäntöjen takia:
+
+```js 
+import noteReducer from './noteReducer'
+import deepFreeze from 'deep-freeze'
+
+describe('noteReducer', () => {
+  test('returns new state with action notes/createNote', () => {
+    const state = []
+    const action = {
+      type: 'notes/createNote', // highlight-line
+      payload: 'the app state is in redux store', // highlight-line
+    }
+
+    deepFreeze(state)
+    const newState = noteReducer(state, action)
+
+    expect(newState).toHaveLength(1)
+    expect(newState.map(s => s.content)).toContainEqual(action.payload) // highlight-line
+  })
+
+  test('returns new state with action notes/toggleImportanceOf', () => {
+    const state = [
+      {
+        content: 'the app state is in redux store',
+        important: true,
+        id: 1
+      },
+      {
+        content: 'state changes are made with actions',
+        important: false,
+        id: 2
+      }]
+  
+    const action = {
+      type: 'notes/toggleImportanceOf', // highlight-line
+      payload: 2 // highlight-line
+    }
+  
+    deepFreeze(state)
+    const newState = noteReducer(state, action)
+  
+    expect(newState).toHaveLength(2)
+  
+    expect(newState).toContainEqual(state[0])
+  
+    expect(newState).toContainEqual({
+      content: 'state changes are made with actions',
+      important: true,
+      id: 2
+    })
+  })
+})
 ```
 
 ### Redux DevTools

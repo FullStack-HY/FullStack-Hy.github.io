@@ -31,7 +31,7 @@ Tallennetaan projektin juuren tiedostoon <i>db.json</i> tietokannan alkutila:
 Asennetaan projektiin json-server
 
 ```bash
-npm install json-server
+npm install json-server --save-dev
 ```
 
 ja lisätään tiedoston <i>package.json</i> osaan <i>scripts</i> rivi
@@ -218,7 +218,7 @@ noteService.getAll().then(notes =>
 Päätetään kuitenkin siirtää muistiinpanojen alustus <i>App</i>-komponentiin, eli kuten yleensä dataa palvelimelta haettaessa, käytetään <i>effect hookia</i>:
 
 ```js
-import React, { useEffect } from 'react' // highlight-line
+import { useEffect } from 'react' // highlight-line
 import NewNote from './components/NowNote'
 import Notes from './components/Notes'
 import VisibilityFilter from './components/VisibilityFilter'
@@ -406,6 +406,12 @@ const NewNote = () => {
 ```
 
 Molemmat komponentit dispatchaisivat ainoastaan actionin, välittämättä siitä, että taustalla tapahtuu todellisuudessa palvelimen kanssa tapahtuvaa kommunikointia. Tämän kaltaisten <i>asynkronisten actioneiden</i> käyttö onnistuu [Redux Thunk](https://github.com/reduxjs/redux-thunk)-kirjaston avulla. Kirjaston käyttö ei vaadi ylimääräistä konfiguraatiota, kun Redux-store on luotu Redux Toolkitin <em>configureStore</em>-funktiolla.
+
+Asennetaan kirjasto
+
+```
+npm install redux-thunk
+```
 
 Redux Thunkin ansiosta on mahdollista määritellä <i>action creatoreja</i>, jotka palauttavat objektin sijaan funktion. Tämän funktion parametreina ovat Redux-storen <em>dispatch</em>- ja <em>getState</em>-metodi. Tämän ansiosta on mahdollista toteuttaa asynkronisia action creatoreja, jotka ensin odottavat jonkin asynkronisen toimenpiteen valmistumista ja vasta sen jälkeen dispatchaavat varsinaisen actionin.
 

@@ -34,8 +34,6 @@ We'll install json-server for the project...
 npm install json-server --save-dev
 ```
 
-
-
 and add the following line to the <i>scripts</i> part of the file <i>package.json</i>
 
 ```js
@@ -220,7 +218,7 @@ noteService.getAll().then(notes =>
 We do, however, decide to move the initialization of the notes into the <i>App</i> component, and, as usual when fetching data from a server, we'll use the <i>effect hook</i>. 
 
 ```js
-import React, {useEffect} from 'react' // highlight-line
+import { useEffect } from 'react' // highlight-line
 import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 import VisibilityFilter from './components/VisibilityFilter'
@@ -290,11 +288,9 @@ const App = () => {
   // ...
 }
 ```
-
-<!-- Yleisesti ottaen eslint-virheiden disabloiminen ei ole hyvä idea, joten vaikka kyseisen eslint-säännön tarpeellisuus onkin aiheuttanut [kiistelyä](https://github.com/facebook/create-react-app/issues/6880), pitäydytään ylemmässä ratkaisussa.  -->
+ylemmässä ratkaisussa.  -->
 Generally disabling eslint when it throws a warning is not a good idea. Even though the eslint rule in question has caused some [arguments](https://github.com/facebook/create-react-app/issues/6880), we will use the first solution.
 
-<!-- Lisää hookien riippuvuuksien määrittelyn tarpeesta [reactin dokumentaatiossa](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies). -->
 More about the need to define the hooks dependencies in [the react documentation](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies).
 
 We can do the same thing when it comes to creating a new note. Let's expand the code communicating with the server as follows:
@@ -416,6 +412,12 @@ const NewNote = () => {
 ```
 
 In this implementation, both components would dispatch an action without the need to know about the communication between the server that happens behind the scenes. These kind <i>async actions</i> can be implemented using the [Redux Thunk](https://github.com/reduxjs/redux-thunk) library. The use of the library doesn't need any additional configuration when the Redux store is created using the Redux Toolkit's <em>configureStore</em> function.
+
+Let us now install the library
+
+```
+npm install redux-thunk
+```
 
 With Redux Thunk it is possible to implement <i>action creators</i> which return a function instead of an object. The function receive's Redux store's <em>dispatch</em> and <em>getState</em> methods as parameters. This allows for example implementations of asynchronous action creators, which first wait for the completion of a certain asynchronous operation and after that dispatch some action, which changes the store's state.
 
