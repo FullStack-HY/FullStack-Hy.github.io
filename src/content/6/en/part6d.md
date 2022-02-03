@@ -20,7 +20,6 @@ Let's modify the <i>Notes</i> component so that instead of using the hook-api (t
 We have to modify the following parts of the component:
 
 ````js
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux' // highlight-line
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -60,7 +59,6 @@ The _connect_ function can be used for transforming "regular" React components s
 Let's first use the connect function to transform our <i>Notes</i> component into a <i>connected component</i>:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' // highlight-line
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -266,7 +264,6 @@ In addition to accessing the store's state via <i>props.notes</i> and <i>props.f
 The code for the newly refactored <i>Notes</i> component looks like this:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -312,7 +309,6 @@ export default connect(
 Let's also use _connect_ to create new notes:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { createNote } from '../reducers/noteReducer'
 
@@ -344,14 +340,13 @@ export default connect(
 Since the component does not need to access the store's state, we can simply pass <i>null</i> as the first parameter to _connect_. 
 
 
-You can find the code for our current application in its entirety in the <i>part6-5</i> branch of [this Github repository](https://github.com/fullstack-hy/redux-notes/tree/part6-5).
+You can find the code for our current application in its entirety in the <i>part6-5</i> branch of [this Github repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-5).
 
 ### Referencing action creators passed as props
 
 Let's direct our attention to one interesting detail in the <i>NewNote</i> component:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { createNote } from '../reducers/noteReducer'  // highlight-line
 
@@ -380,9 +375,7 @@ export default connect(
 
 Developers who are new to connect may find it puzzling that there are two versions of the <i>createNote</i> action creator in the component.
 
-
 The function must be referenced as <i>props.createNote</i> through the component's props, as this is the version that <i>contains the automatic dispatch</i> added by _connect_.
-
 
 Due to the way that the action creator is imported:
 
@@ -588,7 +581,6 @@ We have come a long way in this course and, finally, we have come to the point a
 
 What about the _useState_-hook, which provides components with their own state? Does it have any role if an application is using Redux or some other external state management solution? If the application has more complicated forms, it may be beneficial to implement their local state using the state provided by the _useState_ function. One can, of course, have Redux manage the state of the forms, however, if the state of the form is only relevant when filling the form (e.g. for validation) it may be wise to leave the management of state to the component responsible for the form.
 
-<!-- Kannattaako reduxia käyttää aina? Tuskinpa. Reduxin kehittäjä Dan Abramov pohdiskelee asiaa artikkelissaan [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) -->
 Should we always use redux? Probably not. Dan Abramov, the developer of redux, discusses this in his article [You Might Not Need Redux](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367).
 
 Nowadays it is possible to implement redux-like state management without redux by using the React [context](https://reactjs.org/docs/context.html)-api and the [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)-hook. 
@@ -614,11 +606,10 @@ Do the same for the <i>Filter</i> and <i>AnecdoteForm</i> components.
 You (probably) have one nasty bug in your application. If the user clicks the vote button multiple times in a row, the notification is displayed funnily. For example if a user votes twice in three seconds, 
 the last notification is only displayed for two seconds (assuming the notification is normally shown for 5 seconds). This happens because removing the first notification accidentally removes the second notification. 
 
-<!-- Korjaa bugi, siten että usean peräkkäisen äänestyksen viimeistä notifikaatiota näytetään aina viiden sekunnin ajan. Korjaus tapahtuu siten, että uuden notifikaation tullessa edellisen notifikaation nollaus tarvittaessa perutaan, ks. funktion setTimeout [dokumentaatio](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout). -->
 Fix the bug so that after multiple votes in a row, the notification for the last vote is displayed for five seconds.
 This can be done by cancelling the removal of the previous notification when a new notification is displayed whenever necessary. 
 The [documentation](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout) for the setTimeout function might also be useful for this.
 
-This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your completed exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your completed exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 </div>

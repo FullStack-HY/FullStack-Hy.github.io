@@ -7,9 +7,7 @@ lang: en
 
 <div class="content">
 
-
 Let's expand the application, such that the notes are stored to the backend. We'll use [json-server](/en/part2/getting_data_from_server), familiar from part 2.
-
 
 The initial state of the database is stored into the file <i>db.json</i>, which is placed in the root of the project:
 
@@ -29,8 +27,6 @@ The initial state of the database is stored into the file <i>db.json</i>, which 
   ]
 }
 ```
-
-
 
 We'll install json-server for the project...
 
@@ -328,7 +324,6 @@ export default {
 The method _addNote_ of the component <i>NewNote</i> changes slightly:
 
 ```js
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { createNote } from '../reducers/noteReducer'
 import noteService from '../services/notes' // highlight-line
@@ -365,7 +360,7 @@ createNote(state, action) {
 
 Changing the importance of notes could be implemented using the same principle, by making an asynchronous method call to the server and then dispatching an appropriate action.
 
-The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy/redux-notes/tree/part6-3) in the branch <i>part6-3</i>.
+The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3) in the branch <i>part6-3</i>.
 
 </div>
 
@@ -573,7 +568,6 @@ export default store
 After the changes, the content of the <i>index.js</i> is the following:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux' 
 import store from './store' // highlight-line
@@ -587,7 +581,7 @@ ReactDOM.render(
 )
 ```
 
-The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy/redux-notes/tree/part6-4) in the branch <i>part6-4</i>.
+The current state of the code for the application can be found on [GitHub](https://github.com/fullstack-hy2020/redux-notes/tree/part6-4) in the branch <i>part6-4</i>.
 
 </div>
 

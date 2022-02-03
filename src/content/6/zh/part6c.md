@@ -323,8 +323,8 @@ export const createNote = (data) => {
 <!-- Changing the importance of notes could be implemented using the same principle, meaning making an asynchronous method call to the server and then dispatching an appropriate action. -->
 更改便笺的重要性可以使用相同的原则实现，这意味着对服务器进行异步方法调用，然后调度适当的action。
 
-<!-- The current state of the code for the application can be found on [github](https://github.com/fullstack-hy/redux-notes/tree/part6-3) in the branch <i>part6-3</i>. -->
-应用代码的当前状态可以在分支<i>part6-3</i> 中的 [github](https://github.com/fullstack-hy/redux-notes/tree/part6-3)上找到。
+<!-- The current state of the code for the application can be found on [github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3) in the branch <i>part6-3</i>. -->
+应用代码的当前状态可以在分支<i>part6-3</i> 中的 [github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3)上找到。
 
 </div>
 
@@ -533,8 +533,8 @@ const NewNote = () => {
 }
 ```
 
-<!-- The current state of the code for the application can be found on [github](https://github.com/fullstack-hy/redux-notes/tree/part6-4) in the branch <i>part6-4</i>. -->
-应用代码的当前状态可以在分支<i>part6-4</i> 中的[github](https://github.com/fullstack-hy/redux-notes/tree/part6-4)上找到。
+<!-- The current state of the code for the application can be found on [github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-4) in the branch <i>part6-4</i>. -->
+应用代码的当前状态可以在分支<i>part6-4</i> 中的[github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-4)上找到。
 
 </div>
 

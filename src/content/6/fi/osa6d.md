@@ -18,7 +18,6 @@ Uusissa sovelluksissa kannattaa ehdottomasti käyttää hook-apia, mutta connect
 Muutetaan sovelluksen komponenttia <i>Notes</i>, siten että korvataan hook-apin eli funktioiden _useDispatch_ ja _useSelector_ käyttö funktioilla _connect_. Komponentin seuraavat osat tulee siis muuttaa:
 
 ````js
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux' // highlight-line
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -58,7 +57,6 @@ Funktiota _connect_ käyttämällä "normaaleista" React-komponenteista saadaan 
 Muodostetaan ensin komponentista <i>Notes</i> connectin avulla <i>yhdistetty komponentti</i>:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' // highlight-line
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -260,7 +258,6 @@ eli sen lisäksi että <i>Notes</i> pääsee storen tilaan propsin <i>props.note
 Connectia käyttämään refaktoroitu komponentti <i>Notes</i> on kokonaisuudessaan seuraava:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { toggleImportanceOf } from '../reducers/noteReducer'
 
@@ -307,7 +304,6 @@ export default connect(
 Otetaan _connect_ käyttöön myös uuden muistiinpanon luomisessa:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { createNote } from '../reducers/noteReducer'
 
@@ -338,14 +334,13 @@ export default connect(
 
 Koska komponentti ei tarvitse storen tilasta mitään, on funktion _connect_ ensimmäinen parametri <i>null</i>.
 
-Sovelluksen koodi on [githubissa](https://github.com/fullstack-hy/redux-notes/tree/part6-5) branchissa <i>part6-5</i>.
+Sovelluksen koodi on [githubissa](https://github.com/fullstack-hy2020/redux-notes/tree/part6-5) branchissa <i>part6-5</i>.
 
 ### Huomio propsina välitettyyn action creatoriin viittaamisesta
 
 Tarkastellaan vielä erästä mielenkiintoista seikkaa komponentista <i>NewNote</i>:
 
 ```js
-import React from 'react'
 import { connect } from 'react-redux' 
 import { createNote } from '../reducers/noteReducer'  // highlight-line
 
@@ -603,6 +598,6 @@ Sovellukseen on (todennäköisesti) jäänyt eräs hieman ikävä bugi. Jos vote
 
 Korjaa bugi, siten että usean peräkkäisen äänestyksen viimeistä notifikaatiota näytetään aina viiden sekunnin ajan. Korjaus tapahtuu siten, että uuden notifikaation tullessa edellisen notifikaation nollaus tarvittaessa perutaan, ks. funktion setTimeout [dokumentaatio](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout).
 
-Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
 
 </div>

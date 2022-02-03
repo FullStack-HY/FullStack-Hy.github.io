@@ -314,7 +314,6 @@ export default {
 Komponentin <i>NewNote</i> metodi _addNote_ muuttuu hiukan:
 
 ```js
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { createNote } from '../reducers/noteReducer'
 import noteService from '../services/notes' // highlight-line
@@ -351,7 +350,7 @@ createNote(state, action) {
 
 Muistiinpanojen tärkeyden muuttaminen olisi mahdollista toteuttaa samalla periaatteella, eli tehdä palvelimelle ensin asynkroninen metodikutsu ja sen jälkeen dispatchata sopiva action.
 
-Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy/redux-notes/tree/part6-3) branchissa <i>part6-3</i>.
+Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3) branchissa <i>part6-3</i>.
 
 </div>
 
@@ -559,7 +558,6 @@ export default store
 Muutosten jälkeen <i>index.js</i>-tiedosto näyttää seuraavalta:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux' 
 import store from './store' // highlight-line
@@ -573,7 +571,7 @@ ReactDOM.render(
 )
 ```
 
-Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy/redux-notes/tree/part6-4) branchissa <i>part6-4</i>.
+Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy2020/redux-notes/tree/part6-4) branchissa <i>part6-4</i>.
 
 </div>
 

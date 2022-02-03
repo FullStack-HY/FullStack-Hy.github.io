@@ -42,7 +42,6 @@ Toteutetaan sovellukseen näytettävien muistiinpanojen filtteröinti, jonka avu
 Aloitetaan todella suoraviivaisella toteutuksella:
 
 ```js
-import React from 'react'
 import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 
@@ -136,7 +135,6 @@ Saamme nyt muodostettua varsinaisen reducerin yhdistämällä kaksi olemassaolev
 Määritellään yhdistetty reduceri tiedostossa <i>index.js</i>:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers } from 'redux' // highlight-line
 import { Provider } from 'react-redux' 
@@ -268,7 +266,6 @@ const notes = useSelector(state => state.notes)
 Eriytetään näkyvyyden säätelyfiltteri omaksi, tiedostoon sijoitettavaksi <i>src/components/VisibilityFilter.js</i> komponentiksi:
 
 ```js
-import React from 'react'
 import { filterChange } from '../reducers/filterReducer'
 import { useDispatch } from 'react-redux'
 
@@ -307,7 +304,6 @@ Toteutus on suoraviivainen, radiobuttonin klikkaaminen muuttaa storen kentän <i
 Komponentti <i>App</i> yksinkertaisuu nyt seuraavasti:
 
 ```js
-import React from 'react'
 import Notes from './components/Notes'
 import NewNote from './components/NewNote'
 import VisibilityFilter from './components/VisibilityFilter'
@@ -390,7 +386,6 @@ npm install @reduxjs/toolkit
 Avataan sen jälkeen <i>index.js</i>-tiedosto, jossa nykyinen Redux-store luodaan. Käytetään storen luonnissa Reduxin <em>createStore</em>-funktion sijaan luonnissa Redux Toolkitin [configureStore](https://redux-toolkit.js.org/api/configureStore)-funktiota:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit' // highlight-line
@@ -539,7 +534,7 @@ Konsolin avulla on myös mahdollista dispatchata actioneja storeen:
 ![](../../images/6/13ea.png)
 
 
-Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy/redux-notes/tree/part6-2) branchissa </i>part6-2</i>.
+Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy2020/redux-notes/tree/part6-2) branchissa </i>part6-2</i>.
 
 </div>
 
@@ -558,8 +553,6 @@ Asenne projektiin Redux Toolkit. Siirrä tämän jälkeen Redux-storen määritt
 Sovelluksessa on valmiina komponentin <i>Notification</i> runko:
 
 ```js
-import React from 'react'
-
 const Notification = () => {
   const style = {
     border: 'solid',
@@ -579,7 +572,6 @@ export default Notification
 Laajenna komponenttia siten, että se renderöi Redux-storeen talletetun viestin, eli renderöitävä komponentti muuttuu muotoon:
 
 ```js
-import React from 'react'
 import { useSelector } from 'react-redux' // highlight-line
 
 const Notification = () => {
@@ -620,8 +612,6 @@ Säilytä filtterin tila Redux-storessa, eli käytännössä kannattaa jälleen 
 Tee filtterin ruudulla näyttämistä varten komponentti <i>Filter</i>. Voit ottaa sen pohjaksi seuraavan koodin:
 
 ```js
-import React from 'react'
-
 const Filter = () => {
   const handleChange = (event) => {
     // input-kentän arvo muuttujassa event.target.value

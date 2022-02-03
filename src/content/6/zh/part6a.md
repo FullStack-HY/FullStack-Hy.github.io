@@ -1266,8 +1266,8 @@ const App = () => {
 <!-- We will return to the presentational/container division later in this part. -->
 我们将在本章节后面回顾表现层/容器部分。
 
-<!-- The code of the Redux application can be found on [Github](https://github.com/fullstack-hy/redux-notes/tree/part6-1), branch <i>part6-1</i>. -->
-Redux 应用的代码可以在[Github](https://Github.com/fullstack-hy/redux-notes/tree/part6-1) ，branch<i>part6-1</i> 上找到。 
+<!-- The code of the Redux application can be found on [Github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-1), branch <i>part6-1</i>. -->
+Redux 应用的代码可以在[Github](https://github.com/fullstack-hy2020/redux-notes/tree/part6-1) ，branch<i>part6-1</i> 上找到。 
 
 </div>
 

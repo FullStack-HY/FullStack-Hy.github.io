@@ -7,9 +7,7 @@ lang: en
 
 <div class="content">
 
-
 Let's continue our work with the simplified [redux version](/en/part6/flux_architecture_and_redux#redux-notes) of our notes application.
-
 
 In order to ease our development, let's change our reducer so that the store gets initialized with a state that contains a couple of notes:
 
@@ -38,16 +36,13 @@ export default noteReducer
 
 ### Store with complex state
 
-
 Let's implement filtering for the notes that are displayed to the user. The user interface for the filters will be implemented with [radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio):
 
 ![](../../images/6/01e.png)
 
-
 Let's start with a very simple and straightforward implementation:
 
 ```js
-import React from 'react'
 import NewNote from './components/NewNote'
 import Notes from './components/Notes'
 
@@ -146,11 +141,9 @@ export default filterReducer
 
 We can create the actual reducer for our application by combining the two existing reducers with the [combineReducers](https://redux.js.org/api/combinereducers) function.
 
-
 Let's define the combined reducer in the <i>index.js</i> file:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers } from 'redux' // highlight-line
 import { Provider } from 'react-redux' 
@@ -290,18 +283,15 @@ Previously the selector function returned the whole state of the store:
 const notes = useSelector(state => state)
 ```
 
-<!-- Nyt siis palautetaan tilasta ainoastaan sen kenttä <i>notes</i> -->
 And now it returns only its field <i>notes</i>
 
 ```js
 const notes = useSelector(state => state.notes)
 ```
 
-
 Let's extract the visibility filter into its own <i>src/components/VisibilityFilter.js</i> component:
 
 ```js
-import React from 'react'
 import { filterChange } from '../reducers/filterReducer'
 import { useDispatch } from 'react-redux'
 
@@ -338,7 +328,6 @@ export default VisibilityFilter
 With the new component <i>App</i> can be simplified as follows:
 
 ```js
-import React from 'react'
 import Notes from './components/Notes'
 import NewNote from './components/NewNote'
 import VisibilityFilter from './components/VisibilityFilter'
@@ -425,7 +414,6 @@ npm install @reduxjs/toolkit
 Next, open the <i>index.js</i> file which currently creates the Redux store. Instead of Redux's <em>createStore</em> function, let's create the store using Redux Toolkit's [configureStore](https://redux-toolkit.js.org/api/configureStore) function:
 
 ```js
-import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit' // highlight-line
@@ -575,7 +563,7 @@ It is also possible to dispatch actions to the store using the development tools
 
 ![](../../images/6/13ea.png)
 
-You can find the code for our current application in its entirety in the <i>part6-2</i> branch of [this Github repository](https://github.com/fullstack-hy/redux-notes/tree/part6-2).
+You can find the code for our current application in its entirety in the <i>part6-2</i> branch of [this Github repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-2).
 
 </div>
 
@@ -594,8 +582,6 @@ Install Redux Toolkit for the project. Move the Redux store creation into its ow
 The application has a ready-made body for the <i>Notification</i> component:
 
 ```js
-import React from 'react'
-
 const Notification = () => {
   const style = {
     border: 'solid',
@@ -612,11 +598,9 @@ const Notification = () => {
 export default Notification
 ```
 
-
 Extend the component so that it renders the message stored in the Redux store, making the component take the following form:
 
 ```js
-import React from 'react'
 import { useSelector } from 'react-redux' // highlight-line
 
 const Notification = () => {
@@ -657,8 +641,6 @@ Store the state of the filter in the redux store. It is recommended to create a 
 Create a new <i>Filter</i> component for displaying the filter. You can use the following code as a template for the component:
 
 ```js
-import React from 'react'
-
 const Filter = () => {
   const handleChange = (event) => {
     // input-field value is in variable event.target.value
