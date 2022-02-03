@@ -533,7 +533,7 @@ aiheuttaisi virheen:
 Virheilmoitus ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne ylipäätään on se mitä halutaan). Testi korjautuisi seuraavasti:
 
 ```js
-const inputs = screen.getByRole('textbox')
+const inputs = screen.getAllByRole('textbox')
 
 userEvent.type(input[0], 'testing a form...' )
 ```
