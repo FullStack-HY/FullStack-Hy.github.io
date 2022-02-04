@@ -12,7 +12,7 @@ Practically this has meant using the [useSelector](https://react-redux.js.org/ap
 
 To finish this part we will look into another older and  more complicated way to use redux, the [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md)-function provided by react-redux.
 
-In new applications you should absolutely use the hook-api, but knowing how to use connect is useful when maintaining older projects using redux.
+<i>**In new applications you should absolutely use the hook-api**</i>, but knowing how to use connect is useful when maintaining older projects using redux.
 
 ### Using the connect-function to share the redux store to components
 
@@ -259,7 +259,7 @@ The resulting situation from using _connect_ can be visualized like this:
 
 ![](../../images/6/25b.png)
 
-In addition to accessing the store's state via <i>props.notes</i> and <i>props.filter</i>, the component also references a function that can be used for dispatching <i>TOGGLE\_IMPORTANCE</i>-type actions via its <i>toggleImportanceOf</i> prop.
+In addition to accessing the store's state via <i>props.notes</i> and <i>props.filter</i>, the component also references a function that can be used for dispatching <i>notes/toggleImportanceOf</i>-type actions via its <i>toggleImportanceOf</i> prop.
 
 The code for the newly refactored <i>Notes</i> component looks like this:
 
