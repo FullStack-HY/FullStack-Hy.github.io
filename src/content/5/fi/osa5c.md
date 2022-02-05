@@ -9,13 +9,13 @@ lang: fi
 
 Reactilla tehtyjen frontendien testaamiseen on monia tapoja. Aloitetaan niihin tutustuminen nyt.
 
-Testit tehdään samaan tapaan kuin edellisessä osassa eli Facebookin [Jest](http://jestjs.io/)-kirjastolla. Jest onkin valmiiksi konfiguroitu create-react-app:lla luotuihin projekteihin.
+Testit tehdään samaan tapaan kuin edellisessä osassa eli Facebookin [Jest](http://jestjs.io/)-kirjastolla. Jest onkin valmiiksi konfiguroitu Create React App:lla luotuihin projekteihin.
 
 Tarvitsemme Jestin lisäksi testaamiseen apukirjaston, jonka avulla React-komponentteja voidaan renderöidä testejä varten. 
 
-Tähän tarkoitukseen ehdottomasti paras vaihtoehto on [react-testing-library](https://github.com/testing-library/react-testing-library). Jestin ilmaisuvoimaa kannattaa myös laajentaa kirjastolla [jest-dom](https://github.com/testing-library/jest-dom).
+Tähän tarkoitukseen ehdottomasti paras vaihtoehto on [React Testing Library](https://github.com/testing-library/react-testing-library). Jestin ilmaisuvoimaa kannattaa laajentaa myös kirjastolla [jest-dom](https://github.com/testing-library/jest-dom).
 
-Asennetaan kirjastot komennolla:
+Asennetaan kirjastot:
 
 ```js
 npm install --save-dev @testing-library/react @testing-library/jest-dom
@@ -38,11 +38,11 @@ const Note = ({ note, toggleImportance }) => {
 }
 ```
 
-Huomaa, että muistiinpanon sisältävällä <i>li</i>-elementillä on [CSS](https://reactjs.org/docs/dom-elements.html#classname)-luokka <i>note</i>, pääsemme sen avulla halutessamme muistiinpanoon käsiksi testistä. Emme kuitenkaan ensisijaisesti käytä CSS-luokkia testauksessa.
+Huomaa, että muistiinpanon sisältävällä <i>li</i>-elementillä on [CSS](https://reactjs.org/docs/dom-elements.html#classname)-luokka <i>note</i>. Pääsemme sen avulla halutessamme muistiinpanoon käsiksi testistä. Emme kuitenkaan ensisijaisesti käytä CSS-luokkia testauksessa.
 
 ### Komponentin renderöinti testiä varten
 
-Tehdään testi tiedostoon <i>src/components/Note.test.js</i>, eli samaan hakemistoon, missä komponentti itsekin sijaitsee.
+Tehdään testi tiedostoon <i>src/components/Note.test.js</i> eli samaan hakemistoon, jossa komponentti itsekin sijaitsee.
 
 Ensimmäinen testi varmistaa, että komponentti renderöi muistiinpanon sisällön:
 
@@ -65,7 +65,7 @@ test('renders content', () => {
 })
 ```
 
-Alun konfiguroinnin jälkeen testi renderöi komponentin metodin react-testing-library-kirjaston tarjoaman funktion [render](https://testing-library.com/docs/react-testing-library/api#render) avulla:
+Alun konfiguroinnin jälkeen testi renderöi komponentin  React Testing Library -kirjaston tarjoaman funktion [render](https://testing-library.com/docs/react-testing-library/api#render) avulla:
 
 ```js
 render(<Note note={note} />)
@@ -82,7 +82,7 @@ Testin renderöimään näkymään päästään käsiksi olion [screen](https://
 
 ### Testien suorittaminen
 
-Create-react-app:ssa on konfiguroitu testit oletusarvoisesti suoritettavaksi ns. watch-moodissa, eli jos suoritat testit komennolla _npm test_, jää konsoli odottamaan koodissa tapahtuvia muutoksia. Muutosten jälkeen testit suoritetaan automaattisesti ja Jest alkaa taas odottamaan uusia muutoksia koodiin.
+Create React App:ssa on konfiguroitu testit oletusarvoisesti suoritettavaksi ns. watch-moodissa, eli jos suoritat testit komennolla _npm test_, jää konsoli odottamaan koodissa tapahtuvia muutoksia. Muutosten jälkeen testit suoritetaan automaattisesti ja Jest alkaa taas odottamaan uusia muutoksia koodiin.
 
 Jos haluat ajaa testit "normaalisti", se onnistuu komennolla
 
@@ -90,22 +90,20 @@ Jos haluat ajaa testit "normaalisti", se onnistuu komennolla
 CI=true npm test
 ```
 
-**HUOM:** konsoli saattaa herjata virhettä, jos sinulla ei ole asennettuna watchmania. Watchman on Facebookin kehittämä tiedoston muutoksia tarkkaileva ohjelma. Ohjelma nopeuttaa testien ajoa ja ainakin OSX Sierrasta ylöspäin jatkuva testien vahtiminen aiheuttaa käyttäjillä virheilmoituksia. Näistä ilmoituksista pääsee eroon asentamalla Watchmanin.
-
-Ohjeet ohjelman asentamiseen eri käyttöjärjestelmille löydät Watchmanin sivulta:
+**HUOM:** Ainakin macOS Sierrasta ylöspäin jatkuva testien vahtiminen voi aiheuttaa virheilmoituksia konsoliin. Watchman on Facebookin kehittämä tiedostojen muutoksia tarkkaileva ohjelma, jonka avulla näistä ilmoituksista pääsee eroon. Ohjelma myös nopeuttaa testien ajoa. Asennusohjeet löydät Watchmanin sivulta:
 https://facebook.github.io/watchman/
 
 ### Testien sijainti
 
-Reactissa on (ainakin) [kaksi erilaista](https://medium.com/@JeffLombardJr/organizing-tests-in-jest-17fc431ff850) konventiota testien sijoittamiseen. Sijoitimme testit ehkä vallitsevan tavan mukaan, eli samaan hakemistoon missä testattava komponentti sijaitsee.
+Reactissa on (ainakin) [kaksi erilaista](https://medium.com/@JeffLombardJr/organizing-tests-in-jest-17fc431ff850) konventiota testien sijoittamiseen. Sijoitimme testit ehkä vallitsevan tavan mukaan samaan hakemistoon testattavan komponentin kanssa.
 
-Toinen tapa olisi sijoittaa testit "normaaliin" tapaan omaan erilliseen hakemistoon. Valitaanpa kumpi tahansa tapa, on varmaa että se on jonkun mielestä täysin väärä.
+Toinen tapa olisi sijoittaa testit "normaaliin" tapaan omaan erilliseen hakemistoon. Valitaanpa kumpi tapa tahansa, on varmaa että se on jonkun mielestä täysin väärä.
 
-Itse en pidä siitä, että testit ja normaali koodi ovat samassa hakemistossa. Noudatamme kuitenkin nyt tätä tapaa, sillä se on oletusarvo create-react-app:lla konfiguroiduissa sovelluksissa.
+Itse en pidä siitä, että testit ja normaali koodi ovat samassa hakemistossa. Noudatamme kuitenkin nyt tätä tapaa, sillä se on oletusarvo Create React App:lla konfiguroiduissa sovelluksissa.
 
 ### Sisällön etsiminen testattavasta komponentista
 
-react-testing-library-kirjasto tarjoaa runsaasti tapoja, miten voimme tutkia testattavan komponentin sisältöä. Itse asiassa testimme viimeisellä rivillä oleva expect on turha
+React Testing Library -kirjasto tarjoaa runsaasti tapoja testattavan komponentin sisällön tutkimiseen. Itse asiassa testimme viimeisellä rivillä oleva expect on turha
 
 ```js
 import React from 'react'
@@ -158,9 +156,9 @@ Muitakin tapoja on, esim. [getByTestId](https://testing-library.com/docs/queries
 
 ### Testien debuggaaminen
 
-Testejä tehdessä törmäämme tyypillisesti erittäin moniin ongelmiin. 
+Testejä tehdessä törmäämme tyypillisesti moniin ongelmiin. 
 
-Olion _screen_ -olion metodilla [debug](https://testing-library.com/docs/queries/about/#screendebug) voimme tulostaa komponentin tuottaman HTML:n konsoliin, eli kun muutamme testiä seuraavasti:
+Olion _screen_ -olion metodilla [debug](https://testing-library.com/docs/queries/about/#screendebug) voimme tulostaa komponentin tuottaman HTML:n konsoliin. Eli kun muutamme testiä seuraavasti:
 
 ```js
 import React from 'react'
@@ -240,7 +238,7 @@ Haimme nyt halutun tekstin sisältävän elemementin sisällön tulostettavaksi:
 
 ### Nappien painelu testeissä
 
-Sisällön näyttämisen lisäksi toinen <i>Note</i>-komponenttien vastuulla oleva asia on huolehtia siitä, että painettaessa noten yhteydessä olevaa nappia, tulee propsina välitettyä tapahtumankäsittelijäfunktiota _toggleImportance_ kutsua.
+Sisällön näyttämisen lisäksi toinen <i>Note</i>-komponenttien vastuulla oleva asia on huolehtia siitä, että propsina välitettyä tapahtumankäsittelijäfunktiota _toggleImportance_ kutsutaan kun noten yhteydessä olevaa nappia painetaan.
 
 Asennetaan testiä varten apukirjasto [user-event](https://testing-library.com/docs/ecosystem-user-event/):
 
@@ -305,7 +303,7 @@ Testin ekspektaatio varmistaa, että <i>mock-funktiota</i> on kutsuttu täsmäll
 expect(mockHandler.mock.calls).toHaveLength(1)
 ```
 
-[Mockoliot ja -funktiot](https://en.wikipedia.org/wiki/Mock_object) ovat testauksessa yleisesti käytettyjä valekomponentteja, joiden avulla korvataan testattavien komponenttien riippuvuuksia, eli niiden tarvitsemia muita komponentteja. Mockit mahdollistavat mm. kovakoodattujen syötteiden palauttamisen sekä niiden metodikutsujen lukumäärän sekä parametrien testauksen aikaisen tarkkailun.
+[Mock-oliot ja -funktiot](https://en.wikipedia.org/wiki/Mock_object) ovat testauksessa yleisesti käytettyjä valekomponentteja, joiden avulla korvataan testattavien komponenttien riippuvuuksia eli niiden tarvitsemia muita komponentteja. Mockit mahdollistavat mm. kovakoodattujen syötteiden palauttamisen ja metodikutsujen lukumäärän ja parametrien tarkkailun testauksen aikana.
 
 Esimerkissämme mock-funktio sopi tarkoitukseen erinomaisesti, sillä sen avulla on helppo varmistaa, että metodia on kutsuttu täsmälleen kerran.
 
@@ -333,7 +331,7 @@ const Togglable = forwardRef((props, ref) => {
 })
 ```
 
-Testit ovat seuraavassa
+Testit ovat seuraavassa:
 
 ```js
 import React from 'react'
@@ -384,7 +382,7 @@ Ensimmäinen testi tarkastaa, että <i>Togglable</i> renderöi sen lapsikomponen
 </div>
 ```
 
-Loput testit varmistavat metodia [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) käyttäen, että Togglablen sisältämä lapsikomponentti on alussa näkymättömissä, eli sen sisältävään <i>div</i>-elementtiin liittyy tyyli _{ display: 'none' }_, ja että nappia painettaessa komponentti näkyy, eli näkymättömäksi tekevää tyyliä <i>ei</i> enää ole. 
+Loput testit varmistavat metodia [toHaveStyle](https://www.npmjs.com/package/@testing-library/jest-dom#tohavestyle) käyttäen, että Togglablen sisältämä lapsikomponentti on alussa näkymättömissä, eli että sen sisältävään <i>div</i>-elementtiin liittyy tyyli _{ display: 'none' }_, ja että nappia painettaessa komponentti näkyy, eli näkymättömäksi tekevää tyyliä <i>ei</i> enää ole. 
 
 Lisätään vielä mukaan testi, joka varmistaa että auki togglattu sisältö saadaan piilotettua painamalla komponentin nappia <i>cancel</i>:
 
@@ -415,9 +413,9 @@ const button = screen.getByText('show...')
 userEvent.click(button)
 ```
 
-Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> -nappia vastaavalle komponentille. Voimme myös simuloida lomakkeisiin kirjoittamista <i>userEventin</i> avulla.
+Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> -nappia vastaavalle komponentille. Voimme simuloida myös lomakkeelle kirjoittamista <i>userEventin</i> avulla.
 
-Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta
+Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta:
 
 ```js
 import { useState } from 'react'
@@ -476,11 +474,11 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
   const input = screen.getByRole('textbox')
   const sendButton = screen.getByText('save')
 
-  userEvent.type(input, 'testing a form...' )
+  userEvent.type(input, 'testing a form...')
   userEvent.click(sendButton)
 
   expect(createNote.mock.calls).toHaveLength(1)
-  expect(createNote.mock.calls[0][0].content).toBe('testing a form...' )
+  expect(createNote.mock.calls[0][0].content).toBe('testing a form...')
 })
 ```
 
@@ -535,7 +533,7 @@ Virheilmoitus ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne
 ```js
 const inputs = screen.getByRole('textbox')
 
-userEvent.type(input[0], 'testing a form...' )
+userEvent.type(input[0], 'testing a form...')
 ```
 
 Metodi <i>getAllByRole</i>  palauttaa taulukon, ja oikea tekstikenttä on taulukossa ensimmäisenä. Testi on kuitenkin hieman epäilyttävä, sillä se luottaa tekstikenttien järjestykseen.
@@ -748,9 +746,9 @@ Voisimme tehdä myös frontendille useiden komponenttien yhteistoiminnallisuutta
 
 Jest tarjoaa "perinteisen" testaustavan lisäksi aivan uudenlaisen tavan testaukseen, ns. [snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html)-testauksen. Mielenkiintoista snapshot-testauksessa on se, että sovelluskehittäjän ei tarvitse itse määritellä ollenkaan testejä, snapshot-testauksen käyttöönotto riittää.
 
-Periaatteena on verrata komponenttien määrittelemää HTML:ää aina koodin muutoksen jälkeen siihen, minkälaisen HTML:n komponentit määrittelivät ennen muutosta.
+Periaatteena on verrata aina koodin muutoksen jälkeen komponenttien määrittelemää HTML:ää siihen HTML:ään, jonka komponentit määrittelivät ennen muutosta.
 
-Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä, voi kyseessä joko olla haluttu muutos tai vahingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle, jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä, oliko muutos haluttu. Jos muutos tuli yllätyksenä, eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
+Jos snapshot-testi huomaa muutoksen komponenttien määrittelemässä HTML:ssä, voi kyseessä olla joko haluttu muutos tai vahingossa aiheutettu "bugi". Snapshot-testi huomauttaa sovelluskehittäjälle, jos komponentin määrittelemä HTML muuttuu. Sovelluskehittäjä kertoo muutosten yhteydessä, oliko muutos haluttu. Jos muutos tuli yllätyksenä eli kyseessä oli bugi, sovelluskehittäjä huomaa sen snapshot-testauksen ansiosta nopeasti.
 
 Emme kuitenkaan käytä tällä kurssilla snapshot-testausta.
 
