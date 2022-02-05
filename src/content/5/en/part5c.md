@@ -538,7 +538,7 @@ would cause an error:
 The error message suggests to use <i>getAllByRole</i>. Test could be fixed as follows:
 
 ```js
-const inputs = screen.getByRole('textbox')
+const inputs = screen.getAllByRole('textbox')
 
 userEvent.type(input[0], 'testing a form...' )
 ```
