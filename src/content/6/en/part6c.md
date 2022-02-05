@@ -368,7 +368,7 @@ The current state of the code for the application can be found on [GitHub](https
 
 When the application launches, fetch the anecdotes from the backend implemented using json-server.
 
-As the initial backend data, you can use, e.g. [this](https://github.com/fullstack-hy/misc/blob/master/anecdotes.json).
+As the initial backend data, you can use, e.g. [this](https://github.com/fullstack-hy2020/misc/blob/master/anecdotes.json).
 
 #### 6.14 Anecdotes and the backend, step2
 

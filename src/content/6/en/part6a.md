@@ -560,7 +560,7 @@ console.log(rest)     // prints [3, 4, 5, 6]
 
 Let's make a simplified version of the unicafe-exercise from part 1. Let's handle the state management with Redux. 
 
-You can take the project from this repository https://github.com/fullstack-hy/unicafe-redux for the base of your project. 
+You can take the project from this repository https://github.com/fullstack-hy2020/unicafe-redux for the base of your project. 
 
 
 <i>Start by removing the git-configuration of the cloned repository, and by installing dependencies</i>
@@ -611,7 +611,6 @@ const counterReducer = (state = initialState, action) => {
 
 export default counterReducer
 ```
-
 
 and a base for its tests
 
@@ -670,7 +669,7 @@ example above.
 
 Now implement the actual functionality of the application. 
 
-Note that since all the code is in the file <i>index.js</i> and you have to manually reload the page after each change since the automatic reloading of the browser content does not work for that page!
+Note that since all the code is in the file <i>index.js</i> and you might need to manually reload the page after each change since the automatic reloading of the browser content does not always work for that file!
 
 </div>
 
@@ -727,9 +726,7 @@ const App = () => {
 }
 ```
 
-
 The implementation of both functionalities is straightforward. It is noteworthy that we <i>have not</i> bound the state of the form fields to the state of the <i>App</i> component like we have previously done. React calls this kind of form [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html).
-
 
 >Uncontrolled forms have certain limitations (for example, dynamic error messages or disabling the submit button based on input are not possible). However they are suitable for our current needs. 
 
@@ -823,14 +820,12 @@ const App = () => {
 }
 ```
 
-
 ### Forwarding Redux-Store to various components
 
 Aside from the reducer, our application is in one file. This is of course not sensible, and we should separate <i>App</i> into its own module. 
 
 Now the question is, how can the <i>App</i> access the store after the move? And more broadly, when a component is composed of many smaller components, there must be a way for all of the components to access the store. 
 There are multiple ways to share the redux-store with components. First we will look into the newest, and possibly the easiest way using the [hooks](https://react-redux.js.org/api/hooks)-api of the [react-redux](https://react-redux.js.org/) library.
-
 
 First we install react-redux
 
@@ -916,7 +911,6 @@ export const toggleImportanceOf = (id) => {
 }
 ```
 
-
 Normally (not as defaults) exported functions can be imported with the curly brace syntax:
 
 ```js
@@ -967,7 +961,6 @@ const App = () => {
 export default App
 ```
 
-<!-- Komponentin koodissa on muutama mielenkiintoinen seikka. Aiemmin koodi hoiti actioinen dispatchaamisen kutsumalla redux-storen metodia dispatch: -->
 There are a few things to note in the code. Previously the code dispatched actions by calling the dispatch method of the redux-store:
 
 ```js
@@ -977,7 +970,6 @@ store.dispatch({
 })
 ```
 
-<!-- Nyt sama tapahtuu [useDispatch](https://react-redux.js.org/api/hooks#usedispatch)-hookin avulla saatavan <i>dispatch</i>-funktion avulla: -->
 Now it does it with the <i>dispatch</i>-function from the [useDispatch](https://react-redux.js.org/api/hooks#usedispatch) -hook.
 
 ```js
@@ -995,12 +987,9 @@ const App = () => {
 }
 ```
 
-<!-- React-redux-kirjaston tarjoama <i>useDispatch</i>-hook siis tarjoaa mille tahansa React-komponentille pääsyn tiedostossa <i>index.js</i> määritellyn redux-storen dispatch-funktioon, jonka avulla komponentti pääsee tekemään muutoksia redux-storen tilaan. -->
 The <i>useDispatch</i>-hook provides any React component access to the dispatch-function of the redux-store defined in <i>index.js</i>.
 This allows all components to make changes to the state of the redux-store.
 
-
-<!-- Storeen talletettuihin muistiinpanoihin komponentti pääsee käsiksi react-redux-kirjaston [useSelector](https://react-redux.js.org/api/hooks#useselector)-hookin kautta: -->
 The component can access the notes stored in the store with the [useSelector](https://react-redux.js.org/api/hooks#useselector)-hook of the react-redux library.
 
 
@@ -1014,7 +1003,6 @@ const App = () => {
 }
 ```
 
-<!-- <i>useSelector</i> saa parametrikseen funktion, joka hakee tai valitsee (engl. select) tarvittavan datan redux-storesta. Tarvitsemme nyt kaikki muistiinpanot, eli selektorifunktiomme palauttaa koko staten, eli on muotoa  -->
 <i>useSelector</i> receives a function as a parameter. The function either searches for or selects data from the redux-store. 
 Here we need all of the notes, so our selector function returns the whole state:
 
@@ -1023,7 +1011,6 @@ Here we need all of the notes, so our selector function returns the whole state:
 state => state
 ```
 
-<!-- joka siis tarkoittaa samaa kuin -->
 which is a shorthand for
 
 ```js
@@ -1140,8 +1127,7 @@ The code of the Redux application can be found on [Github](https://github.com/fu
 
 ### Exercises 6.3.-6.8.
 
-
-Let's make a new version of the anecdote voting application from part 1. Take the project from this repository https://github.com/fullstack-hy/redux-anecdotes to base your solution on.  
+Let's make a new version of the anecdote voting application from part 1. Take the project from this repository https://github.com/fullstack-hy2020/redux-anecdotes to base your solution on.  
 
 
 If you clone the project into an existing git-repository, <i>remove the git-configuration of the cloned application:</i> 
@@ -1150,7 +1136,6 @@ If you clone the project into an existing git-repository, <i>remove the git-conf
 cd redux-anecdotes  // go to the cloned repository
 rm -rf .git
 ```
-
 
 The application can be started as usual, but you have to install the dependencies first: 
 
