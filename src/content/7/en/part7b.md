@@ -7,7 +7,6 @@ lang: en
 
 <div class="content">
 
-
 The exercises in this part are a bit different than the exercises in the previous parts. The exercises in the previous part and the exercises in this part [are about the theory presented in this part](/en/part7/custom_hooks#exercises-7-4-7-8).
 
 
@@ -15,14 +14,14 @@ This part also contains a [series of exercises](/en/part7/exercises_extending_th
 
 ### Hooks
 
-React offers 10 different [built-in hooks](https://reactjs.org/docs/hooks-reference.html), of which the most popular ones are the [useState](https://reactjs.org/docs/hooks-reference.html#usestate) and [useEffect](https://reactjs.org/docs/hooks-reference.html#useeffect) hooks, that we have already been using extensively.
+React offers 10 different [built-in hooks](https://reactjs.org/docs/hooks-reference.html), of which the most popular ones are the [useState](https://reactjs.org/docs/hooks-reference.html#usestate) and [useEffect](https://reactjs.org/docs/hooks-reference.html#useeffect) hooks that we have already been using extensively.
 
-In [part 5](/en/part5/props_children_and_proptypes#references-to-components-with-ref) we used the [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)-hook which allows for components to provide their functions to other components.
+In [part 5](/en/part5/props_children_and_proptypes#references-to-components-with-ref) we used the [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) hook which allows for components to provide their functions to other components.
 
-Within the last year many React libraries have begun to offer hook based apis. [In part 6](/en/part6/flux_architecture_and_redux)
-we used the [useSelector](https://react-redux.js.org/api/hooks#useselector) and [useDispatch](https://react-redux.js.org/api/hooks#usedispatch) hooks from the react-redux library to share our redux-store and dispatch function to our components. Redux's hook based api is a lot easier to use than its older, still available, [connect](/en/part6/connect)-api.
+Within the last year many React libraries have begun to offer hook-based apis. [In part 6](/en/part6/flux_architecture_and_redux)
+we used the [useSelector](https://react-redux.js.org/api/hooks#useselector) and [useDispatch](https://react-redux.js.org/api/hooks#usedispatch) hooks from the react-redux library to share our redux-store and dispatch function to our components. Redux's hook-based api is a lot easier to use than its older, still available, [connect](/en/part6/connect) api.
 
-[React-router's](https://reacttraining.com/react-router/web/guides) api we introduced in the [previous part](/en/part7/react_router) is also partially [hook](https://reacttraining.com/react-router/web/api/Hooks) based. Its hooks can be used to access url parameters and the history object, which allows for manipulating the browser url programmatically.
+The [React-router's](https://reacttraining.com/react-router/web/guides) api we introduced in the [previous part](/en/part7/react_router) is also partially [hook](https://reacttraining.com/react-router/web/api/Hooks)-based. Its hooks can be used to access url parameters and the history object, which allows for manipulating the browser url programmatically.
 
 As mentioned in [part 1](/en/part1/a_more_complex_state_debugging_react_apps#rules-of-hooks), hooks are not normal functions, and when using those we have to adhere to certain [rules or limitations](https://reactjs.org/docs/hooks-rules.html). Let's recap the rules of using hooks, copied verbatim from the official React documentation:
 
@@ -35,7 +34,7 @@ As mentioned in [part 1](/en/part1/a_more_complex_state_debugging_react_apps#rul
 
 There's an existing [ESlint](https://www.npmjs.com/package/eslint-plugin-react-hooks) rule that can be used to verify that the application uses hooks correctly. 
 
-Create-react-app has readily configured rule [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) that complains if hooks are used in an illegal manner:
+Create-react-app has the readily-configured rule [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) that complains if hooks are used in an illegal manner:
 
 ![](../../images/7/60ea.png)
 
@@ -49,7 +48,7 @@ React offers the option to create our own [custom](https://reactjs.org/docs/hook
 Custom hooks are regular JavaScript functions that can use any other hooks, as long as they adhere to the [rules of hooks](/en/part1/a_more_complex_state_debugging_react_apps#rules-of-hooks). Additionally, the name of custom hooks must start with the word _use_.
 
 
-We implemented a counter application in [part 1](/en/part1/component_state_event_handlers#event-handling), that can have its value incremented, decremented, or reset. The code of the application is as follows:
+We implemented a counter application in [part 1](/en/part1/component_state_event_handlers#event-handling) that can have its value incremented, decremented, or reset. The code of the application is as follows:
 
 ```js  
 import React, { useState } from 'react'
@@ -201,7 +200,7 @@ const App = () => {
 Every field of the form has its own state. In order to keep the state of the form synchronized with the data provided by the user, we have to register an appropriate <i>onChange</i> handler for each of the <i>input</i> elements.
 
 
-Let's define our own custom _useField_ hook, that simplifies the state management of the form:
+Let's define our own custom _useField_ hook that simplifies the state management of the form:
 
 ```js
 const useField = (type) => {
@@ -375,7 +374,7 @@ Add a button to the form that you can use to clear all the input fields:
 
 Expand the functionality of the <i>useField</i> hook so that it offers a new <i>reset</i> operation for clearing the field. 
 
-Depending on your solution you may see the following warning in your console:
+Depending on your solution, you may see the following warning in your console:
 
 ![](../../images/7/62ea.png)
 
@@ -383,7 +382,7 @@ We will return to this warning in the next exercise.
 
 #### 7.6: anecdotes and hooks step3
 
-If your solution did not cause a warning to appear in the console you have already finished this exercise.
+If your solution did not cause a warning to appear in the console, you have already finished this exercise.
 
 If you see the warning in the console, make the necessary changes to get rid of the _Invalid value for prop \`reset\` on \<input\> tag_ console warning. 
 
@@ -420,33 +419,27 @@ One simple fix would be to not use the spread syntax and write all of the forms 
 ```
 
 
-If we were to do this we would lose much of the benefit provided by the <i>useField</i> hook. Instead, come up with a solution that fixes the issue, but is still easy to use with spread syntax.
+If we were to do this, we would lose much of the benefit provided by the <i>useField</i> hook. Instead, come up with a solution that fixes the issue, but is still easy to use with spread syntax.
 
 #### 7.7: country hook
 
 Let's return to the exercises [2.12-14](/en/part2/getting_data_from_server#exercises-2-11-2-14).
 
-<!-- Ota pohjaksi repositoriossa https://github.com/fullstack-hy2020/country-hook oleva koodi.  -->
-Use the code from https://github.com/fullstack-hy2020/country-hook as your starting point.
+Use the code from https://github.com/fullstack-hy/country-hook as your starting point.
 
-<!-- Sovelluksen avulla on mahdollista hakea maiden tietoja https://restcountries.eu/ rajapinnasta. Jos maa löytyy, näytetään maan perustiedot -->
-The application can be used to search for country details from the https://restcountries.eu/ interface. If country is found, the details of the country are displayed
+The application can be used to search for a country's details from the https://restcountries.com/ interface. If a country is found, the details of the country are displayed:
 
 ![](../../images/7/69ea.png)
 
-<!-- jos maata ei löydy, kerrotaan siitä käyttäjälle -->
-If country is not found, message is displayed to the user
+If no country is found, a message is displayed to the user:
 
 ![](../../images/7/70ea.png)
 
-<!-- Sovellus on muuten valmiiksi toteutettu, mutta joudut tässä tehtävässä toteuttamaan custom hookin _useCountry_, jonka avulla haet hookin parametrina saaman nimisen maan tiedot. -->
 The application is otherwise complete, but in this exercise you have to implement a custom hook _useCountry_, which can be used to search for the details of the country given to the hook as a parameter.
 
-<!-- Maan tietojan hakeminen kannattaa hoitaa apin endpointin [full name](https://restcountries.eu/#api-endpoints-full-name) avulla, hookin sisällä olevassa _useEffect_-hookissa. -->
-Use the api endpoint [full name](https://restcountries.eu/#api-endpoints-full-name) to fetch country details in a _useEffect_-hook within your custom hook.
+Use the api endpoint [full name (v2)](https://restcountries.com/#api-endpoints-v2-full-name) to fetch a country's details in a _useEffect_ hook within your custom hook.
 
-<!-- Huomaa, että tässä tehtävässä on oleellista hyödyntää useEffectin [toisena parametrina](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) olevaa taulukkoa sen kontrolloimiseen milloin efektifunktio kannattaa suorittaa.  -->
-Note, that in this exercise it is essential to use useEffect's [second parameter](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) array to control when the effect function is executed.
+Note that in this exercise it is essential to use useEffect's [second parameter](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) array to control when the effect function is executed.
 
 #### 7.8: ultimate hooks
 
@@ -462,9 +455,9 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
-const getAll = () => {
-  const request = axios.get(baseUrl)
-  return request.then(response => response.data)
+const getAll = async () => {
+  const response = await axios.get(baseUrl)
+  return response.data
 }
 
 const create = async newObject => {
@@ -476,9 +469,9 @@ const create = async newObject => {
   return response.data
 }
 
-const update = (id, newObject) => {
-  const request = axios.put(`${ baseUrl } /${id}`, newObject)
-  return request.then(response => response.data)
+const update = async (id, newObject) => {
+  const response = await axios.put(`${ baseUrl } /${id}`, newObject)
+  return response.data
 }
 
 export default { getAll, create, update, setToken }
@@ -488,7 +481,7 @@ We notice that the code is in no way specific to the fact that our application d
 
 Extract the code for communicating with the backend into its own _useResource_ hook. It is sufficient to implement fetching all resources and creating a new resource.
 
-You can do the exercise for the project found in the https://github.com/fullstack-hy2020/ultimate-hooks repository. The <i>App</i> component for the project is the following:
+You can do the exercise for the project found in the https://github.com/fullstack-hy/ultimate-hooks repository. The <i>App</i> component for the project is the following:
 
 ```js
 const App = () => {

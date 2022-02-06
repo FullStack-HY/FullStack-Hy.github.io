@@ -523,7 +523,7 @@ Sin servidor no se trata de que no haya un servidor en las aplicaciones, sino de
 
 ### Bibliotecas útiles y enlaces interesantes
 
-a comunidad de desarrolladores de JavaScript ha producido una gran variedad de bibliotecas útiles. Si está desarrollando algo más sustancial, vale la pena comprobar si las soluciones existentes ya están disponibles. Un buen lugar para encontrar bibliotecas es https://applibslist.xyz/ . A continuación se enumeran algunas bibliotecas recomendadas por partes confiables.
+a comunidad de desarrolladores de JavaScript ha producido una gran variedad de bibliotecas útiles. Si está desarrollando algo más sustancial, vale la pena comprobar si las soluciones existentes ya están disponibles. A continuación se enumeran algunas bibliotecas recomendadas por partes confiables.
 
 Si su aplicación tiene que manejar datos complicados, [lodash](https://www.npmjs.com/package/lodash), que recomendamos en la [parte 4](/es/part4/structure_of_backend_application_introduction_to_testing#exercises-4-3-4-7), es una buena biblioteca para usar. Si prefiere un estilo de programación funcional, podría considerar usar [ramda](https://ramdajs.com/).
 

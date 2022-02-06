@@ -45,7 +45,7 @@ Siirrä myös kirjautuneen käyttäjän tietojen talletus Reduxiin.
 
 #### 7.13: käyttäjien näkymä
 
-Tee sovellukseen näkymä, joka näyttää kaikkiin käyttäjiin liittyvät perustietot:
+Tee sovellukseen näkymä, joka näyttää kaikkiin käyttäjiin liittyvät perustiedot:
 
 ![](../../images/7/41.png)
 
@@ -132,7 +132,7 @@ Jos käytät tyylien lisäämiseen noin tunnin aikaa, merkkaa myös tämä teht�
 
 Anna kurssille palautetta moodlessa.
 
-Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2021).
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstackopen2022).
 
 
 </div>

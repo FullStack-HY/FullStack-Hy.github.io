@@ -508,7 +508,7 @@ const config = {
   },
   // highlight-start
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    static: path.resolve(__dirname, 'build'),
     compress: true,
     port: 3000,
   },
@@ -725,7 +725,7 @@ const useNotes = (url) => {
 const App = () => {
   const [counter, setCounter] = useState(0)
   const [values, setValues] = useState([])
-  const url = 
+  const url = 'https://blooming-atoll-75500.herokuapp.com/api/notes'
   const notes = useNotes(url) // highlight-line
 
   const handleClick = () => {
@@ -798,7 +798,7 @@ const config = (env, argv) => {
       filename: 'main.js'
     },
     devServer: {
-      contentBase: path.resolve(__dirname, 'build'),
+      static: path.resolve(__dirname, 'build'),
       compress: true,
       port: 3000,
     },
@@ -887,12 +887,4 @@ Create-react-app käyttää taustalla webpackia. Jos peruskonfiguraatio ei riit�
 Jos create-react-app:illa tehdyn sovelluksen ejektoi, paluuta ei ole, sen jälkeen kaikesta konfiguroinnista on huolehdittava itse. Konfiguraatiot eivät ole triviaaleimmasta päästä ja create-react-appin ja ejektoinnin sijaan parempi vaihtoehto saattaa joskus olla tehdä itse koko webpack-konfiguraatio.
 
 Ejektoidun sovelluksen konfiguraatioiden lukeminen on suositeltavaa ja sangen opettavaista!
-</div>
-
-<div class="tasks">
-
-### Tehtäviä
-
-Koko osan lopun [blogilistaa laajentavassa tehtäväsarjassa](/osa7/tehtavia_blogilistan_laajennus) on myös yksi webpackiin liittyvä tehtävä.
-
 </div>

@@ -7,7 +7,7 @@ lang: fi
 
 <div class="content">
 
-Kurssin seitsemännen osan tehtävät poikkeavat jossain määrin. Edellisessä ja tässä luvussa on normaaliin tapaan [luvun teoriaan liittyviä tehtäviä](/osa7/custom_hookit#tehtavat-7-4-7-6).
+Kurssin seitsemännen osan tehtävät poikkeavat jossain määrin. Edellisessä ja tässä luvussa on normaaliin tapaan [luvun teoriaan liittyviä tehtäviä](/osa7/custom_hookit#tehtavat-7-4-7-8).
 
 Tämän ja seuraavan luvun tehtävien lisäksi seitsemäs osa sisältää kertaavan ja soveltavan [tehtäväsarjan](/osa7/tehtavia_blogilistan_laajennus), jossa laajennetaan osissa 4 ja 5 tehtyä Bloglist-sovellusta.
 
@@ -289,7 +289,7 @@ Internetistä alkaa löytyä yhä enenevissä määrin valmiita hookeja sekä mu
 
 ### Lisää hookeista
 
-* [Awesome React Hooks Resouces](https://github.com/rehooks/awesome-react-hooks)
+* [Awesome React Hooks Resources](https://github.com/rehooks/awesome-react-hooks)
 * [Easy to understand React Hook recipes by Gabe Ragland](https://usehooks.com/)
 * [Why Do React Hooks Rely on Call Order?](https://overreacted.io/why-do-hooks-rely-on-call-order/)
 
@@ -401,7 +401,7 @@ Palataan hetkeksi tehtäväsarjan [2.12-14](/osa2/palvelimella_olevan_datan_hake
 
 Ota pohjaksi repositoriossa https://github.com/fullstack-hy/country-hook oleva koodi. 
 
-Sovelluksen avulla on mahdollista hakea maiden tietoja https://restcountries.eu/ rajapinnasta. Jos maa löytyy, näytetään maan perustiedot
+Sovelluksen avulla on mahdollista hakea maiden tietoja https://restcountries.com/ rajapinnasta. Jos maa löytyy, näytetään maan perustiedot
 
 ![](../../images/7/69ea.png)
 
@@ -411,7 +411,7 @@ jos maata ei löydy, kerrotaan siitä käyttäjälle
 
 Sovellus on muuten valmiiksi toteutettu, mutta joudut tässä tehtävässä toteuttamaan custom hookin _useCountry_, jonka avulla haet hookin parametrina saaman nimisen maan tiedot.
 
-Maan tietojan hakeminen kannattaa hoitaa apin endpointin [full name](https://restcountries.eu/#api-endpoints-full-name) avulla, hookin sisällä olevassa _useEffect_-hookissa.
+Maan tietojan hakeminen kannattaa hoitaa apin endpointin [full name(V2)](https://restcountries.com/#api-endpoints-v2-full-name) avulla, hookin sisällä olevassa _useEffect_-hookissa.
 
 Huomaa, että tässä tehtävässä on oleellista hyödyntää useEffectin [toisena parametrina](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) olevaa taulukkoa sen kontrolloimiseen milloin efektifunktio kannattaa suorittaa. 
 
@@ -499,7 +499,7 @@ const App = () => {
 
 Custom-hook _useResource_ siis palauttaa (tilahookien tapaan) kaksialkioisen taulukon. Taulukon ensimmäinen alkio sisältää resurssin kaikki oliot ja toisena alkiona on olio, jonka kautta resurssia on mahdollista manipuloida, mm lisäämällä uusia olioita. 
 
-Jos toteutit hookin oikein, mahdollistaa sovellus blogien ja puhelinnumeroiden yhtäaikaisen käsittelyn (käynnistä backend porttiin 3005 komennolla _npm run server_)
+Jos toteutit hookin oikein, mahdollistaa sovellus muistiinpanojen ja puhelinnumeroiden yhtäaikaisen käsittelyn (käynnistä backend porttiin 3005 komennolla _npm run server_)
 
 ![](../../images/5/21e.png)
 
