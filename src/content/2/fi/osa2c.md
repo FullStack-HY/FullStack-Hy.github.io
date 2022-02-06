@@ -598,7 +598,7 @@ Muuta sovellusta siten, että alkutila haetaan Axios-kirjaston avulla palvelimel
 
 <h4>2.12* maiden tiedot, step1</h4>
 
-RESTCountries [https://restcountries.eu](https://restcountries.eu) tarjoaa paljon eri maihin liittyvää tietoa koneluettavassa muodossa ns. REST API:n välityksellä.
+RESTCountries [https://restcountries.com](https://restcountries.com) tarjoaa paljon eri maihin liittyvää tietoa koneluettavassa muodossa ns. REST API:n välityksellä.
 
 Tee sovellus, jonka avulla voit tarkastella eri maiden tietoja. Sovelluksen kannattaa hakea tiedot endpointista [all](https://restcountries.com/#api-endpoints-v3-all).
 
