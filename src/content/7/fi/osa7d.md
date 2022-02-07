@@ -325,16 +325,21 @@ Sovellusta voi nyt kokeilla avaamalla tiedoston <i>build/index.html</i>  selaime
 
 ![](../../images/7/22.png)
 
-On kuitenkin huomionarvoista, että jos sovelluksemme sisältää <i>async/await</i> -toiminnallisuutta, selaimeen ei joillain selaimilla renderöidy mitään. [Konsoliin tulostuneen virheviestin googlaaminen](https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined) valaisee asiaa. Asian korjaamiseksi on asennettava vielä yksi puuttuva riippuvuus, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill).
+Asian korjaamiseksi on asennettava vielä yksi puuttuva riippuvuus, [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill).
 
-```
-npm install --save-dev @babel/polyfill
+
+
+On kuitenkin huomionarvoista, että jos sovelluksemme sisältää <i>async/await</i> -toiminnallisuutta, selaimeen ei joillain selaimilla renderöidy mitään. [Konsoliin tulostuneen virheviestin googlaaminen](https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined) valaisee asiaa. Ongelma korjaantuu asentamalla kirjastot [core-js](https://www.npmjs.com/package/core-js) ja [regenerator-runtime](https://www.npmjs.com/package/regenerator-runtime):
+
+```bash
+npm install core-js regenerator-runtime
 ```
 
-Muutetaan vielä tiedostoon <i>webpack.config.js</i> entry-kohdan määrittelyä seuraavasti:
+ja importtmalla ne tiedostossa <i>index.js</i>:
 
 ```js
-  entry: ['@babel/polyfill', './src/index.js']
+import 'core-js/stable/index.js'
+import 'regenerator-runtime/runtime.js'
 ```
 
 Tässä on jo melkein kaikki mitä tarvitsemme React-sovelluskehitykseen.

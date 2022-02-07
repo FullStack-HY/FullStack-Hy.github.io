@@ -95,6 +95,8 @@ Eli jokainen näkymä on toteutettu omana komponenttinaan ja sovelluksen tilassa
 
 Menetelmä ei kuitenkaan ole optimaalinen. Kuten kuvista näkyy, sivuston osoite pysyy samana vaikka välillä ollaankin eri näkymässä. Jokaisella näkymällä tulisi kuitenkin olla oma osoitteensa, jotta esim. bookmarkien tekeminen olisi mahdollista. Sovelluksessamme ei myöskään selaimen <i>back</i>-painike toimi loogisesti, eli <i>back</i> ei vie edelliseksi katsottuun sovelluksen näkymään vaan jonnekin ihan muualle. Jos sovellus kasvaisi suuremmaksi ja sinne haluttaisiin esim. jokaiselle käyttäjälle sekä muistiinpanolle oma yksittäinen näkymänsä, itse koodattu <i>reititys</i> eli sivuston navigaationhallinta menisi turhan monimutkaiseksi.
 
+### React Router
+
 Reactissa on onneksi olemassa kirjasto [React Router](https://reactrouter.com/) joka tarjoaa erinomaisen ratkaisun React-sovelluksen navigaation hallintaan.
 
 Muutetaan ylläoleva sovellus käyttämään React Routeria. Asennetaan React Router komennolla
@@ -492,7 +494,7 @@ Lopullinen koodi on kokonaisuudessaan [täällä](https://github.com/fullstack-h
 
 ### Tehtävät 7.1.-7.3.
 
-Jatketaan anekdoottien parissa. Ota seuraaviin tehtäviin pohjaksi repositoriossa <https://github.com/fullstack-hy/routed-anecdotes> oleva reduxiton anekdoottisovellus.
+Jatketaan anekdoottien parissa. Ota seuraaviin tehtäviin pohjaksi repositoriossa <https://github.com/fullstack-hy2020/routed-anecdotes> oleva reduxiton anekdoottisovellus.
 
 Jos kloonaat projektin olemassaolevan git-reposition sisälle, <i>poista kloonatun sovelluksen git-konfiguraatio:</i>
 

@@ -97,37 +97,15 @@ Each view is implemented as its own component. We store the view component infor
 
 However, the method is not very optimal. As we can see from the pictures, the address stays the same even though at times we are in different views. Each view should preferably have its own address, e.g. to make bookmarking possible. The <i>back</i>-button doesn't work as expected for our application either, meaning that <i>back</i> doesn't move you to the previously displayed view of the application, but somewhere completely different. If the application were to grow even bigger and we wanted to, for example, add separate views for each user and note, then this self-made <i>routing</i>, which means the navigation management of the application, would get overly complicated.
 
+### React Router
+
 Luckily, React has the [React Router](https://reactrouter.com/ library which provides an excellent solution for managing navigation in a React application.
 
 Let's change the above application to use React Router. First, we install React Router with the command
 
 ```bash
 npm install react-router-dom
-```const App = () => {
-  const padding = {
-    padding: 5
-  }
-
-  return (
-    <Router>
-      <div>
-        <Link style={padding} to="/">home</Link>
-        <Link style={padding} to="/notes">notes</Link>
-        <Link style={padding} to="/users">users</Link>
-      </div>
-
-      <Routes>
-        <Route path="/notes" element={<Notes />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-
-      <div>
-        <i>Note app, Department of Computer Science 2022</i>
-      </div>
-    </Router>
-  )
-}
+```
 
 The routing provided by React Router is enabled by changing the application as follows:
 
@@ -525,7 +503,7 @@ The completed code can be found [here](https://github.com/fullstack-hy2020/misc/
 
 ### Exercises 7.1.-7.3.
 
-Let's return to working with anecdotes. Use the redux-free anecdote app found in the repository <https://github.com/fullstack-hy/routed-anecdotes> as the starting point for the exercises.
+Let's return to working with anecdotes. Use the redux-free anecdote app found in the repository <https://github.com/fullstack-hy2020/routed-anecdotes> as the starting point for the exercises.
 
 If you clone the project into an existing git repository, remember to <i>delete the git configuration of the cloned application:</i>
 
