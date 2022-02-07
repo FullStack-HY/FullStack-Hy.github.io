@@ -653,7 +653,6 @@ REACT_APP_API_KEY='t0p53cr3t4p1k3yv4lu3' npm start // For Linux/macOS Bash
 set REACT_APP_API_KEY='t0p53cr3t4p1k3yv4lu3' && npm start // For Windows cmd.exe
 ```
 
-<!-- koodista päästään avaimen arvoon käsiksi olion _process.env_ kautta: -->
 you can access the value of the key from the _process.env_ object:
 
 ```js

@@ -362,7 +362,7 @@ Ei välitetä virheestä vielä tässä tehtävässä.
 
 Jos ratkaisusi ei aiheuttanut warningia, ei sinun tarvitse tehdä tässä tehtävässä mitään.
 
-Muussa tapauksessa tee sovellukseen korjaus, joka poistaa varoituksen `Invalid value for prop reset' on <input> tag`. 
+Muussa tapauksessa tee sovellukseen korjaus, joka poistaa varoituksen _Invalid value for prop reset' on &lt;input&gt; tag_. 
 
 Warningin syynä on siis se, että edellisen tehtävän laajennuksen jälkeen seuraava
 

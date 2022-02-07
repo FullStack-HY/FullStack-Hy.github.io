@@ -538,7 +538,7 @@ Yksittäisen anekdootin sivulle navigoidaan klikkaamalla anekdootin nimeä
 
 Luomislomakkeen oletusarvoinen toiminnallisuus on melko hämmentävä, sillä kun lomakkeen avulla luodaan uusi muistiinpano, mitään ei näytä tapahtuvan.
 
-Paranna toiminnallisuutta siten, että luomisen jälkeen siirrytään automaattisesti kaikkien anekdoottien näkymään <i>ja</i> käyttäjälle näytetään 10 sekunnin ajan onnistuneesta lisäyksestä kertova notifikaatio:
+Paranna toiminnallisuutta siten, että luomisen jälkeen siirrytään automaattisesti kaikkien anekdoottien näkymään <i>ja</i> käyttäjälle näytetään viiden sekunnin ajan onnistuneesta lisäyksestä kertova notifikaatio:
 
 ![](../../assets/teht/44.png)
 
