@@ -636,7 +636,7 @@ Tässäkin tehtävässä riittää, että ohjelmasi toimii suurella osalla maita
 
 **Tässä osassa on vielä paljon tekemistä, joten älä juutu tähän tehtävään!**
 
-Lisää yksittäisen maan näkymään pääkaupungin säätiedotus. Säätiedotuksen tarjoavia palveluita on kymmeniä. Itse käytin [https://openweathermap.org/](https://openweathermap.org/:ia. Huomaa että api-avaimen luomisen jälkeen saattaa kulua hetki ennen kuin avain alkaa toimia.
+Lisää yksittäisen maan näkymään pääkaupungin säätiedotus. Säätiedotuksen tarjoavia palveluita on kymmeniä. Itse käytin [https://openweathermap.org/](https://openweathermap.org/):ia. Huomaa että api-avaimen luomisen jälkeen saattaa kulua hetki ennen kuin avain alkaa toimia.
 
 ![](../../images/2/19x.png)
 
