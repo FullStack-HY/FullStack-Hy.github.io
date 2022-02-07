@@ -322,12 +322,12 @@ Parannellaan seuraavaksi näkymän <i>Login</i> kirjautumislomaketta käyttäen 
 
 ```js 
 const Login = (props) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const onSubmit = (event) => {
     event.preventDefault()
     props.onLogin('mluukkai')
-    history.push('/')
+    navigate('/')
   }
 
   return (
