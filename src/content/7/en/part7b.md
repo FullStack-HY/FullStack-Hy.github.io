@@ -266,7 +266,6 @@ const person = {
 <Greeting {...person} />
 ```
 
-
 The application gets simplified into the following format:
 
 ```js
@@ -295,9 +294,7 @@ const App = () => {
 }
 ```
 
-
 Dealing with forms is greatly simplified when the unpleasant nitty-gritty details related to synchronizing the state of the form is encapsulated inside of our custom hook.
-
 
 Custom hooks are clearly not only a tool for reuse, they also provide a better way for dividing our code into smaller modular parts.
 
@@ -313,7 +310,6 @@ The internet is starting to fill up with more and more helpful material related 
 
 <div class="tasks">
 
-
 ### Exercises 7.4.-7.8.
 
 We'll continue with the app from [exercises](/en/part7/react_router#exercises-7-1-7-3) of the chapter [react router](/en/part7/react_router). 
@@ -323,7 +319,6 @@ We'll continue with the app from [exercises](/en/part7/react_router#exercises-7-
 Simplify the anecdote creation form of your application with the _useField_ custom hook we defined earlier.
 
 One natural place to save the custom hooks of your application is in the <i>/src/hooks/index.js</i> file.
-
 
 If you use the [named export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description) instead of the default export:
 
@@ -350,7 +345,6 @@ export const useAnotherHook = () => { // highlight-line
 }
 ```
 
-
 Then [importing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) happens in the following way:
 
 ```js
@@ -362,7 +356,6 @@ const App = () => {
   // ...
 }
 ```
-
 
 #### 7.5: anecdotes and hooks step2
 
@@ -390,7 +383,6 @@ The reason for this warning is that after making the changes to your application
 <input {...content}/>
 ```
 
-
 Essentially, is the same as this:
 
 ```js
@@ -402,9 +394,7 @@ Essentially, is the same as this:
 />
 ```
 
-
 The <i>input</i> element should not be given a <i>reset</i> attribute.
-
 
 One simple fix would be to not use the spread syntax and write all of the forms like this:
 
@@ -416,14 +406,13 @@ One simple fix would be to not use the spread syntax and write all of the forms 
 />
 ```
 
-
 If we were to do this, we would lose much of the benefit provided by the <i>useField</i> hook. Instead, come up with a solution that fixes the issue, but is still easy to use with spread syntax.
 
 #### 7.7: country hook
 
 Let's return to the exercises [2.12-14](/en/part2/getting_data_from_server#exercises-2-11-2-14).
 
-Use the code from https://github.com/fullstack-hy/country-hook as your starting point.
+Use the code from https://github.com/fullstack-hy2020/country-hook as your starting point.
 
 The application can be used to search for a country's details from the https://restcountries.com/ interface. If a country is found, the details of the country are displayed:
 
@@ -435,7 +424,7 @@ If no country is found, a message is displayed to the user:
 
 The application is otherwise complete, but in this exercise you have to implement a custom hook _useCountry_, which can be used to search for the details of the country given to the hook as a parameter.
 
-Use the api endpoint [full name (v2)](https://restcountries.com/#api-endpoints-v2-full-name) to fetch a country's details in a _useEffect_ hook within your custom hook.
+Use the api endpoint [full name](https://restcountries.com/#api-endpoints-v3-full-name) to fetch a country's details in a _useEffect_ hook within your custom hook.
 
 Note that in this exercise it is essential to use useEffect's [second parameter](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) array to control when the effect function is executed.
 
@@ -479,7 +468,7 @@ We notice that the code is in no way specific to the fact that our application d
 
 Extract the code for communicating with the backend into its own _useResource_ hook. It is sufficient to implement fetching all resources and creating a new resource.
 
-You can do the exercise for the project found in the https://github.com/fullstack-hy/ultimate-hooks repository. The <i>App</i> component for the project is the following:
+You can do the exercise for the project found in the https://github.com/fullstack-hy2020/ultimate-hooks repository. The <i>App</i> component for the project is the following:
 
 ```js
 const App = () => {
