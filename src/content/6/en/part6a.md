@@ -512,13 +512,11 @@ const noteReducer = (state = [], action) => {
 }
 ```
 
-
 The spread -syntax works as follows. If we declare
 
 ```js
 const numbers = [1, 2, 3]
 ```
-
 
 <code>...numbers</code> breaks the array up into individual elements, which can be placed in another array.
 
@@ -526,9 +524,7 @@ const numbers = [1, 2, 3]
 [...numbers, 4, 5]
 ```
 
-
 and the result is an array `[1, 2, 3, 4, 5]`.
-
 
 If we would have placed the array to another array without the spread
 
@@ -536,9 +532,7 @@ If we would have placed the array to another array without the spread
 [numbers, 4, 5]
 ```
 
-
 the result would have been `[ [1, 2, 3], 4, 5]`.
-
 
 When we take elements from an array by [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), a similar looking syntax is used to <i>gather</i> the rest of the elements: 
 
@@ -561,7 +555,6 @@ console.log(rest)     // prints [3, 4, 5, 6]
 Let's make a simplified version of the unicafe-exercise from part 1. Let's handle the state management with Redux. 
 
 You can take the project from this repository https://github.com/fullstack-hy2020/unicafe-redux for the base of your project. 
-
 
 <i>Start by removing the git-configuration of the cloned repository, and by installing dependencies</i>
 
@@ -658,9 +651,7 @@ In the tests, make sure that the reducer is an <i>immutable function</i> with th
 Ensure that the provided first test passes, because Redux expects that the reducer returns a sensible original state when it is called so that the first parameter <i>state</i>, which represents the previous state, is 
 <i>undefined</i>.
 
-
 Start by expanding the reducer so that both tests pass. Then add the rest of the tests, and finally the functionality which they are testing. 
-
 
 A good model for the reducer is the [redux-notes](/en/part6/flux_architecture_and_redux#pure-functions-immutable)
 example above. 

@@ -350,12 +350,9 @@ Our configuration contains nearly everything that we need for React development.
 
 The process of transforming code from one form of JavaScript to another is called [transpiling](https://en.wiktionary.org/wiki/transpile). The general definition of the term is to compile source code by transforming it from one language to another.
 
-
 By using the configuration from the previous section, we are <i>transpiling</i> the code containing JSX into regular JavaScript with the help of [babel](https://babeljs.io/), which is currently the most popular tool for the job.
 
-
 As mentioned in part 1, most browsers do not support the latest features that were introduced in ES6 and ES7, and for this reason the code is usually transpiled to a version of JavaScript that implements the ES5 standard.
-
 
 The transpilation process that is executed by Babel is defined with <i>plugins</i>. In practice, most developers use ready-made [presets](https://babeljs.io/docs/plugins/) that are groups of pre-configured plugins.
 
@@ -427,7 +424,6 @@ And we import the style in the <i>index.js</i> file:
 ```js
 import './index.css'
 ```
-
 
 This will cause the transpilation process to break:
 

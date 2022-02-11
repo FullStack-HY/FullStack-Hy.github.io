@@ -395,7 +395,6 @@ The <i>Elements</i> tab of the console can be used to change the styles of the e
 
 Changes made on the console will not be permanent. If you want to make lasting changes, they must be saved to the CSS style sheet on the server. 
 
-
 ### Loading a page containing JavaScript - review
 
 Let's review what happens when the page https://studies.cs.helsinki.fi/exampleapp/notes is opened on the browser. 
