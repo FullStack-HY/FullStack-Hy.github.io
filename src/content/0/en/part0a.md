@@ -110,7 +110,7 @@ Install some sensible text editor that supports web development. [Visual Studio 
 
 Don't code with nano, Notepad or Gedit. NetBeans isn't very good for web development either. It is also rather heavy in comparison to Visual Studio Code.
 
-Also install [Node.js](https://nodejs.org/en/). The material has been done with version 16.13.2, so don't install anything older than that. Installation instructions are [here](https://nodejs.org/en/download/package-manager/).
+Also install [Node.js](https://nodejs.org/en/). The material has been done with version 18.13. The examples in the material will work quite likely also with earlier versions, but if you want to play safe, install the same verion. Installation instructions are [here](https://nodejs.org/en/download/package-manager/).
 
 Node package manager [npm](https://www.npmjs.com/get-npm) will be automatically installed with Node.js. We will be actively using npm throughout the course. Node also comes with [npx](https://www.npmjs.com/package/npx), which we'll need a few times.
 
