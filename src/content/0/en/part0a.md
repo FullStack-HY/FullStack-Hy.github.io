@@ -7,7 +7,7 @@ lang: en
 
 <div class="content">
 
-This course is an introduction to modern web development with JavaScript. The main focus is on single page applications implemented with React and supporting them with RESTful and GraphQL web services implemented with Node.js. New for this year's course are parts on TypeScript,  React Native and Continuous integration.
+This course is an introduction to modern web development with JavaScript. The main focus is on single page applications implemented with React and supporting them with RESTful and GraphQL web services implemented with Node.js. New for this year's course are parts on TypeScript, React Native and Continuous integration.
 
 Other topics include debugging applications, configuration, managing runtime environments and NoSQL databases.
 
@@ -33,49 +33,52 @@ The course contains nine parts, the first of which is numbered 0 for historical 
 
 Proceeding from part n to part n+1 is not sensible before good enough know-how of the topics of part n has been achieved. In pedagogic terms, the course uses mastery learning, and the intent is for you to proceed to the next part only after doing enough of the exercises of the previous part.
 
-You are expected to do at least all of the exercises that are not marked with a star(*). Exercises marked with a star count towards your final grade, but skipping them does not prevent you from doing the compulsory exercises in the next part.
-
+You are expected to do at least all of the exercises that are not marked with a star(\*). Exercises marked with a star count towards your final grade, but skipping them does not prevent you from doing the compulsory exercises in the next part.
 
 The part **deadlines** are at Mondays 23:59.
 
-| osa            | deadline&nbsp; &nbsp; |
-| -------------- | :-------------------: |
-| parts 0 and 1   |        Monday 31.1.   |
-| part 2          |        Monday 7.2.        |
-| part 3          |        Monday 14.2.       |
-| part 4          |        Monday 21.2.       |
-| part 5          |        Monday 28.2.        |
-| parts 6 and 7   |        Monday 14.3.       |
+| osa           | deadline&nbsp; &nbsp; |
+| ------------- | :-------------------: |
+| parts 0 and 1 |     Monday 30.1.      |
+| part 2        |      Monday 6.2.      |
+| part 3        |     Monday 13.2.      |
+| part 4        |     Monday 20.2.      |
+| part 5        |     Monday 27.2.      |
+| parts 6 and 7 |     Monday 13.3.      |
 
-Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [submission sytem](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
+Statistics on the time used for exercises which have already been submitted on different parts of this course can be found from [submission sytem](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
+
+### Help for the exercises
+
+You can get help for the exercises Fridays 13-15 (starting 27.1.) in Exactum BK107. You can discuss the course and related topics in our dedicated group on Discord <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> and on Telegram <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>. Please join the conversation!
 
 ### Grading
 
-Course is worth 5-7 credits depending on the number of submitted exercises. The grade and number of credits are determined by the number of submitted exercises, so also the exercises without stars count towards your final grade. 
+Course is worth 5-7 credits depending on the number of submitted exercises. The grade and number of credits are determined by the number of submitted exercises, so also the exercises without stars count towards your final grade.
 
-Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade. The exam is in Moodle at Friday 11th March. 
+Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade. The exam is in Moodle at Friday 11th March.
 
 Credits and grades are calculated as follows:
 
-| excercises     | credits | grade |
-| ------------ | :------------: | :------: |
-| 138          |       7        | 5        |
-| 127          |       6        | 5        |
-| 116          |       5        | 5        |
-| 105          |       5        | 4        |
-| 94           |       5        | 3        |
-| 83           |       5        | 2        |
-| 72           |       5        | 1        |
+| excercises | credits | grade |
+| ---------- | :-----: | :---: |
+| 138        |    7    |   5   |
+| 127        |    6    |   5   |
+| 116        |    5    |   5   |
+| 105        |    5    |   4   |
+| 94         |    5    |   3   |
+| 83         |    5    |   2   |
+| 72         |    5    |   1   |
 
 Note that for an accepted grade you must pass the exam.
 
 ### Extending your course in Open University
 
-You can extend your course in [Open university](https://studies.helsinki.fi/courses/cur/otm-dbf5a51d-2121-4110-af0f-f1e8f0b74fb9) where the open version of the course starts at 15.3.2021. The open version contains some more parts and it is worth 5 to 14 credits. 
+You can extend your course in the [Open university](https://fullstackopen.com/) that does not have any deadlines. The open version contains some more parts and it is worth 5 to 14 credits.
 
 ### Submitting exercises
 
-The exercises are submitted through GitHub and marking them as done on the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+The exercises are submitted through GitHub and marking them as done on the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2023/).
 
 If you are submitting exercises from different parts to the same repository, use some sensible system for naming your directories. You can of course create a new repository for each part. If you are using a private repository, add <i>mluukkai</i> as a collaborator.
 
@@ -87,7 +90,7 @@ Many of the exercises build a larger application bit by bit. In these cases, sub
 
 ### Full stack project
 
-A full stack project worth 5, 7, 10  credits will be available through Open University.
+A full stack project worth 5, 7, 10 credits will be available through Open University.
 
 For the project, an application is implemented in React and/or Node, though implementing a mobile application in React Native is also possible.
 
@@ -95,7 +98,7 @@ The number of credits is based on hours of work done. One credit is approximatel
 
 It is possible to complete the project as a pair or a group.
 
-For more information, see the [Open University page](https://studies.helsinki.fi/opintotarjonta/cur/otm-67e986ac-78ad-4e2b-aef7-e01cc7f4ec3c/_Full_Stack_websovelluskehitys_harjoitusty%C3%B6).
+For more information, see the [Open University page](https://studies.helsinki.fi/opintotarjonta/cur/otm-85bb770f-ef2f-4bde-984d-5c753bf6a442/CSM141093/Full_Stack_websovelluskehitys_harjoitusty%C3%B6).
 
 ### Before you start
 

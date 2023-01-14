@@ -6,8 +6,10 @@ lang: fi
 
 <div class="intro">
 
-Tässä osassa fokus siirtyy backendin, eli palvelimen toiminnallisuuden toteuttamiseen. Toteutamme Node.js:n Express-kirjastoa hyödyntäen yksinkertaisen REST-apin, joka tallettaa dataa MongoDB-tietokantaan. Viemme myös sovelluksemme internettiin. 
+_OSAN PÄIVITYS KESKEN_
 
-Tämän osan tehtävien deadline on ma 14.2.  
+Tässä osassa fokus siirtyy backendin, eli palvelimen toiminnallisuuden toteuttamiseen. Toteutamme Node.js:n Express-kirjastoa hyödyntäen yksinkertaisen REST-apin, joka tallettaa dataa MongoDB-tietokantaan. Viemme myös sovelluksemme internettiin.
+
+Tämän osan tehtävien deadline on ma 13.2.
 
 </div>

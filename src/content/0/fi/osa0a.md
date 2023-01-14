@@ -25,7 +25,7 @@ Materiaali perustuu muutamien osasta osaan vaihtuvien esimerkkiohjelmien asteitt
 
 ### Suoritustapa
 
-Kurssin tämä versio koostuu kahdeksasta osasta, joista ensimmäinen on historiallisista syistä numero nolla. 
+Kurssin tämä versio koostuu kahdeksasta osasta, joista ensimmäinen on historiallisista syistä numero nolla.
 
 Materiaalissa osasta <i>n</i> osaan <i>n+1</i> eteneminen ei ole mielekästä ennen kuin riittävä osaaminen osan <i>n</i> asioista on saavutettu. Kurssilla sovelletaankin pedagogisin termein <i>tavoiteoppimista</i>, [engl. mastery learning](https://en.wikipedia.org/wiki/Mastery_learning) ja on tarkoitus, että etenet seuraavaan osaan vasta, kun riittävä määrä edellisen osan tehtävistä on tehty.
 
@@ -33,45 +33,53 @@ Oletuksena on, että teet kunkin osan tehtävistä <i>ainakin ne</i> jotka eivä
 
 Osien **deadlinet** ovat maanantaisin klo 23:59.
 
-| osa            | deadline&nbsp; &nbsp; |
-| -------------- | :-------------------: |
-| osat 0 ja 1    |        ma 31.1.       |
-| osa 2          |        ma 7.2.        |
-| osa 3          |        ma 14.2.       |
-| osa 4          |        ma 21.2.       |
-| osa 5          |        ma 28.2.       |
-| osat 6 ja 7    |        ma 14.3.       |
+| osa         | deadline&nbsp; &nbsp; |
+| ----------- | :-------------------: |
+| osat 0 ja 1 |       ma 30.1.        |
+| osa 2       |        ma 6.2.        |
+| osa 3       |       ma 13.2.        |
+| osa 4       |       ma 20.2.        |
+| osa 5       |       ma 27.2.        |
+| osat 6 ja 7 |       ma 13.3.        |
 
-Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussovelluksesta](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet [tehtävien palautussovelluksesta](https://study.cs.helsinki.fi/stats/courses/fullstack2023/).
+
+### Ohjausta tehtäviin
+
+Tehtäviin on tarjolla ohjausta perjantaisin 13-15 BK107 (27.1. alkaen) sekä
+kurssikanavalla Discordissa <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> sekä Telegramissa <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>
+
+Huom: kaikki epäasialliset, halventavat ja jotain ihmisryhmää syrjivät kommentit kanavalla ovat kiellettyjä ja tälläisten kommenttien esittäjät poistetaan kanavalta.
 
 ### Arvosteluperusteet
 
 Kurssin oletusarvoinen laajuus on 5 opintopistettä. Arvosana määräytyy kaikkien tehtyjen tehtävien perusteella, myös tähdellä merkityt "vapaavalintaiset" tehtävät siis vaikuttavat arvosanaan. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
 
-Koe pidetään moodlessa perjantaina 11.3. Koe on suoritettavissa koko vuorokauden ajan.
+Koe pidetään Moodlessa 10-12.3. Koekeen suorittamiseen on aikaa 2 tuntia alotushetkestä alkaen.
 
-Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä. 
+Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä.
 
 Arvosana/opintopisterajat:
 
-| tehtäviä     | opintopisteitä | arvosana |
-| ------------ | :------------: | :------: |
-| 138          |       7        | 5        |
-| 127          |       6        | 5        |
-| 116          |       5        | 5        |
-| 105          |       5        | 4        |
-| 94           |       5        | 3        |
-| 83           |       5        | 2        |
-| 72           |       5        | 1        |
+| tehtäviä | opintopisteitä | arvosana |
+| -------- | :------------: | :------: |
+| 138      |       7        |    5     |
+| 127      |       6        |    5     |
+| 116      |       5        |    5     |
+| 105      |       5        |    4     |
+| 94       |       5        |    3     |
+| 83       |       5        |    2     |
+| 72       |       5        |    1     |
 
 Suoritukseen edellytetään tehtävien lisäksi hyväksytysti suoritettu koe.
 
 ### Kurssisuorituksen laajentaminen avoimessa yliopistossa
 
-Kurssista on tarjolla avoimen [yliopiston puolella](https://studies.helsinki.fi/opintotarjonta/cur/otm-dbf5a51d-2121-4110-af0f-f1e8f0b74fb9/_Full_Stack_websovelluskehitys) 15.3.2022 alkava laajennettu versio (laajuus 5-14 opintopistettä), missä voit laajentaa halutessasi kurssisuoritustasi. 
+Kurssista on tarjolla [avoimessa yliopistossa](https://fullstackopen.com/) deadlinettomana, laajennettuna versiona (laajuus 5-14 opintopistettä), missä voit laajentaa halutessasi kurssisuoritustasi.
+
 ### Tehtävien palauttaminen
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2032/).
 
 Jos palautat eri osien tehtäviä samaan repositorioon, käytä järkevää hakemistojen nimentää. Voit toki tehdä jokaisen osan omaankin repositorioon, kaikki käy. Jos käytät privaattirepositoriota tehtävien palautukseen, liitä repositoriolle collaboratoriksi <i>mluukkai</i>
 
@@ -80,6 +88,7 @@ Tehtävät palautetaan **yksi osa kerrallaan**. Kun olet palauttanut osan tehtä
 GitHubiin palautettuja tehtäviä tarkastetaan plagiaattitunnistusjärjestelmän avulla. Jos GitHubista löytyy kurssin mallivastausten koodia tai useammalta opiskelijalta löytyy samaa koodia, käsitellään tilanne yliopiston [vilppikäytäntöjen](https://guide.student.helsinki.fi/fi/artikkeli/mita-ovat-vilppi-ja-plagiointi) mukaan.
 
 Suurin osa tehtävistä on moniosaisia, samaa ohjelmaa pala palalta rakentavia kokonaisuuksia. Tällaisissa tehtäväsarjoissa ohjelman lopullisen version palauttaminen riittää, voit toki halutessasi tehdä commitin jokaisen tehtävän jälkeisestä tilanteesta, mutta se ei ole välttämätöntä.
+
 ### Full stack -harjoitustyö
 
 Avoimen yliopiston tarjonnassa on 5, 7, 10 opintopisteen laajuinen Full Stack -harjoitustyö, johon voit halutessasi osallistua suoritettuasi tämän kurssin vähintään 5 opintopisteen laajuisena.
@@ -90,7 +99,8 @@ Harjoitustyön opintopistemäärä määrittyy käytettyjen työtuntien mukaan, 
 
 Harjoitustyö on mahdollista tehdä myös pari- tai ryhmätyönä.
 
-Lisää tietoa harjoitustyöstä avoimen yliopiston [sivulla](https://studies.helsinki.fi/opintotarjonta/cur/otm-67e986ac-78ad-4e2b-aef7-e01cc7f4ec3c/_Full_Stack_websovelluskehitys_harjoitusty%C3%B6).
+Lisää tietoa harjoitustyöstä avoimen yliopiston [sivulla](https://studies.helsinki.fi/opintotarjonta/cur/otm-85bb770f-ef2f-4bde-984d-5c753bf6a442/CSM141093/Full_Stack_websovelluskehitys_harjoitusty%C3%B6).
+
 ### Alkutoimet
 
 Tällä kurssilla suositellaan Chrome-selaimen käyttöä, sillä se tarjoaa parhaan välineistön web-sovelluskehitystä ajatellen.
