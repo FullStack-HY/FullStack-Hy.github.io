@@ -33,13 +33,12 @@ Chromen pitäisi aueta automaattisesti. Avaa konsoli **välittömästi**. Avaa m
 Sovelluksen koodi on hakemistossa <i>src</i>. Yksinkertaistetaan valmiina olevaa koodia siten, että tiedoston <i>index.js</i> sisällöksi tulee:
 
 ```js
-import ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import App from './App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 ja tiedoston <i>App.js</i> sisällöksi
@@ -61,12 +60,27 @@ Tiedostot <i>App.css</i>, <i>App.test.js</i>, <i>index.css</i>, <i>logo.svg</i>,
 Tiedosto <i>App.js</i> määrittelee nyt React-[komponentin](https://reactjs.org/docs/components-and-props.html) nimeltään <i>App</i>. Tiedoston <i>index.js</i> viimeisen rivin komento
 
 ```js
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 renderöi komponentin sisällön tiedoston <i>public/index.html</i> määrittelemään <i>div</i>-elementtiin, jonka <i>id:n</i> arvona on 'root'.
 
-Tiedosto <i>public/index.html</i> on oleellisesti ottaen tyhjä, voit kokeilla lisätä sinne HTML:ää. Reactilla ohjelmoitaessa yleensä kuitenkin kaikki renderöitävä sisältö määritellään Reactin komponenttien avulla.
+Tiedosto <i>public/index.html</i> on headerin määrittelyjä lukuunottamatta oleellisesti ottaen tyhjä: 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      content not shown ...
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+Voit kokeilla lisätä tiedostoon HTML:ää. Reactilla ohjelmoitaessa yleensä kuitenkin kaikki renderöitävä sisältö määritellään Reactin komponenttien avulla.
 
 Tarkastellaan vielä tarkemmin komponentin määrittelevää koodia:
 
@@ -112,7 +126,7 @@ const App = () => {
 
 eli funktio palauttaa sisältämänsä lausekkeen arvon.
 
-Komponentin määrittelevä funktio voi sisältää mitä tahansa JavaScript-koodia. Muuta komponenttisi seuraavaan muotoon ja katso mitä konsolissa tapahtuu:
+Komponentin määrittelevä funktio voi sisältää mitä tahansa JavaScript-koodia. Muuta komponenttisi seuraavaan muotoon:
 
 ```js
 const App = () => {
@@ -123,15 +137,19 @@ const App = () => {
     </div>
   )
 }
-```
 
-*Huom*: älä poista tiedoston <i>App.js</i> viimeistä riviä 
-
-```js
 export default App
 ```
 
-muuten komponentti ei näy tiedostoon <i>index.js!</i>
+ja katso mitä selaimen konsolissa tapahtuu:
+
+![](../../images/1/30.png)
+
+Web-sovelluskehityksen sääntö numero yksi on
+
+> <i>pidä konsoli koko ajan auki</i>
+
+Toistetaan tämä vielä yhdessä: <i>pidän konsolin koko ajan auki</i> tamän kurssin ja koko loppuelämäni ajan tehdessäni web-sovelluskehitystä.
 
 Komponenttien sisällä on mahdollista renderöidä myös dynaamista sisältöä.
 
@@ -142,6 +160,7 @@ const App = () => {
   const now = new Date()
   const a = 10
   const b = 20
+  console.log(now, a+b)
 
   return (
     <div>
@@ -155,6 +174,16 @@ const App = () => {
 ```
 
 Aaltosulkeiden sisällä oleva JavaScript-koodi evaluoidaan ja evaluoinnin tulos upotetaan määriteltyyn kohtaan komponentin tuottamaa HTML-koodia.
+
+Huom: älä poista tiedoston lopusta riviä
+
+```js
+export default App
+```
+
+Kyseistä riviä ei useimmiten näytetä materiaalin esimerkeissä mutta ilman sitä komponentti ja koko ohjelma hajoaa.
+
+Muistitko pitää konsolin auki? Mitä sinne tulostui?
 
 ### JSX
 
@@ -200,7 +229,7 @@ mutta JSX:ää kirjoittaessa tagi on pakko sulkea:
 
 ### Monta komponenttia
 
-Muutetaan tiedostoa <i>App.js</i> seuraavasti (ylärivin import ja alimman rivin export jätetään <i>esimerkeistä</i> nyt ja jatkossa pois, niiden on kuitenkin oltava koodissa jotta ohjelma toimisi):
+Muutetaan tiedostoa <i>App.js</i> seuraavasti (muista, että alimman rivin export jätetään <i>esimerkeistä</i> nyt ja jatkossa pois, niiden on kuitenkin oltava koodissa jotta ohjelma toimisi):
 
 ```js
 // highlight-start
@@ -282,6 +311,7 @@ Muutetaan koodia siten, että komponentti <i>Hello</i> käyttää kahta propsia:
 
 ```js
 const Hello = (props) => {
+  console.log(props) // highlight-line
   return (
     <div>
       <p>
@@ -307,15 +337,23 @@ const App = () => {
 
 Komponentti <i>App</i> lähettää propseina muuttujan arvoja, summalausekkeen evaluoinnin tuloksen ja normaalin merkkijonon.
 
+Komponentti <i>Hello</i> myös tulostaa props-olion arvon konsoliin. 
+
+Toivottavasti konsolisi on auki, jos ei ole, muista yhteinen lupauksemme:
+
+> <i>pidän konsolin koko ajan auki tamän kurssin ja koko loppuelämäni ajan tehdessäni web-sovelluskehitystä</i>
+
+Ohjemistokehitys on haastavaa, ja erityisen haastavaksi se muuttuu, jos jokainen mahdollinen apukeino kuten web-konsoli sekä komennolla _console.log_ tahtävät aputulostukset eivät ole käytössä. Ammattilaiset käyttävät näitä <i>aina</i>. Ei ole yhtään syytä miksi aloittelijan pitäisi jättää nämä fantastiset apuvälineet hyödyntämättä.
+
 ### Muutamia huomioita
 
 React on konfiguroitu antamaan varsin hyviä virheilmoituksia. Kannattaa kuitenkin edetä ainakin alussa **todella pienin askelin** ja varmistaa, että jokainen muutos toimii halutulla tavalla.
 
-**Konsolin tulee olla koko ajan auki**. Jos selain ilmoittaa virheestä, ei kannata kirjoittaa sokeasti lisää koodia ja toivoa ihmettä tapahtuvaksi, vaan tulee yrittää ymmärtää virheen syy ja esim. palata edelliseen toimivaan tilaan:
+<i>**Konsolin tulee olla koko ajan auki**.</i> Jos selain ilmoittaa virheestä, ei kannata kirjoittaa sokeasti lisää koodia ja toivoa ihmettä tapahtuvaksi, vaan tulee yrittää ymmärtää virheen syy ja esim. palata edelliseen toimivaan tilaan:
 
 ![](../../images/1/2c.png)
 
-Kannattaa muistaa myös, että React-koodissakin on mahdollista ja kannattavaa lisätä koodin sekaan sopivia konsoliin tulostavia <em>console.log()</em>-komentoja. Tulemme hieman [myöhemmin](#react-sovellusten-debuggaus) tutustumaan muutamiin muihinkin tapoihin debugata Reactia.
+Kuten jo todettiin, myös React-koodissakin on mahdollista ja kannattavaa lisätä koodin sekaan sopivia konsoliin tulostavia <em>console.log()</em>-komentoja. Tulemme hieman [myöhemmin](#react-sovellusten-debuggaus) tutustumaan muutamiin muihinkin tapoihin debugata Reactia.
 
 Kannattaa pitää mielessä, että **React-komponenttien nimien tulee alkaa isolla kirjaimella**. Jos yrität määritellä komponentin seuraavasti:
 
@@ -401,7 +439,7 @@ Nyt käännös menee läpi, ja Reactin generoimaan DOM:iin ei tule ylimääräis
 <div class="tasks">
   <h3>Tehtävät 1.1-1.2</h3>
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 
 Voit palauttaa kurssin kaikki tehtävät samaan repositorioon tai käyttää useita repositorioita. Jos palautat eri osien tehtäviä samaan repositorioon, nimeä hakemistot järkevästi. Jos käytät privaattirepositorioa tehtävien palautukseen, liitä repositoriolle collaboratoriksi <i>mluukkai</i>.
 
@@ -437,13 +475,12 @@ code .
 Luo create-react-app:illa uusi sovellus. Muuta <i>index.js</i> muotoon
 
 ```js
-import ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import App from './App'
 
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 ja tiedosto <i>App.js</i> muotoon
@@ -518,6 +555,6 @@ const Content = ... {
 }
 ```
 
-Sovelluksemme tiedonvälitys on tällä hetkellä todella alkukantaista, sillä se perustuu yksittäisiin muuttujiin. Tilanne paranee pian.
+  Sovelluksemme tiedonvälitys on tällä hetkellä todella <i>arkaaista</i>, sillä se perustuu yksittäisiin muuttujiin. Tilanne paranee pian.
 
 </div>

@@ -7,7 +7,7 @@ lang: en
 
 <div class="content">
 
-We will now start getting familiar with probably the most important topic of this course, namely the [React](https://reactjs.org/)-library. Let's start off with making a simple React application as well as getting to know the core concepts of React.
+We will now start getting familiar with probably the most important topic of this course, namely the [React](https://reactjs.org/) library. Let's start by making a simple React application as well as getting to know the core concepts of React.
 
 The easiest way to get started by far is by using a tool called [create-react-app](https://github.com/facebook/create-react-app). It is possible (but not necessary) to install <i>create-react-app</i> on your machine if the <i>npm</i> tool that was installed along with Node has a version number of at least <i>5.3</i>.
 
@@ -18,28 +18,27 @@ npx create-react-app part1
 cd part1
 ```
 
-The application is run as follows
+The application runs as follows
 
 ```bash
 npm start
 ```
 
-By default, the application runs in localhost port 3000 with the address <http://localhost:3000>
+By default, the application runs on localhost port 3000 with the address <http://localhost:3000>
 
-Your default browser should launch automatically. Open the browser console **immediately**. Also open a text editor so that you can view the code as well as the web-page at the same time on the screen:
+Your default browser should launch automatically. Open the browser console **immediately**. Also, open a text editor so that you can view the code as well as the webpage at the same time on the screen:
 
-![](../../images/1/1e.png)
+![code and browser side by side](../../images/1/1e.png)
 
-The code of the application resides in the <i>src</i> folder. Let's simplify the default code such that the contents of the file <i>index.js</i> look like:
+The code of the application resides in the <i>src</i> folder. Let's simplify the default code such that the contents of the file index.js looks like this:
 
 ```js
-import ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import App from './App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 and file <i>App.js</i> looks like this
@@ -54,19 +53,34 @@ const App = () => (
 export default App
 ```
 
-  The files <i>App.css</i>, <i>App.test.js</i>, <i>index.css</i>, <i>logo.svg</i>, <i>setupTests.js</i> and <i>reportWebVitals.js</i> may be deleted as they are not needed in our application right now.
+The files <i>App.css</i>, <i>App.test.js</i>, <i>index.css</i>, <i>logo.svg</i>, <i>setupTests.js</i> and <i>reportWebVitals.js</i> may be deleted as they are not needed in our application right now.
 
 ### Component
 
 The file <i>App.js</i> now defines a [React component](https://reactjs.org/docs/components-and-props.html) with the name <i>App</i>. The command on the final line of file <i>index.js</i> 
 
 ```js
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 renders its contents into the <i>div</i>-element, defined in the file <i>public/index.html</i>, having the <i>id</i> value 'root'.
 
-By default, the file <i>public/index.html</i> doesn't contain any HTML markup that is visible to us in the browser. You can try adding some HTML into the file. However, when using React, all content that needs to be rendered is usually defined as React components.
+By default, the file <i>public/index.html</i> doesn't contain any HTML markup that is visible to us in the browser:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      content not shown ...
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+You can try adding there some HTML to the file. However, when using React, all content that needs to be rendered is usually defined as React components.
 
 Let's take a closer look at the code defining the component:
 
@@ -112,7 +126,7 @@ const App = () => {
 
 In other words, the function returns the value of the expression.
 
-The function defining the component may contain any kind of JavaScript code. Modify your component to be as follows and observe what happens in the console:
+The function defining the component may contain any kind of JavaScript code. Modify your component to be as follows:
 
 ```js
 const App = () => {
@@ -123,7 +137,19 @@ const App = () => {
     </div>
   )
 }
+
+export default App
 ```
+
+and observe what happens in the browser console
+
+![](../../images/1/30.png)
+
+The first rule of frontend web development: 
+
+> <i>keep the console open all the time</i>
+
+Let us repeat this together: <i>I promise to keep the console open all the time</i> during this course, and the for the rest of my life when I'm doing web development. 
 
 It is also possible to render dynamic content inside of a component.
 
@@ -134,6 +160,7 @@ const App = () => {
   const now = new Date()
   const a = 10
   const b = 20
+  console.log(now, a+b)
 
   return (
     <div>
@@ -148,9 +175,19 @@ const App = () => {
 
 Any JavaScript code within the curly braces is evaluated and the result of this evaluation is embedded into the defined place in the HTML produced by the component.
 
+Note that you should not remove the line at the bottom of the component
+
+```js
+export default App
+```
+
+The export is not shown in most of the examples of the course material. Without the export the component and thw whole app breaks down.
+
+Did you remember your promise to keep the console open? What was printed out there?
+
 ### JSX
 
-It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using [JSX](https://reactjs.org/docs/introducing-jsx.html). Although JSX looks like HTML, we are actually dealing with a way to write JavaScript. Under the hood, JSX returned by React components is compiled into JavaScript.
+It seems like React components are returning HTML markup. However, this is not the case. The layout of React components is mostly written using [JSX](https://reactjs.org/docs/introducing-jsx.html). Although JSX looks like HTML, we are dealing with a way to write JavaScript. Under the hood, JSX returned by React components is compiled into JavaScript.
 
 After compiling, our application looks like this:
 
@@ -172,9 +209,9 @@ const App = () => {
 }
 ```
 
-The compiling is handled by [Babel](https://babeljs.io/repl/). Projects created with *create-react-app* are configured to compile automatically. We will learn more about this topic in [part 7](/en/part7) of this course.
+The compilation is handled by [Babel](https://babeljs.io/repl/). Projects created with *create-react-app* are configured to compile automatically. We will learn more about this topic in [part 7](/en/part7) of this course.
 
-It is also possible to write React as "pure JavaScript" without using JSX. Although, nobody with a sound mind would actually do so.
+It is also possible to write React as "pure JavaScript" without using JSX. Although, nobody with a sound mind would do so.
 
 In practice, JSX is much like HTML with the distinction that with JSX you can easily embed dynamic content by writing appropriate JavaScript within curly braces. The idea of JSX is quite similar to many templating languages, such as Thymeleaf used along with Java Spring, which are used on servers.
 
@@ -192,7 +229,7 @@ but when writing JSX, the tag needs to be closed:
 
 ### Multiple components
 
-Let's modify the file <i>App.js</i> as follows (NB: import at the top of the file and export at the bottom are left out in these <i>examples</i>, now and in the future. They are still needed for the code to work):
+Let's modify the file <i>App.js</i> as follows (NB: export at the bottom is left out in these <i>examples</i>, now and in the future. It is still needed for the code to work):
 
 ```js
 // highlight-start
@@ -238,9 +275,9 @@ Another strong convention is the idea of a <i>root component</i> called <i>App</
 
 ### props: passing data to components
 
-It is possible to pass data to components using so called [props](https://reactjs.org/docs/components-and-props.html).
+It is possible to pass data to components using so-called [props](https://reactjs.org/docs/components-and-props.html).
 
-Let's modify the component <i>Hello</i> as follows
+Let's modify the component <i>Hello</i> as follows:
 
 ```js
 const Hello = (props) => { // highlight-line
@@ -252,7 +289,7 @@ const Hello = (props) => { // highlight-line
 }
 ```
 
-Now the function defining the component has a parameter <i>props</i>. As an argument, the parameter receives an object, which has fields corresponding to all the "props" the user of the component defines.
+Now the function defining the component has a parameter props. As an argument, the parameter receives an object, which has fields corresponding to all the "props" the user of the component defines.
 
 The props are defined as follows:
 
@@ -261,19 +298,20 @@ const App = () => {
   return (
     <div>
       <h1>Greetings</h1>
-      <Hello name="George" /> // highlight-line
-      <Hello name="Daisy" /> // highlight-line
+      <Hello name='George' /> // highlight-line
+      <Hello name='Daisy' /> // highlight-line
     </div>
   )
 }
 ```
 
-There can be an arbitrary number of props and their values can be "hard coded" strings or results of JavaScript expressions. If the value of the prop is achieved using JavaScript it must be wrapped with curly braces.
+There can be an arbitrary number of props and their values can be "hard-coded" strings or the results of JavaScript expressions. If the value of the prop is achieved using JavaScript it must be wrapped with curly braces.
 
 Let's modify the code so that the component <i>Hello</i> uses two props:
 
 ```js
 const Hello = (props) => {
+  console.log(props) // highlight-line
   return (
     <div>
       <p>
@@ -290,7 +328,7 @@ const App = () => {
   return (
     <div>
       <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} /> // highlight-line
+      <Hello name='Maya' age={26 + 10} /> // highlight-line
       <Hello name={name} age={age} />     // highlight-line
     </div>
   )
@@ -299,23 +337,31 @@ const App = () => {
 
 The props sent by the component <i>App</i> are the values of the variables, the result of the evaluation of the sum expression and a regular string.
 
+Component <i>Hello</i> also logs the value of the object props to the console.
+
+I rellly hope your console was open. If it was not, remember what you promised:
+
+>  <i>I promise to keep the console open all the time during this course, and for the rest of my life when I'm doing web development</i>
+
+Software development is hard. It gets even harder if one is not using all the possible available tools such as the web-console and debug printing with _console.log_. Professionals use both <i>all the time</i> and there is no single reason why a beginner should not adopt the use of these wonderful helper methods that will make the life so much easier.
+
 ### Some notes
 
 React has been configured to generate quite clear error messages. Despite this, you should, at least in the beginning, advance in **very small steps** and make sure that every change works as desired.
 
 **The console should always be open**. If the browser reports errors, it is not advisable to continue writing more code, hoping for miracles. You should instead try to understand the cause of the error and, for example, go back to the previous working state:
 
-![](../../images/1/2a.png)
+![screenshot of undefined prop error](../../images/1/2a.png)
 
-It is good to remember that in React it is possible and worthwhile to write <em>console.log()</em> commands (which print to the console) within your code.
+As we already mentioned, that when programming with React it is possible and worthwhile to write <em>console.log()</em> commands (which print to the console) within your code.
 
-Also keep in mind that **React component names must be capitalized**. If you try defining a component as follows
+Also, keep in mind that **React component names must be capitalized**. If you try defining a component as follows:
 
 ```js
 const footer = () => {
   return (
     <div>
-      greeting app created by <a href="https://github.com/mluukkai">mluukkai</a>
+      greeting app created by <a href='https://github.com/mluukkai'>mluukkai</a>
     </div>
   )
 }
@@ -328,7 +374,7 @@ const App = () => {
   return (
     <div>
       <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
+      <Hello name='Maya' age={26 + 10} />
       <footer /> // highlight-line
     </div>
   )
@@ -343,7 +389,7 @@ Note that the content of a React component (usually) needs to contain **one root
 const App = () => {
   return (
     <h1>Greetings</h1>
-    <Hello name="Maya" age={26 + 10} />
+    <Hello name='Maya' age={26 + 10} />
     <Footer />
   )
 }
@@ -351,7 +397,7 @@ const App = () => {
 
 the result is an error message.
 
-![](../../images/1/3c.png)
+![multiple root elements error screenshot](../../images/1/3c.png)
 
 Using a root element is not the only working option. An <i>array</i> of components is also a valid solution:
 
@@ -359,7 +405,7 @@ Using a root element is not the only working option. An <i>array</i> of componen
 const App = () => {
   return [
     <h1>Greetings</h1>,
-    <Hello name="Maya" age={26 + 10} />,
+    <Hello name='Maya' age={26 + 10} />,
     <Footer />
   ]
 }
@@ -367,7 +413,7 @@ const App = () => {
 
 However, when defining the root component of the application this is not a particularly wise thing to do, and it makes the code look a bit ugly.
 
-Because the root element is stipulated, we have "extra" div-elements in the DOM-tree. This can be avoided by using [fragments](https://reactjs.org/docs/fragments.html#short-syntax), i.e. by wrapping the elements to be returned by the component with an empty element:
+Because the root element is stipulated, we have "extra" div elements in the DOM tree. This can be avoided by using [fragments](https://reactjs.org/docs/fragments.html#short-syntax), i.e. by wrapping the elements to be returned by the component with an empty element:
 
 ```js
 const App = () => {
@@ -377,7 +423,7 @@ const App = () => {
   return (
     <>
       <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
+      <Hello name='Maya' age={26 + 10} />
       <Hello name={name} age={age} />
       <Footer />
     </>
@@ -385,14 +431,14 @@ const App = () => {
 }
 ```
 
-It now compiles successfully, and the DOM generated by React no longer contains the extra div-element.
+It now compiles successfully, and the DOM generated by React no longer contains the extra div element.
 
 </div>
 
 <div class="tasks">
   <h3>Exercises 1.1.-1.2.</h3>
 
-Exercises are submitted through GitHub and by marking completed exercises in the [submission application](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+The exercises are submitted via GitHub, and by marking the exercises as done in the "my submissions" tab of the [submission application](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 
 You may submit all the exercises of this course into the same repository, or use multiple repositories. If you submit exercises of different parts into the same repository, please use a sensible naming scheme for the directories.
 
@@ -411,7 +457,7 @@ part2
 
 See this [example submission repository](https://github.com/fullstack-hy2020/example-submission-repository)!
 
-For each part of the course there is a directory, which further branches into directories containing a series of exercises, like "unicafe" for part 1.
+For each part of the course, there is a directory, which further branches into directories containing a series of exercises, like "unicafe" for part 1.
 
 For each web application for a series of exercises, it is recommended to submit all files relating to that application, except for the directory <i>node\_modules</i>.
 
@@ -426,13 +472,12 @@ Note that in this part, there are more exercises besides those found below. <i>D
 Use create-react-app to initialize a new application. Modify <i>index.js</i> to match the following
 
 ```js
-import ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import App from './App'
 
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 and <i>App.js</i> to match the following
@@ -471,7 +516,7 @@ and remove extra files (App.css, App.test.js, index.css, logo.svg, setupTests.js
 
 Unfortunately, the entire application is in the same component. Refactor the code so that it consists of three new components: <i>Header</i>, <i>Content</i>, and <i>Total</i>. All data still resides in the <i>App</i> component, which passes the necessary data to each component using <i>props</i>. <i>Header</i> takes care of rendering the name of the course, <i>Content</i> renders the parts and their number of exercises and <i>Total</i> renders the total number of exercises.
 
-Define the new components in file <i>App.js</i>.
+Define the new components in the file <i>App.js</i>.
 
 The <i>App</i> component's body will approximately be as follows:
 
@@ -493,7 +538,7 @@ const App = () => {
 
 <h4>1.2: course information, step2</h4>
 
-Refactor the <i>Content</i> component so that it does not render any names of parts or their number of exercises by itself. Instead it only renders three <i>Part</i> components of which each renders the name and number of exercises of one part.
+Refactor the <i>Content</i> component so that it does not render any names of parts or their number of exercises by itself. Instead, it only renders three <i>Part</i> components of which each renders the name and number of exercises of one part.
 
 ```js
 const Content = ... {
