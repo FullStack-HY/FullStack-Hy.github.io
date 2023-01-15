@@ -537,7 +537,15 @@ const App = () => {
 }
 ```
 
-**VAROITUS** create-react-app tekee projektista automaattisesti Git-repositorion, ellei sovellusta luoda jo olemassa olevan repositorion sisälle. Todennäköisesti **et halua**, että projektista tulee repositorio, joten suorita projektin juuressa komento _rm -rf .git_.
+**VAROITUS** älä yritä tehdä ohjelmassasi kaikkia komponentteja yhtä, sillä se johtaa lähes varmasti siihen että ohjelma ei toimi. Etene pieni askel kerrallaan, tee aluksi esim. komponentti <i>Header</i> ja vasta kun se toimii 100% varmasti, kannattaa edetä seuraavaan komponenttiin.
+
+Huolellinen, pienin askelin eteneminen saattaa tuntua hitaalta, mutta se on itseasiassa <i> ylivoimaisesti nopein</i> tapa edetä. Kuuluisa ohjelmistokehittäjä Robert "Uncle Bob" Martin on todennut
+
+> <i>"The only way to go fast, is to go well"</i>
+
+eli Martinin mukaan pienin askelin tapahtuva huolellinen eteneminen on jopa ainoa tapa olla nopea.
+
+**VAROITUS2** create-react-app tekee projektista automaattisesti Git-repositorion, ellei sovellusta luoda jo olemassa olevan repositorion sisälle. Todennäköisesti **et halua**, että projektista tulee repositorio, joten suorita projektin juuressa komento _rm -rf .git_.
 
 <h4>1.2: kurssitiedot, step2</h4>
 
