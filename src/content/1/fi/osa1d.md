@@ -7,6 +7,51 @@ lang: fi
 
 <div class="content">
 
+
+### Huomio Reactin versioista
+
+Reactin uusin versio 18 julkaistiin maaliskuun 2022 lopussa. Materiaalin koodin pitäisi toimia sellaisenaan uudenkin Reactin kanssa poislukien [osassa 8](/osa8) käytettävää Apollo Clientiä. 
+
+Jos törmäät ongelmiin voit downgreidata projektin vanhempaan Reactiin muuttamalla tiedostoa  <i>package.json</i> seuraavasti:
+
+```js
+{
+  "dependencies": {
+    "react": "^17.0.2", // highlight-line
+    "react-dom": "^17.0.2", // highlight-line
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  // ...
+}
+```
+
+ja asentamalla muutoksen jälkeen riippuvuudet uudelleen suorittamalla komento
+
+```js
+npm install
+```
+
+Huomaa, että myös tiedosto <i>index.js</i> eroaa hieman eri Reactin versiossa. React 17:lla se näyttää seuraavalta
+
+```js
+import ReactDOM from 'react-dom'
+import App from './App'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+```
+
+React 18:aa käyttäessä tiedoston muoto on seuraava:
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+```
+
 ### Monimutkaisempi tila
 
 Edellisessä esimerkissä sovelluksen tila oli yksinkertainen, sillä se koostui ainoastaan yhdestä kokonaisluvusta. Entä jos sovellus tarvitsee monimutkaisemman tilan?
@@ -446,7 +491,7 @@ props value is [Object object]
 
 kun taas pilkulla tulostettavat asiat erotellessa saat developer-konsoliin olion, jonka sisältöä on mahdollista tarkastella.
 
-Konsoliin tulostus ei ole suinkaan ainoa keino debuggaamiseen. Koodin suorituksen voi pysäyttää Chromen developer-konsolin <i>debuggeriin</i> kirjoittamalla mihin tahansa kohtaa koodia komennon [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
+Konsoliin tulostus ei ole suinkaan ainoa keino debuggaamiseen. Koodin suorituksen voi pysäyttää Chromen developer-konsolin <i>debuggeriin</i> kirjoittamalla omassa tekstieditorissasi olevaan lähdekoodiin mihin tahansa kohtaan koodia komennon [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger).
 
 Koodi pysähtyy, kun suoritus etenee sellaiseen pisteeseen, jossa komento _debugger_ suoritetaan:
 
@@ -481,6 +526,8 @@ React Developer Tools näyttää hookeilla luodut tilan osat siinä järjestykse
 ![](../../images/1/11ea.png)
 
 Ylimpänä oleva <i>State</i> vastaa siis tilan <i>left</i> arvoa, seuraava tilan <i>right</i> arvoa ja alimpana on taulukko <i>allClicks</i>.
+
+JavaScript debuggaukseen voi tutustua myös esim. [tämän sivun videolla](https://developer.chrome.com/docs/devtools/overview/) alkaen kohdasta 16:50.
 
 ### Hookien säännöt
 
@@ -1025,7 +1072,7 @@ Linkkejä:
 <div class="tasks">
   <h3>Tehtävät 1.6.-1.14.</h3>
 
-Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+Tehtävät palautetaan GitHubin kautta ja merkitsemällä tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
 
 Tehtävät palautetaan **yksi osa kerrallaan**. Kun olet palauttanut osan tehtävät, et voi enää palauttaa saman osan tekemättä jättämiäsi tehtäviä.
 
@@ -1046,13 +1093,11 @@ Huomaa, että sovelluksen tarvitsee toimia vain yhden selaimen käyttökerran aj
 Kannattaa noudattaa samaa rakennetta kuin materiaalissa ja edellisessä tehtävässä, eli tiedoston <i>index.js</i> sisältö on seuraava:
 
 ```js
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './App'
 
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root')
-)
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />)
 ```
 
 Muun sovelluksen voi tehdä tiedostoon <i>App.js</i>. Tiedoston sisältö voi olla aluksi seuraava:
@@ -1189,7 +1234,7 @@ const App = () => {
 export default App
 ```
 
-Tiedoston <i>index.js</i> sisätö on sama kuin edellisissä tehtävissä.
+Tiedoston <i>index.js</i> sisältö on sama kuin edellisissä tehtävissä.
 
 Google kertoo, miten voit generoida JavaScriptilla sopivia satunnaisia lukuja. Muista, että voit testata esim. satunnaislukujen generointia konsolissa.
 
@@ -1237,6 +1282,6 @@ Ja sitten vielä lopullinen versio, joka näyttää eniten ääniä saaneen anek
 
 Jos suurimman äänimäärän saaneita anekdootteja on useita, riittää että niistä näytetään yksi.
 
-Tämä oli osan viimeinen tehtävä, ja on aika pushata koodi GitHubiin ja merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022/).
+Tämä oli osan viimeinen tehtävä, ja on aika pushata koodi GitHubiin ja merkata tehdyt tehtävät [palautussovellukseen](https://studies.cs.helsinki.fi/stats/courses/fullstackopen).
 
 </div>
