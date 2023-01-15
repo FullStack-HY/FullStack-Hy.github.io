@@ -927,7 +927,21 @@ const Button = (props) => (
 )
 ```
 
-The component gets the event handler function from the _handleClick_ prop, and the text of the button from the _text_ prop.
+The component gets the event handler function from the _handleClick_ prop, and the text of the button from the _text_ prop. Lets use the new component:
+
+```js
+const App = (props) => {
+  // ...
+  return (
+    <div>
+      {value}
+      <Button handleClick={setToValue(1000)} text="thousand" /> // highlight-line
+      <Button handleClick={setToValue(0)} text="reset" /> // highlight-line
+      <Button handleClick={setToValue(value + 1)} text="increment" /> // highlight-line
+    </div>
+  )
+}
+```
 
 Using the <i>Button</i> component is simple, although we have to make sure that we use the correct attribute names when passing props to the component.
 
