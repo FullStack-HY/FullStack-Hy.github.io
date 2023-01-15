@@ -52,6 +52,39 @@ Statistics on the time used for exercises which have already been submitted on d
 
 You can get help for the exercises Fridays 13-15 (starting 27.1.) in Exactum BK107. You can discuss the course and related topics in our dedicated group on Discord <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> and on Telegram <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>. Please join the conversation!
 
+### How to ask help in Discord/Telegam
+
+When you ask for help for a problem in the Discord/Telegram group your question should be as informative and precise as possible. If your question look like this
+
+> <i>Adding a new person does not work, could you help me with that?</i>
+
+it is quite likely that nobody will not bother to answer to you. The bug can be <i>anywhere</i>.
+
+A better question could be
+
+> <i> In the exercise 2.15 when I try to add a new person to the app, server responds to 403, despite the request looks ok to me.
+>
+> The code looks like this
+> 
+> ```js
+>   // the relevant part of code is pasted here
+>   // code should contain several console.log statements for helping the debuging
+> ```
+>
+> The following gets printed to the console
+>
+> ```bash
+>   // data printed to console
+> ```
+>
+> The network tab looks like the following</i>
+>
+> [screen shot from the network console]
+>
+> All the code can be found here (a link to GitHub)
+
+
+
 ### Grading
 
 Course is worth 5-7 credits depending on the number of submitted exercises. The grade and number of credits are determined by the number of submitted exercises, so also the exercises without stars count towards your final grade.
