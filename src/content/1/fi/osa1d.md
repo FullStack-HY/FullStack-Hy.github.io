@@ -159,7 +159,7 @@ const handleLeftClick = () => {
 }
 ```
 
-Sovellus näyttää toimivan. Reactissa <i>ei kuitenkaan ole sallittua muuttaa tilaa suoraan</i> (kuten komento _clicks.left_ nyt tekee), koska sillä voi olla arvaamattomat seuraukset. Tilan muutos tulee aina tehdä asettamalla uudeksi tilaksi vanhan perusteella tehty kopio!
+Sovellus näyttää toimivan. Reactissa [ei kuitenkaan ole sallittua muuttaa tilaa suoraan](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly) (kuten komento _clicks.left_ nyt tekee), koska sillä voi olla [arvaamattomat seuraukset](https://stackoverflow.com/a/40309023). Tilan muutos tulee aina tehdä asettamalla uudeksi tilaksi vanhan perusteella tehty kopio!
 
 Kaiken tilan pitäminen yhdessä oliossa on tämän sovelluksen kannalta huono ratkaisu; etuja siinä ei juuri ole, mutta sovellus monimutkaistuu merkittävästi. Onkin ehdottomasti parempi ratkaisu tallettaa nappien klikkaukset erillisiin tilan paloihin.
 
@@ -1036,7 +1036,7 @@ Linkkejä:
 - Reactin sivuilla oleva [tutoriaali](https://reactjs.org/tutorial/tutorial.html) sen sijaan on aika huono.
 - [Egghead.io](https://egghead.io):n kursseista [Start learning React](https://egghead.io/courses/start-learning-react) on laadukas, ja hieman uudempi [The Beginner's guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) on myös kohtuullisen hyvä; molemmat sisältävät myös asioita, jotka tulevat tällä kurssilla vasta myöhemmissä osissa. Molemmissa on toki se ongelma, että ne käyttävät Class-komponentteja.
 
-### Webohjelmoijan vala
+### Websovelluskehittäjän vala
 
 Ohjelmointi on hankalaa, ja sen takia lupaan hyödyntää kaikkia ohjelmointia helpottavia keinoja:
 
@@ -1167,6 +1167,8 @@ const Statistics = (props) => {
 Sovelluksen tila säilytetään edelleen juurikomponentissa <i>App</i>.
 
 <h4>1.11*: unicafe step6</h4>
+
+<i>Miksi tehtävä on merkattu tähdellä? Selitys asiaan  [täällä](/osa0/yleista#suoritustapa).</i>
 
 Toteuta tilastojen näyttäminen HTML:n [taulukkona](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics) siten, että saat sovelluksesi näyttämään suunnilleen seuraavanlaiselta:
 

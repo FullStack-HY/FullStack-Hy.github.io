@@ -153,7 +153,7 @@ const handleLeftClick = () => {
 }
 ```
 
-The application appears to work. However, <i>it is forbidden in React to mutate state directly</i>, since [it can result in unexpected side effects](https://stackoverflow.com/a/40309023). Changing state has to always be done by setting the state to a new object. If properties from the previous state object are not changed, they need to simply be copied, which is done by copying those properties into a new object and setting that as the new state.
+The application appears to work. However, it is [forbidden in React to mutate state directly](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly), since [it can result in unexpected side effects](https://stackoverflow.com/a/40309023). Changing state has to always be done by setting the state to a new object. If properties from the previous state object are not changed, they need to simply be copied, which is done by copying those properties into a new object and setting that as the new state.
 
 Storing all of the state in a single state object is a bad choice for this particular application; there's no apparent benefit and the resulting application is a lot more complex. In this case, storing the click counters into separate pieces of state is a far more suitable choice.
 
@@ -1024,14 +1024,14 @@ You may find the following links useful:
 - The [official React documentation](https://reactjs.org/docs/hello-world.html) is worth checking out at some point, although most of it will become relevant only later on in the course. Also, everything related to class-based components is irrelevant to us;
 - Some courses on [Egghead.io](https://egghead.io) like [Start learning React](https://egghead.io/courses/start-learning-react) are of high quality, and the recently updated [Beginner's Guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) is also relatively good; both courses introduce concepts that will also be introduced later on in this course. **NB** The first one uses class components but the latter uses the new functional ones.
 
-### Web programmers oath
+### Web dreveloper's oath
 
 Programming is hard, that is why I will use all the possible means to make it easier
 - I will have my browser developer console open all the time
 - I progress with small steps
-- I will write lots of _console.log_ statements to to make sure I understand how the code behaves and to help pinpointing problems
-- If my code does not work, I will not write more code. Instead I start deleting the code until it works or just return to a state when everything still was still working
-- When I ask for help in the course Discord or Telegram channel or elsewhere I formulate my questions properly, see [here](http://localhost:8000/en/part0/general_info#how-to-ask-help-in-discord-telegam) how to ask help
+- I will write lots of _console.log_ statements to make sure I understand how the code behaves and to help pinpoint problems
+- If my code does not work, I will not write more code. Instead, I start deleting the code until it works or just return to a state when everything still was still working
+- When I ask for help in the course Discord or Telegram channel or elsewhere I formulate my questions properly, see [here](http://localhost:8000/en/part0/general_info#how-to-ask-help-in-discord-telegam) how to ask for help
 
 </div>
 
@@ -1163,6 +1163,8 @@ const Statistics = (props) => {
 The application's state should still be kept in the root <i>App</i> component.
 
 <h4>1.11*: unicafe step6</h4>
+
+<i>Why is there a star in the exercise? See [here](/en/part0/general_info#taking-the-course) for the explanation.</i>
 
 Display the statistics in an HTML [table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics), so that your application looks roughly like this:
 

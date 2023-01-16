@@ -20,7 +20,7 @@ When something does not work, don't just guess what's wrong. Instead, log or use
 **NB** As explained in part 1, when you use the command _console.log_ for debugging, don't concatenate things 'the Java way' with a plus. Instead of writing:
 
 ```js
-console.log('props value is' + props)
+console.log('props value is ' + props)
 ```
 
 separate the things to be printed with a comma:
@@ -32,21 +32,21 @@ console.log('props value is', props)
 If you concatenate an object with a string and log it to the console (like in our first example), the result will be pretty useless: 
 
 ```js
-props value is [Object object]
+props value is [object Object]
 ```
 
 On the contrary, when you pass objects as distinct arguments separated by commas to _console.log_, like in our second example above, the content of the object is printed to the developer console as strings that are insightful.
-If necessary, read more about [debugging React-applications](/en/part1/a_more_complex_state_debugging_react_apps#debugging-react-applications).
+If necessary, read more about [debugging React applications](/en/part1/a_more_complex_state_debugging_react_apps#debugging-react-applications).
 
 ### Protip: Visual Studio Code snippets
 
-With Visual Studio Code it's easy to create 'snippets', i.e. shortcuts for quickly generating commonly re-used portions of code, much like how 'sout' works in Netbeans.
+With Visual Studio Code it's easy to create 'snippets', i.e., shortcuts for quickly generating commonly re-used portions of code, much like how 'sout' works in Netbeans.
 
 Instructions for creating snippets can be found [here](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 
-Useful, ready-made snippets can also be found as VS Code plugins, in the [marketplace](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets).
+Useful, ready-made snippets can also be found as VS Code plugins, in the [marketplace](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets).
 
-The most important snippet is the one for the <em>console.log()</em> command, for example <em>clog</em>. This can be created like so: 
+The most important snippet is the one for the <em>console.log()</em> command, for example, <em>clog</em>. This can be created like so: 
 ```js
 {
   "console.log": {
@@ -59,13 +59,13 @@ The most important snippet is the one for the <em>console.log()</em> command, fo
 }
 ```
 
-Debugging your code using _console.log()_ is so common that Visual Studio Code has that snippet built in. To use it, type _log_ and hit tab to autocomplete. More fully featured _console.log()_ snippet extensions can be found in the [marketplace](https://marketplace.visualstudio.com/search?term=console.log&target=VSCode&category=All%20categories&sortBy=Relevance).
+Debugging your code using _console.log()_ is so common that Visual Studio Code has that snippet built in. To use it, type _log_ and hit Tab to autocomplete. More fully featured _console.log()_ snippet extensions can be found in the [marketplace](https://marketplace.visualstudio.com/search?term=console.log&target=VSCode&category=All%20categories&sortBy=Relevance).
 
 ### JavaScript Arrays
 
-From here on out, we will be using the functional programming methods of the JavaScript [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), such as  _find_, _filter_, and _map_ - all of the time. They operate on the same general principles as streams do in Java 8, which have been used during the last few years in both the 'Ohjelmoinnin perusteet' and 'Ohjelmoinnin jatkokurssi' courses at the university's department of Computer Science, and also in the programming MOOC. 
+From here on out, we will be using the functional programming operators of the JavaScript [array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), such as _find_, _filter_, and _map_ - all of the time.
 
-If functional programming with arrays feels foreign to you, it is worth watching at least the first three parts of the YouTube video series [Functional Programming in JavaScript](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84):
+If operating arrays with functional operators feels foreign to you, it is worth watching at least the first three parts of the YouTube video series [Functional Programming in JavaScript](https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84):
 
 - [Higher-order functions](https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84)
 - [Map](https://www.youtube.com/watch?v=bCqtb-Z5YGQ&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84&index=2)
@@ -75,7 +75,7 @@ If functional programming with arrays feels foreign to you, it is worth watching
 
 Based on last year's course, event handling has proved to be difficult. 
 
-It's worth reading the revision chapter at the end of the previous part [event handlers revisited](/en/part1/a_more_complex_state_debugging_react_apps#event-handling-revisited), if it feels like your own knowledge on the topic needs some brushing up. 
+It's worth reading the revision chapter at the end of the previous part - [event handlers revisited](/en/part1/a_more_complex_state_debugging_react_apps#event-handling-revisited) - if it feels like your own knowledge on the topic needs some brushing up. 
 
 Passing event handlers to the child components of the <i>App</i> component has raised some questions. A small revision on the topic can be found [here](/en/part1/a_more_complex_state_debugging_react_apps#passing-event-handlers-to-child-components).
 
@@ -104,40 +104,38 @@ const App = (props) => {
 export default App
 ```
 
-The file <i>index.js</i> looks like:
+The file <i>index.js</i> looks like this:
 
 ```js
-import ReactDOM from 'react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+
 import App from './App'
 
 const notes = [
   {
     id: 1,
     content: 'HTML is easy',
-    date: '2019-05-30T17:30:31.098Z',
     important: true
   },
   {
     id: 2,
     content: 'Browser can execute only JavaScript',
-    date: '2019-05-30T18:39:34.091Z',
     important: false
   },
   {
     id: 3,
     content: 'GET and POST are the most important methods of HTTP protocol',
-    date: '2019-05-30T19:20:14.298Z',
     important: true
   }
 ]
 
-ReactDOM.render(
-  <App notes={notes} />,
-  document.getElementById('root')
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <App notes={notes} />
 )
 ```
 
-Every note contains its textual content and a timestamp as well as a _boolean_ value for marking whether the note has been categorized as important or not, and also a unique <i>id</i>.
+Every note contains its textual content, a _boolean_ value for marking whether the note has been categorized as important or not, and also a unique <i>id</i>.
 
 The example above works due to the fact that there are exactly three notes in the array. 
 
@@ -213,7 +211,7 @@ const App = (props) => {
 
 Even though the application seems to be working, there is a nasty warning in the console: 
 
-![](../../images/2/1a.png)
+![unique key prop console error](../../images/2/1a.png)
 
 As the linked [React page](https://reactjs.org/docs/lists-and-keys.html#keys) in the error message suggests; the list items, i.e. the elements generated by the _map_ method, must each have a unique key value:  an attribute called <i>key</i>.
 
@@ -240,11 +238,11 @@ const App = (props) => {
 
 And the error message disappears. 
 
-React uses the key attributes of objects in an array to determine how to update the view generated by a component when the component is re-rendered. More about this in the [React documentation](https://reactjs.org/docs/reconciliation.html#recursing-on-children).
+React uses the key attributes of objects in an array to determine how to update the view generated by a component when the component is re-rendered. More about this is in the [React documentation](https://reactjs.org/docs/reconciliation.html#recursing-on-children).
 
 ### Map
 
-Understanding how the array method, [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) works is crucial for the rest of the course. 
+Understanding how the array method [`map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) works is crucial for the rest of the course. 
 
 The application contains an array called _notes_:
 
@@ -253,19 +251,16 @@ const notes = [
   {
     id: 1,
     content: 'HTML is easy',
-    date: '2019-05-30T17:30:31.098Z',
     important: true
   },
   {
     id: 2,
     content: 'Browser can execute only JavaScript',
-    date: '2019-05-30T18:39:34.091Z',
     important: false
   },
   {
     id: 3,
     content: 'GET and POST are the most important methods of HTTP protocol',
-    date: '2019-05-30T19:20:14.298Z',
     important: true
   }
 ]
@@ -299,7 +294,7 @@ Which is an arrow function written in compact form. The full form would be:
 }
 ```
 
-The function gets a note object as a parameter, and <i>returns</i> the value of its <i>id</i> field.
+The function gets a note object as a parameter and <i>returns</i> the value of its <i>id</i> field.
 
 Changing the command to:
 
@@ -313,11 +308,13 @@ This is already pretty close to the React code we used:
 
 ```js
 notes.map(note =>
-  <li key={note.id}>{note.content}</li>
-)
+  <li key={note.id}>
+    {note.content}
+  </li>
+)s
 ```
 
-which generates an <i>li</i> tag containing the contents of the note from each note object. 
+which generates a <i>li</i> tag containing the contents of the note from each note object. 
 
 Because the function parameter passed to the _map_ method - 
 
@@ -325,7 +322,7 @@ Because the function parameter passed to the _map_ method -
 note => <li key={note.id}>{note.content}</li>
 ```
 
-&nbsp;- is used to create view elements, the value of the variable must be rendered inside of curly braces. Try to see what happens if the braces are removed. 
+&nbsp;- is used to create view elements, the value of the variable must be rendered inside curly braces. Try to see what happens if the braces are removed. 
 
 The use of curly braces will cause some pain in the beginning, but you will get used to them soon enough. The visual feedback from React is immediate.
 
@@ -407,16 +404,17 @@ const App = ({ notes }) => {
 
 Note that the <i>key</i> attribute must now be defined for the <i>Note</i> components, and not for the <i>li</i> tags like before. 
 
-A whole React application can be written in a single file. Although that is, of course, not very practical. Common practice is to declare each component in their own file as an <i>ES6-module</i>.
+A whole React application can be written in a single file. Although that is, of course, not very practical. Common practice is to declare each component in its own file as an <i>ES6-module</i>.
 
 We have been using modules the whole time. The first few lines of the file <i>index.js</i>:
 
 ```js
-import ReactDOM from 'react-dom'
-import App from './App'
+import ReactDOM from "react-dom/client"
+
+import App from "./App"
 ```
 
-[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom</i> is placed into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
+[import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) two modules, enabling them to be used in that file. The module <i>react-dom/client</i> into the variable _ReactDOM_, and the module that defines the main component of the app is placed into the variable _App_
 
 Let's move our <i>Note</i> component into its own module. 
 
@@ -426,8 +424,6 @@ Now, we'll create a directory called <i>components</i> for our application and p
 The contents of the Note.js file are as follows: 
 
 ```js
-import React from 'react'
-
 const Note = ({ note }) => {
   return (
     <li>{note.content}</li>
@@ -465,19 +461,19 @@ The current code of the application can be found on [GitHub](https://github.com/
 
 Note that the <i>main</i> branch of the repository contains the code for a later version of the application. The current code is in the branch [part2-1](https://github.com/fullstack-hy2020/part2-notes/tree/part2-1):
 
-![](../../images/2/2e.png)
+![GitHub branch screenshot](../../images/2/2e.png)
 
 If you clone the project, run the command _npm install_ before starting the application with _npm start_.
 
 ### When the Application Breaks
 
-Early in your programming career (and even after 30 years of coding like yours truly), what often happens is that the application just completely breaks down. This is even more the case with dynamically typed languages, such as JavaScript, where the compiler does not check the data type. For instance, function variables or return values. 
+Early in your programming career (and even after 30 years of coding like yours truly), what often happens is that the application just completely breaks down. This is even moreso the case with dynamically typed languages, such as JavaScript, where the compiler does not check the data type. For instance, function variables or return values. 
 
-A "React explosion" can for example look like this:
+A "React explosion" can, for example, look like this:
 
-![](../../images/2/3b.png)
+![react sample error](../../images/2/3b.png)
 
-In these situations your best way out is the <em>console.log</em> method.
+In these situations, your best way out is the <em>console.log</em> method.
 
 The piece of code causing the explosion is this: 
 
@@ -519,9 +515,9 @@ const App = () => {
 
 To see the printing in the console, we must scroll up over the long red wall of errors.
 
-![](../../images/2/4b.png)
+![initial printing of the console](../../images/2/4b.png)
 
-When one thing is found to be working, it's time to log deeper. If the component has been declared as a single statement, or a function without a return, it makes printing to the console harder.
+When one thing is found to be working, it's time to log deeper. If the component has been declared as a single statement or a function without a return, it makes printing to the console harder.
 
 ```js
 const Course = ({ course }) => (
@@ -531,7 +527,7 @@ const Course = ({ course }) => (
 )
 ```
 
-The component should be changed to its longer form in order for us to add the printing: 
+The component should be changed to its longer form for us to add the printing: 
 
 ```js
 const Course = ({ course }) => { 
@@ -544,7 +540,7 @@ const Course = ({ course }) => {
 }
 ```
 
-Quite often the root of the problem is that the props are expected to be of a different type, or called with a different name than they actually are, and destructuring fails as a result. The problem often begins to solve itself when destructuring is removed and we see what the <em>props</em> actually contains. 
+Quite often the root of the problem is that the props are expected to be of a different type, or called with a different name than they actually are, and destructuring fails as a result. The problem often begins to solve itself when destructuring is removed and we see what the <em>props</em> contain. 
 
 ```js
 const Course = (props) => { // highlight-line
@@ -558,9 +554,21 @@ const Course = (props) => { // highlight-line
 }
 ```
 
-If the problem has still not been resolved, there really isn't much to do apart from continuing to bug-hunt by sprinkling more _console.log_ statements around your code. 
+If the problem has still not been resolved, sadly there isn't much to do apart from continuing to bug-hunt by sprinkling more _console.log_ statements around your code. 
 
 I added this chapter to the material after the model answer for the next question exploded completely (due to props being of the wrong type), and I had to debug it using <em>console.log</em>.
+
+### Web developer's oath
+
+Before the exercises, let me remind what you promised at the end of the previous part.
+
+Programming is hard, that is why I will use all the possible means to make it easier
+
+- I will have my browser developer console open all the time
+- I progress with small steps
+- I will write lots of _console.log_ statements to make sure I understand how the code behaves and to help pinpointing problems
+- If my code does not work, I will not write more code. Instead, I start deleting the code until it works or just return to a state when everything still was still working
+- When I ask for help in the course Discord or Telegram channel or elsewhere I formulate my questions properly, see [here](http://localhost:8000/en/part0/general_info#how-to-ask-help-in-discord-telegam) how to ask for help
 
 </div>
 
@@ -568,19 +576,19 @@ I added this chapter to the material after the model answer for the next questio
 
 <h3>Exercises 2.1.-2.5.</h3>
 
-The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
+The exercises are submitted via GitHub, and by marking the exercises as done in the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 
 You can submit all of the exercises into the same repository, or use multiple different repositories. If you submit exercises from different parts into the same repository, name your directories well.
 
 The exercises are submitted **One part at a time**. When you have submitted the exercises for a part, you can no longer submit any missed exercises for that part.
 
-Note that this part has more exercises than the ones before, so <i>do not submit</i> before you have done all exercises from this part you want to submit. 
+Note that this part has more exercises than the ones before, so <i>do not submit</i> until you have done all exercises from this part you want to submit. 
 
-**WARNING** create-react-app makes the project automatically into a git-repository, if the project is not created inside of an already existing repository. You probably **do not** want the project to become a repository, so run the command  _rm -rf .git_ from its root. 
+**WARNING** create-react-app makes the project automatically into a git repository if the project is not created inside of an already existing repository. You probably **do not** want the project to become a repository, so run the command _rm -rf .git_ from its root. 
 
 <h4>2.1: Course information step6</h4>
 
-Let's finish the code for rendering course contents from exercises 1.1 - 1.5. You can start with the code from the model answers. The model answers for part 1 can be found by going to the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2022), click on <i>my submissions</i> at the top, and in the row corresponding to part 1 under the <i>solutions</i> column click on <i>show</i>. To see the solution to the <i>course info</i> exercise, click on _index.js_ under <i>kurssitiedot</i> ("kurssitiedot" means "course info").
+Let's finish the code for rendering course contents from exercises 1.1 - 1.5. You can start with the code from the model answers. The model answers for part 1 can be found by going to the [submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2023), clicking on <i>my submissions</i> at the top, and in the row corresponding to part 1 under the <i>solutions</i> column clicking on <i>show</i>. To see the solution to the <i>course info</i> exercise, click on _index.js_ under <i>kurssitiedot</i> ("kurssitiedot" means "course info").
 
 
 **Note that if you copy a project from one place to another, you might have to delete the <i>node\_modules</i> directory and install the dependencies again with the command _npm install_ before you can start the application.**
@@ -614,6 +622,8 @@ const App = () => {
 
   return <Course course={course} />
 }
+
+export default App
 ```
 
 Define a component responsible for formatting a single course called <i>Course</i>. 
@@ -634,7 +644,7 @@ Hence, the <i>Course</i> component contains the components defined in the previo
 
 The rendered page can, for example, look as follows: 
 
-![](../../images/teht/8e.png)
+![half stack application screenshot](../../images/teht/8e.png)
 
 You don't need the sum of the exercises yet. 
 
@@ -646,7 +656,7 @@ Ensure that the console shows no errors!
 
 Show also the sum of the exercises of the course. 
 
-![](../../images/teht/9e.png)
+![sum of exercises added feature](../../images/teht/9e.png)
 
 <h4>2.3*: Course information step8</h4>
 
@@ -658,8 +668,8 @@ If you haven't done so already, calculate the sum of exercises with the array me
 const total = 
   parts.reduce((s, p) => someMagicHere)
 ```
-
-and does not work, it's worth to use <i>console.log</i>, which requires the arrow function to be written in its longer form:
+  
+and does not work, it's worth it to use <i>console.log</i>, which requires the arrow function to be written in its longer form:
 
 ```js
 const total = parts.reduce((s, p) => {
@@ -667,10 +677,12 @@ const total = parts.reduce((s, p) => {
   return someMagicHere 
 })
 ```
+ 
+**Not working? :** Use your search engine to look up how `reduce` is used in an **Object Array**.
 
-**Pro tip 2:** There is a [plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=cmstead.jsrefactor) that automatically changes short form arrow functions into their longer form, and vice versa. 
+**Pro tip 2:** There is a [plugin for VS Code](https://marketplace.visualstudio.com/items?itemName=cmstead.js-codeformer) that automatically changes the short-form arrow functions into their longer form and vice versa. 
 
-![](../../images/2/5b.png)
+![vscode sample suggestion for arrow function](../../images/2/5b.png)
 
 <h4>2.4: Course information step9</h4>
 
@@ -734,10 +746,10 @@ const App = () => {
 
 The application can, for example, look like this: 
 
-![](../../images/teht/10e.png)
+![arbitrary number of courses feature add-on](../../images/teht/10e.png)
 
 <h4>2.5: separate module</h4>
 
-Declare the <i>Course</i> component as a separate module, which is imported by the <i>App</i> component. You can include all subcomponents of the course into the same module. 
+Declare the <i>Course</i> component as a separate module, which is imported by the <i>App</i> component. You can include all subcomponents of the course in the same module. 
 
 </div>
