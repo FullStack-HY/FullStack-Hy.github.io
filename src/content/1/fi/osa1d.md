@@ -317,13 +317,13 @@ Konsoli paljastaa ongelman
 
 ![](../../images/1/32.png)
 
-Vaikka tilalle _left_ asetettiin uusi arvo kutsumalla _setLeft(left + 1)_ on tilalla siis edelleen vanha arvo päivityksestä huolimatta! Tämän seuraava takia nappien painallusten laskuyritys tuottaa aina yhtä liian pienen tuloksen:
+Vaikka tilalle _left_ asetettiin uusi arvo kutsumalla _setLeft(left + 1)_ on tilalla siis tapahtumankäsittelijän sisällä edelleen vanha arvo päivityksestä huolimatta! Tämän takia seuraava takia nappien painallusten laskuyritys tuottaa aina yhtä liian pienen tuloksen:
 
 ```js
 setTotal(left + right) 
 ```
 
-Syynä tälle on se, että tilan päivitys tapahtuu Reactissa [asynkronisesti](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous), eli "jossain vaiheessa" ennen kuin komponentti renderöidään uudelleen, ei kuitenkaan välittömästi.
+Syynä ilmiöön on se, että tilan päivitys tapahtuu Reactissa [asynkronisesti](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous), eli "jossain vaiheessa" ennen kuin komponentti renderöidään uudelleen, ei kuitenkaan välittömästi.
 
 Saamme korjattua sovelluksen seuraavasti:
 

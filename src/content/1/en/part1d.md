@@ -319,7 +319,6 @@ The reason for this is that a state update in React happens [asynchronously](htt
 
 We can fix the app as follows:
 
-
 ```js
 const App = () => {
   // ...
@@ -334,7 +333,7 @@ const App = () => {
 }
 ```
 
-So now the sum of the number of button presses is definitely based on the correct number of left button presses.
+So now the number of button presses is definitely based on the correct number of left button presses.
 
 ### Conditional rendering
 
