@@ -552,7 +552,7 @@ Tämä kyseinen sovellus olisikin voitu tehdä kokonaan ilman useEffectin käytt
   }
 ```
 
-On kuitenkin tilanteita, missä vastaava tekniikka ei onnistu. Esim. eräs tapa tehtävässä 2.20 tarvittavien kaupungin säätietojen hakemiseen on nimenomaan useEffectin hyödyntäminen.
+On kuitenkin tilanteita, missä vastaava tekniikka ei onnistu. Esim. eräs tapa tehtävässä 2.20 tarvittavien kaupungin säätietojen hakemiseen on nimenomaan useEffectin hyödyntäminen. Tehtävässä selviää myös hyvin ilman kyseistä kikkaa, esim. malliratkaisu ei sitä tarvitse.
 
 </div>
 

@@ -574,7 +574,7 @@ This particular application could have been made completely without using the us
   }
 ```
 
-However, there are situations where that technique would not work. For example, you might encounter one such a situation in the exercise 2.20 where the use of useEffect could provide a solution.
+However, there are situations where that technique would not work. For example, you <i>might</i> encounter one such a situation in the exercise 2.20 where the use of useEffect could provide a solution. Note that this depends quite much on the approach you selected, e.g. the model solution does not use this trick.
 
 </div>
 

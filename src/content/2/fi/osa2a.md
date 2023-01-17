@@ -649,6 +649,8 @@ Ilmoita myös kurssin yhteenlaskettu tehtävien lukumäärä:
 
 <h4>2.3*: kurssitiedot step8</h4>
 
+<i>Miksi tehtävä on merkattu tähdellä? Selitys asiaan  [täällä](/osa0/yleista#suoritustapa).</i>
+
 Jos et jo niin tehnyt, laske koodissasi tehtävien määrä taulukon metodilla [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
 
 **Pro tip:** Kun koodisi joka näyttää esimerkiksi seuraavalta 
