@@ -114,11 +114,11 @@ Anna sovellukselle nimi, tai anna Fly.io:n generoida automaattinen nimi, valitse
 
 Fly.io luo hakemistoosi tiedoston <i>fly.toml</i>, joka sisältää sovelluksen tuotantoympäristön konfiguraation.
 
-Jotta sovellus saadaan konfiguroitua oikein, tulee tiedostoon konfiguraatuoon tehdä pieni lisäys osiin [env]
+Jotta sovellus saadaan konfiguroitua oikein, tulee tiedostoon konfiguraatioon ehkä tehdä pieni lisäys osiin [env]
 
 ```bash
 [env]
-  PORT = 8080 # lisätään tämä
+  PORT = "8080" # lisätään tämä
 
 [experimental]
   auto_rollback = true
@@ -129,7 +129,7 @@ Jotta sovellus saadaan konfiguroitua oikein, tulee tiedostoon konfiguraatuoon te
   processes = ["app"]
 ```
 
-Osaan [env] lisätään määritelmä ympäristömuuttujalle PORT, jotta sovellus osaa käynnistää itsensä samaan samaan porttiin, missä Fly olettaa (määrittely kohdassa [services]) sen olevan käynnissä.
+Osaan [env] lisätään tarvittaessa (jos se ei jo siellä valmiiksi ole) määritelmä ympäristömuuttujalle PORT, jotta sovellus osaa käynnistää itsensä samaan samaan porttiin, missä Fly olettaa (määrittely kohdassa [services]) sen olevan käynnissä.
 
 Sovellus voidaan nyt käynnistää komennolla
 
@@ -202,28 +202,6 @@ Kun sovellus viedään tuotantoon, täytyy siitä tehdä [production build](http
 
 Suoritetaan nyt komento <i>frontendin projektin juuressa</i>.
 
-**HUOM:** tätä kirjoitettaessa (20.1.2022) create-react-app:issa on pieni bugi, ja jos komento aiheuttaa virheilmoituksen _TypeError: MiniCssExtractPlugin is not a constructor_, korjaus ongelmaan löytyy [täältä](https://github.com/facebook/create-react-app/issues/11930), eli lisää tiedostoon <i>package.json</i> 
-
-```json
-{
-  // ...
-  "resolutions": {
-    "mini-css-extract-plugin": "2.4.5"
-  }
-}
-```
-
-ja suorita komennot
-
-```bash
-rm -rf package-lock.json
-rm -rf node_modules
-npm cache clean --force
-npm install
-```
-
-Komennon _npm run build_ pitäisi taas toimia.
-
 Komennon seurauksena syntyy hakemiston <i>build</i> (joka sisältää jo sovelluksen ainoan html-tiedoston <i>index.html</i>) sisään hakemisto <i>static</i>, jonka alle generoituu sovelluksen JavaScript-koodin [minifioitu](<https://en.wikipedia.org/wiki/Minification_(programming)>) versio. Vaikka sovelluksen koodi on kirjoitettu useaan tiedostoon, generoituu kaikki JavaScript yhteen tiedostoon. Samaan tiedostoon tulee  myös kaikkien sovelluksen koodin tarvitsemien riippuvuuksien koodi.
 
 Minifioitu koodi ei ole miellyttävää luettavaa. Koodin alku näyttää seuraavalta:
@@ -239,12 +217,12 @@ Eräs mahdollisuus frontendin tuotantoon viemiseen on kopioida tuotantokoodi eli
 Aloitetaan kopioimalla frontendin tuotantokoodi backendin alle, projektin juureen. Omalla koneellani kopiointi tapahtuu frontendin hakemistosta käsin komennolla
 
 ```bash
-cp -r build ../notes-backend
+cp -r build ../backend
 ```
 
 Backendin sisältävän hakemiston tulee nyt näyttää seuraavalta:
 
-![ls-komento näyttää tiedostot index.js, Procfile, package.json, package-lock.json sekä hakemistot build ja node_modules](../../images/3/27ea.png)
+![ls-komento näyttää tiedostot index.js, Procfile, package.json, package-lock.json sekä hakemistot build ja node_modules](../../images/3/27new.png)
 
 Jotta saamme Expressin näyttämään <i>staattista sisältöä</i> eli sivun <i>index.html</i> ja sen lataaman JavaScriptin ym. tarvitsemme Expressiin sisäänrakennettua middlewarea [static](http://expressjs.com/en/starter/static-files.html).
 
@@ -276,7 +254,7 @@ Muutoksen jälkeen frontendistä on luotava uusi production build ja kopioitava 
 
 Sovellusta voidaan käyttää nyt <i>backendin</i> osoitteesta <http://localhost:3001>:
 
-![Mentäessä osoitteeseen localhost:3001 selain renderöi react-sovelluksen, joka listaa muistiinpanot. Jokaisen muistiinpanon yhteydessä on sen tärkeyden muuttava nappi 'make important' tai 'make not important', näkymässä on myös lomake uuden muistiinpanon luomiseen. Tärkeyttä ei lomakkeella tarvitse voida asettaa, ainoastaan muistiinpanon sisältö.](../../images/3/28e.png)
+![Mentäessä osoitteeseen localhost:3001 selain renderöi react-sovelluksen, joka listaa muistiinpanot. Jokaisen muistiinpanon yhteydessä on sen tärkeyden muuttava nappi 'make important' tai 'make not important', näkymässä on myös lomake uuden muistiinpanon luomiseen. Tärkeyttä ei lomakkeella tarvitse voida asettaa, ainoastaan muistiinpanon sisältö.](../../images/3/28new.png)
 
 Sovelluksemme toiminta vastaa nyt täysin osan 0 luvussa [Single page app](/osa0/web_sovelluksen_toimintaperiaatteita#single-page-app) läpikäydyn esimerkkisovelluksen toimintaa.
 
@@ -300,7 +278,7 @@ Sivu sisältää ohjeen ladata sovelluksen tyylit määrittelevän CSS-tiedoston
 
 React-koodi hakee palvelimelta muistiinpanot osoitteesta <http://localhost:3001/api/notes> ja renderöi ne ruudulle. Selaimen ja palvelimen kommunikaatio selviää tuttuun tapaan konsolin välilehdeltä <i>Network</i>:
 
-![Välilehti Network kertoo että on tehty pyyntö GET localhost:3001/api/notes](../../images/3/29ea.png)
+![Välilehti Network kertoo että on tehty pyyntö GET localhost:3001/api/notes](../../images/3/29new.png)
 
 Tuotantoa varten tehty suoritusympäristö näyttää siis seuraavalta:
 
@@ -310,15 +288,17 @@ Toisin kuin sovelluskehitysympäristössä, kaikki sovelluksen tarvitsema löyty
 
 ### Koko sovellus Internetiin
 
-Kun sovelluksen "Internetiin vietävä" tuotantoversio todetaan toimivaksi paikallisesti, commitoidaan frontendin tuotantoversio backendin repositorioon ja pushataan koodi uudelleen Herokuun tai Fly.io:n tapauksessa annetaan komento
+Kun sovelluksen "Internetiin vietävä" tuotantoversio todetaan toimivaksi paikallisesti, commitoidaan frontendin tuotantoversio backendin repositorioon ja pushataan koodi GtHubiin. Jos käytät Renderiä, saataa automaattinen uudelleenkäynnistys toimia. Jos näin ei ole, käynnistä uusi versio itse dashbordin kautta tekemälä "manual depolyment".
+
+Fly.io:n tapauksessa sovelluksen uusi versio käynnistyy komennolla
 
 ```bash
 fly deploy
 ```
 
-[Sovellus](https://obscure-harbor-49797.herokuapp.com/) toimii moitteettomasti lukuun ottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
+Sovellus toimii moitteettomasti lukuun ottamatta vielä backendiin toteuttamatonta muistiinpanon tärkeyden muuttamista:
 
-![Selain renderöi sovelluksen frontendin (joka näyttää palvelimella olevan datan) mentäessä sovelluksen heroku-urlin juureen](../../images/3/30ea.png)
+![Selain renderöi sovelluksen frontendin (joka näyttää palvelimella olevan datan) mentäessä sovelluksen heroku-urlin juureen](../../images/3/30new.png)
 
 Sovelluksemme tallettama tieto ei ole ikuisesti pysyvää, sillä sovellus tallettaa muistiinpanot muuttujaan. Jos sovellus kaatuu tai se uudelleenkäynnistetään, kaikki tiedot katoavat.
 
@@ -328,7 +308,7 @@ Tuotannossa oleva sovellus näyttää seuraavalta:
 
 ![Selain hakee json-muotoisen datan nameoftheapp.herokuapp.com/api/notes osoitteesta ja suoritettavan react-sovelluksen js-koodin sekä index.html-tiedoston osoitteesta  nameoftheapp.herokuapp.com. Backend hakee tarvitsemansa js-tiedostot ja index.html:n herokun palvelimen levyltä.](../../images/3/102.png)
 
-Nyt siis node/express-backend sijaitsee Fly.io:n/Herokun palvelimella. Kun selaimella mennään sovelluksen "juuriosoitteeseen", joka on (käytettäessä Herokua) muotoa https://glacial-ravine-74819.herokuapp.com/, alkaa selain suorittaa React-koodia joka taas hakee JSON-muotoisen datan Fly.io:sta/Herokusta.
+Nyt siis node/express-backend sijaitsee Fly.io:n/Renderin palvelimella. Kun selaimella mennään sovelluksen "juuriosoitteeseen", alkaa selain suorittamaan React-koodia, joka taas hakee JSON-muotoisen datan Fly.io:sta/Renderistä.
 
 ### Frontendin deployauksen suoraviivaistus 
 
@@ -342,7 +322,7 @@ Skripit seuraavassa
 {
   "scripts": {
     // ...
-    "build:ui": "rm -rf build && cd ../part2-notes/ && npm run build && cp -r build ../notes-backend",
+    "build:ui": "rm -rf build && cd ../frontend/ && npm run build && cp -r build ../backend",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",    
     "logs:prod": "fly logs"
@@ -356,43 +336,23 @@ _npm run deploy:full_ yhdistää molemmat edellä mainitut komennot. Lisätään
 
 Huomaa, että skriptissä <i>build:ui</i> olevat polut riippuvat repositorioiden sijainnista.
 
-**HUOM:** joissain tapauksissa Fly.io-komentojen suoritus (erityisesti Windows WSL:n kanssa) on aiheuttanut ongelmia. Jos seuraava komento ei tulosta mitään
+#### Render
 
-```bash
-flyctl ping -o personal
-```
-
-koneesi ei jostain (toistaiseksi tuntemattomasta) syytä saa yhteyttä  Fly.io:on. Jos näin käy, [täällä](https://github.com/fullstack-hy2020/misc/blob/master/fly_io_problem.md) kerrotaan eräs tapa edetä.
-
-Onnistuessaan edellisen komennon tulostus näyttää seuraavalta
-
-```bash
-$ flyctl ping -o personal
-35 bytes from fdaa:0:8a3d::3 (gateway), seq=0 time=65.1ms
-35 bytes from fdaa:0:8a3d::3 (gateway), seq=1 time=28.5ms
-35 bytes from fdaa:0:8a3d::3 (gateway), seq=2 time=29.3ms
-...
-```
-
-#### Heroku
-
-Herokun tapauksessa skriptit täyttävät seuraavalta
+Renderin tapauksessa skriptit täyttävät seuraavalta
 
 ```json
 {
   "scripts": {
     // ...
-    "build:ui": "rm -rf build && cd ../part2-notes/ && npm run build && cp -r build ../notes-backend",
-    "deploy": "git push heroku main",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",    
-    "logs:prod": "heroku logs --tail"
+    "build:ui": "rm -rf build && cd ../frontend && npm run build && cp -r build ../backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   }
 }
 ```
 
-Skripteistä _npm run build:ui_ kääntää ui:n tuotantoversioksi ja kopioi sen. _npm run deploy_ julkaisee Herokuun.
+Skripteistä _npm run build:ui_ kääntää ui:n tuotantoversioksi ja kopioi sen.
 
-_npm run deploy:full_ yhdistää nuo molemmat sekä lisää vaadittavat <i>git</i>-komennot versionhallinnan päivittämistä varten. Lisätään lisäksi oma skripti _npm run logs:prod_ lokien lukemiseen, jolloin käytännössä kaikki toimii npm-skriptein.
+_npm run deploy:full_ sisältää edellisen lisää vaadittavat <i>git</i>-komennot versionhallinnan päivittämistä varten.
 
 Huomaa, että skriptissä <i>build:ui</i> olevat polut riippuvat repositorioiden sijainnista.
 
@@ -400,7 +360,7 @@ Huomaa, että skriptissä <i>build:ui</i> olevat polut riippuvat repositorioiden
 
 Frontendiin tehtyjen muutosten seurauksena on nyt se, että kun suoritamme frontendiä sovelluskehitysmoodissa eli käynnistämällä sen komennolla _npm start_, yhteys backendiin ei toimi:
 
-![Network-tabi kertoo että pyyntöön localhost:3000/api/notes vastataan statuskoodilla 404](../../images/3/32ea.png)
+![Network-tabi kertoo että pyyntöön localhost:3000/api/notes vastataan statuskoodilla 404](../../images/3/32new.png)
 
 Syynä tälle on se, että backendin osoite muutettiin suhteellisesti määritellyksi:
 
@@ -452,22 +412,11 @@ Joudut todennäköisesti tekemään frontendiin erinäisiä pieniä muutoksia ai
 
 #### 3.10 puhelinluettelon backend step10
 
-Vie sovelluksen backend Internetiin, esim. Fly.io:n tai Herokuun. 
+Vie sovelluksen backend Internetiin, esim. Fly.io:n tai Renderiin. 
 
 Testaa selaimen ja Postmanin tai VS Coden REST-clientin avulla, että Internetissä oleva backend toimii.
 
-**PRO TIP:** kun deployaat sovelluksen Fly.io:n tai Herokuun, kannattaa ainakin alkuvaiheissa pitää **KOKO AJAN** näkyvillä sovelluksen loki. Herokussa tämä tapahtuu antamalla komento <em>heroku logs -t</em> ja Fly.io:ssa antamalla komento <em>fly logs</em>
-
-Seuraavassa loki eräästä tyypillisestä ongelmatilanteesta, jossa Heroku ei löydä sovelluksen riippuvuutena olevaa moduulia <i>express</i>:
-
-![herokun logissa näkyy viheilmoitus 'can not find module express'](../../images/3/33.png)
-
-Syynä ongelmalle on se, että <i>Express</i>-kirjastoa ei ole asennettu <em>npm install express</em> komennolla, joka tallentaa tiedon riippuvuudesta tiedostoon <i>package.json</i>. 
-
-Toinen tyypillinen ongelma on se, että sovellusta ei ole konfiguroitu käyttämään ympäristömuuttujana <em>PORT</em> määriteltyä porttia:
-
-
-![herokun logissa näkyy viheilmoitus 'web process failed to bind to $PORT within 60 seconds'](../../images/3/34.png)
+**PRO TIP:** kun deployaat sovelluksen Fly.io:n tai Renderiin, kannattaa ainakin alkuvaiheissa pitää **KOKO AJAN** näkyvillä sovelluksen loki.
 
 Tee repositorion juureen tiedosto README.md ja lisää siihen linkki Internetissä olevaan sovellukseesi.
 
@@ -475,7 +424,7 @@ Tee repositorion juureen tiedosto README.md ja lisää siihen linkki Internetiss
 
 Generoi frontendistä tuotantoversio ja lisää se Internetissä olevaan sovellukseesi tässä osassa esiteltyä menetelmää noudattaen.
 
-**HUOM:** eihän hakemisto <i>build</i> ole gitignoroituna projektissasi jos käytät Herokua?
+**HUOM:** eihän hakemisto <i>build</i> ole gitignoroituna projektissasi jos käytät Renderiä?
 
 Huolehdi myös, että frontend toimii edelleen myös paikallisesti.
 

@@ -117,7 +117,7 @@ app.listen(PORT, () => {
 })
 ```
 
-Now we are using the port defined in the [environment variable](https://en.wikipedia.org/wiki/Environment_variable) _PORT_ or port 3001 if the environment variable _PORT_ is undefined. Fly.io and Heroku configure the application port based on that environment variable. 
+Now we are using the port defined in the [environment variable](https://en.wikipedia.org/wiki/Environment_variable) _PORT_ or port 3001 if the environment variable _PORT_ is undefined. Fly.io and Render configure the application port based on that environment variable. 
 
 #### Fly.io
 
@@ -147,11 +147,11 @@ Give the app a name or let Fly.io auto-generate one. Pick a region where the app
   
 The last question is "Would you like to deploy now?". We should answer "no" since we are not quite ready yet.
 
-Fly.io creates a file <i>fly.toml</i> in the root of your app where the app is configured. To get the app up and running we should do a small addition to the part [env] of the configuration:
+Fly.io creates a file <i>fly.toml</i> in the root of your app where the app is configured. To get the app up and running we <i>might</i> need to do a small addition to the part [env] of the configuration:
 
 ```bash
 [env]
-  PORT = 8080 # add this
+  PORT = "8080" # add this
 
 [experimental]
   auto_rollback = true
@@ -162,7 +162,7 @@ Fly.io creates a file <i>fly.toml</i> in the root of your app where the app is c
   processes = ["app"]
 ```
 
-We have now defined in the part [env] that environment variable PORT will get the correct port (defined in part [services]) where the app should create the server.
+We have now defined in the part [env] that environment variable PORT will get the correct port (defined in part [services]) where the app should create the server. Note that the definition might be already there, but some times it has been missing.
 
 We are now ready to deploy the app to the Fly.io servers. That is done with the following command:
 
@@ -247,7 +247,6 @@ app.listen(PORT, () => {
 })
 ```
 
-
 ### Frontend production build
 
 So far we have been running React code in <i>development mode</i>. In development mode the application is configured to give clear error messages, immediately render code changes to the browser, and so on. 
@@ -255,30 +254,6 @@ So far we have been running React code in <i>development mode</i>. In developmen
 When the application is deployed, we must create a [production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build) or a version of the application which is optimized for production. 
 
 A production build of applications created with <i>create-react-app</i> can be created with the command [npm run build](https://github.com/facebookincubator/create-react-app#npm-run-build-or-yarn-build).
-
-**NOTE:** at the time of writing (20th January 2022) create-react-app had a bug that causes the following error _TypeError: MiniCssExtractPlugin is not a constructor_
-
-A possible fix is found [here](https://github.com/facebook/create-react-app/issues/11930). Add the following to the file <i>package.json</i> 
-
-```json
-{
-  // ...
-  "resolutions": {
-    "mini-css-extract-plugin": "2.4.5"
-  }
-}
-```
-
-and run commands
-
-```
-rm -rf package-lock.json
-rm -rf node_modules
-npm cache clean --force
-npm install
-```
-
-After these _npm run build_ should work.
 
 Let's run this command from the <i>root of the frontend project</i>.
 
@@ -297,14 +272,14 @@ One option for deploying the frontend is to copy the production build (the <i>bu
 We begin by copying the production build of the frontend to the root of the backend. With a Mac or Linux computer, the copying can be done from the frontend directory with the command
 
 ```bash
-cp -r build ../notes-backend
+cp -r build ../backend
 ```
 
 If you are using a Windows computer, you may use either [copy](https://www.windows-commandline.com/windows-copy-command-syntax-examples/) or [xcopy](https://www.windows-commandline.com/xcopy-command-syntax-examples/) command instead. Otherwise, simply copy and paste. 
 
 The backend directory should now look as follows:
 
-![bash screenshot of ls showing build directory](../../images/3/27ea.png)
+![bash screenshot of ls showing build directory](../../images/3/27new.png)
 
 To make express show <i>static content</i>, the page <i>index.html</i> and the JavaScript, etc., it fetches, we need a built-in middleware from express called [static](http://expressjs.com/en/starter/static-files.html).
 
@@ -335,7 +310,7 @@ After the change, we have to create a new production build and copy it to the ro
 
 The application can now be used from the <i>backend</i> address <http://localhost:3001>:
 
-![Notes application screenshot](../../images/3/28e.png)
+![Notes application screenshot](../../images/3/28new.png)
 
 Our application now works exactly like the [single-page app](/en/part0/fundamentals_of_web_apps#single-page-app) example application we studied in part 0. 
 
@@ -359,7 +334,7 @@ The file contains instructions to fetch a CSS stylesheet defining the styles of 
 
 The React code fetches notes from the server address <http://localhost:3001/api/notes> and renders them to the screen. The communications between the server and the browser can be seen in the <i>Network</i> tab of the developer console:
 
-![Network tab of notes application on backend](../../images/3/29ea.png)
+![Network tab of notes application on backend](../../images/3/29new.png)
 
 The setup that is ready for a product deployment looks as follows:
 
@@ -369,15 +344,19 @@ Unlike when running the app in a development environment, everything is now in t
 
 ### The whole app to the internet
 
-After ensuring that the production version of the application works locally, commit the production build of the frontend to the backend repository, and push the code to Heroku again. In the case of Fly.io the new deployment is done with the command
+After ensuring that the production version of the application works locally, commit the production build of the frontend to the backend repository, and push the code to GitHub again.
+
+If you are using Render a push to GitHub <i>might</i> be enough. If the automatic deployment does not work, select the "manual deploy" from the Render dashboard.
+
+In the case of Fly.io the new deployment is done with the command
 
 ```bash
 fly deploy
 ```
 
-[The application](https://obscure-harbor-49797.herokuapp.com/) works perfectly, except we haven't added the functionality for changing the importance of a note to the backend yet. 
+The application works perfectly, except we haven't added the functionality for changing the importance of a note to the backend yet. 
 
-![screenshot of notes application](../../images/3/30ea.png)
+![screenshot of notes application](../../images/3/30new.png)
 
 Our application saves the notes to a variable. If the application crashes or is restarted, all of the data will disappear. 
 
@@ -387,7 +366,7 @@ The setup looks like now as follows:
 
 ![diagram of react app on heroku with a database](../../images/3/102.png)
 
-The node/express-backend now resides in the Fly.io/Heroku server. When the root address that is of the form https://glacial-ravine-74819.herokuapp.com/ is accessed, the browser loads and executes the React app that fetches the json-data from the Heroku server.
+The node/express-backend now resides in the Fly.io/Render server. When the root address is accessed, the browser loads and executes the React app that fetches the json-data from the Fly.io/Render server.
 
 ###  Streamlining deploying of the frontend 
 
@@ -417,27 +396,21 @@ There is also a script _npm run logs:prod_ to show the Fly.io logs.
 
 Note that the directory paths in the script <i>build:ui</i> depend on the location of repositories in the file system.
 
-#### Heroku
+#### Render
 
-In case of Heroku, the scripts look like the following
+In case of Render, the scripts look like the following
 
 ```json
 {
   "scripts": {
     //...
-    "build:ui": "rm -rf build && cd ../part2-notes/ && npm run build && cp -r build ../notes-backend",
-    "deploy": "git push heroku main",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",    
-    "logs:prod": "heroku logs --tail"
+    "build:ui": "rm -rf build && cd ../frontend && npm run build && cp -r build ../backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   }
 }
 ```
 
-The script _npm run build:ui_ builds the frontend and copies the production version under the backend repository.  _npm run deploy_ releases the current backend to Heroku. 
-
-_npm run deploy:full_ combines these two and contains the necessary <i>git</i> commands to update the backend repository. 
-
-There is also a script _npm run logs:prod_ to show the Heroku logs.
+The script _npm run build:ui_ builds the frontend and copies the production version under the backend repository. _npm run deploy:full_ contains also the necessary <i>git</i> commands to update the backend repository. 
 
 Note that the directory paths in the script <i>build:ui</i> depend on the location of repositories in the file system.
 
@@ -453,7 +426,7 @@ Another option is the use of [shx](https://www.npmjs.com/package/shx).
 
 Changes on the frontend have caused it to no longer work in development mode (when started with command _npm start_), as the connection to the backend does not work. 
 
-![Network dev tools showing a 404 on getting notes](../../images/3/32ea.png)
+![Network dev tools showing a 404 on getting notes](../../images/3/32new.png)
 
 This is due to changing the backend address to a relative URL: 
 
@@ -505,23 +478,11 @@ You will probably have to do some small changes to the frontend, at least to the
 
 #### 3.10 phonebook backend step10
 
-Deploy the backend to the internet, for example to Heroku. 
-
-**NB** the command _heroku_ works on the department's computers and the freshman laptops. If for some reason you cannot [install](https://devcenter.heroku.com/articles/heroku-cli) Heroku on your computer, you can use the command [npx heroku](https://www.npmjs.com/package/heroku).
+Deploy the backend to the internet, for example to Fly.io or Render. 
 
 Test the deployed backend with a browser and Postman or VS Code REST client to ensure it works. 
 
-**PRO TIP:** When you deploy your application to Heroku, it is worth it to at least in the beginning keep an eye on the logs of the heroku application **AT ALL TIMES** with the command <em>heroku logs -t</em>.
-
-The following is a log of one typical problem. Heroku cannot find application dependency <i>express</i>:
-
-![terminal screenshot of heroku with error on finding express module](../../images/3/33.png)
-
-The reason is that the <i>express</i> package has not been installed with the <em>npm install express</em> command, so information about the dependency was not saved to the file <i>package.json</i>.
-
-Another typical problem is that the application is not configured to use the port set to the environment variable <em>PORT</em>: 
-
-![terminal showing error about failing to bind to port](../../images/3/34.png)
+**PRO TIP:** When you deploy your application to Internet, it is worth it to at least in the beginning keep an eye on the logs of the application **AT ALL TIMES**.
 
 Create a README.md at the root of your repository, and add a link to your online application to it. 
 
@@ -529,7 +490,7 @@ Create a README.md at the root of your repository, and add a link to your online
 
 Generate a production build of your frontend, and add it to the internet application using the method introduced in this part. 
 
-**NB** If you use Heroku, make sure the directory <i>build</i> is not gitignored
+**NB** If you use Render, make sure the directory <i>build</i> is not gitignored
 
 Also, make sure that the frontend still works locally (in development mode when started with command _npm start_). 
 
