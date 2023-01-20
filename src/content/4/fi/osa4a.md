@@ -69,6 +69,8 @@ server.listen(config.PORT, () => {
 
 <i>index.js</i> ainoastaan importtaa tiedostossa <i>app.js</i> olevan varsinaisen sovelluksen ja käynnistää sen. Sovelluksen käynnistäminen tapahtuu nyt <em>server</em>-muuttujassa olevan olion kautta. Käynnistymisestä kertova konsolitulostus tehdään logger-moduulin funktion _info_ avulla.
 
+Nyt Express-sovellus ja sen käynnistysestä ja verkkoasetuksista huolehtiva on eriytetty toisistaan [parhaita](https://dev.to/nermineslimane/always-separate-app-and-server-files--1nc7) [käytänteitä](https://nodejsbestpractices.com/sections/projectstructre/separateexpress) noudattaen. Eräs tämä tavan eduista on se, että sovelluksen toimintaa voi nyt testata API-tasolle tehtävien HTTP-kutsujen tasolla kuitenkaan tekemättä kutsuja varsinaisesti HTTP:llä verkon yli. Tämä tekee testien suorittamisesta nopeampaa.
+
 Ympäristömuuttujien käsittely on eriytetty moduulin <i>utils/config.js</i> vastuulle:
 
 ```js
@@ -212,6 +214,8 @@ const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
 
+mongoose.set('strictQuery', false)
+
 logger.info('connecting to', config.MONGODB_URI)
 
 mongoose.connect(config.MONGODB_URI)
@@ -322,7 +326,7 @@ Jos sovellus on pieni, ei rakenteella ole kovin suurta merkitystä. Sovelluksen 
 
 Express-sovelluksien rakenteelle eli hakemistojen ja tiedostojen nimeämiselle ei ole olemassa mitään yleismaailmallista standardia samaan tapaan kuin esim. Ruby on Railsissa. Tässä käyttämämme malli noudattaa eräitä Internetissä vastaan tulevia hyviä käytäntöjä.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-1) branchissa <i>part4-1</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-1) branchissa <i>part4-1</i>.
 
 Jos kloonaat projektin itsellesi, suorita komento _npm install_ ennen käynnistämistä eli komentoa _npm start_.
 
@@ -356,7 +360,7 @@ logger.info('message')
 logger.error('error message')
 ```
 
-Toinen vaihoehto on destrukturoida funktiot omiin muuttujiin <i>require</i>-kutsun yhteydessä:
+Toinen vaihtoehto on destrukturoida funktiot omiin muuttujiin <i>require</i>-kutsun yhteydessä:
 
 ```js
 const { info, error } = require('./utils/logger')
@@ -515,10 +519,10 @@ Määritellään npm-skripti <i>test</i> suorittamaan testaus Jestillä ja rapor
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build:ui": "rm -rf build && cd ../../../2/luento/notes && npm run build && cp -r build ../../../3/luento/notes-backend",
-    "deploy": "git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail",
+    "build:ui": "rm -rf build && cd ../frontend/ && npm run build && cp -r build ../backend",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "fly logs",
     "lint": "eslint .",
     "test": "jest --verbose" // highlight-line
   },
@@ -579,13 +583,7 @@ module.exports = {
     'node': true,
     'jest': true, // highlight-line
   },
-  'extends': 'eslint:recommended',
-  'parserOptions': {
-    'ecmaVersion': 12
-  },
-  "rules": {
-    // ...
-  },
+  // ...
 }
 ```
 
@@ -609,7 +607,7 @@ Ensin suoritetaan testattava koodi eli generoidaan merkkijonon <i>react</i> pali
 
 Kuten odotettua, testit menevät läpi:
 
-![](../../images/4/1x.png)
+![Jest kertoo että 3 testiä kolmesta meni läpi](../../images/4/1x.png)
 
 Jest olettaa oletusarvoisesti, että testitiedoston nimessä on merkkijono <i>.test</i>. Käytetään kurssilla konventiota, jossa testitiedostojen nimen loppu on <i>.test.js</i>.
 
@@ -625,7 +623,7 @@ test('reverse of react', () => {
 
 Seurauksena on seuraava virheilmoitus:
 
-![](../../images/4/2x.png)
+![Jest kertoo että testin odottama merkkijono poikkesi tuloksena olevasta merkkijonosta](../../images/4/2x.png)
 
 Lisätään tiedostoon <i>tests/average.test.js</i> muutama testi metodille _average_:
 
@@ -649,7 +647,7 @@ describe('average', () => {
 
 Testi paljastaa, että metodi toimii väärin tyhjällä taulukolla (sillä nollalla jaon tulos on JavaScriptissä <i>NaN</i>):
 
-![](../../images/4/3.png)
+![Jest kertoo että odoteutun arvon 0 sijaan tuloksena on NaN](../../images/4/3.png)
 
 Metodi on helppo korjata:
 
@@ -676,7 +674,7 @@ describe('average', () => {
 
 Describejen avulla yksittäisessä tiedostossa olevat testit voidaan jaotella loogisiin kokonaisuuksiin. Testituloste hyödyntää myös describe-lohkon nimeä:
 
-![](../../images/4/4x.png)
+![Testitapausten tulokset on Jestin näkymässä ryhmitelty describe-lohkojen mukaan](../../images/4/4x.png)
 
 Kuten myöhemmin tulemme näkemään, <i>describe</i>-lohkot ovat tarpeellisia, jos haluamme osalle yksittäisen testitiedoston testitapauksista joitain yhteisiä alustus- tai lopetustoimenpiteitä.
 

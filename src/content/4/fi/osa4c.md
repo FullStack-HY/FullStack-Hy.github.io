@@ -11,7 +11,7 @@ Haluamme toteuttaa sovellukseemme käyttäjien hallinnan. Käyttäjät tulee tal
 
 Aloitetaan lisäämällä tietokantaan tieto käyttäjistä. Käyttäjän <i>User</i> ja muistiinpanojen <i>Note</i> välillä on yhden suhde moneen -yhteys:
 
-![](https://yuml.me/a187045b.png)
+![Yhteen käyttäjään liittyy monta muistiinpanoa eli UML:nä User 1 --- * Note](https://yuml.me/a187045b.png)
 
 Relaatiotietokantoja käytettäessä ratkaisua ei tarvitsisi juuri miettiä. Molemmille olisi oma taulunsa, ja muistiinpanoihin liitettäisiin sen luonutta käyttäjää vastaava id vierasavaimeksi (foreign key).
 
@@ -81,7 +81,7 @@ Mikään ei kuitenkaan määrää dokumenttitietokannoissa, että viitteet on ta
   {
     username: 'hellas',
     _id: 141414,
-    notes: [141414],
+    notes: [221244],
   },
 ]
 ```
@@ -345,7 +345,7 @@ describe('when there is initially one user at db', () => {
 
 Testi ei tietenkään mene läpi tässä vaiheessa. Toimimme nyt [TDD:n eli test driven developmentin](https://en.wikipedia.org/wiki/Test-driven_development) hengessä, eli uuden ominaisuuden testi kirjoitetaan ennen ominaisuuden ohjelmointia.
 
-Mongoosen validoinnit eivät tarjoa valmista mahdollisuutta kentän arvon uniikkiuden tarkastamiseen.  Ongelmaan on tuonut ratkaisun npm-pakettina asennettava [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator), valitettavasti mongoose-unique-validator ei kuitenkaan tällä hetkellä (24.1.2022) toimi mongoosen version 6.x kanssa. Joudumme siis toteuttamaan uniikkiuden tarkastuksen itse kontorollerin koodissa.
+Mongoosen validoinnit eivät tarjoa valmista mahdollisuutta kentän arvon uniikkiuden tarkastamiseen.  Ongelmaan on tuonut ratkaisun npm-pakettina asennettava [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator), valitettavasti mongoose-unique-validator ei kuitenkaan tällä hetkellä (24.1.2022) toimi mongoosen version 6.x kanssa. Joudumme siis toteuttamaan uniikkiuden tarkastuksen itse kontrollerin koodissa.
 
 ```js
 usersRouter.post('/', async (request, response) => {
@@ -388,9 +388,9 @@ usersRouter.get('/', async (request, response) => {
 
 Lista näyttää seuraavalta:
 
-![](../../images/4/9.png)
+![Selain renderöi osoitteessa localhost:3001/api/users taulukollisen JSON:eja joilla kentät username, name, id ja notes, jonka arvo on tyhjä taulukko](../../images/4/9.png)
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-7), branchissä <i>part4-7</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-7), branchissä <i>part4-7</i>.
 
 ### Muistiinpanon luominen
 
@@ -436,17 +436,17 @@ await user.save()
 
 Kokeillaan nyt lisätä uusi muistiinpano:
 
-![](../../images/4/10e.png)
+![Näkymä Postmanista luotaessa muistiinpano jolla on validit kentät](../../images/4/10e.png)
 
 Operaatio vaikuttaa toimivan. Lisätään vielä yksi muistiinpano ja mennään kaikkien käyttäjien sivulle:
 
-![](../../images/4/11e.png)
+![Selain renderöi osoitteessa localhost:3001/api/users taulukollisen JSON:eja joilla kentät username, name, id ja notes, jonka arvo on taulukko muistiinpanojen id:itä](../../images/4/11e.png)
 
 Huomaamme siis, että käyttäjällä on kaksi muistiinpanoa.
 
 Muistiinpanon luoneen käyttäjän id tulee näkyviin muistiinpanon yhteyteen:
 
-![](../../images/4/12e.png)
+![Selain renderöi osoitteessa localhost:3001/api/notes taulukollisen JSON:eja joilla kentät content, important, date, id ja user, jonka arvo käyttäjäid](../../images/4/12e.png)
 
 ### populate
 
@@ -469,7 +469,7 @@ Funktion [populate](http://mongoosejs.com/docs/populate.html) kutsu siis ketjute
 
 Lopputulos on jo melkein haluamamme kaltainen:
 
-![](../../images/4/13ea.png)
+![Selain renderöi osoitteessa localhost:3001/api/users taulukollisen JSON:eja joilla kentät username, name, id ja notes. Kenttä notes on nyt olio jolla on kentät content, important, date, id ja user](../../images/4/13ea.png)
 
 Populaten yhteydessä on myös mahdollista rajata mitä kenttiä sisällytettävistä dokumenteista otetaan mukaan. Rajaus tapahtuu Mongon [syntaksilla](https://docs.mongodb.com/manual/tutorial/project-fields-from-query-results/#return-the-specified-fields-and-the-id-field-only):
 
@@ -484,7 +484,7 @@ usersRouter.get('/', async (request, response) => {
 
 Tulos on täsmälleen sellainen kuin haluamme:
 
-![](../../images/4/14ea.png)
+![Selain renderöi osoitteessa localhost:3001/api/users taulukollisen JSON:eja joilla kentät username, name, id ja notes. Kenttä notes on nyt olio jolla on ainoastaan halutut kentät content, important, date](../../images/4/14ea.png)
 
 Lisätään sopiva käyttäjän tietojen populointi muistiinpanojen yhteyteen:
 
@@ -499,7 +499,7 @@ notesRouter.get('/', async (request, response) => {
 
 Nyt käyttäjän tiedot tulevat muistiinpanon kenttään <i>user</i>:
 
-![](../../images/4/15ea.png)
+![Selain renderöi osoitteessa localhost:3001/api/notes taulukollisen JSON:eja joilla kentät content, important, date, id ja user. Kenttä user on olio jolla on kentät name, username ja id](../../images/4/15ea.png)
 
 Korostetaan vielä, että tietokannan tasolla ei siis ole mitään määrittelyä sille, että esim. muistiinpanojen kenttään <i>user</i> talletetut id:t viittaavat <i>users</i>-kokoelman dokumentteihin.
 
@@ -521,6 +521,6 @@ const noteSchema = new mongoose.Schema({
 })
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part4-8), branchissä <i>part4-8</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-8), branchissä <i>part4-8</i>.
 
 </div>
