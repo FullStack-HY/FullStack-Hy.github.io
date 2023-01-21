@@ -541,14 +541,6 @@ Jestille pitää vielä kertoa, että suoritusympäristönä on käytössä Node
 }
 ```
 
-Vaihtoehtoisesti Jest löytää oletuksena asetukset tiedostosta <i>jest.config.js</i>, jonne suoritusympäristön määrittely tapahtuu seuraavasti:
-
-```js
-module.exports = {
-  testEnvironment: 'node',
-}
-```
-
 Tehdään testejä varten hakemisto <i>tests</i> ja sinne tiedosto <i>reverse.test.js</i>, jonka sisältö on seuraava:
 
 ```js

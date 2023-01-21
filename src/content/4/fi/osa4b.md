@@ -173,7 +173,7 @@ Testejä suorittaessa tulee seuraava ilmoitus:
 
 Kyse lienee Mongoosen version 6.x aiheuttamasta ongelmasta, versiossa 5.x ei samaa virhettä esiinny. Itseasiassa [Mongoosen dokumentaatio](https://mongoosejs.com/docs/jest.html) ei välttämättä suosittele Mongoosea käyttävien sovellusten testaamista Jestillä.
 
-Virheilmoituksesta pääsee eroon muutamallakin tavalla. [Esimerkiksi](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles) lisäämällä tiedoston juureen tiedoston <i>test-teardown.js</i> jolla on seuraava sisältö
+Virheilmoituksesta pääsee eroon muutamallakin tavalla. [Esimerkiksi](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles) lisäämällä hakemistoon <i>tests</i> tiedosto <i>teardown.js</i> jolla on seuraava sisältö
 
 ```js
 module.exports = () => {
@@ -188,7 +188,7 @@ ja lajentamalla tiedoston <i>package.json</i> Jestiä koskevaa määrittelyä se
  //...
  "jest": {
    "testEnvironment": "node"
-   "globalTeardown": "./test-teardown.js" // highlight-line
+   "globalTeardown": "./tests/teardown.js" // highlight-line
  }
 }
 ```
@@ -301,12 +301,10 @@ const Note = require('../models/note')
 const initialNotes = [
   {
     content: 'HTML is easy',
-    date: new Date(),
     important: false,
   },
   {
-    content: 'Browser can execute only Javascript',
-    date: new Date(),
+    content: 'Browser can execute only JavaScript',
     important: true,
   },
 ]
@@ -343,7 +341,7 @@ test('a specific note is within the returned notes', async () => {
   const contents = response.body.map(r => r.content) // highlight-line
 
   expect(contents).toContain(
-    'Browser can execute only Javascript' // highlight-line
+    'Browser can execute only JavaScript' // highlight-line
   )
 })
 ```
@@ -506,7 +504,6 @@ notesRouter.post('/', (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   note.save()
@@ -550,18 +547,16 @@ const Note = require('../models/note')
 const initialNotes = [
   {
     content: 'HTML is easy',
-    date: new Date(),
     important: false
   },
   {
-    content: 'Browser can execute only Javascript',
-    date: new Date(),
+    content: 'Browser can execute only JavaScript',
     important: true
   }
 ]
 
 const nonExistingId = async () => {
-  const note = new Note({ content: 'willremovethissoon', date: new Date() })
+  const note = new Note({ content: 'willremovethissoon' })
   await note.save()
   await note.remove()
 
@@ -619,7 +614,7 @@ test('a specific note is within the returned notes', async () => {
 
   const contents = response.body.map(r => r.content)
   expect(contents).toContain(
-    'Browser can execute only Javascript'
+    'Browser can execute only JavaScript'
   )
 })
 
@@ -676,7 +671,6 @@ notesRouter.post('/', async (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   const savedNote = await note.save()
@@ -703,7 +697,6 @@ notesRouter.post('/', async (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
   // highlight-start
   try {
@@ -735,9 +728,7 @@ test('a specific note can be viewed', async () => {
     .expect('Content-Type', /application\/json/)
 // highlight-end
 
-  const processedNoteToView = JSON.parse(JSON.stringify(noteToView))
-
-  expect(resultNote.body).toEqual(processedNoteToView)
+  expect(resultNote.body).toEqual(noteToView)
 })
 
 test('a note can be deleted', async () => {
@@ -763,8 +754,6 @@ test('a note can be deleted', async () => {
 ```
 
 Molemmat testit ovat rakenteeltaan samankaltaisia. Alustusvaiheessa ne hakevat kannasta yksittäisen muistiinpanon. Tämän jälkeen on itse testattava operaatio, joka on koodissa korostettuna. Lopussa tarkastetaan, että operaation tulos on haluttu. 
-
-Ensimmäisessä testissä note-objekti, jonka saamme palvelimelta vastauksena, käy läpi JSON-serialisoinnin ja -parsimisen. Tämän prosessoinnin seurauksena note-objektin <em>date</em> kentän arvon tyyppi muuttuu <em>Date</em>-objektista merkkijonoksi. Tämän takia emme voi suoraan verrata <em>resultNote.body</em>-muuttujaa ja suoraan tietokannasta luettua <em>noteToView</em>-muuttujaa. Sen sijaan meidän täytyy ensin suorittaa <em>noteToView</em>-muuttujalle samanlainen JSON-serialisointi ja -parsiminen kuin minkä palvelin suorittaa note-objektille.
 
 Testit menevät läpi, joten voimme turvallisesti refaktoroida testatut routet käyttämään async/awaitia:
 
@@ -867,7 +856,6 @@ notesRouter.post('/', async (request, response) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   const savedNote = await note.save()
@@ -879,7 +867,7 @@ notesRouter.get('/:id', async (request, response) => {
   if (note) {
     response.json(note)
   } else {
-    response.status(404).end()
+    response.status(201).json(savedNote)
   }
 })
 ```
@@ -1096,7 +1084,7 @@ describe('when there is initially some notes saved', () => {
 
     const contents = response.body.map(r => r.content)
     expect(contents).toContain(
-      'Browser can execute only Javascript'
+      'Browser can execute only JavaScript'
     )
   })
 
@@ -1112,15 +1100,11 @@ describe('when there is initially some notes saved', () => {
         .expect(200)
         .expect('Content-Type', /application\/json/)
       
-      const processedNoteToView = JSON.parse(JSON.stringify(noteToView))
-
-      expect(resultNote.body).toEqual(processedNoteToView)
+      expect(resultNote.body).toEqual(noteToView)
     })
 
     test('fails with statuscode 404 if note does not exist', async () => {
       const validNonexistingId = await helper.nonExistingId()
-
-      console.log(validNonexistingId)
 
       await api
         .get(`/api/notes/${validNonexistingId}`)

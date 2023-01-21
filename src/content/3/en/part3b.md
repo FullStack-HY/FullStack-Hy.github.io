@@ -137,7 +137,7 @@ fly auth login
 
 <i>If you do not get the flyctl to work in your machine, you could try Render (see next section), it does not require anything to be installed in your machine.</i>
 
-Initializing an app happens by running the following command in the root directory of the app
+Initializing an app happens by running the following command in the root directory of the backend app
 
 ```bash
 fly launch

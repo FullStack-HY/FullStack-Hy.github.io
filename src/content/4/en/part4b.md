@@ -180,8 +180,8 @@ When running your tests you may run across the following console warning:
 
 The problem is quite likely caused by the Mongoose version 6.x, the problem does not appear when version 5.x is used. [Mongoose documentation](https://mongoosejs.com/docs/jest.html) does not recommend testing Mongoose applications with Jest.
 
-[One way](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles)  to get rid of this is to
-create to the project root file <i>test-teardown.js</i> with the following content
+[One way](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles) to get rid of this is to
+create to the directory <i>tests</i> a file <i>teardown.js</i> with the following content
 
 ```js
 module.exports = () => {
@@ -196,7 +196,7 @@ and by extending the Jest definitions in the <i>package.json</i> as follows
  //...
  "jest": {
    "testEnvironment": "node"
-   "globalTeardown": "./test-teardown.js" // highlight-line
+   "globalTeardown": "./tests/teardown.js" // highlight-line
  }
 }
 ```
@@ -322,12 +322,10 @@ const Note = require('../models/note')
 const initialNotes = [
   {
     content: 'HTML is easy',
-    date: new Date(),
     important: false,
   },
   {
-    content: 'Browser can execute only Javascript',
-    date: new Date(),
+    content: 'Browser can execute only JavaScript',
     important: true,
   },
 ]
@@ -365,7 +363,7 @@ test('a specific note is within the returned notes', async () => {
   const contents = response.body.map(r => r.content)
 
   expect(contents).toContain(
-    'Browser can execute only Javascript'
+    'Browser can execute only JavaScript'
   )
   // highlight-end
 })
@@ -532,7 +530,6 @@ notesRouter.post('/', (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   note.save()
@@ -576,18 +573,16 @@ const Note = require('../models/note')
 const initialNotes = [
   {
     content: 'HTML is easy',
-    date: new Date(),
     important: false
   },
   {
-    content: 'Browser can execute only Javascript',
-    date: new Date(),
+    content: 'Browser can execute only JavaScript',
     important: true
   }
 ]
 
 const nonExistingId = async () => {
-  const note = new Note({ content: 'willremovethissoon', date: new Date() })
+  const note = new Note({ content: 'willremovethissoon' })
   await note.save()
   await note.remove()
 
@@ -646,7 +641,7 @@ test('a specific note is within the returned notes', async () => {
   const contents = response.body.map(r => r.content)
 
   expect(contents).toContain(
-    'Browser can execute only Javascript'
+    'Browser can execute only JavaScript'
   )
 })
 
@@ -702,7 +697,6 @@ notesRouter.post('/', async (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   const savedNote = await note.save()
@@ -729,7 +723,6 @@ notesRouter.post('/', async (request, response, next) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
   // highlight-start
   try {
@@ -761,9 +754,7 @@ test('a specific note can be viewed', async () => {
     .expect('Content-Type', /application\/json/)
 // highlight-end
 
-  const processedNoteToView = JSON.parse(JSON.stringify(noteToView))
-
-  expect(resultNote.body).toEqual(processedNoteToView)
+  expect(resultNote.body).toEqual(noteToView)
 })
 
 test('a note can be deleted', async () => {
@@ -789,8 +780,6 @@ test('a note can be deleted', async () => {
 ```
 
 Both tests share a similar structure. In the initialization phase, they fetch a note from the database. After this, the tests call the actual operation being tested, which is highlighted in the code block. Lastly, the tests verify that the outcome of the operation is as expected.
-
-In the first test, the note object we receive as the response body goes through JSON serialization and parsing. This processing will turn the note object's <em>date</em> property value's type from <em>Date</em> object into a string. Because of this we can't directly compare the equality of the <em>resultNote.body</em> and <em>noteToView</em> that is read from the database. Instead, we must first perform similar JSON serialization and parsing for the <em>noteToView</em> as the server is performing for the note object.
 
 The tests pass and we can safely refactor the tested routes to use async/await:
 
@@ -897,7 +886,6 @@ notesRouter.post('/', async (request, response) => {
   const note = new Note({
     content: body.content,
     important: body.important || false,
-    date: new Date(),
   })
 
   const savedNote = await note.save()
@@ -1115,7 +1103,7 @@ describe('when there is initially some notes saved', () => {
     const contents = response.body.map(r => r.content)
 
     expect(contents).toContain(
-      'Browser can execute only Javascript'
+      'Browser can execute only JavaScript'
     )
   })
 })
@@ -1130,16 +1118,12 @@ describe('viewing a specific note', () => {
       .get(`/api/notes/${noteToView.id}`)
       .expect(200)
       .expect('Content-Type', /application\/json/)
-      
-    const processedNoteToView = JSON.parse(JSON.stringify(noteToView))
 
-    expect(resultNote.body).toEqual(processedNoteToView)
+    expect(resultNote.body).toEqual(noteToView)
   })
 
   test('fails with statuscode 404 if note does not exist', async () => {
     const validNonexistingId = await helper.nonExistingId()
-
-    console.log(validNonexistingId)
 
     await api
       .get(`/api/notes/${validNonexistingId}`)
