@@ -246,6 +246,7 @@ Määrittelemme tällä kurssilla muutamaa poikkeusta lukuunottamatta kaikki fun
 </div>
 
 <div class="tasks">
+
   <h3>Tehtävät 1.3-1.5</h3>
 
 <i>Jatkamme edellisissä tehtävissä aloitetun ohjelman rakentamista. Voit siis tehdä koodin samaan projektiin, koska palautuksessa ollaan kiinnostuneita ainoastaan ohjelman lopullisesta versiosta.</i>
@@ -258,6 +259,12 @@ const Header = (props) => {
   return <h1>{props.course}</h1>
 }
 ```
+
+Jos, ja kun törmäät virheilmoitukseen
+
+> <i>Objects are not valid as a React child</i>
+
+pidä mielessä [täällä](/osa1/reactin_alkeet#ala-renderoi-olioita) kerrotut asiat.
 
   <h4>1.3: kurssitiedot step3</h4>
 

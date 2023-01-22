@@ -706,7 +706,6 @@ Full stack -ohjelmointi on <i>todella</i> hankalaa, ja sen takia lupaan hyödynt
 - jos koodini ei toimi, en kirjoita enää yhtään lisää koodia, vaan alan poistamaan toiminnan rikkoneita rivejä tai palaan suosiolla tilanteeseen, missä koodi vielä toimi
 - kun kysyn apua kurssin Discord- tai Telegram-kanavalla, tai muualla internetissä, muotoilen kysymyksen järkevästi, esim. [täällä](http://localhost:8000/en/part0/general_info#how-to-ask-help-in-discord-telegam) esiteltyyn tapaan
 
-
 </div>
 
 <div class="tasks">

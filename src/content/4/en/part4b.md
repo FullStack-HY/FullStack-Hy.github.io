@@ -993,6 +993,24 @@ The asynchronous nature of JavaScript can lead to surprising behavior, and for t
 
 The code for our application can be found on [GitHub](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-5), branch <i>part4-5</i>.
 
+### A true full stack developer's oath
+
+Making tests brings yet another layer of challenge to programming. We have to update our full stack developer oath to remind you that systematicity is also key when developing tests.
+
+So we should once more extend our oath:
+
+Full stack development is <i> extremely hard</i>, that is why I will use all the possible means to make it easier
+
+- I will have my browser developer console open all the time
+- I will use the network tab of the browser dev tools to ensure that frontend and backend are communicating as I expect
+- I will constantly keep on eye the state of the server to make sure that the data sent there by the fronend is saved there as I expect
+- I will keep on eye on the database: does the backend save data there in the right format
+- I progress with small steps
+- <i>I will write lots of _console.log_ statements to make sure I understand how the code and the tests behave and to help pinpoint problems</i>
+- If my code does not work, I will not write more code. Instead, I start deleting the code until it works or just return to a state when everything still was still working
+- <i>If a test does not pass, I make sure that the tested functionality for sure works in the application</i>
+- When I ask for help in the course Discord or Telegram channel or elsewhere I formulate my questions properly, see [here](https://fullstackopen.com/en/part0/general_info#how-to-ask-help-in-discord-telegam) how to ask for help
+
 </div>
 
 <div class="tasks">
