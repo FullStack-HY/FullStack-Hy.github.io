@@ -15,9 +15,9 @@ At the moment the frontend shows existing notes and lets users change the state 
 We'll now implement a part of the required user management functionality in the frontend. Let's begin with the user login. Throughout this part, we will assume that new users will not be added from the frontend. 
 
 ### Handling login
-A login form has now been added to the top of the page. The form for adding new notes has also been moved to the bottom of the list of notes. 
+A login form has now been added to the top of the page: 
 
-![browser showing user login for notes](../../images/5/1e.png)
+![browser showing user login for notes](../../images/5/1new.png)
 
 
 The code of the <i>App</i> component now looks as follows: 
@@ -117,6 +117,17 @@ const login = async credentials => {
 
 export default { login }
 ```
+
+If you have installed the eslint plugin in VS Code, you may now see the following warning
+
+![](../../images/5/50new.png)
+
+We'll get back to configuring eslint in a moment. You can ignore the error for the time being or suppress it by adding the following to the line before the warning
+
+```js
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default { login }
 
 The method for handling the login can be implemented as follows: 
 
@@ -351,7 +362,7 @@ let token = null // highlight-line
 
 // highlight-start
 const setToken = newToken => {
-  token = `bearer ${newToken}`
+  token = `Bearer ${newToken}`
 }
 // highlight-end
 
@@ -376,6 +387,7 @@ const update = (id, newObject) => {
   return request.then(response => response.data)
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getAll, create, update, setToken } // highlight-line
 ```
 

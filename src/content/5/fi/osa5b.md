@@ -288,14 +288,10 @@ Jos mietitään lomakkeiden tilaa eli esimerkiksi uuden muistiinpanon sisältö�
 Muistiinpanon luomisesta huolehtiva komponentti muuttuu seuraavasti:
 
 ```js
-import { useState } from 'react' 
+iimport { useState } from 'react'
 
 const NoteForm = ({ createNote }) => {
-  const [newNote, setNewNote] = useState('') 
-
-  const handleChange = (event) => {
-    setNewNote(event.target.value)
-  }
+  const [newNote, setNewNote] = useState('')
 
   const addNote = (event) => {
     event.preventDefault()
@@ -314,7 +310,7 @@ const NoteForm = ({ createNote }) => {
       <form onSubmit={addNote}>
         <input
           value={newNote}
-          onChange={handleChange}
+          onChange={event => setNewNote(event.target.value)}
         />
         <button type="submit">save</button>
       </form>
@@ -334,7 +330,7 @@ Komponentti _App_ yksinkertaistuu, koska tilasta <i>newNote</i> ja sen käsittel
 ```js
 const App = () => {
   // ...
-  const addNote = (noteObject) => {
+  const addNote = (noteObject) => { // highlight-line
     noteService
       .create(noteObject)
       .then(returnedNote => {
@@ -448,7 +444,7 @@ const App = () => {
 }
 ```
 
-Käyttämämme [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) on siis React hook, jonka avulla funktiona määritellylle komponentille voidaan määrittää funktioita, joita on mahdollista kutsua sen ulkopuolelta.
+Käyttämämme [useImperativeHandle](https://reactjs.org/docs/hooks-reference.html#useimperativehandle) on siis React hook, jonka avulla komponentille voidaan määrittää funktioita, joita on mahdollista kutsua sen ulkopuolelta.
 
 Käyttämämme kikka komponentin tilan muuttamiseksi toimii, mutta se vaikuttaa hieman ikävältä. Saman olisi saanut aavistuksen siistimmin toteutettua "vanhan Reactin" class-komponenteilla, joihin tutustumme osassa 7. Tämä on toistaiseksi ainoa tapaus, jossa Reactin hook-syntaksiin nojaava ratkaisu on aavistuksen likaisemman oloinen kuin class-komponenttien tarjoama ratkaisu.
 
@@ -772,7 +768,6 @@ Tehdään lintausta varten npm-skripti:
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 db.json",
     "eslint": "eslint ." // highlight-line
   },
   // ...

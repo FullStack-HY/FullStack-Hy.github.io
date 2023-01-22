@@ -58,9 +58,7 @@ const LoginForm = ({
 export default LoginForm
 ```
 
-
 The state and all the functions related to it are defined outside of the component and are passed to the component as props.
-
 
 Notice that the props are assigned to variables through <i>destructuring</i>, which means that instead of writing:
 
@@ -86,9 +84,7 @@ const LoginForm = (props) => {
 }
 ```
 
-
 where the properties of the _props_ object are accessed through e.g. _props.handleSubmit_, the properties are assigned directly to their own variables.
-
 
 One fast way of implementing the functionality is to change the _loginForm_ function of the <i>App</i> component like so:
 
@@ -125,9 +121,7 @@ const App = () => {
 }
 ```
 
-
 The <i>App</i> components state now contains the boolean <i>loginVisible</i>, which defines if the login form should be shown to the user or not.
-
 
 The value of _loginVisible_ is toggled with two buttons. Both buttons have their event handlers defined directly in the component:
 
@@ -153,22 +147,17 @@ const showWhenVisible = { display: loginVisible ? '' : 'none' }
 </div>
 ```
 
-
 We are once again using the "question mark" ternary operator. If _loginVisible_ is <i>true</i>, then the CSS rule of the component will be:
 
 ```css
 display: 'none';
 ```
 
-
 If _loginVisible_ is <i>false</i>, then <i>display</i> will not receive any value related to the visibility of the component.
-
 
 ### The components children, aka. props.children
 
-
 The code related to managing the visibility of the login form could be considered to be its own logical entity, and for this reason, it would be good to extract it from the <i>App</i> component into a separate component.
-
 
 Our goal is to implement a new <i>Togglable</i> component that can be used in the following way:
 
@@ -184,9 +173,7 @@ Our goal is to implement a new <i>Togglable</i> component that can be used in th
 </Togglable>
 ```
 
-
 The way that the component is used is slightly different from our previous components. The component has both opening and closing tags that surround a <i>LoginForm</i> component. In React terminology <i>LoginForm</i> is a child component of <i>Togglable</i>.
-
 
 We can add any React elements we want between the opening and closing tags of <i>Togglable</i>, like this for example:
 
@@ -196,7 +183,6 @@ We can add any React elements we want between the opening and closing tags of <i
   <p>also this is hidden</p>
 </Togglable>
 ```
-
 
 The code for the <i>Togglable</i> component is shown below:
 
@@ -229,9 +215,7 @@ const Togglable = (props) => {
 export default Togglable
 ```
 
-
 The new and interesting part of the code is [props.children](https://reactjs.org/docs/glossary.html#propschildren), which is used for referencing the child components of the component. The child components are the React elements that we define between the opening and closing tags of a component.
-
 
 This time the children are rendered in the code that is used for rendering the component itself:
 
@@ -291,7 +275,6 @@ Next let's define the form component inside of a <i>Togglable</i> component:
 
 You can find the code for our current application in its entirety in the <i>part5-4</i> branch of [this GitHub repository](https://github.com/fullstack-hy2020/part2-notes/tree/part5-4).
 
-
 ### State of the forms
 
 The state of the application currently is in the _App_ component.
@@ -306,14 +289,10 @@ We could just as well move the state of the forms to the corresponding component
 The component for a note changes like so: 
 
 ```js
-import { useState } from 'react' 
+import { useState } from 'react'
 
 const NoteForm = ({ createNote }) => {
-  const [newNote, setNewNote] = useState('') 
-
-  const handleChange = (event) => {
-    setNewNote(event.target.value)
-  }
+  const [newNote, setNewNote] = useState('')
 
   const addNote = (event) => {
     event.preventDefault()
@@ -332,7 +311,7 @@ const NoteForm = ({ createNote }) => {
       <form onSubmit={addNote}>
         <input
           value={newNote}
-          onChange={handleChange}
+          onChange={event => setNewNote(event.target.value)}
         />
         <button type="submit">save</button>
       </form>
@@ -343,20 +322,17 @@ const NoteForm = ({ createNote }) => {
 export default NoteForm
 ```
 
-<!-- Tilan muuttuja <i>newNote</i> ja sen muutoksesta huolehtiva tapahtumankäsittelijä on siirretty komponentista _App_ lomakkeesta huolehtivaan komponenttiin. -->
 The <i>newNote</i> state attribute and the event handler responsible for changing it have been moved from the _App_ component to the component responsible for the note form. 
 
-<!-- Propseja on enää yksi, funktio _createNote_, jota lomake kutsuu kun uusi muistiinpano luodaan. -->
 There is only one prop left, the _createNote_ function, which the form calls when a new note is created. 
 
-<!-- Komponentti _App_ yksintertaistuu, tilasta <i>newNote</i> ja sen käsittelijäfunktiosta on päästy eroon. Uuden muistiinpanon luomisesta huolehtiva funktio _addNote_ saa suoraan parametriksi uuden muistiinpanon ja funktio on ainoa props, joka välitetään lomakkeelle: -->
 The _App_ component becomes simpler now that we have got rid of the <i>newNote</i> state and its event handler. 
 The _addNote_ function for creating new notes receives a new note as a parameter, and the function is the only prop we send to the form: 
 
 ```js
 const App = () => {
   // ...
-  const addNote = (noteObject) => {
+  const addNote = (noteObject) => { // highlight-line
     noteService
       .create(noteObject)
       .then(returnedNote => {
@@ -479,7 +455,6 @@ You can find the code for our current application in its entirety in the <i>part
 
 ### One point about components
 
-
 When we define a component in React:
 
 ```js
@@ -487,7 +462,6 @@ const Togglable = () => ...
   // ...
 }
 ```
-
 
 And use it like this:
 
@@ -510,7 +484,6 @@ And use it like this:
 We create <i>three separate instances of the component</i> that all have their separate state:
 
 ![browser of three togglable components](../../images/5/12e.png)
-
 
 The <i>ref</i> attribute is used for assigning a reference to each of the components in the variables <i>togglable1</i>, <i>togglable2</i> and <i>togglable3</i>.
 
@@ -799,7 +772,6 @@ Let us also create an npm script to run the lint:
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -p3001 db.json",
     "eslint": "eslint ." // highlight-line
   },
   // ...
