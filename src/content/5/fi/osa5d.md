@@ -78,7 +78,7 @@ Kun backend ja frontend ovat käynnissä, voidaan käynnistää Cypress komennol
 npm run cypress:open
 ```
 
-Ensimmäisen käynnistyksen yhteydessä sovellukselle syntyy hakemisto <i>cypress</i>, jonka alihakemistoon <i>integration</i> on tarkoitus sijoittaa testit. Cypress luo valmiiksi joukon esimerkkitestejä kyseiseen hakemistoon. Poistetaan esimerkit ja luodaan ensimmäinen oma testi tiedostoon <i>note\_app.spec.js</i>:
+Ensimmäisen käynnistyksen yhteydessä sovellukselle syntyy hakemisto <i>cypress</i>, jonka alihakemistoon <i>e2e</i> on tarkoitus sijoittaa testit. Cypress luo valmiiksi joukon esimerkkitestejä kyseiseen hakemistoon. Poistetaan esimerkit ja luodaan ensimmäinen oma testi tiedostoon <i>note\_app.cy.js</i>:
 
 ```js
 describe('Note ', function() {
@@ -92,13 +92,13 @@ describe('Note ', function() {
 
 Testin suoritus käynnistetään avautuneesta ikkunasta:
 
-![](../../images/5/40x.png)
+![Avautuu ikkuna, jossa painike "Run 1 integration spec"](../../images/5/40x.png)
 
 **HUOM**: saatat joutua käynnistämään Cypressin uudelleen sen jälkeen kun poistat esimerkkitestit.
 
 Testin suoritus avaa selaimen ja näyttää miten sovellus käyttäytyy testin edetessä:
 
-![](../../images/5/32x.png)
+![Selain renderöi näkymän, jossa vasemmalla testit ja niiden askeleet ja oikealla testin alla oleva sovellus.](../../images/5/32x.png)
 
 Testi näyttää rakenteeltaan melko tutulta. <i>describe</i>-lohkoja käytetään samaan tapaan kuin Jestissä ryhmittelemään yksittäisiä testitapauksia, jotka on määritelty <i>it</i>-metodin avulla. Nämä osat Cypress on lainannut sisäisesti käyttämältään [Mocha](https://mochajs.org/)-testikirjastolta.  
 
@@ -117,6 +117,8 @@ describe('Note app', () => { // highlight-line
 ```
 
 Mochan dokumentaatio kuitenkin [suosittelee](https://mochajs.org/#arrow-functions) että nuolifunktioita ei käytetä, ne saattavat aiheuttaa ongelmia joissain tilanteissa.
+
+HUOM: tässä materiaalissa suoritetaan Cypress-testejä pääasiassa graafisen test runnerin kautta. Testit on luonnollisesti mahdollista suorittaa myös [komentoriviltä](https://docs.cypress.io/guides/guides/command-line.html), komennolla <em>cypress run</em>, joka kannattaa halutessa lisätä npm-skriptiksi.
 
 Jos komento <i>cy.contains</i> ei löydä sivulta etsimäänsä tekstiä, testi ei mene läpi. Eli jos laajennamme testiä seuraavasti
 
@@ -139,7 +141,7 @@ describe('Note app', function() {
 
 havaitsee Cypress ongelman
 
-![](../../images/5/33x.png)
+![Vasemmalla oleva testin suoritusta kuvaava näkymä paljastaa, että "contains"-askel epäonnistuu ja aiheuttaa virheen AssertionError, timed out... Expected to find content 'wtf is this app?' but never did.](../../images/5/33x.png)
 
 Poistetaan virheeseen johtanut testi koodista.
 
@@ -275,7 +277,7 @@ Jos haemme nappia tekstin perusteella, palauttaa komento [cy.contains](https://d
 
 Huomaamme, että testeissä käytetty muuttuja _cy_ aiheuttaa ikävän ESlint-virheen
 
-![](../../images/5/30ea.png)
+![VS code paljastaa ESlint-virheen 'cy' is not defined](../../images/5/30ea.png)
 
 Siitä päästään eroon asentamalla [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress) kehitysaikaiseksi riippuvuudeksi
 
@@ -348,7 +350,7 @@ cy.get('input')
 
 Jos kenttiä olisi useampia, testi hajoaisi
 
-![](../../images/5/31x.png)
+![Aiheutuu virhe cy.type() cam only be called on a single element. Your subject contained 2 elements.](../../images/5/31x.png)
 
 Tämän takia olisi jälleen parempi lisätä lomakkeen kentälle <i>id</i> ja hakea kenttä testissä id:n perusteella.
 
@@ -431,7 +433,7 @@ module.exports = app
 
 eli lisäyksen jälkeen HTTP POST -operaatio backendin endpointiin <i>/api/testing/reset</i> tyhjentää tietokannan.
 
-Backendin testejä varten muokattu koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part3-notes-backend/tree/part5-1), branchissä <i>part5-1</i>.
+Backendin testejä varten muokattu koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part3-notes-backend/tree/part5-1), branchissä <i>part5-1</i>.
 
 Muutetaan nyt testien <i>beforeEach</i>-alustuslohkoa siten, että se nollaa palvelimen tietokannan aina ennen testien suorittamista.
 
@@ -522,7 +524,7 @@ Ensimmäinen komento etsii ensin komponentin, missä on teksti <i>another note c
 
 Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make not important</i>.
 
-Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
+Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
 
 ### Epäonnistuneen kirjautumisen testi
 
@@ -817,7 +819,7 @@ describe('Note app', function() {
 })
 ```
 
-Testit ja frontendin koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
+Testit ja frontendin koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-10), branchissa <i>part5-10</i>.
 
 ### Muistiinpanon tärkeyden muutos
 
@@ -850,12 +852,12 @@ Miten komento [cy.contains](https://docs.cypress.io/api/commands/contains.html) 
 
 Kun klikkaamme komentoa _cy.contains('second note')_ Cypressin [test runnerista](https://docs.cypress.io/guides/core-concepts/test-runner.html) nähdään, että komento löytää elementin, jonka sisällä on teksti <i>second note</i>:
 
-![](../../images/5/34x.png)
+![Klikatessa vasemmalla olevasta testisteppien listasta komentoa, renderöityy oikealle sovelluksen sen hetkinen tila, missä löydetty elementti on merkattuna korostettuna.](../../images/5/34x.png)
 
 Klikkaamalla seuraavaa riviä _.contains('make important')_, nähdään että löydetään nimenomaan 
 <i>second note</i>:a vastaava tärkeyden muutoksen tekevä nappi:
 
-![](../../images/5/35x.png)
+![Klikatessa vasemmalla olevasta testisteppien listasta komentoa, korostuu oikealle valintaa vastaava nappi](../../images/5/35x.png)
 
 Peräkkäin ketjutettuna toisena oleva <i>contains</i>-komento siis <i>jatkaa</i> hakua ensimmäisen komennon löytämän komponentin sisältä.
 
@@ -868,7 +870,7 @@ cy.contains('make important').click()
 
 tulos olisi ollut aivan erilainen, toinen rivi painaisi väärän muistiinpanon nappia: 
 
-![](../../images/5/36x.png)
+![Renderöityy virhe AssertionError: Timed out retrying after 4000ms: Expected to find content 'make not important'.](../../images/5/36x.png)
 
 Testejä tehdessä kannattaa siis ehdottomasti varmistaa test runnerista, että testit etsivät niitä elementtejä, joita niiden on tarkoitus tutkia!
 
@@ -890,7 +892,7 @@ const Note = ({ note, toggleImportance }) => {
 
 Testit hajoavat! Kuten test runner paljastaa, komento _cy.contains('second note')_ palauttaakin nyt ainoastaan tekstin sisältävän komponentin, ja nappi on sen ulkopuolella:
 
-![](../../images/5/37x.png)
+![Oikealle puolelle havainnollistuu, että fokus osuu napin sijaan pelkkään tekstiin](../../images/5/37x.png)
 
 Eräs tapa korjata ongelma on seuraavassa:
 
@@ -951,7 +953,7 @@ Myös testien suorituksen pysäyttäminen debuggeriin on [mahdollista](https://d
 
 Developer konsoli on monin tavoin hyödyllinen testejä debugatessa. Network-tabilla näkyvät testattavan sovelluksen tekemät HTTP-pyynnöt, ja console-välilehti kertoo testin komentoihin liittyviä tietoja:
 
-![](../../images/5/38ea.png)
+![Console-välilehti havainnollistaa testien löytämiä elementtejä.](../../images/5/38ea.png)
 
 Olemme toistaiseksi suorittaneet Cypress-testejä ainoastaan graafisen test runnerin kautta. Testit on luonnollisesti mahdollista suorittaa myös [komentoriviltä](https://docs.cypress.io/guides/guides/command-line.html). Lisätään vielä sovellukselle npm-skripti tätä tarkoitusta varten
 
@@ -969,11 +971,11 @@ Olemme toistaiseksi suorittaneet Cypress-testejä ainoastaan graafisen test runn
 
 Nyt siis voimme suorittaa Cypress-testit komentoriviltä komennolla <i>npm run test:e2e</i>
 
-![](../../images/5/39x.png)
+![Komennon suoritus tulostaa konsoliin tekstuaalisen raportin joka kertoo 5 läpimenneestä testistä.](../../images/5/39x.png)
 
 Huomaa, että testien suorituksesta tallentuu video hakemistoon <i>cypress/videos/</i>, hakemisto lienee syytä gitignoroida.
 
-Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
+Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-11), branchissa <i>part5-11</i>.
 
 </div>
 
@@ -1065,24 +1067,29 @@ describe('Blog app', function() {
 
 Testin tulee varmistaa, että luotu blogi tulee näkyville blogien listalle.
 
-#### 5.20*: blogilistan end to end -testit, step4
+#### 5.20: blogilistan end to end -testit, step4
 
 Tee testi, joka varmistaa, että blogia voi likettää.
 
-#### 5.21*: blogilistan end to end -testit, step5
+#### 5.21: blogilistan end to end -testit, step5
 
 Tee testi, joka varmistaa, että blogin lisännyt käyttäjä voi poistaa blogin.
 
 <i>Vapaaehtoinen bonustehtävä:</i> varmista myös että poisto ei onnistu muilta kuin blogin lisänneeltä käyttäjältä.
 
-#### 5.22*: blogilistan end to end -testit, step6
+#### 5.22: blogilistan end to end -testit, step6
 
 Tee testi, joka varmistaa, että blogit järjestetään likejen mukaiseen järjestykseen, eniten likejä saanut blogi ensin.
 
-Tämä tehtävä on edellisiä huomattavasti haastavampi. Eräs ratkaisutapa on tarkastella tulosta [then](https://docs.cypress.io/api/commands/then.html#DOM-element)-komennon takaisinkutsufunktiossa.
-
+Tämä tehtävä on edellisiä huomattavasti haastavampi. Eräs ratkaisutapa on lisätä tietty luokka elementille, joka sisältää blogin sisällön ja käyttää [eq](https://docs.cypress.io/api/commands/eq#Syntax)-metodia tietyssä indeksissä olevan elementin hakemiseen:
+  
+```js
+cy.get('.blog').eq(0).should('contain', 'The title with the most likes')
+cy.get('.blog').eq(1).should('contain', 'The title with the second most likes')
+``` 
+  
 Saatat törmätä tässä tehtävässä ongelmaan jos klikkaat monta kertaa peräkkäin <i>like</i>-nappia. Saattaa olla, että näin tehdessä liketykset tehdään samalle oliolle, eli cypress ei "ehdi" välissä päivittää sovelluksen tilaa. Eräs tapa korjata ongelma on odottaa jokaisen klikkauksen jälkeen että likejen lukumäärä päivittyy ja tehdä uusi liketys vasta tämän jälkeen.
 
-Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2022).
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 
 </div>

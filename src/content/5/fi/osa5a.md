@@ -15,7 +15,7 @@ Toteutetaan nyt osa käyttäjienhallinnan edellyttämästä toiminnallisuudesta 
 
 Sovelluksen yläosaan on nyt lisätty kirjautumislomake, ja uuden muistiinpanon lisäämisestä huolehtiva lomake on siirretty muistiinpanojen alapuolelle:
 
-![](../../images/5/1e.png)
+![Sovellus koostuu syötekentät username ja password koostuvasta kirjautumislomakkeesta, muistiinpanojen listasta, sekä lomakkeesta joka mahdollistaa uuden muistiinpanon luomisen (ainoastaan yksi syötekenttä muistiinpanon sisällölle). Jokaisen listalla olevan muistiinpanon kohdalla on nappi, jonka avulla muistiinpano voidaan merkata tärkeäksi/epätärkeäksi](../../images/5/1e.png)
 
 Komponentin <i>App</i> koodi näyttää seuraavalta:
 
@@ -86,7 +86,7 @@ const App = () => {
 export default App
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-1), branchissa <i>part5-1</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-1), branchissa <i>part5-1</i>.
 
 Kirjautumislomakkeen käsittely noudattaa samaa periaatetta kuin [osassa 2](/osa2#lomakkeet). Lomakkeen kenttiä varten on lisätty komponentin tilaan <i>username</i> ja <i>password</i>. Molemmille kentille on määritelty muutoksenkäsittelijä, joka synkronoi kenttään tehdyt muutokset komponentin <i>App</i> tilaan. Muutoksenkäsittelijä on yksinkertainen, se destrukturoi parametrina tulevasta oliosta kentän <i>target</i> ja asettaa sen arvon vastaavaan tilaan:
 
@@ -310,7 +310,7 @@ Ratkaisu näyttää hieman rumalta, mutta jätämme sen koodiin toistaiseksi.
 Sovelluksemme pääkomponentti <i>App</i> on tällä hetkellä jo aivan liian laaja ja nyt tekemämme muutokset ovat ilmeinen signaali siitä, että lomakkeet olisi syytä refaktoroida omiksi komponenteikseen. Jätämme sen kuitenkin vapaaehtoiseksi harjoitustehtäväksi.
 
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-2), branchissa <i>part5-2</i>. 
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-2), branchissa <i>part5-2</i>. 
 
 
 ### Muistiinpanojen luominen
@@ -453,7 +453,7 @@ Kirjautumisen yhteyteen tehtävä muutos on seuraava:
 
 Kirjautuneen käyttäjän tiedot tallentuvat nyt local storageen ja niitä voidaan tarkastella konsolista (kirjoittamalla konsoliin _window.localStorage_):
 
-![](../../images/5/3e.png)
+![Selaimen konsoliin on evaluoitu window.localStorage-objektin arvo](../../images/5/3e.png)
 
 Sovellusta on vielä laajennettava siten, että kun sivulle tullaan uudelleen, esim. selaimen uudelleenlataamisen yhteydessä, tulee sovelluksen tarkistaa löytyykö local storagesta tiedot kirjautuneesta käyttäjästä. Jos löytyy, asetetaan ne sovelluksen tilaan ja <i>noteServicelle</i>.
 
@@ -509,7 +509,7 @@ Toinen tapa on käyttää local storagen tilan kokonaan nollaavaa komentoa:
 window.localStorage.clear()
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-3), branchissa <i>part5-3</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-3), branchissa <i>part5-3</i>.
 
 </div>
 
@@ -527,14 +527,14 @@ Tämän osan alun tehtävät kertaavat käytännössä kaiken oleellisen tämän
 
 Muista tehtäviä tehdessäsi kaikki debuggaukseen liittyvät käytänteet, erityisesti konsolin tarkkailu.
 
-**Varoitus:** Jos huomaat kirjoittavasi samaan funktioon sekaisin async/awaitia ja _then_-kutsuja, on 99.9-prosenttisen varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
+**Varoitus:** Jos huomaat kirjoittavasi samaan funktioon sekaisin async/awaitia ja _then_-kutsuja, on 99,9-prosenttisen varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
 #### 5.1: blogilistan frontend, step1
 
-Ota tehtävien pohjaksi [GitHubissa](https://github.com/fullstack-hy/bloglist-frontend) oleva sovellusrunko kloonaamalla se sopivaan paikkaan:
+Ota tehtävien pohjaksi [GitHubissa](https://github.com/fullstack-hy2020/bloglist-frontend) oleva sovellusrunko kloonaamalla se sopivaan paikkaan:
 
 ```bash
-git clone https://github.com/fullstack-hy/bloglist-frontend
+git clone https://github.com/fullstack-hy2020/bloglist-frontend
 ```
 
 Seuraavaksi poista kloonatun sovelluksen Git-konfiguraatio:
@@ -557,11 +557,11 @@ Kirjautumisen yhteydessä backendin palauttama <i>token</i> tallennetaan sovellu
 
 Jos käyttäjä ei ole kirjautunut, sivulla näytetään <i>pelkästään</i> kirjautumislomake:
 
-![](../../images/5/4e.png)
+![Näkyvillä kirjautumislomake, jolla syötekentät username ja password sekä nappi "login"](../../images/5/4e.png)
 
 Kirjautuneelle käyttäjälle näytetään kirjautuneen käyttäjän nimi sekä blogien lista:
 
-![](../../images/5/5e.png)
+![Blogit listattuna riveittän muodossa "blogin nimi", "kiroittaja", ruudulla lisäksi tieto kirjautuneesta käyttäjästä, esim. "Matti Luukkainen logged in"](../../images/5/5e.png)
 
 Tässä vaiheessa kirjautuneiden käyttäjien tietoja ei vielä tarvitse muistaa local storagen avulla.
 
@@ -593,7 +593,7 @@ Tässä vaiheessa kirjautuneiden käyttäjien tietoja ei vielä tarvitse muistaa
 
 Tee kirjautumisesta "pysyvä" local storagen avulla. Tee sovellukseen myös mahdollisuus uloskirjautumiseen:
 
-![](../../images/5/6e.png)
+![Sovellukseen lisätty nappi "logout"](../../images/5/6e.png)
 
 Uloskirjautumisen jälkeen selain ei saa muistaa kirjautunutta käyttäjää reloadauksen jälkeen.
 
@@ -601,17 +601,17 @@ Uloskirjautumisen jälkeen selain ei saa muistaa kirjautunutta käyttäjää rel
 
 Laajenna sovellusta siten, että kirjautunut käyttäjä voi luoda uusia blogeja:
 
-![](../../images/5/7e.png)
+![Sovellukseen lisätty lomake uusien blogien luomiseen. Lomakkeella kentät title, author ja url. Lomake näytetään ainoastaan kun käyttäjä on kirjaantunut sovellukseen.](../../images/5/7e.png)
 
-#### 5.4*: blogilistan frontend, step4
+#### 5.4: blogilistan frontend, step4
 
 Toteuta sovellukseen notifikaatiot, jotka kertovat sovelluksen yläosassa onnistuneista ja epäonnistuneista toimenpiteistä. Esim. blogin lisäämisen yhteydessä voi antaa seuraavan notifikaation:
 
-![](../../images/5/8e.png)
+![Sovellus näyttää notifikaation "a new blog ... by ... added"](../../images/5/8e.png)
 
 Epäonnistunut kirjautuminen taas johtaa virhenotifikaatioon:
 
-![](../../images/5/9e.png)
+![Sovellus näyttää notifikaation "wrong username/password"](../../images/5/9e.png)
 
 Notifikaation tulee olla näkyvillä muutaman sekunnin ajan. Värien lisääminen ei ole pakollista.
 

@@ -11,11 +11,11 @@ lang: fi
 
 Muutetaan sovellusta siten, että kirjautumislomaketta ei oletusarvoisesti näytetä:
 
-![](../../images/5/10e.png)
+![Oletusarvoisesti sovellus näytää ainoastaan muistiinpanojen listan sekä napin "log in"](../../images/5/10e.png)
 
 Lomake aukeaa, jos käyttäjä painaa nappia <i>login</i>:
 
-![](../../images/5/11e.png)
+![Kun nappia "log in" painetaan, avautuu kirjaantumislomake (jolla kentät username ja password sekä nappi kirjautumisen tekemiseen). Näkyviin tulee myös nappi "cancel", jota painamalla kirjaantumislomake suljetaan tekemättä kirjautumista](../../images/5/11e.png)
 
 Napilla <i>cancel</i> käyttäjä saa tarvittaessa suljettua lomakkeen.
 
@@ -273,7 +273,7 @@ ja määritellään lomakkeen näyttävä koodi komponentin <i>Togglable</i> sis
 </Togglable>
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-4), branchissa <i>part5-4</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-4), branchissa <i>part5-4</i>.
 
 ### Lomakkeiden tila
 
@@ -329,7 +329,7 @@ Tilan muuttuja <i>newNote</i> ja sen muutoksesta huolehtiva tapahtumankäsitteli
 
 Propseja on enää yksi eli funktio _createNote_, jota lomake kutsuu kun uusi muistiinpano luodaan.
 
-Komponentti _App_ yksintertaistuu, koska tilasta <i>newNote</i> ja sen käsittelijäfunktiosta on päästy eroon. Uuden muistiinpanon luomisesta huolehtiva funktio _addNote_ saa suoraan parametriksi uuden muistiinpanon ja funktio on ainoa props, joka välitetään lomakkeelle:
+Komponentti _App_ yksinkertaistuu, koska tilasta <i>newNote</i> ja sen käsittelijäfunktiosta on päästy eroon. Uuden muistiinpanon luomisesta huolehtiva funktio _addNote_ saa suoraan parametriksi uuden muistiinpanon ja funktio on ainoa props, joka välitetään lomakkeelle:
 
 ```js
 const App = () => {
@@ -360,7 +360,7 @@ const App = () => {
 
 Vastaava muutos voitaisiin tehdä myös kirjautumislomakkeelle, mutta jätämme sen vapaaehtoiseksi harjoitustehtäväksi.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-5), branchissa <i>part5-5</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-5), branchissa <i>part5-5</i>.
 
 ### ref eli viite komponenttiin
 
@@ -454,7 +454,7 @@ Käyttämämme kikka komponentin tilan muuttamiseksi toimii, mutta se vaikuttaa 
 
 Refeille on myös [muita käyttötarkoituksia](https://reactjs.org/docs/refs-and-the-dom.html) kuin React-komponentteihin käsiksi pääseminen.
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-6), branchissa <i>part5-6</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-6), branchissa <i>part5-6</i>.
 
 ### Huomio komponenteista
 
@@ -486,7 +486,7 @@ ja otetaan se käyttöön
 
 syntyy <i>kolme erillistä komponenttiolioa</i>, joilla on kaikilla oma tilansa:
 
-![](../../images/5/12.png)
+![Kuva havainnollistaa, että selain renderöi kolme erillistä komponenttia, jotka voivat olla toisistaan riippumatta "togglattuina" näkyville](../../images/5/12.png)
 
 <i>ref</i>-attribuutin avulla on talletettu viite jokaiseen komponentin muuttujaan <i>togglable1</i>, <i>togglable2</i> ja <i>togglable3</i>.
 
@@ -502,11 +502,11 @@ Tee blogin luomiseen käytettävästä lomakkeesta ainoastaan tarvittaessa näyt
 
 Lomake ei ole oletusarvoisesti näkyvillä:
 
-![](../../images/5/13ae.png)
+![Oletusarvoisesti näytetään ainoastaan nappi "create new blog"](../../images/5/13ae.png)
 
 Klikkaamalla nappia <i>create new blog</i> lomake aukeaa:
 
-![](../../images/5/13be.png)
+![kun nappia painetaan, avautuu uuden blogin luomisen mahdollistava komponentti joka sisältää napin cancel, jota painamalla lomakkeen voi piilottaa](../../images/5/13be.png)
 
 Lomakkeen tulee sulkeutua kun uusi blogi luodaan.
 
@@ -522,7 +522,7 @@ Lisää yksittäiselle blogille nappi, jonka avulla voi kontrolloida, näytetä�
 
 Klikkaamalla nappia sen täydelliset tiedot aukeavat:
 
-![](../../images/5/13ea.png)
+![Oletusarvoisesti kustakin blogista näytetään nimi ja kirjoittaja sekä nappi view. Nappia painamalla näytetään myös blogin url, sen likejen määrä, nappi "likettämiseen" sekä blogin lisännyt käyttäjä ja nappi tarkempien tietojen piilottamiseen.](../../images/5/13ea.png)
 
 Uusi napin klikkaus pienentää näkymän.
 
@@ -556,7 +556,7 @@ const Blog = ({ blog }) => {
 
 **Huom 2:** Vaikka tämän tehtävän toiminnallisuus on melkein samanlainen kuin komponentin <i>Togglable</i> tarjoama toiminnallisuus, ei Togglable kuitenkaan sovi tarkoitukseen sellaisenaan. Helpoin ratkaisu lienee lisätä blogille tila, joka kontrolloi sitä missä muodossa blogi näytetään.
 
-#### 5.8*: blogilistan frontend, step8
+#### 5.8: blogilistan frontend, step8
 
 Toteuta like-painikkeen toiminnallisuus. Like lisätään backendiin blogin yksilöivään urliin tapahtuvalla _PUT_-pyynnöllä.
 
@@ -591,17 +591,17 @@ tulee palvelimelle tehdä PUT-pyyntö osoitteeseen <i>/api/blogs/5a43fde2cbd20b1
 
 **Varoitus vielä kerran:** Jos huomaat kirjoittavasi sekaisin async/awaitia ja _then_-kutsuja, on 99.9-prosenttisen varmaa, että teet jotain väärin. Käytä siis jompaa kumpaa tapaa, älä missään tapauksessa "varalta" molempia.
 
-#### 5.9*: blogilistan frontend, step9
+#### 5.9: blogilistan frontend, step9
 
 Järjestä sovellus näyttämään blogit <i>likejen</i> mukaisessa suuruusjärjestyksessä. Järjestäminen onnistuu taulukon metodilla [sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
 
-#### 5.10*: blogilistan frontend, step10
+#### 5.10: blogilistan frontend, step10
 
 Lisää nappi blogin poistamiselle. Toteuta myös poiston tekevä logiikka.
 
 Ohjelmasi voi näyttää esim. seuraavalta:
 
-![](../../images/5/14ea.png)
+![Blogin tarkemman näkymän (avautuu kun painetaan view) mukana on nappi delete, jota painamalla blogin voi poistaa. Poisto varmistetaan window.confirm:n avulla toteutetulla dialogilla](../../images/5/14ea.png)
 
 Kuvassa näkyvä poiston varmistus on helppo toteuttaa funktiolla [window.confirm](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm).
 
@@ -781,11 +781,11 @@ Tehdään lintausta varten npm-skripti:
 
 Komponentti _Togglable_ aiheuttaa ikävän näköisen varoituksen <i>Component definition is missing display name</i>: 
 
-![](../../images/5/25x.png)
+![VS codessa näkyy ESLint-varoitus "Component definition is missing display name"](../../images/5/25x.png)
 
 Komponentin "nimettömyys" käy ilmi myös React Development Toolsilla:
 
-![](../../images/5/26ea.png)
+![React Development Tool paljastaa, että komponentin nimi on "Anonymous"](../../images/5/26ea.png)
 
 Korjaus on onneksi hyvin helppo tehdä:
 
@@ -802,7 +802,7 @@ Togglable.displayName = 'Togglable' // highlight-line
 export default Togglable
 ```
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-7), branchissa <i>part5-7</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-7), branchissa <i>part5-7</i>.
 
 Kannattaa huomata, että create-react-appilla on myös [oletusarvoinen ESLint-konfiguraatio](https://www.npmjs.com/package/eslint-config-react-app), jonka korvasimme nyt kokonaan omalla konfiguraatiolla. [Dokumentaatio](https://create-react-app.dev/docs/setting-up-your-editor/#extending-or-replacing-the-default-eslint-config) toteaa, että oletusarvoisen konfiguraation korvaaminen on ok, mutta suosittelee mielummin <i>laajentamaan</i> oletusarvoista konfiguraatiota: <i>We highly recommend extending the base config, as removing it could introduce hard-to-find issues</i>.
 

@@ -246,7 +246,7 @@ Asennetaan testiä varten apukirjasto [user-event](https://testing-library.com/d
 npm install --save-dev @testing-library/user-event
 ```
 
-Tällä hetkellä (28.1.2022) create-react-appin ja user-eventin olettamien kirjstojen välillä on pieni yhteensopivuusero joka korjautuu kun asetetaan kirjastosta jest-watch-typeahead tietty verio:
+Tällä hetkellä (28.1.2022) create-react-appin ja user-eventin olettamien kirjastojen välillä on pieni yhteensopivuusero joka korjautuu kun asetetaan kirjastosta jest-watch-typeahead tietty versio:
 
 ```
 npm install -D --exact jest-watch-typeahead@0.6.5
@@ -275,8 +275,9 @@ test('clicking the button calls event handler once', async () => {
     <Note note={note} toggleImportance={mockHandler} />
   )
 
+  const user = userEvent.setup()
   const button = screen.getByText('make not important')
-  userEvent.click(button)
+  await user.click(button)
 
   expect(mockHandler.mock.calls).toHaveLength(1)
 })
@@ -287,15 +288,21 @@ Testissä on muutama mielenkiintoinen seikka. Tapahtumankäsittelijäksi annetaa
 ```js
 const mockHandler = jest.fn()
 ```
+  
+Jotta renderöidyn komponentin kanssa voi vuorovaikuttaa tapahtumien avulla, tulee ensin aloittaa uusi sessio. Tämä onnistuu userEvent-olion [setup](https://testing-library.com/docs/user-event/setup/)-metodin avulla:
+
+```js
+const user = userEvent.setup()
+```
 
 Testi hakee renderöidystä komponentista napin <i>tekstin perusteella</i> ja klikkaa sitä:
 
 ```js
 const button = screen.getByText('make not important')
-userEvent.click(button)
+await user.click(button)
 ```
 
-Klikkaaminen tapahtuu userEvent-olion metodin [click](https://testing-library.com/docs/ecosystem-user-event/#clickelement-eventinit-options) avulla.
+Klikkaaminen tapahtuu userEvent-olion metodin [click](https://testing-library.com/docs/user-event/convenience/#click) avulla.
 
 Testin ekspektaatio varmistaa, että <i>mock-funktiota</i> on kutsuttu täsmälleen kerran:
 
@@ -307,7 +314,7 @@ expect(mockHandler.mock.calls).toHaveLength(1)
 
 Esimerkissämme mock-funktio sopi tarkoitukseen erinomaisesti, sillä sen avulla on helppo varmistaa, että metodia on kutsuttu täsmälleen kerran.
 
-### Komponentin <i>Togglable</i> testit
+### Komponentin Togglable testit
 
 Tehdään komponentille <i>Togglable</i> muutama testi. Lisätään komponentin lapset renderöivään div-elementtiin CSS-luokka <i>togglableContent</i>:
 
@@ -362,9 +369,10 @@ describe('<Togglable />', () => {
     expect(div).toHaveStyle('display: none')
   })
 
-  test('after clicking the button, children are displayed', () => {
+  test('after clicking the button, children are displayed', async () => {
+    const user = userEvent.setup()
     const button = screen.getByText('show...')
-    userEvent.click(button)
+    await user.click(button)
 
     const div = container.querySelector('.togglableContent')
     expect(div).not.toHaveStyle('display: none')
@@ -376,7 +384,7 @@ Ennen jokaista testiä suoritettava _beforeEach_ renderöi <i>Togglable</i>-komp
 
 Ensimmäinen testi tarkastaa, että <i>Togglable</i> renderöi sen lapsikomponentin
 
-```
+```js
 <div className="testDiv" >
   togglable content
 </div>
@@ -391,12 +399,14 @@ describe('<Togglable />', () => {
 
   // ...
 
-  test('toggled content can be closed', () => {
+  test('toggled content can be closed', async () => {
+    const user = userEvent.setup()
+
     const button = screen.getByText('show...')
-    userEvent.click(button)
+    await user.click(button)
 
     const closeButton = screen.getByText('cancel')
-    userEvent.click(closeButton)
+    await user.click(closeButton)
 
     const div = container.querySelector('.togglableContent')
     expect(div).toHaveStyle('display: none')
@@ -406,14 +416,14 @@ describe('<Togglable />', () => {
 
 ### Lomakkeiden testaus
 
-Käytimme jo edellisissä testeissä [userEvent]([user-event](https://testing-library.com/docs/ecosystem-user-event/))-kirjaston _fireEvent_-funktiota nappien klikkaamiseen:
+Käytimme jo edellisissä testeissä [user-event](https://testing-library.com/docs/user-event/intro)-kirjaston _click_-metodia nappien klikkaamiseen:
 
 ```js
 const button = screen.getByText('show...')
-userEvent.click(button)
+await user.click(button)
 ```
 
-Käytännössä siis loimme <i>userEventin</i> avulla tapahtuman <i>click</i> -nappia vastaavalle komponentille. Voimme simuloida myös lomakkeelle kirjoittamista <i>userEventin</i> avulla.
+Käytännössä siis loimme metodin avulla <i>click</i>-tapahtuman metodin argumenttina annatulle komponentille. Voimme simuloida myös lomakkeelle kirjoittamista <i>userEventin</i>-olion avulla.
 
 Tehdään testi komponentille <i>NoteForm</i>. Lomakkeen koodi näyttää seuraavalta:
 
@@ -466,7 +476,8 @@ import '@testing-library/jest-dom/extend-expect'
 import NoteForm from './NoteForm'
 import userEvent from '@testing-library/user-event'
 
-test('<NoteForm /> updates parent state and calls onSubmit', () => {
+test('<NoteForm /> updates parent state and calls onSubmit', async () => {
+  const user = userEvent.setup()
   const createNote = jest.fn()
 
   render(<NoteForm createNote={createNote} />)
@@ -474,19 +485,15 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
   const input = screen.getByRole('textbox')
   const sendButton = screen.getByText('save')
 
-  userEvent.type(input, 'testing a form...')
-  userEvent.click(sendButton)
+  await user.type(input, 'testing a form...')
+  await user.click(sendButton)
 
   expect(createNote.mock.calls).toHaveLength(1)
   expect(createNote.mock.calls[0][0].content).toBe('testing a form...')
 })
 ```
 
-Syötekenttä etsitään metodin [getByRole](https://testing-library.com/docs/queries/byrole) avulla. 
-
-Syötekenttään kirjoitetaan userEvent:in tarjoaman metodin [type](https://testing-library.com/docs/ecosystem-user-event/#typeelement-text-options) avulla.
-
-Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee samansisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
+Syötekenttä etsitään metodin [getByRole](https://testing-library.com/docs/queries/byrole) avulla. Syötekenttään kirjoitetaan metodin [type](https://testing-library.com/docs/user-event/utility#type) avulla. Testin ensimmäinen ekspektaatio varmistaa, että lomakkeen lähetys on aikaansaanut tapahtumankäsittelijän _createNote_ kutsumisen. Toinen ekspektaatio tarkistaa, että tapahtumankäsittelijää kutsutaan oikealla parametrilla, eli että luoduksi tulee samansisältöinen muistiinpano kuin lomakkeelle kirjoitetaan.
 
 ### Lisää elementtien etsimisestä
 
@@ -518,7 +525,7 @@ const NoteForm = ({ createNote }) => {
 }
 ```
 
-Nyt testissä käytetty syötekentän etsimistapa 
+Nyt testissä käytetty syötekentän etsimistapa:
 
 ```js
 const input = screen.getByRole('textbox')
@@ -526,19 +533,19 @@ const input = screen.getByRole('textbox')
 
 aiheuttaisi virheen:
 
-![](../../images/5/40.png)
+![Konsoli kertoo virheestä TestingLibraryElementError: Found multiple elements with the role "textbox"](../../images/5/40.png)
 
 Virheilmoitus ehdottaa käytettäväksi metodia <i>getAllByRole</i> (jos tilanne ylipäätään on se mitä halutaan). Testi korjautuisi seuraavasti:
 
 ```js
 const inputs = screen.getAllByRole('textbox')
 
-userEvent.type(input[0], 'testing a form...')
+await user.type(inputs[0], 'testing a form...')
 ```
 
 Metodi <i>getAllByRole</i>  palauttaa taulukon, ja oikea tekstikenttä on taulukossa ensimmäisenä. Testi on kuitenkin hieman epäilyttävä, sillä se luottaa tekstikenttien järjestykseen.
 
-Syötekentille määritellään usein placehoder-teksti, joka ohjaa käyttäjää kirjoittamaan syötekenttään oikean arvon. Lisätään placeholder lomakkeellemme
+Syötekentille määritellään usein placeholder-teksti, joka ohjaa käyttäjää kirjoittamaan syötekenttään oikean arvon. Lisätään placeholder lomakkeellemme:
 
 ```js
 const NoteForm = ({ createNote }) => {
@@ -552,7 +559,7 @@ const NoteForm = ({ createNote }) => {
         <input
           value={newNote}
           onChange={handleChange}
-          placeholder='write here note content' // highlight-line 
+          placeholder='write note content here' // highlight-line 
         />
         <input
           value={...}
@@ -573,7 +580,7 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
 
   render(<NoteForm createNote={createNote} />) 
 
-  const input = screen.getByPlaceholderText('write here note content') // highlight-line 
+  const input = screen.getByPlaceholderText('write note content here') // highlight-line 
   const sendButton = screen.getByText('save')
 
   userEvent.type(input, 'testing a form...' )
@@ -586,7 +593,7 @@ test('<NoteForm /> updates parent state and calls onSubmit', () => {
 
 Kaikkein joustavimman tavan tarjoaa aiemmin [tässä luvussa](/osa5/react_sovellusten_testaaminen#sisallon-etsiminen-testattavasta-komponentista) esitellyn _render_-metodin palauttaman olion _content_-kentän metodi <i>querySelector</i>, joka mahdollistaa komponenttien etsimisen mielivaltaisten CSS-selektorien avulla. 
 
-Jos esim. määrittelisimme syötekentälle yksilöivän attribuutin _id_,
+Jos esim. määrittelisimme syötekentälle yksilöivän attribuutin _id_:
 
 ```js
 const NoteForm = ({ createNote }) => {
@@ -613,17 +620,17 @@ const NoteForm = ({ createNote }) => {
 }
 ```
 
-testi löytäisi elementin seuraavasti:
+Testi löytäisi elementin seuraavasti:
 
 ```js
-const { content } = render(<NoteForm createNote={createNote} />)
+const { container } = render(<NoteForm createNote={createNote} />)
 
-const input = content.querySelector('#note-input')
+const input = container.querySelector('#note-input')
 ```
 
 Jätämme koodiin placeholderiin perustuvan ratkaisun.
-
-Vielä muutama tärkeä huomio. Jos komponentti renderöisi samaan HTML-elementtiin tekstiä seuraavasti
+  
+Vielä muutama tärkeä huomio. Jos komponentti renderöisi samaan HTML-elementtiin tekstiä seuraavasti:
 
 ```js
 const Note = ({ note, toggleImportance }) => {
@@ -641,7 +648,7 @@ const Note = ({ note, toggleImportance }) => {
 export default Note
 ```
 
-ei testissä käyttämämme _getByText_ löydä elementtiä
+Ei testissä käyttämämme _getByText_ löydä elementtiä:
 
 ```js 
 test('renders content', () => {
@@ -658,10 +665,10 @@ test('renders content', () => {
 })
 ```
 
-Komento _getByText_ nimittäin etsii elementtiä missä on <i>ainoastaan parametrina teksti</i> eikä mitään muuta. Jos halutaan etsiä komponenttia joka <i>sisältää</i> tekstin, voidaan joko lisätä komennolle ekstraoptio 
+Komento _getByText_ nimittäin etsii elementtiä missä on <i>ainoastaan parametrina teksti</i> eikä mitään muuta. Jos halutaan etsiä komponenttia joka <i>sisältää</i> tekstin, voidaan joko lisätä komennolle ekstraoptio:
 
 ```js 
-const element = screenscreen.getByText(
+const element = screen.getByText(
   'Does not work anymore :(', { exact: false }
 )
 ```
@@ -700,13 +707,13 @@ test('renders no shit', () => {
 CI=true npm test -- --coverage
 ```
 
-![](../../images/5/18ea.png)
+![Konsoliin tulostuu taulukko joka näyttää kunkin tiedoston testien kattavuusraportin sekä mahdolliset testien kattamattomat rivit](../../images/5/18ea.png)
 
-Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/lcov-report</i>. HTML-muotoinen raportti kertoo mm. yksittäisen komponentin testaamattomat koodirivit:
+Melko primitiivinen HTML-muotoinen raportti generoituu hakemistoon <i>coverage/lcov-report</i>. HTML-muotoinen raportti kertoo mm. yksittäisten komponentin testaamattomat koodirivit:
 
-![](../../images/5/19ea.png)
+![Selaimeen renderöityy näkymä tiedostoista jossa värein merkattu ne rivit joita testit eivät kattaneet](../../images/5/19ea.png)
 
-Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
+Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-8), branchissa <i>part5-8</i>.
 
 </div>
 
@@ -716,19 +723,19 @@ Sovelluksen tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://gith
 
 #### 5.13: blogilistan testit, step1
 
-Tee testi, joka varmistaa että blogin näyttävä komponentti renderöi blogin titlen, authorin mutta ei renderöi oletusarvoisesti urlia eikä likejen määrää.
+Tee testi, joka varmistaa että blogin näyttävä komponentti renderöi blogin titlen ja authorin mutta ei renderöi oletusarvoisesti urlia eikä likejen määrää. Mikäli toteutit tehtävän 5.7, niin pelkkä titlen renderöinnin testaus riittää.
 
 #### 5.14: blogilistan testit, step2
 
-Tee testi, joka varmistaa että myös url ja likejen määrä näytetään kun blogin kaikki tiedot näyttävää nappia on painettu.
+Tee testi, joka varmistaa että myös url, likejen määrä ja käyttäjä näytetään, kun blogin kaikki tiedot näyttävää nappia on painettu.
 
 #### 5.15: blogilistan testit, step3
 
 Tee testi, joka varmistaa, että jos komponentin <i>like</i>-nappia painetaan kahdesti, komponentin propsina saamaa tapahtumankäsittelijäfunktiota kutsutaan kaksi kertaa.
 
-#### 5.16*: blogilistan testit, step4
+#### 5.16: blogilistan testit, step4
 
-Tee uuden blogin luomisesta huolehtivalle lomakkelle testi, joka varmistaa, että lomake kutsuu propseina saamaansa takaisinkutsufunktiota oikeilla tiedoilla siinä vaiheessa kun blogi luodaan.
+Tee uuden blogin luomisesta huolehtivalle lomakkelle testi, joka varmistaa, että lomake kutsuu propsina saamaansa takaisinkutsufunktiota oikeilla tiedoilla siinä vaiheessa kun blogi luodaan.
 
 </div>
 
