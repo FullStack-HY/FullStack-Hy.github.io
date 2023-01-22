@@ -1015,8 +1015,8 @@ Notice that you will have to make similar changes to the code that were made [in
 
 ![Warning to read docs on connecting mongoose to jest](../../images/4/8a.png)
 
-[One way](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles)  to get rid of this is to
-create to the project root file <i>test-teardown.js</i> with the following content
+[One way](https://stackoverflow.com/questions/50687592/jest-and-mongoose-jest-has-detected-opened-handles) to get rid of this is to
+create to the <i>tests</i> directory a file <i>teardown.js</i> with the following content
 
 ```js
 module.exports = () => {
@@ -1031,14 +1031,14 @@ and by extending the Jest definitions in the <i>package.json</i> as follows
  //...
  "jest": {
    "testEnvironment": "node"
-   "globalTeardown": "./test-teardown.js" // highlight-line
+   "globalTeardown": ".test/teardown.js" // highlight-line
  }
 }
 ```
 
 **NB:** when you are writing your tests **<i>it is better to not execute all of your tests</i>**, only execute the ones you are working on. Read more about this [here](/en/part4/testing_the_backend#running-tests-one-by-one).
 
-#### 4.9*: Blog list tests, step2
+#### 4.9: Blog list tests, step2
 
 Write a test that verifies that the unique identifier property of the blog posts is named <i>id</i>, by default the database names the property <i>_id</i>. Verifying the existence of a property is easily done with Jest's [toBeDefined](https://jestjs.io/docs/en/expect#tobedefined) matcher.
 
@@ -1055,7 +1055,7 @@ Write a test that verifies that if the <i>likes</i> property is missing from the
 Make the required changes to the code so that it passes the test.
 #### 4.12*: Blog list tests, step5
 
-Write a test related to creating new blogs via the <i>/api/blogs</i> endpoint, that verifies that if the <i>title</i> or <i>url</i> properties are missing from the request data, the backend responds to the request with the status code <i>400 Bad Request</i>.
+Write tests related to creating new blogs via the <i>/api/blogs</i> endpoint, that verifiy that if the <i>title</i> or <i>url</i> properties are missing from the request data, the backend responds to the request with the status code <i>400 Bad Request</i>.
 
 Make the required changes to the code so that it passes the test.
 
