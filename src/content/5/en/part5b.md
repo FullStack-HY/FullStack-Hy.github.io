@@ -298,7 +298,7 @@ const NoteForm = ({ createNote }) => {
     event.preventDefault()
     createNote({
       content: newNote,
-      important: Math.random() > 0.5,
+      important: true
     })
 
     setNewNote('')
@@ -321,6 +321,8 @@ const NoteForm = ({ createNote }) => {
 
 export default NoteForm
 ```
+
+**NOTE** At the same time, we changed the behavior of the application so that new notes are important by default, i.e. the fiedl <i>important</i> gets the value <i>true</i>.
 
 The <i>newNote</i> state attribute and the event handler responsible for changing it have been moved from the _App_ component to the component responsible for the note form. 
 

@@ -302,7 +302,6 @@ await user.click(button)
 
 Clicking happens with the method [click](https://testing-library.com/docs/user-event/convenience/#click) of the userEvent-library.
 
-
 The expectation of the test verifies that the <i>mock function</i> has been called exactly once.
 
 ```js
@@ -383,8 +382,8 @@ The _beforeEach_ function gets called before each test, which then renders the <
 
 The first test verifies that the <i>Togglable</i> component renders its child component 
 
-```
-<div className="testDiv" >
+```js
+<div className="testDiv">
   togglable content
 </div>
 ```

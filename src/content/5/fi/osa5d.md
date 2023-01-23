@@ -58,15 +58,15 @@ Tehdään <i>backendille</i> npm-skripti, jonka avulla se saadaan käynnistetty�
 {
   // ...
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
-    "build:ui": "rm -rf build && cd ../../../2/luento/notes && npm run build && cp -r build ../../../3/luento/notes-backend",
-    "deploy": "git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "build:ui": "rm -rf build && cd ../frontend/ && npm run build && cp -r build ../backend",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "fly logs",
     "lint": "eslint .",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
-    "start:test": "cross-env NODE_ENV=test node index.js" // highlight-line
+    "test": "jest --verbose --runInBand",
+    "start:test": "NODE_ENV=test node index.js" // highlight-line
   },
   // ...
 }
@@ -78,27 +78,43 @@ Kun backend ja frontend ovat käynnissä, voidaan käynnistää Cypress komennol
 npm run cypress:open
 ```
 
-Ensimmäisen käynnistyksen yhteydessä sovellukselle syntyy hakemisto <i>cypress</i>, jonka alihakemistoon <i>e2e</i> on tarkoitus sijoittaa testit. Cypress luo valmiiksi joukon esimerkkitestejä kyseiseen hakemistoon. Poistetaan esimerkit ja luodaan ensimmäinen oma testi tiedostoon <i>note\_app.cy.js</i>:
+Cypress kysyy minkä tyyppisiä testejä haluamme tehdä. Valitaan "E2E Testing":
+
+![](../../images/5/51new.png)
+
+Valitaan sopiva selain (esim. Chrome) ja "Create new spec":
+
+![](../../images/5/52new.png)
+
+Annetaan testille nimeksi <i>note\_app.cy.js</i> ja sijoitetaan se ehdotettuun hakemistoon <i>cypress/e2e:</i>
+
+![](../../images/5/53new.png)
+
+Voisimme tehdä testejä Cypressin kautta, mutta käytetään kuitenkin VS Codea testien editointiin:
+
+![](../../images/5/54new.png)
+
+Suljetaan Cypressin testin editointinäkymä.
+
+Muutetaan testin sisätö seuraavanlaiseksi
 
 ```js
 describe('Note ', function() {
   it('front page can be opened', function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2023')
   })
 })
 ```
 
-Testin suoritus käynnistetään avautuneesta ikkunasta:
+Testin suoritus käynnistetään kilkkaamalla testin nimeä Cypressin näkymästä:
 
-![Avautuu ikkuna, jossa painike "Run 1 integration spec"](../../images/5/40x.png)
+![](../../images/5/55new.png)
 
-**HUOM**: saatat joutua käynnistämään Cypressin uudelleen sen jälkeen kun poistat esimerkkitestit.
+Testin suoritus näyttää, miten sovellus käyttäytyy testin edetessä:
 
-Testin suoritus avaa selaimen ja näyttää miten sovellus käyttäytyy testin edetessä:
-
-![Selain renderöi näkymän, jossa vasemmalla testit ja niiden askeleet ja oikealla testin alla oleva sovellus.](../../images/5/32x.png)
+![Selain renderöi näkymän, jossa vasemmalla testit ja niiden askeleet ja oikealla testin alla oleva sovellus.](../../images/5/56new.png)
 
 Testi näyttää rakenteeltaan melko tutulta. <i>describe</i>-lohkoja käytetään samaan tapaan kuin Jestissä ryhmittelemään yksittäisiä testitapauksia, jotka on määritelty <i>it</i>-metodin avulla. Nämä osat Cypress on lainannut sisäisesti käyttämältään [Mocha](https://mochajs.org/)-testikirjastolta.  
 
@@ -111,7 +127,7 @@ describe('Note app', () => { // highlight-line
   it('front page can be opened', () => { // highlight-line
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2023')
   })
 })
 ```
@@ -127,7 +143,7 @@ describe('Note app', function() {
   it('front page can be opened',  function() {
     cy.visit('http://localhost:3000')
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2023')
   })
 
 // highlight-start
@@ -141,9 +157,44 @@ describe('Note app', function() {
 
 havaitsee Cypress ongelman
 
-![Vasemmalla oleva testin suoritusta kuvaava näkymä paljastaa, että "contains"-askel epäonnistuu ja aiheuttaa virheen AssertionError, timed out... Expected to find content 'wtf is this app?' but never did.](../../images/5/33x.png)
+![Vasemmalla oleva testin suoritusta kuvaava näkymä paljastaa, että "contains"-askel epäonnistuu ja aiheuttaa virheen AssertionError, timed out... Expected to find content 'wtf is this app?' but never did.](../../images/5/57new.png)
 
 Poistetaan virheeseen johtanut testi koodista.
+
+Testeissä käytetty muuttuja _cy_ aiheuttaa ikävän ESlint-virheen
+
+![VS code paljastaa ESlint-virheen 'cy' is not defined](../../images/5/58new.png)
+
+Siitä päästään eroon asentamalla [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress) kehitysaikaiseksi riippuvuudeksi
+
+```js
+npm install eslint-plugin-cypress --save-dev
+```
+
+ja laajentamalla tiedostossa <i>.eslintrc.js</i> olevaa konfiguraatiota seuraavasti: 
+
+```js
+module.exports = {
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest/globals": true,
+        "cypress/globals": true // highlight-line
+    },
+    "extends": [ 
+      // ...
+    ],
+    "parserOptions": {
+      // ...
+    },
+    "plugins": [
+        "react", "jest", "cypress" // highlight-line
+    ],
+    "rules": {
+      // ...
+    }
+}
+```
 
 ### Lomakkeelle kirjoittaminen
 
@@ -157,7 +208,7 @@ describe('Note app',  function() {
 
   it('login form can be opened', function() {
     cy.visit('http://localhost:3000')
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -176,11 +227,11 @@ describe('Note app', function() {
 
   it('front page can be opened', function() {
     cy.contains('Notes')
-    cy.contains('Note app, Department of Computer Science, University of Helsinki 2022')
+    cy.contains('Note app, Department of Computer Science, University of Helsinki 2023')
   })
 
   it('login form can be opened', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
   })
 })
 ```
@@ -193,7 +244,7 @@ Voimme hakea lomakkeen ensimmäisen ja viimeisen input-kentän ja kirjoittaa nii
 
 ```js
 it('user can login', function () {
-  cy.contains('login').click()
+  cy.contains('log in').click()
   cy.get('input:first').type('mluukkai')
   cy.get('input:last').type('salainen')
 })  
@@ -243,12 +294,12 @@ Testi muuttuu muotoon
 describe('Note app',  function() {
   // ..
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')  // highlight-line    
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
 
-    cy.contains('Matti Luukkainen logged in') // highlight-line
+    cy.contains('new notee') // highlight-line
   })
 })
 ```
@@ -257,58 +308,7 @@ Viimeinen rivi varmistaa, että kirjautuminen on onnistunut.
 
 Huomaa, että CSS:n [id-selektori](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors) on risuaita, eli jos koodista etsitään elementtiä, jolla on id <i>username</i> on sitä vastaava CSS-selektori <i>#username</i>.
 
-### Muutama huomio
-
-Testissä klikataan ensin kirjaantumislomakkeen avaavaa nappia seuraavasti
-
-```js
-cy.contains('login').click()
-```
-
-Kun lomake on täytetty, lähetetään lomake klikkaamalla nappia
-
-```js
-cy.get('#login-button').click()
-```
-
-Molemmissa napeissa on sama teksti <i>login</i>, mutta kyseessä on kaksi erillistä nappia. Molemmat napit ovat itse asiassa koko ajan sovelluksen DOM:issa, mutta niistä vain yksi kerrallaan on näkyvissä, sillä toiselle on lisätty tyylimääre <i>display: none</i>. 
-
-Jos haemme nappia tekstin perusteella, palauttaa komento [cy.contains](https://docs.cypress.io/api/commands/contains.html#Syntax) aina napeista ensimmäisen, eli lomakkeen avaavan napin. Näin tapahtuu siis vaikka nappi ei olisikaan näkyvillä. Tämän takia lomakkeen lähettävään nappiin on lisätty id <i>login-button</i>, jonka perusteella testi pääsee nappiin käsiksi.
-
-Huomaamme, että testeissä käytetty muuttuja _cy_ aiheuttaa ikävän ESlint-virheen
-
-![VS code paljastaa ESlint-virheen 'cy' is not defined](../../images/5/30ea.png)
-
-Siitä päästään eroon asentamalla [eslint-plugin-cypress](https://github.com/cypress-io/eslint-plugin-cypress) kehitysaikaiseksi riippuvuudeksi
-
-```js
-npm install eslint-plugin-cypress --save-dev
-```
-
-ja laajentamalla tiedostossa <i>.eslintrc.js</i> olevaa konfiguraatiota seuraavasti: 
-
-```js
-module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jest/globals": true,
-        "cypress/globals": true // highlight-line
-    },
-    "extends": [ 
-      // ...
-    ],
-    "parserOptions": {
-      // ...
-    },
-    "plugins": [
-        "react", "jest", "cypress" // highlight-line
-    ],
-    "rules": {
-      // ...
-    }
-}
-```
+Huomaa, että testin läpimeno tässä vaiheessa edellyttää, että backendin ympäristön <i>test</i> tietokannassa on käyttäjä, jonka username on <i>mluukkai</i> ja salasana <i>salainen</i>. Luo käyttäjä tarvittaessa!
 
 ### Muistiinpanojen luomisen testaus
 
@@ -320,7 +320,7 @@ describe('Note app', function() {
   // highlight-start
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -361,7 +361,7 @@ describe('Note app', function() {
   // ...
 
   it('user can log in', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -371,7 +371,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -472,7 +472,7 @@ Testi tekee alustuksen aikana HTTP-pyyntöjä backendiin komennolla [cy.request]
 
 Toisin kuin aiemmin, nyt testaus alkaa nyt myös backendin suhteen aina hallitusti samasta tilanteesta, eli tietokannassa on yksi käyttäjä ja ei yhtään muistiinpanoa.
 
-Tehdään vielä testi, joka tarkastaa että muistiinpanojen tärkeyttä voi muuttaa.  Muutetaan ensin sovelluksen frontendia siten, että uusi muistiinpano on oletusarvoisesti epätärkeä, eli kenttä <i>important</i> saa arvon <i>false</i>:
+Tehdään vielä testi, joka tarkastaa että muistiinpanojen tärkeyttä voi muuttaa. Muutimme sovellusta hieman aiemmin jo siten, että <i>important</i> saa aluksi arvon <i>true</i>:
 
 ```js
 const NoteForm = ({ createNote }) => {
@@ -482,7 +482,7 @@ const NoteForm = ({ createNote }) => {
     event.preventDefault()
     createNote({
       content: newNote,
-      important: false // highlight-line
+      important: true // highlight-line
     })
 
     setNewNote('')
@@ -509,20 +509,20 @@ describe('Note app', function() {
 
       it('it can be made important', function () {
         cy.contains('another note cypress')
-          .contains('make important')
+          .contains('make not important')
           .click()
 
         cy.contains('another note cypress')
-          .contains('make not important')
+          .contains('make important')
       })
     })
   })
 })
 ```
 
-Ensimmäinen komento etsii ensin komponentin, missä on teksti <i>another note cypress</i> ja sen sisältä painikkeen <i>make important</i> ja klikkaa sitä. 
+Ensimmäinen komento etsii ensin komponentin, missä on teksti <i>another note cypress</i> ja sen sisältä painikkeen <i>make not important</i> ja klikkaa sitä. 
 
-Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make not important</i>.
+Toinen komento varmistaa, että saman napin teksti on vaihtunut muotoon <i>make important</i>.
 
 Testit ja frontendin tämänhetkinen koodi on kokonaisuudessaan [GitHubissa](https://github.com/fullstack-hy2020/part2-notes/tree/part5-9), branchissa <i>part5-9</i>.
 
@@ -539,7 +539,7 @@ describe('Note app', function() {
   // ...
 
   it.only('login fails with wrong password', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('wrong')
     cy.get('#login-button').click()
@@ -626,7 +626,7 @@ Viimeistellään testi vielä siten, että se varmistaa myös, että sovellus ei
 
 ```js
 it('login fails with wrong password', function() {
-  cy.contains('login').click()
+  cy.contains('log in').click()
   cy.get('#username').type('mluukkai')
   cy.get('#password').type('wrong')
   cy.get('#login-button').click()
@@ -649,7 +649,7 @@ Sovelluksemme testit näyttävät tällä hetkellä seuraavalta:
 ```js 
 describe('Note app', function() {
   it('user can login', function() {
-    cy.contains('login').click()
+    cy.contains('log in').click()
     cy.get('#username').type('mluukkai')
     cy.get('#password').type('salainen')
     cy.get('#login-button').click()
@@ -663,7 +663,7 @@ describe('Note app', function() {
 
   describe('when logged in', function() {
     beforeEach(function() {
-      cy.contains('login').click()
+      cy.contains('log in').click()
       cy.get('#username').type('mluukkai')
       cy.get('#password').type('salainen')
       cy.get('#login-button').click()
@@ -780,7 +780,7 @@ Cypress.Commands.add('createNote', ({ content, important }) => {
     method: 'POST',
     body: { content, important },
     headers: {
-      'Authorization': `bearer ${JSON.parse(localStorage.getItem('loggedNoteappUser')).token}`
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('loggedNoteappUser')).token}`
     }
   })
 
@@ -806,7 +806,7 @@ describe('Note app', function() {
         // highlight-start
         cy.createNote({
           content: 'another note cypress',
-          important: false
+          important: true
         })
         // highlight-end
       })
@@ -816,6 +816,69 @@ describe('Note app', function() {
       })
     })
   })
+})
+```
+
+Testeissämme on vielä eräs ikävä piirre. Sovelluksen osoite <i>http:localhost:3000</i> on kovakoodattuna moneen kohtaan.
+
+Määritellään sovellukselle <i>baseUrl</i> Cypressin valmiiksi generoimaan [konfiguraatiotiedostoon](https://docs.cypress.io/guides/references/configuration) <i>cypress.config.js</i>:
+
+```js
+const { defineConfig } = require("cypress")
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+    },
+    baseUrl: 'http://localhost:3000' // highlight-line
+  },
+})
+```
+
+Kaikki testeissä olevat sovelluksen osoitetta käyttävät komennot
+
+```js
+cy.visit('http://localhost:3000' )
+```
+
+voidaan muuttaa muotoon
+
+```js
+cy.visit('')
+```
+
+Testeihin jää edelleen backendin kovakoodattu osoite <i>http://localhost:3001</i>. Muut testien käyttämät osoitteet Cypressin [dokumentaatio](https://docs.cypress.io/guides/guides/environment-variables) kehoittaa määrittelemään ympäristömuutujina.
+
+Laajennetaan konfiguraatiotiedostoa <i>cypress.config.js</i> seuraavasti:
+
+```js
+const { defineConfig } = require("cypress")
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+    },
+    baseUrl: 'http://localhost:3000',
+    BACKEND: 'http://localhost:3001/api' // highlight-line
+  },
+})
+```
+
+Korvataan testeistä kaikki backendin osoitteet seuraavaan tapaan
+
+```js
+describe('Note ', function() {
+  beforeEach(function() {
+    cy.visit('')
+    cy.request('POST', `${Cypress.env('EXTERNAL_API')}/testing/reset`) // highlight-line
+    const user = {
+      name: 'Matti Luukkainen',
+      username: 'mluukkai',
+      password: 'salainen'
+    }
+    cy.request('POST', `${Cypress.env('EXTERNAL_API')}/users`, user) // highlight-line
+  })
+  // ...
 })
 ```
 
@@ -928,7 +991,7 @@ Vielä osan lopuksi muutamia huomioita Cypressin toimintaperiaatteesta sekä tes
 Cypressissä testien kirjoitusasu antaa vaikutelman, että testit ovat normaalia JavaScript-koodia, ja että voisimme esim. yrittää seuraavaa:
 
 ```js
-const button = cy.contains('login')
+const button = cy.contains('log in')
 button.click()
 debugger() 
 cy.contains('logout').click()
@@ -1088,7 +1151,7 @@ cy.get('.blog').eq(0).should('contain', 'The title with the most likes')
 cy.get('.blog').eq(1).should('contain', 'The title with the second most likes')
 ``` 
   
-Saatat törmätä tässä tehtävässä ongelmaan jos klikkaat monta kertaa peräkkäin <i>like</i>-nappia. Saattaa olla, että näin tehdessä liketykset tehdään samalle oliolle, eli cypress ei "ehdi" välissä päivittää sovelluksen tilaa. Eräs tapa korjata ongelma on odottaa jokaisen klikkauksen jälkeen että likejen lukumäärä päivittyy ja tehdä uusi liketys vasta tämän jälkeen.
+Saatat törmätä tässä tehtävässä ongelmaan jos klikkaat monta kertaa peräkkäin <i>like</i>-nappia. Saattaa olla, että näin tehdessä liketykset tehdään samalle oliolle, eli Cypress ei "ehdi" välissä päivittää sovelluksen tilaa. Eräs tapa korjata ongelma on odottaa jokaisen klikkauksen jälkeen että likejen lukumäärä päivittyy ja tehdä uusi liketys vasta tämän jälkeen.
 
 Tämä oli osan viimeinen tehtävä ja on aika pushata koodi githubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 

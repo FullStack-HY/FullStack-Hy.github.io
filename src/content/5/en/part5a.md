@@ -307,11 +307,10 @@ return (
 
     <Notification message={errorMessage} />
 
-    {user === null ?
-      loginForm() :
-      <div>
-        <p>{user.name} logged-in</p>
-        {noteForm()}
+    {!user && loginForm()} 
+    {user && <div>
+       <p>{user.name} logged in</p>
+         {noteForm()}
       </div>
     }
 
@@ -511,7 +510,6 @@ const App = () => {
   // ...
 }
 ```
-
 
 The empty array as the parameter of the effect ensures that the effect is executed only when the component is rendered [for the first time](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect).
 

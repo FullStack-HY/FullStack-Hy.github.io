@@ -297,7 +297,7 @@ const NoteForm = ({ createNote }) => {
     event.preventDefault()
     createNote({
       content: newNote,
-      important: Math.random() > 0.5,
+      important: true
     })
 
     setNewNote('')
@@ -320,6 +320,8 @@ const NoteForm = ({ createNote }) => {
 
 export default NoteForm
 ```
+
+**HUOM** muutimme samalla sovelluksen toimintaa siten, että uudet muistiinpanot ovat oletusarvoisesti tärkeitä, eli <i>important</i> saa arvon <i>true</i>.
 
 Tilan muuttuja <i>newNote</i> ja sen muutoksesta huolehtiva tapahtumankäsittelijä on siirretty komponentista _App_ lomakkeesta huolehtivaan komponenttiin.
 
@@ -373,12 +375,13 @@ const App = () => {
   // ...
   const noteFormRef = useRef() // highlight-line
 
-  const noteForm = () => (
+  return (
+    // ...
     <Togglable buttonLabel='new note' ref={noteFormRef}>  // highlight-line
       <NoteForm createNote={addNote} />
     </Togglable>
+    // ...
   )
-  // ...
 }
 ```
 

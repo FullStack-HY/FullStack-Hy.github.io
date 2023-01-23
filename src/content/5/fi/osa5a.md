@@ -233,8 +233,8 @@ const App = () => {
 
       <Notification message={errorMessage} />
 
-      {user === null && loginForm()} // highlight-line
-      {user !== null && noteForm()} // highlight-line
+      {!user && loginForm()} // highlight-line
+      {user && noteForm()} // highlight-line
 
       <div>
         <button onClick={() => setShowAll(!showAll)}>
@@ -260,36 +260,10 @@ const App = () => {
 Lomakkeiden ehdolliseen renderöintiin käytetään hyväksi aluksi hieman erikoiselta näyttävää, mutta Reactin yhteydessä [yleisesti käytettyä kikkaa](https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator):
 
 ```js
-{
-  user === null && loginForm()
-}
+{!user && loginForm()}
 ```
 
-Jos ensimmäinen osa evaluoituu epätodeksi eli on [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), ei toista osaa eli lomakkeen generoivaa koodia suoriteta ollenkaan.
-
-Voimme suoraviivaistaa edellistä vielä hieman käyttämällä [kysymysmerkkioperaattoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator):
-
-```js
-return (
-  <div>
-    <h1>Notes</h1>
-
-    <Notification message={errorMessage}/>
-
-    {user === null ?
-      loginForm() :
-      noteForm()
-    }
-
-    <h2>Notes</h2>
-
-    // ...
-
-  </div>
-)
-```
-
-Eli jos _user === null_ on [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy), suoritetaan _loginForm_ ja muussa tapauksessa _noteForm_.
+Jos ensimmäinen osa evaluoituu epätodeksi eli on [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) (eli <i>user</i> ei ole määritelty), ei toista osaa eli lomakkeen generoivaa koodia suoriteta ollenkaan.
 
 Tehdään vielä sellainen muutos, että jos käyttäjä on kirjautunut, renderöidään kirjautuneen käyttäjän nimi:
 
@@ -300,13 +274,12 @@ return (
 
     <Notification message={errorMessage} />
 
-    {user === null ?
-      loginForm() :
-      <div>
-        <p>{user.name} logged in</p>
-        {noteForm()}
+    {!user && loginForm()} 
+    {user && <div>
+       <p>{user.name} logged in</p>
+         {noteForm()}
       </div>
-    }
+    } 
 
     <h2>Notes</h2>
 
