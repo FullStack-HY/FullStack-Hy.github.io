@@ -299,7 +299,7 @@ describe('Note app',  function() {
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
 
-    cy.contains('new notee') // highlight-line
+    cy.contains('Matti Luukkainen logged in') // highlight-line
   })
 })
 ```
@@ -640,7 +640,13 @@ it('login fails with wrong password', function() {
 })
 ```
 
-Komentoa <i>should</i> käytetään aina ketjutettuna komennon <i>get</i> (tai muun vastaavan ketjutettavissa olevan komennon) perään. Testissä käytetty <i>cy.get('html')</i> tarkoittaa käytännössä koko sovelluksen näkyvillä olevaa sisältöä.
+Komentoa <i>should</i> käytetään useimmiten ketjutettuna komennon <i>get</i> (tai muun vastaavan ketjutettavissa olevan komennon) perään. Testissä käytetty <i>cy.get('html')</i> tarkoittaa käytännössä koko sovelluksen näkyvillä olevaa sisältöä.
+
+Saman asian olisi myös voinut tarkastaa ketjuttamalla komennon <i>contains</i> perään komento <i>should</i> hieman toisenlaisella parametrilla:
+
+```js
+cy.contains('Matti Luukkainen logged in').should('not.exist')
+```
 
 ### Operaatioiden tekeminen käyttöliittymän "ohi"
 
@@ -1044,7 +1050,7 @@ Testien ja frontendin koodin lopullinen versio on kokonaisuudessaan [GitHubissa]
 
 <div class="tasks">
 
-### Tehtävät 5.17.-5.22.
+### Tehtävät 5.17.-5.23.
 
 Tehdään osan lopuksi muutamia E2E-testejä blogisovellukseen. Ylläolevan materiaalin pitäisi riittää ainakin suurimmaksi osaksi tehtävien tekemiseen. Cypressin [dokumentaatiota](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell) kannattaa ehdottomasti myös lueskella, kyseessä on ehkä paras dokumentaatio, mitä olen koskaan open source -projektissa nähnyt. 
 
@@ -1071,13 +1077,11 @@ describe('Blog app', function() {
 })
 ```
 
-Testin <i>beforeEach</i>-alustuslohkon tulee nollata tietokannan tilanne esim. 
-[materiaalissa](/osa5/end_to_end_testaus#tietokannan-tilan-kontrollointi) näytetyllä tavalla.
+Testin <i>beforeEach</i>-alustuslohkon tulee nollata tietokannan tilanne esim. [materiaalissa](/osa5/end_to_end_testaus#tietokannan-tilan-kontrollointi) näytetyllä tavalla.
 
 #### 5.18: blogilistan end to end -testit, step2
 
-Tee testit kirjautumiselle, testaa sekä onnistunut että epäonnistunut kirjautuminen.
-Luo testejä varten käyttäjä <i>beforeEach</i>-lohkossa. 
+Tee testit kirjautumiselle, testaa sekä onnistunut että epäonnistunut kirjautuminen. Luo testejä varten käyttäjä <i>beforeEach</i>-lohkossa. 
 
 Testien runko laajenee seuraavasti
 
@@ -1104,8 +1108,6 @@ describe('Blog app', function() {
   })
 })
 ```
-
-<i>Vapaaehtoinen bonustehtävä:</i> varmista, että epäonnistuneeseen kirjautumiseen liittyvä notifikaatio näytetään punaisella. 
 
 #### 5.19: blogilistan end to end -testit, step3
 
@@ -1138,9 +1140,11 @@ Tee testi, joka varmistaa, että blogia voi likettää.
 
 Tee testi, joka varmistaa, että blogin lisännyt käyttäjä voi poistaa blogin.
 
-<i>Vapaaehtoinen bonustehtävä:</i> varmista myös että poisto ei onnistu muilta kuin blogin lisänneeltä käyttäjältä.
-
 #### 5.22: blogilistan end to end -testit, step6
+
+Tee testi, joka varmista, että vain blogin lisännyt käyttäjä näkee blogin poistonapin.
+
+#### 5.23: blogilistan end to end -testit, step6
 
 Tee testi, joka varmistaa, että blogit järjestetään likejen mukaiseen järjestykseen, eniten likejä saanut blogi ensin.
 

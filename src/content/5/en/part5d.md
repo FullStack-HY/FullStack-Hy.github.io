@@ -306,7 +306,7 @@ describe('Note app',  function() {
     cy.get('#password').type('salainen')  // highlight-line
     cy.get('#login-button').click()  // highlight-line
 
-    cy.contains('new note') // highlight-line
+    cy.contains(M'atti Luukkainen logged in') // highlight-line
   })
 })
 ```
@@ -662,8 +662,13 @@ it('login fails with wrong password', function() {
 })
 ```
 
-Always consider chaining <i>Should</i> with <i>get</i> (or another chainable command).
-We used <i>cy.get('html')</i> to access the whole visible content of the application. 
+The command <i>should</i> is most often used by chaining it after the command <i>get</i> (or another similar command that can be chained). The <i>cy.get('html')</i> used in the test practically means the visible content of the entire application.
+
+We vould also check the same by chaining the command <i>contains</i> with the command <i>should</i> with a slightly different parameter:
+
+```js
+cy.contains('Matti Luukkainen logged in').should('not.exist')
+```
 
 **NOTE:** Some CSS properties [behave differently on Firefox](https://github.com/cypress-io/cypress/issues/9349). If you run the tests with Firefox:
   
@@ -1090,7 +1095,7 @@ The frontend and the test code can be found on the [GitHub](https://github.com/f
 
 <div class="tasks">
 
-### Exercises 5.17.-5.22.
+### Exercises 5.17.-5.23.
 
 In the last exercises of this part, we will do some E2E tests for our blog application. 
 The material of this part should be enough to complete the exercises. 
@@ -1186,9 +1191,11 @@ Make a test that confirms users can like a blog.
 
 Make a test for ensuring that the user who created a blog can delete it. 
 
-<i>Optional bonus exercise:</i> also check that other users cannot delete the blog. 
-
 #### 5.22: bloglist end to end testing, step6
+
+Make a test for ensuring that other users but the creator do not see the delete button.
+
+#### 5.23: bloglist end to end testing, step7
 
 Make a test that checks that the blogs are ordered according to likes with the blog with the most likes being first. 
 
