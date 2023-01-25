@@ -959,12 +959,12 @@ How does the [cy.contains](https://docs.cypress.io/api/commands/contains.html) c
 
 When we click the _cy.contains('second note')_ command in Cypress [Test Runner](https://docs.cypress.io/guides/core-concepts/test-runner.html), we see that the command searches for the element containing the text <i>second note</i>:
 
-![cypress test runner clicking testbody and second note](../../images/5/34x.png)
+![cypress test runner clicking testbody and second note](../../images/5/34new.png)
 
 By clicking the next line _.contains('make important')_ we see that the test uses 
 the 'make important' button corresponding to the <i>second note</i>:
 
-![cypress test runner clicking make important](../../images/5/35x.png)
+![cypress test runner clicking make important](../../images/5/35new.png)
 
 When chained, the second <i>contains</i> command <i>continues</i> the search from within the component found by the first command. 
 
@@ -977,7 +977,7 @@ cy.contains('make important').click()
 
 the result would have been entirely different. The second line of the test would click the button of a wrong note:
 
-![cypress showing error and incorrectly trying to click first button](../../images/5/36x.png)
+![cypress showing error and incorrectly trying to click first button](../../images/5/36new.png)
 
 When coding tests, you should check in the test runner that the tests use the right components!
 
@@ -999,7 +999,7 @@ const Note = ({ note, toggleImportance }) => {
 
 Our tests break! As the test runner reveals,  _cy.contains('second note')_ now returns the component containing the text, and the button is not in it. 
 
-![cypress showing test is broken trying to click make important](../../images/5/37x.png)
+![cypress showing test is broken trying to click make important](../../images/5/37new.png)
 
 One way to fix this is the following:
 
@@ -1040,7 +1040,7 @@ The form of the Cypress tests gives the impression that the tests are normal Jav
 ```js
 const button = cy.contains('log in')
 button.click()
-debugger() 
+debugger
 cy.contains('logout').click()
 ```
 
@@ -1066,7 +1066,7 @@ Stopping the test execution with the debugger is [possible](https://docs.cypress
 The developer console is all sorts of useful when debugging your tests. 
 You can see the HTTP requests done by the tests on the Network tab, and the console tab will show you information about your tests:
 
-![developer console while running cypress](../../images/5/38ea.png)
+![developer console while running cypress](../../images/5/38new.png)
 
 So far we have run our Cypress tests using the graphical test runner.
 It is also possible to run them [from the command line](https://docs.cypress.io/guides/guides/command-line.html). We just have to add an npm script for it:
@@ -1085,9 +1085,9 @@ It is also possible to run them [from the command line](https://docs.cypress.io/
 
 Now we can run our tests from the command line with the command <i>npm run test:e2e</i>
 
-![terminal output of running npm e2e tests showing passed](../../images/5/39x.png)
+![terminal output of running npm e2e tests showing passed](../../images/5/39new.png)
 
-Note that videos of the test execution will be saved to <i>cypress/videos/</i>, so you should probably git ignore this directory. 
+Note that videos of the test execution will be saved to <i>cypress/videos/</i>, so you should probably git ignore this directory. It is also possible to [turn off](https://docs.cypress.io/guides/guides/screenshots-and-videos#Videos) the making of videos.
 
 The frontend and the test code can be found on the [GitHub](https://github.com/fullstack-hy2020/part2-notes/tree/part5-11) branch <i>part5-11</i>.
 
@@ -1199,7 +1199,7 @@ Make a test for ensuring that other users but the creator do not see the delete 
 
 Make a test that checks that the blogs are ordered according to likes with the blog with the most likes being first. 
 
-This exercise is quite a bit trickier than the previous ones. One solution is to add a certain class for the element which wraps the blog's content and use the [eq](https://docs.cypress.io/api/commands/eq#Syntax) method to get the blog element in a specific index:
+<i>This exercise is quite a bit trickier than the previous ones.</i> One solution is to add a certain class for the element which wraps the blog's content and use the [eq](https://docs.cypress.io/api/commands/eq#Syntax) method to get the blog element in a specific index:
   
 ```js
 cy.get('.blog').eq(0).should('contain', 'The title with the most likes')
