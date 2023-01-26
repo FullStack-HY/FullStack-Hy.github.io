@@ -691,17 +691,17 @@ Console output is now human readable
 
 Once the addon is installed, clicking the <i>Redux</i> tab in the browser's console should open the development tools:
 
-![browser with redux addon in devtools](../../images/6/11ea.png)
+![browser with redux addon in devtools](../../images/6/42new.png)
 
 You can inspect how dispatching a certain action changes the state by clicking the action:
 
-![devtools inspecting notes tree in redux](../../images/6/12ea.png)
+![devtools inspecting notes tree in redux](../../images/6/43new.png)
 
 It is also possible to dispatch actions to the store using the development tools:
 
-![devtools redux dispatching createNote with payload](../../images/6/13ea.png)
+![devtools redux dispatching createNote with payload](../../images/6/44new.png)
 
-You can find the code for our current application in its entirety in the <i>part6-2</i> branch of [this GitHub repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-2).
+You can find the code for our current application in its entirety in the <i>part6-3</i> branch of [this GitHub repository](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3).
 
 </div>
 

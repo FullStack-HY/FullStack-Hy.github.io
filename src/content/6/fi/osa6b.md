@@ -679,15 +679,15 @@ Chromeen on asennettavissa [Redux DevTools](https://chrome.google.com/webstore/d
 
 Kun lisäosa on asennettu Chromeen, konsolin <i>Redux</i>-välilehti pitäisi näyttää seuraavalta:
 
-![Redux DevToolsin oikea puoli "State" näyttää storen alkutilan](../../images/6/11ea.png)
+![Redux DevToolsin oikea puoli "State" näyttää storen alkutilan](../../images/6/42new.png)
 
 Kunkin actionin storen tilaan aiheuttamaa muutosta on helppo tarkastella:
 
-![edux DevToolsin vasen puoli näyttää suoritetut actionit, muuttunut tila heijastuu oikealle puolelle](../../images/6/12ea.png)
+![edux DevToolsin vasen puoli näyttää suoritetut actionit, muuttunut tila heijastuu oikealle puolelle](../../images/6/43new.png)
 
 Konsolin avulla on myös mahdollista dispatchata actioneja storeen:
 
-![Mahdollisuus actionien dispatchaamiseen avautuu alalaidan valinnoista](../../images/6/13ea.png)
+![Mahdollisuus actionien dispatchaamiseen avautuu alalaidan valinnoista](../../images/6/44new.png)
 
 Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-hy2020/redux-notes/tree/part6-3) branchissa </i>part6-3</i>.
 
