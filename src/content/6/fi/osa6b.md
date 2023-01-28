@@ -625,7 +625,7 @@ describe('noteReducer', () => {
 })
 ```
 
-### Redux toolkit ja console.log
+### Redux Toolkit ja console.log
 
 Kuten olemme oppineet, on _console.log_ äärimmäisen voimakas työkalu, se pelastaa meidät yleensä aina pulasta.
 
@@ -695,13 +695,21 @@ Sovelluksen tämänhetkinen koodi on [GitHubissa](https://github.com/fullstack-h
 
 <div class="tasks">
 
-### Tehtävät 6.10-6.12
+### Tehtävät 6.10-6.13
 
 #### 6.10 anekdootit, step8
 
-Asenna projektiin Redux Toolkit. Siirrä tämän jälkeen Redux-storen määrittely omaan tiedostoon <i>store.js</i> ja hyödynnä sen luonnissa Redux Toolkitin <em>configureStore</em>-funktiota. Ota myös käyttöön Redux DevTools sovelluksen tilan debuggaamisen helpottamiseksi.
+Asenna projektiin Redux Toolkit. Siirrä tämän jälkeen Redux-storen määrittely omaan tiedostoon <i>store.js</i> ja hyödynnä sen luonnissa Redux Toolkitin <em>configureStore</em>-funktiota. 
+
+Muuta <i>filter reduserin ja action creatorien</i> määrittely tapahtumaan Redux Toolkitin <em>createSlice</em>-funktion avulla.
+
+Ota myös käyttöön Redux DevTools sovelluksen tilan debuggaamisen helpottamiseksi.
 
 #### 6.11 anekdootit, step9
+
+Muuta myös <i>anekdoottireduserin ja action creatorien</i> määrittely tapahtumaan Redux Toolkitin <em>createSlice</em>-funktion avulla.
+
+#### 6.12 anekdootit, step10
 
 Sovelluksessa on valmiina komponentin <i>Notification</i> runko:
 
@@ -742,11 +750,11 @@ const Notification = () => {
 }
 ```
 
-Joudut siis muuttamaan ja laajentamaan sovelluksen olemassaolevaa reduceria. Tee toiminnallisuutta varten oma reduceri. Hyödynnä tässä Redux Toolkitin <em>createSlice</em>-funktiota. Siirry käyttämään sovelluksessa yhdistettyä reduceria tämän osan materiaalin tapaan.
+Joudut siis muuttamaan ja laajentamaan sovelluksen olemassaolevaa reduceria. Tee toiminnallisuutta varten oma reduceri. Hyödynnä jälleen Redux Toolkitin <em>createSlice</em>-funktiota. Siirry käyttämään sovelluksessa yhdistettyä reduceria tämän osan materiaalin tapaan.
 
 Tässä vaiheessa sovelluksen ei vielä tarvitse osata käyttää <i>Notification</i>-komponenttia järkevällä tavalla, vaan riittää että sovellus toimii ja näyttää <i>notificationReducerin</i> alkuarvoksi asettaman viestin.
 
-#### 6.12 paremmat anekdootit, step10
+#### 6.13 paremmat anekdootit, step11
 
 Laajenna sovellusta siten, että se näyttää <i>Notification</i>-komponentin avulla viiden sekunnin ajan, kun sovelluksessa äänestetään tai luodaan uusia anekdootteja:
 

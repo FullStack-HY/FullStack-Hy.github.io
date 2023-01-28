@@ -685,7 +685,9 @@ example above.
 
 Now implement the actual functionality of the application. 
 
-Note that since all the code is in the file <i>index.js</i> and you might need to manually reload the page after each change since the automatic reloading of the browser content does not always work for that file!
+Your application can have a modest appearance, nothing else is needed but buttons and the number of reviews for each type:
+
+![](../../images/6/50new.png)
 
 </div>
 

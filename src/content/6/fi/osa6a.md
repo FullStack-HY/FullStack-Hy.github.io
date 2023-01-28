@@ -674,7 +674,9 @@ Reducerin toteutuksessa kannattaa ottaa mallia ylläolevasta [Redux-muistiinpano
 
 Toteuta sitten sovellukseen koko sen varsinainen toiminnallisuus. 
 
-Huomaa, että koska kaikki koodi on tiedostossa <i>index.js</i> saatat joutua uudelleenlataamaan selaimen koodiin tehtävien muutosten jälkeen, sillä React ei välttämättä automaattisesti huomaa tiedostoon <i>index.js</i> tehtyjä muutoksia.
+Sovelluksesi saa olla ulkoasultaan vaatimaton, muuta ei tarvita kuin napit ja tieto kunkin tyyppisen arvostelun lukumäärä: 
+
+![](../../images/6/50new.png)
 
 </div>
 

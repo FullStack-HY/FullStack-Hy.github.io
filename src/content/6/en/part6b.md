@@ -635,9 +635,7 @@ describe('noteReducer', () => {
 })
 ```
 
-
-
-###
+### Redux Toolkit and console.log
 
 As we have learned, console.log is an extremely powerful tool, it usually always saves us from trouble.
 
@@ -707,15 +705,23 @@ You can find the code for our current application in its entirety in the <i>part
 
 <div class="tasks">
 
-### Exercises 6.10.-6.12.
+### Exercises 6.10.-6.13.
 
 Let's continue working on the anecdote application using Redux that we started in exercise 6.3. 
 
 #### 6.10 Better anecdotes, step8
 
-Install Redux Toolkit for the project. Move the Redux store creation into the file <i>store.js</i> and use Redux Toolkit's <em>configureStore</em> to create the store. Also, start using Redux DevTools to debug the application's state easier.
+Install Redux Toolkit for the project. Move the Redux store creation into the file <i>store.js</i> and use Redux Toolkit's <em>configureStore</em> to create the store.
+
+Change the definition of the <i>filter reducer and action creators</i> to use the Redux Toolkit's <em>createSlice</em> function.
+
+Also, start using Redux DevTools to debug the application's state easier.
 
 #### 6.11 Better anecdotes, step9
+
+Change also the definition of the <i>anecdote reducer and action creators</i> to use the Redux Toolkit's <em>createSlice</em> function.
+
+#### 6.12 Better anecdotes, step10
 
 The application has a ready-made body for the <i>Notification</i> component:
 
@@ -756,11 +762,11 @@ const Notification = () => {
 }
 ```
 
-You will have to make changes to the application's existing reducer. Create a separate reducer for the new functionality by using the Redux Toolkit's <em>createSlice</em> function. Also, refactor the application so that it uses a combined reducer as shown in this part of the course material.
+You will have to make changes to the application's existing reducer. Create a separate reducer for the new functionality by using the Redux Toolkit's <em>createSlice</em> function.
 
 The application does not have to use the <i>Notification</i> component intelligently at this point in the exercises. It is enough for the application to display the initial value set for the message in the <i>notificationReducer</i>.
 
-#### 6.12 Better anecdotes, step10
+#### 6.13 Better anecdotes, step11
 
 Extend the application so that it uses the <i>Notification</i> component to display a message for five seconds when the user votes for an anecdote or creates a new anecdote:
 
