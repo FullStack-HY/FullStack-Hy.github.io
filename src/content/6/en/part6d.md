@@ -788,7 +788,7 @@ The error condition should be handled in the callback function registered for it
 
 In chapters 1-5, all state management of the application was done using React's hook <i>useState</i>. Asynchronous calls to the backend required the use of the <i>useEffect</i> hook in some situations. In principle, nothing else is needed.
 
-A subtle problem with a solution based on a state created with the <i>useState</i> hook is that if some part of the application's state is needed by multiple components of the application, the state and the functions needed to change it must be passed via props to all components that handle the state. Sometimes props need to be passed through multiple components, and the components along the way may not even be interested in the state in any way. This somewhat unpleasant phenomenon is called <i>prop drilling</i>.
+A subtle problem with a solution based on a state created with the <i>useState</i> hook is that if some part of the application's state is needed by multiple components of the application, the state and the functions for manipulating it must be passed via props to all components that handle the state. Sometimes props need to be passed through multiple components, and the components along the way may not even be interested in the state in any way. This somewhat unpleasant phenomenon is called <i>prop drilling</i>.
 
 Over the years, several alternative solutions have been developed for state management of React applications, which can be used to ease problematic situations (e.g. prop drilling). However, no solution has been "final", all have their own pros and cons, and new solutions are being developed all the time.
 
@@ -796,15 +796,15 @@ The situation may confuse a beginner and even an experienced web developer. Whic
 
 For a simple application, <i>useState</i> is certainly a good starting point. If the application is communicating with the server, the communication can be handled in the same way as in chapters 1-5, using the state of the application itself. Recently, however, it has become more common to move the communication and associated state management at least partially under the control of React Query (or some other similar library). If you are concerned about useState and the prop drilling it entails, using context may be a good option. There are also situations where it may make sense to handle some of the state with useState and some with contexts.
 
-The most comprehensive and robust space management solution of all is offered by Redux, which is a way to implement the so-called [Flux](https://facebook.github.io/flux/) architecture. Redux is slightly older than the solutions presented in this section. The rigidity of Redux has been the motivation for many new state management solutions, such as React's <i>useReducer</i>, which we introduced in this section. Some of the criticisms of Redux's rigidity have already become obsolete thanks to the [Redux Toolkit](https://redux-toolkit.js.org/).
+The most comprehensive and robust state management solution is Redux, which is a way to implement the so-called [Flux](https://facebook.github.io/flux/) architecture. Redux is slightly older than the solutions presented in this section. The rigidity of Redux has been the motivation for many new state management solutions, such as React's <i>useReducer</i>. Some of the criticisms of Redux's rigidity have already become obsolete thanks to the [Redux Toolkit](https://redux-toolkit.js.org/).
 
 Over the years, there have also been other state management libraries developed that are similar to Redux, such as the newer entrant [Recoil](https://recoiljs.org/) and the slightly older [MobX](https://mobx.js.org/). However, according to [Npm trends](https://npmtrends.com/mobx-vs-recoil-vs-redux), Redux still clearly dominates, and in fact seems to be increasing its lead:
 
 ![](../../images/6/64new.png)
 
-Also, Redux does not have to be used in its entirety in an application. It may make sense, for example, to handle the managing the form data in applications outside of Redux, especially in situations where the state of the form does not affect the rest of the application. It is also perfectly possible to use Redux and React Query together in the same application. 
+Also, Redux does not have to be used in its entirety in an application. It may make sense, for example, to manage the form state outside of Redux, especially in situations where the state of a form does not affect the rest of the application. It is also perfectly possible to use Redux and React Query together in the same application. 
 
-The question of which state management solution should be used is not at all straightforward. It is impossible to give a single correct answer, and it is also likely that the chosen state management solution may prove to be so sub-optimal as the application grows that state management solutions will have to be changed even after the application has been brought into production.
+The question of which state management solution should be used is not at all straightforward. It is impossible to give a single correct answer. It is also likely that the selected state management solution may turn out to be suboptimal as the application grows to such an extent that the solution have to be changed even if the application has already been put into production use.
 
 </div>
 
