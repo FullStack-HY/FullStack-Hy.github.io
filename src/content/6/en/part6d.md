@@ -7,9 +7,9 @@ lang: en
 
 <div class="content">
 
-At the end of the section, we will look at a few more different ways to manage the state of an application.
+At the end of this part, we will look at a few more different ways to manage the state of an application.
 
-Let's continue with the note application. Let's focus on communication with the server. Let's start the application from scratch. The first version is as follows:
+Let's continue with the note application. We will focus on communication with the server. Let's start the application from scratch. The first version is as follows:
 
 ```js
 const App = () => {
@@ -50,7 +50,7 @@ The initial code is on GitHub in the repository [https://github.com/fullstack-hy
 
 ### Managing data on the server with the React Query library
 
-We use the now the [React Query](https://react-query-v3.tanstack.com/) library to store and manage data retrieved from the server. 
+We shall now use the [React Query](https://react-query-v3.tanstack.com/) library to store and manage data retrieved from the server. 
 
 Install the library with the command
 
@@ -114,8 +114,6 @@ Retrieving data from the server is still done in the familiar way with the Axios
 The return value of the <i>useQuery</i> function is an object that indicates the status of the query. The output to the console illustrates the situation: 
 
 ![](../../images/6/60new.png)
-
-Eli ensimmäistä kertaa komponenttia renderöitäessä kysely on vielä tilassa <i>loading</i>, eli siihen liittyvä HTTP-pyyntö on kesken. Tässä vaiheessa renderöidään ainoastaan:
 
 That is, the first time the component is rendered, the query is still in <i>loading</i> state, i.e. the associated HTTP request is pending. At this stage, only the following is rendered:
 
@@ -321,7 +319,7 @@ If we closely follow the browser's network tab, we notice that React Query retri
 
 ![](../../images/6/62new.png)
 
-Mistä on kyse? By reading the [documentation](https://react-query-v3.tanstack.com/reference/useQuery), we notice that the default functionality of React Query's queries is that the queries (whose status is <i>stale</i>) are updated when <i>window focus</i>, i.e. the active element of the application's user interface, changes. If we want, we can turn off the functionality by creating a query as follows:
+What is going on? By reading the [documentation](https://react-query-v3.tanstack.com/reference/useQuery), we notice that the default functionality of React Query's queries is that the queries (whose status is <i>stale</i>) are updated when <i>window focus</i>, i.e. the active element of the application's user interface, changes. If we want, we can turn off the functionality by creating a query as follows:
 
 ```js
 const App = () => {
@@ -353,20 +351,19 @@ Most React applications need not only a way to temporarily store the served data
 
 ### Exercises 6.19.-6.21.
 
-Now let's make a new version of the anecdote application that uses the React Query library. Take as your starting point
-project [here](https://github.com/fullstack-hy2020/query-anecdotes). The project has a ready-installed JSON Server, the operation of which has been slightly modified. Start the server with <i>npm run server</i>.
+Now let's make a new version of the anecdote application that uses the React Query library. Take [this project]((https://github.com/fullstack-hy2020/query-anecdotes)) as your starting point. The project has a ready-installed JSON Server, the operation of which has been slightly modified. Start the server with <i>npm run server</i>.
 
 #### Exercise 6.19
 
 Implement retrieving anecdotes from the server using React Query.
 
-The application should work in such a way that if there are problems communicating with the server, an error page will be displayed:
+The application should work in such a way that if there are problems communicating with the server, only an error page will be displayed:
 
 ![](../../images/6/65new.png)
 
-You can find [here](https://react-query-v3.tanstack.com/guides/queries) info how to detect the possible error.
+You can find [here](https://react-query-v3.tanstack.com/guides/queries) info how to detect the possible errors.
 
-You can simulate a problem with the server by e.g. turning off the JSON Server. Please note that in a problem situation, the query is first in the state <i>isLoading</i> for a while, because if it fails, React Query tries the request a few times before it states that the request is not successful. You can optionally specify that no retries are made:
+You can simulate a problem with the server by e.g. turning off the JSON Server. Please note that in a problem situation, the query is first in the state <i>isLoading</i> for a while, because if a requesst fails, React Query tries the request a few times before it states that the request is not successful. You can optionally specify that no retries are made:
 
 
 ```js
@@ -395,7 +392,7 @@ Implement adding new anecdotes to the server using React Query. The application 
 
 #### Exercise 6.21
 
-Implement voting for anecdotes again using React Query. The application should automatically render the increased number of votes for the voted anecdote
+Implement voting for anecdotes using again the React Query. The application should automatically render the increased number of votes for the voted anecdote
 
 </div>
 
@@ -403,13 +400,13 @@ Implement voting for anecdotes again using React Query. The application should a
 
 ### useReducer
 
-So even if the application uses React Query, some kind of solution is usually needed to manage the rest of the frontend state (for example, forms). Quite often, the state created with <i>useState</i> is a sufficient solution.
+So even if the application uses React Query, some kind of solution is usually needed to manage the rest of the frontend state (for example, the state of forms). Quite often, the state created with <i>useState</i> is a sufficient solution. Using Redux is of course possible, but there are other alternatives.
 
 Let's look at a simple counter application. The application displays the counter value, and offers three buttons to update the counter status:
 
 ![](../../images/6/63new.png)
 
-Implement counter state management using a Redux-like state management mechanism provided by React's built-in [useReducer](https://beta.reactjs.org/reference/react/useReducer) hook:
+We shall now implement the counter state management using a Redux-like state management mechanism provided by React's built-in [useReducer](https://beta.reactjs.org/reference/react/useReducer) hook. Code looks like the following:
 
 ```js
 import { useReducer } from 'react'
@@ -445,13 +442,13 @@ const App = () => {
 export default App
 ```
 
-The <i>useReducer</i> thus provides a mechanism to create a state for an application. The parameter for creating a state is the reduser function that handles state changes, and the initial value of the state:
+The hook [useReducer](https://beta.reactjs.org/reference/react/useReducer) provides a mechanism to create a state for an application. The parameter for creating a state is the reduser function that handles state changes, and the initial value of the state:
 
 ```js
 const [counter, counterDispatch] = useReducer(counterReducer, 0)
 ```
 
-The reduser function that handles state changes is exactly the simillar to Redux's reducers, i.e. the function gets the current state as a parameter, and the action that makes the state change. The function returns the new state updated based on the type and possible contents of the action:
+The reduser function that handles state changes is similar to Redux's reducers, i.e. the function gets as parameters the current state and the action that changes the state. The function returns the new state updated based on the type and possible contents of the action:
 
 ```js
 const counterReducer = (state, action) => {
@@ -468,9 +465,9 @@ const counterReducer = (state, action) => {
 }
 ```
 
-In our example, actions have nothing but a type. If the action's type is <i>INC</i>, it increases the value of the counter by one, etc. Like Redux's reducers, actins can also contain arbitrary data, which is usually put in the action's <i>payload</i> field.
+In our example, actions have nothing but a type. If the action's type is <i>INC</i>, it increases the value of the counter by one, etc. Like Redux's reducers, actions can also contain arbitrary data, which is usually put in the action's <i>payload</i> field.
 
-The function <i>useReducer</i> returns an array to access the current value of the state (first element of the array), and a <i>dispatch</i> function (second element of the array) to change the state:
+The function <i>useReducer</i> returns an array that contains an element to access the current value of the state (first element of the array), and a <i>dispatch</i> function (second element of the array) to change the state:
 
 ```js
 const App = () => {
@@ -489,7 +486,7 @@ const App = () => {
 }
 ```
 
-So the state change is done exactly as in Redux, the dispatch function is given the appropriate state-changing action as a parameter:
+As can be seen the state change is done exactly as in Redux, the dispatch function is given the appropriate state-changing action as a parameter:
 
 ```js
 counterDispatch({ type: "INC" })
@@ -532,9 +529,9 @@ const App = () => {
 }
 ```
 
-The solution works, but is not optimal. If the component structure gets complicated, e.g. the dispatcher should be forwarded using props through many components to the components that need it, even though the components in between in the component tree do not need the dispatcher. This phenomenon is called <i>prop drilling</i>. One of the good aspects of Redux is precisely that the store's state and the dispatcher can be easily accessed from any component, without the need to pass them as props.
+The solution works, but is not optimal. If the component structure gets complicated, e.g. the dispatcher should be forwarded using props through many components to the components that need it, even though the components in between in the component tree do not need the dispatcher. This phenomenon is called <i>prop drilling</i>.
 
-Redux's built-in [Context API](https://beta.reactjs.org/learn/passing-data-deeply-with-context) provides a solution. React's context is a kind of global state of the application, to which it is possible to give direct access to any component.
+React's built-in [Context API](https://beta.reactjs.org/learn/passing-data-deeply-with-context) provides a solution for us. React's context is a kind of global state of the application, to which it is possible to give direct access to any component app.
 
 Let us now create a context in the application that stores the state management of the counter.
 
@@ -569,9 +566,9 @@ const App = () => {
 }
 ```
 
-Providing the context is therefore done by wrapping the child components inside the <i>CounterContext.Provider</i> component and setting a suitable value for the context.
+As can be seen, providing the context is done by wrapping the child components inside the <i>CounterContext.Provider</i> component and setting a suitable value for the context.
 
-The context value is now given as a array containing the value of the calculator, and the <i>dispatch</i> function used to change the counter value.
+The context value is now set to be an array containing the value of the counter, and the <i>dispatch</i> function.
 
 Other components now access the context using the [useContext](https://beta.reactjs.org/reference/react/useContext) hook:
 
@@ -595,8 +592,6 @@ const Button = ({ type, label }) => {
   )
 }
 ```
-
-The components are thus made aware of the content provided by the context provider, which this time is a array containing the counter value, and the dispatch function that is used to change the state of the counter.
 
 The current code for the application is in [GitHub](https://github.com/fullstack-hy2020/hook-counter/tree/part6-2) in the branch <i>part6-2</i>.
 
@@ -635,9 +630,9 @@ export const CounterContextProvider = (props) => {
 export default CounterContext
 ```
 
-The file now exports, in addition to the <i>CounterContext</i> object corresponding to the context, the <i>CouterContextProvider</i> component, which is practically a context provider whose value is a counter and a dispatcher used for its state management.
+The file now exports, in addition to the <i>CounterContext</i> object corresponding to the context, the <i>CounterContextProvider</i> component, which is practically a context provider whose value is a counter and a dispatcher used for its state management.
 
-Let's enable the context provider in <i>index.js</i>
+Let's enable the context provider by making a change in <i>index.js</i>:
 
 ```js
 import ReactDOM from 'react-dom/client'
@@ -651,7 +646,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-Now the context defined by the value and functionality of the counter is available to <i>all</i> components of the application.
+Now the context defining the value and functionality of the counter is available to <i>all</i> components of the application.
 
 The <i>App</i> component is simplified to the following form:
 
@@ -758,7 +753,7 @@ The solution is quite elegant. The entire state of the application, i.e. the val
 
 The final code for the application is in [GitHub](https://github.com/fullstack-hy2020/hook-counter/tree/part6-3) in the branch <i>part6-3</i>.
 
-As a technical detail, it should be noted that the helper functions <i>useCounterValue</i> and <i>useCounterDispatch</i> are defined as [custom hooks](https://reactjs.org/docs/hooks-custom.html), because calling the function <i>useContext</i> is [possible](https://reactjs.org/docs/hooks -rules.html) only from React components or custom hooks. Custom Hooks, on the other hand, are JavaScript functions whose name must start with the string _use_. We will return to custom hooks in a little more detail in [part 7](http://localhost:8000/en/part7/custom_hooks) of the course.
+As a technical detail, it should be noted that the helper functions <i>useCounterValue</i> and <i>useCounterDispatch</i> are defined as [custom hooks](https://reactjs.org/docs/hooks-custom.html), because calling the hook function <i>useContext</i> is [possible](https://reactjs.org/docs/hooks -rules.html) only from React components or custom hooks. Custom Hooks, on the other hand, are JavaScript functions whose name must start with the string _use_. We will return to custom hooks in a little more detail in [part 7](http://localhost:8000/en/part7/custom_hooks) of the course.
 
 </div>
 
@@ -770,7 +765,7 @@ As a technical detail, it should be noted that the helper functions <i>useCounte
 
 The application has a <i>Notification</i> component for displaying notifications to the user.
 
-Implement the application's notification state management using the useReduce hook and context. The notification tells you when a new anecdote is created or an anecdote is voted on:
+Implement the application's notification state management using the useReduce hook and context. The notification should tell the user when a new anecdote is created or an anecdote is voted on:
 
 ![](../../images/6/66new.png)
 
@@ -778,7 +773,7 @@ The notification is displayed for five seconds.
 
 #### Exercise 6.23.
 
-As stated in exercise 6.20, the server requires that the content of the anecdote to be added is at least 5 characters long. Now implement error handling for the insertion. In practice, it is sufficient to display a notification to the user in case of a failed insertion:
+As stated in exercise 6.20, the server requires that the content of the anecdote to be added is at least 5 characters long. Now implement error handling for the insertion. In practice, it is sufficient to display a notification to the user in case of a failed POST request:
 
 ![](../../images/6/67new.png)
 
@@ -807,7 +802,7 @@ Over the years, there have also been other state management libraries developed 
 
 ![](../../images/6/64new.png)
 
-Also, Redux does not have to be used in its entirety in an application. It may make sense, for example, to handle the managing the form data in applications outside of Redux, especially in situations where the state of the form does not affect the rest of the application. It is also perfectly possible to use Redux and Reqct Query together in the same application. 
+Also, Redux does not have to be used in its entirety in an application. It may make sense, for example, to handle the managing the form data in applications outside of Redux, especially in situations where the state of the form does not affect the rest of the application. It is also perfectly possible to use Redux and React Query together in the same application. 
 
 The question of which state management solution should be used is not at all straightforward. It is impossible to give a single correct answer, and it is also likely that the chosen state management solution may prove to be so sub-optimal as the application grows that state management solutions will have to be changed even after the application has been brought into production.
 

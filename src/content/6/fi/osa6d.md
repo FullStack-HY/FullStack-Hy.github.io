@@ -106,7 +106,7 @@ const App = () => {
 }
 ```
 
-Datan hakeneminen palvelimelta tapahtuu edelleen tuttuun tapaan Axiosin <i>get</i>-metodilla. Axiosin metodikutsu on kuitenkin nyt kääritty [useQuery](https://react-query-v3.tanstack.com/reference/useQuery)-funktiolla muodostetuksi [kyselyksi](https://react-query-v3.tanstack.com/guides/queries). Funktiokutsun ensimmäisenä parametrina on merkkijono <i>notes</i> joka toimii [avaimena](https://react-query-v3.tanstack.com/guides/query-keys) määriteltyyn kyselyyn, eli muistiinpanojen listaan.
+Datan hakeminen palvelimelta tapahtuu edelleen tuttuun tapaan Axiosin <i>get</i>-metodilla. Axiosin metodikutsu on kuitenkin nyt kääritty [useQuery](https://react-query-v3.tanstack.com/reference/useQuery)-funktiolla muodostetuksi [kyselyksi](https://react-query-v3.tanstack.com/guides/queries). Funktiokutsun ensimmäisenä parametrina on merkkijono <i>notes</i> joka toimii [avaimena](https://react-query-v3.tanstack.com/guides/query-keys) määriteltyyn kyselyyn, eli muistiinpanojen listaan.
 
 Funktion <i>useQuery</i> paluuarvo on olio, joka kertoo kyselyn tilan. Konsoliin tehty tulostus havainnollistaa tilannetta: 
 
@@ -206,7 +206,7 @@ Ratkaisumme on hyvä. Paitsi se ei toimi. Uusi muistiinpano kyllä tallettuu pal
 Jotta saamme renderöityä myös uuden muistiinpanon, meidän on kerrottava React Querylle, että kyselyn, jonka avaimena on merkkijono <i>notes</i> vanha tulos tulee mitätöidä eli
 [invalidoida](https://react-query-v3.tanstack.com/guides/invalidations-from-mutations). 
 
-Invalidointi on onneksi helppoa, se voidaan tehdö kytkemällä mutaatioon sopiva <i>onSuccess</i>-takaisinkutsufunktio:
+Invalidointi on onneksi helppoa, se voidaan tehdä kytkemällä mutaatioon sopiva <i>onSuccess</i>-takaisinkutsufunktio:
 
 ```js
 import { useQuery, useMutation, useQueryClient } from 'react-query' // highlight-line
@@ -303,7 +303,7 @@ const App = () => {
 }
 ```
 
-Eli <i>onSuccess</i>-takaisinkutsussa ensin luetaan <i>queryClient</i>-olion avulla olemassaoleva kyselyn <i>notes</i> tila ja päivitetään sitä lisäämällä mukaan uusi muistiinpano, joka saadaan takaisunkutsufunktion parametrina. Parametrin arvo on funktion <i>createNote</i> palauttama arvo, jonka on määriteltiin tiedostossa <i>requests.js</i> seuraavasti:
+Eli <i>onSuccess</i>-takaisinkutsussa ensin luetaan <i>queryClient</i>-olion avulla olemassaoleva kyselyn <i>notes</i> tila ja päivitetään sitä lisäämällä mukaan uusi muistiinpano, joka saadaan takaisunkutsufunktion parametrina. Parametrin arvo on funktion <i>createNote</i> palauttama arvo, jonka määriteltiin tiedostossa <i>requests.js</i> seuraavasti:
 
 ```js
 export const createNote = newNote =>
@@ -330,7 +330,7 @@ const App = () => {
 }
 ```
 
-Konsoliin tehtävillä tulostuksilla voit tarkkailla sitä miten usein React Query aihettaa sovelluksen uudelleenrenderöinnin. Nyrkkisääntönä on se, että uudelleenrenderöinti tapahtuu vähintään aina kun sille on tarvetta, eli kun kyselyn tila muuttuu. Voit lukea lisää asiasta esim. [täältä](https://tkdodo.eu/blog/react-query-render-optimizations).
+Konsoliin tehtävillä tulostuksilla voit tarkkailla sitä miten usein React Query aiheuttaa sovelluksen uudelleenrenderöinnin. Nyrkkisääntönä on se, että uudelleenrenderöinti tapahtuu vähintään aina kun sille on tarvetta, eli kun kyselyn tila muuttuu. Voit lukea lisää asiasta esim. [täältä](https://tkdodo.eu/blog/react-query-render-optimizations).
 
 Sovelluksen lopullinen koodi on [GitHubissa](https://github.com/fullstack-hy2020/query-notes/tree/part6-3) branchissa <i>part6-3</i>.
 
@@ -360,7 +360,7 @@ Sovelluksen tulee toimia siten, että jos palvelimen kanssa kommuikoinnissa ilme
 
 Löydät ohjeen virhetilanteen havaitsemiseen [täältä](https://react-query-v3.tanstack.com/guides/queries). 
 
-Voit simuloida palvelimen kanssa tapahtuvaa ongelmaa esim. sammuttamalla JSON Serverin. Huomaa, että kysely on ensin jonkin aikaa tilassa <i>isLoading</i> sillä epäonnistuessaan React Query yrittää pyyntöä muutaman kerran ennen kuin se toteaa, että pyyntö ei onistu. Voit halutessasi määritellä, että uudelleenyrityksiä ei tehdä:
+Voit simuloida palvelimen kanssa tapahtuvaa ongelmaa esim. sammuttamalla JSON Serverin. Huomaa, että kysely on ensin jonkin aikaa tilassa <i>isLoading</i> sillä epäonnistuessaan React Query yrittää pyyntöä muutaman kerran ennen kuin se toteaa, että pyyntö ei onnistu. Voit halutessasi määritellä, että uudelleenyrityksiä ei tehdä:
 
 ```js
 const result = useQuery(
@@ -396,7 +396,7 @@ Toteuta anekdoottien äänestäminen hyödyntäen jälleen React Queryä. Sovell
 
 ### useReducer
 
-Vaikka sovellus siis käyttäisi React Queryä, tarvitaan siis yleensä jonkinlainen ratkaisu selaimen muun tilan (esimerkiksi lomakkeiden) hallintaan. Melko usein <i>useState</i>:n avulla muodostettu tila on riittävä ratkaisu.
+Vaikka sovellus siis käyttäisi React Queryä, tarvitaan siis yleensä jonkinlainen ratkaisu selaimen muun tilan (esimerkiksi lomakkeiden) hallintaan. Melko usein <i>useState</i>:n avulla muodostettu tila on riittävä ratkaisu. Reduxin käyttö on toki mahdollista mutta on olemassa myös muita vaihtoehtoja.
 
 Tarkastellaan yksinkertaista laskurisovellusta. Sovellus näyttää laskurin arvon, ja tarjoaa kolme nappia laskurin tilan päivittämiseen:
 
@@ -445,7 +445,7 @@ export default App
 const [counter, counterDispatch] = useReducer(counterReducer, 0)
 ```
 
-Tilan muutokset hoitava reduserifunktio on täysin samanlainen Reduxin reducerien kanssa, eli funktio saa parametrikseen nykyisen tilan, sekä tilanmuutoksen tekemvän actionin. Funktio palauttaa actionin tyypin ja mahdollisen sisällön perusteella päivitetyn uuden tilan:
+Tilan muutokset hoitava reduserifunktio on täysin samanlainen Reduxin reducerien kanssa, eli funktio saa parametrikseen nykyisen tilan, sekä tilanmuutoksen tekemän actionin. Funktio palauttaa actionin tyypin ja mahdollisen sisällön perusteella päivitetyn uuden tilan:
 
 ```js
 const counterReducer = (state, action) => {
@@ -462,7 +462,7 @@ const counterReducer = (state, action) => {
 }
 ```
 
-Esimerkissämme actioneilla ei ole muuta kuin tyyppi. Jos actionin tyyppi on <i>INC</i>, kasvattaa se tilan arvoa yhdellä jne. Reduxin reducerien tapaan actinien mukana voi myös olla mielivaltaista dataa, joka yleensä laitetaan actionin kenttään <i>payload</i>.
+Esimerkissämme actioneilla ei ole muuta kuin tyyppi. Jos actionin tyyppi on <i>INC</i>, kasvattaa se tilan arvoa yhdellä jne. Reduxin reducerien tapaan actionin mukana voi myös olla mielivaltaista dataa, joka yleensä laitetaan actionin kenttään <i>payload</i>.
 
 Funktio <i>useReducer</i> palauttaa taulukon, jonka kautta päästään käsiksi tilan nykyiseen arvoon (taulukon ensimmäinen alkio), sekä <i>dispatch</i>-funktioon (taulukon toinen alkio), jonka avulla tilaa voidaan muuttaa:
 
@@ -526,11 +526,11 @@ const App = () => {
 }
 ```
 
-Ratkaisu toimii, mutta ei ole optimaalinen. Jos komponenttirakenne monimutkaistuu, tulee esim dispatcheria välittää propsien avulla monen komponentin kautta sitä tarvitseville komponenteille siitäkin huolimatta, että komponenttipuussa välissä olevat komponentit eivät dispatcheria tarvitsisikaan. Tästä ilmiöstä käytetään nimitystä <i>prop drilling</i>. Eräs Reduxin hyvistä puolista onkin nimenomaan se, että storen tilaan ja dispatcheriin päästään helposti käsiksi mistä komponentista tahansa, ilman tarvetta välittää niitä propseina.
+Ratkaisu toimii, mutta ei ole optimaalinen. Jos komponenttirakenne monimutkaistuu, tulee esim dispatcheria välittää propsien avulla monen komponentin kautta sitä tarvitseville komponenteille siitäkin huolimatta, että komponenttipuussa välissä olevat komponentit eivät dispatcheria tarvitsisikaan. Tästä ilmiöstä käytetään nimitystä <i>prop drilling</i>. 
 
-Reduxin sisäänrakennettu [Context API](https://beta.reactjs.org/learn/passing-data-deeply-with-context) tuo tilanteeseen ratkaisun. Reactin konteksti on eräänlainen sovelluksen globaali tila, johon on mahdollista antaa suora pääsy mille tahansa komponentille.
+Reactin sisäänrakennettu [Context API](https://beta.reactjs.org/learn/passing-data-deeply-with-context) tuo tilanteeseen ratkaisun. Reactin konteksti on eräänlainen sovelluksen globaali tila, johon on mahdollista antaa suora pääsy mille tahansa komponentille.
 
-Luodan sovellukseen nyt konteksti, joka tallettaa laskurin tilanhallinnan.
+Luodaan sovellukseen nyt konteksti, joka tallettaa laskurin tilanhallinnan.
 
 Konteksti luodaan Reactin hookilla [createContext](https://beta.reactjs.org/reference/react/createContext). Luodaan konteksti tiedostoon <i>CounterContext.js</i>:
 
@@ -669,7 +669,7 @@ const App = () => {
 export default App
 ```
 
-Kontekstia käytetään edelleen samalla tavalla, esim. komponentti <i>Button</i> on siis määrittely seuraavasti:
+Kontekstia käytetään edelleen samalla tavalla, esim. komponentti <i>Button</i> on siis määritelty seuraavasti:
 
 ```js
 import { useContext } from 'react'
@@ -773,7 +773,7 @@ Notifikaatio näytetään viiden sekunnin ajan.
 
 #### Tehtävä 6.23.
 
-Kuten tehtävässä 6.20 todettiin, palvelin vaatii, että lisättävän anekdootin sisällön pituus on vähintään 5 merkkiä. Toteut nyt lisäämisen yhteyteen virheenkäsittely. Käytännössä riittää, että näytät epäonnistuneen lisäyksen yhteydessä käyttäjälle notifikaation:
+Kuten tehtävässä 6.20 todettiin, palvelin vaatii, että lisättävän anekdootin sisällön pituus on vähintään 5 merkkiä. Toteuta nyt lisäämisen yhteyteen virheenkäsittely. Käytännössä riittää, että näytät epäonnistuneen lisäyksen yhteydessä käyttäjälle notifikaation:
 
 ![](../../images/6/67new.png)
 
