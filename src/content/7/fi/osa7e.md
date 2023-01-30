@@ -180,11 +180,11 @@ const App = () => {
 }
 ```
 
-Esimerkkimme tapauksessa erot eivät ole suuret. Suurin ero funktionaalisissa ja luokkakompontenteissa lienee se, että luokkakomponentin tila on aina yksittäinen olio, ja tilaa muutetaan metodin _setState_ avulla kun taas funktionaalisessa komponentissa tila voi koostua useista muuttujista, joilla kaikilla on oma päivitysfunktio.
+Esimerkkimme tapauksessa erot eivät ole suuret. Suurin ero funktionaalisissa ja luokkakomponenteissa lienee se, että luokkakomponentin tila on aina yksittäinen olio, ja tilaa muutetaan metodin _setState_ avulla kun taas funktionaalisessa komponentissa tila voi koostua useista muuttujista, joilla kaikilla on oma päivitysfunktio.
 
 Hieman edistyneemmissä käyttöskenaarioissa effect hookit tarjoavat huomattavasti paremman mekanismin sivuvaikutusten hallintaan verrattuna luokkakomponenttien elinkaarimetodeihin.
 
-Merkittävä etu funktionaalisille komponenttien käytössä on se, että paljon harmia tuottavaa JavaScriptin olioon itseensä viittaavaa _this_-viitettä ei tarvitse käsitellä ollenkaan.
+Merkittävä etu funktionaalisten komponenttien käytössä on se, että paljon harmia tuottavaa JavaScriptin olioon itseensä viittaavaa _this_-viitettä ei tarvitse käsitellä ollenkaan.
 
 Oman ja suuren enemmistön mielestä luokkakomponenteilla ei ole oikeastaan mitään etuja hookeilla rikastettuihin funktionaalisiin komponentteihin verrattuna, poikkeuksen tähän muodostaa ns. [error boundary](https://reactjs.org/docs/error-boundaries.html) -mekanismi, joka ei ole toistaiseksi funktionaalisten komponenttien käytössä.
 
@@ -197,7 +197,7 @@ tarjoaa näkökulmia aiheeseen.
 
 ### Frontti ja backend samassa repositoriossa
 
-Olemme kurssilla tehneet frontendin ja backendin omiin repositorioihinsa. Kyseessä on varsin tyypillinen ratkaisu. Teimme tosin deploymentin [kopioimalla](/osa3#staattisten-tiedostojen-tarjoaminen-backendistä) frontin bundlatun koodin backendin repositorion sisälle. Toinen, ehkä järkevämpi tilanne olisi ollut deployata frontin koodi erikseen, Create React App:illa tehtyjen sovellusten osalta se on todella helppoa oman [buildpackin](https://github.com/mars/create-react-app-buildpack) ansiosta.
+Olemme kurssilla tehneet frontendin ja backendin omiin repositorioihinsa. Kyseessä on varsin tyypillinen ratkaisu. Teimme tosin deploymentin [kopioimalla](/osa3/sovellus_internetiin#staattisten-tiedostojen-tarjoaminen-backendista) frontin bundlatun koodin backendin repositorion sisälle. Toinen, ehkä järkevämpi tilanne olisi ollut deployata frontin koodi erikseen, Create React App:illa tehtyjen sovellusten osalta se on todella helppoa oman [buildpackin](https://github.com/mars/create-react-app-buildpack) ansiosta.
 
 Joskus voi kuitenkin olla tilanteita, missä koko sovellus halutaan samaan repositorioon. Tällöin yleinen ratkaisu on sijoittaa <i>package.json</i> ja <i>webpack.config.js</i> hakemiston juureen ja frontin sekä backendin koodi omiin hakemistoihinsa, esim. <i>client</i> ja <i>server</i>.
 
@@ -223,7 +223,7 @@ WebSocket API:n suoran käyttämisen sijaan onkin suositeltavaa käyttää [Sock
 
 Reactin yhteydessä mainitaan usein käsite Virtual DOM. Mistä oikein on kyse? Kuten [osassa 0](/osa0/web_sovelluksen_toimintaperiaatteita#document-object-model-eli-dom) mainittiin, selaimet tarjoavat [DOM API](https://developer.mozilla.org/fi/docs/DOM):n, jota hyväksikäyttäen selaimessa toimiva JavaScript voi muokata sivun ulkoasun määritteleviä elementtejä.
 
-Reactia käyttäessä ohjelmoija ei koskaan (tai parempi sanoa yleensä) manipuloi DOM:ia suoraan. React-komponenttin määrittelevä funktio palauttaa joukon [React-elementtejä](https://reactjs.org/docs/glossary.html#elements). Vaikka osa elementeistä näyttää normaaleilta HTML-elementeiltä
+Reactia käyttäessä ohjelmoija ei koskaan (tai parempi sanoa yleensä) manipuloi DOM:ia suoraan. React-komponentin määrittelevä funktio palauttaa joukon [React-elementtejä](https://reactjs.org/docs/glossary.html#elements). Vaikka osa elementeistä näyttää normaaleilta HTML-elementeiltä
 
 ```js
 const element = <h1>Hello, world</h1>
@@ -236,7 +236,7 @@ Sovelluksen komponenttien ulkoasun määrittelevät React-elementit muodostavat 
 [ReactDOM](https://reactjs.org/docs/react-dom.html)-kirjaston avulla komponenttien määrittelevä virtuaalinen DOM renderöidään oikeaksi DOM:iksi eli DOM API:n avulla selaimen näytettäväksi:
 
 ```js
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <App />,
   document.getElementById('root')
 )
@@ -278,7 +278,7 @@ Oletetaan että hieman ilkeämielinen käyttäjä <i>Arto Hellas</i> nyt määri
 Arto Hell-as'; DROP TABLE Users; --
 </pre>
 
-eli nimi sisältäisi hipsun <code>'</code>, jonka on SQL:ssä merkkijonon aloitus/lopetusmerkki. Tämän seurauksena tulisi suoritetuksi kaksi SQL-operaatiota, joista jälkimmäinen tuhoaisi tietokantataulun <i>Users</i>
+eli nimi sisältäisi hipsun <code>'</code>, joka on SQL:ssä merkkijonon aloitus/lopetusmerkki. Tämän seurauksena tulisi suoritetuksi kaksi SQL-operaatiota, joista jälkimmäinen tuhoaisi tietokantataulun <i>Users</i>
 
 ```sql
 SELECT * FROM Users WHERE name = 'Arto Hell-as'; DROP TABLE Users; --'
@@ -290,7 +290,7 @@ SQL-injektiot estetään [parametrisoiduilla kyselyillä](https://security.stack
 execute("SELECT * FROM Users WHERE name = ?", [userName])
 ```
 
-Myös NoSQL-kantoihin tehtävät injektiohyökkäykset ovat mahdollisia. Mongoose kuitenkin estää ne [sanitoimalla](https://zanon.io/posts/nosql-injection-in-mongodb) kyselyt. Lisää aiheesta esim. [täällä](https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html).
+Myös NoSQL-kantoihin tehtävät injektiohyökkäykset ovat mahdollisia. Mongoose kuitenkin estää ne [sanitoimalla](https://zanon.io/posts/nosql-injection-in-mongodb) kyselyt. Lisää aiheesta esim. [täällä](https://web.archive.org/web/20220901024441/https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html).
 
 <i>Cross-site scripting eli XSS</i> on hyökkäys, missä sovellukseen on mahdollista injektoida suoritettavaksi vihollismielistä JavaScript-koodia. Jos kokeilemme injektoida esim. muistiinpanosovellukseen seuraavan
 
@@ -318,7 +318,36 @@ Vuoden vanha [osassa 9](/osa9) käytetty projekti sisältää jo aika paljon van
 
 ![](../../images/7/33x.png)
 
-Riippuvuudet saa ajantasaistettua päivittämällä tiedostoa <i>package.json</i> ja suorittamalla komennon _npm install_. Riippuvuuksien vanhat versiot eivät tietenkään välttämättä ole tietoturvariski.
+Riippuvuudet saa ajantasaistettua päivittämällä tiedostoa <i>package.json</i>. Sitä helpottaa [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)-niminen työkalu, joka asennetaan globaalisti komennolla
+
+```bash
+npm install -g npm-check-updates
+```
+Tämän työkalun avulla tarkistetaan riippuvuuksien ajantasaisuus seuraavasti:
+```bash
+$ npm-check-updates
+Checking ...\ultimate-hooks\package.json
+[====================] 9/9 100%
+
+ @testing-library/react       ^13.0.0  →  ^13.1.1
+ @testing-library/user-event  ^14.0.4  →  ^14.1.1
+ react-scripts                  5.0.0  →    5.0.1
+
+Run ncu -u to upgrade package.json
+```
+Tiedosto <i>package.json</i> päivitetään suorittamalla komento _ncu -u_.
+```bash
+$ ncu -u
+Upgrading ...\ultimate-hooks\package.json
+[====================] 9/9 100%
+
+ @testing-library/react       ^13.0.0  →  ^13.1.1
+ @testing-library/user-event  ^14.0.4  →  ^14.1.1
+ react-scripts                  5.0.0  →    5.0.1
+
+Run npm install to install new versions.
+```
+Seuraavaksi ajantasaistetaan riippuvuudet suorittamalla komento _npm install_. Riippuvuuksien vanhat versiot eivät tietenkään välttämättä ole tietoturvariski.
 
 Riippuvuuksien turvallisuus voidaan tarkistaa npm:n [audit](https://docs.npmjs.com/cli/audit)-komennolla, joka vertaa käytettyjen riippuvuuksien versioita keskitetyssä virhetietokannassa listattuihin tietoturvauhan sisältäviin riippuvuuksien versioihin.
 
@@ -380,7 +409,7 @@ fix available via `npm audit fix --force`
 Will install react-scripts@5.0.0, which is a breaking change
 ```
 
-Komento _npm audit fix --force_ päivittäisi käytetyn kirjastoversion, mutta emme nyt uskalla tehdä päivistystä sillä se aiheuttaisi _react-scripts_-kirjaston uuden versoion asennuksen ja se taas todennäköisesti hajottaisi sovelluskehitysympäristön. Jätämmä siis tällä kertaa mahdollisten haavoittuvuuksien korjaamisen myöhempään kertaan.
+Komento _npm audit fix --force_ päivittäisi käytetyn kirjastoversion, mutta emme nyt uskalla tehdä päivistystä sillä se aiheuttaisi _react-scripts_-kirjaston uuden versoion asennuksen ja se taas todennäköisesti hajottaisi sovelluskehitysympäristön. Jätämme siis tällä kertaa mahdollisten haavoittuvuuksien korjaamisen myöhempään kertaan.
 
 Eräs OWASP:in listan mainitsemista uhista on <i>Broken Authentication</i> ja siihen liittyvä <i>Broken Access Control</i>. Käyttämämme token-perustainen autentikointi on kohtuullisen robusti, jos sovellusta käytetään tietoliikenteen salaavalla HTTPS-protokollalla. Access Controlin eli pääsynhallinnan toteuttamisessa on aina syytä muistaa tehdä esim. käyttäjän identiteetin tarkastus selaimen lisäksi myös palvelimella. Huonoa tietoturvaa olisi estää jotkut toimenpiteet ainoastaan piilottamalla niiden suoritusmahdollisuus selaimessa olevasta koodista.
 
@@ -398,7 +427,7 @@ Katsotaan vielä lopuksi muutamaa huomisen tai oikeastaan jo tämän päivän te
 
 #### JavaScriptin tyypitetyt versiot
 
-JavaScriptin muuttujien [dynaaminen tyypitys](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) aiheuttaa välillä ikäviä bugeja. Osassa 5 käsittelimme lyhyesti [PropTypejä](/osa5/props_children_ja_proptypet#prop-types), eli mekanismia, jonka avulla React-komponenteille välitettävile propseille on mahdollista tehdä tyyppitarkastuksia.
+JavaScriptin muuttujien [dynaaminen tyypitys](https://developer.mozilla.org/en-US/docs/Glossary/Dynamic_typing) aiheuttaa välillä ikäviä bugeja. Osassa 5 käsittelimme lyhyesti [PropTypejä](/osa5/props_children_ja_proptypet#prop-types), eli mekanismia, jonka avulla React-komponenteille välitettäville propseille on mahdollista tehdä tyyppitarkastuksia.
 
 Viime aikoina on ollut havaittavissa nousevaa kiinnostusta [staattiseen tyypitykseen](https://en.wikipedia.org/wiki/Type_system#Static_type_checking). Tämän hetken suosituin JavaScriptin tyypitetty versio on Microsoftin kehittämä [TypeScript](https://www.typescriptlang.org/), joka on aiheena kurssin [osassa 9](/osa9).
 
@@ -414,15 +443,15 @@ Palvelimella tapahtuvaan renderöintiin liittyen on alettu puhua <i>isomorfisist
 
 React ja Node tarjoavatkin varteenotettavan vaihtoehdon isomorfisten sovellusten toteuttamiseen universaalina koodina.
 
-Universaalin koodin kirjoittaminen suoraan Reactin avulla on vielä toistaiseksi melko vaivalloista. Viime aikoina paljon huomiota saanut Reactin päälle toteutettu [Next.js](https://github.com/zeit/next.js/)-kirjasto on hyvä vaihtoehto universaalien sovellusten tekemiseen.
+Universaalin koodin kirjoittaminen suoraan Reactin avulla on vielä toistaiseksi melko vaivalloista. Viime aikoina paljon huomiota saanut Reactin päälle toteutettu [Next.js](https://github.com/vercel/next.js)-kirjasto on hyvä vaihtoehto universaalien sovellusten tekemiseen.
 
 #### Progressive web apps
 
 Viime aikona on myös ruvettu käyttämään Googlen lanseeraamaa termiä [progressive web app](https://developers.google.com/web/progressive-web-apps/) (PWA). Googlen sivuilla oleva määritelmä kuulostaa markkinapuheelta ja sen perusteella on hankala saada selkeää käsitystä mistä on kyse. [Checklista](https://developers.google.com/web/progressive-web-apps/checklist) tuo mukaan konkretiaa.
 
-Tiiviistäen kyse on web-sovelluksista, jotka toimivat mahdollisimman hyvin kaikilla alustoilla ottaen jokaisesta alustasta irti sen parhaat puolet. Mobiililaitteiden pienempi näyttö ei saa heikentää sovellusten käytettävyyttä. PWA-sovellusten tulee myös toimia offline-tilassa tai hitaalla verkkoyhteydellä moitteettomasti. Mobiililaitteilla ne tulee pystyä asentamaan normaalien sovellusten tavoin. Kaiken PWA-sovellusten käyttämän verkkoliikenteen tulee olla salattua.
+Tiivistäen kyse on web-sovelluksista, jotka toimivat mahdollisimman hyvin kaikilla alustoilla ottaen jokaisesta alustasta irti sen parhaat puolet. Mobiililaitteiden pienempi näyttö ei saa heikentää sovellusten käytettävyyttä. PWA-sovellusten tulee myös toimia offline-tilassa tai hitaalla verkkoyhteydellä moitteettomasti. Mobiililaitteilla ne tulee pystyä asentamaan normaalien sovellusten tavoin. Kaiken PWA-sovellusten käyttämän verkkoliikenteen tulee olla salattua.
 
-Create React App:illa luodut sovellukset ovat oletusarvoisesti [progressiivisia](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app). Jos sovellus käyttää palvelimella olevaa dataa, edellyttää sovelluksen progressiiviseksi tekeminen vaivan näkemistä. Offline-toiminnallisuus toteutetaan yleensä [service workerien](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) avulla.
+Create React App:illa luodut sovellukset ovat oletusarvoisesti [progressiivisia](https://create-react-app.dev/docs/making-a-progressive-web-app). Jos sovellus käyttää palvelimella olevaa dataa, edellyttää sovelluksen progressiiviseksi tekeminen vaivan näkemistä. Offline-toiminnallisuus toteutetaan yleensä [service workerien](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) avulla.
 
 #### Mikropalveluarkkitehtuuri
 
@@ -505,7 +534,7 @@ Hipsterien suurin into työkalukehitykseen näytti pysähtyneen webpackin vallat
 
 Sivu <https://reactpatterns.com/> tarjoaa tiiviissä muodossa listan parhaita react-käytänteitä, joista osa on jo tältäkin kurssilta tuttuja. Toinen samankaltainen lista on [react bits](https://vasanthk.gitbooks.io/react-bits/).
 
-[Reactiflux](https://www.reactiflux.com/) taas on suuri englanninkielinen React-kehittäjien keskusteluyhteisö Discordissa. Se voi olla yksi mahdollinen paikka saada tukea kurssin päättymisen jälkeen. Esimerkiksi useille kirjastoille löytyyy kokonaan omat keskustelukanavat.
+[Reactiflux](https://www.reactiflux.com/) taas on suuri englanninkielinen React-kehittäjien keskusteluyhteisö Discordissa. Se voi olla yksi mahdollinen paikka saada tukea kurssin päättymisen jälkeen. Esimerkiksi useille kirjastoille löytyy kokonaan omat keskustelukanavat.
 
 Jos tiedät jotain suositeltavia linkkejä tai kirjastoja, tee pull request!
 
