@@ -204,7 +204,7 @@ const Notes = ({notes}) => (
     <ul>
       {notes.map(note =>
         <li key={note.id}>
-          <Link to={`/notes/${note.id}`}>{note.content}</Link>
+          <Link to={`/notes/${note.id}`}>{note.content}</Link>  // highlight-line
         </li>
       )}
     </ul>
@@ -249,7 +249,7 @@ const Note = ({ notes }) => {
     <div>
       <h2>{note.content}</h2>
       <div>{note.user}</div>
-      <div><strong>{note.important ? 'tärkeä' : ''}</strong></div>
+      <div><strong>{note.important ? 'important' : ''}</strong></div>
     </div>
   )
 }
@@ -411,7 +411,7 @@ const Note = ({ note }) => {
     <div>
       <h2>{note.content}</h2>
       <div>{note.user}</div>
-      <div><strong>{note.important ? 'tärkeä' : ''}</strong></div>
+      <div><strong>{note.important ? 'important' : ''}</strong></div>
     </div>
   )
 }

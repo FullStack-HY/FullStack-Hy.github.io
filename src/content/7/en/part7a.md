@@ -207,7 +207,7 @@ const Notes = ({notes}) => (
     <ul>
       {notes.map(note =>
         <li key={note.id}>
-          <Link to={`/notes/${note.id}`}>{note.content}</Link>
+          <Link to={`/notes/${note.id}`}>{note.content}</Link>  // highlight-line
         </li>
       )}
     </ul>
