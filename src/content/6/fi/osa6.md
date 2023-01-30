@@ -8,7 +8,9 @@ lang: fi
 
 _OSAN PÄIVITYS KESKEN_
 
-Olemme toistaiseksi sijoittaneet ohjelman tilan ja siitä huolehtivan logiikan suoraan React-komponentteihin. Kun sovellukset kasvavat, kannattaa sovelluksen tila siirtää React-komponenttien ulkopuolelle. Tässä osassa tutustumme Redux-kirjastoon, joka on tämän hetken eniten käytetty React-sovellusten tilanhallintarkatkaisu.
+Olemme toistaiseksi sijoittaneet ohjelman tilan ja siitä huolehtivan logiikan suoraan React-komponentteihin. Kun sovellukset kasvavat, kannattaa sovelluksen tila siirtää React-komponenttien ulkopuolelle. Tässä osassa tutustumme Redux-kirjastoon, joka on tämän hetken eniten käytetty React-sovellusten tilanhallintarkatkaisu. 
+
+Tututustumme Reactin suoraan tukemaan Reduxin kevytversioon, eli Reactin kontekstiin ja useRedux-hookiin sekä palvelimen tilan hallintaa helpottavaan React Query -kirjastoon.
 
 Tämän osan (sekä osan 7) tehtävien deadline on ma 13.3.
 

@@ -1,7 +1,7 @@
 ---
 mainImage: ../../../images/part-5.svg
 part: 6
-letter: d
+letter: e
 lang: en
 ---
 
