@@ -40,7 +40,6 @@ module.exports = {
       b: 'Monta reduseria',
       c: 'Redux-sovelluksen kommunikointi palvelimen kanssa',
       d: 'React Query, useReducer ja contex',
-      e: 'connect',
     },
     '7': {
       a: 'React-router',
@@ -92,7 +91,6 @@ module.exports = {
       b: 'Many reducers',
       c: 'Communicating with server in a redux application',
       d: 'React Query, useReducer and the contex',
-      e: 'connect',
     },
     '7': {
       a: 'React-router',
