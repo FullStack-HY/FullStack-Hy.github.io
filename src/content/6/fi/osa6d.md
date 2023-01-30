@@ -645,7 +645,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-Nyt laskurin arvon ja toiminnallisuuden määrittelemä konteksti on <i>kaikkien</i> sovelluksen komponenttien käytettävissä.
+Nyt laskurin arvon ja toiminnallisuuden määrittelevä konteksti on <i>kaikkien</i> sovelluksen komponenttien käytettävissä.
 
 Komponentti <i>App</i> yksinkertaistuu seuraavaan muotoon:
 
@@ -780,8 +780,9 @@ Kuten tehtävässä 6.20 todettiin, palvelin vaatii, että lisättävän anekdoo
 Virhetilanne kannattaa käsitellä sille rekisteröidyssä takaisinkutsufunktiossa, ks 
 [täältä](https://react-query-v3.tanstack.com/reference/useMutation) miten rekisteröit funktion.
 
-</div>
+Tämä oli osan viimeinen tehtävä ja on aika pushata koodi GitHubiin sekä merkata tehdyt tehtävät [palautussovellukseen](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
 
+</div>
 
 <div class="content">
 

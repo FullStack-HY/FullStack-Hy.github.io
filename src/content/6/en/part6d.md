@@ -780,6 +780,8 @@ As stated in exercise 6.20, the server requires that the content of the anecdote
 The error condition should be handled in the callback function registered for it, see
 [here](https://react-query-v3.tanstack.com/reference/useMutation) how to register a function.
 
+This was the last exercise for this part of the course and it's time to push your code to GitHub and mark all of your completed exercises to the [exercise submission system](https://study.cs.helsinki.fi/stats/courses/fullstack2023).
+
 </div>
 
 <div class="content">
