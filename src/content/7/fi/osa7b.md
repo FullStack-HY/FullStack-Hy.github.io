@@ -398,7 +398,7 @@ Palataan hetkeksi tehtäväsarjan [2.12-14](/osa2/palvelimella_olevan_datan_hake
 
 Ota pohjaksi repositoriossa https://github.com/fullstack-hy2020/country-hook oleva koodi. 
 
-Sovelluksen avulla on mahdollista hakea maiden tietoja https://restcountries.com/-rajapinnasta. Jos maa löytyy, näytetään maan perustiedot:
+Sovelluksen avulla on mahdollista hakea maiden tietoja <https://restcountries.com/> -rajapinnasta. Jos maa löytyy, näytetään maan perustiedot:
 
 ![](../../images/7/69ea.png)
 
@@ -410,7 +410,7 @@ Sovellus on muuten valmiiksi toteutettu, mutta joudut tässä tehtävässä tote
 
 Maan tietojen hakeminen kannattaa hoitaa API:n endpointin [full name](https://restcountries.com/#api-endpoints-v3-full-name) avulla ja hookin sisällä olevassa _useEffect_-hookissa.
 
-Huomaa, että tässä tehtävässä on oleellista hyödyntää useEffectin [toisena parametrina](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) olevaa taulukkoa. Taulukolla kontrolloidaan, milloin efektifunktio kannattaa suorittaa.
+Huomaa, että tässä tehtävässä on oleellista hyödyntää useEffectin [toisena parametrina](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) olevaa taulukkoa. Taulukolla kontrolloidaan, milloin efektifunktio kannattaa suorittaa. Kurssin [osassa 2](/osa2/tyylien_lisaaminen_react_sovellukseen#muutama-tarkea-huomio) on käyty läpi toisen parametrin käytön periaatteita.
 
 #### 7.8: ultimate hooks
 
