@@ -111,7 +111,7 @@ React Routerin tarjoama reititys saadaan käyttöön muuttamalla sovellusta seur
 import {
   BrowserRouter as Router,
   Routes, Route, Link
-} from "react-router-dom"
+} from 'react-router-dom'
 
 const App = () => {
   const padding = {
@@ -148,7 +148,7 @@ Huomaa, että vaikka komponenttiin viitataan nimellä <i>Router</i>, kyseessä o
 import {
   BrowserRouter as Router, // highlight-line
   Routes, Route, Link
-} from "react-router-dom"
+} from 'react-router-dom'
 ```
 
 [Manuaalin](https://reactrouter.com/docs/en/v6/api#browserrouter) mukaan
@@ -240,7 +240,7 @@ Kun selain siirtyy muistiinpanon yksilöivään osoitteeseen, esim. <i>/notes/3<
 import {
   // ...
   useParams  // highlight-line
-} from "react-router-dom"
+} from 'react-router-dom'
 
 const Note = ({ notes }) => {
   const id = useParams().id // highlight-line
@@ -435,7 +435,7 @@ Komponentti <i>App</i> muuttuu seuraavasti:
 import {
   // ...
   useMatch  // highlight-line
-} from "react-router-dom"
+} from 'react-router-dom'
 
 const App = () => {
   // ...
