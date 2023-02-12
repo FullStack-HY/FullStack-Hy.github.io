@@ -46,8 +46,7 @@ Tämän kurssin eri osiin jo tehtyjen palautusten ajankäyttöstatistiikan näet
 
 ### Ohjausta tehtäviin
 
-Tehtäviin on tarjolla ohjausta perjantaisin 13-15 BK107 (27.1. alkaen) sekä
-kurssikanavalla Discordissa <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> sekä Telegramissa <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>
+Tehtäviin on tarjolla apua kurssikanavalla Discordissa <a target='_blank' href='https://study.cs.helsinki.fi/discord/join/fullstack'>https://study.cs.helsinki.fi/discord/join/fullstack</a> sekä Telegramissa <a target='_blank' href='https://t.me/fullstackcourse'>https://t.me/fullstackcourse</a>
 
 Huom: kaikki epäasialliset, halventavat ja jotain ihmisryhmää syrjivät kommentit kanavalla ovat kiellettyjä ja tälläisten kommenttien esittäjät poistetaan kanavalta.
 

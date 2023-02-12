@@ -509,7 +509,6 @@ Here are some other UI frameworks for your consideration. If you do not see your
 - <https://master.co/>
 - <https://nextui.org/>
 
-
 ### Styled components
 
 There are also [other ways](https://blog.bitsrc.io/5-ways-to-style-react-components-in-2019-30f1ccc2b5b) of styling React applications that we have not yet taken a look at.
