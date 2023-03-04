@@ -54,7 +54,7 @@ Huom: kaikki epäasialliset, halventavat ja jotain ihmisryhmää syrjivät komme
 
 Kurssin oletusarvoinen laajuus on 5 opintopistettä. Arvosana määräytyy kaikkien tehtyjen tehtävien perusteella, myös tähdellä merkityt "vapaavalintaiset" tehtävät siis vaikuttavat arvosanaan. Noin 50% deadlineen mennessä tehdyistä tehtävistä tuo arvosanan 1 ja 80% arvosanan 5. Kurssin lopussa on koe, joka on suoritettava hyväksytysti. Koe ei kuitenkaan vaikuta arvosanaan.
 
-Koe pidetään Moodlessa 10-12.3. Koekeen suorittamiseen on aikaa 2 tuntia alotushetkestä alkaen.
+Koe pidetään [Moodlessa](https://moodle.helsinki.fi/course/view.php?id=57509) 10-12.3. Koekeen suorittamiseen on aikaa 2 tuntia alotushetkestä alkaen.
 
 Kurssilta on mahdollisuus ansaita lisäopintopisteitä. Jos teet 87.5% kurssin tehtävistä, saat yhden lisäopintopisteen. Tekemällä 95% tehtävistä saat 2 lisäopintopistettä.
 

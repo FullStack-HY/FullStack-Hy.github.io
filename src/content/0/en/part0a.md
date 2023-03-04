@@ -89,7 +89,7 @@ A better question could be
 
 Course is worth 5-7 credits depending on the number of submitted exercises. The grade and number of credits are determined by the number of submitted exercises, so also the exercises without stars count towards your final grade.
 
-Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade. The exam is in Moodle between 10th and 12th March. The exam time is 2 hours from the moment you start the exam.
+Course has also exam that you must pass for a accepted grade. The exam does not count towards your grade. The exam is in [Moodle](https://moodle.helsinki.fi/course/view.php?id=57509) between 10th and 12th March. The exam time is 2 hours from the moment you start the exam.
 
 Credits and grades are calculated as follows:
 
