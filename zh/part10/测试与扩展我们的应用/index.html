@@ -1,0 +1,955 @@
+<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e909ca77e15e07f0bc8a.css" id="gatsby-global-css">@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,600);@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400);code[class*=language-],pre[class*=language-]{color:#fff;background:none;text-shadow:0 -.1em .2em #000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}:not(pre)>code[class*=language-],pre[class*=language-]{background:#4d4033}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border:.3em solid #7a6652;border-radius:.5em;box-shadow:inset 1px 1px .5em #000}:not(pre)>code[class*=language-]{padding:.15em .2em .05em;border-radius:.3em;border:.13em solid #7a6652;box-shadow:inset 1px 1px .3em -.1em #000;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#998066}.token.namespace,.token.punctuation{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#d1949e}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#bde052}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f5b83d}.token.atrule,.token.attr-value,.token.keyword{color:#d1949e}.token.important,.token.regex{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}.course{position:relative;width:100%}@media (min-width:992px){.course{display:flex;flex-wrap:nowrap;flex-direction:row;align-items:flex-start}}.course p{font-family:IBM Plex Sans,monospace}@media (min-width:640px){.course p{margin-left:1rem}}.course p:not(:last-of-type){margin-bottom:1rem}@media (min-width:640px){.course h1{margin-left:3rem}}.course h2,.course h3,.course h4{padding-bottom:2rem}@media (min-width:640px){.course h2,.course h3,.course h4,.course table{margin-left:1rem}}.course ul{font-family:IBM Plex Sans,monospace}@media (min-width:640px){.course ul{margin-left:2.2rem}}.course h2:not(:first-of-type){margin-top:2rem}.course pre{margin:2rem 0;background-color:#33332d;color:#fff}.course em{font-family:Courier;font-style:normal;background-color:hsla(0,0%,88.2%,.6);padding:1px 5px 2px}.course img{border:11px solid transparent}.course .banner,.course .container{position:static}.course .letter{width:4rem;height:4rem;border-width:5px;border-style:solid;border-radius:2.5rem;text-align:center;margin:1rem;line-height:1.3em;transform:translate(-1rem)}@media (min-width:640px){.course .letter{transform:translate(-3rem,4.5rem)}}.course .letter,.course h1{font-size:2.3rem;font-weight:700}.course-content-container{width:100%}.course-content a,.tasks a{border:0;border-bottom-width:2px;border-style:solid;padding:2px}.course-content{width:90%;margin:0 auto;max-width:1200px}@media (min-width:992px){.course-content-inner{padding-left:30%;padding-right:5%}}.tasks a{border-color:#33332d!important}.tasks a:hover{background-color:#fff!important;color:#000!important}.gatsby-highlight-code-line{background-color:hsla(0,0%,88.2%,.3);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:1em}code[class*=language-],pre[class*=language-]{text-shadow:none}.arrow-go-up{width:36px;height:36px;position:fixed;bottom:5%;right:5%;z-index:99999;cursor:pointer}@media (max-width:639px){.arrow-go-up{right:10%}}.part-main__banner{background-position:50%;background-size:50%;padding-bottom:10%;background-repeat:no-repeat}@media (max-width:639px){.part-main__banner{background-position:top;background-size:70%;padding-bottom:30%!important}}.part-intro{font-family:IBM Plex Sans,monospace!important}.part-intro p:not(:last-of-type){padding-bottom:2em}.part-intro__banner{background-size:50%;background-repeat:no-repeat;background-position:100%}@media (max-width:639px){.part-intro__banner{background-position:top;background-size:70%}.part-intro__banner>.container{margin-top:40%}}.part-intro a{border-bottom:1px solid #33332d}.part-intro a:hover{background-color:#fff}.arrow__container{position:relative}.arrow__container:not():first-child{background:none;background-color:none}@media (min-width:640px){.arrow__container:not():first-child{border-left:none}.arrow__container:not():first-child:before{content:"";background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjwhLS1HZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCktLT48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0NzcuMTc1IDQ3Ny4xNzUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ3Ny4xNzUgNDc3LjE3NSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZD0iTTM2MC43MzEsMjI5LjA3NWwtMjI1LjEtMjI1LjFjLTUuMy01LjMtMTMuOC01LjMtMTkuMSwwcy01LjMsMTMuOCwwLDE5LjFsMjE1LjUsMjE1LjVsLTIxNS41LDIxNS41CgkJYy01LjMsNS4zLTUuMywxMy44LDAsMTkuMWMyLjYsMi42LDYuMSw0LDkuNSw0YzMuNCwwLDYuOS0xLjMsOS41LTRsMjI1LjEtMjI1LjFDMzY1LjkzMSwyNDIuODc1LDM2NS45MzEsMjM0LjI3NSwzNjAuNzMxLDIyOS4wNzV6CgkJIi8+PC9nPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjwvc3ZnPg==) no-repeat;background-size:contain;position:absolute;top:0;left:0;height:100%;width:100%}}.arrows--horizontal{display:flex;position:relative;margin:0;align-items:flex-start}.arrow__wrapper{display:flex;justify-content:flex-start;align-items:center;margin:0}.arrow__wrapper:first-of-type{border-right:none;z-index:20}.arrow__wrapper:nth-of-type(n+2){margin-left:-4rem;z-index:10}.arrow__wrapper:nth-of-type(n+2) .arrow__rectangle{border-left:none;padding-left:4rem}.arrow__wrapper:nth-of-type(3){z-index:5}.arrow__wrapper:hover .arrow__point,.arrow__wrapper:hover .arrow__rectangle,.arrow__wrapper:hover .arrow__rectangle>a{background-color:#33332d!important;color:#fff!important}.arrow__rectangle{padding:1rem;justify-content:center;align-items:center;border:2px solid #33332d;border-right:none;z-index:2;overflow:hidden;font-family:IBM Plex Sans,monospace;position:relative}@media (max-width:991px){.arrow__rectangle{font-size:1rem}}.arrow__rectangle .bold{font-weight:600}.arrow__rectangle--thick-border{border:3px solid #33332d;border-right:none}.arrow__point{padding:1.25rem;border:2px solid #33332d;border-bottom:none;border-left:none;transform:translate(-1.3rem) rotate(45deg);z-index:1;overflow:hidden}.arrow__point--thick-border{border:3px solid #33332d;border-bottom:none;border-left:none}.arrow__wrapper--stacked{display:flex;justify-content:flex-start;align-items:center;margin:auto auto auto 0}@media (max-width:639px){.arrow__wrapper--stacked .arrow__rectangle{border:none;background-color:transparent!important;padding:0;font-size:1rem;justify-content:unset}.arrow__wrapper--stacked .arrow__rectangle>p>span{border-bottom:1px solid #33332d;margin:auto}.arrow__wrapper--stacked .arrow__rectangle>p>span:hover{background-color:#fff!important;color:#000}.arrow__wrapper--stacked .arrow__point{display:none}}.arrow__wrapper--stacked:nth-of-type(n+2){margin-top:1rem}@media (min-width:640px){.arrow__wrapper--stacked:nth-of-type(n+2){margin-top:-2px}}.arrow__wrapper--stacked .arrow__rectangle{position:relative}@media (min-width:640px){.arrow__wrapper--stacked .arrow__rectangle{padding:1.25rem}}@media (min-width:992px){.arrow__wrapper--stacked .arrow__rectangle{padding:1rem}}.arrow__wrapper--stacked .arrow__point{padding:1.08rem;margin-left:2px}@media (min-width:640px){.arrow__wrapper--stacked .arrow__point{margin-left:unset;padding:1.25rem}}@media (min-width:640px){.arrow__wrapper--stacked:hover .arrow__point,.arrow__wrapper--stacked:hover .arrow__rectangle{background-color:#33332d!important}}@media (min-width:640px){.arrow__wrapper--stacked:hover .arrow--stacked-letter,.arrow__wrapper--stacked:hover .arrow--stacked-title{color:#fff}}.arrow--stacked-title{font-family:IBM Plex Mono,monospace}@media (min-width:640px){.arrow--stacked-title{white-space:nowrap}}.arrow__container--with-link{width:100%!important}@media (max-width:639px){.breadcrumb .arrow__wrapper{display:none}}.breadcrumb .arrow__wrapper:hover .arrow__point,.breadcrumb .arrow__wrapper:hover .arrow__rectangle{background-color:#33332d!important}.breadcrumb .arrow__wrapper:hover .arrow--stacked-letter,.breadcrumb .arrow__wrapper:hover .arrow--stacked-title{color:#fff}.breadcrumb .arrow__rectangle{position:relative}@media (max-width:639px){.breadcrumb .arrow__rectangle{border:none;padding:0;font-size:.7rem;white-space:nowrap;background-color:transparent!important;color:#33332d}}@media (max-width:639px){.breadcrumb .arrow__point{display:none}}.banner{display:flex;width:100%;align-items:center;position:relative;padding:2rem 0;background-color:#e1e1e1}@media (min-width:992px){.banner{padding:3.444rem 3.444rem 4.444rem}}html{font-family:IBM Plex Mono,monospace;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:IBM Plex Mono,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.45em IBM Plex Mono,monospace;box-sizing:border-box;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{color:rgba(0,0,0,.8);font-family:IBM Plex Mono,monospace;font-weight:400;word-wrap:break-word;-webkit-font-kerning:normal;font-kerning:normal;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt"}img{max-width:100%;padding:0;margin:0 0 1.45rem}h1{font-size:2.25rem}h1,h2{padding:0;margin:0 0 1.45rem;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h2{font-size:1.62671rem}h3{margin:2rem 0 -.5rem;font-size:1.38316rem}h3,h4{padding:0;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h4{margin:2rem 0 -1rem;font-size:1rem}h5{font-size:.85028rem}h5,h6{padding:0;margin:0 0 1.45rem;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h6{font-size:.78405rem}hgroup{padding:0;margin:0 0 1.45rem}ol,ul{padding:0;margin:0 0 1.45rem 1.45rem;list-style-position:outside;list-style-image:none}dd,dl,figure,p{padding:0;margin:0 0 1.45rem}pre{margin:0 0 1.45rem;font-size:.85rem;line-height:1.42;background:rgba(0,0,0,.04);border-radius:3px;overflow:auto;word-wrap:normal;padding:1.45rem}table{font-size:1rem;line-height:1.45rem;border-collapse:collapse;width:100%}fieldset,table{padding:0;margin:0 0 1.45rem}blockquote{padding:0;margin:0 1.45rem 1.45rem}form,iframe,noscript{padding:0;margin:0 0 1.45rem}hr{padding:0;margin:0 0 calc(1.45rem - 1px);background:rgba(0,0,0,.2);border:none;height:1px}address{padding:0;margin:0 0 1.45rem}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-left:1.45rem;margin-bottom:.725rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{border-bottom:1px solid rgba(0,0,0,.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{letter-spacing:-.2em;content:" "}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.element--flex{display:flex;flex-wrap:wrap}.element--space-around{justify-content:space-around}.element--space-between{justify-content:space-between}.element--column{flex-direction:column}.element--centered{align-items:center;justify-content:center!important}@media (min-width:992px){.element--centered-in-desktop{align-items:center;justify-content:center!important}}@media (min-width:992px){.element--horizontal-half{width:45%}}.element--auto-margin{margin:auto}.element--auto-bottom-margin{margin-bottom:auto}.element--flex-start{align-content:flex-start}.element--no-wrap{flex-wrap:nowrap}.element--relative{position:relative!important}.edit-link>span{border-bottom-width:3px;border-bottom-style:solid;border-bottom-color:inherit}.accordion__container{margin-bottom:1rem}.accordion__title{padding-left:2.149rem!important;padding-right:2.149rem!important;font-size:1.111rem!important;font-weight:600}.accordion{background-color:#fff;border:3px solid #33332d;border-radius:5px;color:#444;cursor:pointer;padding:1rem;width:100%;text-align:left;outline:none;font-size:15px;transition:max-width .4s}.accordion:hover,.active{background-color:#e1e1e1}.accordion:after{content:"+";font-size:1.5rem;float:right;margin-left:5px}.active{border-color:#fff}.active:after{content:"-";font-size:1.5rem}.panel{background-color:#fff;transition:height .3s;transition-timing-function:ease-in-out;overflow:hidden}.accordion--side-navigation{width:100%;margin-left:unset}.accordion--side-navigation .accordion{border:none;padding:0!important;background-color:transparent!important;color:#33332d!important;border-radius:0}.accordion--side-navigation .accordion__title{font-size:16px!important;font-weight:unset;background-color:transparent}.accordion--side-navigation .accordion__title:hover{background-color:#33332d!important;color:#fff!important}.accordion--side-navigation .panel{padding:1rem 0 0!important;background-color:transparent}.accordion--side-navigation .panel ul{margin-left:1rem}.accordion--side-navigation .accordion:hover,.accordion--side-navigation .active{background-color:#33332d;color:#fff}.accordion--side-navigation .accordion:after,.accordion--side-navigation .active:after{content:""}.body-text:not(:last-of-type){margin-bottom:2.5rem}.body-text__title{color:#33332d;font-size:1.44rem;line-height:1.25em;font-weight:700;margin:0;position:relative;top:50%;transform:translateY(-50%)}.body-text__content:not(:last-of-type){padding-bottom:2em}.bold{font-weight:700}.body-text--no-padding{padding:0!important}@media (min-width:640px){.companies__main-title .body-text__title{font-size:3rem}}.challenge-title{font-size:1.44rem}@media (min-width:992px){.company__logo{width:15%!important}}.content-liftup{position:relative;text-decoration:none}.content-liftup--small{box-sizing:border-box}.content-liftup--small>:last-child{margin-bottom:0}.content-liftup__name{margin-top:1.5rem;color:#33332d;font-weight:700}@media (min-width:992px){.content-liftup__name{margin-top:2rem}}.content-liftup__summary{margin-top:1rem;margin-bottom:3rem;color:#33332d;line-height:28px}.content-liftup__link{text-decoration:none;font-weight:700}.content-liftup .content-liftup__image:after,.content-liftup__link:after{content:"";position:absolute;top:0;left:0;height:100%;width:100%}.content-liftup .content-liftup__image:after{opacity:.5;z-index:2}body,html{margin:0;padding:0;font-family:IBM Plex Mono,monospace;font-weight:500;color:#33332d;font-size:14px;line-height:1.555rem}@media (min-width:992px){body,html{font-size:18px}}.main-wrapper{min-height:100vh;display:flex;flex-direction:column}p{margin:0;text-align:left;line-height:1.5em}a,p{color:#33332d}a{text-decoration:none}.link a{border-bottom:2px solid #e1e1e1}.link a:hover{background-color:#e1e1e1}.container{position:relative;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;width:90%;max-width:1300px}@media (max-width:639px){.container{padding:0 20px}}@media (min-width:992px){.container--right{margin-right:5%;width:54%;max-width:779.9844px}}@media (min-width:992px) and (min-width:1300px){.container--right{margin-right:calc(50% - 650px)}}.hidden{display:none!important}.centered{text-align:center}@media (max-width:639px){.centered--mobile{justify-content:center;align-content:center;align-items:center}}.spacing{margin-top:2rem}@media (max-width:992px) and (min-width:640px){.spacing--tablet{margin-top:5rem!important}}@media (min-width:992px){.spacing{margin-top:5rem}}.spacing--small{margin-top:1rem}@media (min-width:992px){.spacing--small{margin-top:3.444rem}}.spacing--large{margin-top:4rem}@media (min-width:992px){.spacing--large{margin-top:10rem}}.spacing--extra-large{margin-top:4rem}@media (min-width:992px){.spacing--extra-large{margin-top:20rem}}.spacing--after{margin-bottom:2rem}@media (min-width:992px){.spacing--after{margin-bottom:5rem}}@media (max-width:639px){.spacing--after--mobile{margin-bottom:5rem}}@media (min-width:992px){.spacing--after-small{margin-bottom:2.5rem}}.spacing--after-large{margin-bottom:4rem}@media (min-width:992px){.spacing--after-large{margin-bottom:10rem}}@media (max-width:991px){.spacing--mobile{margin-top:2rem}}@media (max-width:1299px){.spacing--mobile--small{margin-top:1.5rem}}@media (max-width:1299px){.spacing--mobile--large{margin-top:3rem}}.col-1{width:100%}@media (min-width:992px){.col-1{width:10%}}.col-2{width:100%}@media (min-width:992px){.col-2{width:20%}}.col-3{width:100%}@media (min-width:992px){.col-3{width:30%}}.col-4{width:100%}@media (min-width:992px){.col-4{width:40%}}.col-5{width:100%}@media (min-width:992px){.col-5{width:50%}}.col-6{width:100%}@media (min-width:992px){.col-6{width:60%}}.col-7{width:100%}@media (min-width:992px){.col-7{width:70%}}.col-8{width:100%}@media (min-width:992px){.col-8{width:80%}}.col-9{width:100%}@media (min-width:992px){.col-9{width:90%}}.col-10{width:100%}@media (min-width:992px){.col-10{width:100%}}@media (min-width:992px){.push-right-1{margin-left:10%}.push-right-2{margin-left:20%}.push-right-3{margin-left:30%}.push-right-4{margin-left:40%}.push-right-5{margin-left:50%}.push-left-1{margin-right:10%}.push-left-2{margin-right:20%}.push-left-3{margin-right:30%}.push-left-4{margin-right:40%}.push-left-5{margin-right:50%}.push-left{margin-right:auto}.push-right{margin-left:auto}}@media (max-width:639px){.col-1--mobile{width:10%!important}.col-2--mobile{width:20%!important}.col-3--mobile{width:30%!important}.col-4--mobile{width:40%!important}.col-5--mobile{width:50%!important}.col-6--mobile{width:60%!important}.col-7--mobile{width:70%!important}.col-8--mobile{width:80%!important}.col-9--mobile{width:90%!important}.col-10--mobile{width:100%!important}.push-right-1--mobile{margin-left:10%!important}.push-right-2--mobile{margin-left:20%!important}.push-right-3--mobile{margin-left:30%!important}.push-right-4--mobile{margin-left:40%!important}.push-right-5--mobile{margin-left:50%!important}.push-left-1--mobile{margin-right:10%!important}.push-left-2--mobile{margin-right:20%!important}.push-left-3--mobile{margin-right:30%!important}.push-left-4--mobile{margin-right:40%!important}.push-left-5--mobile{margin-right:50%!important}.order-0--mobile{order:0}.order-1--mobile{order:1}.order-2--mobile{order:2}.order-3--mobile{order:3}.order-4--mobile{order:4}.order-5--mobile{order:5}.hidden--mobile{display:none}}@media (max-width:1299px){.col-1--tablet{width:10%}.col-2--tablet{width:20%}.col-3--tablet{width:30%}.col-4--tablet{width:40%}.col-5--tablet{width:50%}.col-6--tablet{width:60%}.col-7--tablet{width:70%}.col-8--tablet{width:80%}.col-9--tablet{width:90%}.col-10--tablet{width:100%}.order-0--tablet{order:0}.order-1--tablet{order:1}.order-2--tablet{order:2}.order-3--tablet{order:3}.order-4--tablet{order:4}.order-5--tablet{order:5}.order-0--mobile{order:0}.order-1--mobile{order:1}.order-2--mobile{order:2}.order-3--mobile{order:3}.order-4--mobile{order:4}.order-5--mobile{order:5}.hidden--mobile{display:none}}.centered-vertically{display:flex;flex-direction:column;justify-content:center}.nav-item-hover{text-decoration:none;color:#33332d;font-weight:500;padding:.2em}@media (min-width:640px){.nav-item-hover{font-weight:600}}.nav-item-hover:active,.nav-item-hover:focus,.nav-item-hover:hover{color:#fff;background-color:#33332d!important}.nav-item-hover:active,.nav-item-hover:focus{outline:2px solid #706be4}.flex-fix-aligning:after,.flex-fix-aligning:before{content:"";width:30%;order:2}.index__main-title{font-size:1.571rem}@media (min-width:992px){.index__main-title{font-size:3rem}}.auto-bottom-margin{margin-bottom:auto}@media (min-width:992px){.absolute-top-right--desktop{position:absolute;top:0;right:0}}@media (min-width:640px){.frontpage__hero .image{top:-2em}}@media (min-width:992px){.frontpage__hero{flex-direction:column}.frontpage__hero .image{top:4em}}.heading-font{font-family:IBM Plex Sans,monospace}.about__challenge-button{box-shadow:-3px 5px #33332d;padding:.6rem 1rem;border:3px solid #33332d;font-weight:600}.about__challenge-button:hover{background-color:#33332d;color:#fff;cursor:pointer}.about__challenge-button--turquoise{background-color:#82f7eb}@media (max-width:1299px){.space-between--mobile{justify-content:space-between}}.challenge__banner{display:flex;justify-content:center;margin-bottom:-70px}@media (min-width:640px){.challenge__banner{transform:translateY(-10px)}}@media (min-width:1300px){.challenge__banner{margin-bottom:-370px}}.challenge__banner .image{margin:0;width:70%;transform:translateY(-25%)}@media (min-width:640px){.challenge__banner .image{transform:translateY(-10%)}}@media (min-width:1300px){.challenge__banner .image{transform:translateY(-30%)}}.header{position:-webkit-sticky;position:sticky;z-index:9999999999;top:0;box-sizing:border-box;width:100%;padding-top:1.444rem;padding-bottom:1rem;transition:all .2s ease-in-out}.header--small{pointer-events:none}.header__logo{margin:0 10px;pointer-events:auto}.navigation{z-index:2;list-style:none;opacity:0;display:none;margin:0;padding:5%;flex-direction:column;justify-content:center;align-items:center;background:#e1e1e1;position:fixed;top:8%;right:5%;transition:opacity .3s ease-in-out;font-weight:200}@media (min-width:1300px){.navigation{display:flex;opacity:1;padding:0;font-weight:400;position:static;background:none;overflow:hidden;flex-direction:row}}@media (max-width:1299px){.navigation__wrapper .language-switcher{margin:20px 0 0}}@media (min-width:1300px){.navigation__wrapper{flex-grow:100}}.navigation__language-picker{margin-left:auto}.navigation__toggle{z-index:3;position:absolute;top:0;right:0;width:50px;height:40px;cursor:pointer;border:none;background:none;outline:none;border-radius:4px}@media (min-width:1300px){.navigation__toggle{display:none}}.navigation__mobile-logo{display:none}.navigation__toggle-icon{top:8px;left:10px}.navigation__toggle-icon,.navigation__toggle-icon:after,.navigation__toggle-icon:before{position:absolute;width:30px;height:3px;transition:all .3s ease;border-radius:4px;background-color:#33332d}.navigation__toggle-icon:after,.navigation__toggle-icon:before{content:"";display:block}.navigation__toggle-icon:before{top:10px}.navigation__toggle-icon:after{top:20px}.is-open--navigation{overflow:hidden;height:100vh}.is-open--navigation .navigation{opacity:1;display:unset}.is-open--navigation .navigation:before{content:"";background-color:#e1e1e1;position:absolute;width:25px;height:25px;top:-3px;right:13px;transform:rotate(45deg)}.is-open--navigation .navigation__mobile-logo{display:block;width:30px;height:30px;position:absolute;top:47px;left:5%}@media (min-width:1300px){.is-open--navigation .navigation__mobile-logo{display:none}}.is-open--navigation .navigation__toggle-icon{transform:translate3d(0,10px,0) rotate(45deg)}.is-open--navigation .navigation__toggle-icon,.is-open--navigation .navigation__toggle-icon:after,.is-open--navigation .navigation__toggle-icon:before{background:#33332d}.is-open--navigation .navigation__toggle-icon:before{transform:rotate(-45deg) translate3d(-5.71429px,-6px,0);opacity:0}.is-open--navigation .navigation__toggle-icon:after{transform:translate3d(0,-19px,0) rotate(-90deg)}.navigation__item{margin:22px 0;white-space:nowrap}.navigation__item:first-of-type{margin:0 0 22px}.navigation__item:last-of-type{margin:22px 0 0}@media (min-width:1300px){.navigation__item{margin:0 30px;padding:0!important}.navigation__item:first-of-type{margin:0 30px 0 2rem}.navigation__item:last-of-type{margin:0 0 0 30px}}.LanguagePicker-module--select--364N3{padding:3px 6px;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #33332d;border-radius:5px;color:inherit;background-color:#fff;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:16px 12px;width:6.5rem}.SvgIcon-module--svgIcon--1nGJ6{-webkit-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;flex-shrink:0;font-size:1.5rem}.SrOnly-module--srOnly--2Hn2L{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.SearchLink-module--searchLink--2IShR{margin-left:auto;border-radius:4px;padding:4px;display:inline-flex}.SearchLink-module--searchLink--2IShR:hover{background-color:#33332d;color:#fff}.triple-border{position:relative;padding:2px;border-radius:5px 0;transition:color .1s ease-in-out,background-color .1s ease-in-out}.triple-border:after,.triple-border:before{z-index:2;content:"";border:2px solid #33332d;border-radius:5px;position:absolute;width:calc(100% + 5px);height:calc(100% + 5px)}.triple-border:before{left:0;top:0}.triple-border:after{bottom:0;right:0}.triple-border__container{position:relative;overflow:hidden;border-radius:3px 0}.triple-border--large-margin{margin:13px;padding:3px}.triple-border--large-margin:after,.triple-border--large-margin:before{content:"";border-width:3px;border-radius:13px;width:calc(100% + 13px);height:calc(100% + 13px)}.triple-border--large-margin .triple-border__container{border-radius:10px 0}.triple-border__logo{padding:.2rem;font-size:1.111rem;font-weight:600}.triple-border__return-tasks{font-size:.9rem;padding:1rem .2rem}.image__content{position:absolute;top:0;left:0;height:100%;width:100%;-o-object-fit:cover;object-fit:cover}.image--contain .image__content{-o-object-fit:contain;object-fit:contain}.image{overflow:hidden;width:100%;position:relative}@media (min-width:992px){.image{width:40%}}.image .image__container{height:0;position:relative;width:100%;padding-bottom:89.0625%}.image--circle{border-radius:50%}.image--circle .image__content{background-color:#e1e1e1}.image--square-big{width:100%}.image--square-big .image__container{width:100%;padding-bottom:100%}.image--extra-small{width:8%}.image--extra-small .image__container{width:100%;padding-bottom:100%}@media (max-width:639px){.image--extra-small{width:calc(33.33333% - 1rem)}}.image--small{width:15%}.image--small .image__container{width:100%;padding-bottom:100%}@media (max-width:639px){.image--small{width:calc(33.33333% - 1rem)}}.image--medium{width:50%}.image--medium .image__container{width:100%;padding-bottom:71.25%}.image--large{width:100%}@media (min-width:992px){.image--large{width:60%}}.image--large .image__container{padding-bottom:59.37%;width:100%}.image--full-width{width:100%}.image--full-width .image__container{padding-bottom:59.37%;width:100%}.image--actual-size{width:100%}.image--actual-size .image__container{height:0;position:relative;width:100%;padding-bottom:60%}.form p{font-family:IBM Plex Sans,monospace;font-size:.9rem;margin-bottom:10px}.form input{padding:1rem;border:1px solid #e1e1e1;outline:0}.form input:focus{border:1px solid #33332d}.form .submit{border:3px solid #33332d;background-color:#e1e1e1;padding:.7rem 2rem}.form .submit:hover{cursor:pointer;background-color:#33332d;color:#fff}.developer-story__image{margin-bottom:auto}.developer-story__name{margin-top:4rem;font-size:1.2rem}.developer-story__title{font-size:.9rem}.developer-story__read-more{margin-top:2rem;line-height:1.1rem;width:auto;background:none;color:inherit;padding:0!important;border:none;border-bottom:2px solid #e1e1e1;cursor:pointer}.developer-story__read-more:hover{background-color:#e1e1e1}.some-logo__link{margin:1rem 1rem 0 0;display:inline-block}.some-logo__image{width:1.5rem;height:1.5rem;margin:0}#footer{margin-top:auto}@media (min-width:992px){#footer{align-items:center}}#footer a:hover{background-color:transparent!important}#footer .footer__navigation{display:none}@media (max-width:1299px){#footer .footer__navigation{width:100%;display:block}#footer .footer__navigation-link-container{display:flex;flex-direction:column}}#footer .footer__navigation-link{font-size:1rem;line-height:18px;white-space:nowrap;font-family:IBM Plex Sans,monospace;margin-left:0!important;margin-right:auto}@media (max-width:639px){#footer .footer__navigation-link{line-height:8px}}#footer .footer__navigation-link:hover{color:#fff!important;background-color:#33332d!important}#footer .footer__navigation-link:nth-of-type(n+2){margin-top:2.142rem}@media (min-width:1300px){#footer .footer__navigation{flex-direction:row;flex-wrap:nowrap;justify-content:flex-end}#footer .footer__navigation-link{margin-top:0!important;margin-bottom:auto}#footer .footer__navigation-link:nth-of-type(n+1){margin-right:2.877rem}#footer .footer__navigation-link:last-of-type{margin-right:0!important}}.prev-next__container .separator{display:none}@media (max-width:639px){.prev-next__container .separator{display:block;background-color:#33332d;width:2px!important}}.prev-next__container .prev b,.prev-next__container .prev p{text-align:right}@media (max-width:639px){.prev-next__container .prev p:before{content:"<";margin-right:1rem}}@media (max-width:639px){.prev-next__container .next p:after{content:">";margin-left:1rem}}.scroll-navigation-container{display:none}@media (min-width:992px){.scroll-navigation-container{pointer-events:none;display:block;font-size:16px;position:-webkit-sticky;position:sticky;width:100%;margin-right:-100%;left:0;top:-100px;padding-top:200px}}.scroll-navigation-container-inner{width:90%;margin:0 auto;max-width:1200px}.scroll-navigation{pointer-events:auto;display:flex;width:30%;max-width:30%/.9;height:100%;overflow-y:auto;max-height:calc(100vh - 100px);padding-right:1rem;z-index:199}.scroll-navigation li{list-style-type:none}.scroll-navigation li.selected a,.scroll-navigation li:hover a{background-color:#33332d;color:#fff!important}.scroll-navigation li:before{content:"-"}.left-navigation-link{padding-left:1.2rem;text-indent:-1.2rem;display:block}.left-navigation-link:hover{background-color:#33332d!important;color:#fff!important}.level-h1{font-weight:700;padding-left:2.8rem;text-indent:-2.8rem}.level-h2{padding-left:1.6rem;text-indent:-1.6rem}.sub-header{color:#33332d;font-family:IBM Plex Mono,monospace;padding-bottom:1.357rem}@media (min-width:992px){.sub-header{padding-bottom:2.333rem}}.InputField-module--inputField--3oXh5{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:100%;border:0;font-family:inherit;padding:16px 12px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.3);color:#000;transition:all .15s ease}.InputField-module--inputField--3oXh5:hover{box-shadow:inset 0 -2px 0 rgba(0,0,0,.4)}.InputField-module--inputField--3oXh5:focus{outline:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.5)}</style><meta name="generator" content="Gatsby 2.30.1"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Fullstack part10 | </title><meta data-react-helmet="true" name="description" content=""/><meta data-react-helmet="true" property="og:title" content="Fullstack part10 | "/><meta data-react-helmet="true" property="og:description" content=""/><meta data-react-helmet="true" name="og:image" content="/static/EYE_green_wide-0a72f74a959f54d0f3e4bb8c67f6f158.jpg"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Houston Inc. Consulting oy"/><meta data-react-helmet="true" name="twitter:title" content="Fullstack part10 | "/><meta data-react-helmet="true" name="twitter:description" content=""/><meta data-react-helmet="true" name="twitter:image" content="/static/EYE_green_wide-0a72f74a959f54d0f3e4bb8c67f6f158.jpg"/><meta data-react-helmet="true" name="google-site-verification" content="ds9pQKiK3kjhRSHHbf5ccoG-oJggn7Lq4A8uHxM3Mkw"/><meta data-react-helmet="true" name="keywords" content="fullstack, Full stack -websovelluskehitys, course, helsingin yliopisto, tietojenkäsittelytieteen osasto, mooc, mooc.fi, full stack, full stack open, web-sovelluskehitys, web, houston, houston inc, websovelluskehitys, web-sovellus, React, Redux, Node.js, Node, MongoDB, GraphQL, REST, REST api, single page -sovellus, ohjelmointi, university of helsinki, department of computer science, web development, software development, web, web application, single page app, programming, "/><link rel="icon" href="/favicon-32x32.png?v=6460c405ec32c913ef778f48c5ab192e" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#e1e1e1"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="canonical" href="https://fullstackopen.com/zh/part10/测试与扩展我们的应用" data-baseprotocol="https:" data-basehost="fullstackopen.com"/><link as="script" rel="preload" href="/5d7a54886b2742230021cc39eab839038eb7a677-aad1a805ee4596e9a838.js"/><link as="script" rel="preload" href="/framework-bb9bb9cb9df99aee3258.js"/><link as="script" rel="preload" href="/app-ef8bef0e206781be83c1.js"/><link as="script" rel="preload" href="/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js"/><link as="script" rel="preload" href="/ff8e348e8d42e8d61f84312613c75c948ce81396-bbc0c43404e43e967ab7.js"/><link as="script" rel="preload" href="/e4b9374bcd292c90587e3ccf579324c3065ac22f-63f0a03f893b4902fedd.js"/><link as="script" rel="preload" href="/30844a71ec80b1e82ad30323d06b914984ff6c2b-9847aef7af5bdcc218fe.js"/><link as="script" rel="preload" href="/commons-2f51cc50765e604cbb43.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/webpack-runtime-a7eee694451a048fe190.js"/><link as="fetch" rel="preload" href="/page-data/zh/part10/测试与扩展我们的应用/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="main-wrapper"><div class="header " style="background-color:white"><div class="container" style="align-items:center;justify-content:flex-start"><a class="header__logo" href="/"><div class="triple-border nav-item-hover " style="padding:0.2em"><div class="triple-border__container triple-border__logo" style="background-color:transparent;z-index:10">{() =&gt; fs}</div></div></a><div class="navigation__wrapper "><button aria-label="Navigation menu" aria-expanded="false" class="navigation__toggle"><div class="navigation__toggle-icon"></div></button><nav><ul class="navigation"><li class="navigation__item "><a class="nav-item-hover" href="/zh/about">关于课程</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/#course-contents">课程内容</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/faq">常见问题</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/companies">合作伙伴</a></li><a class="SearchLink-module--searchLink--2IShR" href="/zh/search"><span class="SrOnly-module--srOnly--2Hn2L">从教程中搜索</span><svg role="img" viewBox="0 0 24 24" class="SvgIcon-module--svgIcon--1nGJ6"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></a><select class="navigation__language-picker LanguagePicker-module--select--364N3"><option value="fi">Suomi</option><option value="en">English</option></select></ul></nav></div></div></div><div class="course-container spacing--after"><div class="banner part-main__banner spacing--mobile--small" style="background-image:url(/static/83f1c8a7795e9e8eaffaec29b1ee79b1/part-1.svg);background-color:#AFF4FE"><div class="container spacing--after"><div class="col-10 spacing--after"><div class="arrow__container arrows--horizontal breadcrumb"><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#AFF4FE;color:#33332d"><a href="/zh/#course-contents">Fullstack</a></div><div class="arrow__point " style="background-color:#AFF4FE;color:#33332d"></div></div><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#AFF4FE;color:#33332d"><a href="/zh/part10">Part 10</a></div><div class="arrow__point " style="background-color:#AFF4FE;color:#33332d"></div></div><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#33332d;color:white">测试与扩展我们的应用</div><div class="arrow__point " style="background-color:#33332d;color:white"></div></div></div></div></div></div><div class="course "><div class="scroll-navigation-container "><div class="scroll-navigation-container-inner "><div class="scroll-navigation  element--column" tag="ul"><a class="left-navigation-link" style="border-color:#AFF4FE" href="/zh/part10/react_native_介绍">a React Native 介绍</a><a class="left-navigation-link" style="border-color:#AFF4FE" href="/zh/part10/react_native_入门">b React Native 入门</a><a class="left-navigation-link" style="border-color:#AFF4FE" href="/zh/part10/与服务端通信">c 与服务端通信</a><div class="accordion__container col-8 push-right-1 accordion--side-navigation"><button class="accordion accordion__title  " style="background-color:#AFF4FE;border-color:#AFF4FE">d 测试与扩展我们的应用</button><div class="panel" style="padding:;max-height:0;transition:max-height 0.2s ease-out"><ul></ul></div></div></div></div></div><div class="course-content-container "><div class="course-content element--auto-bottom-margin"><div class="course-content-inner "><p class="col-1 letter" style="border-color:#AFF4FE">d</p><h1 class="sub-header ">测试与扩展我们的应用</h1></div></div><div class="course-content "><div class="course-content-inner ">
+<!-- -->
+<p>现在我们已经为我们的项目搭建了不错的基础设施，是时候开始扩展它了。在这一节你会将之前所学到的所有React Native 知识融汇在一起。除了扩展我们的应用，我们还会接触一些新的领域，比如测试，以及一些额外的资源。</p>
+<h3>Testing React Native applications</h3>
+<p>测试React Native 应用</p>
+<!-- -->
+<p>在开始着手测试之前，我们要了解的第一个议题就是测试框架，测试框架让我们能够用来跑一系列的测试用例，并检查它们的结果。在测试JavaScript 应用来说，测试框架<a href="https://jestjs.io/">Jest</a> 是一个广泛使用的备选项。利用Jest 来测试基于React Native 的Expo 应用，Expo 在 <a href="https://github.com/expo/expo/tree/master/packages/jest-expo">jest-expo</a> 预先设置中提供了一系列Jest 配置，为了在Jest的测试文件中使用ESLint ， 我们还需要<a href="https://www.npmjs.com/package/eslint-plugin-jest">eslint-plugin-jest</a> 插件来启用ESLint。 让我们开始安装这些包吧：</p>
+<div class="gatsby-highlight" data-language="shell"><pre><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save-dev jest jest-expo eslint-plugin-jest</code></pre></div>
+<!-- -->
+<p>为了用Jest 使用 jest-expo  预先配置， 我们需要在  <i>package.json</i> 文件中的Jest 配置里加上如下内容，以及 <i>test</i> 脚本。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token string">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// other scripts...</span>
+<span class="gatsby-highlight-code-line">    <span class="token string">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest&quot;</span></span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">  <span class="token string">&quot;jest&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token string">&quot;preset&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest-expo&quot;</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">    <span class="token string">&quot;transform&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">      <span class="token string">&quot;^.+\\.jsx?$&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-jest&quot;</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">    <span class="token string">&quot;transformIgnorePatterns&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span></span><span class="gatsby-highlight-code-line">      <span class="token string">&quot;node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*|react-router-native)&quot;</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">]</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span>  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p><em>transform</em> 选项告诉Jest 将<i>.js</i> 和 <i>.jsx</i> 文件利用 <a href="https://babeljs.io/">Babel</a> 编译器来编译。<em>transformIgnorePatterns</em> 选项用来在转换文件时忽略特定的文件夹。Jest 配置与Expo 的 <a href="https://docs.expo.io/guides/testing-with-jest/">documentation</a> 中建议的配置基本一致。</p>
+<!-- -->
+<p>为了在ESLint 中使用 eslint-plugin-jest 插件，我们需要将它引入到 <i>.eslintrc</i>  文件的插件与扩展数组中。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;react&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;jest&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">  <span class="token string">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;eslint:recommended&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;plugin:react/recommended&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;plugin:jest/recommended&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span></span>  <span class="token string">&quot;parser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-eslint&quot;</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;browser&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;react/prop-types&quot;</span><span class="token operator">:</span> <span class="token string">&quot;off&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>为了检查安装是否生效，在 <i>src</i> 文件夹中创建一个  <i>__tests__</i> 目录，并在文件夹中创建一个 <i>example.js</i>  文件。在文件中添加一些简单的测试：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;Example&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#x27;works&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>现在让我们通过运行  <em>npm test</em> 脚本来启动我们的测试例子。命令的输出说明了位于 <i>src/__tests__/example.js</i> 的测试已经通过了。</p>
+<h3>Organizing tests</h3>
+<p>组织测试文件</p>
+<!-- -->
+<p>将所有的测试文件放到单一的 <i>__tests__</i> 文件夹中是组织测试文件的一种方法。如果选择了这种方法，建议将相关的测试文件放到对应的子目录中，我们之前的代码组织就是这样的。也就是说测试文件与  <i>components</i>  文件夹是一一对应的，测试相关的工具文件放到 <i>utils</i>  文件夹下。最终的代码组织结构如下：</p>
+<div class="gatsby-highlight" data-language="text"><pre><code class="language-text">src/
+  __tests__/
+    components/
+      AppBar.js
+      RepositoryList.js
+      ...
+    utils/
+      authStorage.js
+      ...
+    ...</code></pre></div>
+<!-- -->
+<p>另一种组织测试文件的方法是让测试文件靠近实现文件。也就是说，比如包含  <em>AppBar</em>  组件的测试文件与组件文件位于相同的文件夹。最终的代码组织如下：</p>
+<div class="gatsby-highlight" data-language="text"><pre><code class="language-text">src/
+  components/
+    AppBar/
+      AppBar.test.jsx
+      index.jsx
+    ...
+  ...</code></pre></div>
+<!-- -->
+<p>在这个例子中，组件的实现代码位于  <i>index.jsx</i>  文件，测试代码位于 <i>AppBar.test.jsx</i> 文件。注意为了让Jest 发现你的测试文件，你需要将它们放到 <i>__tests__</i> 文件夹中，使用  <i>.test</i> 或者 <i>.spec</i>后缀，或者 <a href="https://jestjs.io/docs/en/configuration#testmatch-arraystring">手工配置</a>全局配置。</p>
+<h3>Testing components</h3>
+<p>测试组件</p>
+<!-- -->
+<p>现在我们已经搭建起了Jest 并跑了一个简单的测试，是时候探究如何测试组件了。我们知道，测试组件需要一种方法来将组件渲染出去并模拟触发不同的事件，例如说按一个按钮。为了这些目的，可以选择一个 <a href="https://testing-library.com/docs/intro">Testing Library</a>  库集合，提供了测试不同平台组件的一系列测试库。所有的库都采用共享类似的API来测试用户的接口组件，完全是面向用户的。</p>
+<!-- -->
+<p>在<a href="/zh/part5/%E6%B5%8B%E8%AF%95_react_%E5%BA%94%E7%94%A8">part 5</a> 中我们熟悉了他们中的一员， <a href="https://testing-library.com/docs/react-testing-library/intro">React Testing Library</a> 。 不行的是，这个库仅仅对于测试React web应用是合适的。幸运的是，这个库有一个React Native版的兄弟，那就是<a href="https://callstack.github.io/react-native-testing-library/">React Native Testing Library</a> 。这个库可以用来测试React Native 应用的组件。好消息是，这些库共享类似的API，所以没有很多新的概念需要了解。除了React Native Testing Library ， 我们需要一系列React Native 特定的Jest 适配器，例如<em>toHaveTextContent</em> 和  <em>toHaveProp</em> 。 这些适配器是由<a href="https://github.com/testing-library/jest-native">jest-native</a> 库提供的。在深入细节以前，让我们来安装这些库吧：</p>
+<div class="gatsby-highlight" data-language="shell"><pre><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> --save-dev @testing-library/react-native @testing-library/jest-native</code></pre></div>
+<!-- -->
+<p>为了使用这些适配器我们需要扩展 <em>expect</em> 对象。可以通过全局安装配置文件实现。在项目的根目录创建一个<i>setupTests.js</i>  文件，也就是，与<i>package.json</i> 文件存在于相同的目录，在文件中我们添加如下内容：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> <span class="token string">&#x27;@testing-library/jest-native/extend-expect&#x27;</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>接下来，在 <i>package.json</i>  文件中作为安装文件在Jest 的配置中配置这个文件（注意，路径中的 <em>&lt;rootDir&gt;</em>  是内置的，无需替换掉）</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token string">&quot;jest&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;preset&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest-expo&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transform&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;^.+\\.jsx?$&quot;</span><span class="token operator">:</span> <span class="token string">&quot;babel-jest&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transformIgnorePatterns&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*|react-router-native)&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">    <span class="token string">&quot;setupFilesAfterEnv&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;&lt;rootDir&gt;/setupTests.js&quot;</span><span class="token punctuation">]</span></span>  <span class="token punctuation">}</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>React Native 测试库的核心概念就是 <a href="https://callstack.github.io/react-native-testing-library/docs/api-queries">查询 queries</a> 和<a href="https://callstack.github.io/react-native-testing-library/docs/api#fireevent">触发事件 firing events</a>。 查询用来从组件中抽取一系列node， 利用<a href="https://callstack.github.io/react-native-testing-library/docs/api#render">render</a> 函数来渲染。查询在一些场景中是非常有用的，比如说我们想要一些文本，比如说仓库的名称，存在于渲染出的组件中。为了简单地获取特定的节点，你可以利用 <em>testID</em> 属性来标注节点，并通过 <a href="https://callstack.github.io/react-native-testing-library/docs/api-queries#bytestid">getByTestId</a>  函数来查询到这个节点。每一个React Native 的核心模块都接受 <em>testID</em> 属性。下面是一个使用查询的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Text<span class="token punctuation">,</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react-native&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@testing-library/react-native&#x27;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Greeting</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>View<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span><span class="token comment">/* This node is tagged with the testID prop */</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>Text testID<span class="token operator">=</span><span class="token string">&quot;greetingText&quot;</span><span class="token operator">&gt;</span>Hello <span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;Greeting&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#x27;renders a greeting message based on the name prop&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> debug<span class="token punctuation">,</span> getByTestId <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>Greeting name<span class="token operator">=</span><span class="token string">&quot;Kalle&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">debug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">getByTestId</span><span class="token punctuation">(</span><span class="token string">&#x27;greetingText&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveTextContent</span><span class="token punctuation">(</span><span class="token string">&#x27;Hello Kalle!&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p> <em>render</em> 函数返回查询及额外的工具函数，比如  <em>debug</em>  函数。 <a href="https://callstack.github.io/react-native-testing-library/docs/api#debug">debug</a> 函数用于将渲染的React 树以一种友好的方式展示出来。如果你不确定  <em>render</em>  函数渲染出的React 树长什么样，可以使用这个函数。我们通过使用 <em>getByTestId</em> 函数来获取带  <em>testID</em> 属性标签的 <em>Text</em> 节点。对所有的查询来说，可以查阅React Native 测试库的 <a href="https://callstack.github.io/react-native-testing-library/docs/api-queries">documentation</a> 。<em>toHaveTextContent</em> 适配器用来断言节点的文本内容是正确的。React Native 的完整适配器列表可以查阅jest-native 库的 <a href="https://github.com/testing-library/jest-native#matchers">documentation</a> 。Jest&#x27;s 的<a href="https://jestjs.io/docs/en/expect">documentation</a>  包含了每一个通用的Jest 适配器。</p>
+<!-- -->
+<p>第二个十分重要的React Native 测试库中的概念就是触发事件。我们可以通过使用<a href="https://callstack.github.io/react-native-testing-library/docs/api#fireevent">fireEvent</a>  对象方法来在给定的节点中触发事件。这在类似我们键入文本到文本框中，或者点击一个按钮十分有用。下面是一个如何测试提交表单的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Text<span class="token punctuation">,</span> TextInput<span class="token punctuation">,</span> TouchableWithoutFeedback<span class="token punctuation">,</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react-native&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> fireEvent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@testing-library/react-native&#x27;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Form</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> onSubmit <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>username<span class="token punctuation">,</span> setUsername<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">&#x27;&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>password<span class="token punctuation">,</span> setPassword<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">&#x27;&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleSubmit</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">onSubmit</span><span class="token punctuation">(</span><span class="token punctuation">{</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>View<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>View<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>TextInput
+          value<span class="token operator">=</span><span class="token punctuation">{</span>username<span class="token punctuation">}</span>
+          onChangeText<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">text</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setUsername</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">}</span>
+          placeholder<span class="token operator">=</span><span class="token string">&quot;Username&quot;</span>
+          testID<span class="token operator">=</span><span class="token string">&quot;usernameField&quot;</span>
+        <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>View<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>TextInput
+          value<span class="token operator">=</span><span class="token punctuation">{</span>password<span class="token punctuation">}</span>
+          onChangeText<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">text</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setPassword</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">}</span>
+          placeholder<span class="token operator">=</span><span class="token string">&quot;Password&quot;</span>
+          testID<span class="token operator">=</span><span class="token string">&quot;passwordField&quot;</span>
+        <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>View<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>TouchableWithoutFeedback onPress<span class="token operator">=</span><span class="token punctuation">{</span>handleSubmit<span class="token punctuation">}</span> testID<span class="token operator">=</span><span class="token string">&quot;submitButton&quot;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>Text<span class="token operator">&gt;</span>Submit<span class="token operator">&lt;</span><span class="token operator">/</span>Text<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>TouchableWithoutFeedback<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;Form&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#x27;calls function provided by onSubmit prop after pressing the submit button&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> onSubmit <span class="token operator">=</span> jest<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> getByTestId <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>Form onSubmit<span class="token operator">=</span><span class="token punctuation">{</span>onSubmit<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    fireEvent<span class="token punctuation">.</span><span class="token function">changeText</span><span class="token punctuation">(</span><span class="token function">getByTestId</span><span class="token punctuation">(</span><span class="token string">&#x27;usernameField&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&#x27;kalle&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    fireEvent<span class="token punctuation">.</span><span class="token function">changeText</span><span class="token punctuation">(</span><span class="token function">getByTestId</span><span class="token punctuation">(</span><span class="token string">&#x27;passwordField&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&#x27;password&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    fireEvent<span class="token punctuation">.</span><span class="token function">press</span><span class="token punctuation">(</span><span class="token function">getByTestId</span><span class="token punctuation">(</span><span class="token string">&#x27;submitButton&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span>onSubmit<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalledTimes</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// onSubmit.mock.calls[0][0] contains the first argument of the first call</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>onSubmit<span class="token punctuation">.</span>mock<span class="token punctuation">.</span>calls<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      username<span class="token operator">:</span> <span class="token string">&#x27;kalle&#x27;</span><span class="token punctuation">,</span>
+      password<span class="token operator">:</span> <span class="token string">&#x27;password&#x27;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>在这个测试中，我们希望使用  <em>fireEvent.changeText</em> 方法测试填充完表单，然后利用 <em>fireEvent.press</em>  方法点击提交按钮， <em>onSubmit</em>  的回调函数是否执行正确。为了检查  <em>onSubmit</em>  函数通过什么参数进行了调用，我们可以使用  <a href="https://jestjs.io/docs/en/mock-function-api">mock function</a> 。Mock 函数是预编程好的行为，比如说返回一个固定的值。此外，我们可以为mock 函数创建预期比如“预期mock 函数已经被调用了一次”。完整的预期列表可以查阅Jest 的<a href="https://jestjs.io/docs/en/expect">expect documentation</a>。</p>
+<!-- -->
+<p>在继续深入测试React Native 应用之前，尝试一些这些列子，在之前创建的 <i>__tests__</i> 文件夹中创建一个test 文件。</p>
+<h3>Handling dependencies in tests</h3>
+<p>处理测试的依赖</p>
+<!-- -->
+<p>之前例子的组件测试起来十分简单，因为他们或多或少都比较 <i>单纯</i>。 纯函数并不依赖什么 <i>副作用</i>，比如说网络请求，或者使用一些原生的API，例如 。 <em>Form</em> 组件就没有 <em>Greeting</em>  组件单纯，因为其内部的状态会作为副作用计算出来。不管怎么说，测试起来并不困难。</p>
+<!-- -->
+<p>下面，让我们看一下包含副作用的组件如何测试。我们选择我们应用的<em>RepositoryList</em> 组件来作为例子。当前该组件包含一个副作用，就是利用GraphQL查询来获取查看列表。当前的<em>RepositoryList</em> 组件实现看起来如下：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RepositoryList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> repositories <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRepositories</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> repositoryNodes <span class="token operator">=</span> repositories
+    <span class="token operator">?</span> repositories<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">edge</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> edge<span class="token punctuation">.</span>node<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>FlatList
+      data<span class="token operator">=</span><span class="token punctuation">{</span>repositoryNodes<span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> RepositoryList<span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>唯一的副作用是使用  <em>useRepositories</em>  hook，发送了一个 GraphQL 查询。有一些方法来测试这个组件。一种是模拟Apollo Client 的返回，参考 Apollo Client 的  <a href="https://www.apollographql.com/docs/react/development-testing/testing/">documentation</a> 。一个更简单的方法是假定 <em>useRepositories</em> hook 如期运行（对测试更友好）并且将“单纯”的代码提取到另一个组件中，例如  <em>RepositoryListContainer</em>  组件：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">RepositoryListContainer</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> repositories <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> repositoryNodes <span class="token operator">=</span> repositories
+    <span class="token operator">?</span> repositories<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">edge</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> edge<span class="token punctuation">.</span>node<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>FlatList
+      data<span class="token operator">=</span><span class="token punctuation">{</span>repositoryNodes<span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">RepositoryList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> repositories <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRepositories</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>RepositoryListContainer repositories<span class="token operator">=</span><span class="token punctuation">{</span>repositories<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> RepositoryList<span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>现在，  <em>RepositoryList</em>组件只包含副作用，它的实现也十分简明了。我们可以通过给<em>RepositoryListContainer</em>  组件提供分页的仓库数据，传递<em>repositories</em>  属性，并测试组件能够渲染出正确的信息。可以通过给需要的  <em>RepositoryItem</em> 组件节点用<em>testID</em> 属性打上标签。</p>
+</div></div>
+<div class="banner spacing tasks content-banner" style="background-color:#AFF4FE"><div class="course-content " style="border-color:#AFF4FE;background-color:transparent"><div class="course-content-inner ">
+<h3>Exercises 10.17. - 10.18.</h3>
+<h4>Exercise 10.17: testing the reviewed repositories list</h4>
+<p>Implement a test that ensures that the <em>RepositoryListContainer</em> component renders repository&#x27;s name, description, language, forks count, stargazers count, rating average, and review count correctly. Remember that you can use the <a href="https://github.com/testing-library/jest-native#tohavetextcontent">toHaveTextContent</a> matcher to check whether a node has certain textual content. You can use the <a href="https://callstack.github.io/react-native-testing-library/docs/api-queries#getallby">getAllByTestId</a> query to get all nodes with a certain <em>testID</em> prop as an array. If you are unsure what is being rendered, use the <a href="https://callstack.github.io/react-native-testing-library/docs/api#debug">debug</a> function to see the serialized rendering result.</p>
+<p>实现一个测试能确保 <em>RepositoryListContainer</em> 组件渲染正确的仓库的名称、描述、语言、fork数量、star 数量、投票平均分以及查看数量。记住你可以使用 <a href="https://github.com/testing-library/jest-native#tohavetextcontent">toHaveTextContent</a> 适配器来检查一个节点是否包含特定的文本内容。你可以使用 <a href="https://callstack.github.io/react-native-testing-library/docs/api-queries#getallby">getAllByTestId</a> 查询来获得所有的节点，利用 <em>testID</em> 属性获得一个数组。如果不确定渲染了什么，使用 <a href="https://callstack.github.io/react-native-testing-library/docs/api#debug">debug</a> 函数来查看序列化的渲染结果。</p>
+<p>Use this as a base for your test:
+用如下代码作为测试的基石：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;RepositoryList&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;RepositoryListContainer&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#x27;renders repository information correctly&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> repositories <span class="token operator">=</span> <span class="token punctuation">{</span>
+        totalCount<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+        pageInfo<span class="token operator">:</span> <span class="token punctuation">{</span>
+          hasNextPage<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          endCursor<span class="token operator">:</span>
+            <span class="token string">&#x27;WyJhc3luYy1saWJyYXJ5LnJlYWN0LWFzeW5jIiwxNTg4NjU2NzUwMDc2XQ==&#x27;</span><span class="token punctuation">,</span>
+          startCursor<span class="token operator">:</span> <span class="token string">&#x27;WyJqYXJlZHBhbG1lci5mb3JtaWsiLDE1ODg2NjAzNTAwNzZd&#x27;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        edges<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            node<span class="token operator">:</span> <span class="token punctuation">{</span>
+              id<span class="token operator">:</span> <span class="token string">&#x27;jaredpalmer.formik&#x27;</span><span class="token punctuation">,</span>
+              fullName<span class="token operator">:</span> <span class="token string">&#x27;jaredpalmer/formik&#x27;</span><span class="token punctuation">,</span>
+              description<span class="token operator">:</span> <span class="token string">&#x27;Build forms in React, without the tears&#x27;</span><span class="token punctuation">,</span>
+              language<span class="token operator">:</span> <span class="token string">&#x27;TypeScript&#x27;</span><span class="token punctuation">,</span>
+              forksCount<span class="token operator">:</span> <span class="token number">1619</span><span class="token punctuation">,</span>
+              stargazersCount<span class="token operator">:</span> <span class="token number">21856</span><span class="token punctuation">,</span>
+              ratingAverage<span class="token operator">:</span> <span class="token number">88</span><span class="token punctuation">,</span>
+              reviewCount<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              ownerAvatarUrl<span class="token operator">:</span>
+                <span class="token string">&#x27;https://avatars2.githubusercontent.com/u/4060187?v=4&#x27;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            cursor<span class="token operator">:</span> <span class="token string">&#x27;WyJqYXJlZHBhbG1lci5mb3JtaWsiLDE1ODg2NjAzNTAwNzZd&#x27;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            node<span class="token operator">:</span> <span class="token punctuation">{</span>
+              id<span class="token operator">:</span> <span class="token string">&#x27;async-library.react-async&#x27;</span><span class="token punctuation">,</span>
+              fullName<span class="token operator">:</span> <span class="token string">&#x27;async-library/react-async&#x27;</span><span class="token punctuation">,</span>
+              description<span class="token operator">:</span> <span class="token string">&#x27;Flexible promise-based React data loader&#x27;</span><span class="token punctuation">,</span>
+              language<span class="token operator">:</span> <span class="token string">&#x27;JavaScript&#x27;</span><span class="token punctuation">,</span>
+              forksCount<span class="token operator">:</span> <span class="token number">69</span><span class="token punctuation">,</span>
+              stargazersCount<span class="token operator">:</span> <span class="token number">1760</span><span class="token punctuation">,</span>
+              ratingAverage<span class="token operator">:</span> <span class="token number">72</span><span class="token punctuation">,</span>
+              reviewCount<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              ownerAvatarUrl<span class="token operator">:</span>
+                <span class="token string">&#x27;https://avatars1.githubusercontent.com/u/54310907?v=4&#x27;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            cursor<span class="token operator">:</span>
+              <span class="token string">&#x27;WyJhc3luYy1saWJyYXJ5LnJlYWN0LWFzeW5jIiwxNTg4NjU2NzUwMDc2XQ==&#x27;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// Add your test code here</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>你可以按自己喜欢的方式放置你的测试文件。但是，建议按照我们之前建议的几种组织测试代码的方式来组织。使用 <em>repositories</em>  变量作为测试的仓库数据。应该没有必要去改变变量的值。注意仓库数据包含两个仓库，也就是说你需要检查这两个仓库的信息都是存在的。</p>
+<h4>Exercise 10.18: testing the sign in form</h4>
+<p>测试登录表单</p>
+<!-- -->
+<p>实现一个测试来确保在登录表单的用户名和密码字段填充后点击提交按钮 <i>会调用</i> <em>onSubmit</em>   处理器，并且使用了 <i>正确的参数</i>。处理器的 <i>第一个参数</i>应当是一个对象，代表了表单中的值。你可以忽略函数中的其他参数。记住  <a href="https://callstack.github.io/react-native-testing-library/docs/api#fireevent">fireEvent</a> 方法可以用来触发事件，而 <a href="https://jestjs.io/docs/en/mock-function-api">mock function</a> 函数可以用来检查 处理器是否被调用了。</p>
+<!-- -->
+<p>你不必测试任何Apollo 客户端或者异步存储相关的代码，它们都存在于 <em>useSignIn</em> hook中。如之前练习所述，将纯代码从它组件中抽离出来并在测试中测试。</p>
+<!-- -->
+<p>注意Formik 的表单提交是 <i>异步的</i>，所以期望点击提交按钮后立即触发 <em>onSubmit</em>  函数调用是不现实的。你可以使用  <em>async</em> 关键字来将测试函数定义为异步的，这会用到React Native 测试框架的 <a href="https://callstack.github.io/react-native-testing-library/docs/api#waitfor">waitFor</a> 工具函数。 <em>waitFor</em> 函数能用来等待预期的结果。如果预期结果在某个时间段内没有出现，函数会抛错。下面是一个大概的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> render<span class="token punctuation">,</span> fireEvent<span class="token punctuation">,</span> waitFor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@testing-library/react-native&#x27;</span><span class="token punctuation">;</span>
+<span class="token comment">// ...</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;SignIn&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">&#x27;SignInContainer&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">&#x27;calls onSubmit function with correct arguments when a valid form is submitted&#x27;</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">// render the SignInContainer component, fill the text inputs and press the submit button</span>
+
+      <span class="token keyword">await</span> <span class="token function">waitFor</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// expect the onSubmit function to have been called once and with a correct first argument</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>你可能会遇到下述警告信息 <em>Warning: An update to Formik inside a test was not wrapped in act(...)</em> 。当 <em>fireEvent</em> 方法调用产生了一个Formik内部逻辑的异步调用时，就会产生这个警告。你可以通过 <a href="https://www.native-testing-library.com/docs/next/api-main#act">act</a> 函数封装所有的 <em>fireEvent</em> 方法调用，警告信息就消失了。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">await</span> <span class="token function">act</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// call the fireEvent method here</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+</div></div></div>
+<div class="course-content "><div class="course-content-inner ">
+<h3>Extending our application</h3>
+<p>扩展我们的应用</p>
+<!-- -->
+<p>是时候将我们所学的东西放到一起来扩展我们的应用了。我们的应用仍然缺少一些重要的特性，比如说查看某个仓库或者注册一个用户。接下来的练习会聚焦于这些重要的功能。</p>
+</div></div>
+<div class="banner spacing tasks content-banner" style="background-color:#AFF4FE"><div class="course-content " style="border-color:#AFF4FE;background-color:transparent"><div class="course-content-inner ">
+<h3>Exercises 10.19. - 10.24.</h3>
+<h4>Exercise 10.19: the single repository view</h4>
+<!-- -->
+<p>为单一仓库实现一个视图，包含与仓库列表相同的仓库信息，但需要一个按钮来在GitHub中打开。最好能在  <em>RepositoryList</em> 组件中重用 <em>RepositoryItem</em>  组件，并利用一个boolean属性控制 Github 仓库按钮的展现。</p>
+<!-- -->
+<p>仓库的URL位于GraphQL schema中 <em>Repository</em> 类型的  <em>url</em> 字段。你可以利用  <em>repository</em> 查询从Apollo 服务器获取一个仓库。查询包含一个单一的参数，就是仓库的id。以下是一个简单的 <em>repository</em> 查询。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repository</span><span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token string">&quot;jaredpalmer.formik&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    fullName
+    url
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>像之前那样，在应用中使用之前在GraphQL playground中先测试你的查询。如果不确定GraphQL 的schema 或者不知道有什么可用的查询，可以打开GraphQL playground的 <i>docs</i> 或者  <i>schema</i> tab页。如果你使用id作为查询的变量，花点时间阅读一下Apollo Client 的  <a href="https://www.apollographql.com/docs/react/data/queries/">documentation</a> ，关于查询的章节。</p>
+<!-- -->
+<p>学习如何在浏览器中打开一个URL，阅读Expo的  <a href="https://docs.expo.io/workflow/linking/">Linking API documentation</a> 。你需要在实现在Github中打开仓库的功能中用到这个特性。</p>
+<!-- -->
+<p>视图应当都含有自己的路由。最好将仓库的ID作为路径参数放到路由中，你可以通过使用 <a href="https://reacttraining.com/react-router/native/api/Hooks/useparams">useParams</a> hook 来访问路由参数。用户应当能够通过点击仓库列表中的仓库访问视图。你可以在  <em>RepositoryList</em> 组件中通过利用 <a href="https://reactnative.dev/docs/touchableopacity">TouchableOpacity</a> 组件包装一下 <em>RepositoryItem</em> 组件，并使用  <em>history.push</em>  方法在 <em>onPress</em>  事件处理中改变路由。你可以利用 <a href="https://reacttraining.com/react-router/native/api/Hooks/usehistory">useHistory</a> hook访问  <em>history</em> 对象。</p>
+<!-- -->
+<p>单个仓库视图的最终版本应当看起来如下：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/9c4ab8dbdf461e0df11b36f212af37d5/4b190/13.jpg"/></picture>
+<h4>Exercise 10.20: repository&#x27;s review list</h4>
+<!-- -->
+<p>现在我们有了一个单独的仓库，让我们展示仓库的评论吧。仓库的评论位于GraphQL schema的 <em>Repository</em> 类型的 <em>reviews</em> 字段中。 <em>reviews</em> 是个和 <em>repositories</em>  查询类似的分页列表。如下是一个获取仓库评论信息的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repository</span><span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token string">&quot;jaredpalmer.formik&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    fullName
+    reviews <span class="token punctuation">{</span>
+      edges <span class="token punctuation">{</span>
+        node <span class="token punctuation">{</span>
+          id
+          text
+          rating
+          createdAt
+          user <span class="token punctuation">{</span>
+            id
+            username
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>评论的  <em>text</em>  字段包含着文本评论，数值类型的 <em>rating</em>  字段，位于0-100之间，以及 <em>createdAt</em>  表示评论创建的时间。评论的 <em>user</em> 字段包含评论者的信息，type类型为  <em>User</em>。</p>
+<!-- -->
+<p>我们想要将评论展示成可以滚动的列表， <a href="https://reactnative.dev/docs/flatlist">FlatList</a>  就是一个合适的组件。为了展示之前的练习中的仓库信息在列表的头部，你可以使用 <em>FlatList</em> 组件的 <a href="https://reactnative.dev/docs/flatlist#listheadercomponent">ListHeaderComponent</a> 属性。你可以使用 <a href="https://reactnative.dev/docs/flatlist#itemseparatorcomponent">ItemSeparatorComponent</a>  在元素间增加一些空间，例如 <em>RepositoryList</em> 组件。下面是一个该结构的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RepositoryInfo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> repository <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Repository&#x27;s information implemented in the previous exercise</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">ReviewItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> review <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Single review item</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">SingleRepository</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>FlatList
+      data<span class="token operator">=</span><span class="token punctuation">{</span>reviews<span class="token punctuation">}</span>
+      renderItem<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> item <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>ReviewItem review<span class="token operator">=</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">}</span>
+      keyExtractor<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> id <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> id<span class="token punctuation">}</span>
+      ListHeaderComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>RepositoryInfo repository<span class="token operator">=</span><span class="token punctuation">{</span>repository<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> SingleRepository<span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>最终版本的仓库评论列表应当如下图所示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/d3cc7cb195f44b9ea7535127ce106845/4b190/14.jpg"/></picture>
+<!-- -->
+<p>评论用户下面的数据是评论的创建时间，位于  <em>Review</em>  类型的  <em>createdAt</em> 字段。日期格式应当是可读的，例如 <i>date.month.year</i> 。 你可以安装例如 <a href="https://date-fns.org/">date-fns</a>  类库，并使用 <a href="https://date-fns.org/v2.13.0/docs/format">format</a>  函数来格式化日期。</p>
+<!-- -->
+<p>投票容器的圆形可以通过 <em>borderRadius</em> 样式属性来实现。你可以通过修改容器的 <em>width</em> 和   <em>height</em> 样式属性和  border-radius 属性设置为 <em>width / 2</em> 来实现</p>
+<h4>Exercise 10.21: the review form</h4>
+<!-- -->
+<p>利用Formik 实现一个创建评论的表单。表单应当包含以下四个字段：仓库拥有者的Github用户名（例如&quot;jaredpalmer&quot;）， 仓库的名称（例如&quot;formik&quot;），数字类型的投票，以及文字类型的评论。验证表单利用Yup schema，所以应当包含以下验证：</p>
+<!-- -->
+<ul>
+<li>仓库的拥有者用户名是必填字符串</li>
+<li>仓库的名称是必填的字符串</li>
+<li>投票是0-100的必填数值</li>
+<li>评论是可选的字符串</li>
+</ul>
+<!-- -->
+<p>阅览Yup的<a href="https://github.com/jquense/yup#yup">documentation</a> ，找到合适的验证器。利用显眼的错误信息搭配验证器使用。验证信息可以定义为验证方法的 <em>message</em> 入参。你可以使用 <em>TextInput</em> 组件的 <a href="https://reactnative.dev/docs/textinput#multiline">multiline</a> 属性来将评论字段扩展成多行。</p>
+<!-- -->
+<p>你可以利用  <em>createReview</em>  变化来创建一个评论。在GraphQL playground 的 <em>docs</em>  tab页检查变化的入参。你可以使用 <a href="https://www.apollographql.com/docs/react/api/react/hooks/#usemutation">useMutation</a>  hook来发送变化到Apollo Server。</p>
+<!-- -->
+<p>在成功地创建了  <em>createReview</em>  变化之后，重定向用户到仓库视图，我们之前的练习实现过它。可以在使用  <a href="https://reacttraining.com/react-router/native/api/Hooks/usehistory">useHistory</a>  hook 获得history 对象后，通过 <em>history.push</em> 方法来实现这个功能。创建好的评论有一个 <em>repositoryId</em> 字段，可以用来创建route路径。</p>
+<!-- -->
+<p>为了防止在单个仓库视图在 查询中获取到了缓存的数据，在查询中使用<em>cache-and-network</em> <a href="https://www.apollographql.com/docs/react/data/queries/#configuring-fetch-logic">获取策略 fetch policy</a>  ， 它可以在 <em>useQuery</em> hook中如下使用：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token constant">GET_REPOSITORY</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  fetchPolicy<span class="token operator">:</span> <span class="token string">&#x27;cache-and-network&#x27;</span><span class="token punctuation">,</span>
+  <span class="token comment">// Other options</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>注意只有 <i>已经存在公开的Github 仓库</i> 才能够被评论，而且一个用户只能评论 <i>一次</i>。 你不必处理这些错误的场景，但是错误返回应当包含特定的错误码和错误信息。你可以通过尝试评论你自己的一个公开仓库或其他的仓库来验证自己的实现。</p>
+<!-- -->
+<p>评论表单应当可以通过app 工具栏能访问到。创建一个tab到app 工具栏中，名叫  &quot;Create a review&quot; 。这个tab页应当仅能在用户登录后看到。你还需要为评论表单创建一个路由。</p>
+<!-- -->
+<p>评论表单最终的形态应该如下所示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/f31d8e40eca1f6cda07f8a1ae66545fc/4b190/15.jpg"/></picture>
+<!-- -->
+<p>这个截图展示了在提交了非法的表单所应当展示的样子。</p>
+<h4>Exercise 10.22: the sign up form</h4>
+<p>注册表单</p>
+<!-- -->
+<p>实现一个注册表单来让用户使用Formik 来注册。表单应当包含三个字段：用户名，密码以及密码确认。验证表单使用Yup schema，因此包含以下验证逻辑：</p>
+<!-- -->
+<ul>
+<li>用户名是必填的字符串，长度在1-30之间</li>
+<li>密码是必填的字符串，长度在5-50之间</li>
+<li>密码确认必须与密码相同</li>
+</ul>
+<!-- -->
+<p>密码确认的字段验证有一点tricky，但可以使用例如 <a href="https://github.com/jquense/yup#mixedoneofarrayofvalues-arrayany-message-string--function-schema-alias-equals">oneOf</a> 和 <a href="https://github.com/jquense/yup#yuprefpath-string-options--contextprefix-string--ref">ref</a> 方法，正如推荐的这个 <a href="https://github.com/jaredpalmer/formik/issues/90#issuecomment-354873201">this issue</a> 所描述的那样。</p>
+<!-- -->
+<p>你可以使用  <em>createUser</em> 变化来创建一个新用户。探究这个变化是如何工作的，可以在GraphQL playground 的文档中探索到。在一次成功的  <em>createUser</em> 变化之后，利用 <em>useSignIn</em> hook 来登录这个新创建的用户。用户登录后，将用户重定向到评论的仓库列表视图。</p>
+<!-- -->
+<p>用户应当能通过app 工具栏的  &quot;Sign up&quot; tab页来访问注册表单。而这个tab页仅能让未登录的用户看到。</p>
+<!-- -->
+<p>注册表单最终应当如下图所示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/18fd127e26bbeba6b727f51b2dc33f49/4b190/16.jpg"/></picture>
+<!-- -->
+<p>这个截图展示了在提交了非法的表单所应当展示的样子。</p>
+<h4>Exercise 10.23: sorting the reviewed repositories list</h4>
+<p>排序评论的仓库列表</p>
+<!-- -->
+<p>当前的已评论仓库列表中的仓库是按照仓库首次评论的日期排序的。实现一个功能来允许用户选择主要的排序字段。可选的排序策略应当是：</p>
+<!-- -->
+<ul>
+<li>最新的仓库。拥有最新评论的仓库位于最顶部。这是当前的排序规则，应当为默认策略。</li>
+<li>最高票的仓库。拥有 <i>最高</i> 平均投票的仓库位于最顶部。</li>
+<li>最低票的仓库。又有 <i>最低</i> 平均投票的仓库位于最顶部。</li>
+</ul>
+<!-- -->
+<p> 用来获取已评论仓库的 <em>repositories</em> 查询有一个参数叫 <em>orderBy</em> ，你可以用来定义排序策略。该参数有两个值：  <em>CREATED<em>AT</em> （通过仓库首次评论的日期排序） 和  <em>RATING</em>AVERAGE</em>（按照仓库的平均得票数来排序）。查询同样有一个叫  <em>orderDirection</em>  的参数，可以用来改变排序方向。该参数有两个允许的值：<em>ASC</em> （升序，最小的在最前面） 和  <em>DESC</em> （降序，最大的在最前面）。</p>
+<!-- -->
+<p>排序的策略可以利用 <a href="https://reactjs.org/docs/hooks-reference.html#usestate">useState</a> hook保存在React 的state中，<em>repositories</em>  查询中的变量可以给 <em>useRepositories</em>  hook作为一个参数。</p>
+<!-- -->
+<p>你可以使用类似  <a href="https://docs.expo.io/versions/latest/sdk/picker/">@react-native-picker/picker</a>  类库，或者 <a href="https://callstack.github.io/react-native-paper/">React Native Paper</a>  类库的  <a href="https://callstack.github.io/react-native-paper/menu.html">Menu</a>组件来实现排序策略的选择，你可以使用 <em>FlatList</em> 组件的  <a href="https://reactnative.dev/docs/flatlist#listheadercomponent">ListHeaderComponent</a> 属性来提供给列表一个表头，并包含选择的组件。</p>
+<!-- -->
+<p>该功能的最终版本，取决于使用的选择组件，应当按如下所示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/5123a622871696ab71062a4218c2b55a/4b190/17.jpg"/></picture>
+<h4>Exercise 10.24: filtering the reviewed repositories list</h4>
+<p>过滤已评论的仓库列表</p>
+<!-- -->
+<p>Apollo 服务器允许使用仓库名或者仓库所有者名称过滤仓库。可以通过使用  <em>repositories</em> 查询的 <em>searchKeyword</em> 参数来实现。以下是如何使用这个参数的样例：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repositories</span><span class="token punctuation">(</span>searchKeyword<span class="token operator">:</span> <span class="token string">&quot;ze&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    edges <span class="token punctuation">{</span>
+      node <span class="token punctuation">{</span>
+        id
+        fullName
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>实现一个过滤已查看仓库列表的功能基于关键字。用户应当能够键入文本框关键词，查询列表应当随着用户的输入而变化。你可以使用简单的  <em>TextInput</em> 组件或时髦点的类似 React Native Paper的 <a href="https://callstack.github.io/react-native-paper/searchbar.html">Searchbar</a>  组件，作为文本框。将文本输入组件放到  <em>FlatList</em> 组件的头部：</p>
+<!-- -->
+<p>为了避免在用户键入关键字时发送大量无关的请求，只在用户键入最新输入后短暂延迟后再获取。这种技术通常要参考<a href="https://lodash.com/docs/4.17.15#debounce">debouncing</a>  。 <a href="https://www.npmjs.com/package/use-debounce">use-debounce</a> 库是一个现成的hook 来反弹状态变量。可以在一个可感知的延迟后使用它，比如说500毫秒。使用 <em>useState</em>  hook 来存储文本框输入值，并将反弹值作为 <em>searchKeyword</em>  变量传递给查询。</p>
+<!-- -->
+<p>你可能会面临一个问题，就是在每次输入后文本输入框都会失去焦点。这是因为通过 属性提供的内容并不是持续挂载的。可以通过如下方式修改，将渲染 <em>FlatList</em> 组件成类组件并将header 的render函数作为类属性定义，类似：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">RepositoryListContainer</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">renderHeader</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// this.props contains the component&#x27;s props</span>
+    <span class="token keyword">const</span> props <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>RepositoryListHeader
+      <span class="token comment">// ...</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>FlatList
+        <span class="token comment">// ...</span>
+        ListHeaderComponent<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderHeader<span class="token punctuation">}</span>
+      <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>过滤功能的最终版本应当如下所示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/bcbfb9afede54d045e98b6cb0600fc7f/4b190/18.jpg"/></picture>
+</div></div></div>
+<div class="course-content "><div class="course-content-inner ">
+<h3>Cursor-based pagination</h3>
+<p>基于指针的分页</p>
+<!-- -->
+<p>当API从某个集合中返回一个排序列表，通常会返回一个完整集合的子集来减轻带宽的压力，以及减少客户端内存的使用。理想的自集是能够参数化的，比如说在某些索引上获取前20条记录。这通常会涉及  <i>pagination</i> 技术。当获取结果是使用指针从某个特定结果获得的，我们就称之为 <i>基于指针的分页</i>。</p>
+<!-- -->
+<p>指针就是排序列表中某个结果序列位置的展示。让我们看一下 <em>repositories</em>  查询返回的分页结果：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repositories</span><span class="token punctuation">(</span><span class="token parameter">first<span class="token operator">:</span> <span class="token number">2</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    totalCount
+    edges <span class="token punctuation">{</span>
+      node <span class="token punctuation">{</span>
+        id
+        fullName
+        createdAt
+      <span class="token punctuation">}</span>
+      cursor
+    <span class="token punctuation">}</span>
+    pageInfo <span class="token punctuation">{</span>
+      endCursor
+      startCursor
+      hasNextPage
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p><em>第一个</em>参数告诉API只返回前两条记录。如下是一个查询结果的例子：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;repositories&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string">&quot;totalCount&quot;</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;edges&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token string">&quot;node&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zeit.next.js&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;fullName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zeit/next.js&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;createdAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-05-15T11:59:57.557Z&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;cursor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WyJ6ZWl0Lm5leHQuanMiLDE1ODk1NDM5OTc1NTdd&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token string">&quot;node&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zeit.swr&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;fullName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zeit/swr&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;createdAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-05-15T11:58:53.867Z&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">&quot;cursor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WyJ6ZWl0LnN3ciIsMTU4OTU0MzkzMzg2N10=&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;pageInfo&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;endCursor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WyJ6ZWl0LnN3ciIsMTU4OTU0MzkzMzg2N10=&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;startCursor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;WyJ6ZWl0Lm5leHQuanMiLDE1ODk1NDM5OTc1NTdd&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;hasNextPage&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>结果对象的格式以及参数遵循了<a href="https://relay.dev/graphql/connections.htm">Relay&#x27;s GraphQL Cursor Connections Specification</a> ，它已经成为了一个通用的分页规范了，并且已经广泛地应用到例如<a href="https://docs.github.com/en/graphql">GitHub&#x27;s GraphQL API</a> 中了。</p>
+<!-- -->
+<p>在结果对象中，我们有  <em>edges</em> 数组，包含了拥有 <em>node</em>  和 <em>cursor</em>  属性的条目。我们知道，  <em>node</em> 包含了仓库本身。 <em>cursor</em> 另一方面来说是节点的 Base64 编码表示。包含了仓库的id 和仓库创建的日期。这些信息是我们需要在按创建时间排序下需要指向的信息。 <em>pageInfo</em>  包含了例如数组中第一个和最后一个的指针信息。</p>
+<!-- -->
+<p>如果我们想要获取当前结果 <i>之后的</i> 几个结果， 也就是  &quot;zeit/swr&quot; 仓库。我们可以设置查询的 <em>after</em> 参数作为 <em>endCursor</em> 的值：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repositories</span><span class="token punctuation">(</span>first<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> after<span class="token operator">:</span> <span class="token string">&quot;WyJ6ZWl0LnN3ciIsMTU4OTU0MzkzMzg2N10=&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    totalCount
+    edges <span class="token punctuation">{</span>
+      node <span class="token punctuation">{</span>
+        id
+        fullName
+        createdAt
+      <span class="token punctuation">}</span>
+      cursor
+    <span class="token punctuation">}</span>
+    pageInfo <span class="token punctuation">{</span>
+      endCursor
+      startCursor
+      hasNextPage
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在我们获得了接下来的两条数据，我们可以接着做相同的操作，直到 <em>hasNextPage</em> 的值为 <em>false</em> ，那样就是说我们已经查询到了列表的结尾。关于基于指针的分页，更深入的探讨可以阅读Shopify的文章 <a href="https://engineering.shopify.com/blogs/engineering/pagination-relative-cursors">Pagination with Relative Cursors</a> 。它提供了关于这个技术实现不错的细节描述，以及它比传统分页技术的优势。</p>
+<h3>Infinite scrolling</h3>
+<p>无限地滚动</p>
+<!-- -->
+<p>手机和桌面应用中列表的垂直滚动是一个常见的技术实现，叫做 <i>无限滚动</i>。 无限滚动的定义十分简单：</p>
+<!-- -->
+<ul>
+<li>获取结果的初始集合</li>
+<li>当用户滚动到了最后的结果，再获取接下来的几条结果</li>
+</ul>
+<!-- -->
+<p>第二步会重复，直到用户滚动累了或者达到了滚动条数的限制。“无限滚动” 的名字就是这些列表看起来是无限的——用户可以持续地往下滚动，新的条目就会不断出现。</p>
+<!-- -->
+<p>让我们来看一下这个功能是如何使用Apollo 客户端的 hook实现的。Apollo 客户端有一个不错的  <a href="https://www.apollographql.com/docs/react/data/pagination/#cursor-based">documentation</a> ，是关于基于指针的分页技术的实现的。让我们为评论的仓库列表实现以下无限滚动功能。</p>
+<!-- -->
+<p>首先，我们需要知道用户什么时候浏览到了列表的结尾。幸运的是， <em>FlatList</em>  组件有一个 <a href="https://reactnative.dev/docs/flatlist#onendreached">onEndReached</a> 属性，当用户滚动到列表结尾时，就会触发所提供的函数。你可以利用  <a href="https://reactnative.dev/docs/flatlist#onendreachedthreshold">onEndReachedThreshold</a> 属性控制提前多久触发 <em>onEndReach</em> 回调。修改 <em>RepositoryList</em> 组件的 <em>FlatList</em>  组件，使之能在列表滚到末尾时触发函数。</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> RepositoryListContainer <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  repositories<span class="token punctuation">,</span>
+  onEndReach<span class="token punctuation">,</span>
+  <span class="token comment">/* ... */</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> repositoryNodes <span class="token operator">=</span> repositories
+    <span class="token operator">?</span> repositories<span class="token punctuation">.</span>edges<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">edge</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> edge<span class="token punctuation">.</span>node<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>FlatList
+      data<span class="token operator">=</span><span class="token punctuation">{</span>repositoryNodes<span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+      onEndReached<span class="token operator">=</span><span class="token punctuation">{</span>onEndReach<span class="token punctuation">}</span>
+      onEndReachedThreshold<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">0.5</span><span class="token punctuation">}</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">RepositoryList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> repositories <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRepositories</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">onEndReach</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;You have reached the end of the list&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>RepositoryListContainer
+      repositories<span class="token operator">=</span><span class="token punctuation">{</span>repositories<span class="token punctuation">}</span>
+      onEndReach<span class="token operator">=</span><span class="token punctuation">{</span>onEndReach<span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> RepositoryList<span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>尝试滚动到评论仓库列表的末尾，你应当能在日志中看到信息。</p>
+<!-- -->
+<p>接下来一旦到达列表尾部我们需要fetch 更多的仓库。可以使用 <em>useQuery</em> 提供的 <a href="https://www.apollographql.com/docs/react/data/pagination/#cursor-based">fetchMore</a> 来实现。 为了描述Apollo Client， 如何将已经存在的仓库merge 到 下一组仓库的缓存中，我们可以使用<a href="https://www.apollographql.com/docs/react/caching/cache-field-behavior/">field policy</a> 。 一般来说， field 策略可以在使用 <a href="https://www.apollographql.com/docs/react/caching/cache-field-behavior/#the-read-function">read</a> 和 <a href="https://www.apollographql.com/docs/react/caching/cache-field-behavior/#the-merge-function">merge</a> 读写操时作用在自定义缓存行为上。</p>
+<!-- -->
+<p>让我们为 <i>apolloClient.js</i>  文件的  <em>repositories</em> 查询增加一个field 策略</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> ApolloClient<span class="token punctuation">,</span> InMemoryCache<span class="token punctuation">,</span> createHttpLink <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@apollo/client&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> setContext <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@apollo/client/link/context&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Constants <span class="token keyword">from</span> <span class="token string">&#x27;expo-constants&#x27;</span><span class="token punctuation">;</span>
+<span class="gatsby-highlight-code-line"><span class="token keyword">import</span> <span class="token punctuation">{</span> relayStylePagination <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;@apollo/client/utilities&#x27;</span><span class="token punctuation">;</span></span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> apolloUri <span class="token punctuation">}</span> <span class="token operator">=</span> Constants<span class="token punctuation">.</span>manifest<span class="token punctuation">.</span>extra<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> httpLink <span class="token operator">=</span> <span class="token function">createHttpLink</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  uri<span class="token operator">:</span> apolloUri<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="gatsby-highlight-code-line"><span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InMemoryCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">  typePolicies<span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    Query<span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">      fields<span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">        repositories<span class="token operator">:</span> <span class="token function">relayStylePagination</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line"><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="token keyword">const</span> <span class="token function-variable function">createApolloClient</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">authStorage</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> authLink <span class="token operator">=</span> <span class="token function">setContext</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">_<span class="token punctuation">,</span> <span class="token punctuation">{</span> headers <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> accessToken <span class="token operator">=</span> <span class="token keyword">await</span> authStorage<span class="token punctuation">.</span><span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token operator">...</span>headers<span class="token punctuation">,</span>
+          authorization<span class="token operator">:</span> accessToken <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>accessToken<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token string">&#x27;&#x27;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        headers<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ApolloClient</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    link<span class="token operator">:</span> authLink<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>httpLink<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">    cache<span class="token punctuation">,</span></span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> createApolloClient<span class="token punctuation">;</span></code></pre></div>
+<p>As mentioned earlier, the format of the pagination&#x27;s result object and the arguments are based on the Relay&#x27;s pagination specification. Luckily, Apollo Client provides a predefined field policy, <code class="language-text">relayStylePagination</code>, which can be used in this case.
+如上所如，分页结果对象的格式遵循了 Relay的分写规范。幸运的是， Apollo Client 提供了预定义的filed 策略， <code class="language-text">relayStylePagination</code>， 可以用在这个案例中。</p>
+<!-- -->
+<!-- -->
+<p>接下来，我们把 <em>useRepositories</em>  hook 改成 修饰好的  <em>fetchMore</em> 函数，它真正调用的是  <em>fetchMore</em> 函数，通过合适的参数我们可以获取下一组仓库。</p>
+<!-- -->
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">useRepositories</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">variables</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">,</span> loading<span class="token punctuation">,</span> fetchMore<span class="token punctuation">,</span> <span class="token operator">...</span>result <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useQuery</span><span class="token punctuation">(</span><span class="token constant">GET_REPOSITORIES</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    variables<span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleFetchMore</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> canFetchMore <span class="token operator">=</span> <span class="token operator">!</span>loading <span class="token operator">&amp;&amp;</span> data<span class="token operator">?.</span>repositories<span class="token punctuation">.</span>pageInfo<span class="token punctuation">.</span>hasNextPage<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>canFetchMore<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">fetchMore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      variables<span class="token operator">:</span> <span class="token punctuation">{</span>
+        after<span class="token operator">:</span> data<span class="token punctuation">.</span>repositories<span class="token punctuation">.</span>pageInfo<span class="token punctuation">.</span>endCursor<span class="token punctuation">,</span>
+        <span class="token operator">...</span>variables<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    repositories<span class="token operator">:</span> data<span class="token operator">?.</span>repositories<span class="token punctuation">,</span>
+    fetchMore<span class="token operator">:</span> handleFetchMore<span class="token punctuation">,</span>
+    loading<span class="token punctuation">,</span>
+    <span class="token operator">...</span>result<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>确保你的  <em>repositories</em> 查询中有 <em>pageInfo</em> 和 <em>cursor</em> 字段，我们在分页的例子中讲到过。你同样会需要 <em>after</em> 和 <em>first</em> 参数来进行查询</p>
+<!-- -->
+<p>如果还有更多的结果可以获取，  <em>handleFetchMore</em>函数会调用Apollo 客户端的 <em>fetchMore</em>  函数， 这是由 <em>hasNextPage</em> 属性决定的。我们同样会在获取进行的过程中组织更多的结果获取。在这个例子中  <em>loading</em> 会为 <em>true</em> 。在  <em>fetchMore</em>  函数中，我们提供了一个包含 <em>after</em> 变量的查询，它会接受最新的<em>endCursor</em> 值。在 <em>updateQuery</em> 中我们会利用获取到的edge合并之前的edge，并更新查询结果，这样  <em>pageInfo</em> 就包含了最新的信息了。在<em>updateQuery</em>  中，我们会将之前的edge 与获取到的 edge 合并在一起并更新查询，这样 <em>pageInfo</em>  就包含了最新的信息。</p>
+<p>The final step is to call the <em>fetchMore</em> function in the <em>onEndReach</em> handler:
+最后一步就是调用  <em>onEndReach</em>  处理器的  <em>fetchMore</em>  函数了：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RepositoryList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> repositories<span class="token punctuation">,</span> fetchMore <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useRepositories</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    first<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">onEndReach</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">fetchMore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>RepositoryListContainer
+      repositories<span class="token operator">=</span><span class="token punctuation">{</span>repositories<span class="token punctuation">}</span>
+      onEndReach<span class="token operator">=</span><span class="token punctuation">{</span>onEndReach<span class="token punctuation">}</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> RepositoryList<span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>使用一个相对较小的 <em>first</em> 参数，比如说8 来尝试无限滚动功能。这样你就不用查看过多的仓库。你可能面临一个问题，就是 <em>onEndReach</em> 处理器会在视图加载后被立即调用。这通常是因为结果列表包含一点仓库，因此列表的结尾很快就达到了。你可以通过增加 <em>first</em> 参数的值来解决下这个问题。一旦你确信无限滚动运转正常了，就可以使用一个大点的 <em>first</em> 参数值。</p>
+</div></div>
+<div class="banner spacing tasks content-banner" style="background-color:#AFF4FE"><div class="course-content " style="border-color:#AFF4FE;background-color:transparent"><div class="course-content-inner ">
+<h3>Exercises 10.25.-10.27.</h3>
+<h4>Exercise 10.25: infinite scrolling for the repository&#x27;s reviews list</h4>
+<!-- -->
+<p>为我们仓库的评论列表实现一个无限滚动功能。 <em>Repository</em> 类型的 <em>reviews</em> 字段有  <em>first</em>  和 <em>after</em>  参数，类似于  <em>repositories</em> 查询。  <em>ReviewConnection</em> 类型还含有 <em>pageInfo</em> 字段，与 <em>RepositoryConnection</em> 类型类似。</p>
+<!-- -->
+<p>以下是一个样例查询：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token function">repository</span><span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token string">&quot;jaredpalmer.formik&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    fullName
+    <span class="token function">reviews</span><span class="token punctuation">(</span>first<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> after<span class="token operator">:</span> <span class="token string">&quot;WyIxYjEwZTRkOC01N2VlLTRkMDAtODg4Ni1lNGEwNDlkN2ZmOGYuamFyZWRwYWxtZXIuZm9ybWlrIiwxNTg4NjU2NzUwMDgwXQ==&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      totalCount
+      edges <span class="token punctuation">{</span>
+        node <span class="token punctuation">{</span>
+          id
+          text
+          rating
+          createdAt
+          repositoryId
+          user <span class="token punctuation">{</span>
+            id
+            username
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        cursor
+      <span class="token punctuation">}</span>
+      pageInfo <span class="token punctuation">{</span>
+        endCursor
+        startCursor
+        hasNextPage
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>The cache&#x27;s field policy can be similar as with the <em>repositories</em> query:
+缓存的field 策略可以与 <em>repositories</em> 查询相似：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InMemoryCache</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  typePolicies<span class="token operator">:</span> <span class="token punctuation">{</span>
+    Query<span class="token operator">:</span> <span class="token punctuation">{</span>
+      fields<span class="token operator">:</span> <span class="token punctuation">{</span>
+        repositories<span class="token operator">:</span> <span class="token function">relayStylePagination</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="gatsby-highlight-code-line">    Repository<span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">      fields<span class="token operator">:</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">        reviews<span class="token operator">:</span> <span class="token function">relayStylePagination</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">      <span class="token punctuation">}</span><span class="token punctuation">,</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">}</span><span class="token punctuation">,</span></span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>如我们在评论仓库列表中所做的，使用一个相对较小 <em>first</em>  参数来尝试无限滚动功能。你可能需要创建一些新用户，并使用它们来新建一些新的评论，来让评论列表尽量长一些。参数<em>first</em> 设置 一些， 这样  <em>onEndReach</em> 函数就不会在视图加载后立即被调用了，值只要能满足你滚到底部就获取更多的列表就可以了。如果一切如预期运转良好，就可以使用一个大点的 <em>first</em> 参数值了。</p>
+<h4>Exercise 10.26: the user&#x27;s reviews view</h4>
+<p>用户的评论视图</p>
+<!-- -->
+<p>实现允许用户看到自己评论的功能。一旦登录，用户就能够通过点击app工具栏的 &quot;My reviews&quot; tab页来访问这个视图。为该页面实现无限滚动的功能是该练习的 <em>可选项</em> 。评论列表的最终形态大体上看起来应该像这样：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/06fd3047eee48c90e36cd28042f0323e/4b190/20.jpg"/></picture>
+<!-- -->
+<p>记住你可以通过Apollo Servers的  <em>authorizedUser</em> 查询来获取授权用户。这个查询会返回一个 <em>User</em> 的类型，有一个 <em>reviews</em> 字段。如果你已经实现了可复用的 <em>authorizedUser</em> 查询代码，你可以定制化这个查询，来按条件获取 <em>reviews</em> 字段。这个可以通过GraphQL 的 <a href="https://graphql.org/learn/queries/#directives">include</a> 指令完成。</p>
+<!-- -->
+<p>当前的查询可以大体上实现为如下形式：</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">GET_AUTHORIZED_USER</span> <span class="token operator">=</span> gql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  query {
+    authorizedUser {
+      # user fields...
+    }
+  }
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>你可以在使用 <em>include</em> 指令时提供一个  <em>includeReviews</em> 查询参数，</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token constant">GET_AUTHORIZED_USER</span> <span class="token operator">=</span> gql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  query getAuthorizedUser($includeReviews: Boolean = false) {
+    authorizedUser {
+      # user fields...
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            # review fields...
+          }
+          cursor
+        }
+        pageInfo {
+          # page info fields...
+        }
+      }
+    }
+  }
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p> <em>includeReviews</em> 参数有一个默认值，为  <em>false</em> 。因为我们不想导致额外的服务端开销， 除非我们的确需要额外获取认证用户的评论 。 <em>include</em> 指令的含义十分简单： 如果  <em>if</em> 参数的值为 <em>true</em> ， 就包含这个字段，否则就剔除。</p>
+<h4>Exercise 10.27: review actions</h4>
+<p>评论管理</p>
+<!-- -->
+<p>现在用户可以看到自己的评论了，让我们增加一些对评论的操作。在每一个评论列表的评论中，应当有两个按钮。一个是查看评论的仓库。点击这个按钮可以将用户带到该仓库中，可以复习我们之前实现的练习。另一个按钮是删除仓库。点击这个按钮可以删除评论。最终应当看起来如下：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/3cfaf0d92937c5185f6ae45cfd8355af/4b190/21.jpg"/></picture>
+<!-- -->
+<p>点击删除按钮应当跟着一个确认提示。如果用户确认删除，评论就删掉了。否则删除就被取消了。你可以利用  <a href="https://reactnative.dev/docs/alert">Alert</a> 模块实现这个确认框。注意调用<em>Alert.alert</em> 方法并不会打开任何Expo web预览窗口。使用Expo 移动App或者模拟器来看测试提示框的样子。</p>
+<!-- -->
+<p>在用户点击删除按钮时，应当弹出一个确认提示：</p>
+<picture><img style="border-color:#AFF4FE" alt="fullstack content" src="/static/47b709fa0d4a278ed09b6aac6b433e75/4b190/22.jpg"/></picture>
+<!-- -->
+<p>你可以使用 <em>deleteReview</em>  变化来删除一个评论。这个变化有一个入参 也就是待删除的评论id。在变化执行后，最简单的更新评论列表查询的方式就是调用 <a href="https://www.apollographql.com/docs/react/data/queries/#refetching">refetch</a> 函数。</p>
+<!-- -->
+<p>这是本章练习的最后一部分。是时候将你的代码推送到Github 并在<a href="https://study.cs.helsinki.fi/stats/courses/fullstack2021">练习提交系统</a> 中完成你的练习了。</p>
+</div></div></div>
+<div class="course-content "><div class="course-content-inner ">
+<h3>Additional resources</h3>
+<p>更多的资源</p>
+<!-- -->
+<p>我们马上就要结束本章的学习了，让我们花点时间看一些React Native 相关的额外资源。<a href="https://github.com/jondot/awesome-react-native">Awesome React Native</a> 是一个非常集中的React Native的资源列表，比如类库、教程和文章。但这个列表也太长了，让我们看一些其中的重点内容。</p>
+<h4>React Native Paper</h4>
+<!-- -->
+<blockquote>
+<p>Paper 是一个自定义的生产就绪的React Native组件库， 遵循了Google 的 Material 设计规范。</p>
+</blockquote>
+<!-- -->
+<p><a href="https://callstack.github.io/react-native-paper/">React Native Paper</a>  是React Native 版本的 <a href="https://material-ui.com/">Material-UI</a> （Material-UI是React Web应用使用的）。 它提供了一系列高质量的UI组件，支持 。 为基于React Native 的Expo <a href="https://callstack.github.io/react-native-paper/getting-started.html">安装</a>  React Native Paper 十分简单，如果你想要尝试一下可以在接下来的练习中使用一下。</p>
+<h4>Styled-components</h4>
+<!-- -->
+<blockquote>
+<p>利用标签模版（JavaScrtipt 的新特性）以及CSS的力量， styled-components 允许你将真实的CSS代码来样式化你的组件。它同时消除了组件和样式的映射——可以利用组件作为使用底层的样式重构，这再简单不过了。</p>
+</blockquote>
+<!-- -->
+<p><a href="https://styled-components.com/">Styled-components</a>是一个利用 <a href="https://en.wikipedia.org/wiki/CSS-in-JS">CSS-in-JS</a>  技术样式化React 组件的技术。在React Native 中我们已经将组件的样式定义为了一个JS对象，CSS-in-JS 并不是无人区，相反，这种  styled-components  方法与在 <em>style</em> 属性中使用 <em>StyleSheet.create</em> 方法十分不同。</p>
+<!-- -->
+<p>在 styled-components 中组件的样式定义为使用所谓 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">tagged template literal</a> 技术或者普通的JavaScript 对象。 Styled-components 能够 <em>在运行时</em> 为组件定义新的样式属性。这带来了许多可能性，例如无缝切换明暗主题，它还包含一整套 <a href="https://styled-components.com/docs/advanced#theming">theming support</a> 。 如下是基于属性，利用样式变量创建一个 <em>Text</em> 组件</p>
+<div class="gatsby-highlight" data-language="javascript"><pre><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> styled <span class="token keyword">from</span> <span class="token string">&#x27;styled-components/native&#x27;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> css <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;styled-components&#x27;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> FancyText <span class="token operator">=</span> styled<span class="token punctuation">.</span>Text<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  color: grey;
+  font-size: 14px;
+
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isBlue <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    isBlue <span class="token operator">&amp;&amp;</span>
+    css<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      color: blue;
+    </span><span class="token template-punctuation string">`</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+
+  </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> isBig <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    isBig <span class="token operator">&amp;&amp;</span>
+    css<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      font-size: 24px;
+      font-weight: 700;
+    </span><span class="token template-punctuation string">`</span></span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Main</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>FancyText<span class="token operator">&gt;</span>Simple text<span class="token operator">&lt;</span><span class="token operator">/</span>FancyText<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>FancyText isBlue<span class="token operator">&gt;</span>Blue text<span class="token operator">&lt;</span><span class="token operator">/</span>FancyText<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>FancyText isBig<span class="token operator">&gt;</span>Big text<span class="token operator">&lt;</span><span class="token operator">/</span>FancyText<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>FancyText isBig isBlue<span class="token operator">&gt;</span>
+        Big blue text
+      <span class="token operator">&lt;</span><span class="token operator">/</span>FancyText<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<!-- -->
+<p>由于  styled-components 处理样式定义，可以使用 类似CSS的 snake 样式的语法来在属性值中定义名称和单位。但是单位并不会生效，因为属性值内部是无单位的。更多的关于  styled-components 信息，可以查看它的 <a href="https://styled-components.com/docs">documentation</a>。</p>
+<h4>React-spring</h4>
+<!-- -->
+<blockquote>
+<p>react-spring 是一个基于 spring-physics 的动画库，应该会涵盖大多数UI相关的动画。它是一个工具，能够灵活地将你的创意实现成动画接口。</p>
+</blockquote>
+<!-- -->
+<p><a href="https://www.react-spring.io/">React-spring</a> 是一个库，提供了简明的 <a href="https://www.react-spring.io/docs/hooks/basics">hook API</a> 来实现React Native 组件的动画效果。</p>
+<h4>React Navigation</h4>
+<!-- -->
+<blockquote>
+<p>路由与定位你的React Native 应用</p>
+</blockquote>
+<!-- -->
+<p><a href="https://reactnavigation.org/">React Navigation</a> 是一个React Native 的路由类库。它与我们之前讲到的React Router 库共享类似的功能，但是，与React Router 不同， React Router提供了更多的原生的功能，比如原生的动作与视图切换动画。</p>
+<h3>Closing words</h3>
+<p>结束语</p>
+<!-- -->
+<p>好啦，我们的应用已经就绪了。干得漂亮！在我们的旅程中我们已经学习了许多新的概念，比如利用Expo 搭建React Native 应用， 使用React Native 的核心组件并向其添加样式，与服务端通信，测试React  Native 应用等。最后一片拼图就是将我们的应用部署到Apple App Store 和 Google Play Store了。</p>
+<!-- -->
+<p>部署应用是完全 <i>可选的</i>， 并不是十分繁琐，因为你需要fork 和部署 <a href="https://github.com/fullstack-hy2020/rate-repository-api">rate-repository-api</a> 。对React Native 应用本身来说，你首先需要创建一个iOS或者Android 构建，可以参考Expo 的 <a href="https://docs.expo.io/distribution/building-standalone-apps/">documentation</a> 。然后你可以将这些构建上传到Apple App Store 或者 Google Play Store。 Expo 也有一个 <a href="https://docs.expo.io/distribution/uploading-apps/">documentation</a> 来介绍。</p>
+</div></div></div></div><div class="container spacing element--flex element--centered"><a class="edit-link" target="__BLANK" href="https://github.com/RichardStark/fullstack-hy2020.github.io/edit/source/src/content/10/zh/part10d.md"><span>对讲课材料提出建议</span></a></div><div class="container spacing spacing--after-large prev-next__container "><a class="col-4--mobile push-right-1 prev" href="/zh/part10/与服务端通信"><div class=" element--flex element--column"><p>Part<!-- --> <!-- -->10c</p><b>上一部分</b></div></a><a class="col-4--mobile push-left-1 next" href="/zh/part11"><div class=" element--flex element--column"><p>Part<!-- --> <!-- -->11</p><b>下一部分</b></div></a></div></div><div class="container spacing--after-small spacing--mobile element--flex" id="footer"><div class="col-5 push-right-3 col-10--mobile order-2--mobile order-2--tablet footer__links element--flex element--space-between"><a href="https://www.helsinki.fi/" class="col-5 col-4--mobile spacing--mobile"><div class="image col-6 image--contain"><div class="image__container"><img style="background-color:;background-opacity:0.5" class="image__content" src="/static/uoh_centre-3689cf9983a2ebc8089c8f078a9c4769.svg" alt="Helsingin yliopiston logo"/></div></div></a><a href="https://www.houston-inc.com/" class="col-5 col-4--mobile spacing--mobile"><div class="image col-6 image--contain"><div class="image__container"><img style="background-color:;background-opacity:0.5" class="image__content" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjQ3cHgiIGhlaWdodD0iODJweCIgdmlld0JveD0iMCAwIDI0NyA4MiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTMuMiAoNzI2NDMpIC0gaHR0cHM6Ly9za2V0Y2hhcHAuY29tIC0tPgogICAgPHRpdGxlPmxvZ28vaG91c3RvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwb2x5Z29uIGlkPSJwYXRoLTEiIHBvaW50cz0iMCAwLjAyNjcxOTI2NzMgMTM4LjIwODE2NyAwLjAyNjcxOTI2NzMgMTM4LjIwODE2NyAzNi40NjU0MzgxIDAgMzYuNDY1NDM4MSI+PC9wb2x5Z29uPgogICAgPC9kZWZzPgogICAgPGcgaWQ9ImxvZ28vaG91c3RvbiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImhvdXN0b25fc2ltcGxlLmVwcy1jb3B5LTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU0LjU4MTg5MywgMjMuMjYzMDQwKSI+CiAgICAgICAgICAgIDxtYXNrIGlkPSJtYXNrLTIiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+CiAgICAgICAgICAgIDwvbWFzaz4KICAgICAgICAgICAgPGcgaWQ9IkNsaXAtMiI+PC9nPgogICAgICAgICAgICA8cGF0aCBkPSJNODIuODA1MTI5OCwxMy41MDY2NjAzIEw4Mi44MDUxMjk4LDI1LjUzNjU1MDkgTDg1Ljk5MzYyOSwyNS41MzY1NTA5IEw4NS45OTM2MjksMTMuNTA2NjYwMyBMOTAuNDA2NTQ5MywxMy41MDY2NjAzIEw5MC40MDY1NDkzLDEwLjQ0NTY3ODQgTDc4LjM3NTEwMzYsMTAuNDQ1Njc4NCBMNzguMzc1MTAzNiwxMy41MDY2NjAzIEw4Mi44MDUxMjk4LDEzLjUwNjY2MDMgWiBNOTYuNDkxMDQ5NSwxNy45NjM2ODg1IEM5Ni40OTEwNDk1LDIwLjU1OTU1NzIgOTguMzE3ODU1NywyMi43MDc5ODQyIDEwMC44ODYxNTcsMjIuNzA3OTg0MiBDMTAzLjQ1NDg4MiwyMi43MDc5ODQyIDEwNS4yNDcxOTQsMjAuNTk1NDY1NyAxMDUuMjQ3MTk0LDE4LjAxNzk3NTMgTDEwNS4yNDcxOTQsMTguMDAwMDIxMSBDMTA1LjI0NzE5NCwxNS40MDQyOTM3IDEwMy40MjA1MjksMTMuMjU1ODY2NyAxMDAuODUyMjI4LDEzLjI1NTg2NjcgQzk4LjI4MzUwMjMsMTMuMjU1ODY2NyA5Ni40OTEwNDk1LDE1LjM2ODM4NTMgOTYuNDkxMDQ5NSwxNy45NDU3MzQzIEw5Ni40OTEwNDk1LDE3Ljk2MzY4ODUgWiBNOTMuMTQ3MDQxMywxOC4wMTc5NzUzIEw5My4xNDcwNDEzLDE3Ljk4MjA2NjkgQzkzLjE0NzA0MTMsMTMuNjg1NDk1NiA5Ni40MDQ4MTI3LDEwLjE3NjkzMDYgMTAwLjg4NjE1NywxMC4xNzY5MzA2IEMxMDUuMzY3OTI1LDEwLjE3NjkzMDYgMTA4LjU5MTM0MywxMy42NDk3Mjg1IDEwOC41OTEzNDMsMTcuOTQ1NzM0MyBMMTA4LjU5MTM0MywxNy45NjM2ODg1IEMxMDguNTkxMzQzLDIyLjI2MDI1OTggMTA1LjMzMzU3MiwyNS43Njg4MjQ3IDEwMC44NTIyMjgsMjUuNzY4ODI0NyBDOTYuMzcwMzE4LDI1Ljc2ODgyNDcgOTMuMTQ3MDQxMywyMi4zMTQxMjI0IDkzLjE0NzA0MTMsMTguMDE3OTc1MyBMOTMuMTQ3MDQxMywxOC4wMTc5NzUzIFogTTcwLjQxMTkxMzcsMjIuNzk3MDQ4NSBDNjguNzU2ODc0MiwyMi43OTcwNDg1IDY3LjM3ODIxNjYsMjIuMDgxMjgzMSA2Ni4wNjg0MDcsMjAuOTcxNzk3NCBMNjQuMTcyMTg3MiwyMy4zMTY0NDg0IEM2NS45MTMxODA4LDI0LjkyNzk0NTQgNjguMTM2Njc2MiwyNS43MzMzNDA0IDcwLjM0MzA2NTYsMjUuNzMzMzQwNCBDNzMuNDgwMTA1NSwyNS43MzMzNDA0IDc1LjY2OTI0NzYsMjQuMDUwMTY4IDc1LjY2OTI0NzYsMjEuMDYxMDAzIEw3NS42NjkyNDc2LDIxLjAyNTA5NDUgQzc1LjcyMTEzMSwxOC4zOTM0NTg4IDc0LjA0ODU2MTUsMTcuMzAxNzg1OCA3MS4xMDExMDExLDE2LjQ5NTgyNTMgQzY4LjU4NDY4MzQsMTUuODMzOTIyNiA2Ny45NjM5MTk5LDE1LjUxMTMxMjIgNjcuOTYzOTE5OSwxNC41MDg5ODYyIEw2Ny45NjM5MTk5LDE0LjQ3MzA3NzggQzY3Ljk2MzkxOTksMTMuNzM4OTM0MSA2OC42MDIyMTM1LDEzLjE2NjY2MTEgNjkuODI1NjQ0OSwxMy4xNjY2NjExIEM3MS4wNDk2NDE4LDEzLjE2NjY2MTEgNzIuMzA3OTkyMSwxMy43MjA5Nzk5IDczLjYwMDgzNywxNC42NTIwNTQ1IEw3NS4yNTU1OTM4LDEyLjE0NTk1NjkgQzczLjc4OTk5MjUsMTAuOTEwNjUwMiA3MS45ODA3MTY0LDEwLjIzMDM2OTIgNjkuODYwNTYzNywxMC4yMzAzNjkyIEM2Ni44OTU3MTQ3LDEwLjIzMDM2OTIgNjQuNzc1NTYyLDEyLjAzODY1NTcgNjQuNzc1NTYyLDE0Ljc3NzU5MjYgTDY0Ljc3NTU2MiwxNC44MTMwNzY5IEM2NC43NzU1NjIsMTcuODAyNjY2MSA2Ni42NzEwNzQ5LDE4LjY0NDUzNSA2OS41ODQxODE5LDE5LjQzMjExNzMgQzcyLjAxNDY0NTYsMjAuMDc2NjMxMiA3Mi41MTQ2Nzc2LDIwLjUwNjI2MDEgNzIuNTE0Njc3NiwyMS4zNDc3MDQ5IEw3Mi41MTQ2Nzc2LDIxLjM4MzA0NzkgQzcyLjUxNDY3NzYsMjIuMjYwMjU5OCA3MS43MjIyODg4LDIyLjc5NzA0ODUgNzAuNDExOTEzNywyMi43OTcwNDg1IEw3MC40MTE5MTM3LDIyLjc5NzA0ODUgWiBNMzEuMzM2NDY5NywxNy45NjM2ODg1IEMzMS4zMzY0Njk3LDIwLjU1OTU1NzIgMzMuMTYzNywyMi43MDc5ODQyIDM1LjczMTg1OTksMjIuNzA3OTg0MiBDMzguMzAwMTYxMSwyMi43MDc5ODQyIDQwLjA5MjQ3MjYsMjAuNTk1NDY1NyA0MC4wOTI0NzI2LDE4LjAxNzk3NTMgTDQwLjA5MjQ3MjYsMTguMDAwMDIxMSBDNDAuMDkyNDcyNiwxNS40MDQyOTM3IDM4LjI2NTI0MjMsMTMuMjU1ODY2NyAzNS42OTY5NDEsMTMuMjU1ODY2NyBDMzMuMTI5MjA1MywxMy4yNTU4NjY3IDMxLjMzNjQ2OTcsMTUuMzY4Mzg1MyAzMS4zMzY0Njk3LDE3Ljk0NTczNDMgTDMxLjMzNjQ2OTcsMTcuOTYzNjg4NSBaIE0yOC4wMDk3MDg5LDE4LjAxNzk3NTMgTDI4LjAwOTcwODksMTcuOTgyMDY2OSBDMjguMDA5NzA4OSwxMy42ODU0OTU2IDMxLjI2NzQ4MDMsMTAuMTc2OTMwNiAzNS43NDg4MjQ1LDEwLjE3NjkzMDYgQzQwLjIzMDczNDIsMTAuMTc2OTMwNiA0My40MzYxOTgsMTMuNjQ5NzI4NSA0My40NTQwMTA5LDE3Ljk0NTczNDMgTDQzLjQ1NDAxMDksMTcuOTYzNjg4NSBDNDMuNDU0MDEwOSwyMi4yNjAyNTk4IDQwLjE5NjIzOTUsMjUuNzY4ODI0NyAzNS43MTQ4OTUzLDI1Ljc2ODgyNDcgQzMxLjIzMjU2MTUsMjUuNzY4ODI0NyAyOC4wMDk3MDg5LDIyLjMxNDEyMjQgMjguMDA5NzA4OSwxOC4wMTc5NzUzIEwyOC4wMDk3MDg5LDE4LjAxNzk3NTMgWiBNNTMuODMwNDE3MSwyNS43MzMzNDA0IEM1Ny43NDI4ODEyLDI1LjczMzM0MDQgNjAuMjA3ODM5NywyMy40OTU4NDkyIDYwLjIwNzgzOTcsMTguOTMwNjcxNSBMNjAuMjA3ODM5NywxMC40MjcxNTg3IEw1Ny4wMDE4MTAzLDEwLjQyNzE1ODcgTDU3LjAwMTgxMDMsMTkuMDczNzM5OCBDNTcuMDAxODEwMywyMS40NzI2Nzc2IDU1LjgxMjMwODEsMjIuNjkwMDMgNTMuODY0NzcwNCwyMi42OTAwMyBDNTEuOTE3Mzc0MSwyMi42OTAwMyA1MC43Mjc3MzA1LDIxLjQxODk1NjMgNTAuNzI3NzMwNSwxOC45NjY1OCBMNTAuNzI3NzMwNSwxMC40MjcxNTg3IEw0Ny41Mzg2NjU4LDEwLjQyNzE1ODcgTDQ3LjUzODY2NTgsMTkuMDM3ODMxMyBDNDcuNTM4NjY1OCwyMy40Nzc4OTUgNDkuOTE3OTUzLDI1LjczMzM0MDQgNTMuODMwNDE3MSwyNS43MzMzNDA0IEw1My44MzA0MTcxLDI1LjczMzM0MDQgWiBNMy4xNTQ1NywzMy4xOTgxOTQ4IEwxMzUuMDM2NjMyLDMzLjE5ODE5NDggTDEzNS4wMzY2MzIsMy4zMDI0NDQ4OCBMMy4xNTQ1NywzLjMwMjQ0NDg4IEwzLjE1NDU3LDMzLjE5ODE5NDggWiBNMCwzNi40NzM5MjA0IEwxMzguMjA4MTY3LDM2LjQ3MzkyMDQgTDEzOC4yMDgxNjcsMC4wMjY3MTkyNjczIEwwLDAuMDI2NzE5MjY3MyBMMCwzNi40NzM5MjA0IFogTTE0LjgyMzExNDMsMTkuNDg1NDE0NCBMMjAuNzE4NjAwNSwxOS40ODU0MTQ0IEwyMC43MTg2MDA1LDI1LjUzNjU1MDkgTDIzLjkwNzY2NTIsMjUuNTM2NTUwOSBMMjMuOTA3NjY1MiwxMC40NDU2Nzg0IEwyMC43MTg2MDA1LDEwLjQ0NTY3ODQgTDIwLjcxODYwMDUsMTYuNDA2MDU0MiBMMTQuODIzMTE0MywxNi40MDYwNTQyIEwxNC44MjMxMTQzLDEwLjQ0NTY3ODQgTDExLjYzNDc1NjUsMTAuNDQ1Njc4NCBMMTEuNjM0NzU2NSwyNS41MzY1NTA5IEwxNC44MjMxMTQzLDI1LjUzNjU1MDkgTDE0LjgyMzExNDMsMTkuNDg1NDE0NCBaIE0xMTUuODY0OTIyLDE1Ljk0MTUwNjUgTDEyMi44OTc2MDIsMjUuNTM2NTUwOSBMMTI1LjYyMDk4OCwyNS41MzY1NTA5IEwxMjUuNjIwOTg4LDEwLjQ0NTY3ODQgTDEyMi40NjY0MTgsMTAuNDQ1Njc4NCBMMTIyLjQ2NjQxOCwxOS43MzYyMDggTDExNS42NTgzNzcsMTAuNDQ1Njc4NCBMMTEyLjcxMDkxNywxMC40NDU2Nzg0IEwxMTIuNzEwOTE3LDI1LjUzNjU1MDkgTDExNS44NjQ5MjIsMjUuNTM2NTUwOSBMMTE1Ljg2NDkyMiwxNS45NDE1MDY1IEwxMTUuODY0OTIyLDE1Ljk0MTUwNjUgWiIgaWQ9IkZpbGwtMSIgZmlsbD0iIzAwMDEwNSIgbWFzaz0idXJsKCNtYXNrLTIpIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" alt="Houston inc. logo"/></div></div></a></div><div class="col-5 col-5--mobile order-1--mobile order-1--tablet footer__navigation element--flex"><div class="footer__navigation-link-container"><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/about">关于课程</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/#course-contents">课程内容</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/faq">常见问题</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/companies">合作伙伴</a></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-135975842-1', 'fullstackopen.com', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/zh/part10/测试与扩展我们的应用";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-dbb088d2dab52596379f.js"],"app":["/app-ef8bef0e206781be83c1.js"],"component---src-pages-404-js":["/component---src-pages-404-js-89af4c7add8c7978ed1c.js"],"component---src-pages-about-en-js":["/component---src-pages-about-en-js-5e5020df69d58f0a7e69.js"],"component---src-pages-about-es-js":["/component---src-pages-about-es-js-97229fd3d73a2c197882.js"],"component---src-pages-about-js":["/component---src-pages-about-js-518b1b540007cd36a194.js"],"component---src-pages-about-zh-js":["/component---src-pages-about-zh-js-6e3021c9a1eed6425572.js"],"component---src-pages-challenge-en-js":["/component---src-pages-challenge-en-js-2c65f2f7e045262f3879.js"],"component---src-pages-challenge-es-js":["/component---src-pages-challenge-es-js-c9f605b8fa584ee59993.js"],"component---src-pages-challenge-js":["/component---src-pages-challenge-js-a08dcf36bba815e6e5b4.js"],"component---src-pages-challenge-zh-js":["/component---src-pages-challenge-zh-js-ecc0199ac62e67a9341f.js"],"component---src-pages-companies-en-js":["/component---src-pages-companies-en-js-e94068831a275497aabc.js"],"component---src-pages-companies-es-js":["/component---src-pages-companies-es-js-f5000ca7ba2035277b59.js"],"component---src-pages-companies-js":["/component---src-pages-companies-js-974f2b79031483982ae8.js"],"component---src-pages-companies-zh-js":["/component---src-pages-companies-zh-js-e232877a3e8f94e21e7e.js"],"component---src-pages-faq-en-js":["/component---src-pages-faq-en-js-e670d6c165336aa7abbb.js"],"component---src-pages-faq-es-js":["/component---src-pages-faq-es-js-66e3c0aa297eb79475c6.js"],"component---src-pages-faq-js":["/component---src-pages-faq-js-7e487cf8d4d0060dbbd6.js"],"component---src-pages-faq-zh-js":["/component---src-pages-faq-zh-js-cf0fe3f8a70ff9d848bb.js"],"component---src-pages-index-en-js":["/component---src-pages-index-en-js-6be4fa2830209e9e4db3.js"],"component---src-pages-index-es-js":["/component---src-pages-index-es-js-f6be40f62e3cc3652975.js"],"component---src-pages-index-js":["/component---src-pages-index-js-30bfa48a0668f61de223.js"],"component---src-pages-index-zh-js":["/component---src-pages-index-zh-js-36b9cfcc3fa59be92514.js"],"component---src-pages-search-en-js":["/component---src-pages-search-en-js-f42523c2d36c56303773.js"],"component---src-pages-search-js":["/component---src-pages-search-js-29b2f0f5c7d89c1e1119.js"],"component---src-pages-search-zh-js":["/component---src-pages-search-zh-js-ba9f2429d9bfd77d7581.js"],"component---src-templates-content-template-js":["/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js"],"component---src-templates-part-intro-template-js":["/component---src-templates-part-intro-template-js-db1a2cf2e4f1d65856c3.js"]};/*]]>*/</script><script src="/polyfill-dbb088d2dab52596379f.js" nomodule=""></script><script src="/webpack-runtime-a7eee694451a048fe190.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/commons-2f51cc50765e604cbb43.js" async=""></script><script src="/30844a71ec80b1e82ad30323d06b914984ff6c2b-9847aef7af5bdcc218fe.js" async=""></script><script src="/e4b9374bcd292c90587e3ccf579324c3065ac22f-63f0a03f893b4902fedd.js" async=""></script><script src="/ff8e348e8d42e8d61f84312613c75c948ce81396-bbc0c43404e43e967ab7.js" async=""></script><script src="/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js" async=""></script><script src="/app-ef8bef0e206781be83c1.js" async=""></script><script src="/framework-bb9bb9cb9df99aee3258.js" async=""></script><script src="/5d7a54886b2742230021cc39eab839038eb7a677-aad1a805ee4596e9a838.js" async=""></script></body></html>

@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[18],{H0V8:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),o=n.n(a),u=n("Q7S0");t.default=function(){return o.a.createElement(u.a,{lang:"es",title:"About the course | Full stack open 2020"})}}}]);
+//# sourceMappingURL=component---src-pages-about-es-js-97229fd3d73a2c197882.js.map

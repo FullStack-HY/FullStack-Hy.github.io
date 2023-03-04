@@ -1,0 +1,946 @@
+<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e909ca77e15e07f0bc8a.css" id="gatsby-global-css">@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500,600);@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400);code[class*=language-],pre[class*=language-]{color:#fff;background:none;text-shadow:0 -.1em .2em #000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}:not(pre)>code[class*=language-],pre[class*=language-]{background:#4d4033}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border:.3em solid #7a6652;border-radius:.5em;box-shadow:inset 1px 1px .5em #000}:not(pre)>code[class*=language-]{padding:.15em .2em .05em;border-radius:.3em;border:.13em solid #7a6652;box-shadow:inset 1px 1px .3em -.1em #000;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#998066}.token.namespace,.token.punctuation{opacity:.7}.token.boolean,.token.constant,.token.number,.token.property,.token.symbol,.token.tag{color:#d1949e}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#bde052}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f5b83d}.token.atrule,.token.attr-value,.token.keyword{color:#d1949e}.token.important,.token.regex{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.deleted{color:red}.course{position:relative;width:100%}@media (min-width:992px){.course{display:flex;flex-wrap:nowrap;flex-direction:row;align-items:flex-start}}.course p{font-family:IBM Plex Sans,monospace}@media (min-width:640px){.course p{margin-left:1rem}}.course p:not(:last-of-type){margin-bottom:1rem}@media (min-width:640px){.course h1{margin-left:3rem}}.course h2,.course h3,.course h4{padding-bottom:2rem}@media (min-width:640px){.course h2,.course h3,.course h4,.course table{margin-left:1rem}}.course ul{font-family:IBM Plex Sans,monospace}@media (min-width:640px){.course ul{margin-left:2.2rem}}.course h2:not(:first-of-type){margin-top:2rem}.course pre{margin:2rem 0;background-color:#33332d;color:#fff}.course em{font-family:Courier;font-style:normal;background-color:hsla(0,0%,88.2%,.6);padding:1px 5px 2px}.course img{border:11px solid transparent}.course .banner,.course .container{position:static}.course .letter{width:4rem;height:4rem;border-width:5px;border-style:solid;border-radius:2.5rem;text-align:center;margin:1rem;line-height:1.3em;transform:translate(-1rem)}@media (min-width:640px){.course .letter{transform:translate(-3rem,4.5rem)}}.course .letter,.course h1{font-size:2.3rem;font-weight:700}.course-content-container{width:100%}.course-content a,.tasks a{border:0;border-bottom-width:2px;border-style:solid;padding:2px}.course-content{width:90%;margin:0 auto;max-width:1200px}@media (min-width:992px){.course-content-inner{padding-left:30%;padding-right:5%}}.tasks a{border-color:#33332d!important}.tasks a:hover{background-color:#fff!important;color:#000!important}.gatsby-highlight-code-line{background-color:hsla(0,0%,88.2%,.3);display:block;margin-right:-1em;margin-left:-1em;padding-right:1em;padding-left:1em}code[class*=language-],pre[class*=language-]{text-shadow:none}.arrow-go-up{width:36px;height:36px;position:fixed;bottom:5%;right:5%;z-index:99999;cursor:pointer}@media (max-width:639px){.arrow-go-up{right:10%}}.part-main__banner{background-position:50%;background-size:50%;padding-bottom:10%;background-repeat:no-repeat}@media (max-width:639px){.part-main__banner{background-position:top;background-size:70%;padding-bottom:30%!important}}.part-intro{font-family:IBM Plex Sans,monospace!important}.part-intro p:not(:last-of-type){padding-bottom:2em}.part-intro__banner{background-size:50%;background-repeat:no-repeat;background-position:100%}@media (max-width:639px){.part-intro__banner{background-position:top;background-size:70%}.part-intro__banner>.container{margin-top:40%}}.part-intro a{border-bottom:1px solid #33332d}.part-intro a:hover{background-color:#fff}.arrow__container{position:relative}.arrow__container:not():first-child{background:none;background-color:none}@media (min-width:640px){.arrow__container:not():first-child{border-left:none}.arrow__container:not():first-child:before{content:"";background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjwhLS1HZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCktLT48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0NzcuMTc1IDQ3Ny4xNzUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ3Ny4xNzUgNDc3LjE3NSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZD0iTTM2MC43MzEsMjI5LjA3NWwtMjI1LjEtMjI1LjFjLTUuMy01LjMtMTMuOC01LjMtMTkuMSwwcy01LjMsMTMuOCwwLDE5LjFsMjE1LjUsMjE1LjVsLTIxNS41LDIxNS41CgkJYy01LjMsNS4zLTUuMywxMy44LDAsMTkuMWMyLjYsMi42LDYuMSw0LDkuNSw0YzMuNCwwLDYuOS0xLjMsOS41LTRsMjI1LjEtMjI1LjFDMzY1LjkzMSwyNDIuODc1LDM2NS45MzEsMjM0LjI3NSwzNjAuNzMxLDIyOS4wNzV6CgkJIi8+PC9nPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjwvc3ZnPg==) no-repeat;background-size:contain;position:absolute;top:0;left:0;height:100%;width:100%}}.arrows--horizontal{display:flex;position:relative;margin:0;align-items:flex-start}.arrow__wrapper{display:flex;justify-content:flex-start;align-items:center;margin:0}.arrow__wrapper:first-of-type{border-right:none;z-index:20}.arrow__wrapper:nth-of-type(n+2){margin-left:-4rem;z-index:10}.arrow__wrapper:nth-of-type(n+2) .arrow__rectangle{border-left:none;padding-left:4rem}.arrow__wrapper:nth-of-type(3){z-index:5}.arrow__wrapper:hover .arrow__point,.arrow__wrapper:hover .arrow__rectangle,.arrow__wrapper:hover .arrow__rectangle>a{background-color:#33332d!important;color:#fff!important}.arrow__rectangle{padding:1rem;justify-content:center;align-items:center;border:2px solid #33332d;border-right:none;z-index:2;overflow:hidden;font-family:IBM Plex Sans,monospace;position:relative}@media (max-width:991px){.arrow__rectangle{font-size:1rem}}.arrow__rectangle .bold{font-weight:600}.arrow__rectangle--thick-border{border:3px solid #33332d;border-right:none}.arrow__point{padding:1.25rem;border:2px solid #33332d;border-bottom:none;border-left:none;transform:translate(-1.3rem) rotate(45deg);z-index:1;overflow:hidden}.arrow__point--thick-border{border:3px solid #33332d;border-bottom:none;border-left:none}.arrow__wrapper--stacked{display:flex;justify-content:flex-start;align-items:center;margin:auto auto auto 0}@media (max-width:639px){.arrow__wrapper--stacked .arrow__rectangle{border:none;background-color:transparent!important;padding:0;font-size:1rem;justify-content:unset}.arrow__wrapper--stacked .arrow__rectangle>p>span{border-bottom:1px solid #33332d;margin:auto}.arrow__wrapper--stacked .arrow__rectangle>p>span:hover{background-color:#fff!important;color:#000}.arrow__wrapper--stacked .arrow__point{display:none}}.arrow__wrapper--stacked:nth-of-type(n+2){margin-top:1rem}@media (min-width:640px){.arrow__wrapper--stacked:nth-of-type(n+2){margin-top:-2px}}.arrow__wrapper--stacked .arrow__rectangle{position:relative}@media (min-width:640px){.arrow__wrapper--stacked .arrow__rectangle{padding:1.25rem}}@media (min-width:992px){.arrow__wrapper--stacked .arrow__rectangle{padding:1rem}}.arrow__wrapper--stacked .arrow__point{padding:1.08rem;margin-left:2px}@media (min-width:640px){.arrow__wrapper--stacked .arrow__point{margin-left:unset;padding:1.25rem}}@media (min-width:640px){.arrow__wrapper--stacked:hover .arrow__point,.arrow__wrapper--stacked:hover .arrow__rectangle{background-color:#33332d!important}}@media (min-width:640px){.arrow__wrapper--stacked:hover .arrow--stacked-letter,.arrow__wrapper--stacked:hover .arrow--stacked-title{color:#fff}}.arrow--stacked-title{font-family:IBM Plex Mono,monospace}@media (min-width:640px){.arrow--stacked-title{white-space:nowrap}}.arrow__container--with-link{width:100%!important}@media (max-width:639px){.breadcrumb .arrow__wrapper{display:none}}.breadcrumb .arrow__wrapper:hover .arrow__point,.breadcrumb .arrow__wrapper:hover .arrow__rectangle{background-color:#33332d!important}.breadcrumb .arrow__wrapper:hover .arrow--stacked-letter,.breadcrumb .arrow__wrapper:hover .arrow--stacked-title{color:#fff}.breadcrumb .arrow__rectangle{position:relative}@media (max-width:639px){.breadcrumb .arrow__rectangle{border:none;padding:0;font-size:.7rem;white-space:nowrap;background-color:transparent!important;color:#33332d}}@media (max-width:639px){.breadcrumb .arrow__point{display:none}}.banner{display:flex;width:100%;align-items:center;position:relative;padding:2rem 0;background-color:#e1e1e1}@media (min-width:992px){.banner{padding:3.444rem 3.444rem 4.444rem}}html{font-family:IBM Plex Mono,monospace;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:IBM Plex Mono,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:112.5%/1.45em IBM Plex Mono,monospace;box-sizing:border-box;overflow-y:scroll}*,:after,:before{box-sizing:inherit}body{color:rgba(0,0,0,.8);font-family:IBM Plex Mono,monospace;font-weight:400;word-wrap:break-word;-webkit-font-kerning:normal;font-kerning:normal;-ms-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt"}img{max-width:100%;padding:0;margin:0 0 1.45rem}h1{font-size:2.25rem}h1,h2{padding:0;margin:0 0 1.45rem;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h2{font-size:1.62671rem}h3{margin:2rem 0 -.5rem;font-size:1.38316rem}h3,h4{padding:0;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h4{margin:2rem 0 -1rem;font-size:1rem}h5{font-size:.85028rem}h5,h6{padding:0;margin:0 0 1.45rem;color:inherit;font-family:IBM Plex Mono,monospace;font-weight:700;text-rendering:optimizeLegibility;line-height:1.1}h6{font-size:.78405rem}hgroup{padding:0;margin:0 0 1.45rem}ol,ul{padding:0;margin:0 0 1.45rem 1.45rem;list-style-position:outside;list-style-image:none}dd,dl,figure,p{padding:0;margin:0 0 1.45rem}pre{margin:0 0 1.45rem;font-size:.85rem;line-height:1.42;background:rgba(0,0,0,.04);border-radius:3px;overflow:auto;word-wrap:normal;padding:1.45rem}table{font-size:1rem;line-height:1.45rem;border-collapse:collapse;width:100%}fieldset,table{padding:0;margin:0 0 1.45rem}blockquote{padding:0;margin:0 1.45rem 1.45rem}form,iframe,noscript{padding:0;margin:0 0 1.45rem}hr{padding:0;margin:0 0 calc(1.45rem - 1px);background:rgba(0,0,0,.2);border:none;height:1px}address{padding:0;margin:0 0 1.45rem}b,dt,strong,th{font-weight:700}li{margin-bottom:.725rem}ol li,ul li{padding-left:0}li>ol,li>ul{margin-left:1.45rem;margin-bottom:.725rem;margin-top:.725rem}blockquote :last-child,li :last-child,p :last-child{margin-bottom:0}li>p{margin-bottom:.725rem}code,kbd,samp{font-size:.85rem;line-height:1.45rem}abbr,abbr[title],acronym{border-bottom:1px dotted rgba(0,0,0,.5);cursor:help}abbr[title]{text-decoration:none}td,th,thead{text-align:left}td,th{border-bottom:1px solid rgba(0,0,0,.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding:.725rem .96667rem calc(.725rem - 1px)}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}code,tt{background-color:rgba(0,0,0,.04);border-radius:3px;font-family:SFMono-Regular,Consolas,Roboto Mono,Droid Sans Mono,Liberation Mono,Menlo,Courier,monospace;padding:.2em 0}pre code{background:none;line-height:1.42}code:after,code:before,tt:after,tt:before{letter-spacing:-.2em;content:" "}pre code:after,pre code:before,pre tt:after,pre tt:before{content:""}@media only screen and (max-width:480px){html{font-size:100%}}.element--flex{display:flex;flex-wrap:wrap}.element--space-around{justify-content:space-around}.element--space-between{justify-content:space-between}.element--column{flex-direction:column}.element--centered{align-items:center;justify-content:center!important}@media (min-width:992px){.element--centered-in-desktop{align-items:center;justify-content:center!important}}@media (min-width:992px){.element--horizontal-half{width:45%}}.element--auto-margin{margin:auto}.element--auto-bottom-margin{margin-bottom:auto}.element--flex-start{align-content:flex-start}.element--no-wrap{flex-wrap:nowrap}.element--relative{position:relative!important}.edit-link>span{border-bottom-width:3px;border-bottom-style:solid;border-bottom-color:inherit}.accordion__container{margin-bottom:1rem}.accordion__title{padding-left:2.149rem!important;padding-right:2.149rem!important;font-size:1.111rem!important;font-weight:600}.accordion{background-color:#fff;border:3px solid #33332d;border-radius:5px;color:#444;cursor:pointer;padding:1rem;width:100%;text-align:left;outline:none;font-size:15px;transition:max-width .4s}.accordion:hover,.active{background-color:#e1e1e1}.accordion:after{content:"+";font-size:1.5rem;float:right;margin-left:5px}.active{border-color:#fff}.active:after{content:"-";font-size:1.5rem}.panel{background-color:#fff;transition:height .3s;transition-timing-function:ease-in-out;overflow:hidden}.accordion--side-navigation{width:100%;margin-left:unset}.accordion--side-navigation .accordion{border:none;padding:0!important;background-color:transparent!important;color:#33332d!important;border-radius:0}.accordion--side-navigation .accordion__title{font-size:16px!important;font-weight:unset;background-color:transparent}.accordion--side-navigation .accordion__title:hover{background-color:#33332d!important;color:#fff!important}.accordion--side-navigation .panel{padding:1rem 0 0!important;background-color:transparent}.accordion--side-navigation .panel ul{margin-left:1rem}.accordion--side-navigation .accordion:hover,.accordion--side-navigation .active{background-color:#33332d;color:#fff}.accordion--side-navigation .accordion:after,.accordion--side-navigation .active:after{content:""}.body-text:not(:last-of-type){margin-bottom:2.5rem}.body-text__title{color:#33332d;font-size:1.44rem;line-height:1.25em;font-weight:700;margin:0;position:relative;top:50%;transform:translateY(-50%)}.body-text__content:not(:last-of-type){padding-bottom:2em}.bold{font-weight:700}.body-text--no-padding{padding:0!important}@media (min-width:640px){.companies__main-title .body-text__title{font-size:3rem}}.challenge-title{font-size:1.44rem}@media (min-width:992px){.company__logo{width:15%!important}}.content-liftup{position:relative;text-decoration:none}.content-liftup--small{box-sizing:border-box}.content-liftup--small>:last-child{margin-bottom:0}.content-liftup__name{margin-top:1.5rem;color:#33332d;font-weight:700}@media (min-width:992px){.content-liftup__name{margin-top:2rem}}.content-liftup__summary{margin-top:1rem;margin-bottom:3rem;color:#33332d;line-height:28px}.content-liftup__link{text-decoration:none;font-weight:700}.content-liftup .content-liftup__image:after,.content-liftup__link:after{content:"";position:absolute;top:0;left:0;height:100%;width:100%}.content-liftup .content-liftup__image:after{opacity:.5;z-index:2}body,html{margin:0;padding:0;font-family:IBM Plex Mono,monospace;font-weight:500;color:#33332d;font-size:14px;line-height:1.555rem}@media (min-width:992px){body,html{font-size:18px}}.main-wrapper{min-height:100vh;display:flex;flex-direction:column}p{margin:0;text-align:left;line-height:1.5em}a,p{color:#33332d}a{text-decoration:none}.link a{border-bottom:2px solid #e1e1e1}.link a:hover{background-color:#e1e1e1}.container{position:relative;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;width:90%;max-width:1300px}@media (max-width:639px){.container{padding:0 20px}}@media (min-width:992px){.container--right{margin-right:5%;width:54%;max-width:779.9844px}}@media (min-width:992px) and (min-width:1300px){.container--right{margin-right:calc(50% - 650px)}}.hidden{display:none!important}.centered{text-align:center}@media (max-width:639px){.centered--mobile{justify-content:center;align-content:center;align-items:center}}.spacing{margin-top:2rem}@media (max-width:992px) and (min-width:640px){.spacing--tablet{margin-top:5rem!important}}@media (min-width:992px){.spacing{margin-top:5rem}}.spacing--small{margin-top:1rem}@media (min-width:992px){.spacing--small{margin-top:3.444rem}}.spacing--large{margin-top:4rem}@media (min-width:992px){.spacing--large{margin-top:10rem}}.spacing--extra-large{margin-top:4rem}@media (min-width:992px){.spacing--extra-large{margin-top:20rem}}.spacing--after{margin-bottom:2rem}@media (min-width:992px){.spacing--after{margin-bottom:5rem}}@media (max-width:639px){.spacing--after--mobile{margin-bottom:5rem}}@media (min-width:992px){.spacing--after-small{margin-bottom:2.5rem}}.spacing--after-large{margin-bottom:4rem}@media (min-width:992px){.spacing--after-large{margin-bottom:10rem}}@media (max-width:991px){.spacing--mobile{margin-top:2rem}}@media (max-width:1299px){.spacing--mobile--small{margin-top:1.5rem}}@media (max-width:1299px){.spacing--mobile--large{margin-top:3rem}}.col-1{width:100%}@media (min-width:992px){.col-1{width:10%}}.col-2{width:100%}@media (min-width:992px){.col-2{width:20%}}.col-3{width:100%}@media (min-width:992px){.col-3{width:30%}}.col-4{width:100%}@media (min-width:992px){.col-4{width:40%}}.col-5{width:100%}@media (min-width:992px){.col-5{width:50%}}.col-6{width:100%}@media (min-width:992px){.col-6{width:60%}}.col-7{width:100%}@media (min-width:992px){.col-7{width:70%}}.col-8{width:100%}@media (min-width:992px){.col-8{width:80%}}.col-9{width:100%}@media (min-width:992px){.col-9{width:90%}}.col-10{width:100%}@media (min-width:992px){.col-10{width:100%}}@media (min-width:992px){.push-right-1{margin-left:10%}.push-right-2{margin-left:20%}.push-right-3{margin-left:30%}.push-right-4{margin-left:40%}.push-right-5{margin-left:50%}.push-left-1{margin-right:10%}.push-left-2{margin-right:20%}.push-left-3{margin-right:30%}.push-left-4{margin-right:40%}.push-left-5{margin-right:50%}.push-left{margin-right:auto}.push-right{margin-left:auto}}@media (max-width:639px){.col-1--mobile{width:10%!important}.col-2--mobile{width:20%!important}.col-3--mobile{width:30%!important}.col-4--mobile{width:40%!important}.col-5--mobile{width:50%!important}.col-6--mobile{width:60%!important}.col-7--mobile{width:70%!important}.col-8--mobile{width:80%!important}.col-9--mobile{width:90%!important}.col-10--mobile{width:100%!important}.push-right-1--mobile{margin-left:10%!important}.push-right-2--mobile{margin-left:20%!important}.push-right-3--mobile{margin-left:30%!important}.push-right-4--mobile{margin-left:40%!important}.push-right-5--mobile{margin-left:50%!important}.push-left-1--mobile{margin-right:10%!important}.push-left-2--mobile{margin-right:20%!important}.push-left-3--mobile{margin-right:30%!important}.push-left-4--mobile{margin-right:40%!important}.push-left-5--mobile{margin-right:50%!important}.order-0--mobile{order:0}.order-1--mobile{order:1}.order-2--mobile{order:2}.order-3--mobile{order:3}.order-4--mobile{order:4}.order-5--mobile{order:5}.hidden--mobile{display:none}}@media (max-width:1299px){.col-1--tablet{width:10%}.col-2--tablet{width:20%}.col-3--tablet{width:30%}.col-4--tablet{width:40%}.col-5--tablet{width:50%}.col-6--tablet{width:60%}.col-7--tablet{width:70%}.col-8--tablet{width:80%}.col-9--tablet{width:90%}.col-10--tablet{width:100%}.order-0--tablet{order:0}.order-1--tablet{order:1}.order-2--tablet{order:2}.order-3--tablet{order:3}.order-4--tablet{order:4}.order-5--tablet{order:5}.order-0--mobile{order:0}.order-1--mobile{order:1}.order-2--mobile{order:2}.order-3--mobile{order:3}.order-4--mobile{order:4}.order-5--mobile{order:5}.hidden--mobile{display:none}}.centered-vertically{display:flex;flex-direction:column;justify-content:center}.nav-item-hover{text-decoration:none;color:#33332d;font-weight:500;padding:.2em}@media (min-width:640px){.nav-item-hover{font-weight:600}}.nav-item-hover:active,.nav-item-hover:focus,.nav-item-hover:hover{color:#fff;background-color:#33332d!important}.nav-item-hover:active,.nav-item-hover:focus{outline:2px solid #706be4}.flex-fix-aligning:after,.flex-fix-aligning:before{content:"";width:30%;order:2}.index__main-title{font-size:1.571rem}@media (min-width:992px){.index__main-title{font-size:3rem}}.auto-bottom-margin{margin-bottom:auto}@media (min-width:992px){.absolute-top-right--desktop{position:absolute;top:0;right:0}}@media (min-width:640px){.frontpage__hero .image{top:-2em}}@media (min-width:992px){.frontpage__hero{flex-direction:column}.frontpage__hero .image{top:4em}}.heading-font{font-family:IBM Plex Sans,monospace}.about__challenge-button{box-shadow:-3px 5px #33332d;padding:.6rem 1rem;border:3px solid #33332d;font-weight:600}.about__challenge-button:hover{background-color:#33332d;color:#fff;cursor:pointer}.about__challenge-button--turquoise{background-color:#82f7eb}@media (max-width:1299px){.space-between--mobile{justify-content:space-between}}.challenge__banner{display:flex;justify-content:center;margin-bottom:-70px}@media (min-width:640px){.challenge__banner{transform:translateY(-10px)}}@media (min-width:1300px){.challenge__banner{margin-bottom:-370px}}.challenge__banner .image{margin:0;width:70%;transform:translateY(-25%)}@media (min-width:640px){.challenge__banner .image{transform:translateY(-10%)}}@media (min-width:1300px){.challenge__banner .image{transform:translateY(-30%)}}.header{position:-webkit-sticky;position:sticky;z-index:9999999999;top:0;box-sizing:border-box;width:100%;padding-top:1.444rem;padding-bottom:1rem;transition:all .2s ease-in-out}.header--small{pointer-events:none}.header__logo{margin:0 10px;pointer-events:auto}.navigation{z-index:2;list-style:none;opacity:0;display:none;margin:0;padding:5%;flex-direction:column;justify-content:center;align-items:center;background:#e1e1e1;position:fixed;top:8%;right:5%;transition:opacity .3s ease-in-out;font-weight:200}@media (min-width:1300px){.navigation{display:flex;opacity:1;padding:0;font-weight:400;position:static;background:none;overflow:hidden;flex-direction:row}}@media (max-width:1299px){.navigation__wrapper .language-switcher{margin:20px 0 0}}@media (min-width:1300px){.navigation__wrapper{flex-grow:100}}.navigation__language-picker{margin-left:auto}.navigation__toggle{z-index:3;position:absolute;top:0;right:0;width:50px;height:40px;cursor:pointer;border:none;background:none;outline:none;border-radius:4px}@media (min-width:1300px){.navigation__toggle{display:none}}.navigation__mobile-logo{display:none}.navigation__toggle-icon{top:8px;left:10px}.navigation__toggle-icon,.navigation__toggle-icon:after,.navigation__toggle-icon:before{position:absolute;width:30px;height:3px;transition:all .3s ease;border-radius:4px;background-color:#33332d}.navigation__toggle-icon:after,.navigation__toggle-icon:before{content:"";display:block}.navigation__toggle-icon:before{top:10px}.navigation__toggle-icon:after{top:20px}.is-open--navigation{overflow:hidden;height:100vh}.is-open--navigation .navigation{opacity:1;display:unset}.is-open--navigation .navigation:before{content:"";background-color:#e1e1e1;position:absolute;width:25px;height:25px;top:-3px;right:13px;transform:rotate(45deg)}.is-open--navigation .navigation__mobile-logo{display:block;width:30px;height:30px;position:absolute;top:47px;left:5%}@media (min-width:1300px){.is-open--navigation .navigation__mobile-logo{display:none}}.is-open--navigation .navigation__toggle-icon{transform:translate3d(0,10px,0) rotate(45deg)}.is-open--navigation .navigation__toggle-icon,.is-open--navigation .navigation__toggle-icon:after,.is-open--navigation .navigation__toggle-icon:before{background:#33332d}.is-open--navigation .navigation__toggle-icon:before{transform:rotate(-45deg) translate3d(-5.71429px,-6px,0);opacity:0}.is-open--navigation .navigation__toggle-icon:after{transform:translate3d(0,-19px,0) rotate(-90deg)}.navigation__item{margin:22px 0;white-space:nowrap}.navigation__item:first-of-type{margin:0 0 22px}.navigation__item:last-of-type{margin:22px 0 0}@media (min-width:1300px){.navigation__item{margin:0 30px;padding:0!important}.navigation__item:first-of-type{margin:0 30px 0 2rem}.navigation__item:last-of-type{margin:0 0 0 30px}}.LanguagePicker-module--select--364N3{padding:3px 6px;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:1px solid #33332d;border-radius:5px;color:inherit;background-color:#fff;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:16px 12px;width:6.5rem}.SvgIcon-module--svgIcon--1nGJ6{-webkit-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;flex-shrink:0;font-size:1.5rem}.SrOnly-module--srOnly--2Hn2L{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.SearchLink-module--searchLink--2IShR{margin-left:auto;border-radius:4px;padding:4px;display:inline-flex}.SearchLink-module--searchLink--2IShR:hover{background-color:#33332d;color:#fff}.triple-border{position:relative;padding:2px;border-radius:5px 0;transition:color .1s ease-in-out,background-color .1s ease-in-out}.triple-border:after,.triple-border:before{z-index:2;content:"";border:2px solid #33332d;border-radius:5px;position:absolute;width:calc(100% + 5px);height:calc(100% + 5px)}.triple-border:before{left:0;top:0}.triple-border:after{bottom:0;right:0}.triple-border__container{position:relative;overflow:hidden;border-radius:3px 0}.triple-border--large-margin{margin:13px;padding:3px}.triple-border--large-margin:after,.triple-border--large-margin:before{content:"";border-width:3px;border-radius:13px;width:calc(100% + 13px);height:calc(100% + 13px)}.triple-border--large-margin .triple-border__container{border-radius:10px 0}.triple-border__logo{padding:.2rem;font-size:1.111rem;font-weight:600}.triple-border__return-tasks{font-size:.9rem;padding:1rem .2rem}.image__content{position:absolute;top:0;left:0;height:100%;width:100%;-o-object-fit:cover;object-fit:cover}.image--contain .image__content{-o-object-fit:contain;object-fit:contain}.image{overflow:hidden;width:100%;position:relative}@media (min-width:992px){.image{width:40%}}.image .image__container{height:0;position:relative;width:100%;padding-bottom:89.0625%}.image--circle{border-radius:50%}.image--circle .image__content{background-color:#e1e1e1}.image--square-big{width:100%}.image--square-big .image__container{width:100%;padding-bottom:100%}.image--extra-small{width:8%}.image--extra-small .image__container{width:100%;padding-bottom:100%}@media (max-width:639px){.image--extra-small{width:calc(33.33333% - 1rem)}}.image--small{width:15%}.image--small .image__container{width:100%;padding-bottom:100%}@media (max-width:639px){.image--small{width:calc(33.33333% - 1rem)}}.image--medium{width:50%}.image--medium .image__container{width:100%;padding-bottom:71.25%}.image--large{width:100%}@media (min-width:992px){.image--large{width:60%}}.image--large .image__container{padding-bottom:59.37%;width:100%}.image--full-width{width:100%}.image--full-width .image__container{padding-bottom:59.37%;width:100%}.image--actual-size{width:100%}.image--actual-size .image__container{height:0;position:relative;width:100%;padding-bottom:60%}.form p{font-family:IBM Plex Sans,monospace;font-size:.9rem;margin-bottom:10px}.form input{padding:1rem;border:1px solid #e1e1e1;outline:0}.form input:focus{border:1px solid #33332d}.form .submit{border:3px solid #33332d;background-color:#e1e1e1;padding:.7rem 2rem}.form .submit:hover{cursor:pointer;background-color:#33332d;color:#fff}.developer-story__image{margin-bottom:auto}.developer-story__name{margin-top:4rem;font-size:1.2rem}.developer-story__title{font-size:.9rem}.developer-story__read-more{margin-top:2rem;line-height:1.1rem;width:auto;background:none;color:inherit;padding:0!important;border:none;border-bottom:2px solid #e1e1e1;cursor:pointer}.developer-story__read-more:hover{background-color:#e1e1e1}.some-logo__link{margin:1rem 1rem 0 0;display:inline-block}.some-logo__image{width:1.5rem;height:1.5rem;margin:0}#footer{margin-top:auto}@media (min-width:992px){#footer{align-items:center}}#footer a:hover{background-color:transparent!important}#footer .footer__navigation{display:none}@media (max-width:1299px){#footer .footer__navigation{width:100%;display:block}#footer .footer__navigation-link-container{display:flex;flex-direction:column}}#footer .footer__navigation-link{font-size:1rem;line-height:18px;white-space:nowrap;font-family:IBM Plex Sans,monospace;margin-left:0!important;margin-right:auto}@media (max-width:639px){#footer .footer__navigation-link{line-height:8px}}#footer .footer__navigation-link:hover{color:#fff!important;background-color:#33332d!important}#footer .footer__navigation-link:nth-of-type(n+2){margin-top:2.142rem}@media (min-width:1300px){#footer .footer__navigation{flex-direction:row;flex-wrap:nowrap;justify-content:flex-end}#footer .footer__navigation-link{margin-top:0!important;margin-bottom:auto}#footer .footer__navigation-link:nth-of-type(n+1){margin-right:2.877rem}#footer .footer__navigation-link:last-of-type{margin-right:0!important}}.prev-next__container .separator{display:none}@media (max-width:639px){.prev-next__container .separator{display:block;background-color:#33332d;width:2px!important}}.prev-next__container .prev b,.prev-next__container .prev p{text-align:right}@media (max-width:639px){.prev-next__container .prev p:before{content:"<";margin-right:1rem}}@media (max-width:639px){.prev-next__container .next p:after{content:">";margin-left:1rem}}.scroll-navigation-container{display:none}@media (min-width:992px){.scroll-navigation-container{pointer-events:none;display:block;font-size:16px;position:-webkit-sticky;position:sticky;width:100%;margin-right:-100%;left:0;top:-100px;padding-top:200px}}.scroll-navigation-container-inner{width:90%;margin:0 auto;max-width:1200px}.scroll-navigation{pointer-events:auto;display:flex;width:30%;max-width:30%/.9;height:100%;overflow-y:auto;max-height:calc(100vh - 100px);padding-right:1rem;z-index:199}.scroll-navigation li{list-style-type:none}.scroll-navigation li.selected a,.scroll-navigation li:hover a{background-color:#33332d;color:#fff!important}.scroll-navigation li:before{content:"-"}.left-navigation-link{padding-left:1.2rem;text-indent:-1.2rem;display:block}.left-navigation-link:hover{background-color:#33332d!important;color:#fff!important}.level-h1{font-weight:700;padding-left:2.8rem;text-indent:-2.8rem}.level-h2{padding-left:1.6rem;text-indent:-1.6rem}.sub-header{color:#33332d;font-family:IBM Plex Mono,monospace;padding-bottom:1.357rem}@media (min-width:992px){.sub-header{padding-bottom:2.333rem}}.InputField-module--inputField--3oXh5{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:100%;border:0;font-family:inherit;padding:16px 12px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.3);color:#000;transition:all .15s ease}.InputField-module--inputField--3oXh5:hover{box-shadow:inset 0 -2px 0 rgba(0,0,0,.4)}.InputField-module--inputField--3oXh5:focus{outline:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.5)}</style><meta name="generator" content="Gatsby 2.30.1"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">Fullstack part1 | </title><meta data-react-helmet="true" name="description" content=""/><meta data-react-helmet="true" property="og:title" content="Fullstack part1 | "/><meta data-react-helmet="true" property="og:description" content=""/><meta data-react-helmet="true" name="og:image" content="/static/EYE_green_wide-0a72f74a959f54d0f3e4bb8c67f6f158.jpg"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Houston Inc. Consulting oy"/><meta data-react-helmet="true" name="twitter:title" content="Fullstack part1 | "/><meta data-react-helmet="true" name="twitter:description" content=""/><meta data-react-helmet="true" name="twitter:image" content="/static/EYE_green_wide-0a72f74a959f54d0f3e4bb8c67f6f158.jpg"/><meta data-react-helmet="true" name="google-site-verification" content="ds9pQKiK3kjhRSHHbf5ccoG-oJggn7Lq4A8uHxM3Mkw"/><meta data-react-helmet="true" name="keywords" content="fullstack, Full stack -websovelluskehitys, course, helsingin yliopisto, tietojenkäsittelytieteen osasto, mooc, mooc.fi, full stack, full stack open, web-sovelluskehitys, web, houston, houston inc, websovelluskehitys, web-sovellus, React, Redux, Node.js, Node, MongoDB, GraphQL, REST, REST api, single page -sovellus, ohjelmointi, university of helsinki, department of computer science, web development, software development, web, web application, single page app, programming, "/><link rel="icon" href="/favicon-32x32.png?v=6460c405ec32c913ef778f48c5ab192e" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#e1e1e1"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=6460c405ec32c913ef778f48c5ab192e"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="canonical" href="https://fullstackopen.com/zh/part1/深入_react_应用调试" data-baseprotocol="https:" data-basehost="fullstackopen.com"/><link as="script" rel="preload" href="/5d7a54886b2742230021cc39eab839038eb7a677-aad1a805ee4596e9a838.js"/><link as="script" rel="preload" href="/framework-bb9bb9cb9df99aee3258.js"/><link as="script" rel="preload" href="/app-ef8bef0e206781be83c1.js"/><link as="script" rel="preload" href="/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js"/><link as="script" rel="preload" href="/ff8e348e8d42e8d61f84312613c75c948ce81396-bbc0c43404e43e967ab7.js"/><link as="script" rel="preload" href="/e4b9374bcd292c90587e3ccf579324c3065ac22f-63f0a03f893b4902fedd.js"/><link as="script" rel="preload" href="/30844a71ec80b1e82ad30323d06b914984ff6c2b-9847aef7af5bdcc218fe.js"/><link as="script" rel="preload" href="/commons-2f51cc50765e604cbb43.js"/><link as="script" rel="preload" href="/styles-407fe62976dc5310c43e.js"/><link as="script" rel="preload" href="/webpack-runtime-a7eee694451a048fe190.js"/><link as="fetch" rel="preload" href="/page-data/zh/part1/深入_react_应用调试/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="main-wrapper"><div class="header " style="background-color:white"><div class="container" style="align-items:center;justify-content:flex-start"><a class="header__logo" href="/"><div class="triple-border nav-item-hover " style="padding:0.2em"><div class="triple-border__container triple-border__logo" style="background-color:transparent;z-index:10">{() =&gt; fs}</div></div></a><div class="navigation__wrapper "><button aria-label="Navigation menu" aria-expanded="false" class="navigation__toggle"><div class="navigation__toggle-icon"></div></button><nav><ul class="navigation"><li class="navigation__item "><a class="nav-item-hover" href="/zh/about">关于课程</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/#course-contents">课程内容</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/faq">常见问题</a></li><li class="navigation__item "><a class="nav-item-hover" href="/zh/companies">合作伙伴</a></li><a class="SearchLink-module--searchLink--2IShR" href="/zh/search"><span class="SrOnly-module--srOnly--2Hn2L">从教程中搜索</span><svg role="img" viewBox="0 0 24 24" class="SvgIcon-module--svgIcon--1nGJ6"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></a><select class="navigation__language-picker LanguagePicker-module--select--364N3"><option value="fi">Suomi</option><option value="en">English</option></select></ul></nav></div></div></div><div class="course-container spacing--after"><div class="banner part-main__banner spacing--mobile--small" style="background-image:url(/static/83f1c8a7795e9e8eaffaec29b1ee79b1/part-1.svg);background-color:#AEFFDA"><div class="container spacing--after"><div class="col-10 spacing--after"><div class="arrow__container arrows--horizontal breadcrumb"><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#AEFFDA;color:#33332d"><a href="/zh/#course-contents">Fullstack</a></div><div class="arrow__point " style="background-color:#AEFFDA;color:#33332d"></div></div><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#AEFFDA;color:#33332d"><a href="/zh/part1">Part 1</a></div><div class="arrow__point " style="background-color:#AEFFDA;color:#33332d"></div></div><div class="arrow__wrapper"><div class="arrow__rectangle  " style="background-color:#33332d;color:white">深入React 应用调试</div><div class="arrow__point " style="background-color:#33332d;color:white"></div></div></div></div></div></div><div class="course "><div class="scroll-navigation-container "><div class="scroll-navigation-container-inner "><div class="scroll-navigation  element--column" tag="ul"><a class="left-navigation-link" style="border-color:#AEFFDA" href="/zh/part1/react_简介">a React 简介</a><a class="left-navigation-link" style="border-color:#AEFFDA" href="/zh/part1/java_script">b JavaScript</a><a class="left-navigation-link" style="border-color:#AEFFDA" href="/zh/part1/组件状态，事件处理">c 组件状态，事件处理</a><div class="accordion__container col-8 push-right-1 accordion--side-navigation"><button class="accordion accordion__title  " style="background-color:#AEFFDA;border-color:#AEFFDA">d 深入React 应用调试</button><div class="panel" style="padding:;max-height:0;transition:max-height 0.2s ease-out"><ul></ul></div></div></div></div></div><div class="course-content-container "><div class="course-content element--auto-bottom-margin"><div class="course-content-inner "><p class="col-1 letter" style="border-color:#AEFFDA">d</p><h1 class="sub-header ">深入React 应用调试</h1></div></div><div class="course-content "><div class="course-content-inner ">
+<h3>Complex state</h3>
+<p>【复杂状态】</p>
+<!-- -->
+<p>在之前的示例中，应用状态很简单，因为它仅由单个整数组成。 如果我们的应用需要一个更复杂的状态怎么办？</p>
+<!-- -->
+<p>在大多数情况下，实现这一点的最简单和最好的方法是多次使用 useState 函数来创建单独的状态“片段”。</p>
+<!-- -->
+<p>在下面的代码中，我们为应用创建了两个名为 left 和 right 的初始值为0的状态:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>left<span class="token punctuation">,</span> setLeft<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>right<span class="token punctuation">,</span> setRight<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>left<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setLeft</span><span class="token punctuation">(</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        left
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setRight</span><span class="token punctuation">(</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        right
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>right<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>组件获得对 setLeft 和 setRight 函数的访问权，可以使用这两个函数更新这两个状态。</p>
+<!-- -->
+<p>组件的状态或其状态的一部分可以是任何类型。 我们可以通过将<i>left</i> 和<i>right</i> 按钮的单击次数保存到一个对象中来实现相同的功能:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">{</span>
+  left<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  right<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>在这种情况下，应用应该是这样的:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>clicks<span class="token punctuation">,</span> setClicks<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    left<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> right<span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> newClicks <span class="token operator">=</span> <span class="token punctuation">{</span> 
+      left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+      right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right 
+    <span class="token punctuation">}</span>
+    <span class="token function">setClicks</span><span class="token punctuation">(</span>newClicks<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleRightClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> newClicks <span class="token operator">=</span> <span class="token punctuation">{</span> 
+      left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left<span class="token punctuation">,</span> 
+      right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right <span class="token operator">+</span> <span class="token number">1</span> 
+    <span class="token punctuation">}</span>
+    <span class="token function">setClicks</span><span class="token punctuation">(</span>newClicks<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>clicks<span class="token punctuation">.</span>left<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button handleClick<span class="token operator">=</span><span class="token punctuation">{</span>handleLeftClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>left<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button handleClick<span class="token operator">=</span><span class="token punctuation">{</span>handleRightClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>right<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>clicks<span class="token punctuation">.</span>right<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在组件只有一个状态片段，事件处理程序必须负责更改<i>整个应用的状态</i>。</p>
+<!-- -->
+<p>事件处理程序看起来有点凌乱。当单击左键时，会调用下面的函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newClicks <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+    right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right 
+  <span class="token punctuation">}</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span>newClicks<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>下面的对象被设置为应用的新状态:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">{</span>
+  left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p> <i>left</i> 属性的新值现在与前一状态的<i>left + 1</i> 的值相同，而<i>right</i> 属性的值与前一状态的<i>right</i> 属性的值相同。</p>
+<!-- -->
+<p>我们可以通过使用对象的<a href="https://developer.mozilla.org/en-us/docs/web/javascript/reference/operators/spread_syntax">展开语法</a>更加整洁地定义新的状态对象</p>
+<!-- -->
+<p>该语法在2018年夏天添加到了语言规范中的:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newClicks <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    <span class="token operator">...</span>clicks<span class="token punctuation">,</span> 
+    left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token number">1</span> 
+  <span class="token punctuation">}</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span>newClicks<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">handleRightClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> newClicks <span class="token operator">=</span> <span class="token punctuation">{</span> 
+    <span class="token operator">...</span>clicks<span class="token punctuation">,</span> 
+    right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right <span class="token operator">+</span> <span class="token number">1</span> 
+  <span class="token punctuation">}</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span>newClicks<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>语法一开始可能看起来有点奇怪。 实际上， <em>{ ...clicks }</em>  创建了一个新对象，该对象是具有 <em>clicks</em> 对象的所有属性的副本。 当我们向对象添加新属性时，例如 <em>{ ...clicks, right: 1 }</em>，新对象中right属性的值将为1。</p>
+<!-- -->
+<p>在上面的例子中，下面代码:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">{</span> <span class="token operator">...</span>clicks<span class="token punctuation">,</span> right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>创建了 <em>clicks</em> 对象的副本，其中 <em>right</em> 属性的值增加了1。</p>
+<!-- -->
+<p>将对象分配给事件处理中的变量是没有必要的，我们可以将函数简化为如下形式:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span>clicks<span class="token punctuation">,</span> left<span class="token operator">:</span> clicks<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">handleRightClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span>clicks<span class="token punctuation">,</span> right<span class="token operator">:</span> clicks<span class="token punctuation">.</span>right <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>一些读者可能想知道为什么我们不直接更新状态，像这样:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  clicks<span class="token punctuation">.</span>left<span class="token operator">++</span>
+  <span class="token function">setClicks</span><span class="token punctuation">(</span>clicks<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>这个应用似乎可以工作。 但是，这违反了React 中状态不可直接修改的原则，因为它会导致意想不到的副作用。 必须始终通过将状态设置为新对象来更改状态。 如果之前的状态没有变化，属性仅仅需要简单地复制，就是通过将这些属性复制到新的对象中，并将其设置为新状态。</p>
+<!-- -->
+<p>对于这个特定的应用来说，将所有状态存储在单个状态对象中是一个糟糕的选择;  没有明显的好处，还会导致产生的应用要复杂得多。 在这种情况下，将点击计数器存储到单独的状态块中是一个更合适的选择。</p>
+<!-- -->
+<p>在某些情况下，将一段应用状态存储在更复杂的数据结构中是有益的。 官方的React<a href="https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables">文档</a>包含了一些关于这个话题的有用的指导。</p>
+<h3>Handling arrays</h3>
+<p>【处理数组】</p>
+<!-- -->
+<p>让我们向应用添加一个状态，该状态包含一个数组 <em>allClicks</em> ，该数组记录应用中发生的每次单击记录。</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>left<span class="token punctuation">,</span> setLeft<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>right<span class="token punctuation">,</span> setRight<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token punctuation">[</span>allClicks<span class="token punctuation">,</span> setAll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&#x27;L&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setLeft</span><span class="token punctuation">(</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">handleRightClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&#x27;R&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setRight</span><span class="token punctuation">(</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>left<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleLeftClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>left<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleRightClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>right<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>right<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>allClicks<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&#x27; &#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>每次单击都会被存储到一个叫 <em>allClicks</em> 的单独的状态单元中，这个状态单元被初始化为一个空数组:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>allClicks<span class="token punctuation">,</span> setAll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>当单击<i>left</i> 按钮时，我们将字母 <i>L</i> 添加到 allClicks 数组中:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&#x27;L&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token function">setLeft</span><span class="token punctuation">(</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>存储在 allClicks 中的状态块现在被设置为一个数组，该数组包含前一个状态数组的所有项以及字母 <i>L</i>。 向数组中添加新元素是通过<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">concat</a>方法完成的，该方法不改变现有数组，而是返回数组 <i>新副本</i>，并将元素添加到该数组中。</p>
+<!-- -->
+<p>正如前面提到的，在 JavaScript 中也可以使用<a href="https://developer.mozilla.org/en-us/docs/web/JavaScript/reference/global_objects/array/push">push</a>方法将元素添加到数组中。 如果我们通过将元素push到 allClicks 数组，然后更新状态这种方法来添加元素，应用看起来仍然可以工作:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  allClicks<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&#x27;L&#x27;</span><span class="token punctuation">)</span>
+  <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">)</span>
+  <span class="token function">setLeft</span><span class="token punctuation">(</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>但是，不要这样做。 如前所述，React 组件(如 <em>allClicks</em> )的状态不能直接更改。 即使改变状态在某些情况下可以工作，也可能导致很难调试的问题。</p>
+<!-- -->
+<p>让我们仔细看看点击历史是如何渲染在页面上的:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>left<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleLeftClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>left<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleRightClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>right<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>right<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>allClicks<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&#x27; &#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>我们为 allClicks 数组调用<a href="https://developer.mozilla.org/en-us/docs/web/javascript/reference/global_objects/array/join">join</a>方法，该数组将所有项目连接到一个字符串中，由作为函数参数传递的字符串分隔，在我们的例子中，该字符串是一个空格。</p>
+<h3>Conditional rendering</h3>
+<p>【条件渲染】</p>
+<!-- -->
+<p>让我们修改我们的应用，使得单击历史的渲染由一个新的 <i>History</i>  组件处理:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="gatsby-highlight-code-line"><span class="token keyword">const</span> <span class="token function-variable function">History</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">  <span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">.</span>allClicks<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token keyword">return</span> <span class="token punctuation">(</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">        the app is used by pressing the buttons</span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span><span class="gatsby-highlight-code-line"></span><span class="gatsby-highlight-code-line">  <span class="token keyword">return</span> <span class="token punctuation">(</span></span><span class="gatsby-highlight-code-line">    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      button press history<span class="token operator">:</span> <span class="token punctuation">{</span>props<span class="token punctuation">.</span>allClicks<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&#x27; &#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="gatsby-highlight-code-line">    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line"><span class="token punctuation">}</span></span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>left<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button handleClick<span class="token operator">=</span><span class="token punctuation">{</span>handleLeftClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>left<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button handleClick<span class="token operator">=</span><span class="token punctuation">{</span>handleRightClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>right<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>right<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>History allClicks<span class="token operator">=</span><span class="token punctuation">{</span>allClicks<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在，组件的行为取决于是否单击了任何按钮。 如果没有，这意味着 <em>allClicks</em> 数组是空的，那么该组件将渲染一个带有如下说明的 div 组件:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>the app is used by pressing the buttons<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>在其他情况下，该组件渲染单击历史记录:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+  button press history<span class="token operator">:</span> <span class="token punctuation">{</span>props<span class="token punctuation">.</span>allClicks<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&#x27; &#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p> <i>History</i> 组件根据应用的状态渲染完全不同的 React-元素。</p>
+<!-- -->
+<p>React 还提供了许多其他的方法来实现<a href="https://reactjs.org/docs/conditional-rendering.html">条件渲染</a>。 我们将在<a href="/zh/part2">第2章节</a>中进一步研究这个问题。 </p>
+<!-- -->
+<p>让我们对我们的应用进行最后一次修改，重构它，用上我们前面定义的 Button 组件:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">History</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>props<span class="token punctuation">.</span>allClicks<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        the app is used by pressing the buttons
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      button press history<span class="token operator">:</span> <span class="token punctuation">{</span>props<span class="token punctuation">.</span>allClicks<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&#x27; &#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="gatsby-highlight-code-line"><span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> onClick<span class="token punctuation">,</span> text <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span></span><span class="gatsby-highlight-code-line">  <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>onClick<span class="token punctuation">}</span><span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">{</span>text<span class="token punctuation">}</span></span><span class="gatsby-highlight-code-line">  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line"><span class="token punctuation">)</span></span>
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>left<span class="token punctuation">,</span> setLeft<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>right<span class="token punctuation">,</span> setRight<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>allClicks<span class="token punctuation">,</span> setAll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleLeftClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&#x27;L&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">setLeft</span><span class="token punctuation">(</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleRightClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setAll</span><span class="token punctuation">(</span>allClicks<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&#x27;R&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token function">setRight</span><span class="token punctuation">(</span>right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>left<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>Button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleLeftClick<span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&#x27;left&#x27;</span> <span class="token operator">/</span><span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>Button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleRightClick<span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&#x27;right&#x27;</span> <span class="token operator">/</span><span class="token operator">&gt;</span></span>      <span class="token punctuation">{</span>right<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>History allClicks<span class="token operator">=</span><span class="token punctuation">{</span>allClicks<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3>Old React</h3>
+<p>【老版本的React】</p>
+<!-- -->
+<p>在这个过程中，我们使用了状态Hook <a href="https://reactjs.org/docs/hooks-state.html">state hook</a> 来添加状态到我们的 React 组件，这是 React 的新版本的一部分，可以从版本<a href="https://www.npmjs.com/package/React/v/16.8.0">16.8.0</a>开始使用。 在添加Hook之前，没有办法将状态添加到函数组件。 需要状态的组件必须使用 JavaScript 类语法定义为 <a href="https://reactjs.org/docs/react-component.html">class</a> 组件。</p>
+<!-- -->
+<p>在这个课程中，我们做了一个稍微激进的决定，从第一天开始就完全使用Hook，以确保我们当前和未来的React风格。 尽管函数式组件是 React 的未来，但学习类语法仍然很重要，因为有数十亿行旧的 React 代码可能会在某一天需要维护。 同样的道理，你可能在互联网上偶然发现React的文档和例子也使用了这些旧代码。</p>
+<!-- -->
+<p>我们将在稍后的课程中学习更多关于 React 类组件的知识。</p>
+<h3>Debugging React applications</h3>
+<p>【调试React应用】</p>
+<!-- -->
+<p>典型的开发人员的大部分时间都花在调试和读取现有代码上。 我们时不时地会写一两行新代码，但是我们的大部分时间都花在试图弄明白为什么有些东西坏了，或者某些东西是如何工作的上面。 出于这个原因，良好的调试实践和工具非常重要。</p>
+<!-- -->
+<p>幸运的是，在调试方面来说，React 对开发者是非常友好的。</p>
+<!-- -->
+<p>在我们继续之前，让我们重新提醒自己 web 开发最重要的规则之一。</p>
+<h4>The first rule of web development web开发第一原则</h4>
+<blockquote>
+<p> <strong>Keep the browser&#x27;s developer console open at all times.</strong></p>
+<p> 始终打开浏览器的开发控制台</p>
+</blockquote>
+<blockquote>
+<p>The <i>Console</i> tab in particular should always be open, unless there is a specific reason to view another tab.
+尤其是<i>Console</i> 选项卡应该始终处于打开状态，除非有特定的原因需要查看另一个选项卡。</p>
+</blockquote>
+<!-- -->
+<p>保持你的代码和网页同时打开，一直同时打开。</p>
+<!-- -->
+<p>如果你的代码编译失败，你的浏览器就会像圣诞树一样亮起来:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/ce4afeacf36ad991bc0eb0b095ea96b5/5a190/6e.png"/></picture>
+<!-- -->
+<p>不要继续编写更多的代码，而是立即找到并修复问题。 在编码的历史上，还没有哪一次编译失败的代码在编写了大量额外的代码之后奇迹般地开始工作。这样的事情在这个课程中也不会发生。</p>
+<!-- -->
+<p>老派的，基于打印的调试总是一个好主意。如果组件如下所示</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> handleClick<span class="token punctuation">,</span> text <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>text<span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>不能正常工作时，开始将其变量输出到控制台是很有用的。 为了有效地做到这一点，我们必须将我们的函数转换成不那么紧凑的形式，接收整个props对象而不是解构它:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 
+<span class="gatsby-highlight-code-line">  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span></span>  <span class="token keyword">const</span> <span class="token punctuation">{</span> onClick<span class="token punctuation">,</span> text <span class="token punctuation">}</span> <span class="token operator">=</span> props
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>onClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>text<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>这将立即揭示，例如，是否有一个属性在使用组件时拼写错误。</p>
+<!-- -->
+<p><strong>注意</strong>：当您使用 <em>console.log</em> 进行调试时，不要使用“加号”，像类似于 java 的方式组合对象。 即不要写:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;props value is&#x27;</span> <span class="token operator">+</span> props<span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>而应用逗号分隔需要打印到控制台的内容:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;props value is&#x27;</span><span class="token punctuation">,</span> props<span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>如果你使用类似于 java 的方式将一个字符串与一个对象结合起来，你最终会得到一个相当无用的日志消息:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js">props value is <span class="token punctuation">[</span>Object object<span class="token punctuation">]</span></code></pre></div>
+<!-- -->
+<p>而用逗号分隔的项目都可以在浏览器控制台中进行进一步检查。</p>
+<!-- -->
+<p>将日志记录到控制台绝不是调试应用的唯一方法。 你可以在 Chrome 开发者控制台的<i>debugger</i> 中暂停应用代码的执行，只需在代码中的任何地方写入命令<a href="https://developer.mozilla.org/en-us/docs/web/javascript/reference/statements/debugger">debugger</a>即可。</p>
+<!-- -->
+<p>一旦到达调试器命令执行的地方，执行就会暂停:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/4a4bced189180676ff4019f459be833e/5a190/7a.png"/></picture>
+<!-- -->
+<p>通过访问<i>Console</i> 选项卡，可以很容易地检查变量的当前状态:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/5ba1388f4d17134dcfc62fbeb2251421/5a190/8a.png"/></picture>
+<!-- -->
+<p>一旦发现 bug 的原因，您可以删除 <em>debugger</em> 命令并刷新页面。</p>
+<!-- -->
+<p> <em>debugger</em> 还允许我们使用在<i>Sources</i> 选项卡右侧找到控件一行一行地执行代码。</p>
+<!-- -->
+<p>通过在<i>Sources</i> 选项卡中添加断点，您还可以在不使用 <em>debugger</em> 命令的情况下访问调试器。 检查组件变量的值可以在 Scope-部分 中完成:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/c8c143bb940ecd99aea4dc4a1c0239f2/5a190/9a.png"/></picture>
+<!-- -->
+<p>强烈建议在 Chrome 中添加 <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React developer tools</a>扩展。 它为开发工具增加了一个新的 <em>Components</em> 选项卡。新的开发者工具页可以用来检查不同的React 元素，以及它的属性和状态：</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/868d25a33097ce816e22a31376f5743e/5a190/10ea.png"/></picture>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/d106df75c6705400c7e0e8ac944f49c9/5a190/11e.png"/></picture>
+<!-- -->
+<p><em>App</em> 组件的状态定义如下：</p>
+<!-- -->
+<!-- -->
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>left<span class="token punctuation">,</span> setLeft<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>right<span class="token punctuation">,</span> setRight<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>allClicks<span class="token punctuation">,</span> setAll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>开发工具按照定义顺序显示hook的状态:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/c7716caaa5b3f3b3b5687e05e188b88f/5a190/11ea.png"/></picture>
+<!-- -->
+<p>第一个<i>State</i>包含<i>left</i>状态的值，下一个包含<i>right</i> 状态的值，最后一个包含<i>allClicks</i> 状态的值。</p>
+<h3>Rules of Hooks</h3>
+<p>【Hook的规则】</p>
+<!-- -->
+<p>为了确保应用正确地使用基于Hook的状态函数，我们必须遵循一些限制和规则。</p>
+<!-- -->
+<p>不能从循环、条件表达式或任何不是定义组件的函数的地方调用 <em>useState</em> （同样的还有 <em>useEffect</em> 函数，将在后面的课程中介绍）。 这样做是为了确保Hook总是以相同的顺序调用，如果不是这样，应用的行为就会不规则。</p>
+<!-- -->
+<p>回顾一下，hook 只能从定义 React component 的函数体内部调用:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// these are ok</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>age<span class="token punctuation">,</span> setAge<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> setName<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">&#x27;Juha Tauriainen&#x27;</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> age <span class="token operator">&gt;</span> <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// this does not work!</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>foobar<span class="token punctuation">,</span> setFoobar<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span> <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> age<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// also this is not good</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>rightWay<span class="token punctuation">,</span> setRightWay<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">notGood</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// and this is also illegal</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> setX<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token comment">//...</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3>Event Handling Revisited</h3>
+<p>【复习事件处理】</p>
+<!-- -->
+<p>事件处理已被证明是本课程前面的迭代中比较难的一块。</p>
+<!-- -->
+<p>出于这个原因，我们将再次讨论这个话题。</p>
+<!-- -->
+<p>假设我们正在开发这个简单的应用， <i>App</i> 如下所示:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button<span class="token operator">&gt;</span>reset to zero<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>我们希望单击按钮来重置存储在 value 变量中的状态。</p>
+<!-- -->
+<p>为了使按钮对单击事件作出反应，我们必须向其添加一个<i>事件处理程序</i>。</p>
+<!-- -->
+<p>事件处理程序必须始终是函数或对函数的引用。 如果将事件处理程序设置为任何其他类型的变量，则按钮将不起作用。</p>
+<!-- -->
+<p>如果我们将事件处理程序定义为一个字符串:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token string">&quot;crap...&quot;</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>React会在控制台中警告我们: </p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js">index<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">2178</span> Warning<span class="token operator">:</span> Expected <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">onClick</span><span class="token template-punctuation string">`</span></span> listener to be a <span class="token keyword">function</span><span class="token punctuation">,</span> instead got a value <span class="token keyword">of</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">string</span><span class="token template-punctuation string">`</span></span> type<span class="token punctuation">.</span>
+    <span class="token keyword">in</span> <span class="token function">button</span> <span class="token punctuation">(</span>at index<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token keyword">in</span> <span class="token function">div</span> <span class="token punctuation">(</span>at index<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">18</span><span class="token punctuation">)</span>
+    <span class="token keyword">in</span> <span class="token function">App</span> <span class="token punctuation">(</span>at index<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">27</span><span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>下列尝试也不会奏效:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>我们尝试将事件处理程序设置为 value + 1，它只返回操作的结果。 在控制台中会友好地警告我们:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js">index<span class="token punctuation">.</span>js<span class="token operator">:</span><span class="token number">2178</span> Warning<span class="token operator">:</span> Expected <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">onClick</span><span class="token template-punctuation string">`</span></span> listener to be a <span class="token keyword">function</span><span class="token punctuation">,</span> instead got a value <span class="token keyword">of</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">number</span><span class="token template-punctuation string">`</span></span> type<span class="token punctuation">.</span></code></pre></div>
+<!-- -->
+<p>以下这种尝试也不会奏效:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>事件处理程序不是一个函数，而是一个变量赋值，React 将再次向控制台发出警告。 这种尝试也是有缺陷的，因为我们绝不能在React中直接改变状态。</p>
+<!-- -->
+<p>下面的内容会发生什么:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;clicked the button&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  button
+<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>当组件渲染出来时，消息会被打印到控制台一次，但是当我们点击按钮时什么也没有发生。 为什么即使我们的事件处理程序包含 console.log 函数依然不能工作呢？</p>
+<!-- -->
+<p>这里的问题是，我们的事件处理被定义为<i>function call</i>，这意味着事件处理程序实际上被分配了函数返回的值，而 console.log 的返回值是<i>undefined</i>。</p>
+<!-- -->
+<p> <em>console.log</em> 函数调用在渲染组件时执行，因此它只在控制台中打印一次。</p>
+<!-- -->
+<p>下面的尝试也是有缺陷的:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>我们再次尝试将函数调用设置为事件处理程序。 这行不通。 这种特殊的尝试也引起了另一个问题。 在渲染组件时，执行函数 setValue (0) ，从而导致重新渲染组件。 依次重新渲染将再次调用 setValue (0) ，从而导致无限递归。</p>
+<!-- -->
+<p>当按钮被点击时，执行一个特定的函数调用可以这样完成:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;clicked the button&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  button
+<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>现在，事件处理程序是一个使用箭头函数 <em>() =&gt; console.log(&#x27;clicked the button&#x27;)</em>.定义的函数。 在渲染组件时，不调用任何函数，只将对箭头函数的引用设置为事件处理程序。 只有单击按钮时才调用该函数。</p>
+<!-- -->
+<p>我们可以使用相同的技术在应用中实现重置状态:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>事件处理程序现在是函数 <em>() =&gt; setValue(0)</em>。</p>
+<!-- -->
+<p>在按钮的属性中直接定义事件处理程序不一定是最好的方法。</p>
+<!-- -->
+<p>您经常会看到事件处理程序定义在一个单独的位置。 在下面的应用中，我们定义了一个函数，然后将其赋值给组件函数体中的 <em>handleClick</em> 变量:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;clicked the button&#x27;</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在， <em>handleClick</em> 变量被分配成对函数的引用。 引用作为<i>onClick</i> 属性传递给按钮:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>当然，我们的事件处理可以由多个命令组成。 在这种情况下，我们对箭头函数，使用较长的大括号语法:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;clicked the button&#x27;</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3>Function that returns a function</h3>
+<p>【返回函数的函数】</p>
+<!-- -->
+<p>定义事件处理程序的另一种方法是使用返回函数的函数。</p>
+<!-- -->
+<p>在本课程的任何练习中，您可能不需要使用返回函数的函数。 如果这个议题看起来特别令人困惑，您可以跳过这一章节，稍后再回过头看它。</p>
+<!-- -->
+<p>让我们对我们的代码进行如下修改:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token keyword">const</span> <span class="token function-variable function">handler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello world&#x27;</span><span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line"></span><span class="gatsby-highlight-code-line">    <span class="token keyword">return</span> handler</span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>尽管代码看起来很复杂，但它能正常工作。</p>
+<!-- -->
+<p>事件处理程序现在设置为函数调用:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>前面我们说过，事件处理程序不能是对函数的调用，它必须是函数或对函数的引用。 那么为什么函数调用在这种情况下会起作用呢？</p>
+<!-- -->
+<p>在渲染组件时，执行如下函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">handler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello world&#x27;</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> handler
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>函数的<i>返回值</i> 是分配给处理程序变量的另一个函数。</p>
+<!-- -->
+<p>当 React 渲染行时:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>它将 hello ()的返回值赋给 onClick-属性，本质上该行被转换成:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello world&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+  button
+<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>因为 hello 函数返回一个函数，所以事件处理程序现在是一个函数。</p>
+<!-- -->
+<p>这个概念的意义是什么？</p>
+<!-- -->
+<p>让我们稍微修改一下代码:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">who</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token keyword">const</span> <span class="token function-variable function">handler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> who<span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">    <span class="token punctuation">}</span></span><span class="gatsby-highlight-code-line"></span><span class="gatsby-highlight-code-line">    <span class="token keyword">return</span> handler</span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token string">&#x27;world&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token string">&#x27;react&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token string">&#x27;function&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在，应用有三个按钮，事件处理程序由接受参数的 hello 函数定义。</p>
+<!-- -->
+<p>第一个按钮定义为</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token string">&#x27;world&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>事件处理程序由<i>执行</i> 函数调用 <em>hello(&#x27;world&#x27;)</em>创建，函数 call 返回函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;world&#x27;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>第二个按钮定义为:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token string">&#x27;react&#x27;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>创建事件处理程序的函数 <em>hello(&#x27;react&#x27;)</em>返回:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> <span class="token string">&#x27;react&#x27;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>两个按钮都有自己的单独事件处理程序。</p>
+<!-- -->
+<p>返回函数的函数可用于定义可以使用参数自定义的通用函数。 可以将创建事件处理程序的 hello 函数视为一个生成用户的定制事件处理的工厂。</p>
+<!-- -->
+<p>我们目前的定义有点冗长:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">who</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">handler</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> who<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> handler
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>让我们消除辅助变量，直接返回创建的函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">who</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> who<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>因为 hello 函数是由一个单独的返回命令组成的，所以我们可以省略大括号，对箭头函数使用更紧凑的语法:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">who</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> who<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>最后，让我们把所有的箭头写在同一行上:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">hello</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">who</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#x27;hello&#x27;</span><span class="token punctuation">,</span> who<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>我们可以使用相同的技巧来定义将组件状态，设置为给定值的事件处理程序。 让我们对我们的代码进行如下修改:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+  
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">setToValue</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">newValue</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span></span><span class="gatsby-highlight-code-line">    <span class="token function">setValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span></span><span class="gatsby-highlight-code-line">  <span class="token punctuation">}</span></span>  
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+<span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>thousand<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>reset<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span><span class="gatsby-highlight-code-line">      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setToValue</span><span class="token punctuation">(</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>increment<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></span>    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>在渲染组件时，创建<i>thousand</i> 按钮:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>thousand<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>事件处理程序设置为 setToValue (1000)的返回值，该返回值是如下函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>为 increase 按钮的代码行如下:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">setToValue</span><span class="token punctuation">(</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>increment<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>事件处理程序由函数调用<em>setToValue(value + 1)</em> 创建，该函数接收状态变量值的当前值，并将变量值增加1作为参数。 如果值为10，那么创建的事件处理程序就是函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>使用返回函数的函数不是实现此功能所必需的。 让我们将负责更新状态的 <em>setToValue</em> 函数返回到一个普通函数:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">setToValue</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">newValue</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>value<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        thousand
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        reset
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+        increment
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>现在，我们可以将事件处理程序定义为一个函数，该函数使用适当的参数调用 setToValue 函数。 用于重置应用状态的事件处理程序如下:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>reset<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span></code></pre></div>
+<!-- -->
+<p>可以在这两种定义事件处理程序的方式中进行选择，这主要取决于个人喜好。</p>
+<h3>Passing Event Handlers to Child Components</h3>
+<p>【将事件处理传递给子组件】</p>
+<!-- -->
+<p>让我们将按钮提取到它自己的组件中:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<p>该组件从 <em>handleClick</em>  属性获取事件处理函数，从text 属性获取按钮的文本。</p>
+<!-- -->
+<p>使用<i>Button</i> 组件很简单，尽管我们必须确保在向组件传递props时使用正确的属性名。</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/8ba6f921659bba13c9312f470007828e/5a190/12e.png"/></picture>
+<h3>Do Not Define Components Within Components</h3>
+<p>【不要在组件中定义组件】</p>
+<!-- -->
+<p>让我们开始将应用的值显示到它自己的<i>Display</i> 组件中。</p>
+<!-- -->
+<p>我们将通过在<i>App</i>-组件中定义一个新组件来更改应用。</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token comment">// This is the right place to define a component</span>
+<span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">setToValue</span> <span class="token operator">=</span> <span class="token parameter">newValue</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// Do not define components inside another component</span>
+<span class="gatsby-highlight-code-line">  <span class="token keyword">const</span> <span class="token function-variable function">Display</span> <span class="token operator">=</span> <span class="token parameter">props</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Display value<span class="token operator">=</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;thousand&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;reset&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;increment&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>应用看起来仍然可以工作，但是 <strong>不要像这样实现组件！</strong>不要在其他组件内部定义组件。 这种方法没有任何好处，而且会导致许多不愉快的问题。最大的问题是React 在每次渲染时，会将内部的组件当作一个新的组件。这回导致React 无法去优化组件。</p>
+<!-- -->
+<p>让我们把<i>Display</i> 组件函数移动到正确的位置，这个位置在<i>App</i> 组件函数之外:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Display</span> <span class="token operator">=</span> <span class="token parameter">props</span> <span class="token operator">=&gt;</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>value<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Button</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>handleClick<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>props<span class="token punctuation">.</span>text<span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>value<span class="token punctuation">,</span> setValue<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">setToValue</span> <span class="token operator">=</span> <span class="token parameter">newValue</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setValue</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Display value<span class="token operator">=</span><span class="token punctuation">{</span>value<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;thousand&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;reset&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Button handleClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">setToValue</span><span class="token punctuation">(</span>value <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">}</span> text<span class="token operator">=</span><span class="token string">&quot;increment&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3>Useful Reading</h3>
+<p>【有用的阅读材料】</p>
+<!-- -->
+<p>互联网上充满了React相关的材料。 然而，我们使用了新的React方式，以至于网上发现的绝大多数材料对我们的目的来说都已经过时了。</p>
+<!-- -->
+<p>你可在如下链接中找到有用的资料:</p>
+<!-- -->
+<ul>
+<li>React<a href="https://reactjs.org/docs/hello-world.html">官方文档</a>在某种程度上值得一读，尽管其中大部分只有在课程后期才会变得有意义。 此外，所有与类组件相关的内容都与我们无关。</li>
+</ul>
+<!-- -->
+<ul>
+<li>一些关于<a href="https://Egghead.io">Egghead.io</a>的课程，如<a href="https://Egghead.io/courses/Start-learning-React">开始学习React</a> ，质量很高，稍新一点的<a href="https://Egghead.io/courses/The-Beginner-s-guide-to-reactjs">初学者React指南</a>也相对不错; 这两门课程都介绍了一些概念，这些概念也将在本课程后面介绍。 然而，这两门课程都使用了 Class 组件，而不是本课程中使用的新的函数式组件。</li>
+</ul>
+</div></div>
+<div class="banner spacing tasks content-banner" style="background-color:#AEFFDA"><div class="course-content " style="border-color:#AEFFDA;background-color:transparent"><div class="course-content-inner ">
+  <h3>Exercises  1.6.-1.14.</h3>
+<!-- -->
+<p>提交你的解决方案，首先把你的代码推送到 GitHub，然后把<a href="https://study.cs.helsinki.fi/stats/courses/fullstack2021">练习提交系统</a>完成的练习标记为已完成。</p>
+<!-- -->
+<p>记住，在一次提交中提交一章节的所有练习。 一旦你提交了一章节的解决方案，你就不能再向这个章节提交更多的练习了。</p>
+<p><i>Some of the exercises work on the same application. In these cases, it is sufficient to submit just the final version of the application. If you wish, you can make a commit after every finished exercise, but it is not mandatory.</i>
+有些练习是针对同一个应用的。 在这些情况下，只提交应用的最终版本就足够了。 如果您愿意，您可以在每次完成练习后进行commit，但这不是强制性的。 </p>
+<!-- -->
+<p>警告： create-react-app 会自动使项目成为一个 git 仓库，除非应用是在已有仓库中创建的。 而您很可能不希望项目成为一个存储库，因此可以在项目的根目录中运行命令  <em><em>rm -rf .git</em></em></p>
+<!-- -->
+<p>在某些情况下，您可能还必须从项目的根目录运行如下命令:</p>
+<div class="gatsby-highlight" data-language="text"><pre><code class="language-text">rm -rf node_modules/ &amp;&amp; npm i</code></pre></div>
+  <h4> 1.6: unicafe 步骤1</h4>
+<!-- -->
+<!-- -->
+<p>像大多数公司一样， <a href="https://www.unicafe.fi/#/9/4">Unicafe</a>收集来自客户的反馈。 您的任务是实现一个收集客户反馈的 web 应用。 反馈只有三种选择:<i>good</i>、<i>neutral</i> 和<i>bad</i>。</p>
+<!-- -->
+<p>应用必须显示每个类别收集的反馈总数。最终的应用可以是这样的:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/d4fe767d6d8eb46f1dd21334f5f9e46e/5a190/13e.png"/></picture>
+<!-- -->
+<p>请注意，您的应用只需要在单个浏览器会话期间工作。 一旦刷新页面，收集到的反馈信息就会消失。</p>
+<!-- -->
+<p>建议使用与之前课程材料相同的结构，<i>index.js</i> 文件内容如下：</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&#x27;react-dom&#x27;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&#x27;./App&#x27;</span>
+
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> 
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&#x27;root&#x27;</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre></div>
+<!-- -->
+<!-- -->
+<p>您可以使用下面的代码作为<i>App.js</i>的起点。</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// save clicks of each button to own state</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>good<span class="token punctuation">,</span> setGood<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>neutral<span class="token punctuation">,</span> setNeutral<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>bad<span class="token punctuation">,</span> setBad<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      code here
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App</code></pre></div>
+<h4>1.7: unicafe 步骤2</h4>
+<!-- -->
+<p>扩展您的应用，以便它显示更多关于收集到的反馈的统计数据: 收集到的反馈总数、平均分数(好: 1，中性: 0，坏:-1)和正反馈的百分比。</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/0a5d15ae9f055a15cb469b9c9223df41/5a190/14e.png"/></picture>
+<h4>1.8: unicafe 步骤3</h4>
+<!-- -->
+<p>重构应用，以便将显示统计信息提取到它自己的<i>Statistics</i> 组件中。 应用的状态应该保留在<i>App</i> 根组件中。</p>
+<!-- -->
+<p>记住组件不应该在其他组件中定义:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token comment">// a proper place to define a component</span>
+<span class="token keyword">const</span> <span class="token function-variable function">Statistics</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>good<span class="token punctuation">,</span> setGood<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>neutral<span class="token punctuation">,</span> setNeutral<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>bad<span class="token punctuation">,</span> setBad<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token comment">// do not define a component within another component</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">Statistics</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h4>1.9: unicafe 步骤4</h4>
+<!-- -->
+只有在收集到反馈之后，才能将应用更改为显示统计信息。
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/b453d7533ae85dcaf3eccf342a353c58/5a190/15e.png"/></picture>
+<h4>1.10: unicafe 步骤5</h4>
+<!-- -->
+<p>让我们继续重构这个应用，提取如下两个组件:</p>
+<ul>
+<li>
+<i>按钮</i> 用于定义用于提交反馈的按钮
+</li>
+<li>
+<i>显示单一统计数字的 statistics</i>，例如平均分数。
+</li>
+</ul>
+<!-- -->
+<p>需要明确的是:<i>statistics</i> 组件总是显示一个统计信息，这意味着应用需要使用多个组件来渲染所有的统计信息:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Statistics</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">/// ...</span>
+  <span class="token keyword">return</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Statistic text<span class="token operator">=</span><span class="token string">&quot;good&quot;</span> value <span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Statistic text<span class="token operator">=</span><span class="token string">&quot;neutral&quot;</span> value <span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Statistic text<span class="token operator">=</span><span class="token string">&quot;bad&quot;</span> value <span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token comment">// ...</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<!-- -->
+<p>应用的状态仍然应该保存在<i>App</i> 根组件中。</p>
+<h4>1.11*: unicafe 步骤6</h4>
+<!-- -->
+在 HTML [表格](https://developer.mozilla.org/en-us/docs/learn/HTML/tables/basics)中显示统计信息 ，这样你的应用看起来大致如下:
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/a74acccc17aafb02b3801ffa1fcc0fdc/5a190/16e.png"/></picture>
+<!-- -->
+<p>请记住始终打开控制台。如果在控制台中看到如下警告:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/d6f948307449c2673f28f1077ef4d789/5a190/17a.png"/></picture>
+<!-- -->
+<p>执行必要的操作使警告消失。如果卡住了，尝试用谷歌搜索错误消息。</p>
+<!-- -->
+<p>典型的错误来用来源: <code class="language-text">Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist.</code>  是 Chrome 扩展导致的。 尝试在 <code class="language-text">chrome://extensions/</code>中  ，逐个禁用它们并刷新 React app 页面; 错误最终应该会消失。 </p>
+<!-- -->
+<p>确保从现在开始，你在控制台上看不到任何警告!</p>
+<h4>1.12*: anecdotes 步骤1</h4>
+<!-- -->
+<p>在软件工程的世界里，充满了从我们这个领域提炼出永恒真理 <a href="http://www.comp.nus.edu.sg/~damithch/pages/SE-quotes.htm">箴言anecdotes</a> 。</p>
+<!-- -->
+<p>通过添加一个点击按钮来显示软件工程领域的随机箴言，扩展如下应用:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#x27;react&#x27;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> anecdotes <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&#x27;If it hurts, do it more often&#x27;</span><span class="token punctuation">,</span>
+    <span class="token string">&#x27;Adding manpower to a late software project makes it later!&#x27;</span><span class="token punctuation">,</span>
+    <span class="token string">&#x27;The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.&#x27;</span><span class="token punctuation">,</span>
+    <span class="token string">&#x27;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&#x27;</span><span class="token punctuation">,</span>
+    <span class="token string">&#x27;Premature optimization is the root of all evil.&#x27;</span><span class="token punctuation">,</span>
+    <span class="token string">&#x27;Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.&#x27;</span>
+  <span class="token punctuation">]</span>
+   
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>selected<span class="token punctuation">,</span> setSelected<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>anecdotes<span class="token punctuation">[</span>selected<span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App</code></pre></div>
+<!-- -->
+<p>谷歌会告诉你如何在 JavaScript 中生成随机数。 记住，你可以在浏览器的控制台中测试随机数的生成。</p>
+<!-- -->
+<p>你完成的应用可以是这样的:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/8577fa00fc4d946e2322de9b2707c89c/5a190/18a.png"/></picture>
+<!-- -->
+<p><strong>警告</strong>： create-react-app 会自动使项目成为一个 git 仓库，除非应用是在已有仓库中创建的。 而您很可能不希望项目成为一个存储库，因此可以在项目的根目录中运行命令  <em><em>rm -rf .git</em></em> 。 </p>
+<h4>1.13*: anecdotes 步骤2</h4>
+<!-- -->
+扩展您的应用，以便您可以为显示箴言的投票。
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/06f95cb43a18bd6429174200a8d17cff/5a190/19a.png"/></picture>
+<!-- -->
+<p>注意， 将对每个箴言的投票存储到组件状态的数组或对象中。 记住，更新存储在对象和数组等复杂数据结构中的状态，正确方法是复制状态。</p>
+<!-- -->
+<p>你可以像这样创建一个对象的副本:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> copy <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>points <span class="token punctuation">}</span>
+<span class="token comment">// increment the property 2 value by one</span>
+copy<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>     </code></pre></div>
+<!-- -->
+<p>或者一个数组的副本:</p>
+<div class="gatsby-highlight" data-language="js"><pre><code class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> copy <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>points<span class="token punctuation">]</span>
+<span class="token comment">// increment the value in position 2 by one</span>
+copy<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>     </code></pre></div>
+<!-- -->
+<p>在这种情况下，使用数组可能是更简单的选择。 在 google 上搜索会给你提供很多关于如何创建一个具有期望长度的、零填充的数组，比如<a href="https://stackoverflow.com/questions/20222501/how-to-create-a-zero-filled-javascript-array-of-arbitrary-length/22209781">这一篇</a>。</p>
+<h4>1.14*: anecdotes 步骤3</h4>
+<!-- -->
+<!-- -->
+<p>现在实现这个应用的最终版本，显示得票最多的警句:</p>
+<picture><img style="border-color:#AEFFDA" alt="fullstack content" src="/static/3e8638efbbbbcabac7bb79466ab3a5f6/5a190/20a.png"/></picture>
+<!-- -->
+<p>如果有多个箴言并列第一，那么只要展示其中一个就足够了。</p>
+<!-- -->
+<p>这是本课程这一章节的最后一个练习，现在是时候把你的代码推送到 GitHub，并将所有完成的练习标记到<a href="https://study.cs.helsinki.fi/stats/courses/fullstack2021">练习提交系统</a>。</p>
+</div></div></div></div></div><div class="container spacing element--flex element--centered"><a class="edit-link" target="__BLANK" href="https://github.com/RichardStark/fullstack-hy2020.github.io/edit/source/src/content/1/zh/part1d.md"><span>对讲课材料提出建议</span></a></div><div class="container spacing spacing--after-large prev-next__container "><a class="col-4--mobile push-right-1 prev" href="/zh/part1/组件状态，事件处理"><div class=" element--flex element--column"><p>Part<!-- --> <!-- -->1c</p><b>上一部分</b></div></a><a class="col-4--mobile push-left-1 next" href="/zh/part2"><div class=" element--flex element--column"><p>Part<!-- --> <!-- -->2</p><b>下一部分</b></div></a></div></div><div class="container spacing--after-small spacing--mobile element--flex" id="footer"><div class="col-5 push-right-3 col-10--mobile order-2--mobile order-2--tablet footer__links element--flex element--space-between"><a href="https://www.helsinki.fi/" class="col-5 col-4--mobile spacing--mobile"><div class="image col-6 image--contain"><div class="image__container"><img style="background-color:;background-opacity:0.5" class="image__content" src="/static/uoh_centre-3689cf9983a2ebc8089c8f078a9c4769.svg" alt="Helsingin yliopiston logo"/></div></div></a><a href="https://www.houston-inc.com/" class="col-5 col-4--mobile spacing--mobile"><div class="image col-6 image--contain"><div class="image__container"><img style="background-color:;background-opacity:0.5" class="image__content" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjQ3cHgiIGhlaWdodD0iODJweCIgdmlld0JveD0iMCAwIDI0NyA4MiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTMuMiAoNzI2NDMpIC0gaHR0cHM6Ly9za2V0Y2hhcHAuY29tIC0tPgogICAgPHRpdGxlPmxvZ28vaG91c3RvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPgogICAgICAgIDxwb2x5Z29uIGlkPSJwYXRoLTEiIHBvaW50cz0iMCAwLjAyNjcxOTI2NzMgMTM4LjIwODE2NyAwLjAyNjcxOTI2NzMgMTM4LjIwODE2NyAzNi40NjU0MzgxIDAgMzYuNDY1NDM4MSI+PC9wb2x5Z29uPgogICAgPC9kZWZzPgogICAgPGcgaWQ9ImxvZ28vaG91c3RvbiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImhvdXN0b25fc2ltcGxlLmVwcy1jb3B5LTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU0LjU4MTg5MywgMjMuMjYzMDQwKSI+CiAgICAgICAgICAgIDxtYXNrIGlkPSJtYXNrLTIiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+CiAgICAgICAgICAgIDwvbWFzaz4KICAgICAgICAgICAgPGcgaWQ9IkNsaXAtMiI+PC9nPgogICAgICAgICAgICA8cGF0aCBkPSJNODIuODA1MTI5OCwxMy41MDY2NjAzIEw4Mi44MDUxMjk4LDI1LjUzNjU1MDkgTDg1Ljk5MzYyOSwyNS41MzY1NTA5IEw4NS45OTM2MjksMTMuNTA2NjYwMyBMOTAuNDA2NTQ5MywxMy41MDY2NjAzIEw5MC40MDY1NDkzLDEwLjQ0NTY3ODQgTDc4LjM3NTEwMzYsMTAuNDQ1Njc4NCBMNzguMzc1MTAzNiwxMy41MDY2NjAzIEw4Mi44MDUxMjk4LDEzLjUwNjY2MDMgWiBNOTYuNDkxMDQ5NSwxNy45NjM2ODg1IEM5Ni40OTEwNDk1LDIwLjU1OTU1NzIgOTguMzE3ODU1NywyMi43MDc5ODQyIDEwMC44ODYxNTcsMjIuNzA3OTg0MiBDMTAzLjQ1NDg4MiwyMi43MDc5ODQyIDEwNS4yNDcxOTQsMjAuNTk1NDY1NyAxMDUuMjQ3MTk0LDE4LjAxNzk3NTMgTDEwNS4yNDcxOTQsMTguMDAwMDIxMSBDMTA1LjI0NzE5NCwxNS40MDQyOTM3IDEwMy40MjA1MjksMTMuMjU1ODY2NyAxMDAuODUyMjI4LDEzLjI1NTg2NjcgQzk4LjI4MzUwMjMsMTMuMjU1ODY2NyA5Ni40OTEwNDk1LDE1LjM2ODM4NTMgOTYuNDkxMDQ5NSwxNy45NDU3MzQzIEw5Ni40OTEwNDk1LDE3Ljk2MzY4ODUgWiBNOTMuMTQ3MDQxMywxOC4wMTc5NzUzIEw5My4xNDcwNDEzLDE3Ljk4MjA2NjkgQzkzLjE0NzA0MTMsMTMuNjg1NDk1NiA5Ni40MDQ4MTI3LDEwLjE3NjkzMDYgMTAwLjg4NjE1NywxMC4xNzY5MzA2IEMxMDUuMzY3OTI1LDEwLjE3NjkzMDYgMTA4LjU5MTM0MywxMy42NDk3Mjg1IDEwOC41OTEzNDMsMTcuOTQ1NzM0MyBMMTA4LjU5MTM0MywxNy45NjM2ODg1IEMxMDguNTkxMzQzLDIyLjI2MDI1OTggMTA1LjMzMzU3MiwyNS43Njg4MjQ3IDEwMC44NTIyMjgsMjUuNzY4ODI0NyBDOTYuMzcwMzE4LDI1Ljc2ODgyNDcgOTMuMTQ3MDQxMywyMi4zMTQxMjI0IDkzLjE0NzA0MTMsMTguMDE3OTc1MyBMOTMuMTQ3MDQxMywxOC4wMTc5NzUzIFogTTcwLjQxMTkxMzcsMjIuNzk3MDQ4NSBDNjguNzU2ODc0MiwyMi43OTcwNDg1IDY3LjM3ODIxNjYsMjIuMDgxMjgzMSA2Ni4wNjg0MDcsMjAuOTcxNzk3NCBMNjQuMTcyMTg3MiwyMy4zMTY0NDg0IEM2NS45MTMxODA4LDI0LjkyNzk0NTQgNjguMTM2Njc2MiwyNS43MzMzNDA0IDcwLjM0MzA2NTYsMjUuNzMzMzQwNCBDNzMuNDgwMTA1NSwyNS43MzMzNDA0IDc1LjY2OTI0NzYsMjQuMDUwMTY4IDc1LjY2OTI0NzYsMjEuMDYxMDAzIEw3NS42NjkyNDc2LDIxLjAyNTA5NDUgQzc1LjcyMTEzMSwxOC4zOTM0NTg4IDc0LjA0ODU2MTUsMTcuMzAxNzg1OCA3MS4xMDExMDExLDE2LjQ5NTgyNTMgQzY4LjU4NDY4MzQsMTUuODMzOTIyNiA2Ny45NjM5MTk5LDE1LjUxMTMxMjIgNjcuOTYzOTE5OSwxNC41MDg5ODYyIEw2Ny45NjM5MTk5LDE0LjQ3MzA3NzggQzY3Ljk2MzkxOTksMTMuNzM4OTM0MSA2OC42MDIyMTM1LDEzLjE2NjY2MTEgNjkuODI1NjQ0OSwxMy4xNjY2NjExIEM3MS4wNDk2NDE4LDEzLjE2NjY2MTEgNzIuMzA3OTkyMSwxMy43MjA5Nzk5IDczLjYwMDgzNywxNC42NTIwNTQ1IEw3NS4yNTU1OTM4LDEyLjE0NTk1NjkgQzczLjc4OTk5MjUsMTAuOTEwNjUwMiA3MS45ODA3MTY0LDEwLjIzMDM2OTIgNjkuODYwNTYzNywxMC4yMzAzNjkyIEM2Ni44OTU3MTQ3LDEwLjIzMDM2OTIgNjQuNzc1NTYyLDEyLjAzODY1NTcgNjQuNzc1NTYyLDE0Ljc3NzU5MjYgTDY0Ljc3NTU2MiwxNC44MTMwNzY5IEM2NC43NzU1NjIsMTcuODAyNjY2MSA2Ni42NzEwNzQ5LDE4LjY0NDUzNSA2OS41ODQxODE5LDE5LjQzMjExNzMgQzcyLjAxNDY0NTYsMjAuMDc2NjMxMiA3Mi41MTQ2Nzc2LDIwLjUwNjI2MDEgNzIuNTE0Njc3NiwyMS4zNDc3MDQ5IEw3Mi41MTQ2Nzc2LDIxLjM4MzA0NzkgQzcyLjUxNDY3NzYsMjIuMjYwMjU5OCA3MS43MjIyODg4LDIyLjc5NzA0ODUgNzAuNDExOTEzNywyMi43OTcwNDg1IEw3MC40MTE5MTM3LDIyLjc5NzA0ODUgWiBNMzEuMzM2NDY5NywxNy45NjM2ODg1IEMzMS4zMzY0Njk3LDIwLjU1OTU1NzIgMzMuMTYzNywyMi43MDc5ODQyIDM1LjczMTg1OTksMjIuNzA3OTg0MiBDMzguMzAwMTYxMSwyMi43MDc5ODQyIDQwLjA5MjQ3MjYsMjAuNTk1NDY1NyA0MC4wOTI0NzI2LDE4LjAxNzk3NTMgTDQwLjA5MjQ3MjYsMTguMDAwMDIxMSBDNDAuMDkyNDcyNiwxNS40MDQyOTM3IDM4LjI2NTI0MjMsMTMuMjU1ODY2NyAzNS42OTY5NDEsMTMuMjU1ODY2NyBDMzMuMTI5MjA1MywxMy4yNTU4NjY3IDMxLjMzNjQ2OTcsMTUuMzY4Mzg1MyAzMS4zMzY0Njk3LDE3Ljk0NTczNDMgTDMxLjMzNjQ2OTcsMTcuOTYzNjg4NSBaIE0yOC4wMDk3MDg5LDE4LjAxNzk3NTMgTDI4LjAwOTcwODksMTcuOTgyMDY2OSBDMjguMDA5NzA4OSwxMy42ODU0OTU2IDMxLjI2NzQ4MDMsMTAuMTc2OTMwNiAzNS43NDg4MjQ1LDEwLjE3NjkzMDYgQzQwLjIzMDczNDIsMTAuMTc2OTMwNiA0My40MzYxOTgsMTMuNjQ5NzI4NSA0My40NTQwMTA5LDE3Ljk0NTczNDMgTDQzLjQ1NDAxMDksMTcuOTYzNjg4NSBDNDMuNDU0MDEwOSwyMi4yNjAyNTk4IDQwLjE5NjIzOTUsMjUuNzY4ODI0NyAzNS43MTQ4OTUzLDI1Ljc2ODgyNDcgQzMxLjIzMjU2MTUsMjUuNzY4ODI0NyAyOC4wMDk3MDg5LDIyLjMxNDEyMjQgMjguMDA5NzA4OSwxOC4wMTc5NzUzIEwyOC4wMDk3MDg5LDE4LjAxNzk3NTMgWiBNNTMuODMwNDE3MSwyNS43MzMzNDA0IEM1Ny43NDI4ODEyLDI1LjczMzM0MDQgNjAuMjA3ODM5NywyMy40OTU4NDkyIDYwLjIwNzgzOTcsMTguOTMwNjcxNSBMNjAuMjA3ODM5NywxMC40MjcxNTg3IEw1Ny4wMDE4MTAzLDEwLjQyNzE1ODcgTDU3LjAwMTgxMDMsMTkuMDczNzM5OCBDNTcuMDAxODEwMywyMS40NzI2Nzc2IDU1LjgxMjMwODEsMjIuNjkwMDMgNTMuODY0NzcwNCwyMi42OTAwMyBDNTEuOTE3Mzc0MSwyMi42OTAwMyA1MC43Mjc3MzA1LDIxLjQxODk1NjMgNTAuNzI3NzMwNSwxOC45NjY1OCBMNTAuNzI3NzMwNSwxMC40MjcxNTg3IEw0Ny41Mzg2NjU4LDEwLjQyNzE1ODcgTDQ3LjUzODY2NTgsMTkuMDM3ODMxMyBDNDcuNTM4NjY1OCwyMy40Nzc4OTUgNDkuOTE3OTUzLDI1LjczMzM0MDQgNTMuODMwNDE3MSwyNS43MzMzNDA0IEw1My44MzA0MTcxLDI1LjczMzM0MDQgWiBNMy4xNTQ1NywzMy4xOTgxOTQ4IEwxMzUuMDM2NjMyLDMzLjE5ODE5NDggTDEzNS4wMzY2MzIsMy4zMDI0NDQ4OCBMMy4xNTQ1NywzLjMwMjQ0NDg4IEwzLjE1NDU3LDMzLjE5ODE5NDggWiBNMCwzNi40NzM5MjA0IEwxMzguMjA4MTY3LDM2LjQ3MzkyMDQgTDEzOC4yMDgxNjcsMC4wMjY3MTkyNjczIEwwLDAuMDI2NzE5MjY3MyBMMCwzNi40NzM5MjA0IFogTTE0LjgyMzExNDMsMTkuNDg1NDE0NCBMMjAuNzE4NjAwNSwxOS40ODU0MTQ0IEwyMC43MTg2MDA1LDI1LjUzNjU1MDkgTDIzLjkwNzY2NTIsMjUuNTM2NTUwOSBMMjMuOTA3NjY1MiwxMC40NDU2Nzg0IEwyMC43MTg2MDA1LDEwLjQ0NTY3ODQgTDIwLjcxODYwMDUsMTYuNDA2MDU0MiBMMTQuODIzMTE0MywxNi40MDYwNTQyIEwxNC44MjMxMTQzLDEwLjQ0NTY3ODQgTDExLjYzNDc1NjUsMTAuNDQ1Njc4NCBMMTEuNjM0NzU2NSwyNS41MzY1NTA5IEwxNC44MjMxMTQzLDI1LjUzNjU1MDkgTDE0LjgyMzExNDMsMTkuNDg1NDE0NCBaIE0xMTUuODY0OTIyLDE1Ljk0MTUwNjUgTDEyMi44OTc2MDIsMjUuNTM2NTUwOSBMMTI1LjYyMDk4OCwyNS41MzY1NTA5IEwxMjUuNjIwOTg4LDEwLjQ0NTY3ODQgTDEyMi40NjY0MTgsMTAuNDQ1Njc4NCBMMTIyLjQ2NjQxOCwxOS43MzYyMDggTDExNS42NTgzNzcsMTAuNDQ1Njc4NCBMMTEyLjcxMDkxNywxMC40NDU2Nzg0IEwxMTIuNzEwOTE3LDI1LjUzNjU1MDkgTDExNS44NjQ5MjIsMjUuNTM2NTUwOSBMMTE1Ljg2NDkyMiwxNS45NDE1MDY1IEwxMTUuODY0OTIyLDE1Ljk0MTUwNjUgWiIgaWQ9IkZpbGwtMSIgZmlsbD0iIzAwMDEwNSIgbWFzaz0idXJsKCNtYXNrLTIpIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" alt="Houston inc. logo"/></div></div></a></div><div class="col-5 col-5--mobile order-1--mobile order-1--tablet footer__navigation element--flex"><div class="footer__navigation-link-container"><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/about">关于课程</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/#course-contents">课程内容</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/faq">常见问题</a><a class="footer__navigation-link nav-item-hover" style="margin-left:4.5rem" href="/zh/companies">合作伙伴</a></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-135975842-1', 'fullstackopen.com', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/zh/part1/深入_react_应用调试";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-dbb088d2dab52596379f.js"],"app":["/app-ef8bef0e206781be83c1.js"],"component---src-pages-404-js":["/component---src-pages-404-js-89af4c7add8c7978ed1c.js"],"component---src-pages-about-en-js":["/component---src-pages-about-en-js-5e5020df69d58f0a7e69.js"],"component---src-pages-about-es-js":["/component---src-pages-about-es-js-97229fd3d73a2c197882.js"],"component---src-pages-about-js":["/component---src-pages-about-js-518b1b540007cd36a194.js"],"component---src-pages-about-zh-js":["/component---src-pages-about-zh-js-6e3021c9a1eed6425572.js"],"component---src-pages-challenge-en-js":["/component---src-pages-challenge-en-js-2c65f2f7e045262f3879.js"],"component---src-pages-challenge-es-js":["/component---src-pages-challenge-es-js-c9f605b8fa584ee59993.js"],"component---src-pages-challenge-js":["/component---src-pages-challenge-js-a08dcf36bba815e6e5b4.js"],"component---src-pages-challenge-zh-js":["/component---src-pages-challenge-zh-js-ecc0199ac62e67a9341f.js"],"component---src-pages-companies-en-js":["/component---src-pages-companies-en-js-e94068831a275497aabc.js"],"component---src-pages-companies-es-js":["/component---src-pages-companies-es-js-f5000ca7ba2035277b59.js"],"component---src-pages-companies-js":["/component---src-pages-companies-js-974f2b79031483982ae8.js"],"component---src-pages-companies-zh-js":["/component---src-pages-companies-zh-js-e232877a3e8f94e21e7e.js"],"component---src-pages-faq-en-js":["/component---src-pages-faq-en-js-e670d6c165336aa7abbb.js"],"component---src-pages-faq-es-js":["/component---src-pages-faq-es-js-66e3c0aa297eb79475c6.js"],"component---src-pages-faq-js":["/component---src-pages-faq-js-7e487cf8d4d0060dbbd6.js"],"component---src-pages-faq-zh-js":["/component---src-pages-faq-zh-js-cf0fe3f8a70ff9d848bb.js"],"component---src-pages-index-en-js":["/component---src-pages-index-en-js-6be4fa2830209e9e4db3.js"],"component---src-pages-index-es-js":["/component---src-pages-index-es-js-f6be40f62e3cc3652975.js"],"component---src-pages-index-js":["/component---src-pages-index-js-30bfa48a0668f61de223.js"],"component---src-pages-index-zh-js":["/component---src-pages-index-zh-js-36b9cfcc3fa59be92514.js"],"component---src-pages-search-en-js":["/component---src-pages-search-en-js-f42523c2d36c56303773.js"],"component---src-pages-search-js":["/component---src-pages-search-js-29b2f0f5c7d89c1e1119.js"],"component---src-pages-search-zh-js":["/component---src-pages-search-zh-js-ba9f2429d9bfd77d7581.js"],"component---src-templates-content-template-js":["/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js"],"component---src-templates-part-intro-template-js":["/component---src-templates-part-intro-template-js-db1a2cf2e4f1d65856c3.js"]};/*]]>*/</script><script src="/polyfill-dbb088d2dab52596379f.js" nomodule=""></script><script src="/webpack-runtime-a7eee694451a048fe190.js" async=""></script><script src="/styles-407fe62976dc5310c43e.js" async=""></script><script src="/commons-2f51cc50765e604cbb43.js" async=""></script><script src="/30844a71ec80b1e82ad30323d06b914984ff6c2b-9847aef7af5bdcc218fe.js" async=""></script><script src="/e4b9374bcd292c90587e3ccf579324c3065ac22f-63f0a03f893b4902fedd.js" async=""></script><script src="/ff8e348e8d42e8d61f84312613c75c948ce81396-bbc0c43404e43e967ab7.js" async=""></script><script src="/component---src-templates-content-template-js-a9cde9440b7a4e0a5638.js" async=""></script><script src="/app-ef8bef0e206781be83c1.js" async=""></script><script src="/framework-bb9bb9cb9df99aee3258.js" async=""></script><script src="/5d7a54886b2742230021cc39eab839038eb7a677-aad1a805ee4596e9a838.js" async=""></script></body></html>

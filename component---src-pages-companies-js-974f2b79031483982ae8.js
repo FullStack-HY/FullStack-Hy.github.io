@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{IaAM:function(t,e,n){"use strict";n.r(e);var i=n("q1tI"),s=n.n(i),a=n("xEVu");e.default=function(){return s.a.createElement(a.a,{lang:"fi",title:"Yritysesittelyt | Full stack open 2020",seoDescription:"Kurssin yhteistyöyritysten devaajat esittäytyvät"})}}}]);
+//# sourceMappingURL=component---src-pages-companies-js-974f2b79031483982ae8.js.map
